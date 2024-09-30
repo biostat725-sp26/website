@@ -1,0 +1,21 @@
+{
+  "hash": "81fe8bbcabec88f463c7aa9676acb86c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Lab 01\"\nsubtitle: \"Simple linear regression\"\nauthor: \"September 9, 2024\"\nfooter: \"[🔗 STA 221 - Fall 2024](https://sta221-fa24.netlify.app)\"\nlogo: \"../images/logo.png\"\nformat: \n  revealjs:\n    theme: slides.scss\n    multiplex: false\n    transition: fade\n    slide-number: true\n    incremental: false \n    chalkboard: true\nexecute:\n  freeze: auto\n  echo: true\nknitr:\n  opts_chunk: \n    R.options:      \n    width: 200\n---\n\n\n\n## Getting started\n\nAsk your TA if\n\n-   You do not have a `lab-01` repo in the GitHub course organization: [github.com/sta221-fa24](https://github.com/sta221-fa24)\n\n-   You need help cloning the repo and starting a new RStudio project\n\n## Tips for working on lab\n\n-   You do not have to finish the lab in class, they will always be due **Thursdays at 11:59pm**. One work strategy is to get through portions that you think will be most challenging (which initially might be the coding component) during lab when a TA can help you on the spot and leave the narrative writing until later.\n\n-   Do not pressure each other to finish early (particularly once you start working on teams); use the time wisely to really learn the material and produce a quality report.\n\n## Workflow and formatting\n\nPart of the lab grade is for \"workflow and formatting\" assessing the reproducible workflow and document format. This includes\n\n-   Having at least 3 informative commit messages (practicing version control)\n    -   There are markers in Lab 01 to help you incorporate version control in your workflow\n-   The PDF is neatly organized document with clear exercise headings and readable code and narrative\n-   The name (first and last) and date are updated at the top of the document.\n\n## **When you're done with lab**\n\n-   Make sure all your final changes have been pushed to your GitHub repo\n-   Submit your final PDF to Gradescope\n    -   Access Gradescope through the course Canvas site\n    -   Mark the pages associated with each exercise.\n\n## Lab 01: Park access\n\nToday's lab focuses on exploratory data analysis and simple linear regression, content from Weeks 01 and 02 in the course.\n\n🔗 [sta221-fa24.netlify.app/labs/lab-01.html](https://sta221-fa24.netlify.app/labs/lab-01.html)\n",
+    "supporting": [
+      "lab-01_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

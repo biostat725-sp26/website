@@ -2,18 +2,112 @@ project:
   type: website
 
 website:
-  title: "website"
-  navbar:
-    left:
+  page-navigation: true
+  title: "STA 221 - Fall 2024"
+  description: "Homepage for STA 221 - Regression Analysis: Theory and Applications at Duke University, Fall 2023"
+  site-url: https://sta221-fa24.netlify.app
+
+  repo-url: https://github.com/sta221-fa24/website
+  repo-actions: [issue]
+  
+  page-footer:
+    background: "#497E99"
+    left: |
+      &copy; Copyright 2024, Maria Tackett
+    right: |
+      This site is built with [Quarto](https://quarto.org/)
+
+  sidebar:
+    background: "#407E99"
+    logo: "images/logo.png"
+    align: center
+    tools: 
+      - icon: github
+        href: https://github.com/sta221-fa24
+        text: "GitHub organization"
+      - icon: code-square
+        href: https://cmgr.oit.duke.edu/containers
+        text: "RStudio Containers"
+      - icon: chat-dots-fill
+        href: https://edstem.org/us/courses/62513/discussion/
+      - icon: check-square-fill
+        menu:
+          - text: Canvas
+            url: https://canvas.duke.edu/courses/38867
+          - text: Gradescope
+            url: https://www.gradescope.com/courses/829034
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents: 
+      - href: overview.qmd
+        text: Overview
+      - href: syllabus.qmd
+        text: Syllabus
+      - href: support.qmd
+        text: Support
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: Schedule 
+      - href: links.qmd
+        text: Useful links
+      - section: Computing
+        contents: 
+        - href: computing-access.qmd
+          text: Access
+        - href: computing-troubleshooting.qmd
+          text: Troubleshooting
+        - href: computing-r-resources.qmd
+          text: R resources
+      - section: Homework
+        contents:
+        - href: hw/hw-01.qmd
+          text: HW 01
+        - href: hw/hw-02.qmd
+          text: HW 02
+        - href: hw/hw-03.qmd
+          text: HW 03
+        - href: hw/hw-04.qmd
+          text: HW 04
+        - href: hw/stats-experience.qmd
+          text: Statistics experience
+      - section: Labs
+        contents: 
+        - href: labs/lab-01.qmd
+          text: Lab 01
+        - href: labs/lab-02.qmd
+          text: Lab 02
+        - href: labs/lab-03.qmd
+          text: Lab 03
+        - href: labs/lab-04.qmd
+          text: Lab 04
+        - href: labs/lab-05.qmd
+          text: Lab 05
+        - href: labs/lab-06.qmd
+          text: Lab 06
+        - href: labs/lab-07.qmd
+          text: Lab 07
+      - section: Project
+        contents:
+        - href: project.qmd
+          text: Instructions
+        - href: project-tips.qmd
+          text: Tips + resources
+        
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      light: [cosmo, theme.scss]
+    mainfont: "Open Sans"
+    code-copy: true
+    code-overflow: wrap
     toc: true
 
-editor: visual
+execute:
+  freeze: auto
+
+editor: visual    
+    
+
+
 

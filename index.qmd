@@ -1,11 +1,105 @@
 ---
-title: "website"
+title: "STA 221 - Regression Analysis: Theory and Applications"
+navbar: false
+editor: visual
+freeze: false
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+*This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.*
 
 ```{r}
-1 + 1
+#| echo: false
+#| message: false
+#| warning: false
+
+library(googlesheets4)
+library(gt)
+library(tidyverse)
+gs4_deauth()
+d <- read_sheet("https://docs.google.com/spreadsheets/d/16bxgvmXj-9jpqmo5GW7f2Js1P4a_rhLN96mYdjHHIVU/edit?usp=sharing", sheet = "Sheet1")
 ```
+
+::: column-screen-right
+```{r}
+#| echo: false
+
+d |>
+  select(-`Maria's notes`) |>
+  mutate(
+    date = as.Date(date),
+    week = ifelse(is.na(week), "", week),
+    dow = ifelse(is.na(dow), "", dow)
+  ) |>
+  gt() |>
+  text_transform(cells_body(columns = c(prepare)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("book", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('book')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(slides)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("laptop", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('laptop')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(ae)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("users", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('users')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(hw)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("pen-to-square", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('pen-to-square')}</a>")
+      )
+    }
+  ) |>
+  text_transform(cells_body(columns = c(lab)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("file-code", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('file-code')}</a>")
+      )
+    }
+  ) |>
+  # text_transform(cells_body(columns = c(exam)),
+  #   fn = function(x) {
+  #     ifelse(is.na(x), fontawesome::fa("square-check", fill_opacity = 0.1),
+  #       glue::glue("<a href = {x}>{fontawesome::fa('square-check')}</a>")
+  #     )
+  #   }
+  # ) |>
+  text_transform(cells_body(columns = c(project)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("chart-line", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('chart-line')}</a>")
+      )
+    }
+  ) |>
+  fmt_date(date, date_style = 30) |>
+  sub_missing(columns = c(date, topic, notes), missing_text = "") |>
+  cols_align(
+    align = "center", 
+    columns = c(week, dow, prepare, slides, ae, hw, lab,project)
+    ) |>
+  cols_align(
+    align = "left", 
+    columns = c(date, topic, notes)
+    ) |>
+  tab_style(
+    style = cell_borders(
+      sides = "right",
+      color = "#D3D3D3",
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = c(date, topic, prepare,project)
+    )
+  )
+
+```
+:::

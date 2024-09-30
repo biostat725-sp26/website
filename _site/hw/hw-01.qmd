@@ -1,0 +1,259 @@
+---
+title: "HW 01: Simple linear regression"
+subtitle: Ice duration and air temperature in Madison, WI
+bibliography: references.bib
+---
+
+::: callout-important
+## Due date
+
+This assignment is due on **Thursday, September 19 at 11:59pm.**
+:::
+
+# Introduction
+
+You will use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Madison, Wisconsin. You will also explore the mathematical properties of simple linear regression models.
+
+# **Learning goals**
+
+In this assignment, you will…
+
+-   use matrix operations to show results about simple linear regression.
+-   conduct exploratory data analysis.
+-   fit and interpret simple linear regression models.
+-   evaluate model fit.
+-   continue developing a workflow for reproducible data analysis.
+
+# **Getting started**
+
+-   Go to the [sta221-fa24](https://www.github.com/sta221-fa24) organization on GitHub. Click on the repo with the prefix **hw-01**. It contains the starter documents you need to complete the lab.
+
+-   Clone the repo and start a new project in RStudio. See the [Lab 01 instructions](https://sta221-fa24.netlify.app/labs/lab-01#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new project in R.
+
+# Packages
+
+The following packages are used in this assignment:
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+
+# load other packages as needed
+```
+
+# Conceptual exercises
+
+## Instructions
+
+The conceptual exercises are focused on explaining concepts and showing results mathematically. Show your work for each question.\
+\
+**You may write the answers and associated work for conceptual exercises by hand or type them in your Quarto document.**
+
+## Exercise 1
+
+a\. Show that the hat matrix $\mathbf{H}$ is symmetric $(\mathbf{H}^T = \mathbf{H})$ and idempotent $(\mathbf{H}^2 = \mathbf{H})$.
+
+b\. Show that $(\mathbf{I} - \mathbf{H})$ is symmetric and idempotent.
+
+## Exercise 2
+
+Let $\mathbf{x}$ be a $k \times 1$ vector and $\mathbf{A}$ be a symmetric $k \times k$ matrix, such that $\mathbf{A}$ is not a function of $\mathbf{x}$.
+
+Show that the gradient of $\boldsymbol{x}^T\mathbf{A}\mathbf{x}$ with respect to $\mathbf{x}$ is
+
+$$
+\nabla_\mathbf{x} \hspace{1mm} \mathbf{x}^T\mathbf{A}\mathbf{x} = 2\mathbf{A}\mathbf{x}
+$$
+
+([Proposition 2](https://sta221-fa24.netlify.app/slides/05-slr-matrix-contd#/side-note-vector-matrix-operations) from class)
+
+## Exercise 3
+
+In class we used the sum of squared residuals (SSR) to estimate the regression coefficients, $\hat{\boldsymbol{\beta}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}$ . To show this is the least squares estimate, we now need to show that we have, in fact, found the estimate of $\boldsymbol{\beta}$ that minimizes the SSR (rather than maximize).
+
+If the Hessian matrix $\nabla_{\boldsymbol{\beta}}^2 SSR$ is positive definite, then we know we have found the $\hat{\boldsymbol{\beta}}$ that minimizes SSR, i.e., the least squares estimator. Additionally, we have the following proposition:
+
+## Proposition
+
+A matrix $\mathbf{A}$ is positive definite if $\mathbf{z}^T\mathbf{A}\mathbf{z} > 0$ , given $\mathbf{z}$ is a non-zero vector.
+
+Show that $\nabla_{\boldsymbol{\beta}}^2 SSR$ is positive definite.
+
+## Exercise 4
+
+Prove that the maximum value of $R^2$ must be less than 1 if the data set contains observations such that there are different observed values of the response for the same value of the predictor (e.g., the dataset contains observations $(x_i, y_i)$ and $(x_j, y_j)$ such that $x_i = x_j$ and $y_i \neq y_j$ ).
+
+# Applied exercises
+
+## Instructions
+
+The applied exercises are focused on applying the concepts to analyze data.
+
+**All work for the applied exercises must be typed in your Quarto document following a reproducible workflow.**
+
+Write all narrative using complete sentences and include informative axis labels / titles on visualizations.
+
+## Data
+
+The datasets `wi-icecover.csv` and `wi-air-temperature.csv` contain information about ice cover and air temperature, respectively, at Lake Monona and Lake Mendota (both in Madison, Wisonsin) for days in 1886 through 2019. The data were obtained from the [`ntl_icecover`](https://lter.github.io/lterdatasampler/reference/ntl_icecover.html) and [`ntl_airtemp`](https://lter.github.io/lterdatasampler/reference/ntl_airtemp.html) data frames in the [lterdatasampler](https://lter.github.io/lterdatasampler/) R package. They were originally collected by the [US Long Term Ecological Research program (LTER) Network](https://lternet.edu/).
+
+```{r}
+#| eval: false
+
+icecover <- read_csv("data/wi-icecover.csv")
+airtemp <- read_csv("data/wi-air-temperature.csv")
+```
+
+The analysis will focus on the following variables:
+
+-   `year`: year of observation
+
+-   `lakeid`: lake name
+
+-   `ice_duration`: number of days between the freeze and ice breakup dates of each lake
+
+-   `air_temp_avg`: yearly average air temperature in Madison, WI (degrees Celsius)
+
+## Analysis goal
+
+The goal of this analysis is to use linear regression explain variability in ice duration for lakes in Madison, WI based on air temperature. Because ice cover is impacted by various environmental factors, researchers are interested in examining the association between these two factors to better understand the changing climate.
+
+## **Exercise 5**
+
+Let's start by looking at the response variable `ice_duration`.
+
+a.  Create side-by-side boxplots to visualize the distribution of `ice_duration` for each lake.
+
+b.  Visualize the distribution of ice duration over time for each lake.
+
+c.  There are separate measurements for each lake in the `icecover` data frame. In this analysis, we will combine the data from both lakes and use the average ice duration each year.
+
+    Evaluate the analysis choice to use the average per year rather than the individual lake measurements. Some things to consider in your evaluation: *Does the average accurately reflects the ice duration for lakes in Madison, WI for that year? Will there be information loss? How might that impact (or not) the analysis conclusions? Etc.*
+
+::: callout-tip
+See the [ggplot2 reference](https://ggplot2.tidyverse.org/reference/index.html#geoms) for example code and plots.
+:::
+
+## Exercise 6
+
+Next, let's combine the ice duration and air temperature data into a single analysis data frame.
+
+a.  Fill in the code below to create a new data frame, `icecover_avg`, of the average ice duration by year.
+
+    Then join `icecover_avg` and `airtemp` to create a new data frame. The new data frame should have 134 observations.
+
+    ```{r}
+    #| eval: false
+
+    icecover_avg <- icecover |>
+      group_by(_____) |>
+      summarise(_____) |>
+      ungroup()
+    ```
+
+::: callout-important
+You will use the new data frame with average ice duration and average air temperature for the remainder of the assignment.
+:::
+
+b.  Visualize the relationship between the air temperature and average ice duration. Do you think a linear model would be a good fit to capture the relationship between the two variables? <!--# Note for the future: Change to "reasonable" or something weaker than "good"-->
+
+::: render-commit-push
+Now is a good time to render your document again if you haven't done so recently and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Exercise 7
+
+We will fit a model using the average air temperature to explain variability in ice duration that takes the form
+
+$$
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}
+$$
+
+a.  State the dimensions of $\mathbf{y}$, $\mathbf{X}$, $\boldsymbol{\beta}$, $\boldsymbol{\epsilon}$ for this analysis. Your answer should have exact values given this data set.
+b.  Find the estimated regression coefficients $\hat{\boldsymbol{\beta}}$ using the matrix representation of the model. Show the code used to get the answer.
+
+## Exercise 8
+
+a.  Fit the model from the previous exercise using the `lm` function. Neatly display the results using 3 digits.
+
+b.  Interpret the slope in the context of the data.
+
+::: render-commit-push
+Now is a good time to render your document again if you haven't done so recently and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Exercise 9
+
+a.  Calculate $R^2$ for the model in the previous exercise and interpret it in the context of the data.
+
+b.  Briefly comment on the model fit based on $R^2$.
+
+## Exercise 10
+
+You are asked to use a reproducible workflow for all of your work in the class, and the goal of this question to is better understand potential real-world implications of doing (or not) so. Below are some real-life examples in which having a non-reproducible workflow resulted in errors that impacted research or public records.
+
+| Reproducibility error                                    | Consequence                                          | Source(s)                                                                                                       |
+|-------------------|-------------------|----------------------------------|
+| Limitations in Excel data formats                        | Loss of 16,000 COVID case records in the UK          | ([Kelion 2020](https://www.bbc.com/news/technology-54423988))                                                   |
+| Automatic formatting in Excel                            | Important genes disregarded in scientific studies    | ([Ziemann, Eren, and El-Osta 2016](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)) |
+| Deletion of a cell caused rows to shift                  | Mix-up of which patient group received the treatment | ([Wallensteen et al. 2018](https://pubmed.ncbi.nlm.nih.gov/27373757/))                                          |
+| Using binary instead of explanatory labels               | Mix-up of the intervention with the control group    | ([Aboumatar and Wise 2019](https://jamanetwork.com/journals/jama/fullarticle/2752474))                          |
+| Using the same notation for missing data and zero values | Paper retraction                                     | ([Whitehouse et al. 2021](https://www.nature.com/articles/s41586-021-03656-3))                                  |
+| Incorrectly copying data in a spreadsheet                | Delay in the opening of a hospital                   | ([Picken 2020](https://www.bbc.com/news/uk-scotland-edinburgh-east-fife-53893101))                              |
+
+: Source: @ostblom2022
+
+Choose one of the scenarios from the table and read the linked article discussing what went wrong. Then,
+
+a.  Briefly describe what went wrong, i.e., what part of the process of was not reproducible and what error or impact that had.
+
+b.  Describe one way the researchers could have made the process reproducible.
+
+# Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+
+Remember -- you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
+
+If you write your responses to conceptual exercises by hand, you will need to combine your written work to the completed PDF for the applied exercises before submitting on Gradescope.
+
+Instructions to combine PDFs:
+
+-   Preview (Mac): [support.apple.com/guide/preview/combine-pdfs-prvw43696/mac](https://support.apple.com/guide/preview/combine-pdfs-prvw43696/mac)
+
+-   Adobe (Mac or PC): [helpx.adobe.com/acrobat/using/merging-files-single-pdf.html](https://helpx.adobe.com/acrobat/using/merging-files-single-pdf.html)
+
+    -   Get free access to Adobe Acrobat as a Duke student: [oit.duke.edu/help/articles/kb0030141/](https://oit.duke.edu/help/articles/kb0030141/)
+:::
+
+To submit your assignment:
+
+-   Access Gradescope through the menu on the [STA 221 Canvas site.](https://canvas.duke.edu/courses/38867)
+
+-   Click on the assignment, and you’ll be prompted to submit it.
+
+-   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).
+
+-   Select the first page of your .PDF submission to be associated with the *“Workflow & formatting”* section.
+
+# Grading
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1                  | 4      |
+| Ex 2                  | 4      |
+| Ex 3                  | 4      |
+| Ex 4                  | 4      |
+| Ex 5                  | 6      |
+| Ex 6                  | 6      |
+| Ex 7                  | 5      |
+| Ex 8                  | 5      |
+| Ex 9                  | 4      |
+| Ex 10                 | 5      |
+| Workflow & formatting | 3      |
+
+The "Workflow & formatting" grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.

@@ -1,0 +1,16 @@
+{
+  "hash": "f1dd0834e8e3fe82339c391658e7e6f2",
+  "result": {
+    "markdown": "---\ntitle: \"AE 05: Multiple linear regression\"\nsubtitle: \"Houses in Levittown\"\ndate: \"Sep 21, 2022\"\neditor: visual\n---\n\n\n::: callout-important\nGo to the [course GitHub organization](https://github.com/sta210-fa22) and locate your `ae-05`- to get started.\n\nThe AE is due on GitHub by Saturday, September 24 at 11:59pm.\n:::\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\nlibrary(GGally)\n```\n:::\n\n\nThe data set contains the sales price and characteristics of 85 homes in Levittown, NY that sold between June 2010 and May 2011. Levittown was built right after WWII and was the first planned suburban community built using mass production techniques.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlevittown <- read_csv(\"data/homeprices.csv\")\n```\n:::\n\n\nThe variables used in this analysis are\n\n-   `bedrooms`: Number of bedrooms\n-   `bathrooms`: Number of bathrooms\n-   `living_area`: Total living area of the house (in square feet)\n-   `lot_size`: Total area of the lot (in square feet)\n-   `year_built`: Year the house was built\n-   `property_tax`: Annual property taxes (in USD)\n-   `sale_price`: Sales price (in USD)\n\nThe goal of the analysis is to use the characteristics of a house to understand variability in the sales price.\n\n## Exploratory data analysis\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggpairs(levittown) +\n  theme(\n    axis.text.y = element_text(size = 10),\n    axis.text.x = element_text(angle = 45, size = 10),\n    strip.text.y = element_text(angle = 0, hjust = 0)\n    )\n```\n\n::: {.cell-output-display}\n![](ae-05-mlr_files/figure-html/eda-1.png){width=768}\n:::\n:::\n\n\n## Linear model\n\nFit a linear model of housing prices versus the house characteristics in Levittown. Neatly display model using 3 digits.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# fit model \n\n# display model with 3 digits \n```\n:::\n\n\n## Interpretation\n\n-   Interpret the coefficient of `bedrooms` in the context of the data.\n\n-   The intercept is the estimated sales price for what subset of houses? Be specific.\n\n## Prediction\n\nWhat is the predicted sale price for a house in Levittown, NY with 4 bedrooms, 2 bathrooms, 1,000 square feet of living area, 6,000 square foot lot size, built in 1947 with \\$7,403 in property taxes?\n\n-   Report the predicted value and appropriate interval.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# create tibble for new observation \n\n# prediction + interval\n```\n:::\n\n\n-   Interpret the interval in the context of the data.\n\n::: callout-important\nTo submit the AE:\n\n-   Render the document to produce the PDF with all of your work from today's class.\n-   Push all your work to your `ae-05-` repo on GitHub. (You do not submit AEs on Gradescope).\n:::\n",
+    "supporting": [
+      "ae-05-mlr_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

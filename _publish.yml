@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 96cad683-cf19-4c47-ba1c-00ea6c56c8ea
+      url: 'https://sta221-fa24.netlify.app'

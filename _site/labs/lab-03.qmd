@@ -1,0 +1,214 @@
+---
+title: "Lab 03: Inference for regression"
+subtitle: "Palmer penguins"
+execute:
+  freeze: auto
+  echo: true
+  eval: false
+  warning: false
+  message: false
+format: html
+bibliography: references.bib
+---
+
+::: callout-important
+# Due date
+
+This lab is due on **Thursday, October 3 at 11:59pm.** To be considered on time, the following must be done by the due date:
+
+-   Final `.qmd` and `.pdf` files pushed to your team's GitHub repo
+
+-   Final `.pdf` file submitted on Gradescope
+:::
+
+# Introduction
+
+In this lab you will use linear regression and statistical inference to draw conclusions about penguins living in Palmer Archipelago in Antarctica. You will also use the data to check conditions about the distribution of the model residuals.
+
+During the lab session, you will also begin developing research questions for your final project.
+
+# **Learning goals**
+
+By the end of the lab you will be able to…
+
+-   use statistical inference to draw conclusions about the relationship between two variables
+-   use the matrix form of regression to compute statistics for $\hat{\beta}_j$
+-   use residuals to check the assumptions for regression
+-   continue developing a collaborative workflow with your teammates
+
+# **Getting started**
+
+-   A repository has already been created for you and your teammates. Everyone in your team has access to the same repo.
+
+-   Go to the [sta221-fa24](https://github.com/sta221-fa24) organization on GitHub. Click on the repo with the prefix **lab-03**. It contains the starter documents you need to complete the lab.
+
+-   Each person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo.
+
+# **Workflow: Using Git and GitHub as a team**
+
+::: callout-important
+There are no Team Member markers in this lab; however, you should use a similar workflow as in [Lab 02](../lab-02.html). Only one person should type in the group’s .qmd file at a time to avoid merge conflicts. Once that person has finished typing the group’s responses, they should *render, commit, and push* the changes to GitHub. All other teammates can *pull* to see the updates in RStudio.
+
+Every teammate must have at least one commit in the lab. Everyone is expected to contribute to discussion even when they are not typing.
+:::
+
+# Packages
+
+You will use the following packages in today’s lab. Add other packages as needed.
+
+```{r}
+#| label: load-packages
+
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+library(palmerpenguins) #penguins data frame
+```
+
+# Data
+
+Today's data include information about characteristics of three species of penguins living in Palmer Archipelago in Antarctica. The data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pal.lternet.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/) [@gorman2014].
+
+The data are in the `penguins` data frame in the **palmerpenguins** R package. This analysis will focus on the following variables:
+
+-   `body_mass_g`: body mass in grams
+
+-   `flipper_length_mm`: flipper length in millimeters
+
+-   `species`: penguin species (Adélie, Chinstrap and Gentoo)
+
+[Click here](https://allisonhorst.github.io/palmerpenguins/reference/penguins.html) to see the full data dictionary.
+
+# Exercises
+
+**Goal:** The goal of this analysis is to use multiples linear regression to draw conclusions about the relationship between penguins' flipper length and body mass, while accounting for species.
+
+::: callout-important
+Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Make sure the teaching team can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (`|>`) and plus sign (`+`).
+:::
+
+## Exercise 0
+
+There are two penguins in the data frame that do not have reported values for flipper length or body mass and thus will not be included in any analysis. Remove these observations from the data frame, so that we have an accurate count of the number of observations used for the analysis.
+
+::: callout-note
+Exericse 0 is not graded.
+:::
+
+## Exercise 1
+
+Let's begin by exploring the relationship between between flipper length and body mass, while accounting for species.
+
+-   Visualize the relationship between flipper length and body mass. Then describe the relationship.
+-   Fit the main effects linear regression model (no interaction terms) between these three variables. Neatly display the results using three digits.
+-   Interpret the coefficient of flipper length in the context of the data.
+
+## Exercise 2
+
+Now let's look at the assumptions underlying the regression model. Consider the linear regression model\
+$$ \mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim \mathcal{N}(0, \sigma^2 \mathbf{I}_n) $$ {#eq-ols}
+
+and let $\hat{\boldsymbol{\beta}} = (\mathbf{X}^T\mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$ be the least squares estimator. This model relies on four assumptions:
+
+-   **Linearity:** There is a linear relationship between the response and predictor variables.
+-   **Constant Variance:** The variability about the least squares line is generally constant.
+-   **Normality:** The distribution of the residuals is approximately normal.
+-   **Independence:** The residuals are independent from one another.
+
+For each condition, state the components of @eq-ols that are used to represent it.
+
+## Exercise 3
+
+We can visually assess the **linearity** and **constant variance** assumptions by examining a scatterplot of the residuals versus fitted (predicted) values.
+
+-   Create a scatterplot of the residuals (y-axis) versus fitted values (x-axis) for the model fit in Exercise 1.
+
+-   If there is a linear relationship between the response and predictor variables, no discernible pattern should be present between fitted values and residuals. Does the linearity assumption appear to be satisfied?
+
+-   Briefly explain why no discernible pattern in the plot of residuals versus fitted values would indicate the linearity condition is satisfied.
+
+## Exercise 4
+
+If errors have constant variance, we would expect the variability the of residuals about their mean to be approximately equal as the fitted value increases. Does the constant variance assumption appear to be satisfied? Briefly explain.
+
+## Exercise 5
+
+Next, let's assess the assumptions about the distribution fo the residuals. Under the normality assumption, the residuals are expected to be normally distributed. Visualize the distribution of the residuals. Does the normality assumption appear to be satisfied? Briefly explain.
+
+## Exercise 6
+
+The last assumption is that the residuals are independent of one another. Do you think it's reasonable to assume the independence of residuals in this analysis? Briefly explain.
+
+## Exercise 7
+
+Now let's set up the test of whether the flipper length has a statistically significant effect on body mass in this model.
+
+-   Write the null and alternative hypotheses in words and in mathematical notation.
+
+-   Show how the test statistic is computed specifically for this problem. In your response, show the code to obtain each relevant quantity in the formula for the test statistic using the matrix form of the model. *Do [not]{.underline} merely refer to the values in the `lm` output. You must show how each value is computed using the matrix / vector calculations.*
+
+-   State the distribution of the test statistic under the null hypothesis for this problem.
+
+## Exercise 8
+
+In the regression output from Exercise 1, you are provided the $p$-value for the test of significance of each individual coefficient.
+
+-   Interpret the p-value for the coefficient of flipper length in the context of the data.
+
+-   Then, use the p-value and a decision-making threshold of $\alpha = 0.05$ to draw a conclusion about the relationship between flipper length and body mass in this model. State your conclusion in the context of the data.
+
+## Exercise 9
+
+Now let's construct the 95% confidence interval for the coefficient of flipper length.
+
+-   Write the general formula for the 95% confidence interval.
+
+-   Use `R` functions to compute all the quantities you need for the interval, then compute the interval.
+
+## Exercise 10
+
+Interpret the interval from the previous exercise in the context of the data.
+
+# Project
+
+Complete the [project research questions](https://sta221-fa24.netlify.app/project#research-questions) (due September 26) or [proposal](https://sta221-fa24.netlify.app/project#project-proposal) (due October 3).
+
+# Submission
+
+You will submit the PDF documents for labs, homework, and exams in to Gradescope as part of your final submission.
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+
+Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
+:::
+
+To submit your assignment:
+
+-   Access Gradescope through the menu on the [STA 221 Canvas site.](https://canvas.duke.edu/courses/38867)
+
+-   Click on the assignment, and you’ll be prompted to submit it.
+
+-   Select all team members’ names, so they receive credit on the assignment. [Click here](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members) for video on adding team members to assignment on Gradescope.
+
+-   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).
+
+-   Select the first page of your .PDF submission to be associated with the *“Workflow & formatting”* section.
+
+# Grading
+
+| Component             | Points |
+|:----------------------|:-------|
+| Ex 1                  | 5      |
+| Ex 2                  | 4      |
+| Ex 3                  | 5      |
+| Ex 4                  | 3      |
+| Ex 5                  | 4      |
+| Ex 6                  | 3      |
+| Ex 7                  | 9      |
+| Ex 8                  | 5      |
+| Ex 9                  | 4      |
+| Ex 10                 | 3      |
+| Workflow & formatting | 5      |
+
+The “Workflow & formatting” grade is to assess the reproducible workflow and collaboration. This includes having at least one meaningful commit from each team member, a neatly organized document with readable code, and updating the team name and date in the YAML.

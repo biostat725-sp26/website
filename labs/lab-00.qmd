@@ -1,0 +1,113 @@
+---
+title: "Lab 00: Welcome + Getting Started"
+execute:
+  freeze: auto
+  echo: true
+  evaluate: false
+  warning: false
+  message: false
+---
+
+::: callout-important
+Please complete all today's lab tasks before leaving lab today.
+:::
+
+# Introduction
+
+The goal of today's lab is to briefly introduce you to the computing tools we'll use in the course, set up your computing access, and complete the STA 221 student survey. We will talk more about these computing tools in lecture.
+
+# Computing
+
+## RStudio
+
+::: callout-note
+R is the name of the programming language itself and RStudio is a convenient interface.
+:::
+
+### Reserve RStudio container
+
+-   Go to <https://cmgr.oit.duke.edu/containers>. You will log in using your NetID credentials.
+
+-   Click "**Reserve STA 210**" to reserve an RStudio container. Be sure you reserve the container labeled STA 210 to ensure you have the computing set up you need for the class.
+
+You only need to reserve a container once per semester.
+
+### Open RStudio container
+
+-   Go to <https://cmgr.oit.duke.edu/containers> and log in with your Duke NetID and Password.
+
+-   Click `STA210` to log into the Docker container. You should now see the RStudio environment.
+
+## Git and GitHub
+
+In addition to R and RStudio, we will use git and GitHub for version control and collaboration.
+
+::: callout-note
+Git is a version control system (like "Track Changes" features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).
+:::
+
+### Sign up for GitHub account
+
+You will need a GitHub account to access the assignments, project, and in-class exercises for the course.
+
+-   If you do not have a GitHub account, go to <https://github.com> and sign up for an account.
+
+::: callout-tip
+[Click here](https://happygitwithr.com/github-acct#username-advice) for advice on choosing a username.
+:::
+
+-   If you already have a GitHub account, you can move on to the next step.
+
+## Connect RStudio and GitHub
+
+Now that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.
+
+### Set up your SSH Key
+
+You will authenticate GitHub using SSH. Below are an outline of the authentication steps; you are encouraged to follow along as your TA demonstrates the steps.
+
+::: callout-note
+You only need to do this authentication process one time on a single system.
+:::
+
+-   **Step 0:** Open your `STA 210` RStudio container.
+-   **Step 1**: Type `credentials::ssh_setup_github()` into the **console** on the bottom left of the RStudio environment.
+-   **Step 2**: R will ask "No SSH key found. Generate one now?" Click 1 for yes.
+-   **Step 3**: You will generate a key. It will begin with "ssh-rsa...." R will then ask "Would you like to open a browser now?" Click 1 for yes.
+-   **Step 4**: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., `sta221`)
+
+### Configure git
+
+The last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.
+
+To do so, you will use the `use_git_config()` function from the `usethis` package.
+
+Type the following lines of code in the **console** in RStudio filling in your name and the email address associated with your GitHub account.
+
+```{r eval=FALSE}
+usethis::use_git_config(
+  user.name = "Your name", 
+  user.email = "Email associated with your GitHub account")
+```
+
+For example, mine would be
+
+```{r eval=FALSE}
+usethis::use_git_config(
+  user.name = "Maria Tackett",
+  user.email = "maria.tackett@duke.edu")
+```
+
+It may look like nothing happened but you are now ready interact between GitHub and RStudio! We will begin working with RStudio and GitHub in lecture this week.
+
+# Submit GitHub username
+
+Use the link below to submit your GitHub username and confirm that you (1) have access to an RStudio container and (2) have completed the steps to configure git.
+
+🔗 <https://forms.office.com/r/RbdRjMgKv0>
+
+# STA 221 Student Survey
+
+Use the link below to complete the STA 221 Student Survey. This survey will help me learn more about you, your interests, and your previous statistics and computing experience. I will also use the survey to form lab teams.
+
+🔗 <https://forms.office.com/r/KVEWwuNgAq>

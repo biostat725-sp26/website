@@ -1,0 +1,128 @@
+year,institution_name,city_txt,state_cd,zip_text,type,enrollment_th,total_exp_m
+2019,University of Alabama at Birmingham,Birmingham,AL,35294,Public,10.272,12.179203
+2019,The University of Alabama,Tuscaloosa,AL,35487,Public,29.014,58.508853
+2019,Auburn University,Auburn,AL,36849,Public,22.364,45.953519
+2019,University of South Alabama,Mobile,AL,36688,Public,8.057,8.979034
+2019,Troy University,Troy,AL,36082,Public,8.687,8.129799
+2019,Arizona State University-Tempe,Tempe,AZ,85287,Public,40.958,32.000572
+2019,University of Arizona,Tucson,AZ,85721,Public,28.902,21.694477
+2019,University of Arkansas,Fayetteville,AR,72701,Public,20.483,43.55259
+2019,Arkansas State University-Main Campus,Jonesboro,AR,72401,Public,6.385,7.208166
+2019,California State University-Fresno,Fresno,CA,93740,Public,18.878,13.361612
+2019,University of California-Berkeley,Berkeley,CA,94720,Public,29.988,31.223684
+2019,University of California-Los Angeles,Los Angeles,CA,90095,Public,30.963,32.311479
+2019,San Diego State University,San Diego,CA,92182,Public,27.369,16.899563
+2019,San Jose State University,San Jose,CA,95192,Public,23.516,10.287259
+2019,University of Southern California,Los Angeles,CA,90089,Private,19.449,36.363652
+2019,University of Colorado Boulder,Boulder,CO,80309,Public,28.791,22.703444
+2019,Colorado State University-Fort Collins,Fort Collins,CO,80523,Public,21.93,26.626422
+2019,University of Connecticut,Storrs,CT,06269,Public,18.151,16.678989
+2019,University of Central Florida,Orlando,FL,32816,Public,42.184,20.42606
+2019,Florida Atlantic University,Boca Raton,FL,33431,Public,16.221,12.20288
+2019,Florida International University,Miami,FL,33199,Public,27.652,12.243022
+2019,Florida State University,Tallahassee,FL,32306,Public,29.768,67.752719
+2019,University of Florida,Gainesville,FL,32611,Public,31.725,37.611096
+2019,University of Miami,Coral Gables,FL,33146,Private,10.624,48.945543
+2019,University of South Florida-Main Campus,Tampa,FL,33620,Public,25.15,19.74813
+2019,Georgia Institute of Technology-Main Campus,Atlanta,GA,30332,Public,14.132,27.200382
+2019,Georgia Southern University,Statesboro,GA,30460,Public,18.994,8.966676
+2019,Georgia State University,Atlanta,GA,30315,Public,21.815,8.688303
+2019,University of Georgia,Athens,GA,30602,Public,28.091,48.501193
+2019,University of Hawaii at Manoa,Honolulu,HI,96822,Public,10.384,13.027756
+2019,Boise State University,Boise,ID,83725,Public,13.035,14.605795
+2019,University of Illinois at Urbana-Champaign,Champaign,IL,61820,Public,32.408,26.687666
+2019,Northern Illinois University,Dekalb,IL,60115,Public,10.565,7.438508
+2019,Northwestern University,Evanston,IL,60208,Private,8.244,33.092234
+2019,Ball State University,Muncie,IN,47306,Public,14.748,7.323546
+2019,Indiana University-Bloomington,Bloomington,IN,47405,Public,31.878,29.373452
+2019,University of Notre Dame,Notre Dame,IN,46556,Private,8.665,51.387021
+2019,Iowa State University,Ames,IA,50011,Public,26.627,29.422443
+2019,University of Iowa,Iowa City,IA,52242,Public,21.092,41.688056
+2019,University of Kansas,Lawrence,KS,66045,Public,17.157,21.961196
+2019,Kansas State University,Manhattan,KS,66506,Public,15.475,22.758496
+2019,University of Kentucky,Lexington,KY,40506,Public,20.537,30.625733
+2019,University of Louisville,Louisville,KY,40292,Public,11.499,26.694575
+2019,Western Kentucky University,Bowling Green,KY,42101,Public,11.604,9.956826
+2019,Louisiana State University and Agricultural & Mechanical College,Baton Rouge,LA,70803,Public,22.585,41.403966
+2019,Louisiana Tech University,Ruston,LA,71272,Public,7.701,8.046418
+2019,University of Louisiana at Monroe,Monroe,LA,71209,Public,4.734,5.806764
+2019,University of Louisiana at Lafayette,Lafayette,LA,70503,Public,11.901,11.90778
+2019,Tulane University of Louisiana,New Orleans,LA,70118,Private,7.26,11.899611
+2019,University of Maryland-College Park,College Park,MD,20742,Public,28.228,21.391499
+2019,Boston College,Chestnut Hill,MA,02467,Private,9.515,26.709656
+2019,University of Massachusetts-Amherst,Amherst,MA,01003,Public,22.417,10.196067
+2019,Central Michigan University,Mount Pleasant,MI,48859,Public,12.72,8.26143
+2019,Eastern Michigan University,Ypsilanti,MI,48197,Public,10.431,8.456325
+2019,University of Michigan-Ann Arbor,Ann Arbor,MI,48109,Public,30.057,44.684585
+2019,Michigan State University,East Lansing,MI,48824,Public,35.575,43.987682
+2019,Western Michigan University,Kalamazoo,MI,49008,Public,14.515,9.275641
+2019,University of Minnesota-Twin Cities,Minneapolis,MN,55455,Public,29.236,34.18725
+2019,University of Mississippi,University,MS,38677,Public,15.743,40.408247
+2019,Mississippi State University,Mississippi State,MS,39762,Public,16.817,30.506617
+2019,University of Southern Mississippi,Hattiesburg,MS,39406,Public,9.65,7.761592
+2019,University of Missouri-Columbia,Columbia,MO,65211,Public,20.637,28.644935
+2019,University of Nebraska-Lincoln,Lincoln,NE,68588,Public,19.13,31.601463
+2019,University of Nevada-Las Vegas,Las Vegas,NV,89154,Public,19.427,12.223081
+2019,University of Nevada-Reno,Reno,NV,89557,Public,14.751,10.59322
+2019,Rutgers University-New Brunswick,New Brunswick,NJ,08901,Public,34.233,32.874357
+2019,University of New Mexico-Main Campus,Albuquerque,NM,87106,Public,12.56,9.600487
+2019,New Mexico State University-Main Campus,Las Cruces,NM,88003,Public,9.708,9.228333
+2019,University at Buffalo,Buffalo,NY,14260,Public,20.374,8.923004
+2019,Syracuse University,Syracuse,NY,13244,Private,14.437,27.710505
+2019,Appalachian State University,Boone,NC,28608,Public,16.557,9.188013
+2019,Duke University,Durham,NC,27708,Private,6.526,25.177567
+2019,East Carolina University,Greenville,NC,27858,Public,19.17,11.992339
+2019,University of North Carolina at Chapel Hill,Chapel Hill,NC,27599,Public,18.516,30.541821
+2019,University of North Carolina at Charlotte,Charlotte,NC,28223,Public,20.802,10.614336
+2019,North Carolina State University at Raleigh,Raleigh,NC,27695,Public,22.622,23.330277
+2019,Wake Forest University,Winston-Salem,NC,27106,Private,5.239,24.698755
+2019,University of Akron Main Campus,Akron,OH,44325,Public,11.197,7.209428
+2019,Bowling Green State University-Main Campus,Bowling Green,OH,43403,Public,12.863,7.183946
+2019,University of Cincinnati-Main Campus,Cincinnati,OH,45221,Public,23.577,15.782967
+2019,Kent State University at Kent,Kent,OH,44242,Public,18.276,7.026033
+2019,Miami University-Oxford,Oxford,OH,45056,Public,16.545,9.29111
+2019,Ohio State University-Main Campus,Columbus,OH,43210,Public,42.586,52.61623
+2019,Ohio University-Main Campus,Athens,OH,45701,Public,16.138,8.798541
+2019,University of Toledo,Toledo,OH,43606,Public,12.432,10.35575
+2019,Oklahoma State University-Main Campus,Stillwater,OK,74078,Public,17.238,24.398875
+2019,University of Oklahoma-Norman Campus,Norman,OK,73019,Public,18.82,41.455783
+2019,University of Tulsa,Tulsa,OK,74104,Private,3.151,13.268287
+2019,Oregon State University,Corvallis,OR,97331,Public,18.188,21.931124
+2019,University of Oregon,Eugene,OR,97403,Public,17.413,32.73404
+2019,Pennsylvania State University-Main Campus,University Park,PA,16802,Public,66.279,50.608202
+2019,University of Pittsburgh-Pittsburgh Campus,Pittsburgh,PA,15260,Public,18.31,32.490589
+2019,Temple University,Philadelphia,PA,19122,Public,26.162,24.282137
+2019,Clemson University,Clemson,SC,29634,Public,19.441,55.912162
+2019,University of South Carolina-Columbia,Columbia,SC,29208,Public,26.119,34.170807
+2019,Coastal Carolina University,Conway,SC,29528,Public,8.784,10.012266
+2019,University of Memphis,Memphis,TN,38152,Public,12.032,20.831438
+2019,Middle Tennessee State University,Murfreesboro,TN,37132,Public,15.689,10.195755
+2019,The University of Tennessee-Knoxville,Knoxville,TN,37996,Public,21.972,38.115086
+2019,Vanderbilt University,Nashville,TN,37240,Private,6.824,29.215452
+2019,Baylor University,Waco,TX,76798,Private,13.757,35.428721
+2019,University of Houston,Houston,TX,77204,Public,28.038,18.177111
+2019,University of North Texas,Denton,TX,76203,Public,26.055,10.748868
+2019,Rice University,Houston,TX,77005,Private,3.931,13.729316
+2019,Southern Methodist University,Dallas,TX,75275,Private,6.516,21.199002
+2019,Texas State University,San Marcos,TX,78666,Public,27.923,8.578422
+2019,Texas A & M University-College Station,College Station,TX,77843,Public,47.537,40.626375
+2019,The University of Texas at Austin,Austin,TX,78712,Public,37.362,39.503076
+2019,The University of Texas at El Paso,El Paso,TX,79968,Public,13.84,9.383703
+2019,Texas Christian University,Fort Worth,TX,76129,Private,9.207,41.053901
+2019,The University of Texas at San Antonio,San Antonio,TX,78249,Public,22.285,10.15072
+2019,Texas Tech University,Lubbock,TX,79409,Public,28.037,21.593943
+2019,Brigham Young University-Provo,Provo,UT,84602,Private,28.288,18.85135
+2019,Utah State University,Logan,UT,84322,Public,16.935,13.542393
+2019,University of Utah,Salt Lake City,UT,84112,Public,18.534,31.759405
+2019,Liberty University,Lynchburg,VA,24515,Private,28.434,15.298764
+2019,Old Dominion University,Norfolk,VA,23529,Public,14.68,12.27987
+2019,Virginia Polytechnic Institute and State University,Blacksburg,VA,24061,Public,28.539,35.625481
+2019,University of Virginia-Main Campus,Charlottesville,VA,22903,Public,16.174,27.576886
+2019,Washington State University,Pullman,WA,99164,Public,22.999,23.049902
+2019,University of Washington-Seattle Campus,Seattle,WA,98195,Public,29.077,38.441025
+2019,Marshall University,Huntington,WV,25755,Public,7.029,10.175813
+2019,West Virginia University,Morgantown,WV,26506,Public,19.366,22.221317
+2019,University of Wisconsin-Madison,Madison,WI,53706,Public,29.75,29.316118
+2019,University of Wyoming,Laramie,WY,82071,Public,8.328,12.391721
+2019,Stanford University,Stanford,CA,94305,Private,6.994,27.738893
+2019,Purdue University-Main Campus,West Lafayette,IN,47907,Public,32.603,23.815344

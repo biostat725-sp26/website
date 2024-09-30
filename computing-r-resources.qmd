@@ -1,0 +1,44 @@
+---
+title: "Resources for learning R"
+---
+
+Below are freely available resources to learn or review the following in R: **data wrangling**, **data visualization**, **Quarto basics**.
+
+## **In-depth introduction**
+
+[Coursera: Data Visualization and Transformation with R](https://www.coursera.org/programs/duke-university-on-coursera-obsio/learn/data-visualization-transformation-r?authProvider=duke) by Mine Çetinkaya-Rundel and Elijah Meyer
+
+-   Includes videos, readings, practice exercise, quizzes, and other resources
+-   You can select content within the modules you want to complete.
+-   Focus on Modules 2 and 3. Review the content in Module 1 as needed.s
+-   [Click here](https://docs.google.com/document/d/1csywQxZTAnCwwvt_l6BR-qfb49SL8CPnnivY7OAgBxc/edit#heading=h.6m3xi2f2t1ph) for instructions to register for Coursera for free as a Duke student
+
+## **In-depth review**
+
+[Data Science with R videos](https://warpwire.duke.edu/w/y2sIAA/) by Mine Çetinkaya-Rundel and Elijah Meyer
+
+-   Videos from the data science Coursera course
+
+-   Focus on videos on visualizing and summarizing data
+
+-   You need to join the Coursera course to access the files from the code along videos.
+
+[Learn R: An interactive introduction to data analysis with R](https://learnr.numbat.space/)
+
+-   Hands-on tutorial that can be completed within the site (no RStudio required)
+
+-   Focus on Chapters 4 - 6
+
+## Shorter review
+
+[R for Data Science (2nd ed)](https://r4ds.hadley.nz/) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund
+
+-   Focus on Chapters 1 - 3, 10
+
+## Additional resources
+
+-   [*Tidy Modeling with R*](https://tmwr.org) by Max Kuhn & Julia Silge
+
+-   [Posit Cheatsheets](https://posit.co/resources/cheatsheets/)
+
+-   [R workshops](https://library.duke.edu/data/workshops) by Duke Center for Data and Visualization Sciences
