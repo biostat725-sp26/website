@@ -1,5 +1,5 @@
 ---
-title: "STA 221 - Regression Analysis: Theory and Applications"
+title: "BIOSTAT 725 - Bayesian Health Data Science"
 navbar: false
 editor: visual
 freeze: false

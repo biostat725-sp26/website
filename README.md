@@ -1,10 +1,10 @@
-# Website for STA 221 at Duke University
+# Website for BIOSTAT 725 at Duke University
 
-# Fall 2024
+# Spring 2025
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/96cad683-cf19-4c47-ba1c-00ea6c56c8ea/deploy-status)](https://app.netlify.com/sites/sta221-fa24/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1230d4e0-308a-4f05-a8eb-7d959c9f8e35/deploy-status)](https://app.netlify.com/sites/biostat725-sp25/deploys)
 
-:link: [sta210-fa24.netlify.app](https://sta210-fa24.netlify.app/)
+:link: [biostat725-sp25.netlify.app](https://biostat725-sp25.netlify.app/)
 
 ## Colors
 
