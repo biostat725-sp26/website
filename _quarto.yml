@@ -68,24 +68,8 @@ website:
           text: HW 03
         - href: hw/hw-04.qmd
           text: HW 04
-        - href: hw/stats-experience.qmd
-          text: Statistics experience
-      - section: Labs
-        contents: 
-        - href: labs/lab-01.qmd
-          text: Lab 01
-        - href: labs/lab-02.qmd
-          text: Lab 02
-        - href: labs/lab-03.qmd
-          text: Lab 03
-        - href: labs/lab-04.qmd
-          text: Lab 04
-        - href: labs/lab-05.qmd
-          text: Lab 05
-        - href: labs/lab-06.qmd
-          text: Lab 06
-        - href: labs/lab-07.qmd
-          text: Lab 07
+        - href: hw/hw-05.qmd
+          text: HW 05
       - section: Project
         contents:
         - href: project.qmd
