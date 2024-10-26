@@ -1,32 +1,28 @@
 ---
-title: "STA 221 - Regression Analysis: Theory and Applications"
-subtitle: "Fall 2024 - Dr. Maria Tackett"
+title: "BIOSTAT 725 - Bayesian Health Data Science"
+subtitle: "Spring 2025 - Dr. Samuel Berchuck"
 navbar: false
 ---
 
 # Overview
 
-In STA 221, students will learn how linear and logistic regression models are used to explore multivariable relationships, apply these methods to answer relevant and engaging questions using a data-driven approach, and learn the mathematical underpinnings of the models. Students will develop computing skills to implement a reproducible data analysis workflow and gain experience communicating statistical results. Throughout the semester, students will work on a team project where they will develop a research question, answer it using methods learned in the course, and share results through a written report and presentation.
-
-Topics include applications of linear and logistic regression, analysis of variance, model diagnostics, and model selection. Regression parameter estimation via maximum likelihood least squares will also be discussed. Students will gain experience using the computing tools R and GitHub to analyze real-world data from a variety of fields.
+This course will teach students how to analyze biomedical data from a Bayesian inference perspective with a strong emphasis on using real-world data, including electronic health records, wearables, and imaging data. This is a second course in Bayesian inference and will start by introducing the hierarchical model as a flexible framework for analyzing complex data structures. This includes missing data, and spatial and longitudinal data. Then Bayesian machine learning approaches will be introduced, including regularization for high-dimensional data and scalable inference techniques for big data, including variational inference. Additional topics may be discussed from the Bayesian perspective, including causal inference, meta-analysis, and time-to-event data. While an applied course, the methods will be introduced from a mathematical perspective, allowing students to obtain a fundamental understanding of the introduced models. Students will learn computational skills for implementing Bayesian models using R and Stan. By the end of this course, students will be well-equipped to tackle complex problems in biomedical research using Bayesian inference.
 
 ## Pre-requisites
 
-Either any STA 100-level course or STA 230, 231, or 240L and MATH 216, 218, or 221. The recommended co-requisite is STA 230, 231, or 240L. Interested students with different backgrounds should seek instructor consent.
+BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course with instructor permission. Interested students with different backgrounds should seek instructor consent.
 
 # Class meetings
 
-|             |                         |                   |
-|-------------|-------------------------|-------------------|
-| **Lecture** | Tue & Thu 11:45am - 1pm | Old Chemistry 116 |
-| **Lab 01**  | Mon 11:45am - 1pm       | LSRC A247         |
-| **Lab 02**  | Mon 4:40 - 5:55pm       | Old Chemistry 101 |
+|             |                         |            |
+|-------------|-------------------------|------------|
+| **Lecture** | Tue & Thu 11:45am - 1pm | Hock 10089 |
 
 # Teaching team
 
 ### Instructor
 
-[Maria Tackett](https://www2.stat.duke.edu/~mt324) is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students' sense of community, self-efficacy, and learning outcomes.
+[Samuel Berchuck](https://sites.duke.edu/sib2/) is an Assistant Professor in the Department of Biostatistics & Bioinformatics and Statistical Science at Duke University, and a faculty affiliate of Duke AI Health. His work focuses on...
 
 +----------------------+---------------+
 | Office hours         | Location      |
@@ -40,18 +36,11 @@ Either any STA 100-level course or STA 230, 231, or 240L and MATH 216, 218, or 2
 
 ## Teaching assistants
 
-+--------------+----------------+------------------------------------+---+
-| **Name**     | **Role**       | **Office Hours**                   |   |
-+--------------+----------------+------------------------------------+---+
-| Kat Husar    | Head TA\       | Tue 1:30 - 3:30pm, Old Chem 220    |   |
-|              | Lab 02L leader |                                    |   |
-+--------------+----------------+------------------------------------+---+
-| Jon Campbell | Lab 01L leader | Tue & Thu 9 - 10am, Old Chem 025   |   |
-+--------------+----------------+------------------------------------+---+
-| Ishrit Gupta | Lab 01L helper | Fri 1- 3pm, Old Chem 203B          |   |
-+--------------+----------------+------------------------------------+---+
-| Alan Wang    | Lab 02L helper | Mon & Wed 10 - 11am, Old Chem 203B |   |
-+--------------+----------------+------------------------------------+---+
++---------------+-------------+---------------------------------+-------------+
+| **Name**      | **Role**    | **Office Hours**                |             |
++---------------+-------------+---------------------------------+-------------+
+| Youngsoo Baek | Head TA\    | Tue 1:30 - 3:30pm, Old Chem 220 |             |
++---------------+-------------+---------------------------------+-------------+
 
 # License
 

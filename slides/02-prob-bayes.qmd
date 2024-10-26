@@ -1,0 +1,41 @@
+---
+title: "Probability and Bayesian Statistics"
+author: "Prof. Sam Berchuck"
+date: "2025-01-16"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+## Announcements {.midi}
+
+-   No labs on Mon, Sep 2 (Labor Day)
+
+-   Application exercises start Tue, Sep 3
+
+    -   Bring fully-charged laptop or device with keyboard
+    -   Make sure you have accepted invite to GitHub course organization
+
+-   See website for [resources](https://sta221-fa24.netlify.app/computing-r-resources) to learn / review R
+
+-   Office hours start Tue, Sep 3
+

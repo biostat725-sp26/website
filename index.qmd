@@ -24,7 +24,7 @@ d <- read_sheet("https://docs.google.com/spreadsheets/d/1iQtIr1Uvqp8ZwpbEgHCiQxO
 #| echo: false
 
 d |>
-  select(-`Maria's notes`) |>
+  select(-`Sam's notes`) |>
   mutate(
     date = as.Date(date),
     week = ifelse(is.na(week), "", week),
