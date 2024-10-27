@@ -32,32 +32,32 @@ d |>
   ) |>
   gt() |>
   text_transform(cells_body(columns = c(prepare)),
-    fn = function(x) {
-      ifelse(is.na(x), fontawesome::fa("book", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('book')}</a>")
-      )
-    }
+                 fn = function(x) {
+                   ifelse(is.na(x), fontawesome::fa("book", fill_opacity = 0.1),
+                          glue::glue("<a href = {x}>{fontawesome::fa('book')}</a>")
+                   )
+                 }
   ) |>
   text_transform(cells_body(columns = c(slides)),
-    fn = function(x) {
-      ifelse(is.na(x), fontawesome::fa("laptop", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('laptop')}</a>")
-      )
-    }
+                 fn = function(x) {
+                   ifelse(is.na(x), fontawesome::fa("laptop", fill_opacity = 0.1),
+                          glue::glue("<a href = {x}>{fontawesome::fa('laptop')}</a>")
+                   )
+                 }
   ) |>
   text_transform(cells_body(columns = c(ae)),
-    fn = function(x) {
-      ifelse(is.na(x), fontawesome::fa("users", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('users')}</a>")
-      )
-    }
+                 fn = function(x) {
+                   ifelse(is.na(x), fontawesome::fa("users", fill_opacity = 0.1),
+                          glue::glue("<a href = {x}>{fontawesome::fa('users')}</a>")
+                   )
+                 }
   ) |>
   text_transform(cells_body(columns = c(hw)),
-    fn = function(x) {
-      ifelse(is.na(x), fontawesome::fa("pen-to-square", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('pen-to-square')}</a>")
-      )
-    }
+                 fn = function(x) {
+                   ifelse(is.na(x), fontawesome::fa("pen-to-square", fill_opacity = 0.1),
+                          glue::glue("<a href = {x}>{fontawesome::fa('pen-to-square')}</a>")
+                   )
+                 }
   ) |>
   # text_transform(cells_body(columns = c(lab)),
   #   fn = function(x) {
@@ -73,23 +73,23 @@ d |>
   #     )
   #   }
   # ) |>
-  text_transform(cells_body(columns = c(project)),
-    fn = function(x) {
-      ifelse(is.na(x), fontawesome::fa("chart-line", fill_opacity = 0.1),
-        glue::glue("<a href = {x}>{fontawesome::fa('chart-line')}</a>")
-      )
-    }
-  ) |>
+  # text_transform(cells_body(columns = c(project)),
+  #   fn = function(x) {
+  #     ifelse(is.na(x), fontawesome::fa("chart-line", fill_opacity = 0.1),
+  #       glue::glue("<a href = {x}>{fontawesome::fa('chart-line')}</a>")
+  #     )
+  #   }
+  # ) |>
   fmt_date(date, date_style = 30) |>
   sub_missing(columns = c(date, topic, notes), missing_text = "") |>
   cols_align(
     align = "center", 
-    columns = c(week, dow, prepare, slides, ae, hw, project)
-    ) |>
+    columns = c(week, dow, prepare, slides, ae, hw)
+  ) |>
   cols_align(
     align = "left", 
     columns = c(date, topic, notes)
-    ) |>
+  ) |>
   tab_style(
     style = cell_borders(
       sides = "right",
@@ -97,9 +97,8 @@ d |>
       style = "solid"
     ),
     locations = cells_body(
-      columns = c(date, topic, prepare,project)
+      columns = c(date, topic, prepare)
     )
   )
-
 ```
 :::
