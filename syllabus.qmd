@@ -30,7 +30,7 @@ format:
 
 ## Course description
 
-This course will teach students how to analyze biomedical data from a Bayesian inference perspective with a strong emphasis on using real-world data, including electronic health records, wearables, and imaging data. This is a second course in Bayesian inference and will start by introducing the hierarchical model as a flexible framework for analyzing complex data structures. This includes missing data, and spatial and longitudinal data. Then Bayesian machine learning approaches will be introduced, including regularization for high-dimensional data and scalable inference techniques for big data, including variational inference. Additional topics may be discussed from the Bayesian perspective, including causal inference, meta-analysis, and time-to-event data. While an applied course, the methods will be introduced from a mathematical perspective, allowing students to obtain a fundamental understanding of the introduced models. Students will learn computational skills for implementing Bayesian models using R and Stan. By the end of this course, students will be well-equipped to tackle complex problems in biomedical research using Bayesian inference.
+This course will teach students how to analyze biomedical data from a Bayesian inference perspective with a strong emphasis on using real-world data, including electronic health records, wearables, and imaging data. The course will begin by introducing the machinery of Bayesian statistics through the lens of linear regression, giving enough context for students with no prior experience with Bayesian statistics. A history of computational approaches used in Bayesian statistics will be given before ultimately landing on Stan, a state-of-the-art probabilistic programming language that makes Bayesian inference accessible as a viable data science tool. The course will then branch out from regression and introduce Bayesian versions of machine learning tools, including regularization and classification. The course will then emphasize Bayesian hierarchical models, including Gaussian process models for temporal and spatial data; and clustering.  Additional topics may be discussed from the Bayesian perspective, including causal inference, and meta-analysis. While an applied course, the methods will be introduced from a mathematical perspective, allowing students to obtain a fundamental understanding of the introduced models. Students will learn computational skills for implementing Bayesian models using R and Stan. By the end of this course, students will be well-equipped to tackle complex problems in biomedical research using Bayesian inference.
 
 ### Prerequisites
 
@@ -55,7 +55,7 @@ While there is no official textbook for the course; readings will primarily be m
 
 ### Inclusive community
 
-It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with [Duke's Commitment to Diversity and Inclusion](https://provost.duke.edu/initiatives/commitment-to-diversity-and-inclusion). Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.
+It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with [Duke's Commitment to Diversity and Inclusion](https://provost.duke.edu/about/dukes-commitment-diversity-and-inclusion/). Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.
 
 Furthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:
 
@@ -116,9 +116,9 @@ You are expected to bring a laptop, tablet, or any device with internet and a ke
 
 ### Teams
 
-You will be assigned to a team at the beginning of the semester. You are encouraged to sit with your teammates in lecture and you will also work with them in the lab sessions. All team members are expected to contribute equally to the completion of the group activities, labs and the final project. You will be asked to complete teamwork evaluations and self-reflections throughout the semester. Failure to adequately contribute to an assignment can result in a penalty to your score relative to the team's overall mark.
+You may be assigned to a team to complete in-class exercises. All team members are expected to contribute equally to the completion of the group activities. Failure to adequately contribute to an assignment can result in a penalty to your score relative to the team's overall mark.
 
-You are expected to make use of the provided GitHub repository as the central collaborative platform. Commits to this repository will be used as one of several metrics of each team member's relative contribution for each project.
+You are expected to make use of the provided GitHub repository as the central collaborative platform. Commits to this repository will be used as one of several metrics of each team member's relative contribution for each team assignment.
 
 ## Activities & Assessment
 
@@ -126,17 +126,17 @@ You will be assessed based on four components: homework, exams, live coding, and
 
 ### Homework
 
-In homework, you will apply what you've learned during lecture to complete data analysis tasks and explain the underlying mathematics, with a focus on the computation and communication. Homework assignments will be completed using Quarto, correspond to an appropriate GitHub repository, and submitted as a PDF for grading in Gradescope. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. HW0 will not be graded. 
+In homework, you will apply what you've learned during lecture to complete data analysis tasks and explain the underlying mathematics, with a focus on the computation and communication. Homework assignments will be completed using Quarto, correspond to an appropriate GitHub repository, and submitted as a PDF for grading in Gradescope. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. HW0 will not be graded for credit. 
 
 *The lowest homework grade will be dropped at the end of the semester.*
 
 ### Exams
 
-There will be two exams in this course. Each exam will include an open-note take-home component. Through these exams you have the opportunity to demonstrate what you've learned in the course thus far. The exams will focus on both conceptual understanding of the applied and mathematical content and application through analysis and computational tasks. The exams will be based on content in reading assignments, lectures, application exercises, and homework assignments. More detail about the exams will be given during the semester.
+There will be two exams in this course. Each exam will be an open-note take-home assessment. Through these exams you have the opportunity to demonstrate what you've learned in the course thus far. The exams will focus on both conceptual understanding of the applied and mathematical content and application through analysis and computational tasks. The exams will be based on content in reading assignments, lectures, application exercises, and homework assignments. More detail about the exams will be given during the semester.
 
 ### Live Coding
 
-There will be a live coding evaluation in this course. Students will meet with Professor Berchuck in a one-on-one closed session to demonstrate their ability to code in Stan. The session will be 15-30 minutes. During the session, they will be asked to implement a Bayesian model and interpret the results. This exercise aims to assess their understanding of Bayesian methods and their proficiency in using Stan. Students will be required to schedule and complete the session after returing from spring break and before the last day of classes. The evaluation will surround one of the course assignments (e.g., a particular homework) which the student will be choose. More information about the project will be provided during the semester.
+There will be a live coding evaluation in this course. Students will meet with Prof. Berchuck and/or a TA in a closed session to demonstrate their ability to code in Stan. The session will be 15-30 minutes. During the session, they will be asked to implement a Bayesian model and interpret the results. This exercise aims to assess their understanding of Bayesian methods and their proficiency in using Stan. Students will be required to schedule and complete the session after returing from spring break and before the last day of classes. The evaluation will surround one of the course assignments (e.g., a particular homework) which the student will choose. More information about the project will be provided during the semester.
 
 ### Participation (Application exercises + teamwork)
 
@@ -195,7 +195,7 @@ The final letter grade will be determined based on the following thresholds:
 
 ### Duke Community Standard
 
-All students must adhere to the [Duke Community Standard(DCS)](https://studentaffairs.duke.edu/conduct/about-us/duke-community-standard): Duke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, and accountability. Citizens of this community commit to reflect upon these principles in all academic and non-academic endeavors, and to protect and promote a culture of integrity.
+All students must adhere to the [Duke Community Standard (DCS)](https://dukecommunitystandard.students.duke.edu/): Duke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, and accountability. Citizens of this community commit to reflect upon these principles in all academic and non-academic endeavors, and to protect and promote a culture of integrity.
 
 To uphold the Duke Community Standard, students agree:
 
@@ -215,7 +215,7 @@ To uphold the Duke Community Standard, students agree:
 
 -   You may not discuss or otherwise work with others on the exams. Unauthorized collaboration or using unauthorized materials will be considered a violation for all students involved. More details will be given closer to the exam date.
 
--   For the projects and team labs, collaboration within teams is not only allowed, but expected. Communication between teams at a high level is also allowed however you may not share code or components of the project or team labs across teams.
+-   For any team work, collaboration within teams is not only allowed, but expected. Communication between teams at a high level is also allowed however you may not share code or components across teams.
 
 -   **Reusing code**: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.
 
@@ -229,11 +229,11 @@ To uphold the Duke Community Standard, students agree:
 
 If you are unsure if the use of a particular resource complies with the academic honesty policy, please ask a member of the teaching team.
 
-Regardless of course delivery format, it is the responsibility of all students to understand and follow all Duke policies, including academic integrity (e.g., completing one's own work, following proper citation of sources, adhering to guidance around group work projects,and more).Ignoring these requirements is a violation of the Duke Community Standard. Any questions and/or concerns regarding academic integrity can be directed to the Office of Student Conduct and Community Standards at [conduct\@duke.edu](mailto:conduct@duke.edu).
+Regardless of course delivery format, it is the responsibility of all students to understand and follow all Duke policies, including academic integrity (e.g., completing one's own work, following proper citation of sources, adhering to guidance around group work projects,and more). Ignoring these requirements is a violation of the Duke Community Standard. Any questions and/or concerns regarding academic integrity can be directed to the Office of Student Conduct and Community Standards at [conduct\@duke.edu](mailto:conduct@duke.edu).
 
 ### Late work policy
 
-The due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback in a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline. *Note that the lowest homework and lab assignment will be dropped to accommodate such circumstances.*
+The due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback in a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline. *Note that the lowest homework assignment will be dropped to accommodate such circumstances.*
 
 -   Homework may be submitted up to 2 days late. There will be a 5% deduction for each 24-hour period the assignment is late.
 
@@ -241,9 +241,9 @@ The due dates for assignments are there to help you keep up with the course mate
 
 ### Waiver for extenuating circumstances
 
-If there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email me at maria.tackett\@duke.edu before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. *This waiver may only be used once in the semester, so only use it for a truly extenuating circumstance.*
+If there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email me at sib2\@duke.edu before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. *This waiver may only be used once in the semester, so only use it for a truly extenuating circumstance.*
 
-If there are circumstances that are having a longer-term impact on your academic performance, please let your academic dean know, as they can be a resource. Please let me know if you need help contacting your academic dean.
+If there are circumstances that are having a longer-term impact on your academic performance, please let your director of graduate studies (DGS) know, as they can be a resource. Please let me know if you need help contacting your DGS. 
 
 ### Regrade Requests
 
@@ -253,9 +253,11 @@ Regrade requests must be submitted on Gradescope within a week of when an assign
 
 ### Attendance policy
 
-Every student is expected to attend and participate in lecture. There may be times, however, when you cannot attend class. Lecture recordings are available upon request for students who have an excused absence. See the [Lecture recording request] policy for more detail. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture.
+Every student is expected to attend and participate in lecture. There may be times, however, when you cannot attend class. Lecture recordings will be available. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture.
 
-More details on Trinity attendance policies are available [here](https://trinity.duke.edu/undergraduate/academic-policies/class-attendance-and-missed-work).
+<!-- are available upon request for students who have an excused absence. See the [Lecture recording request] policy for more detail. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture. -->
+
+<!-- More details on Trinity attendance policies are available [here](https://trinity.duke.edu/undergraduate/academic-policies/class-attendance-and-missed-work). -->
 
 <!--# Attendance Policy Related to COVID Symptoms, Exposure, or Infection-->
 
@@ -263,13 +265,13 @@ More details on Trinity attendance policies are available [here](https://trinity
 
 <!--To keep the university community as safe and healthy as possible, you will be expected to follow these guidelines. Please reach out to me and your academic dean as soon as possible if you need to quarantine or isolate so that we can discuss arrangements for your continued participation in class.-->
 
-### Lecture recording request
+<!-- ### Lecture recording request -->
 
-Lectures will be recorded on Panopto and will be made available to students with an excused absence upon request. Videos shared with such students will be available for a week after the lecture date. To request a particular lecture's video, please fill out the form at the link below. Please submit the form within 24 hours of missing lecture to ensure you have sufficient time to watch the recording. Please also make sure that any official documentation, such as STINFs, Dean's excuses, NOVAPs, and quarantine/removal from class notices from student health are also uploaded to the form.
+<!-- Lectures will be recorded on Panopto and will be made available to students with an excused absence upon request. Videos shared with such students will be available for a week after the lecture date. To request a particular lecture's video, please fill out the form at the link below. Please submit the form within 24 hours of missing lecture to ensure you have sufficient time to watch the recording. Please also make sure that any official documentation, such as STINFs, Dean's excuses, NOVAPs, and quarantine/removal from class notices from student health are also uploaded to the form. -->
 
-🔗 <https://forms.office.com/r/Y46k4dqRLY>
+<!-- 🔗 <https://forms.office.com/r/Y46k4dqRLY> -->
 
-About one week before each exam, the class recordings will be available to all students. These recordings will be available until the start of the exam.
+<!-- About one week before each exam, the class recordings will be available to all students. These recordings will be available until the start of the exam. -->
 
 ## Accommodations
 

@@ -98,19 +98,19 @@ ul.task-list li input[type="checkbox"] {
       <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/biostat725-sp" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/biostat725-sp25" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
     <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <a href="https://edstem.org/us/courses/62513/discussion/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-chat-dots-fill"></i></a>
+    <a href="https://edstem.org/us/courses/68995/discussion/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-chat-dots-fill"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-check-square-fill"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/38867">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/53305">
             Canvas
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/829034">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/903622">
             Gradescope
             </a>
           </li>
@@ -195,6 +195,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./hw/hw-00.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 00</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./hw/hw-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 01</span></a>
   </div>
@@ -221,29 +227,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./hw/hw-05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 05</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Instructions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./project-tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tips + resources</span></a>
   </div>
 </li>
       </ul>
@@ -278,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">BIOSTAT 725 - Bayesian Health Data Science</h1>
-<p class="subtitle lead">Spring 2025 - Dr.&nbsp;Samuel Berchuck</p>
+<p class="subtitle lead">Spring 2025 - Prof.&nbsp;Sam Berchuck</p>
 </div>
 
 
@@ -297,7 +280,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level1">
 <h1>Overview</h1>
-<p>This course will teach students how to analyze biomedical data from a Bayesian inference perspective with a strong emphasis on using real-world data, including electronic health records, wearables, and imaging data. This is a second course in Bayesian inference and will start by introducing the hierarchical model as a flexible framework for analyzing complex data structures. This includes missing data, and spatial and longitudinal data. Then Bayesian machine learning approaches will be introduced, including regularization for high-dimensional data and scalable inference techniques for big data, including variational inference. Additional topics may be discussed from the Bayesian perspective, including causal inference, meta-analysis, and time-to-event data. While an applied course, the methods will be introduced from a mathematical perspective, allowing students to obtain a fundamental understanding of the introduced models. Students will learn computational skills for implementing Bayesian models using R and Stan. By the end of this course, students will be well-equipped to tackle complex problems in biomedical research using Bayesian inference.</p>
+<p>This course will teach students how to analyze biomedical data from a Bayesian inference perspective with a strong emphasis on using real-world data, including electronic health records, wearables, and imaging data. The course will begin by introducing the machinery of Bayesian statistics through the lens of linear regression, giving enough context for students with no prior experience with Bayesian statistics. A history of computational approaches used in Bayesian statistics will be given before ultimately landing on Stan, a state-of-the-art probabilistic programming language that makes Bayesian inference accessible as a viable data science tool. The course will then branch out from regression and introduce Bayesian versions of machine learning tools, including regularization and classification. The course will then emphasize Bayesian hierarchical models, including Gaussian process models for temporal and spatial data; and clustering. Additional topics may be discussed from the Bayesian perspective, including causal inference, and meta-analysis. While an applied course, the methods will be introduced from a mathematical perspective, allowing students to obtain a fundamental understanding of the introduced models. Students will learn computational skills for implementing Bayesian models using R and Stan. By the end of this course, students will be well-equipped to tackle complex problems in biomedical research using Bayesian inference.</p>
 <section id="pre-requisites" class="level2">
 <h2 class="anchored" data-anchor-id="pre-requisites">Pre-requisites</h2>
 <p>BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course with instructor permission. Interested students with different backgrounds should seek instructor consent.</p>
@@ -319,11 +302,11 @@ ul.task-list li input[type="checkbox"] {
 <h1>Teaching team</h1>
 <section id="instructor" class="level3">
 <h3 class="anchored" data-anchor-id="instructor">Instructor</h3>
-<p><a href="https://sites.duke.edu/sib2/">Samuel Berchuck</a> is an Assistant Professor in the Department of Biostatistics &amp; Bioinformatics and Statistical Science at Duke University, and a faculty affiliate of Duke AI Health. His work focuses on…</p>
+<p><a href="https://sites.duke.edu/sib2/">Samuel Berchuck</a> is an Assistant Professor in the Department of Biostatistics &amp; Bioinformatics and Statistical Science at Duke University, and a faculty affiliate of Duke AI Health. His work focuses on applications of Bayesian methods in biomedical applications, most prominently for clinical decision support tools using electronic health records.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 31%">
-<col style="width: 22%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -335,7 +318,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td><p>Mon 1:30 - 2:30pm</p>
 <p>Thu 3 - 4pm</p></td>
-<td>Old Chem 118B</td>
+<td>Hock 9028</td>
 </tr>
 <tr class="even">
 <td><em>or by appointment.</em></td>
@@ -348,10 +331,10 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="teaching-assistants">Teaching assistants</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 17%">
-<col style="width: 42%">
-<col style="width: 17%">
+<col style="width: 18%">
+<col style="width: 53%">
+<col style="width: 22%">
+<col style="width: 6%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -362,9 +345,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>Youngsoo Baek</td>
-<td>Head TA<br>
-</td>
-<td>Tue 1:30 - 3:30pm, Old Chem 220</td>
+<td>TA&nbsp; | Tue 1:30 - 3:30pm, Hock 9061 | |</td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

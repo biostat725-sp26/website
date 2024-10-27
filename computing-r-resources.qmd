@@ -42,3 +42,9 @@ Below are freely available resources to learn or review the following in R: **da
 -   [Posit Cheatsheets](https://posit.co/resources/cheatsheets/)
 
 -   [R workshops](https://library.duke.edu/data/workshops) by Duke Center for Data and Visualization Sciences
+
+## Stan resources
+
+-   [RStan Getting Started](https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started) by Stan Development Team
+
+-   [Brief Introduction to Stan](https://bookdown.org/marklhc/notes_bookdown/brief-introduction-to-stan.html/) by Mark Lai

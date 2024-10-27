@@ -210,23 +210,23 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/overview.html</loc>
-    <lastmod>2024-10-04T20:37:15.651Z</lastmod>
+    <lastmod>2024-10-27T15:07:36.805Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/syllabus.html</loc>
-    <lastmod>2024-10-26T20:27:53.452Z</lastmod>
+    <lastmod>2024-10-27T14:35:32.272Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/support.html</loc>
-    <lastmod>2024-10-04T20:38:45.472Z</lastmod>
+    <lastmod>2024-10-27T14:46:44.524Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-05.html</loc>
-    <lastmod>2024-09-30T18:18:10.377Z</lastmod>
+    <lastmod>2024-10-27T15:08:04.525Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/links.html</loc>
-    <lastmod>2024-10-04T20:37:29.410Z</lastmod>
+    <lastmod>2024-10-27T14:55:53.883Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/02-slr.html</loc>
@@ -234,7 +234,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-01.html</loc>
-    <lastmod>2024-10-19T12:36:16.066Z</lastmod>
+    <lastmod>2024-10-27T15:09:51.065Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/01-welcome.html</loc>
@@ -243,5 +243,29 @@
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/02-prob-bayes.html</loc>
     <lastmod>2024-10-26T19:07:36.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/computing-access.html</loc>
+    <lastmod>2024-10-27T14:59:19.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/computing-r-resources.html</loc>
+    <lastmod>2024-10-27T15:06:18.525Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/hw/hw-02.html</loc>
+    <lastmod>2024-10-27T15:08:10.697Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/hw/hw-00.html</loc>
+    <lastmod>2024-10-27T15:09:36.678Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/hw/hw-03.html</loc>
+    <lastmod>2024-09-30T13:50:05.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/hw/hw-04.html</loc>
+    <lastmod>2024-09-30T13:50:05.000Z</lastmod>
   </url>
 </urlset>

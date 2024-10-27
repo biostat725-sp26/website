@@ -23,19 +23,19 @@ website:
     align: center
     tools: 
       - icon: github
-        href: https://github.com/biostat725-sp
+        href: https://github.com/biostat725-sp25
         text: "GitHub organization"
       - icon: code-square
         href: https://cmgr.oit.duke.edu/containers
         text: "RStudio Containers"
       - icon: chat-dots-fill
-        href: https://edstem.org/us/courses/62513/discussion/
+        href: https://edstem.org/us/courses/68995/discussion/
       - icon: check-square-fill
         menu:
           - text: Canvas
-            url: https://canvas.duke.edu/courses/38867
+            url: https://canvas.duke.edu/courses/53305
           - text: Gradescope
-            url: https://www.gradescope.com/courses/829034
+            url: https://www.gradescope.com/courses/903622
     style: "docked"
     search: true
     collapse-level: 1
@@ -60,6 +60,8 @@ website:
           text: R resources
       - section: Homework
         contents:
+        - href: hw/hw-00.qmd
+          text: HW 00
         - href: hw/hw-01.qmd
           text: HW 01
         - href: hw/hw-02.qmd
@@ -70,13 +72,7 @@ website:
           text: HW 04
         - href: hw/hw-05.qmd
           text: HW 05
-      - section: Project
-        contents:
-        - href: project.qmd
-          text: Instructions
-        - href: project-tips.qmd
-          text: Tips + resources
-        
+
 
 format:
   html:

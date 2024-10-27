@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 02: Multiple linear regression – STA 221 - Fall 2024</title>
+<title>BIOSTAT 725 - Spring 2025 - HW 02</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,61 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -123,35 +69,6 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -161,13 +78,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-02.html">HW 02</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-00.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-02.html">HW 02</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -182,19 +99,19 @@ window.Quarto = {
       <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/sta221-fa24" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/biostat725-sp25" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
     <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <a href="https://edstem.org/us/courses/62513/discussion/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-chat-dots-fill"></i></a>
+    <a href="https://edstem.org/us/courses/68995/discussion/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-chat-dots-fill"></i></a>
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-check-square-fill"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-check-square-fill"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/38867">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/53305">
             Canvas
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/829034">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/903622">
             Gradescope
             </a>
           </li>
@@ -241,9 +158,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">Computing</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -270,13 +187,19 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Homework</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-00.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 00</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../hw/hw-01.html" class="sidebar-item-text sidebar-link">
@@ -303,84 +226,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hw/stats-experience.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistics experience</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Labs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../labs/lab-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 01</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../labs/lab-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 02</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../labs/lab-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 03</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../labs/lab-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 04</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../labs/lab-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 05</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../labs/lab-06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 06</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../labs/lab-07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 07</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Instructions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../project-tips.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tips + resources</span></a>
+  <a href="../hw/hw-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 05</span></a>
   </div>
 </li>
       </ul>
@@ -391,44 +238,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals"><strong>Learning goals</strong></a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><strong>Getting started</strong></a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#conceptual-exercises" id="toc-conceptual-exercises" class="nav-link" data-scroll-target="#conceptual-exercises">Conceptual exercises</a>
-  <ul class="collapse">
-  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  </ul></li>
-  <li><a href="#applied-exercises" id="toc-applied-exercises" class="nav-link" data-scroll-target="#applied-exercises">Applied exercises</a>
-  <ul class="collapse">
-  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1">Instructions</a></li>
-  <li><a href="#data-lego-sets" id="toc-data-lego-sets" class="nav-link" data-scroll-target="#data-lego-sets">Data: LEGO<sup>®</sup> sets</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  <li><a href="#data-world-bank" id="toc-data-world-bank" class="nav-link" data-scroll-target="#data-world-bank">Data: World Bank</a></li>
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#bonus-optional" id="toc-bonus-optional" class="nav-link" data-scroll-target="#bonus-optional">Bonus (optional)</a></li>
-  </ul></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sta221-fa24/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-02.html">HW 02</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-00.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-02.html">HW 02</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">HW 02: Multiple linear regression</h1>
+<h1 class="title">HW 02</h1>
 </div>
 
 
@@ -445,343 +262,11 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Due date
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Thursday, October 3 at 11:59pm.</strong></p>
-</div>
-</div>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>You will use multiple linear regression to analyze the relationship between three or more variables for multiple data sets. You will conduct statistical inference to draw conclusions about these relationships.</p>
-</section>
-<section id="learning-goals" class="level1">
-<h1><strong>Learning goals</strong></h1>
-<p>In this assignment, you will…</p>
-<ul>
-<li>use multiple linear regression to model the relationship between three or more variables.</li>
-<li>draw conclusions from the model using statistical inference.</li>
-<li>fit and interpret models with interaction terms.</li>
-</ul>
-</section>
-<section id="getting-started" class="level1">
-<h1><strong>Getting started</strong></h1>
-<ul>
-<li><p>Go to the <a href="https://www.github.com/sta221-fa24">sta221-fa24</a> organization on GitHub. Click on the repo with the prefix <strong>hw-02</strong>. It contains the starter documents you need to complete the lab.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="https://sta221-fa24.netlify.app/labs/lab-01#clone-the-repo-start-new-rstudio-project">Lab 01 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
-</ul>
-</section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>The following packages are used in this assignment:</p>
-</section>
-<section id="conceptual-exercises" class="level1">
-<h1>Conceptual exercises</h1>
-<section id="instructions" class="level2">
-<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<p>The conceptual exercises are focused on explaining concepts and showing results mathematically. Show your work for each question.<br>
-<br>
-<strong>You may write the answers and associated work for conceptual exercises by hand or type them in your Quarto document.</strong></p>
-</section>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Let <span class="math inline">\(Var(\hat{\mathbf{y}})\)</span> be the variance of the fitted (predicted) values of the response variable. Show that <span class="math inline">\(Var(\hat{\mathbf{y}}) = \sigma^2_\epsilon \mathbf{H}\)</span>.</p>
-<!--# from Ex 3.27 of Introduction to Linear regression-->
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Suppose we fit the model <span class="math inline">\(\mathbf{y} = \mathbf{X}_1\boldsymbol{\beta}_1 + \boldsymbol{\epsilon}\)</span> when the true model is actually given by <span class="math inline">\(\mathbf{y} = \mathbf{X}_1\boldsymbol{\beta}_1 + \mathbf{X}_2\boldsymbol{\beta}_2 + \boldsymbol{\epsilon}\)</span>. Assume <span class="math inline">\(E(\boldsymbol{\epsilon}) = \mathbf{0}\)</span> for both models.</p>
-<ol type="a">
-<li><p>Find the expected value of the least-squares estimate <span class="math inline">\(\hat{\boldsymbol{\beta}}_1\)</span>.</p></li>
-<li><p>Under what conditions is the estimate <span class="math inline">\(\hat{\boldsymbol{\beta}}_1\)</span> unbiased?</p></li>
-</ol>
-<!--# Exercise 3.37 from Introduction to linear regression-->
-</section>
-</section>
-<section id="applied-exercises" class="level1">
-<h1>Applied exercises</h1>
-<section id="instructions-1" class="level2">
-<h2 class="anchored" data-anchor-id="instructions-1">Instructions</h2>
-<p>The applied exercises are focused on applying the concepts to analyze data.</p>
-<p><strong>All work for the applied exercises must be typed in your Quarto document following a reproducible workflow.</strong></p>
-<p>Write all narrative using complete sentences and include informative axis labels / titles on visualizations.</p>
-</section>
-<section id="data-lego-sets" class="level2">
-<h2 class="anchored" data-anchor-id="data-lego-sets">Data: LEGO<sup>®</sup> sets</h2>
-<p>The data for <strong>Exercises 3 - 5</strong> includes information about LEGO<sup>®</sup> sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from <span class="citation" data-cites="peterson2021">Peterson and Ziegler (<a href="#ref-peterson2021" role="doc-biblioref">2021</a>)</span>.</p>
-<p>You will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are</p>
-<ul>
-<li><code>Pieces</code>: Number of pieces in the set from brickset.com.</li>
-<li><code>Minifigures</code>: Number of minifigures (LEGO<sup>®</sup> people) in the set scraped from brickset.com.</li>
-<li><code>Amazon_Price</code>: Price of the set on Amazon.com (in U.S. dollars)</li>
-<li><code>Size</code>: General size of the interlocking bricks (Large = LEGO Duplo<sup>®</sup> sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO<sup>®</sup> sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)</li>
-</ul>
-<p>The data are contained in <code>lego-sample.csv</code>. Use the code below to read in the data and remove any observations that have missing values for the relevant variables.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>legos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/lego-sample.csv"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Pieces, Amazon_Price, Size, Minifigures)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Analysis goal
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We want to fit a multiple linear regression model to predict the price of LEGO<sup>®</sup> sets on Amazon.com based on <code>Pieces</code>, <code>Size</code>, and <code>Minifigures</code>.</p>
-</div>
-</div>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<ol type="a">
-<li>In this analysis, we dropped observations that have missing values for some of the relevant variables.
-<ul>
-<li><p>What is a disadvantage of dropping observations that have missing values, instead of using a method to impute (fill in) the missing data?</p></li>
-<li><p>How might dropping these observations impact the generalizability of conclusions?</p></li>
-</ul></li>
-<li>Fit the regression model and neatly display the results using three digits.</li>
-</ol>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>We want to understand the relationship between <code>Pieces</code> and <code>Amazon_Price</code> based on this model that also takes into the size of the blocks and number of minifigures.</p>
-<p>You are convinced from the model output that there is evidence of a linear relationship between the two variables. Now you want to be more specific and test whether the slope is actually different from 0.1 ($10 increase in the price for every 100 additional pieces).</p>
-<ol type="a">
-<li>Write the null and alternative hypotheses for this test in using words and mathematical notation.</li>
-<li>Calculate the test statistic for this test. You may use any relevant output from the model in the previous exercise.</li>
-<li>What is the distribution of the test statistic under the null hypothesis for this problem?</li>
-<li>Calculate the p-value and state your conclusion in the context of the data using a threshold of <span class="math inline">\(\alpha = 0.05\)</span>.</li>
-<li>Calculate the 95% confidence interval. Is the confidence interval consistent with your conclusion from the hypothesis test? Briefly explain.</li>
-</ol>
-</section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Instead of using the number of minifigures in the model, you decide to create an indicator variable for whether or not there are any minifigures in the set.</p>
-<ol type="a">
-<li><p>Create an indicator variable that takes the value “No” if there are zero minifigures in the LEGO<sup>®</sup> set, and “Yes” if there is at least one minifigure.</p></li>
-<li><p>You hypothesize that the relationship between the price and number of pieces may differ based on whether or not there are minifigures in the set.</p>
-<p>Make a plot to visualize this potential effect. Does the relationship between price and number of pieces seem to differ based on the inclusion of minifigures? Briefly explain.</p></li>
-<li><p>Fit a model using the number pieces, size of the blocks, the indicator for minifigures, and the interaction between pieces and the presence of minifigures to predict the price on Amazon.com.</p></li>
-<li><p>Based on this model, is there evidence that the effect of pieces on the price differs based on the inclusion of minifigures? Briefly explain your response, referencing any statistics used to make your determination.</p></li>
-</ol>
-</section>
-<section id="data-world-bank" class="level2">
-<h2 class="anchored" data-anchor-id="data-world-bank">Data: World Bank</h2>
-<p>The World Bank collects “world development indicators” about the past and current development of countries. These data are made available on the <a href="https://data.worldbank.org/indicator">World Bank’s website</a>. It can be used to understand the relationships between these various factors and trends over time.<br>
-<br>
-This analysis focuses on indicators from 2011 on 165 countries. The variables of interest are:</p>
-<ul>
-<li><p><code>gdp.per.capita</code>: gross domestic product divided by midyear population. GDP is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in current U.S. dollars.</p></li>
-<li><p><code>sanit.access.factor</code>: Population access to sanitation facilities (Low, High)</p></li>
-<li><p><code>edu.expend</code>: Government expenditure on education, total (% of government expenditure)</p></li>
-<li><p><code>life.expect</code>: Life expectancy at birth (in years)</p></li>
-</ul>
-</section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>You fit a model using sanitation access, education expenditures, and life expectancy to understand variability in GDP. The model takes the form</p>
-<p><span class="math display">\[
-\begin{aligned}\widehat{\log(GDP)} = \hat{\beta}_0 &amp;+ \hat{\beta}_1 ~ sanit.access.factor + \hat{\beta}_2 ~ edu.expend + \hat{\beta}_3 ~life.expect \\ &amp;+ \hat{\beta}_4 ~ sanit.access.factor \times life.expect\end{aligned}
-\]</span></p>
-<p>where <span class="math inline">\(\log(GDP)\)</span> is the natural log of <code>gdp.per.capita</code>.</p>
-<p>The F output for this model is shown below.</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 49%">
-<col style="width: 12%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">4.491</td>
-<td style="text-align: right;">1.638</td>
-<td style="text-align: right;">2.742</td>
-<td style="text-align: right;">0.007</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sanit.access.factorhigh</td>
-<td style="text-align: right;">-6.993</td>
-<td style="text-align: right;">1.971</td>
-<td style="text-align: right;">-3.548</td>
-<td style="text-align: right;">0.001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">edu.expend</td>
-<td style="text-align: right;">0.097</td>
-<td style="text-align: right;">0.038</td>
-<td style="text-align: right;">2.550</td>
-<td style="text-align: right;">0.012</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">life.expect</td>
-<td style="text-align: right;">0.030</td>
-<td style="text-align: right;">0.029</td>
-<td style="text-align: right;">1.061</td>
-<td style="text-align: right;">0.291</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sanit.access.factorhigh:life.expect</td>
-<td style="text-align: right;">0.122</td>
-<td style="text-align: right;">0.032</td>
-<td style="text-align: right;">3.853</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<ol type="a">
-<li><p>Interpret the coefficient of <code>edu.expend</code> in the context of the data. You can interpret the coefficient in terms of <span class="math inline">\(log(GDP)\)</span> .</p></li>
-<li><p>Interpret the coefficient of <code>sanit.access.factorhigh</code> in the context of the data.You can interpret the coefficient in terms of <span class="math inline">\(log(GDP)\)</span> .</p></li>
-</ol>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<ol type="a">
-<li><p>Write the estimated regression equation for countries with high sanitation access.</p></li>
-<li><p>Interpret the effect of <code>life.expect</code> for countries with high sanitation access in the context of the data. You can interpret the coefficient in terms of <span class="math inline">\(log(GDP)\)</span> .</p></li>
-</ol>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Below are plots from the exploratory data analysis of the relationships between the predictor variables. Based on these plots, what appears to be a potential issue with the model from Exercise 6? Briefly explain your response.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hw-02_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="bonus-optional" class="level2">
-<h2 class="anchored" data-anchor-id="bonus-optional">Bonus (optional)</h2>
-<p>Use the model from Exercise 6 to interpret the coefficients of <code>edu.expend</code> and <code>sanit.access.factorhigh</code> in term of GDP (not log(GDP)). Write your interpretations in the context of the data.</p>
-<p>Each interpretation is worth 1 point out of 50. The interpretation must be exactly correct to receive credit.</p>
-</section>
-</section>
-<section id="submission" class="level1">
-<h1>Submission</h1>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
-<p>If you write your responses to conceptual exercises by hand, you will need to combine your written work to the completed PDF for the applied exercises before submitting on Gradescope.</p>
-<p>Instructions to combine PDFs:</p>
-<ul>
-<li><p>Preview (Mac): <a href="https://support.apple.com/guide/preview/combine-pdfs-prvw43696/mac">support.apple.com/guide/preview/combine-pdfs-prvw43696/mac</a></p></li>
-<li><p>Adobe (Mac or PC): <a href="https://helpx.adobe.com/acrobat/using/merging-files-single-pdf.html">helpx.adobe.com/acrobat/using/merging-files-single-pdf.html</a></p>
-<ul>
-<li>Get free access to Adobe Acrobat as a Duke student: <a href="https://oit.duke.edu/help/articles/kb0030141/">oit.duke.edu/help/articles/kb0030141/</a></li>
-</ul></li>
-</ul>
-</div>
-</div>
-<p>To submit your assignment:</p>
-<ul>
-<li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/38867">STA 221 Canvas site.</a></p></li>
-<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
-</ul>
-</section>
-<section id="grading" class="level1">
-<h1>Grading</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ex 1</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>Ex 2</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>Ex 3</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Ex 4</td>
-<td>12</td>
-</tr>
-<tr class="odd">
-<td>Ex 5</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>Ex 6</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>Ex 7</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Ex 8</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Bonus (optional)</td>
-<td>+2</td>
-</tr>
-<tr class="even">
-<td>Workflow &amp; formatting</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-<p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and document format for the applied exercises. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.</p>
+<p>To be posted.</p>
 
 
 
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-peterson2021" class="csl-entry" role="listitem">
-Peterson, Anna D., and Laura Ziegler. 2021. <span>“Building a Multiple Linear Regression Model With LEGO Brick Data.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 297–303. <a href="https://doi.org/10.1080/26939169.2021.1946450">https://doi.org/10.1080/26939169.2021.1946450</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -817,7 +302,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -849,37 +345,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sta221-fa24\.netlify\.app");
+      var filterRegex = new RegExp("https:\/\/biostat725-sp25\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1218,11 +692,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Copyright 2024, Maria Tackett</p>
+<p>© Copyright 2025, Samuel Berchuck</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta221-fa24/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/biostat725-sp25/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>
