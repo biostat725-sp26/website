@@ -1,9 +1,0 @@
----
-title: Prepare for August 29 lecture
----
-
-<br>
-
-📖 Read [Simple Linear Regression](https://introregression.netlify.app/04-slr)
-
-✅ Complete [Lab 00](https://sta221-fa24.netlify.app/labs/lab-00) tasks

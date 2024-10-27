@@ -1,9 +1,0 @@
----
-title: Prepare for September 3 lecture
----
-
-<br>
-
-📖 Read [Section 4.7: Model Assessment](https://introregression.netlify.app/04-slr#model-assessment)
-
-✅ [Go through R resource](https://sta221-fa24.netlify.app/computing-r-resources) (optional)

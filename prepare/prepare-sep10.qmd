@@ -1,9 +1,0 @@
----
-title: Prepare for September 10 lecture
----
-
-<br>
-
-**Review class notes and readings on simple linear regression.**
-
-We will extend what we've done thus far to multiple linear regression, with 2 or more predictors.
