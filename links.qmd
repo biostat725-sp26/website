@@ -3,10 +3,10 @@ title: "Useful links"
 ---
 
 |                            |                                                                          |
-|---------------------|---------------------------------------------------|
+|----------------------------|--------------------------------------------------------------------------|
 | RStudio containers         | 🔗 for [Duke Container Manager](https://cmgr.oit.duke.edu/containers)    |
-| Course GitHub organization | 🔗 for [GitHub](https://github.com/biostat725-sp25)                          |
+| Course GitHub organization | 🔗 for [GitHub](https://github.com/biostat725-sp25)                      |
 | Course Canvas site         | 🔗 for [Canvas](https://canvas.duke.edu/courses/53305)                   |
-| Discussion forum           | 🔗 to [Ed Discussion](https://edstem.org/us/courses/68995/discussion/)    |
+| Discussion forum           | 🔗 to [Ed Discussion](https://edstem.org/us/courses/68995/discussion/)   |
 | Assignment submission      | 🔗 to [Gradescope](https://www.gradescope.com/courses/903622)            |
 | Zoom links                 | 🔗 on [Canvas](https://canvas.duke.edu/courses/53305/external_tools/184) |

@@ -30,7 +30,7 @@ format:
 
 ## Course description
 
-This course will teach students how to analyze biomedical data from a Bayesian inference perspective with a strong emphasis on using real-world data, including electronic health records, wearables, and imaging data. The course will begin by introducing the machinery of Bayesian statistics through the lens of linear regression, giving enough context for students with no prior experience with Bayesian statistics. A history of computational approaches used in Bayesian statistics will be given before ultimately landing on Stan, a state-of-the-art probabilistic programming language that makes Bayesian inference accessible as a viable data science tool. The course will then branch out from regression and introduce Bayesian versions of machine learning tools, including regularization and classification. The course will then emphasize Bayesian hierarchical models, including Gaussian process models for temporal and spatial data; and clustering.  Additional topics may be discussed from the Bayesian perspective, including causal inference, and meta-analysis. While an applied course, the methods will be introduced from a mathematical perspective, allowing students to obtain a fundamental understanding of the introduced models. Students will learn computational skills for implementing Bayesian models using R and Stan. By the end of this course, students will be well-equipped to tackle complex problems in biomedical research using Bayesian inference.
+This course will teach students how to analyze biomedical data from a Bayesian inference perspective with a strong emphasis on using real-world data, including electronic health records, wearables, and imaging data. The course will begin by introducing the machinery of Bayesian statistics through the lens of linear regression, giving enough context for students with no prior experience with Bayesian statistics. A history of computational approaches used in Bayesian statistics will be given before ultimately landing on Stan, a state-of-the-art probabilistic programming language that makes Bayesian inference accessible as a viable data science tool. The course will then branch out from regression and introduce Bayesian versions of machine learning tools, including regularization and classification. The course will then emphasize Bayesian hierarchical models, including Gaussian process models for temporal and spatial data; and clustering. Additional topics may be discussed from the Bayesian perspective, including causal inference, and meta-analysis. While an applied course, the methods will be introduced from a mathematical perspective, allowing students to obtain a fundamental understanding of the introduced models. Students will learn computational skills for implementing Bayesian models using R and Stan. By the end of this course, students will be well-equipped to tackle complex problems in biomedical research using Bayesian inference.
 
 ### Prerequisites
 
@@ -126,7 +126,7 @@ You will be assessed based on four components: homework, exams, live coding, and
 
 ### Homework
 
-In homework, you will apply what you've learned during lecture to complete data analysis tasks and explain the underlying mathematics, with a focus on the computation and communication. Homework assignments will be completed using Quarto, correspond to an appropriate GitHub repository, and submitted as a PDF for grading in Gradescope. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. HW0 will not be graded for credit. 
+In homework, you will apply what you've learned during lecture to complete data analysis tasks and explain the underlying mathematics, with a focus on the computation and communication. Homework assignments will be completed using Quarto, correspond to an appropriate GitHub repository, and submitted as a PDF for grading in Gradescope. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. HW0 will not be graded for credit.
 
 *The lowest homework grade will be dropped at the end of the semester.*
 
@@ -243,7 +243,7 @@ The due dates for assignments are there to help you keep up with the course mate
 
 If there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email me at sib2\@duke.edu before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. *This waiver may only be used once in the semester, so only use it for a truly extenuating circumstance.*
 
-If there are circumstances that are having a longer-term impact on your academic performance, please let your director of graduate studies (DGS) know, as they can be a resource. Please let me know if you need help contacting your DGS. 
+If there are circumstances that are having a longer-term impact on your academic performance, please let your director of graduate studies (DGS) know, as they can be a resource. Please let me know if you need help contacting your DGS.
 
 ### Regrade Requests
 
