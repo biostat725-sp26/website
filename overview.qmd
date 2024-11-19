@@ -24,23 +24,22 @@ BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course wit
 
 Prof. [Sam Berchuck](https://sites.duke.edu/sib2/) is an Assistant Professor in the Department of Biostatistics & Bioinformatics and Statistical Science at Duke University, and a faculty affiliate of [Duke AI Health](https://aihealth.duke.edu/). His work focuses on applications of Bayesian methods in biomedical research settings, most prominently for clinical decision support tools using electronic health records.
 
-+----------------------+---------------+
-| Office hours         | Location      |
-+======================+===============+
-| Mon 1:30 - 2:30pm    | Hock 9028     |
-|                      |               |
-| Thu 3 - 4pm          |               |
-+----------------------+---------------+
-| *or by appointment.* |               |
-+----------------------+---------------+
++----------------------+-----------+
+| Office hours         | Location  |
++======================+===========+
+| Mon 1:30 - 2:30pm    | Hock 9028 |
+|                      |           |
+| Thu 3 - 4pm          |           |
++----------------------+-----------+
+| *or by appointment.* |           |
++----------------------+-----------+
 
 ## Teaching assistants
 
-+-------------------+---------------+------------------------------+
-| **Name**          | **Role**      | **Office Hours**             |
-+-------------------+---------------+------------------------------+
-| Dr. Youngsoo Baek | TA            | Tue 1:30 - 3:30pm, Hock 9061 |
-+-------------------+---------------+------------------------------+
+|                   |          |                              |
+|-------------------|----------|------------------------------|
+| **Name**          | **Role** | **Office Hours**             |
+| Dr. Youngsoo Baek | TA       | Tue 1:30 - 3:30pm, Hock 9061 |
 
 # License
 

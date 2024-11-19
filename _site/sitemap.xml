@@ -206,19 +206,19 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/index.html</loc>
-    <lastmod>2024-10-27T15:46:01.480Z</lastmod>
+    <lastmod>2024-11-19T02:33:57.569Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/overview.html</loc>
-    <lastmod>2024-10-27T18:15:05.237Z</lastmod>
+    <lastmod>2024-11-14T01:26:00.022Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/syllabus.html</loc>
-    <lastmod>2024-10-27T15:36:32.545Z</lastmod>
+    <lastmod>2024-11-16T15:09:37.953Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/support.html</loc>
-    <lastmod>2024-10-27T15:41:09.866Z</lastmod>
+    <lastmod>2024-11-14T01:24:56.980Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-05.html</loc>
@@ -238,7 +238,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/01-welcome.html</loc>
-    <lastmod>2024-10-22T17:23:13.354Z</lastmod>
+    <lastmod>2024-11-19T01:33:38.013Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/02-prob-bayes.html</loc>
@@ -258,7 +258,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-00.html</loc>
-    <lastmod>2024-10-27T15:38:31.523Z</lastmod>
+    <lastmod>2024-11-18T18:32:08.968Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-03.html</loc>
@@ -303,5 +303,37 @@
   <url>
     <loc>https://biostat725-sp25.netlify.app/computing-troubleshooting.html</loc>
     <lastmod>2024-09-30T13:50:05.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/02-probability.html</loc>
+    <lastmod>2024-11-19T01:31:31.389Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/ae/ae-01-linear-regression.html</loc>
+    <lastmod>2024-11-18T22:07:19.352Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/03-linear-regression.html</loc>
+    <lastmod>2024-11-18T19:19:26.408Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/hw/hw-01-creation.html</loc>
+    <lastmod>2024-11-19T00:09:12.689Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/ae/ae-01-test.html</loc>
+    <lastmod>2024-11-16T15:34:25.370Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/prepare/prepare-aug29.html</loc>
+    <lastmod>2024-11-04T19:11:20.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/prepare/prepare-jan14.html</loc>
+    <lastmod>2024-11-18T20:42:19.364Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/prepare/prepare-jan16.html</loc>
+    <lastmod>2024-11-18T20:43:13.873Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,709 @@
+---
+title: "Welcome to BIOSTAT 725!"
+author: "Prof. Sam Berchuck"
+date: "2025-01-09"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+filters:
+  - parse-latex
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+library(ggplot2)
+```
+
+# Welcome!
+
+## Meet Prof. Berchuck! {.midi}
+
+::: incremental
+-   Education and career journey
+    -   BS in Statistical Science from Duke University
+    -   PhD in Biostatistics from University of North Carolina - Chapel Hill
+    -   Postdoc in Duke Forge: Duke's Center for Actionable Health Data Science
+    -   NIH/NEI Pathway to Independence Fellow (K99/R00)
+    -   Assistant Professor, Department of Biostatistics & Bioinformatics and Statistical Science at Duke; Faculty Affiliate of Duke AI Health
+-   Work focuses on developing data science tools to improve patient experience using biomedical data (including EHR)
+-   Dad of 4 and 6 year old daughters 🙂
+:::
+
+------------------------------------------------------------------------
+
+## Teaching Assistants (TAs)
+
+-   Dr. Youngsoo Baek (PhD)
+    -   Phd in Statistical Science from Duke University
+    -   Postdoc in Biostatistics & Bioinformatics
+
+<!-- ## Check-in on Ed Discussion! -->
+
+<!-- ::: question -->
+
+<!-- Click on the link or scan the QR code to answer the Ed Discussion poll -->
+
+<!-- <https://edstem.org/us/courses/62513/discussion/625046> -->
+
+<!-- <center>\ -->
+
+<!-- ![](images/01/ed-discussion-qr-lec-01.png){width="30%"}</center> -->
+
+<!-- ::: -->
+
+## Topics
+
+-   Introduction to the course
+
+-   Syllabus activity
+
+-   The Table Game: An Intro to Bayes
+
+# BIOSTAT 725
+
+## What is Bayesian Health Data Science?
+
+<div>
+
+> *Bayesian Health Data Science involves using Bayesian methods to analyze health data, which can include electronic health records (EHR), clinical trial data, and other health-related datasets. These methods are **model-based and can appropriately quantify and propagate uncertainty**, making them suitable for tackling challenges in health research.*
+
+Source: ChatGPT
+
+</div>
+
+## Why Data Science?
+
+::: incremental
+-   Statistics versus Data Science?
+-   Introductory Bayesian statistics courses are often very mathematical and involve intense computation; thus Bayesian methods are not as frequently used in applied settings.
+-   Modern software now exists to lower the mathematical burden and computational intensity of Bayesian statistics, but courses do not reflect this.
+-   This course focuses on teaching students Bayesian statistics as a \textcolor{red}{tool} for research; or anywhere data science is practiced.
+:::
+
+## What is BIOSTAT 725?
+
+<br>
+
+:::::: columns
+::: {.column width="40%"}
+<center>
+
+<h2><font color="#993399"> Bayes </font></h2>
+
+Modeling
+
+</center>
+:::
+
+::: {.column width="10%"}
+<center>
+
+<h2><font color="#993399">+</font></h2>
+
+</center>
+:::
+
+::: {.column width="40%"}
+<center>
+
+<h2><font color="#993399"> Stan</font></h2>
+
+Probabilistic Programming
+
+</center>
+:::
+::::::
+
+<br>
+
+**Prerequisites:** BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course with instructor permission.
+
+## Course learning objectives {.midi}
+
+By the end of the semester, you will be able to...
+
+-   understand fundamental concepts of Bayesian statistics, including prior and posterior, and predictive distributions,
+-   implement the Bayesian workflow, including model building, checking, and refinement,
+-   use probabilistic programming software for Bayesian analysis (e.g., Stan),
+-   apply Bayesian techniques to real-world health data,
+-   communicate Bayesian analysis results effectively to both technical and non-technical audiences, and
+-   identify opportunities for using Bayesian statistics in your research and/or job.
+
+## Course topics {.midi}
+
+::::::::: columns
+::::: {.column width="48%"}
+::: {.fragment fragment-index="1"}
+### Linear regression {style="color: #993399"}
+
+-   Methods for inference
+-   Prior elicitation
+-   Posterior estimation
+-   Uncertainty quantification
+-   Model assessment
+-   Bayesian workflow
+-   Prediction
+:::
+
+::: {.fragment fragment-index="3"}
+### Health Datasets {style="color: #993399"}
+:::
+:::::
+
+::::: {.column width="48%"}
+::: {.fragment fragment-index="2"}
+### Extensions {style="color: #993399"}
+
+-   Robust regression
+-   Regularization
+-   Classification
+-   Missing data
+:::
+
+::: {.fragment fragment-index="4"}
+### Hierarchical Model {style="color: #993399"}
+
+-   Gaussian processes
+-   Longitudinal data
+-   Spatial data
+:::
+:::::
+:::::::::
+
+# Course overview
+
+## Course toolkit {.midi}
+
+-   **Website**: <https://biostat725-sp25.netlify.app/>
+    -   Central hub for the course!
+    -   **Tour of the website**
+-   **Canvas**: <https://canvas.duke.edu/courses/53305>
+    -   Gradebook
+    -   Announcements
+    -   Gradescope
+    -   Ed Discussion
+-   **GitHub:** [github.com/biostat725-sp25](https://github.com/biostat725-sp25)
+    -   Distribute assignments
+    -   Platform for version control and collaboration
+
+## Computing toolkit {.midi}
+
+::::::::: columns
+::::: {.column width="50%"}
+::: {.fragment fragment-index="1"}
+![](images/01/rstudio.png){fig-alt="RStudio logo" fig-align="center" width="5.61in" height="1.6in"}
+:::
+
+::: {.fragment fragment-index="2"}
+-   All analyses using R, a statistical programming language
+
+-   Inference using Stan, a probabilistic programming language ([rstan](https://mc-stan.org/users/interfaces/rstan))
+
+-   Write reproducible reports in Quarto
+
+-   Access RStudio through [BIOSTAT 725 Docker Containers](https://cmgr.oit.duke.edu/containers)
+:::
+:::::
+
+::::: {.column width="50%"}
+::: {.fragment fragment-index="1"}
+![](images/01/github.png){fig-alt="GitHub logo" fig-align="center" width="5.61in" height="1.6in"}
+:::
+
+::: {.fragment fragment-index="3"}
+-   Access assignments
+
+-   Facilitates version control and collaboration
+
+-   All work in [BIOSTAT 725 course organization](https://github.com/biostat725-sp25)
+:::
+:::::
+:::::::::
+
+## Syllabus activity
+
+::: question
+1.  Introduce yourself to your group members.
+2.  Choose a reporter. This person will share the group's summary with the class.
+3.  Read the portion of the syllabus assigned to your group.
+4.  Discuss the key points and questions you my have.
+5.  The reporter will share a summary with the class.
+:::
+
+## Syllabus activity assignments
+
+-   Group 1: [What to expect in the course](https://biostat725-sp25.netlify.app/syllabus#what-to-expect-in-the-course)
+
+-   Group 2: [Homework](https://biostat725-sp25.netlify.app/syllabus#homework)
+
+-   Group 3: [Exams](https://biostat725-sp25.netlify.app/syllabus#exams)
+
+-   Group 4: [Live Coding](https://biostat725-sp25.netlify.app/syllabus#live-coding)
+
+-   Group 5: [Participation (Application exercises + teamwork)](https://biostat725-sp25.netlify.app/syllabus#participation-application-exercises-teamwork)
+
+-   Group 6: [Academic honesty (except AI policy)](https://biostat725-sp25.netlify.app/syllabus#academic-honesty)
+
+-   Group 7: [Artificial intelligence policy](https://biostat725-sp25.netlify.app/syllabus#academic-honesty)
+
+-   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp25.netlify.app/syllabus#late-work-policy)
+
+-   Group 9: [Attendance and lecture recording request](https://biostat725-sp25.netlify.app/syllabus#regrade-requests)
+
+-   Group 10: [Getting help in the course](https://biostat725-sp25.netlify.app/syllabus#getting-help-in-the-course)
+
+## Syllabus activity report out
+
+::: incremental
+-   Group 1: [What to expect in the course](https://biostat725-sp25.netlify.app/syllabus#what-to-expect-in-the-course)
+
+-   Group 2: [Homework](https://biostat725-sp25.netlify.app/syllabus#homework)
+
+-   Group 3: [Exams](https://biostat725-sp25.netlify.app/syllabus#exams)
+
+-   Group 4: [Live Coding](https://biostat725-sp25.netlify.app/syllabus#live-coding)
+
+-   Group 5: [Participation (Application exercises + teamwork)](https://biostat725-sp25.netlify.app/syllabus#participation-application-exercises-teamwork)
+
+-   Group 6: [Academic honesty (except AI policy)](https://biostat725-sp25.netlify.app/syllabus#academic-honesty)
+
+-   Group 7: [Artificial intelligence policy](https://biostat725-sp25.netlify.app/syllabus#academic-honesty)
+
+-   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp25.netlify.app/syllabus#late-work-policy)
+
+-   Group 9: [Attendance and lecture recording request](https://biostat725-sp25.netlify.app/syllabus#regrade-requests)
+
+-   Group 10: [Getting help in the course](https://biostat725-sp25.netlify.app/syllabus#getting-help-in-the-course)
+:::
+
+## Grading
+
+| Category                       | Percentage |
+|--------------------------------|------------|
+| Homework                       | 40%        |
+| Exam 01                        | 20%        |
+| Exam 02                        | 20%        |
+| Live Coding                    | 10%        |
+| Participation (AEs + Teamwork) | 10%        |
+| Total                          | 100%       |
+
+## Five tips for success in BIOSTAT 725
+
+1.  Complete all the preparation work before class.
+
+2.  Ask questions in class, office hours, and on Ed Discussion.
+
+3.  Do the homework; get started on homework early when possible.
+
+4.  Don't procrastinate and don't let a week pass by with lingering questions.
+
+5.  Stay up-to-date on announcements on Ed Discussion and sent via email.
+
+# An Introduction to Bayesian Statistics
+
+## Early Years
+
+::::: columns
+::: {.column width="50%"}
+![](images/01/bayes.png){fig-align="center" height="400"}\
+Thomas Bayes, 1701-1761
+:::
+
+::: {.column width="50%"}
+![](images/01/laplace.png){fig-align="center" height="400"}\
+Pierre-Simon Laplace, 1749-1827
+:::
+:::::
+
+## Bayes Theorem
+
+First introduced in its' modern form in the 1920's.
+
+-   Suppose we have events $A$ and $B$ with probabilities $P(A)$ and $P(B)$.
+-   The basic form of Bayes theorem is given by, $$P(A|B)=\frac{P(A, B)}{P(B)}=\frac{P(B|A)P(A)}{P(B)}.$$
+-   Bayes rule gives the relationship between the marginal probabilities of $A$ and $B$ and the conditional probabilities
+
+## What did Bayes say?
+
+\
+![](images/01/bayesproblem.png){fig-align="center"}
+
+## Translation: The Table Game
+
+We will illuminate a version of the example explored by Bayes in his original paper Originally from [Eddy 2004](https://doi.org/10.1038/nbt0904-1177).
+
+<div>
+
+> Alice and Bob are playing a game in which the first person to get 6 points wins. The way each point is decided is a little strange. The Casino has a pool table that Alice and Bob can't see. Before the game begins, the Casino rolls an initial ball onto the table, which comes to rest at a completely random position, which the Casino marks. Then, each point is decided by the Casino rolling another ball onto the table randomly. If it comes to rest to the left of the initial mark, Alice wins the point; to the right of the mark, Bob wins the point. The Casino reveals nothing to Alice and Bob except who won each point.
+
+</div>
+
+## Exploring the Game
+
+-   The probability that Alice wins a point is the fraction of the table to the left of the mark, call this probability $\pi$, and for Bob, $1-\pi.$
+-   Note: Because the Casino rolled the initial ball to a random position, before any points were decided every value of $\pi$ was equally probable.
+-   The mark is only set once per game, so $\pi$ is the same for every point.
+
+::: question
+**The Question:** Imagine Alice is already winning 5 points to 3, and now she bets Bob that she's going to win. What are fair betting odds for Alice to offer Bob? That is, what is the expected probability that Alice will win?
+:::
+
+## Different Ways to Approach The Question
+
+::: incremental
+-   If $\pi$ were known this would be easy!
+-   Inferring $\pi$ from the data, classical inference.
+-   Inferring $\pi$ from the data, Bayesian inference.
+:::
+
+## If $\pi$ were known this would be easy!
+
+-   Because Alice just needs one more point to win, Bob only wins the game if he takes the next three points in a row. The probability of this is $(1-\pi)^3$.
+-   Alice will win on any other outcome, so the probability of her winning is $1-(1-\pi)^3$.\
+
+*Example*: If we were flipping a coin, $\pi=\frac{1}{2}$.\
+
+$\implies$Alice will win with probability $\frac{7}{8}$ and the odds will be $7:1$.
+
+## Inferring $\pi$ from the data, classical inference.
+
+<!-- - Frequentists treat the data as random and are interested in the $P(data|model)$.  -->
+
+<!-- - Then the model parameters are optimized under the conditions of the observed data (e.g., using MLE). -->
+
+-   Define the random variable $A_i$ as the event that Alice wins a point on throw $i$. Then, assuming conditional independence, $$P(data|model)=\prod_{i=1}^8 p(A_i|\pi) \sim Binomial(8,\pi)$$
+-   The interpretation of $\hat{\pi}$ is intuitive: the frequency at which Alice has won so far ($\hat{\pi} = \frac{5}{8}$).
+-   What comes with this? The usual, asymptotic normality, confidence intervals, p-values, etc...
+
+## Inferring $\pi$ from the data, classical inference.
+
+Suppose our interest is in: $H_0: \pi = 0.5, H_1: \pi > 0.5$.\
+
+-   Asymptotic Theory: $\pi \sim N\left(\hat{\pi}, \frac{\hat{\pi}(1-\hat{\pi})}{n}\right) = N\left(\frac{5}{8}, \frac{15}{512}\right)$. <!-- - Exact inference sometimes exists. -->
+-   Confidence Intervals: $\pi: \hat{\pi} \pm 1.96 \sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n}}=(0.29,0.96)$.
+-   p-values: $z=\frac{(\hat{\pi}-0.5)}{\sqrt{\frac{0.5\left(1-0.5\right)}{8}}}=0.71\sim N(0,1)\implies p=0.24$.
+
+::: question
+The expected value that Alice wins is $1-(1-\hat{\pi})^3=\frac{485}{512}$ and the odds are $\frac{485/512}{27/512}=18:1$.
+:::
+
+## Bayesian Framework
+
+::: incremental
+-   Fundamental assumption: unknown parameters are random variables. (i.e., no longer interested in assuming that unknown parameters are fixed).
+-   Probability statements can be assigned to parameters, since each parameters is assumed to have a distribution.
+-   Prior information is incorporated into our estimates (do not want to ignore large body of prior research).
+-   **This is a huge step from the Frequentist framework where theory is based on asymptotics and unknown parameters are assumed to have a true value.**
+:::
+
+## Bringing it back to Thomas Bayes
+
+::::: columns
+::: {.column width="40%"}
+![](images/01/bayes.png){fig-align="center"} 1763: *An Essay towards solving a Problem in the Doctrine of Chances*
+:::
+
+::: {.column width="60%"}
+-   He understood that the underlying probability of a win was random\
+-   Not just random, but clearly uniform between 0 and 1
+-   $f(\pi)\sim \text{Uniform}(0,1)$\
+    $[\text{Uniform}(0,1)=\text{Beta}(1,1)]$\
+
+$f(\pi)=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\pi^{a-1}(1-\pi)^{b-1}$
+:::
+:::::
+
+<!-- ## Inferring $\pi$ from the data, Bayesian inference. -->
+
+<!-- Posterior estimation, (define $A^8=A_1,\ldots,A_8$) -->
+
+<!-- \begin{align*} -->
+
+<!-- \mathbb{E}[\text{Alice wins}|A^8]&=1-\mathbb{E}[\text{Bob wins}|A^8]\\ -->
+
+<!-- &=1-\mathbb{E}[A_9=0,A_{10}=0,A_{11}=0|A^8]\\ -->
+
+<!-- &=1-\mathbb{E}[(1-\pi)^3|A^8]\\ -->
+
+<!-- &=1-\int_{0}^1 (1-\pi)^3 f(\pi |A^8) d\pi -->
+
+<!-- \end{align*} -->
+
+<!-- What is $f(\pi |A^8)$? **Our posterior distribution!** -->
+
+<!-- ## Inferring $\pi$ from the data, Bayesian inference. -->
+
+<!-- Computing the posterior distribution: -->
+
+<!-- \begin{align*} -->
+
+<!-- f(\pi|A^8)&=\frac{f(A^8|\pi)f(\pi)}{f(A^8)}\\ -->
+
+<!-- &=\frac{f(A^8|\pi)f(\pi)}{\int_0^1 f(A^8|\pi) f(\pi) d\pi}\\ -->
+
+<!-- &=\frac{\frac{8!}{5!3!} \pi^5 (1-\pi)^3f(\pi)}{\int_0^1 \frac{8!}{5!3!} \pi^5 (1-\pi)^3f(\pi) d\pi} -->
+
+<!-- \end{align*} -->
+
+<!-- How to choose the prior: $f(\pi)$? -->
+
+<!-- ## Bringing it back to Thomas Bayes -->
+
+<!-- ::: columns -->
+
+<!-- ::: {.column width="40%"} -->
+
+<!-- ![](images/01/bayes.png){fig-align="center"} -->
+
+<!-- 1763: *An Essay towards solving a Problem in the Doctrine of Chances*   -->
+
+<!-- ::: -->
+
+<!-- ::: {.column width="60%"} -->
+
+<!-- - He understood that the underlying probability of a win was random    -->
+
+<!-- - Not just random, but clearly uniform between 0 and 1 -->
+
+<!-- - $f(\pi)\sim \text{Uniform}(0,1)$\ -->
+
+<!-- $[\text{Uniform}(0,1)=\text{Beta}(1,1)]$\ -->
+
+<!-- $f(\pi)=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\pi^{a-1}(1-\pi)^{b-1}$ -->
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- ## Inferring $\pi$ from the data, Bayesian inference. {.small} -->
+
+<!-- Computing the posterior distribution: -->
+
+<!-- \begin{align*} -->
+
+<!-- f(\pi|A^8)&=\frac{\frac{8!}{5!3!} \pi^5 (1-\pi)^3f(\pi)}{\int_0^1 \frac{8!}{5!3!} \pi^5 (1-\pi)^3f(\pi) d\pi}\\ -->
+
+<!-- &=\frac{\frac{8!}{5!3!} \pi^5 (1-\pi)^3 \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\pi^{a-1}(1-\pi)^{b-1}}{\int_0^1 \frac{8!}{5!3!} \pi^5 (1-\pi)^3 \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\pi^{a-1}(1-\pi)^{b-1} d\pi}\\ -->
+
+<!-- &=\frac{\pi^{(a+5)-1} (1-\pi)^{(3+b)-1}}{\int_0^1 \pi^{(a+5)-1} (1-\pi)^{(3+b)-1} d\pi}\\ -->
+
+<!-- &=\frac{\Gamma(a+5+3+b)}{\Gamma(a+5)\Gamma(3+b)}\pi^{(a+5)-1} (1-\pi)^{(3+b)-1}\\ -->
+
+<!-- &\sim \text{Beta}(a+5,b+3). -->
+
+<!-- \end{align*} -->
+
+<!-- That seemed HARD! Let's do this another way. -->
+
+<!-- ## Inferring $\pi$ from the data, Bayesian inference. -->
+
+<!-- ::: small -->
+
+<!-- Computing the posterior distribution: -->
+
+<!-- \begin{align*} -->
+
+<!-- f(\pi|A^8)&=\frac{f(A^8|\pi)f(\pi)}{\int_0^1 f(A^8|\pi) f(\pi) d\pi}\\ -->
+
+<!-- &\propto f(A^8|\pi)f(\pi)\\ -->
+
+<!-- &=\frac{8!}{5!3!} \pi^5 (1-\pi)^3 \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\pi^{a-1}(1-\pi)^{b-1}\\ -->
+
+<!-- &\propto \pi^{(a+5)-1} (1-\pi)^{(3+b)-1}\\ -->
+
+<!-- &\sim \text{Beta}(a+5,b+3). -->
+
+<!-- \end{align*} -->
+
+<!-- Under uniform prior, the posterior is $\text{Beta}(6,4)$.\ -->
+
+<!-- *Key concepts: Kernel tricks, conjugacy* -->
+
+<!-- ::: -->
+
+## Inferring $\pi$ from the data, Bayesian inference.
+
+<!-- Suppose our interest is in: $H_0: \pi =0.5, H_1: \pi > 0.5.$ -->
+
+<!-- We will use our posterior distribution:  -->
+
+Under Bayes' prior, he was able to compute a posterior distribution, $\text{Beta}(6,4)$.
+
+::::: columns
+::: {.column width="60%"}
+-   Asymptotic Theory: Not needed
+-   Exact inference always exists.
+-   95% Credible Interval:
+    -   $\pi \in (0.30,0.86)$
+-   p-values: $P(\pi>0.5|A^8)=0.75$.
+:::
+
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| fig-width: 3
+#| fig.asp: 1
+x <- seq(0,1,0.001)
+density <- dbeta(x, 6, 4)
+dat.fig <- data.frame(x = x, density = density)
+ggplot(dat.fig, aes(x = x, y = density)) + 
+  geom_line(size = 2) + 
+  theme_bw() + 
+  xlab(expression(pi)) +
+  ylab("Density") + 
+  geom_vline(xintercept = qbeta(0.025,6,4), linetype = "dotted", color = "blue", size=2) + 
+  geom_vline(xintercept = qbeta(0.975,6,4), linetype = "dotted", color = "blue", size=2) +
+  labs(title = "Beta(6, 4)")
+```
+:::
+:::::
+
+::: question
+For the uniform prior, the posterior probability that Alice wins is $\frac{10}{11}$, with odds $10:1$.
+
+<!-- $\mathbb{E}[\text{Alice wins}|A^8]=\frac{10}{11}$, with odds $10:1$. -->
+:::
+
+<!-- ## Inferring $\pi$ from the data, Bayesian inference. -->
+
+<!-- ::: small -->
+
+<!-- Let's return to Alice and Bob:  -->
+
+<!-- $$\mathbb{E}[\text{Alice wins}|A^8]=1-\int_{0}^1 (1-\pi)^3 f(\pi |A^8) d\pi,$$  -->
+
+<!-- where -->
+
+<!-- \begin{align*} -->
+
+<!-- \int_{0}^1 (1-\pi)^3 f(\pi |A^8) d\pi&=\int_{0}^1 (1-\pi)^3  \frac{\Gamma(a+b+8)}{\Gamma(a+5)\Gamma(b+3)}\pi^{(a+5)-1}(1-\pi)^{(b+3)-1} d\pi\\ -->
+
+<!-- &=\frac{\Gamma(a+b+8)}{\Gamma(a+5)\Gamma(b+3)} \int_{0}^1 \pi^{(a+5)-1} (1-\pi)^{(b+6)-1} d\pi\\ -->
+
+<!-- &= \frac{\Gamma(a+b+8)}{\Gamma(a+5)\Gamma(b+3)} \frac{\Gamma(a+5)\Gamma(b+6)} {\Gamma(a+b+11)}. -->
+
+<!-- \end{align*} -->
+
+<!-- For the uniform prior, $\mathbb{E}[\text{Alice wins}|A^8]=\frac{10}{11}$, with odds $10:1$. -->
+
+<!-- :::  -->
+
+## Why do Frequentist and Bayesian Approaches Differ? {.midi}
+
+-   Frequentist could lose a lot of money!
+-   Frequentist approach can be improved by estimating $\pi$ after each throw.
+-   What if we assume the probability of Alice winning each throw are not independent, \begin{align*}
+    \mathbb{E}[\text{Alice wins}]&=1-\mathbb{E}[A_9=0,A_{10}=0,A_{11}=0]\\
+    &=1-\mathbb{E}[A_9=0]\mathbb{E}[A_{10}=0|A_9=0] \\
+    &\times \mathbb{E}[A_{11}=0|A_9=0,A_{10}=0]\\
+    &=1-\left(\frac{3}{8}\right)\left(\frac{4}{9}\right)\left(\frac{5}{10}\right)=0.92.
+    \end{align*} $\implies$ Odds=11:1.
+
+## What's going on?
+
+::::: small
+:::: columns
+::: {.column width="100%"}
+The Frequentist method can be seen as a subset of the Bayesian method, with a Beta(0,0) prior.
+
+<center>
+
+```{r}
+#| echo: false
+#| fig-height: 2.5
+x <- seq(0, 1, 0.001)
+density1 <- dbeta(x, 1, 1)
+density0 <- x^(-1) * (1 - x)^(-1)
+dat.fig <- data.frame(x = rep(x, 2), density = c(density1, density0 / 10), prior = rep(c("Beta(1, 1)", "Beta(0, 0)"), each = length(x)))
+ggplot(dat.fig, aes(x = x, y = density, color = prior)) + 
+  geom_line(size = 2) + 
+  theme_bw() + 
+  xlab(expression(pi)) +
+  ylab("Density") + 
+  ylim(0, 10) + 
+  labs(color = "Prior")
+```
+
+</center>
+:::
+::::
+:::::
+
+. . .
+
+::: small
+\begin{table}[htdp]
+\textbf{Summary of Methods}
+\begin{center}
+\begin{tabular}{llllll}
+Method & $\hat{\pi}$ & 95\% CI& p-value & $\mathbb{E}$[Alice wins] & Odds\\ \hline 
+MLE: Naive & 0.625 &(0.29, 0.96)& 0.24 & 0.95 & 18:1\\
+MLE: Dependent & 0.625 & (0.29, 0.96) & 0.24 & 0.92 & 11:1\\
+Bayes: Beta(0,0) & 0.625 & (0.29, 0.90)& 0.77 & 0.92 & 11:1\\
+Bayes: Beta(1,1) & 0.600 &(0.30, 0.86)& 0.75 & 0.91 & 10:1 \\ \hline
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}
+:::
+
+## Pros and Cons of Bayesian Inference
+
+Cons:
+
+-   Computations can be difficult.
+-   Bayesian methods require specifying prior probability distributions, which are often themselves unknown.
+-   It is not clear that parameters or hypotheses should be treated as random variables.\
+
+Pros:
+
+-   Often not possible to get good estimates in complex problems without taking a Bayesian or approximately Bayesian approach.
+-   Prior distributions can incorporate prior knowledge.
+-   Probability statements can be made about parameters.
+
+## What did the Table Game teach us?
+
+The beauty of Bayes' Table Game analogy is that it circumvented all three cons in one stroke...
+
+-   The resulting integrals have analytic solutions.
+-   It provided a physical mechanism for drawing a probability from a uniform prior.
+-   Representing the unknown parameter as random is logical.
+
+It is easy to verify that the correct answer to the table game problem is 10:1.
+
+*Does this mean that Frequentist methods can't be used in this problem?*
+
+## When to use Bayesian inference?
+
+The choice is up to the statistician!
+
+-   Bayesian methods can be a tool for statisticians.
+-   Don't be stubborn (i.e., only use Frequentist or Bayesian methods)
+-   There are times that Frequentist methods are preferred...and times that Bayesian methods are preferred.
+-   It is good to know about both!
+
+## Prepare for next week
+
+-   Complete [HW 00 tasks](https://biostat725-sp25.netlify.app/hw/hw-00)
+
+-   Review [syllabus](https://biostat725-sp25.netlify.app/syllabus)
+
+-   Complete reading to prepare for Tuesday's lecture
+
+-   Tuesday's lecture: Probability and Bayesian Statistics

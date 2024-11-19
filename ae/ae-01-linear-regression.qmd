@@ -1,0 +1,307 @@
+---
+title: "AE 01: Posterior estimation using sampling "
+subtitle: "Houses in Duke Forest"
+date: "Jan 16, 2025"
+---
+
+::: callout-important
+## Due date
+
+Application exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
+
+This AE is due on **Friday, January 18 at 11:59pm.** To be considered on time, the following must be done by the due date:
+
+-   Final `.qmd` and `.pdf` files pushed to your GitHub repo
+-   **Note:** For homeworks and exams, you will also be required to submit your final `.pdf` file submitted on Gradescope
+:::
+
+# Introduction
+
+This AE will go through much of the same workflow we've demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.
+
+## Learning goals
+
+By the end of the AE, you will...
+
+-   Be familiar with the workflow using RStudio and GitHub
+-   Gain practice writing a reproducible report using Quarto
+-   Practice version control using GitHub
+-   Be able to produce visualizations and summary statistics to describe distributions
+-   Be able to fit, interpret, and evaluate Bayesian linear regression models
+
+# Getting Started
+
+## Clone the repo & start new RStudio project
+
+-   Go to the course organization at [github.com/biostat725-sp25](https://github.com/biostat725-sp25) organization on GitHub.
+-   Click on the repo with the prefix **ae-01-**. It contains the starter documents you need to complete the AE.
+-   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you'll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
+    -   See the [HW 00 instructions](https://biostat725-sp25.netlify.app/hw/hw-00#connect-rstudio-and-github) if you have not set up the SSH key or configured git.
+-   In RStudio, go to *File* $\rightarrow$ *New Project* $\rightarrow$ *Version Control* $\rightarrow$ *Git*.
+-   Copy and paste the URL of your assignment repo into the dialog box *Repository URL*. Again, please make sure to have *SSH* highlighted under *Clone* when you copy the address.
+-   Click *Create Project*, and the files from your GitHub repo will be displayed in the *Files* pane in RStudio.
+-   Click `ae-01-linear-regression.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
+
+## R and R Studio
+
+Below are the components of the RStudio IDE.
+
+![](images/rstudio-panes.png){fig-alt="Screenshot of RStudio IDE" fig-align="center"}
+
+Below are the components of an Quarto (`.qmd`) file.
+
+![](images/quarto.png){fig-alt="Screenshot of Quarto document and rendered PDF." fig-align="center"}
+
+### YAML
+
+The top portion of your Quarto file (between the three dashed lines) is called **YAML**. It stands for "YAML Ain't Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
+
+::: callout-important
+Open the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document.
+:::
+
+### Committing changes
+
+Now, go to the Git pane in your RStudio instance. This will be in the top right hand corner in a separate tab.
+
+If you have made changes to your Quarto (.qmd) file, you should see it listed here. Click on it to select it in this list and then click on **Diff**. This shows you the *diff*erence between the last committed state of the document and its current state including changes. You should see deletions in red and additions in green.
+
+If you're happy with these changes, we'll prepare the changes to be pushed to your remote repository. First, **stage** your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, "updated author name") in the **Commit message** box. Finally, click **Commit**. Note that every commit needs to have a commit message associated with it.
+
+You don't have to commit after every change, as this would get quite tedious. You should commit states that are *meaningful to you* for inspection, comparison, or restoration.
+
+In the first few assignments we may tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.
+
+Now let's make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you're good to go!
+
+### Push changes
+
+Now that you have made an update and committed this change, it's time to push these changes to your repo on GitHub.
+
+In order to push your changes to GitHub, you must have **staged** your **commit** to be pushed. click on **Push**.
+
+<!-- ::: callout-important -->
+<!-- Go to the [course GitHub organization](https://github.com/biostat725-sp25) and locate your `ae-01` repo to get started. -->
+
+<!-- Render, commit, and push your responses to GitHub by the end of class to submit your AE. -->
+<!-- ::: -->
+
+# R packages
+
+We will begin by loading R packages that we will use in this AE.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)    # data wrangling and visualization
+library(tidymodels)   # broom and yardstick package
+library(openintro)    # duke_forest dataset
+library(knitr)        # format output
+library(scales)       # format plot axes
+library(skimr)        # quickly calculate summary statistics
+library(mvtnorm)      # multivariate normal rng
+```
+
+# Data
+
+The data are on houses that were sold in the Duke Forest neighborhood of Durham, NC around November 2020. It was originally scraped from Zillow, and can be found in the `duke_forest` data set in the **openintro** R package.
+
+We will focus on two variables:
+
+-   `area`: Total area of the home in square feet (sqft)
+
+-   `price`: Sale price in US Dollars (USD)
+
+The goal of this analysis is to use the area to understand variability in the price of homes in Duke Forest.
+
+```{r}
+#| label: glimpse-data
+
+glimpse(duke_forest)
+```
+
+# Exploratory data analysis
+
+Let's begin by examining the univariate distributions of the price and area. The code to visualize and calculate summary statistics for `price` is below.
+
+```{r}
+#| label: price-viz
+
+ggplot(data = duke_forest, aes(x = price)) + 
+  geom_histogram() +
+  labs(x = "Price in US dollars", 
+       title = "Price of houses in Duke Forest") + 
+  scale_x_continuous(labels = label_dollar(scale_cut = cut_long_scale()))
+```
+
+```{r}
+#| label: price-summary
+duke_forest |>
+  summarise(min = min(price), q1 = quantile(price, 0.25), 
+            median = median(price), q3 = quantile(price, 0.75), 
+            max = max(price), mean = mean(price), sd = sd(price)) |>
+  kable(digits = 3)
+```
+
+# Posterior estimation
+
+You want to fit a model of the form
+
+$$
+price_i = \beta_0 + \beta_1 ~ area_i + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma^2).
+$$ 
+
+We can obtain samples from the posterior distribution for the regression parameters using the specification from the slides. We define the data objects needed for posterior estimation. Note that the distribution of the outcome has a massive range, so we scale the outcome and predictor to have mean zero and standard deviation one. This will help stabilize inference in the Gibbs sampler. 
+
+```{r}
+X <- cbind(1, scale(duke_forest$area))
+Y <- scale(duke_forest$price)
+p <- 1
+n <- length(Y)
+```
+
+We will then define hyperparameters for the priors. Since, the data has been centered and scaled we can place priors that place most of the prior mass near zero.
+
+```{r}
+sigma_beta2 <- 10
+beta0 <- rep(0, p + 1)
+a <- 3
+b <- 1
+```
+
+We can now obtain samples from the posterior using Gibbs sampling. Let's set $S=5,000$.
+
+```{r}
+sigma2 <- exp(rnorm(1)) # initial value
+samples <- NULL
+for (s in 1:5000) {
+  ###Sample from full conditional for beta
+  var_beta <- chol2inv(chol(t(X) %*% X / sigma2 + diag(p + 1) / sigma_beta2))
+  mean_beta <- var_beta %*% (beta0 / sigma_beta2 + t(X) %*% Y / sigma2)
+  beta <- as.numeric(rmvnorm(1, mean_beta, var_beta))
+  
+  ###Sample from full conditional for sigma2
+  quadratic <- as.numeric(t(Y - X %*% beta) %*% (Y - X %*% beta))
+  sigma2 <- 1 / rgamma(1, shape = a + n / 2, rate = b + quadratic / 2)
+  
+  ###Save samples after a burn-in
+  samples <- rbind(samples, c(beta, sigma2))
+}
+```
+
+# Insepction of Gibbs sampler
+
+We can begin by inspecting the posterior density and traceplots.
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+#| fig-height: 3
+#| layout-nrow: 2
+dat.fig <- data.frame(
+  parameter = rep(c("beta[0]", "beta[1]", "sigma^2"), each = 5000),
+  index = rep(1:5000, 3),
+  value = as.numeric(samples)
+)
+ggplot(dat.fig, aes(x = value)) +
+  geom_density(lwd = 1.5) +
+  facet_grid(. ~ parameter, labeller = label_parsed, scales = "free_x") +
+  ylab("Density") +
+  xlab("Parameter value")
+ggplot(dat.fig, aes(x = index, y = value)) + 
+  geom_line(lwd = 0.5) + 
+  facet_grid(. ~ parameter, labeller = label_parsed, scales = "free_x") + 
+  ylab("Parameter value") +
+  xlab("Sample index")
+```
+
+The traceplots do not exhibit much autocorrelation, indicating we are looking at samples from the posterior.
+
+To recover the regression parameters on their original scale, we can use the following transformation, where $\mu_Y$, $\sigma_Y$ are the mean and standard deviation for our outcome, *price*, $\mu_X$, $\sigma_X$ are the mean and standard deviation for the predictor, *area*, and $\beta_0^*$, $\beta_1^*$ are the regression parameters obtained from the Gibbs sampler above (i.e., on the transformed data).
+
+\begin{align*}
+\beta_0 &= \mu_Y + \sigma_Y \beta_0^* - \frac{\sigma_Y}{\sigma_X} \mu_X \beta_1^*\\
+\beta_1 &= \frac{\sigma_Y}{\sigma_X} \beta_1^*
+\end{align*}
+
+Using this transformation, $\beta_0$ and $\beta_1$ are on the original scale.
+
+```{r}
+mean_y <- mean(duke_forest$price)
+sd_y <- sd(duke_forest$price)
+mean_x <- mean(duke_forest$area)
+sd_x <- sd(duke_forest$area)
+intercept <- mean_y + sd_y * samples[, 1] - (sd_y / sd_x) * mean_x * samples[, 2]
+slope <- (sd_y / sd_x) * samples[, 2]
+```
+
+A histogram of the posterior parameters can be examined as follows. 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-align: "center"
+#| fig-height: 4
+#| layout-ncol: 2
+ggplot(data.frame(intercept), aes(x = intercept)) + 
+  geom_histogram() +
+  labs(x = expression(beta[0]),
+       y = "Count") + 
+  scale_x_continuous(labels = label_dollar(scale_cut = cut_long_scale()))
+ggplot(data.frame(slope), aes(x = slope)) + 
+  geom_histogram() +
+  labs(x = expression(beta[1]), 
+       y = "Count")
+```
+
+# Exercises
+
+## Exercise 1
+
+Compute the posterior mean for the intercept and slope of each of the regression coefficients on the scale of the original data. Provide an interpretation for each of these parameter estimates.
+
+**Answer:**
+
+```{r}
+#| label: ex1
+
+# add code here
+
+```
+
+## Exercise 2
+
+Compute a 95% confidence interval for the regression slope. Provide an interpretation for this confidence interval.
+
+**Answer:**
+
+```{r}
+#| label: ex2
+
+# add code here
+
+```
+
+
+## Exercise 3
+
+In real estate, the price per square foot is an indicator of how expensive it is to buy living space in that area, with a higher price per square foot generally signifying a more expensive city due to factors like high demand for limited land, desirable location, and often, a high cost of living.
+
+Let's assume that a city is considered to have a high living cost if the price per square foot is higher than 150. Using the slope as an estimate for price per square foot, estimate the probability that the Duke Forest area has a price per square foot greater than 150, $P(\beta_1 > 150)$. Interpret the results in plain English. 
+
+**Answer:**
+
+```{r}
+#| label: ex3
+
+# add code here
+
+```
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Push all your work to your AE repo on GitHub. You're done! 🎉
+:::

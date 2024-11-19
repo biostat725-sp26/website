@@ -34,13 +34,13 @@ If you have questions about personal matters that are not appropriate for the cl
 
 -   **TimelyCare (formerly known as Blue Devils Care):** An online platform that is a convenient, confidential, and free way for Duke students to receive 24/7 mental health support through TalkNow and scheduled counseling. [bluedevilscare.duke.edu](https://bluedevilscare.duke.edu)
 
-## **Technology accommodations**
+## Technology accommodations
 
 <!-- Highly aided students who have limited access to computers may request loaner laptops through the [DukeLIFE Technology Assistance Program](https://dukelife.duke.edu/technology-assistance-program/). Please note that supplies are limited. -->
 
 While we encourage students to use their own laptops for work in this course, we will provide the opportunity to use Duke's computational resources in this course. These resources are freely available to you. As long as your computer can connect to the internet and open a browser window, you can perform the necessary computing for this course. All software we use is open-source and/or freely available.
 
-## **Course materials costs**
+## Course materials costs
 
 There are no costs associated with this course. All readings will come from freely available, open resources (open-source textbooks, journal articles, etc.).
 

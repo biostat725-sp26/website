@@ -1,0 +1,9 @@
+---
+title: Prepare for January 16 lecture
+---
+
+<br>
+
+📖 Read **Hoff** Chapters 4 and 11 for additional context for Gibbs and Metropolis sampling
+
+✅ Complete [HW 00](https://biostat725-sp25.netlify.app/hw/hw00) tasks

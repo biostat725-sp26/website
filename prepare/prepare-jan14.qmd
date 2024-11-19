@@ -1,0 +1,15 @@
+---
+title: Prepare for January 14 lecture
+---
+
+<br>
+
+Occasionally during the semester we will reference material from the text book *A First Course in Bayesian Statistical Methods* by Peter Hoff. As a Duke student, an electronic version of the book is freely available to you through the [Duke Library](https://library.duke.edu/). We will refer to this textbook as **Hoff**.
+
+📖 Review the basics of probability in **Hoff** Chapter 1
+
+📖 Review the basics of Monte Carlo sampling in **Hoff** Chapter 4
+
+📖 Review [simple linear regression](https://introregression.netlify.app/04-slr)
+
+✅ Complete [HW 00](https://biostat725-sp25.netlify.app/hw/hw00) tasks

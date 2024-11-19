@@ -1,0 +1,420 @@
+---
+title: "Bayesian Linear Regression"
+author: "Prof. Sam Berchuck"
+date: "2025-01-16"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+filters:
+  - parse-latex
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(mvtnorm)
+library(coda)
+```
+## Review of last lecture
+
+On Tuesday, we performed posterior inference for Bayesian linear regression, but we assumed the measurement error ($\sigma$) was known!
+
+-   We did this so we could sample from a closed form posterior.
+
+-   Monte Carlo approximation.
+
+We will consider the same model, $$\mathbf{Y} | \boldsymbol{\beta}, \sigma^2 \sim N(\mathbf{X} \boldsymbol{\beta}, \sigma^2 \mathbf{I}_n)$$
+
+-   In today's lecture we will estimate both $\boldsymbol{\beta}$ and $\sigma^2$. This will require a new algorithm called **Gibbs sampling**.
+
+# Gibbs Sampling
+
+## Posterior for linear regression
+
+\begin{align*}
+f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) &= \frac{f(\mathbf{Y}, \boldsymbol{\beta}, \sigma^2)}{f(\mathbf{Y})}\\
+&= \frac{f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)}{f(\mathbf{Y})}\\
+&= \frac{f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)}{\int f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)d\boldsymbol{\beta}d\sigma^2}.
+\end{align*}
+
+No closed form exists for the posterior. $$f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)$$
+
+## Motivation for Gibbs sampling
+
+-   Suppose we were given $\sigma^{2(1)}$, a single sample from the marginal posterior distribution $f\left(\sigma^2|\mathbf{Y}\right)$ (from where, who knows?)
+
+-   Use the sample to generate $\boldsymbol{\beta}^{(1)}$ from $f\left(\boldsymbol{\beta}|\mathbf{Y},\sigma^{2(1)}\right)$
+
+-   $\left(\boldsymbol{\beta}^{(1)},\sigma^{2(1)}\right)$ is a sample from $f\left(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}\right)$
+
+-   $\boldsymbol{\beta}^{(1)}$ is a sample from $f\left(\boldsymbol{\beta} | \mathbf{Y}\right)$
+
+. . . 
+
+::: callout-important
+## Recall
+
+$f\left(\boldsymbol{\beta}, \sigma^{2}|\mathbf{Y}\right) = f\left(\boldsymbol{\beta} | \sigma^{2},\mathbf{Y}\right)f\left(\sigma^{2}|\mathbf{Y}\right)$
+:::
+
+## Gibbs sampler for linear regression
+
+Suppose we can sample from the following two distribution,
+
+1.  $f(\boldsymbol{\beta} | \mathbf{Y}, \sigma^2) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta})$
+
+2.  $f(\sigma^2 | \mathbf{Y}, \boldsymbol{\beta}) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\sigma^2)$
+
+These are called **full conditional distributions**.
+
+Set initial values for $\boldsymbol{\theta}^{(0)} = (\boldsymbol{\beta}^{(0)}, \sigma^{2(0)})$. Then, given a current state of parameters $\boldsymbol{\theta}^{(s)}$, we can generate a new state as follows:
+
+1.  Sample $\boldsymbol{\beta}^{(s + 1)} \sim f(\boldsymbol{\beta} | \mathbf{Y}, \sigma^{2(s)})$
+
+2.  Sample $\sigma^{2(s + 1)} \sim f(\sigma^2 | \mathbf{Y}, \boldsymbol{\beta}^{(s + 1)})$
+
+3.  Let $\boldsymbol{\theta}^{(s+1)} = (\boldsymbol{\beta}^{(s + 1)}, \sigma^{2(s + 1)})$
+
+## Why does this work?
+
+-   $\boldsymbol{\theta}^{(0)}$ isn’t a sample from the posterior, it is an arbitrarily chosen initial value
+
+-   $\boldsymbol{\theta}^{(1)}$ likely isn’t from the posterior either. Its distribution depends on $\boldsymbol{\theta}^{(0)}$
+
+-   $\boldsymbol{\theta}^{(2)}$ likely isn’t from the posterior either. Its distribution depends on $\boldsymbol{\theta}^{(0)}$ and $\boldsymbol{\theta}^{(1)}$
+
+-   **Theorem:** For any initial values, the chain will eventually converge to the posterior
+
+-   **Theorem:** If $\boldsymbol{\theta}^{(s)}$ is a sample from the posterior, then $\boldsymbol{\theta}^{(s+1)}$ is too
+
+## Gibbs sampler
+
+-   Under mild regulatory conditions that are generally satisfied for most statistical models, one can show that the iteration $\boldsymbol{\theta}^{(s)}$ converges in distribution to a draw from the true joint posterior distribution
+
+-   So for $s$ sufficiently large (say, bigger than $s_0$), $\left\{\boldsymbol{\theta}^{(s)}, s=s_0+1,\ldots,S\right\}$ is a **correlated** sample from the true joint posterior (and $\boldsymbol{\beta}^{(s)}$ and $\sigma^{2(s)}$ are samples from the marginals)
+
+-   Similar to Monte Carlo approximation, we can use these samples to estimate posterior quantities of interest
+
+## Gibbs sampler
+
+-   $\boldsymbol{\theta}^{(t)}$ depends on $\boldsymbol{\theta}^{(0)},\ldots,\boldsymbol{\theta}^{(t-1)}$ only through $\boldsymbol{\theta}^{(t-1)}$
+
+-   $\boldsymbol{\theta}^{(t)}$ is conditionally independent of $\boldsymbol{\theta}^{(0)},\ldots,\boldsymbol{\theta}^{(t-2)}$ given $\boldsymbol{\theta}^{(t-1)}$
+
+    $\implies$ Markov property, so the sequence is called a Markov chain
+
+-   We use the samples similar to MC approximation; therefore, Gibbs sampling is a form of Markov chain Monte Carlo (MCMC)
+
+-   We will cover diagnostics for MCMC in another lecture!
+
+## Gibbs sampler for linear regression
+
+-   Computing the full conditionals.
+
+    1.  We already have the full conditional for $\boldsymbol{\beta}$:
+
+    $\boldsymbol{\beta} | \mathbf{Y}, \sigma^2 \sim N \left(\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}], \mathbb{V}(\boldsymbol{\beta} | \mathbf{Y})\right)$
+
+\begin{align*}
+\mathbb{V}(\boldsymbol{\beta} | \mathbf{Y}) &= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\\
+\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}] &= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\left(\frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{Y}}{\sigma^2}\right)
+\end{align*}
+
+## Gibbs sampler for linear regression
+
+-   Computing the full conditionals.
+
+    1.  $\boldsymbol{\beta} | \mathbf{Y}, \sigma^2 \sim N \left(\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}], \mathbb{V}(\boldsymbol{\beta} | \mathbf{Y})\right)$
+
+    2.  Full conditional for $\sigma^2$, assuming $f(\sigma^2) \sim IG(a, b)$:
+
+    $$\sigma^2 |  \mathbf{Y} , \boldsymbol{\beta} \sim IG\left(a + \frac{n}{2},b+\frac{\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)^\top\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)}{2}\right)$$
+
+    -   Why inverse-Gamma ($IG$) distribution for $\sigma^2$?
+
+## How can we use the posterior?
+
+Let's simulate some data again:
+
+```{r}
+###True parameters
+sigma <- 1.5 # true measurement error
+beta <- matrix(c(-1.5, 3), ncol = 1) # true beta
+
+###Simulation settings
+n <- 100 # number of observations
+p <- length(beta) - 1 # number of covariates
+
+###Simulate data
+set.seed(54) # set seed
+X <- cbind(1, matrix(rnorm(n * p), ncol = p))
+Y <- as.numeric(X %*% beta + rnorm(n, 0, sigma))
+
+###Define hyperparameteters
+beta0 <- matrix(0, nrow = p + 1, ncol = 1)
+sigma_beta <- 10
+a <- 3
+b <- 1
+```
+
+## Perform Gibbs sampling
+
+```{r}
+sigma2 <- exp(rnorm(1)) # initial value
+samples <- NULL
+for (s in 1:5000) {
+  ###Sample from full conditional for beta
+  var_beta <- chol2inv(chol(t(X) %*% X / sigma2 + diag(p + 1) / sigma_beta^2))
+  mean_beta <- var_beta %*% (beta0 / sigma_beta^2 + t(X) %*% Y / sigma2)
+  beta <- as.numeric(rmvnorm(1, mean_beta, var_beta))
+  
+  ###Sample from full conditional for sigma2
+  quadratic <- as.numeric(t(Y - X %*% beta) %*% (Y - X %*% beta))
+  sigma2 <- 1 / rgamma(1, shape = a + n / 2, rate = b + quadratic / 2)
+  
+  ###Save samples after a burn-in
+  samples <- rbind(samples, c(beta, sigma2))
+}
+```
+
+## Inspect results
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-height: 3
+#| layout-nrow: 2
+dat.fig <- data.frame(
+  parameter = rep(c("beta[0]", "beta[1]", "sigma^2"), each = 5000),
+  index = rep(1:5000, 3),
+  value = as.numeric(samples)
+)
+true_beta <- data.frame(true = c(beta, sigma^2),
+                        parameter = c("beta[0]", "beta[1]", "sigma^2"))
+ggplot(dat.fig, aes(x = value)) +
+  geom_density(lwd = 1.5) +
+  facet_grid(. ~ parameter, labeller = label_parsed, scales = "free_x") +
+  geom_vline(data = true_beta, aes(xintercept = true), color = "red", lwd = 1.5, linetype = 2) +
+  ylab("Density") +
+  xlab("Parameter value")
+ggplot(dat.fig, aes(x = index, y = value)) + 
+  geom_line(lwd = 0.5) + 
+  facet_grid(. ~ parameter, labeller = label_parsed, scales = "free_x") + 
+  geom_hline(data = true_beta, aes(yintercept = true), color = "red", lwd = 1, linetype = 2) + 
+  ylab("Parameter value") +
+  xlab("Sample index")
+
+```
+
+## Parameter estimation vs. posterior approximation
+
+-   Model specification: Choice of likelihood and introduction of model parameters
+
+-   Prior specification
+
+-   Calculation of the posterior
+
+-   Summarizing the posterior using MC or MCMC methods:
+
+    -   These are not models!
+
+    -   They do not generate more information than is in $\mathbf{Y}$ or $f\left(\boldsymbol{\theta}\right)$
+
+    -   They are simply ways of looking at $f\left(\boldsymbol{\theta}|\mathbf{Y}\right)$
+
+## Additional topic: Metropolis sampling
+
+-   Before we start using Stan for probabilistic programming, we need to understand the MCMC algorithm that is the engine for Stan's inference, Hamiltonian Monte Carlo.
+
+-   To get us one step closer we will quickly review the concept of Metropolis sampling, another MCMC variant
+
+## Intuition behind Metropolis samping
+
+Suppose we have a working collection $\{\boldsymbol{\theta}^{(1)},\ldots,\boldsymbol{\theta}^{(s)}\}$ to which we would like to add a new value $\boldsymbol{\theta}^{(s+1)}$. Let's consider adding a value $\boldsymbol{\theta}^*$ which is nearby $\boldsymbol{\theta}^{(s)}$. Should we include $\boldsymbol{\theta}^*$ in the set or not?
+
+-   If $f(\boldsymbol{\theta}^* | \mathbf{Y}) > f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})$ then we want more $\boldsymbol{\theta}^*$'s in the set than $\boldsymbol{\theta}^{(s)}$'s.
+
+    -   Since $\boldsymbol{\theta}^{(s)}$ is already in the set, then it seems we should include $\boldsymbol{\theta}^*$ as well.
+
+-   On the other hand, if $f(\boldsymbol{\theta}^* | \mathbf{Y}) < f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})$ then it seems we should not necessarily include $\boldsymbol{\theta}^*$.
+
+-   So, perhaps our decision to include $\boldsymbol{\theta}^*$ or not should be based on a comparison of $f(\boldsymbol{\theta}^* | \mathbf{Y})$ to $f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})$.
+
+## Metropolis acceptance ratio
+
+-   Fortunately, the comparison of $f(\boldsymbol{\theta}^* | \mathbf{Y})$ to $f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})$ can be made even if we cannot compute $f(\boldsymbol{\theta} | \mathbf{Y})$.
+
+\begin{align*}
+r &= \frac{f(\boldsymbol{\theta}^* | \mathbf{Y})}{f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})}\\
+&= \frac{f(\mathbf{Y} | \boldsymbol{\theta}^*)f(\boldsymbol{\theta}^*)}{f(\mathbf{Y})}\frac{f(\mathbf{Y})}{f(\mathbf{Y} | \boldsymbol{\theta}^{(s)})f(\boldsymbol{\theta}^{(s)})}\\
+&= \frac{f(\mathbf{Y} | \boldsymbol{\theta}^*)f(\boldsymbol{\theta}^*)}{f(\mathbf{Y} | \boldsymbol{\theta}^{(s)})f(\boldsymbol{\theta}^{(s)})}
+\end{align*}
+
+Having computed $r$, how should we proceed?
+
+## Metropolis intuition {.midi}
+
+Metropolis ratio: $r = \frac{f(\mathbf{Y} | \boldsymbol{\theta}^*)f(\boldsymbol{\theta}^*)}{f(\mathbf{Y} | \boldsymbol{\theta}^{(s)})f(\boldsymbol{\theta}^{(s)})}$
+
+If $r > 1:$
+
+-   *Intuition:* Since $\boldsymbol{\theta}^{(s)}$ is already in our set, we should include $\boldsymbol{\theta}^*$ as it has a higher probability than $\boldsymbol{\theta}^{(s)}$
+
+-   *Procedure:* Accept $\boldsymbol{\theta}^*$ into our set (i.e., set $\boldsymbol{\theta}^{(s + 1)} = \boldsymbol{\theta}^*$)
+
+If $r < 1:$
+
+-   *Intuition:* The relative frequency of $\boldsymbol{\theta}$-values in our set equal to $\boldsymbol{\theta}^*$ compared to those equal to $\boldsymbol{\theta}^{(s)}$ should be $r$. This means that for every instance of $\boldsymbol{\theta}^{(s)}$, we should have only a "fraction" of an instance of a $\boldsymbol{\theta}^*$ value.
+
+-   *Procedure:* Set $\boldsymbol{\theta}^{(s + 1)}$ equal to either $\boldsymbol{\theta}^*$ or $\boldsymbol{\theta}^{(s)}$, with probability $r$ and $1 − r$ respectively.
+
+## Metropolis update
+
+Given $\boldsymbol{\theta}^{(s)}$, the Metropolis algorithm generates a value $\boldsymbol{\theta}^{(s + 1)}$ as follows:
+
+1.  Sample $\boldsymbol{\theta}^*$ from a proposal distribution, $\boldsymbol{\theta}^* ∼ J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)})$
+
+2.  Compute the acceptance ratio $r$
+
+3.  Let \begin{equation}
+     \boldsymbol{\theta}^{(s + 1)} = 
+    \left\{
+      \begin{array}{ll}
+     \boldsymbol{\theta}^* & \text{with probability }\min(r, 1) \\
+     \boldsymbol{\theta}^{(s)} & \text{with probability }1 -\min(r, 1)
+      \end{array}
+    \right.
+    \end{equation}
+
+## Metropolis proposal distribution
+
+-   The proposal distribution is symmetric (i.e., $J(\boldsymbol{\theta}_a | \boldsymbol{\theta}_b) = J(\boldsymbol{\theta}_b | \boldsymbol{\theta}_a)$
+
+-   Usually $J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)})$ is very simple, with samples from $J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)})$ being near $\boldsymbol{\theta}$ with high probability.
+
+-   The most common proposal is a normal distribution
+
+    -   $J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)}) = N(\boldsymbol{\theta}^{(s)}, \boldsymbol{\Delta})$
+
+-   The value of the parameter $\boldsymbol{\Delta}$ is generally chosen to make the approximation algorithm run efficiently
+
+## Metropolis and Gibbs combined
+
+-   The Gibbs and Metropolis samplers are actually both algorithms within a larger class of Metropolis-Hastings algorithms
+
+-   When performing MCMC, one can actually choose to update a parameter using either a Gibbs or Metropolis update
+
+-   Let's see this in action using our linear regression example
+
+## Linear regression using Metropolis/Gibbs
+
+- In this example, we will use a Metropolis update for $\sigma^2$, however we will actually focus on $\log\sigma^2$. 
+
+  - Metropolis requires a symmetric proposal, so it is often easier to transform parameters to be on the real line and use a normal proposal.
+  
+- We will use the following proposal, $\log\sigma^{2*} \sim N\left(\log\sigma^{2(s)}, \delta\right)$, where $\delta = 1$.
+
+- We will place $\log\sigma^2 \sim N(0,1)$.
+
+## Linear regression using Metropolis/Gibbs
+
+```{r}
+sigma2 <- exp(rnorm(1))
+samples <- NULL
+delta <- 1
+for (s in 1:10000) {
+  ###Sample from full conditional for beta
+  var_beta <- chol2inv(chol(t(X) %*% X / sigma2 + diag(p + 1) / sigma_beta^2))
+  mean_beta <- var_beta %*% (beta0 / sigma_beta^2 + t(X) %*% Y / sigma2)
+  beta <- as.numeric(rmvnorm(1, mean_beta, var_beta))
+
+  ###Metropolis update for sigma2
+  # Sample a proposal value
+  log_sigma2_proposal <- rnorm(1, log(sigma2), delta)
+  # Compute the ratio r on the log scale for numeric stability
+  # Also, I've decided to update log(sigma2) instead of sigma2, so I can use a normal proposal distribution
+  # I've placed a normal prior on log(sigma2)
+  likelihood_proposal <- sum(dnorm(Y, X %*% beta, sqrt(exp(log_sigma2_proposal)), log = TRUE))
+  likelihood_current <- sum(dnorm(Y, X %*% beta, sqrt(sigma2), log = TRUE))
+  prior_proposal <- dnorm(log_sigma2_proposal, 0, 1, log = TRUE)
+  prior_current <- dnorm(log(sigma2), 0, 1, log = TRUE)
+  log_r <- (likelihood_proposal + prior_proposal) - (likelihood_current + prior_current)
+  # Update beta using Metropolis ratio
+  if (log(runif(1)) < log_r) sigma2 <- exp(log_sigma2_proposal)
+
+  ###Save samples after a burn-in
+  if (s > 5000) samples <- rbind(samples, c(beta, sigma2))
+}
+```
+
+## Inspect results
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-height: 3
+#| layout-nrow: 2
+nsims <- nrow(samples)
+dat.fig <- data.frame(
+  parameter = rep(c("beta[0]", "beta[1]", "sigma^2"), each = nsims),
+  index = rep(1:nsims, 3),
+  value = as.numeric(samples)
+)
+true_beta <- data.frame(true = c(beta, sigma^2),
+                        parameter = c("beta[0]", "beta[1]", "sigma^2"))
+ggplot(dat.fig, aes(x = value)) +
+  geom_density(lwd = 1.5) +
+  facet_grid(. ~ parameter, labeller = label_parsed, scales = "free_x") +
+  geom_vline(data = true_beta, aes(xintercept = true), color = "red", lwd = 1.5, linetype = 2) +
+  ylab("Density") +
+  xlab("Parameter value")
+ggplot(dat.fig, aes(x = index, y = value)) + 
+  geom_line(lwd = 0.5) + 
+  facet_grid(. ~ parameter, labeller = label_parsed, scales = "free_x") + 
+  geom_hline(data = true_beta, aes(yintercept = true), color = "red", lwd = 1, linetype = 2) + 
+  ylab("Parameter value") +
+  xlab("Sample index")
+```
+
+## Looking towards Stan
+
+-   We can use Monte Carlo approximation, when the posterior is available in closed form.
+
+-   We can use Gibbs sampling when the full conditional distributions are available in closed form.
+
+-   We can always use Metropolis (or its more general form Metropolis Hastings) regardless of the form of the posterior, we only need to be able to compute $f(\mathbf{Y} | \boldsymbol{\theta})f(\boldsymbol{\theta})$
+
+    -   This amounts to specifying a likelihood and a prior (which is the fun modeling part!)
+
+    -   Metropolis can be difficult to tune (i.e., finding $\boldsymbol{\Delta}$)
+
+## Looking towards Stan
+
+
+-   Stan uses an algorithm called Hamiltonian Monte Carlo, which is a form of MCMC that uses a Metropolis update
+
+-   Stan does all of the MCMC tuning, allowing us to only focus on the modeling!
+
+-   This means that our job moving forward will be to focus on specifying the
+
+    1. likelihood: $f(\mathbf{Y} | \boldsymbol{\theta})$
+  
+    2. prior: $f(\boldsymbol{\theta})$
