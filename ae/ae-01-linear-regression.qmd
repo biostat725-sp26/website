@@ -1,6 +1,6 @@
 ---
 title: "AE 01: Posterior estimation using sampling "
-subtitle: "Houses in Duke Forest"
+subtitle: "Glaucoma disease progression"
 date: "Jan 16, 2025"
 ---
 
@@ -9,7 +9,7 @@ date: "Jan 16, 2025"
 
 Application exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
 
-This AE is due on **Friday, January 18 at 11:59pm.** To be considered on time, the following must be done by the due date:
+This AE is due on **Sunday, January 19 at 11:59pm.** To be considered on time, the following must be done by the due date:
 
 -   Final `.qmd` and `.pdf` files pushed to your GitHub repo
 -   **Note:** For homeworks and exams, you will also be required to submit your final `.pdf` file submitted on Gradescope
@@ -26,8 +26,7 @@ By the end of the AE, you will...
 -   Be familiar with the workflow using RStudio and GitHub
 -   Gain practice writing a reproducible report using Quarto
 -   Practice version control using GitHub
--   Be able to produce visualizations and summary statistics to describe distributions
--   Be able to fit, interpret, and evaluate Bayesian linear regression models
+-   Perform Gibbs sampling for Bayesian linear regression and compute some basic sumaries
 
 # Getting Started
 
@@ -96,51 +95,55 @@ We will begin by loading R packages that we will use in this AE.
 
 library(tidyverse)    # data wrangling and visualization
 library(tidymodels)   # broom and yardstick package
-library(openintro)    # duke_forest dataset
 library(knitr)        # format output
-library(scales)       # format plot axes
 library(skimr)        # quickly calculate summary statistics
 library(mvtnorm)      # multivariate normal rng
 ```
 
 # Data
 
-The data are on houses that were sold in the Duke Forest neighborhood of Durham, NC around November 2020. It was originally scraped from Zillow, and can be found in the `duke_forest` data set in the **openintro** R package.
+![Visual Field Assessment](images/Picture1.jpg){fig-alt="vf" fig-align="center" width="75%"}
+
+The data are on patients with glaucoma from the [Rotterdam Ophthalmic Data Repository](http://www.rodrep.com/longitudinal-glaucomatous-vf-data---description.html). Glaucoma is the leading cause of irreversible blindness world wide with over 60 million glaucoma patients as of 2012. Since impairment caused by glaucoma is irreversible, early detection of disease progression is crucial for effective treatment. Patients with glaucoma are routinely followed up and administered visual fields, a functional assessment of their vision. After each visual field test their current disease status is reported as a mean deviation value, measured in decibels (dB). A lower mean deviation indicates worse vision. An important predictor of disease progression is intraocular pressure (IOP), the pressure of fluids inside your eye. 
 
 We will focus on two variables:
 
--   `area`: Total area of the home in square feet (sqft)
+-   `iop`: intraocular pressure, measured in millimeters of mercury (mmHg)
 
--   `price`: Sale price in US Dollars (USD)
+-   `progression`: rate of disease progression, measured as the number dB lost per year (dB/year)
 
-The goal of this analysis is to use the area to understand variability in the price of homes in Duke Forest.
+The goal of this analysis is to use the IOP to understand variability in disease progression in glaucoma patients. The data is available in the `ae-01-` repo and is called `glaucoma.rds`.
 
-```{r}
+```{r, eval = FALSE}
 #| label: glimpse-data
-
-glimpse(duke_forest)
+glaucoma <- readRDS(file = "glaucoma.rds")
+glimpse(glaucoma)
+```
+```{r, echo = FALSE}
+glaucoma <- readRDS(file = "data/glaucoma.rds")
+glimpse(glaucoma)
 ```
 
 # Exploratory data analysis
 
-Let's begin by examining the univariate distributions of the price and area. The code to visualize and calculate summary statistics for `price` is below.
+Let's begin by examining the univariate distributions of the disease progression and IOP. The code to visualize and calculate summary statistics for `progression` is below.
 
 ```{r}
-#| label: price-viz
+#| label: progression-viz
 
-ggplot(data = duke_forest, aes(x = price)) + 
+ggplot(data = glaucoma, aes(x = progression)) + 
   geom_histogram() +
-  labs(x = "Price in US dollars", 
-       title = "Price of houses in Duke Forest") + 
-  scale_x_continuous(labels = label_dollar(scale_cut = cut_long_scale()))
+  labs(x = "Disease progression (db/year)", 
+       y = "Count",
+       title = "Disease progression in glaucoma patients")
 ```
 
 ```{r}
-#| label: price-summary
-duke_forest |>
-  summarise(min = min(price), q1 = quantile(price, 0.25), 
-            median = median(price), q3 = quantile(price, 0.75), 
-            max = max(price), mean = mean(price), sd = sd(price)) |>
+#| label: progression-summary
+glaucoma |>
+  summarise(min = min(progression), q1 = quantile(progression, 0.25), 
+            median = median(progression), q3 = quantile(progression, 0.75), 
+            max = max(progression), mean = mean(progression), sd = sd(progression)) |>
   kable(digits = 3)
 ```
 
@@ -149,19 +152,19 @@ duke_forest |>
 You want to fit a model of the form
 
 $$
-price_i = \beta_0 + \beta_1 ~ area_i + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma^2).
+progression_i = \beta_0 + \beta_1 ~ iop_i + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma^2).
 $$ 
 
 We can obtain samples from the posterior distribution for the regression parameters using the specification from the slides. We define the data objects needed for posterior estimation. Note that the distribution of the outcome has a massive range, so we scale the outcome and predictor to have mean zero and standard deviation one. This will help stabilize inference in the Gibbs sampler. 
 
 ```{r}
-X <- cbind(1, scale(duke_forest$area))
-Y <- scale(duke_forest$price)
+X <- cbind(1, glaucoma$iop)
+Y <- glaucoma$progression
 p <- 1
 n <- length(Y)
 ```
 
-We will then define hyperparameters for the priors. Since, the data has been centered and scaled we can place priors that place most of the prior mass near zero.
+We will then define hyperparameters for the priors. We will choose a weakly informative prior.
 
 ```{r}
 sigma_beta2 <- 10
@@ -218,48 +221,11 @@ ggplot(dat.fig, aes(x = index, y = value)) +
 
 The traceplots do not exhibit much autocorrelation, indicating we are looking at samples from the posterior.
 
-To recover the regression parameters on their original scale, we can use the following transformation, where $\mu_Y$, $\sigma_Y$ are the mean and standard deviation for our outcome, *price*, $\mu_X$, $\sigma_X$ are the mean and standard deviation for the predictor, *area*, and $\beta_0^*$, $\beta_1^*$ are the regression parameters obtained from the Gibbs sampler above (i.e., on the transformed data).
-
-\begin{align*}
-\beta_0 &= \mu_Y + \sigma_Y \beta_0^* - \frac{\sigma_Y}{\sigma_X} \mu_X \beta_1^*\\
-\beta_1 &= \frac{\sigma_Y}{\sigma_X} \beta_1^*
-\end{align*}
-
-Using this transformation, $\beta_0$ and $\beta_1$ are on the original scale.
-
-```{r}
-mean_y <- mean(duke_forest$price)
-sd_y <- sd(duke_forest$price)
-mean_x <- mean(duke_forest$area)
-sd_x <- sd(duke_forest$area)
-intercept <- mean_y + sd_y * samples[, 1] - (sd_y / sd_x) * mean_x * samples[, 2]
-slope <- (sd_y / sd_x) * samples[, 2]
-```
-
-A histogram of the posterior parameters can be examined as follows. 
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| fig-align: "center"
-#| fig-height: 4
-#| layout-ncol: 2
-ggplot(data.frame(intercept), aes(x = intercept)) + 
-  geom_histogram() +
-  labs(x = expression(beta[0]),
-       y = "Count") + 
-  scale_x_continuous(labels = label_dollar(scale_cut = cut_long_scale()))
-ggplot(data.frame(slope), aes(x = slope)) + 
-  geom_histogram() +
-  labs(x = expression(beta[1]), 
-       y = "Count")
-```
-
 # Exercises
 
 ## Exercise 1
 
-Compute the posterior mean for the intercept and slope of each of the regression coefficients on the scale of the original data. Provide an interpretation for each of these parameter estimates.
+Compute the posterior mean and standard deviation for the intercept, slope, and measurement error. Provide an interpretation for each of these parameter estimates.
 
 **Answer:**
 

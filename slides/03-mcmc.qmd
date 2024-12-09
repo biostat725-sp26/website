@@ -1,5 +1,5 @@
 ---
-title: "Bayesian Linear Regression"
+title: "Markov chain Monte Carlo"
 author: "Prof. Sam Berchuck"
 date: "2025-01-16"
 date-format: "MMM DD, YYYY"
@@ -33,19 +33,71 @@ library(knitr)
 library(mvtnorm)
 library(coda)
 ```
+
 ## Review of last lecture
 
-On Tuesday, we performed posterior inference for Bayesian linear regression, but we assumed the measurement error ($\sigma$) was known!
+-   On Tuesday, we performed posterior inference for a Beta-Binomial model using Monte Carlo estimation.
 
--   We did this so we could sample from a closed form posterior.
+-   Today we will discuss Bayesian estimation of linear regression:
 
--   Monte Carlo approximation.
+$$\mathbf{Y} | \boldsymbol{\beta}, \sigma^2 \sim N(\mathbf{X} \boldsymbol{\beta}, \sigma^2 \mathbf{I}_n).$$
 
-We will consider the same model, $$\mathbf{Y} | \boldsymbol{\beta}, \sigma^2 \sim N(\mathbf{X} \boldsymbol{\beta}, \sigma^2 \mathbf{I}_n)$$
+-   There is no closed form posterior, so we cannot directly use Monte Carlo sampling.
 
--   In today's lecture we will estimate both $\boldsymbol{\beta}$ and $\sigma^2$. This will require a new algorithm called **Gibbs sampling**.
+-   We need Markov chain Monte Carlo (MCMC)!
 
-# Gibbs Sampling
+-   Our goal is to gain intuition behind MCMC, the workhorse behind Stan.
+
+# Bayesian Linear Regression
+
+## Defining the model
+
+Suppose we have an observation $Y_i$ for subject $i$ ($i=1,\ldots,n$), that is modeled as follows,
+
+\begin{align*}
+Y_i &= \beta_0 + x_{i1} \beta_1 + \cdots + x_{ip} \beta_p + \epsilon_i, \quad \epsilon_i \sim N(0, \sigma^2)\\
+&= \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i.
+\end{align*}
+
+-   $\mathbf{x}_i = (1, x_{i1},\ldots,x_{ip})$ is a $(p+1)$-dimensional row vector of covariates (and intercept).
+-   $\boldsymbol{\beta} = (\beta_0, \beta_1,\ldots,\beta_p)^\top$ is a $(p+1)$-dimensional column vector of population regression parameters.
+-   $\epsilon_i$ is a Gaussian measurement error term with variance $\sigma^2$.
+
+## Defining the likelihood
+
+The individual likelihood contribution for subject $i$ is given by, $$Y_i|\boldsymbol{\beta},\sigma^2 \sim N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2) \Leftrightarrow f(Y_i|\boldsymbol{\beta},\sigma^2) = N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2),$$ and the full data likelihood (or observed data likelihood) is given by, $$f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) = \prod_{i=1}^n f(Y_i|\boldsymbol{\beta},\sigma^2),$$ where $\mathbf{Y} = (Y_1,\ldots,Y_n)$.
+
+## Matrix likelihood specification
+
+We can also write the likelihood directly, $$\mathbf{Y} | \boldsymbol{\beta},\sigma^2 \sim N(\mathbf{X} \boldsymbol{\beta}, \sigma^2 \mathbf{I}_n),$$ where $\mathbf{X}$ is an $n \times (p + 1)$ dimensional matrix with row $\mathbf{x}_i$ and $\mathbf{I}_n$ is an $n$-dimensional identity matrix. Thus, the mean of the observed data is modeled as a linear function of the parameters,
+
+$$
+\mathbb{E}[ \mathbf{Y} | \boldsymbol{\beta},\sigma^2 ]  =
+  \begin{bmatrix}
+    1 & x_{12} & \ldots & x_{1p} \\
+    1 & x_{22} & \ldots & x_{2p} \\
+    \vdots & \vdots & & \vdots\\
+    1 & x_{n2} & \ldots & x_{np}
+  \end{bmatrix}
+    \begin{bmatrix}
+    \beta_0\\
+    \beta_1\\
+    \vdots\\
+    \beta_p
+  \end{bmatrix} = \mathbf{X} \boldsymbol{\beta}.
+$$
+
+## Linear regression estimation
+
+-   Ordinary least squares (OLS)
+
+<center>$\hat{\boldsymbol{\beta}}_{\text{OLS}} = \underset{\boldsymbol{\beta}}{\operatorname{argmin}} || \mathbf{Y} - \mathbf{X}\boldsymbol{\beta}||^2$</center>
+
+-   Maximum likelihood estimation (MLE)
+
+<center>$\hat{\boldsymbol{\beta}}_{\text{MLE}} = \underset{\boldsymbol{\beta}}{\operatorname{argmax}} f(\mathbf{Y} | \boldsymbol{\beta})$</center>
+
+-   $\hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}} = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y}$
 
 ## Posterior for linear regression
 
@@ -57,6 +109,8 @@ f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) &= \frac{f(\mathbf{Y}, \boldsymbol{
 
 No closed form exists for the posterior. $$f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)$$
 
+# Gibbs Sampling
+
 ## Motivation for Gibbs sampling
 
 -   Suppose we were given $\sigma^{2(1)}$, a single sample from the marginal posterior distribution $f\left(\sigma^2|\mathbf{Y}\right)$ (from where, who knows?)
@@ -67,7 +121,7 @@ No closed form exists for the posterior. $$f(\boldsymbol{\beta}, \sigma^2 | \mat
 
 -   $\boldsymbol{\beta}^{(1)}$ is a sample from $f\left(\boldsymbol{\beta} | \mathbf{Y}\right)$
 
-. . . 
+. . .
 
 ::: callout-important
 ## Recall
@@ -127,32 +181,57 @@ Set initial values for $\boldsymbol{\theta}^{(0)} = (\boldsymbol{\beta}^{(0)}, \
 
 ## Gibbs sampler for linear regression
 
--   Computing the full conditionals.
+-   We need to compute the full conditionals. Before doing this, we require prior distributions.
 
-    1.  We already have the full conditional for $\boldsymbol{\beta}$:
+-   Let's assume that the prior for $\boldsymbol{\beta}$ is Gassian,
 
-    $\boldsymbol{\beta} | \mathbf{Y}, \sigma^2 \sim N \left(\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}], \mathbb{V}(\boldsymbol{\beta} | \mathbf{Y})\right)$
+$$f(\boldsymbol{\beta}) = N(\boldsymbol{\beta}_0,\sigma_{\beta}^2 \mathbf{I}_{p+1}).$$
+
+-   $\boldsymbol{\beta}_0$ is the prior mean (i.e., our a-priori guess for the likely value of $\boldsymbol{\beta}$)
+-   $\sigma_{\beta}^2$ is the prior variance (i.e., encodes our certainty for our a-priori guess)
+
+## Full conditional for $\boldsymbol{\beta}$ {.small}
 
 \begin{align*}
-\mathbb{V}(\boldsymbol{\beta} | \mathbf{Y}) &= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\\
-\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}] &= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\left(\frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{Y}}{\sigma^2}\right)
+f(\boldsymbol{\beta},\sigma^2 | \mathbf{Y}) &\propto f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) f(\boldsymbol{\beta})\\
+&\propto \exp\left\{-\frac{1}{2}\left[\frac{\left(\mathbf{Y} - \mathbf{X}\boldsymbol{\beta}\right)^\top\left(\mathbf{Y} - \mathbf{X}\boldsymbol{\beta}\right)}{\sigma^2}\right]\right\}\\
+&\quad \times \exp\left\{-\frac{1}{2}\left[\frac{\left(\boldsymbol{\beta} - \boldsymbol{\beta}_0\right)^\top\left(\boldsymbol{\beta}_0 - \boldsymbol{\beta}_0\right)}{\sigma_{\beta}^2}\right]\right\}\\
+&\propto \exp\left\{-\frac{1}{2}\left[\boldsymbol{\beta}^\top\left(\frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2} + \frac{\mathbf{I}_n}{\sigma_{\beta}^2} \right)\boldsymbol{\beta} - 2\boldsymbol{\beta}^\top\left(\frac{\mathbf{X}^\top\mathbf{Y}}{\sigma^2} + \frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2}\right)\right]\right\}\\
+&\propto \exp\left\{-\frac{1}{2}\left[\boldsymbol{\beta}^\top\mathbf{A}\boldsymbol{\beta} - 2\boldsymbol{\beta}^\top\mathbf{a}\right]\right\}
 \end{align*}
 
-## Gibbs sampler for linear regression
+This is the kernel of a multivariate normal for $\boldsymbol{\beta}$, with $\mathbf{A} = \boldsymbol{\Sigma}^{-1}$ and $\mathbf{a} = \boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}$. It's easy to see then that, $f(\boldsymbol{\beta} | \mathbf{Y}) = N(\mathbf{A}^{-1}\mathbf{a},\mathbf{A}^{-1}).$
 
--   Computing the full conditionals.
+::: callout-note
+## Recall the kernel for the multivariate normal: $\exp\left\{-\frac{1}{2}\left[\mathbf{Y}^\top \boldsymbol{\Sigma}^{-1}\mathbf{Y} - 2\mathbf{Y}^\top \boldsymbol{\Sigma}^{-1} \boldsymbol{\mu}\right]\right\}$
+:::
 
-    1.  $\boldsymbol{\beta} | \mathbf{Y}, \sigma^2 \sim N \left(\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}], \mathbb{V}(\boldsymbol{\beta} | \mathbf{Y})\right)$
+## Full conditional for $\boldsymbol{\beta}$ {.midi}
 
-    2.  Full conditional for $\sigma^2$, assuming $f(\sigma^2) \sim IG(a, b)$:
+The full conditional can be found in closed-form and is Gaussian with the following moments: \begin{align*}
+\mathbb{V}(\boldsymbol{\beta} | \mathbf{Y},\sigma^2) &= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\\
+\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y},\sigma^2] &= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\left(\frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{Y}}{\sigma^2}\right)
+\end{align*}
 
-    $$\sigma^2 |  \mathbf{Y} , \boldsymbol{\beta} \sim IG\left(a + \frac{n}{2},b+\frac{\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)^\top\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)}{2}\right)$$
+. . .
 
-    -   Why inverse-Gamma ($IG$) distribution for $\sigma^2$?
+-   $\sigma_{\beta}^2 \rightarrow \infty: \mathbb{E}[\boldsymbol{\beta} | \mathbf{Y},\sigma^2] = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y} = \hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}}$
 
-## How can we use the posterior?
+. . .
 
-Let's simulate some data again:
+-   $\sigma^2 \rightarrow \infty: \mathbb{E}[\boldsymbol{\beta} | \mathbf{Y},\sigma^2] = \boldsymbol{\beta}_0$
+
+## Full conditional for $\sigma^2$
+
+Full conditional for $\sigma^2$, assuming $f(\sigma^2) \sim IG(a, b)$:
+
+$$\sigma^2 |  \mathbf{Y} , \boldsymbol{\beta} \sim IG\left(a + \frac{n}{2},b+\frac{\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)^\top\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)}{2}\right)$$
+
+-   Why inverse-Gamma ($IG$) distribution for $\sigma^2$?
+
+## Sampling from the posterior
+
+Let's simulate some data:
 
 ```{r}
 ###True parameters
@@ -167,12 +246,58 @@ p <- length(beta) - 1 # number of covariates
 set.seed(54) # set seed
 X <- cbind(1, matrix(rnorm(n * p), ncol = p))
 Y <- as.numeric(X %*% beta + rnorm(n, 0, sigma))
+```
 
-###Define hyperparameteters
+## Visualize simulated data
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 4
+#| fig-asp: 1
+#| layout-ncol: 2
+dat.fig <- data.frame(x = X[, 2], y = Y)
+ggplot(dat.fig, aes(x = x, y = y)) + 
+  geom_point()
+ggplot(dat.fig, aes(x = y)) +
+  geom_histogram()
+```
+
+## Inspecting the prior
+
+```{r}
+###Define hyperparameters
 beta0 <- matrix(0, nrow = p + 1, ncol = 1)
 sigma_beta <- 10
 a <- 3
 b <- 1
+```
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 4
+#| fig-asp: 1
+#| layout-ncol: 3
+dat.fig <- data.frame(beta0 = rnorm(1000, beta0[1], sigma_beta), 
+           beta1 = rnorm(1000, beta0[1], sigma_beta),
+           sigma2 = 1 / rgamma(1000, shape = a, rate = b))
+# ggplot(dat.fig, aes(x = beta0, y = beta1)) + 
+#   geom_point() + 
+#   xlab(expression(beta[0])) + 
+#   ylab(expression(beta[1]))
+ggplot(dat.fig, aes(x = beta0)) + 
+  geom_density() + 
+  xlab(expression(beta[0])) + 
+  ylab("Density")
+ggplot(dat.fig, aes(x = beta1)) + 
+  geom_density() + 
+  xlab(expression(beta[1])) + 
+  ylab("Density")
+ggplot(dat.fig, aes(x = sigma2)) + 
+  geom_density() + 
+  xlab(expression(sigma^2)) + 
+  ylab("Density")
 ```
 
 ## Perform Gibbs sampling
@@ -224,29 +349,19 @@ ggplot(dat.fig, aes(x = index, y = value)) +
 
 ```
 
-## Parameter estimation vs. posterior approximation
+## Summary of Gibbs sampling
 
--   Model specification: Choice of likelihood and introduction of model parameters
+-   Gibbs sampling is great when we are able to sample from the full conditional distributions.
 
--   Prior specification
+-   It has been the main inference machine for Bayesian inference since the early 1990s.
 
--   Calculation of the posterior
+-   Computing full conditionals and coding up a Gibbs sampler can be mathematically and computationally rigorous.
 
--   Summarizing the posterior using MC or MCMC methods:
+-   New classes of MCMC are becoming more common to make Bayesian inference less rigorous.
 
-    -   These are not models!
+# Metropolis sampling
 
-    -   They do not generate more information than is in $\mathbf{Y}$ or $f\left(\boldsymbol{\theta}\right)$
-
-    -   They are simply ways of looking at $f\left(\boldsymbol{\theta}|\mathbf{Y}\right)$
-
-## Additional topic: Metropolis sampling
-
--   Before we start using Stan for probabilistic programming, we need to understand the MCMC algorithm that is the engine for Stan's inference, Hamiltonian Monte Carlo.
-
--   To get us one step closer we will quickly review the concept of Metropolis sampling, another MCMC variant
-
-## Intuition behind Metropolis samping
+## Intuition behind Metropolis sampling
 
 Suppose we have a working collection $\{\boldsymbol{\theta}^{(1)},\ldots,\boldsymbol{\theta}^{(s)}\}$ to which we would like to add a new value $\boldsymbol{\theta}^{(s+1)}$. Let's consider adding a value $\boldsymbol{\theta}^*$ which is nearby $\boldsymbol{\theta}^{(s)}$. Should we include $\boldsymbol{\theta}^*$ in the set or not?
 
@@ -326,13 +441,13 @@ Given $\boldsymbol{\theta}^{(s)}$, the Metropolis algorithm generates a value $\
 
 ## Linear regression using Metropolis/Gibbs
 
-- In this example, we will use a Metropolis update for $\sigma^2$, however we will actually focus on $\log\sigma^2$. 
+-   In this example, we will use a Metropolis update for $\sigma^2$, however we will actually focus on $\log\sigma^2$.
 
-  - Metropolis requires a symmetric proposal, so it is often easier to transform parameters to be on the real line and use a normal proposal.
-  
-- We will use the following proposal, $\log\sigma^{2*} \sim N\left(\log\sigma^{2(s)}, \delta\right)$, where $\delta = 1$.
+    -   Metropolis requires a symmetric proposal, so it is often easier to transform parameters to be on the real line and use a normal proposal.
 
-- We will place $\log\sigma^2 \sim N(0,1)$.
+-   We will use the following proposal, $\log\sigma^{2*} \sim N\left(\log\sigma^{2(s)}, \delta\right)$, where $\delta = 1$.
+
+-   We will place the prior: $\log\sigma^2 \sim N(0,1)$.
 
 ## Linear regression using Metropolis/Gibbs
 
@@ -394,27 +509,56 @@ ggplot(dat.fig, aes(x = index, y = value)) +
   xlab("Sample index")
 ```
 
-## Looking towards Stan
+## Summary of Metropolis algorithm
 
--   We can use Monte Carlo approximation, when the posterior is available in closed form.
+-   More flexible than Gibbs sampling, because we are no longer required to compute the full conditional distribution analytically.
 
--   We can use Gibbs sampling when the full conditional distributions are available in closed form.
+-   Posterior samples can be obtained, however the algorithm must be properly tuned (i.e., choosing $\delta$) and the samples may take longer to converge.
 
--   We can always use Metropolis (or its more general form Metropolis Hastings) regardless of the form of the posterior, we only need to be able to compute $f(\mathbf{Y} | \boldsymbol{\theta})f(\boldsymbol{\theta})$
+-   Furthermore, choosing a proper proposal distribution can be difficult in practice.
 
-    -   This amounts to specifying a likelihood and a prior (which is the fun modeling part!)
+-   In more recent years, Hamiltonian Monte Carlo has emerged as an new MCMC approach that alleviates the aforementioned issues.
 
-    -   Metropolis can be difficult to tune (i.e., finding $\boldsymbol{\Delta}$)
+## Metropolis-Hastings (MH) algorithm
 
-## Looking towards Stan
+The proposal distribution is no longer assumed to be symmetric, so the acceptance ratio is, \begin{align*}
+r &= \frac{f(\mathbf{Y} | \boldsymbol{\beta}^*, \sigma^{2(s)}) f(\boldsymbol{\beta}^*)}{f(\mathbf{Y} | \boldsymbol{\beta}^{(s)},\sigma^{2(s)})f(\boldsymbol{\beta}^{(s)})} \frac{J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*)}{J(\boldsymbol{\beta}^* | \boldsymbol{\beta}^{(s)})}.
+\end{align*}
 
+Both Metropolis and Gibbs can easily be seen as subcases of Metropolis Hastings.
 
--   Stan uses an algorithm called Hamiltonian Monte Carlo, which is a form of MCMC that uses a Metropolis update
+-   Metropolis assumes a symmetric proposal, so the proposal terms cancel.
 
--   Stan does all of the MCMC tuning, allowing us to only focus on the modeling!
+-   Gibbs assumes that $J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*) = f(\boldsymbol{\beta}^* | \mathbf{Y}, \sigma^{2(s)})$, which implies that $r=1$.
 
--   This means that our job moving forward will be to focus on specifying the
+## Hamiltonian Monte Carlo (HMC) intuition
 
-    1. likelihood: $f(\mathbf{Y} | \boldsymbol{\theta})$
-  
-    2. prior: $f(\boldsymbol{\theta})$
+-   HMC is a new MCMC approach that has been shown to work better than the usual MH algorithm.
+
+-   It is based on the idea of Hamiltonian dynamics (a physical concept)
+
+::: callout-important
+## Rollercoaster Metaphor
+
+Imagine you're on a roller coaster at an amusement park. As the roller coaster moves along the track, it goes up and down hills. When the roller coaster is at the top of a hill, it has a lot of potential energy (like stored energy). When it goes down the hill, that potential energy turns into kinetic energy (energy of motion), making the roller coaster go faster. Hamiltonian dynamics is like a set of rules that tells us how the roller coaster's energy changes as it moves along the track.
+:::
+
+## HMC intuition
+
+-   Hamiltonian dynamics is used to generate a proposal from a better proposal distribution, $J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*)$, and modifies the acceptance part so the it has a higher acceptance rate.
+
+-   Just like the roller coaster follows the track smoothly, Hamiltonian Monte Carlo (HMC) helps us explore different possibilities smoothly and efficiently. This way, we can make more efficient samples from the posterior, just like how the roller coaster moves quickly and smoothly along its track.
+
+-   HMC requires evaluations of $\log f(\boldsymbol{\theta} | \mathbf{Y})$ and $\nabla_{\boldsymbol{\theta}} \log f(\boldsymbol{\theta} | \mathbf{Y})$,
+
+$$\log f(\boldsymbol{\theta} | \mathbf{Y}) \propto \log f(\mathbf{Y} | \boldsymbol{\theta}) + \log f(\boldsymbol{\theta})$$
+
+## Prepare for next class
+
+-   Begin [HW 01](https://biostat725-sp25.netlify.app/hw/hw-01) which is due January 30
+
+-   Be sure to turn in your AE by Sunday evening
+
+-   Complete reading to prepare for next Tuesday's lecture
+
+-   Tuesday's lecture: Probabilistic Programming (Intro to Stan!)

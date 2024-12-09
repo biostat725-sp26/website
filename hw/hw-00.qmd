@@ -110,20 +110,21 @@ model {
 }
 ```
 
-<!-- Next, we test to see if the model can compile. -->
-<!-- ```{r} -->
-<!-- stan_model <- stan_model(file = "hw00/test.stan") -->
-<!-- ``` -->
+Next, we test to see if the model can compile. Note compilation can sometimes take a bit of time.
 
-<!-- OK, great. We will now obtain posterior samples, using default specifications for inference. -->
-<!-- ```{r} -->
-<!-- fit <- sampling(stan_model, data = stan_data, refresh = 0) -->
-<!-- ``` -->
+```{r,message=FALSE, error=FALSE, warning=FALSE}
+stan_model <- stan_model(file = "hw00/test.stan")
+```
 
-<!-- Finally, print some summary estimates for the model parameters. -->
-<!-- ```{r} -->
-<!-- print(fit) -->
-<!-- ``` -->
+OK, great. We will now obtain posterior samples, using default specifications for inference.
+```{r}
+fit <- sampling(stan_model, data = stan_data, refresh = 0)
+```
+
+Finally, print some summary estimates for the model parameters.
+```{r}
+print(fit)
+```
 
 ## Git and GitHub
 

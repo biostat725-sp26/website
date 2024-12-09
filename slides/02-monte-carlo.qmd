@@ -1,0 +1,668 @@
+---
+title: "Monte Carlo Sampling"
+author: "Prof. Sam Berchuck"
+date: "2025-01-14"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+filters:
+  - parse-latex
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(skimr)        # quickly calculate summary statistics
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(ggforce)
+```
+
+# Agenda
+
+-   Monte Carlo (MC) sampling
+
+-   Bayesian inference using MC sampling
+
+# Monte Carlo Sampling
+
+## Simulating $\pi$ using Monte Carlo
+
+Suppose we are interested in estimating $\pi$. 
+
+::: columns
+::: {.column width="60%"}
+- We can formulate $\pi$ as a function of the area of a square and circle.
+
+- Area of a circle: $A_c = \pi r^2$
+
+- Area of a square: $A_s = 4 r^2$
+
+- The ratio of the two areas is: $\frac{A_c}{A_s} = \frac{\pi r^2}{4 r^2} \implies \pi = \frac{4 A_c}{A_s}$
+:::
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 3.5
+#| fig-asp: 1
+#| layout-ncol: 1
+ggplot() + 
+  geom_rect(aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1), fill = "white", color = "black", lwd = 1.5) + 
+  geom_circle(aes(x0 = 0, y0 = 0, r = 1), color = "black", fill = "gray", lwd = 1.5, inherit.aes = FALSE) +
+  geom_segment(aes(x = 0, y = 0, xend = 1, yend = 0), lwd = 1.5) + 
+  coord_fixed() + 
+  theme_void() + 
+  theme(legend.position = "none")
+```
+:::
+:::
+
+::: question
+If we have an estimate for the ratio we can solve for $\pi$. The challenge becomes estimating this ratio.
+:::
+
+## Monte Carlo sampling
+
+- We can take advantage of how quickly a computer can generate pseudo-random numbers. 
+
+- There is a class of algorithms called Monte Carlo sampling that exploit randomness to estimate real world scenarios that would otherwise be difficult to explicitly calculate. 
+
+- The name comes from the Monte Carlo Casino in Monaco, where the primary developer of the method, mathematician Stanislaw Ulam, was inspired by his uncle's gambling habits. (This is who Stan was named after!)
+
+## Monte Carlo estimation of the ratio
+
+- We can use a Monte Carlo simulation to estimate the area ratio of the circle to the square.
+
+- Imagine you randomly drop grains of sand into the area of the square. By counting the total number of sand grains in the square (all of them since you’re an accurate dropper) to the number of sand grains inside the circle we get this estimate. 
+
+- Multiply the estimated ratio by 4 and you get an estimate for $\pi$. 
+
+- The more grains of sand that are used the more accurate your estimate of $\pi$.
+
+## Algorithm for estimating $\pi$
+
+1. Generate a random point $(x, y)$ inside a square centered at the origin with length 2. 
+
+::: question
+This is equivalent to assuming:
+
+  - $f_{X,Y}(x,y) = f_X(x)f_Y(y)$
+  
+  - $f_X(x) = Uniform(-1, 1)$, $f_Y(y) = Uniform(-1, 1)$
+  
+:::
+  
+. . . 
+
+2. Determine whether the point falls inside the unit circle inscribed in the square by checking whether $x^2 + y^2 \leq 1$.
+
+. . . 
+
+3. Repeat steps 1 and 2 for a large number of points ($S$).
+
+## Algorithm for estimating $\pi$
+
+1. Generate a random point $(x, y)$ inside a square centered at the origin with length 2. 
+
+2. Determine whether the point falls inside the unit circle inscribed in the square by checking whether $x^2 + y^2 \leq 1$.
+
+3. Repeat steps 1 and 2 for a large number of points ($S$).
+
+4. Calculate the ratio of the number of points that fell inside the circle to the total number of points generated.
+
+. . .
+
+5. Multiply the ratio by 4 to estimate the value of $\pi$.
+
+## How big of a difference does $S$ make
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 2.5
+#| layout-ncol: 3
+x <- runif(50, -1, 1)
+y <- runif(50, -1, 1)
+dat.fig <- data.frame(x = x, y = y, color = 1 * (x^2 + y^2 <= 1))
+p1 <- ggplot(dat.fig, aes(x = x, y = y, color = color)) + 
+  geom_rect(aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1), fill = "white", color = "black", lwd = 1.5) + 
+  geom_circle(aes(x0 = 0, y0 = 0, r = 1), color = "black", fill = "white", lwd = 1.5, inherit.aes = FALSE) +
+  geom_point() + 
+  labs(subtitle = "S = 50")+ 
+  coord_fixed() + 
+  theme_void() + 
+  theme(legend.position = "none")
+x <- runif(500, -1, 1)
+y <- runif(500, -1, 1)
+dat.fig <- data.frame(x = x, y = y, color = 1 * (x^2 + y^2 <= 1))
+p2 <- ggplot(dat.fig, aes(x = x, y = y, color = color)) + 
+  geom_rect(aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1), fill = "white", color = "black", lwd = 1.5) + 
+  geom_circle(aes(x0 = 0, y0 = 0, r = 1), color = "black", fill = "white", lwd = 1.5, inherit.aes = FALSE) +
+  geom_point() + 
+  labs(subtitle = "S = 500") +
+  coord_fixed() + 
+  theme_void() + 
+  theme(legend.position = "none")
+x <- runif(5000, -1, 1)
+y <- runif(5000, -1, 1)
+dat.fig <- data.frame(x = x, y = y, color = 1 * (x^2 + y^2 <= 1))
+p3 <- ggplot(dat.fig, aes(x = x, y = y, color = color)) + 
+  geom_rect(aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1), fill = "white", color = "black", lwd = 1.5) + 
+  geom_circle(aes(x0 = 0, y0 = 0, r = 1), color = "black", fill = "white", lwd = 1.5, inherit.aes = FALSE) +
+  geom_point() + 
+  labs(subtitle = "S = 5,000")+ 
+  coord_fixed() + 
+  theme_void() + 
+  theme(legend.position = "none")
+print(p1)
+print(p2)
+print(p3)
+```
+
+## Estimating $\pi$ with increasing $S$
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 8
+#| layout-ncol: 1
+estimate_pi <- function(n) {
+  count <- 0
+  x <- runif(n, -1, 1)
+  y <- runif(n, -1, 1)
+  4 * mean(x^2 + y^2 <= 1)
+}
+n_seq_log <- seq(1, 7, length.out = 50)
+n_seq <- 10^n_seq_log
+pis <- unlist(lapply(n_seq, estimate_pi))
+dat.fig <- data.frame(x = n_seq_log, y = pis, diff = abs(pis - pi))
+ggplot(dat.fig, aes(x = x, y = y)) + 
+  geom_line(lwd = 1.25) + 
+  geom_point() +
+  geom_hline(aes(yintercept = pi), color = "red", lwd = 1.25, linetype = "dashed") + 
+  scale_x_continuous(breaks = 1:7, labels = c(expression(10^1), expression(10^2), expression(10^3), expression(10^4), expression(10^5), expression(10^6), expression(10^7))) + 
+  labs(x = "Number of simulations (S)", y = expression(paste("Estimated value of ", pi)))
+```
+
+## Error in estimating $\pi$
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 8
+#| layout-ncol: 1
+ggplot(dat.fig, aes(x = x, y = diff)) + 
+  geom_line(lwd = 1.25) + 
+  geom_point() +
+  geom_hline(aes(yintercept = 0), color = "red", lwd = 1.25, linetype = "dashed") + 
+  scale_x_continuous(breaks = 1:7, labels = c(expression(10^1), expression(10^2), expression(10^3), expression(10^4), expression(10^5), expression(10^6), expression(10^7))) + 
+  labs(x = "Number of simulations (S)", y = "Absolute error in Monte Carlo prediction")
+```
+
+## Intuition behing Monte Carlo sampling
+
+- Assume $X_i \sim Uniform(-1,1)$ and $Y_i \sim Uniform(-1,1)$ for $i = 1,\ldots,S$.
+
+- We can write our problem as, $\pi = 4P(X^2 + Y^2 \leq 1)$. 
+
+- How could we do this without Monte Carlo? 
+
+- Define, $Z = X^2 + Y^2$. We could then use change-of-variables to compute the density of $Z$ and then compute $P(Z \leq 1)$.
+
+  - This is generally difficult!
+
+## Intuition behing Monte Carlo sampling {.midi}
+
+- Instead, we could write our problem as an expectation and use the law of large numbers, 
+
+$$P(X^2 + Y^2 \leq 1) = \mathbb{E}_{X,Y}\left[1\left(X^2 + Y^2 \leq 1\right)\right].$$
+
+  - Recall that an expectation of an indicator is the probability of the event that it indicates, $\mathbb{E}_X[1(A)] = \int_A f_X(x)dx = P(X \in A)$.
+  
+- We then have that, 
+$$\frac{1}{S}\sum_{i = 1}^S 1\left(X_i^2 + Y_i^2 \leq 1\right) \rightarrow \mathbb{E}_{X,Y}\left[1\left(X^2 + Y^2 \leq 1\right)\right],$$ 
+
+where $(X_i,Y_i) \sim f(X_i,Y_i)$.
+
+# Bayesian inference using MC sampling
+
+- Computing a Bayesian posterior
+
+- Posterior inference using MC sampling
+
+## A motivating example
+
+- Suppose we are interested in estimating the prevalence of diabetes in Durham County. We aim to estimate this prevalence by taking a sample of $n$ individuals in Durham County and we record whether or not they have diabetes, $Y_i$.
+
+- We assume that $Z = \sum_{i=1}^n Y_i \sim Binomial(n, \pi)$ for $i = 1,\ldots,n$. 
+
+- Our goal is to estimate $\pi$ and perform statistical inference (e.g., point estimation, interval estimation, etc.).
+
+## Posterior inference
+
+- In Bayesian statistics, inference is encoded through the posterior distribution,
+
+\begin{align*}
+f(\pi | Z) &= \frac{f(Z | \pi)f(\pi)}{f(Z)},\\
+&= \frac{f(Z | \pi)f(\pi)}{\int f(Z | \pi)f(\pi)d\pi}.
+\end{align*}
+
+- All we have to do is specify the likelihood and prior.
+
+## Likelihood specification
+
+$Z$ is a Binomial distribution with pmf,
+
+$$f(Z | \pi) = P(Z = z) = {n \choose z} \pi^z(1-\pi)^{n-z},$$
+
+where $z \in \{0, 1, \ldots, n\}$.
+
+- ${n \choose z} = \frac{n!}{z!(n-z)!} = \frac{\Gamma(n+1)}{\Gamma(z+1)\Gamma(n-z+1)}$
+
+- $\Gamma(x) = (x-1)!$
+
+## Prior specification
+
+What do we know about $\pi$?
+
+- $\pi$ is continuous.
+
+- $\pi \in (0,1)$.
+
+We should place a distribution on $\pi$ that permits these properties.
+
+One option is the Beta distribution,
+$$f(\pi) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}\pi^{\alpha-1}(1-\pi)^{\beta-1}.$$
+
+If we assume that $\pi \sim Beta(\alpha,\beta)$, we can proceed to compute the posterior.
+
+## Computing the marginal likelihood {.midi}
+
+Under our prior specification, we can compute the marginal likelihood, $f(Z)$:
+
+\begin{align*}
+f(Z) &= \int f(Z | \pi) f(\pi) d\pi\\
+&= \int {n \choose z} \pi^z(1-\pi)^{n-z} \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}\pi^{\alpha-1}(1-\pi)^{\beta-1} d\pi\\
+&= {n \choose z}\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} \int \underbrace{\pi^{(\alpha + z) - 1}(1-\pi)^{(\beta + n - z) - 1}}_{Beta\text{ }kernel} d\pi
+\end{align*}
+
+::: callout-note
+## Definition
+
+The part of the pdf/pmf that depends on the variable is called the **kernel**.
+
+Example:
+
+-   The kernel of the Beta pdf is $\pi^{\alpha-1}(1-\pi)^{\beta-1}$
+:::
+
+## Computing the marginal likelihood {.midi}
+
+Under our prior specification, we can compute the marginal likelihood, $f(Z)$:
+
+\begin{align*}
+f(Z) &= {n \choose z}\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} \int \pi^{(\alpha + z) - 1}(1-\pi)^{(\beta + n - z) - 1} d\pi\\
+&= {n \choose z}\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} \frac{\Gamma(\alpha+\beta + n)}{\Gamma(\alpha + z)\Gamma(\beta + n - z)}.
+\end{align*}
+
+## We can then compute the posterior {.midi}
+
+\begin{align*}
+f(\pi | Z) &= \frac{f(Z | \pi) f(\pi)}{f(Z)}\\
+&= \frac{{n \choose z} \pi^z(1-\pi)^{n-z} \times \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}\pi^{\alpha-1}(1-\pi)^{\beta-1}}{{n \choose z}\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} \frac{\Gamma(\alpha+\beta) }{\Gamma(\alpha + z)\Gamma(\beta + n - z)}}\\
+&=\frac{\Gamma(\alpha+z)\Gamma(\beta+n-z)}{\Gamma(\alpha + \beta + n)}\pi^{(\alpha + z) - 1} (1 - \pi)^{(\beta + n - z) - 1}\\
+&=Beta\left(\alpha + z, \beta + n - z\right).
+\end{align*}
+
+- A prior that is considered **conjugate** yields a posterior with the same distribution.
+
+- The Beta distribution is conjugate for the Bernoulli/Binomial distributions.
+
+## Computing the posterior
+
+-   In general, computing the marginal likelihood, $f(Z)$, is extremely difficulty. 
+
+-   An easier approach is to use the kernel trick.
+
+\begin{align*}
+f(\pi | Z) &\propto f(Z | \pi) f(\pi)\\
+&\propto \pi^z (1-\pi)^{n - z} \pi^{\alpha-1}(1-\pi)^{\beta-1} \\
+&= \pi^{\left(\alpha + z\right) - 1} (1-\pi)^{\left(\beta + n - z\right) - 1}\\
+&= Beta\left(\alpha + z, \beta + n - z\right).
+\end{align*}
+
+-   This only works when a conjugate prior is used.
+
+## Let's inspect the posterior 
+
+- Suppose we conducted a simple random sample of 500 individuals in Durham County and 120 responsed that they had diabetes and 380 that they did not. 
+
+- The posterior becomes, $Beta\left(\alpha + 120, \beta + 380\right)$.
+
+- We must choose our prior distribution wisely. 
+
+- Note that: 
+
+  - $\mathbb{E}[\pi] = \alpha/(\alpha + \beta)$ 
+  
+  - $\mathbb{V}(\pi) = (\alpha\beta)/[(\alpha + \beta)^2(\alpha + \beta + 1)]$.
+
+- Typically, $\alpha = \beta = 1$, which corresponds to a uniform prior on $\pi$.
+
+## Let's inspect the posterior 
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 5
+#| layout-ncol: 1
+n_seq <- 201
+x <- seq(0, 1, length.out = n_seq)
+density_posterior <- dbeta(x, 1 + 120, 1 + 380)
+density_prior <- dbeta(x, 1, 1)
+density_likelihood <- dbinom(120, size = 500, x) * 400
+dat.fig <- data.frame(x = rep(x, 3), 
+                      y = c(density_prior, density_likelihood, density_posterior),
+                      Type = rep(c("Prior", "Likelihood", "Posterior"), each = n_seq)
+)
+ggplot(dat.fig, aes(x = x, y = y, color = Type)) + 
+  geom_line(linewidth = 1.25) + 
+  labs(x = expression(pi), y = "Density", subtitle = "Beta(1, 1)") + 
+  theme(legend.position = "bottom")
+```
+
+## Suppose my prior changes
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 5
+#| layout-ncol: 2
+density_prior <- dbeta(x, 1, 9)
+density_posterior <- dbeta(x, 1 + 120, 9 + 380)
+density_likelihood <- dbinom(120, size = 500, x) * 400
+dat.fig <- data.frame(x = rep(x, 3), 
+                      y = c(density_prior, density_likelihood, density_posterior),
+                      Type = rep(c("Prior", "Likelihood", "Posterior"), each = n_seq)
+)
+ggplot(dat.fig, aes(x = x, y = y, color = Type)) + 
+  geom_line(linewidth = 1.25) + 
+  labs(x = expression(pi), y = "Density", subtitle = "Beta(1, 9)") + 
+  theme(legend.position = "bottom")
+
+density_prior <- dbeta(x, 10, 90)
+density_posterior <- dbeta(x, 10 + 120, 90 + 380)
+density_likelihood <- dbinom(120, size = 500, x) * 400
+dat.fig <- data.frame(x = rep(x, 3), 
+                      y = c(density_prior, density_likelihood, density_posterior),
+                      Type = rep(c("Prior", "Likelihood", "Posterior"), each = n_seq)
+)
+ggplot(dat.fig, aes(x = x, y = y, color = Type)) + 
+  geom_line(linewidth = 1.25) + 
+  labs(x = expression(pi), y = "Density", subtitle = "Beta(10, 90)") + 
+  theme(legend.position = "bottom")
+
+```
+
+## Summarizing the posterior
+
+1.  Posterior means, medians, modes, and variances
+
+2.  Joint, conditional, and marginal probabilities, for example: $P(\pi < c | \mathbf{Y})$
+
+3.  $\alpha$-quantiles: $\{q_{\alpha} : P(\pi < q_{\alpha} | \mathbf{Y}) = \alpha\}, \alpha \in (0,1)$
+
+4.  $\ldots$
+
+Summarizing a posterior (with known parametric form) is straightforward for basic quantities of interest.
+
+## Summarization can be complex
+
+-   Posteriors are often not available in closed form.
+
+-   Even when we have a closed form posterior, it can be difficult to compute summaries of interest.
+
+-   For example, consider $P(\pi < c |\mathbf{Y})$. What are our options to calculate this probability?
+
+    -   Direct integration (by hand)
+
+    -   Numerical integration/software packages (e.g., $\texttt{pbeta}$)
+
+These methods work well for standard posterior quantities and distributions.
+
+## Summarizing the posterior
+
+However, sometimes we will want to summarize other aspects of a posterior distribution.
+
+-   $P(\pi \in A|\mathbf{Y})$ for some arbitrary set $A$
+
+-   Means and standard deviations of some function of $\pi$, $g\left(\pi\right)$
+
+-   The posterior distribution of functions of many parameters:
+
+    -   $|\pi_1 - \pi_2|$, $\pi_1/\pi_2$, $\max\left\{\pi_1,\ldots,\pi_p\right\}$, $\dots$
+
+-   Obtaining exact values for these posterior quantities can be difficult or even impossible.
+
+What are our options?
+
+# Monte Carlo sampling
+
+## Monte Carlo (MC) sampling
+
+-   Integration method based on random sampling
+
+-   The general principles and procedures remain relatively constant across a broad class of problems
+
+-   Suppose we have $S$ iid samples from our posterior distribution: $\pi^{\left(1\right)},\ldots,\pi^{\left(S\right)}\stackrel{\text{iid}}{\sim}f\left(\pi|\mathbf{Y}\right)$
+
+-   Then the empirical distribution of $\left\{\pi^{\left(1\right)},\ldots,\pi^{\left(S\right)}\right\}$ would approximate $f\left(\pi|\mathbf{Y}\right)$, with the approximation improving as $S$ increases
+
+-   The empirical distribution of $\left\{\pi^{\left(1\right)},\ldots,\pi^{\left(S\right)}\right\}$ is known as a MC approximation to $f\left(\pi|\mathbf{Y}\right)$
+
+## MC approximation
+
+Let $g\left(\pi\right)$ be (just about) any function of $\pi$. The law of large numbers says that if,
+
+$$\pi^{\left(1\right)},\ldots,\pi^{\left(S\right)}\stackrel{\text{iid}}{\sim}f\left(\pi|\mathbf{Y}\right),$$ 
+then, 
+$$\frac{1}{S}\sum_{s=1}^S g\left(\pi^{\left(s\right)}\right)\rightarrow \mathbb{E}\left[g\left(\pi\right)|\mathbf{Y}\right]=\int g\left(\pi\right)f\left(\pi|\mathbf{Y}\right)d\pi,$$ as $S\rightarrow \infty$.
+
+## MC approximation
+
+-   Implications (as $S\rightarrow \infty$):
+
+    -   $\overline{\pi}=\frac{1}{S}\sum_{s=1}^S \pi^{\left(s\right)} \rightarrow \mathbb{E}\left[\pi|\mathbf{Y}\right]$
+
+    -   $\frac{1}{S-1}\sum_{s=1}^S \left(\pi^{\left(s\right)}-\overline{\pi}\right)^2 \rightarrow \mathbb{V}\left(\pi|\mathbf{Y}\right)$
+
+    -   $\frac{1}{S}\sum_{s=1}^S 1\left(\pi^{\left(s\right)}\leq \mathbf{c}\right) \rightarrow P\left(\pi\leq \mathbf{c} | \mathbf{Y}\right)$
+
+    -   $\alpha$-quantile of $\left\{\pi^{\left(1\right)},\ldots,\pi^{\left(S\right)}\right\}\rightarrow q_{\alpha}$
+
+-   Just about any aspect of the posterior distribution can be approximated arbitrarily exactly with a large enough MC sample
+
+## Posterior inference for arbitrary functions
+
+Interest in the posterior distribution of a function of $\pi$, $g\left(\pi\right)$
+
+-   MC sampling plan:
+
+    -   Draw $\pi^{\left(1\right)}$ from $f\left(\pi|\mathbf{Y}\right)$, calculate $g\left(\pi^{\left(1\right)}\right)$
+
+        $\ldots$
+
+    -   Draw $\pi^{\left(S\right)}$ from $f\left(\pi|\mathbf{Y}\right)$, calculate $g\left(\pi^{\left(S\right)}\right)$
+
+    $\Rightarrow g\left(\pi^{\left(1\right)}\right),\ldots,g\left(\pi^{\left(S\right)}\right)\stackrel{\text{iid}}{\sim}f\left(g\left(\pi\right)|\mathbf{Y}\right)$
+
+-   Therefore, similar quantities can be estimated (posterior mean, variance, quantiles, distribution, etc.)
+
+## How many samples to take? {.small}
+
+We can use a central limit theorem: $\sqrt{S}\left(\overline{\pi}-\mathbb{E}[\pi | \mathbf{Y}]\right)/\sigma \stackrel{d}{\rightarrow} \text{N}\left(0,1\right)$,
+
+-   $\overline{\pi}=\frac{1}{S}\sum_{s=1}^S \pi^{\left(s\right)}$
+
+-   $\sigma^2 = \mathbb{V}\left(\overline{\pi}\right) = \frac{1}{S^2}\sum_{s=1}^S\mathbb{V}\left(\pi^{(s)}\right) = \frac{1}{S}\mathbb{V}\left(\pi | \mathbf{Y}\right)$.
+
+$\implies \overline{\pi}\approx N\left(\mathbb{E}[\pi | \mathbf{Y}],\sigma^2/S\right)$
+
+MC standard error: $\sqrt{\frac{\widehat{\sigma}^2}{S}}$, $\widehat{\sigma}^2=\frac{1}{S-1}\sum_{s=1}^S\left(\pi^{\left(s\right)}-\overline{\pi}\right)^2$
+
+Approximate 95% MC confidence interval for the posterior mean: $\overline{\pi} \pm 2\sqrt{\frac{\widehat{\sigma}^2}{S}}$
+
+-   Choose $S$ large enough to report the posterior mean with your desired precision
+
+-   Reporting MC standard errors for the posterior mean is a good way to indicate that $S$ is large enough
+
+## Returning to our posterior
+
+Let's obtain $S = 1,000$ samples from our posterior.
+
+```{r}
+pi_samples <- rbeta(1000, 1 + 120, 1 + 380)
+```
+
+We can compute the posterior mean and variance.
+
+```{r}
+print(mean(pi_samples))
+print(var(pi_samples))
+```
+
+## Assessing accuracy
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 10
+#| layout-ncol: 1
+out <- numeric(length = 5000)
+for (s in 1:5000) {
+  pi_samples <- rbeta(s, 1 + 120, 1 + 380)
+  out[s] <- mean(pi_samples)
+}
+dat.fig <- data.frame(S = 1:5000,
+                      mean = out)
+ggplot(dat.fig, aes(x = S, y = mean)) + 
+  geom_line() + 
+  ylab("Posterior mean estimate")
+```
+
+## Additional posterior summaries
+
+```{r}
+# median
+median(pi_samples)
+# 95% credible intervals
+quantile(pi_samples, probs = c(0.025, 0.975))
+# evaluating probability
+mean(pi_samples < 0.25)
+# summarizing arbitrary functions of the parameters
+pi_new <- pi_samples^3 - pi_samples
+c(mean(pi_new), quantile(pi_new, probs = c(0.025, 0.975)))
+```
+
+# Additional examples of MC sampling
+
+## Poisson random variable
+
+Suppose that $Y_i \stackrel{iid}{\sim} Poisson(\lambda)$ for $i = 1,\ldots,n$. Assume the following conjugate prior, $f(\lambda) \sim Gamma(a, b)$, so that $f(\lambda|\mathbf{Y}) \sim Gamma(a + \sum_{i=1}^nY_i,b+n)$. We would like to perform inference for the $\lambda$. We take $S=10,000$ samples.
+
+```{r}
+set.seed(54) # set seed for replicability
+S <- 10000 # number of Monte Carlo samples
+lambda <- 4 # true value of lambda
+n <- 100 # sample size
+Y <- rpois(n, lambda)
+a <- 3 # hyperprior
+b <- 1 # hyperprior
+samples <- rgamma(S, a + sum(Y), b + n) # sample from posterior
+```
+
+```{r, echo=FALSE}
+samples <- data.frame(lambda = samples)
+samples |>
+  summarise(min = min(lambda), q1 = quantile(lambda, 0.25), 
+            median = median(lambda), q3 = quantile(lambda, 0.75), 
+            max = max(lambda), mean = mean(lambda), sd = sd(lambda)) |>
+  kable(digits = 3)
+```
+
+<!-- ## Binomial random variable -->
+
+<!-- Suppose that $Y_i \stackrel{iid}{\sim} Bernoulli(\pi)$ for $i = 1,\ldots,n$. Assume the following conjugate prior, $f(\pi) \sim Beta(a, b)$, so that $f(\pi|\mathbf{Y}) \sim Beta(a + \sum_{i=1}^nY_i,b+n - \sum_{i=1}^n)$. We would like to perform inference for the $\pi$. We take $S=10,000$ samples. -->
+
+<!-- ```{r} -->
+<!-- set.seed(54) # set seed for replicability -->
+<!-- S <- 10000 # number of Monte Carlo samples -->
+<!-- pi <- 0.35 # true value of lambda -->
+<!-- n <- 1000 # sample size -->
+<!-- Y <- rbinom(n, size = 1, prob = pi) -->
+<!-- a <- 1 # hyperprior -->
+<!-- b <- 1 # hyperprior -->
+<!-- samples <- rbeta(S, a + sum(Y), b + n - sum(Y)) # sample from posterior -->
+<!-- ``` -->
+
+<!-- ```{r, echo=FALSE} -->
+<!-- samples <- data.frame(pi = samples) -->
+<!-- samples |> -->
+<!--   summarise(min = min(pi), q1 = quantile(pi, 0.25),  -->
+<!--             median = median(pi), q3 = quantile(pi, 0.75),  -->
+<!--             max = max(pi), mean = mean(pi), sd = sd(pi)) |> -->
+<!--   kable(digits = 3) -->
+<!-- ``` -->
+
+## Sampling for any distribution
+
+Monte Carlo sampling does not have to be used solely for posterior inference. Suppose we are interested in computed summaries for $X_i \stackrel{iid}{\sim} N(3, 4)$ for $i = 1,\ldots,n$. We take $S = 10,000$.
+
+```{r}
+S <- 10000
+samples <- rnorm(S, 3, 2)
+library(moments)
+kurtosis(samples)
+skewness(samples)
+mean(samples > 4) # P(X_i > 4)
+```
+
+## Combination of random variables
+
+Suppose $X_i \stackrel{iid}{\sim} N(3, 4)$ and $Y_i \stackrel{iid}{\sim} \chi^2(df=3)$ for $i = 1,\ldots,n$. $X_i$ and $Y_i$ are independent. We are interested in summaries of $Z_i = X_i / Y_i$. We take $S = 10,000$.
+
+```{r}
+S <- 10000
+x <- rnorm(S, 3, 2)
+y <- rchisq(S, 3)
+z <- x / y
+mean(z)
+median(z)
+mean(z > 1)
+```
+
+## Prepare for next class
+
+-   Complete [HW 00](https://biostat725-sp25.netlify.app/hw/hw-00) which is due before Thursday's class
+
+-   Complete reading to prepare for Thursday's lecture
+
+-   Thursday's lecture: Markov chain Monte Carlo
