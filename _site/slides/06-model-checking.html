@@ -428,7 +428,7 @@ Prof.&nbsp;Sam Berchuck
 </section>
 
 <section>
-<section id="traceplots" class="title-slide slide level1 center">
+<section id="traceplots" class="title-slide slide level1 midi center">
 <h1>Traceplots</h1>
 <ul>
 <li><p>The first few MCMC samples are probably not draws from the posterior distribution.</p></li>
@@ -443,7 +443,7 @@ Prof.&nbsp;Sam Berchuck
 <h2>Convergence in a few iterations</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/06/con1.png" class="quarto-figure quarto-figure-center" style="height:7in" alt="con1"></p>
+<p><img data-src="images/06/con1.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="con1"></p>
 </figure>
 </div>
 </section>
@@ -451,7 +451,7 @@ Prof.&nbsp;Sam Berchuck
 <h2>Convergence in a few hundred iterations</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/06/con2.png" class="quarto-figure quarto-figure-center" style="height:7in" alt="con2"></p>
+<p><img data-src="images/06/con2.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="con2"></p>
 </figure>
 </div>
 </section>
@@ -459,7 +459,7 @@ Prof.&nbsp;Sam Berchuck
 <h2>This one never converged</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/06/con3.png" class="quarto-figure quarto-figure-center" style="height:7in" alt="con3"></p>
+<p><img data-src="images/06/con3.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="con3"></p>
 </figure>
 </div>
 </section>
@@ -467,7 +467,7 @@ Prof.&nbsp;Sam Berchuck
 <h2>Convergence is questionable</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/06/con2.png" class="quarto-figure quarto-figure-center" style="height:7in" alt="con4"></p>
+<p><img data-src="images/06/con2.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="con4"></p>
 </figure>
 </div>
 </section>
@@ -556,7 +556,7 @@ W &amp;= \frac{1}{m}\sum_{j=1}^m s_j^2,\quad s_j^2=\frac{1}{n-1}\sum_{i=1}^n \le
 \end{aligned}\]</span></p>
 <p>The between-sequence variance, <span class="math inline">\(B\)</span> contains a factor of <span class="math inline">\(n\)</span> because it is based on the variance of the within-sequence means, <span class="math inline">\(\bar{\theta}_{\cdot j}\)</span>, each of which is an average of <span class="math inline">\(n\)</span> values <span class="math inline">\(\theta_{ij}\)</span>.</p>
 </section>
-<section id="convergence-metric-widehatr" class="slide level2 midi">
+<section id="convergence-metric-widehatr" class="slide level2 small">
 <h2>Convergence metric: <span class="math inline">\(\widehat{R}\)</span></h2>
 <p>Estimate a total variance <span class="math inline">\(\mathbb{V}(\theta | \mathbf{Y})\)</span> as a weighted mean of <span class="math inline">\(W\)</span>, <span class="math inline">\(B\)</span> <span class="math display">\[\widehat{\text{var}}^+(\theta | \mathbf{Y}) = \frac{n-1}{n}W + \frac{1}{n}B\]</span></p>
 <ul>
@@ -700,7 +700,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb11-2"><a></a><span class="fu">library</span>(bayesplot)</span>
 <span id="cb11-3"><a></a>Y_in_sample <span class="ot">&lt;-</span> <span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="st">"in_sample"</span>)<span class="sc">$</span>in_sample</span>
 <span id="cb11-4"><a></a><span class="fu">ppc_dens_overlay</span>(Y, Y_in_sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -712,7 +712,7 @@ convergence, Rhat=1).</code></pre>
 </div>
 </div>
 </section>
-<section id="ppd-test-statistics" class="slide level2">
+<section id="ppd-test-statistics" class="slide level2 midi">
 <h2>PPD test statistics</h2>
 <ul>
 <li><p>The procedure for carrying out a posterior predictive check requires a test quantity, <span class="math inline">\(T(\mathbf{Y})\)</span>, for our observed data.</p></li>
@@ -723,7 +723,7 @@ convergence, Rhat=1).</code></pre>
 <li><p>When the predictive distribution is not consistent with the observed statistics it indicates poor model fit.</p></li>
 </ul>
 </section>
-<section id="visualizing-posterior-predictive-check" class="slide level2">
+<section id="visualizing-posterior-predictive-check" class="slide level2 midi">
 <h2>Visualizing posterior predictive check</h2>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ppc_stat</span>(Y, Y_in_sample, <span class="at">stat =</span> <span class="st">"mean"</span>) <span class="co"># from bayesplot</span></span>
 <span id="cb12-2"><a></a><span class="fu">ppc_stat</span>(Y, Y_in_sample, <span class="at">stat =</span> <span class="st">"sd"</span>)</span>
@@ -731,7 +731,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb12-4"><a></a>q75 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.75</span>)</span>
 <span id="cb12-5"><a></a><span class="fu">ppc_stat</span>(Y, Y_in_sample, <span class="at">stat =</span> <span class="st">"q25"</span>)</span>
 <span id="cb12-6"><a></a><span class="fu">ppc_stat</span>(Y, Y_in_sample, <span class="at">stat =</span> <span class="st">"q75"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -766,13 +766,13 @@ convergence, Rhat=1).</code></pre>
 </div>
 </div>
 </section>
-<section id="posterior-predictive-p-values" class="slide level2">
+<section id="posterior-predictive-p-values" class="slide level2 midi">
 <h2>Posterior predictive p-values</h2>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>plot <span class="ot">&lt;-</span> <span class="fu">ppc_stat</span>(Y, Y_in_sample, <span class="at">stat =</span> <span class="st">"median"</span>) <span class="co"># from bayesplot</span></span>
 <span id="cb13-2"><a></a>pvalue <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">apply</span>(Y_in_sample, <span class="dv">1</span>, median) <span class="sc">&gt;</span> <span class="fu">median</span>(Y))</span>
 <span id="cb13-3"><a></a>plot <span class="sc">+</span> <span class="fu">yaxis_text</span>() <span class="sc">+</span> <span class="co"># just so I can see y-axis values for specifying them in annotate() below, but can remove this if you don't want the useless y-axis values displayed </span></span>
 <span id="cb13-4"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.75</span>, <span class="at">y =</span> <span class="dv">150</span>, <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"p ="</span>, pvalue))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">

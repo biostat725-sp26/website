@@ -278,7 +278,7 @@ dat.fig |> ggplot(aes(x = value)) +
 
 # Posterior summaries
 
-## Posterior summaries: point estimates
+## Posterior summaries: point estimates {.midi}
 
 -   The output of Bayesian inference is a probability distribution. It is often convenient to summarize the posterior in various ways.
 
@@ -499,7 +499,7 @@ library(rstan)
 fit <- readRDS(file = "robjects/linear_regression_ppd_fit.rds")
 ```
 
-## Examining prediction performance
+## Examining prediction performance {.midi}
 
 ```{r}
 ###Inspect the ppd

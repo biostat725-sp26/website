@@ -248,7 +248,7 @@ By the end of the semester, you will be able to...
 5.  The reporter will share a summary with the class.
 :::
 
-## Syllabus activity assignments
+## Syllabus activity assignments {.midi}
 
 -   Group 1: [What to expect in the course](https://biostat725-sp25.netlify.app/syllabus#what-to-expect-in-the-course)
 
@@ -270,7 +270,7 @@ By the end of the semester, you will be able to...
 
 -   Group 10: [Getting help in the course](https://biostat725-sp25.netlify.app/syllabus#getting-help-in-the-course)
 
-## Syllabus activity report out
+## Syllabus activity report out {.midi}
 
 ::: incremental
 -   Group 1: [What to expect in the course](https://biostat725-sp25.netlify.app/syllabus#what-to-expect-in-the-course)
@@ -483,7 +483,7 @@ $X > 0$ is a patient's BMI
 
 -   We must estimate these parameters
 
-## Continuous univariate distributions
+## Continuous univariate distributions {.midi}
 
 -   If $X$ is continuous we describe its distribution with the **probability density function (pdf)** $f(x) \geq 0$
 

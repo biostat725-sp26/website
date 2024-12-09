@@ -450,17 +450,12 @@ Prof.&nbsp;Sam Berchuck
 <ul>
 <li><p>Call Stan to run the model from:</p>
 <ul>
-<li><p>R</p></li>
-<li><p>Python</p></li>
-<li><p>The command line</p></li>
-<li><p>Matlab</p></li>
-<li><p>Stata</p></li>
-<li><p>Julia</p></li>
+<li>R, python, the command line, Matlab, Stata, Julia</li>
 </ul></li>
 <li><p>Use one of the above to analyse the data (of course you can export to another one).</p></li>
 </ul>
 </section>
-<section id="a-straightforward-example" class="slide level2">
+<section id="a-straightforward-example" class="slide level2 midi">
 <h2>A straightforward example</h2>
 <p>Suppose:</p>
 <ul>
@@ -538,7 +533,7 @@ Prof.&nbsp;Sam Berchuck
 <span id="cb5-2"><a></a><span class="dt">vector</span>[<span class="dv">10</span>] Y; <span class="co">// vector representation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="an-example-stan-program-parameter-block" class="slide level2">
+<section id="an-example-stan-program-parameter-block" class="slide level2 midi">
 <h2>An example Stan program: parameter block</h2>
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a></a><span class="kw">parameters</span> {</span>
@@ -732,7 +727,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb24-5"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb24-6"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(mu), <span class="at">y =</span> <span class="st">"Count"</span>, </span>
 <span id="cb24-7"><a></a>       <span class="at">subtitle =</span> <span class="fu">bquote</span>(<span class="st">"Posterior distribution for "</span> <span class="sc">~</span> mu))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -744,7 +739,7 @@ convergence, Rhat=1).</code></pre>
 </div>
 </div>
 </section>
-<section id="quick-note-what-does-sim-mean" class="slide level2">
+<section id="quick-note-what-does-sim-mean" class="slide level2 midi">
 <h2>Quick note: what does <span class="math inline">\(\sim\)</span> mean?</h2>
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb25-1"><a></a><span class="kw">model</span> {</span>
@@ -763,7 +758,7 @@ convergence, Rhat=1).</code></pre>
 <li><p>All we have to do in Stan is specify the log-posterior!</p></li>
 </ul>
 </section>
-<section id="alternate-way-of-specifying-stan-models" class="slide level2">
+<section id="alternate-way-of-specifying-stan-models" class="slide level2 midi">
 <h2>Alternate way of specifying Stan models</h2>
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb26-1"><a></a><span class="kw">model</span> {</span>
@@ -978,7 +973,7 @@ convergence, Rhat=1).</code></pre>
 <li><p>Stan makes life easier for us than coding up the MCMC algorithms ourselves.</p></li>
 </ul>
 </section>
-<section id="r-packages-that-interface-with-stan" class="slide level2">
+<section id="r-packages-that-interface-with-stan" class="slide level2 midi">
 <h2>R packages that interface with Stan</h2>
 <ul>
 <li><p><code>rstan</code>, <code>brms</code>, <code>cmdstanr</code>, <code>rstanarm</code></p></li>

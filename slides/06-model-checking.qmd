@@ -60,7 +60,7 @@ Today, we will dive into (1) methods for assessing MCMC convergence, and (2) mod
 
 -   Sampling issues
 
-# Traceplots
+# Traceplots {.midi}
 
 -   The first few MCMC samples are probably not draws from the posterior distribution.
 
@@ -76,19 +76,19 @@ Today, we will dive into (1) methods for assessing MCMC convergence, and (2) mod
 
 ## Convergence in a few iterations
 
-![](images/06/con1.png){fig-alt="con1" fig-align="center" height="7in"}
+![](images/06/con1.png){fig-alt="con1" fig-align="center" height="5in"}
 
 ## Convergence in a few hundred iterations
 
-![](images/06/con2.png){fig-alt="con2" fig-align="center" height="7in"}
+![](images/06/con2.png){fig-alt="con2" fig-align="center" height="5in"}
 
 ## This one never converged
 
-![](images/06/con3.png){fig-alt="con3" fig-align="center" height="7in"}
+![](images/06/con3.png){fig-alt="con3" fig-align="center" height="5in"}
 
 ## Convergence is questionable
 
-![](images/06/con2.png){fig-alt="con4" fig-align="center" height="7in"}
+![](images/06/con2.png){fig-alt="con4" fig-align="center" height="5in"}
 
 ## Traceplots for linear regression
 
@@ -186,7 +186,7 @@ W &= \frac{1}{m}\sum_{j=1}^m s_j^2,\quad s_j^2=\frac{1}{n-1}\sum_{i=1}^n \left(\
 
 The between-sequence variance, $B$ contains a factor of $n$ because it is based on the variance of the within-sequence means, $\bar{\theta}_{\cdot j}$, each of which is an average of $n$ values $\theta_{ij}$.
 
-## Convergence metric: $\widehat{R}$ {.midi}
+## Convergence metric: $\widehat{R}$ {.small}
 
 Estimate a total variance $\mathbb{V}(\theta | \mathbf{Y})$ as a weighted mean of $W$, $B$ $$\widehat{\text{var}}^+(\theta | \mathbf{Y}) = \frac{n-1}{n}W + \frac{1}{n}B$$
 
@@ -334,7 +334,7 @@ Y_in_sample <- extract(fit, pars = "in_sample")$in_sample
 ppc_dens_overlay(Y, Y_in_sample)
 ```
 
-## PPD test statistics
+## PPD test statistics {.midi}
 
 -   The procedure for carrying out a posterior predictive check requires a test quantity, $T(\mathbf{Y})$, for our observed data.
 
@@ -348,7 +348,7 @@ ppc_dens_overlay(Y, Y_in_sample)
 
 -   When the predictive distribution is not consistent with the observed statistics it indicates poor model fit.
 
-## Visualizing posterior predictive check
+## Visualizing posterior predictive check {.midi}
 
 ```{r}
 #| echo: true
@@ -365,7 +365,7 @@ ppc_stat(Y, Y_in_sample, stat = "q25")
 ppc_stat(Y, Y_in_sample, stat = "q75")
 ```
 
-## Posterior predictive p-values
+## Posterior predictive p-values {.midi}
 
 ```{r}
 #| echo: true

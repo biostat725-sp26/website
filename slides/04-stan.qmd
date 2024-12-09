@@ -86,21 +86,11 @@ Code up model in Stan code in a text editor and save as `.stan` file.
 
 -   Call Stan to run the model from:
 
-    -   R
-
-    -   Python
-
-    -   The command line
-
-    -   Matlab
-
-    -   Stata
-
-    -   Julia
+    -   R, python, the command line, Matlab, Stata, Julia
 
 -   Use one of the above to analyse the data (of course you can export to another one).
 
-## A straightforward example
+## A straightforward example {.midi}
 
 Suppose:
 
@@ -183,7 +173,7 @@ real Y[10]; // array representation
 vector[10] Y; // vector representation
 ```
 
-## An example Stan program: parameter block
+## An example Stan program: parameter block {.midi}
 
 ```{stan output.var = "straightforward", eval=FALSE}
 parameters {
@@ -377,7 +367,7 @@ data.frame(mu = pars$mu) |>
        subtitle = bquote("Posterior distribution for " ~ mu))
 ```
 
-## Quick note: what does $\sim$ mean?
+## Quick note: what does $\sim$ mean? {.midi}
 
 ```{stan output.var = "straightforward", eval=FALSE}
 model {
@@ -397,7 +387,7 @@ $$\log f(\boldsymbol{\theta} | \mathbf{Y}) \propto \log f(\boldsymbol{\theta}) +
 
 -   All we have to do in Stan is specify the log-posterior!
 
-## Alternate way of specifying Stan models
+## Alternate way of specifying Stan models {.midi}
 
 ```{stan output.var = "straightforward", eval=FALSE}
 model {
@@ -624,7 +614,7 @@ options(mc.cores = 8)
 
 -   Stan makes life easier for us than coding up the MCMC algorithms ourselves.
 
-## R packages that interface with Stan
+## R packages that interface with Stan {.midi}
 
 -   `rstan`, `brms`, `cmdstanr`, `rstanarm`
 

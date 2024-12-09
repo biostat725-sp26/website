@@ -325,7 +325,7 @@ for (s in 1:5000) {
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| fig-height: 3
+#| fig-height: 2
 #| layout-nrow: 2
 dat.fig <- data.frame(
   parameter = rep(c("beta[0]", "beta[1]", "sigma^2"), each = 5000),
@@ -361,7 +361,7 @@ ggplot(dat.fig, aes(x = index, y = value)) +
 
 # Metropolis sampling
 
-## Intuition behind Metropolis sampling
+## Intuition behind Metropolis sampling {.midi}
 
 Suppose we have a working collection $\{\boldsymbol{\theta}^{(1)},\ldots,\boldsymbol{\theta}^{(s)}\}$ to which we would like to add a new value $\boldsymbol{\theta}^{(s+1)}$. Let's consider adding a value $\boldsymbol{\theta}^*$ which is nearby $\boldsymbol{\theta}^{(s)}$. Should we include $\boldsymbol{\theta}^*$ in the set or not?
 
@@ -485,7 +485,7 @@ for (s in 1:10000) {
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| fig-height: 3
+#| fig-height: 2
 #| layout-nrow: 2
 nsims <- nrow(samples)
 dat.fig <- data.frame(
@@ -531,7 +531,7 @@ Both Metropolis and Gibbs can easily be seen as subcases of Metropolis Hastings.
 
 -   Gibbs assumes that $J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*) = f(\boldsymbol{\beta}^* | \mathbf{Y}, \sigma^{2(s)})$, which implies that $r=1$.
 
-## Hamiltonian Monte Carlo (HMC) intuition
+## Hamiltonian Monte Carlo (HMC) intuition {.midi}
 
 -   HMC is a new MCMC approach that has been shown to work better than the usual MH algorithm.
 
