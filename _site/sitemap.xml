@@ -206,7 +206,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/index.html</loc>
-    <lastmod>2024-11-19T02:33:57.569Z</lastmod>
+    <lastmod>2024-12-09T20:36:18.345Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/overview.html</loc>
@@ -371,5 +371,9 @@
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/08-workflow.html</loc>
     <lastmod>2024-12-09T16:07:24.955Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/09-nonlinear.html</loc>
+    <lastmod>2024-12-09T17:22:04.379Z</lastmod>
   </url>
 </urlset>
