@@ -16,17 +16,17 @@ format:
 
 ### Teaching team
 
-+--------------------+---------------+------------------------------+
-| Name               | Role          | Office Hours                 |
-+====================+===============+==============================+
-| Prof. Sam Berchuck | Instructor    | Mon 1:30 - 2:30pm, Hock 9028 |
-|                    |               |                              |
-|                    |               | Thu 3 - 4pm, Hock 9028       |
-|                    |               |                              |
-|                    |               | *or by appointment*          |
-+--------------------+---------------+------------------------------+
-| Dr. Youngsoo Baek  | TA\           | Tue 1:30 - 3:30pm, Hock 9061 |
-+--------------------+---------------+------------------------------+
++--------------------+----------------+------------------------------+
+| Name               | Role           | Office Hours (these are TBD) |
++====================+================+==============================+
+| Prof. Sam Berchuck | Instructor     | Mon 1:30 - 2:30pm, Hock 9028 |
+|                    |                |                              |
+|                    |                | Thu 3 - 4pm, Hock 9028       |
+|                    |                |                              |
+|                    |                | *or by appointment*          |
++--------------------+----------------+------------------------------+
+| Dr. Youngsoo Baek  | TA\            | Tue 1:30 - 3:30pm, Hock 9061 |
++--------------------+----------------+------------------------------+
 
 ## Course description
 
@@ -114,15 +114,15 @@ Lectures are designed to be interactive, so you gain experience applying new con
 
 You are expected to bring a laptop, tablet, or any device with internet and a keyboard to each class so that you can participate in the in-class exercises. Please make sure your device is fully charged before you come to class, as the number of outlets in the classroom will not be sufficient to accommodate everyone.
 
-### Teams
+<!-- ### Teams -->
 
-You may be assigned to a team to complete in-class exercises. All team members are expected to contribute equally to the completion of the group activities. Failure to adequately contribute to an assignment can result in a penalty to your score relative to the team's overall mark.
+<!-- You may be assigned to a team to complete in-class exercises. All team members are expected to contribute equally to the completion of the group activities. Failure to adequately contribute to an assignment can result in a penalty to your score relative to the team's overall mark. -->
 
-You are expected to make use of the provided GitHub repository as the central collaborative platform. Commits to this repository will be used as one of several metrics of each team member's relative contribution for each team assignment.
+<!-- You are expected to make use of the provided GitHub repository as the central collaborative platform. Commits to this repository will be used as one of several metrics of each team member's relative contribution for each team assignment. -->
 
 ## Activities & Assessment
 
-You will be assessed based on four components: homework, exams, live coding, and participation (i.e., application exercises, and teamwork).
+You will be assessed based on four components: homework, exams, live coding, and application exercises.
 
 ### Homework
 
@@ -136,21 +136,15 @@ There will be two exams in this course. Each exam will be an open-note take-home
 
 ### Live Coding
 
-There will be a live coding evaluation in this course. Students will meet with Prof. Berchuck and/or a TA in a closed session to demonstrate their ability to code in Stan. The session will be 15-30 minutes. During the session, they will be asked to implement a Bayesian model and interpret the results. This exercise aims to assess their understanding of Bayesian methods and their proficiency in using Stan. Students will be required to schedule and complete the session after returing from spring break and before the last day of classes. The evaluation will surround one of the course assignments (e.g., a particular homework) which the student will choose. More information about the project will be provided during the semester.
+There will be a live coding evaluation in this course. Students will meet with Prof. Berchuck and/or a TA in a closed session to demonstrate their ability to code in Stan. The session will be 15-30 minutes. During the session, they will be asked to implement a Bayesian model and interpret the results. This exercise aims to assess their understanding of Bayesian methods and their proficiency in using Stan. Students will be required to schedule and complete the session after returning from spring break and before the last day of classes. The evaluation will surround one of the course assignments (e.g., a particular homework) which the student will choose. More information about the project will be provided during the semester.
 
-### Participation (Application exercises + teamwork)
+### Application exercises
 
-#### Application exercises
-
-You will get the most out of the course if you actively participate in class and when working with your team. Parts of some lectures will be dedicated to working on Application Exercises (AEs). AEs are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59p ET, and AEs from Thursday lectures are should be submitted by Sunday at 11:59p ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
+You will get the most out of the course if you actively participate in class. Parts of some lectures will be dedicated to working on Application Exercises (AEs). AEs are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59p ET, and AEs from Thursday lectures are should be submitted by Sunday at 11:59p ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
 
 AEs will be graded based on making a good-faith effort to attempt all questions covered in class. You are welcome to, but not required, to work on AEs beyond lecture.
 
 *Successful on-time effort on at least 80% of AEs will result in full credit for AEs in the final course grade.*
-
-#### Teamwork
-
-Given the collaborative nature of statistics and data science work, teamwork will be a key part of this course. You will work in teams for in-class activities. There will be periodic peer and self-evaluations to reflect on the team's collaboration. These evaluations will be counted as part of the participation grade.
 
 ## Grading
 
@@ -164,7 +158,7 @@ The final course grade will be calculated as follows:
 | Exam 01                        | 20%        |
 | Exam 02                        | 20%        |
 | Live Coding                    | 10%        |
-| Participation (AEs + Teamwork) | 10%        |
+| Application exercises          | 10%        |
 
 </center>
 
@@ -215,7 +209,7 @@ To uphold the Duke Community Standard, students agree:
 
 -   You may not discuss or otherwise work with others on the exams. Unauthorized collaboration or using unauthorized materials will be considered a violation for all students involved. More details will be given closer to the exam date.
 
--   For any team work, collaboration within teams is not only allowed, but expected. Communication between teams at a high level is also allowed however you may not share code or components across teams.
+<!-- -   For any team work, collaboration within teams is not only allowed, but expected. Communication between teams at a high level is also allowed however you may not share code or components across teams. -->
 
 -   **Reusing code**: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.
 
