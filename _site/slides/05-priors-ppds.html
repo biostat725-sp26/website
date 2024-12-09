@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof.&nbsp;Sam Berchuck">
+
+<title>Priors, Posteriors, and PPDs! – BIOSTAT 725 - Spring 2025</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Priors, Posteriors, and PPDs!</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/biostat725-sp25" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
+    <a href="https://edstem.org/us/courses/68995/discussion/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-chat-dots-fill"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-check-square-fill"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/53305">
+            Canvas
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/903622">
+            Gradescope
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../support.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Support</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../links.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Useful links</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Troubleshooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R resources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-00.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 00</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 01</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 02</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 03</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 04</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hw/hw-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 05</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#review-of-last-lecture" id="toc-review-of-last-lecture" class="nav-link active" data-scroll-target="#review-of-last-lecture">Review of last lecture</a></li>
+  <li><a href="#priors" id="toc-priors" class="nav-link" data-scroll-target="#priors">Priors</a>
+  <ul class="collapse">
+  <li><a href="#prior-elicitation" id="toc-prior-elicitation" class="nav-link" data-scroll-target="#prior-elicitation">Prior elicitation</a></li>
+  <li><a href="#conjugate-priors" id="toc-conjugate-priors" class="nav-link" data-scroll-target="#conjugate-priors">Conjugate priors</a></li>
+  <li><a href="#informative-versus-uninformative-priors" id="toc-informative-versus-uninformative-priors" class="nav-link" data-scroll-target="#informative-versus-uninformative-priors">Informative versus uninformative priors</a></li>
+  <li><a href="#informative-versus-uninformative-priors-1" id="toc-informative-versus-uninformative-priors-1" class="nav-link" data-scroll-target="#informative-versus-uninformative-priors-1">Informative versus uninformative priors</a></li>
+  <li><a href="#informative-versus-uninformative-priors-2" id="toc-informative-versus-uninformative-priors-2" class="nav-link" data-scroll-target="#informative-versus-uninformative-priors-2">Informative versus uninformative priors</a></li>
+  <li><a href="#improper-priors" id="toc-improper-priors" class="nav-link" data-scroll-target="#improper-priors">Improper priors</a></li>
+  <li><a href="#subjective-versus-objective-priors" id="toc-subjective-versus-objective-priors" class="nav-link" data-scroll-target="#subjective-versus-objective-priors">Subjective versus objective priors</a></li>
+  <li><a href="#objective-bayes" id="toc-objective-bayes" class="nav-link" data-scroll-target="#objective-bayes">Objective Bayes</a></li>
+  <li><a href="#hyperpriors" id="toc-hyperpriors" class="nav-link" data-scroll-target="#hyperpriors">Hyperpriors</a></li>
+  <li><a href="#hyperpriors-1" id="toc-hyperpriors-1" class="nav-link" data-scroll-target="#hyperpriors-1">Hyperpriors</a></li>
+  <li><a href="#prior-predictive-checks" id="toc-prior-predictive-checks" class="nav-link" data-scroll-target="#prior-predictive-checks">Prior predictive checks</a></li>
+  <li><a href="#prior-predictive-checks-1" id="toc-prior-predictive-checks-1" class="nav-link" data-scroll-target="#prior-predictive-checks-1">Prior predictive checks</a></li>
+  <li><a href="#prior-predictive-checks-2" id="toc-prior-predictive-checks-2" class="nav-link" data-scroll-target="#prior-predictive-checks-2">Prior predictive checks</a></li>
+  <li><a href="#visualizing-prior-predictive-checks" id="toc-visualizing-prior-predictive-checks" class="nav-link" data-scroll-target="#visualizing-prior-predictive-checks">Visualizing prior predictive checks</a></li>
+  </ul></li>
+  <li><a href="#posterior-summaries" id="toc-posterior-summaries" class="nav-link" data-scroll-target="#posterior-summaries">Posterior summaries</a>
+  <ul class="collapse">
+  <li><a href="#posterior-summaries-point-estimates" id="toc-posterior-summaries-point-estimates" class="nav-link" data-scroll-target="#posterior-summaries-point-estimates">Posterior summaries: point estimates</a></li>
+  <li><a href="#posterior-summaries-point-estimates-1" id="toc-posterior-summaries-point-estimates-1" class="nav-link" data-scroll-target="#posterior-summaries-point-estimates-1">Posterior summaries: point estimates</a></li>
+  <li><a href="#posterior-summaries-intervals" id="toc-posterior-summaries-intervals" class="nav-link" data-scroll-target="#posterior-summaries-intervals">Posterior summaries: intervals</a></li>
+  <li><a href="#posterior-summaries-intervals-1" id="toc-posterior-summaries-intervals-1" class="nav-link" data-scroll-target="#posterior-summaries-intervals-1">Posterior summaries: intervals</a></li>
+  <li><a href="#posterior-summaries-hpd-credible-interval" id="toc-posterior-summaries-hpd-credible-interval" class="nav-link" data-scroll-target="#posterior-summaries-hpd-credible-interval">Posterior summaries: HPD credible interval</a></li>
+  <li><a href="#posterior-summaries-hpd-credible-interval-1" id="toc-posterior-summaries-hpd-credible-interval-1" class="nav-link" data-scroll-target="#posterior-summaries-hpd-credible-interval-1">Posterior summaries: HPD credible interval</a></li>
+  <li><a href="#posterior-summaries-probability" id="toc-posterior-summaries-probability" class="nav-link" data-scroll-target="#posterior-summaries-probability">Posterior summaries: probability</a></li>
+  <li><a href="#posterior-summaries-estimation" id="toc-posterior-summaries-estimation" class="nav-link" data-scroll-target="#posterior-summaries-estimation">Posterior summaries: estimation</a></li>
+  </ul></li>
+  <li><a href="#posterior-predictive-distribution-ppd" id="toc-posterior-predictive-distribution-ppd" class="nav-link" data-scroll-target="#posterior-predictive-distribution-ppd">Posterior predictive distribution (PPD)</a>
+  <ul class="collapse">
+  <li><a href="#linear-regression-recall" id="toc-linear-regression-recall" class="nav-link" data-scroll-target="#linear-regression-recall">Linear regression recall</a></li>
+  <li><a href="#posterior-predictive-distribution-definition" id="toc-posterior-predictive-distribution-definition" class="nav-link" data-scroll-target="#posterior-predictive-distribution-definition">Posterior predictive distribution: definition</a></li>
+  <li><a href="#posterior-predictive-distribution-estimation" id="toc-posterior-predictive-distribution-estimation" class="nav-link" data-scroll-target="#posterior-predictive-distribution-estimation">Posterior predictive distribution: estimation</a></li>
+  <li><a href="#posterior-predictive-distribution-stan" id="toc-posterior-predictive-distribution-stan" class="nav-link" data-scroll-target="#posterior-predictive-distribution-stan">Posterior predictive distribution: Stan</a></li>
+  <li><a href="#posterior-predictive-distribution-stan-1" id="toc-posterior-predictive-distribution-stan-1" class="nav-link" data-scroll-target="#posterior-predictive-distribution-stan-1">Posterior predictive distribution: Stan</a></li>
+  <li><a href="#posterior-predictive-distribution-stan-2" id="toc-posterior-predictive-distribution-stan-2" class="nav-link" data-scroll-target="#posterior-predictive-distribution-stan-2">Posterior predictive distribution: Stan</a></li>
+  <li><a href="#lets-simulate-some-data-again" id="toc-lets-simulate-some-data-again" class="nav-link" data-scroll-target="#lets-simulate-some-data-again">Let’s simulate some data again</a></li>
+  <li><a href="#fit-linear-regression-using-stan" id="toc-fit-linear-regression-using-stan" class="nav-link" data-scroll-target="#fit-linear-regression-using-stan">Fit linear regression using Stan</a></li>
+  <li><a href="#examining-prediction-performance" id="toc-examining-prediction-performance" class="nav-link" data-scroll-target="#examining-prediction-performance">Examining prediction performance</a></li>
+  <li><a href="#prepare-for-next-class" id="toc-prepare-for-next-class" class="nav-link" data-scroll-target="#prepare-for-next-class">Prepare for next class</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/biostat725-sp25/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="05-priors-ppds.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Priors, Posteriors, and PPDs!</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Prof.&nbsp;Sam Berchuck </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Jan 23, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="review-of-last-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="review-of-last-lecture">Review of last lecture</h2>
+<p>On Tuesday, we learned about Stan</p>
+<ul>
+<li><p>A probabilistic programming language for Bayesian inference</p></li>
+<li><p>We learned about the <strong>data</strong>, <strong>parameter</strong>, and <strong>model</strong> code chunks</p></li>
+<li><p>We used Stan to fit a Bayesian linear regression</p></li>
+</ul>
+<p>Today, we will dive into priors, posterior summaries, and posterior predictive distributions (PPDs)</p>
+</section>
+<section id="priors" class="level1">
+<h1>Priors</h1>
+<section id="prior-elicitation" class="level2">
+<h2 class="anchored" data-anchor-id="prior-elicitation">Prior elicitation</h2>
+<ul>
+<li><p>Selecting the prior is one of the most important steps in a Bayesian analysis.</p></li>
+<li><p>There is no “right” way to select a prior.</p></li>
+<li><p>The choices often depend on the objective of the study and the nature of the data.</p>
+<ol type="1">
+<li><p>Conjugate versus non-conjugate</p></li>
+<li><p>Informative versus uninformative</p></li>
+<li><p>Proper versus improper</p></li>
+<li><p>Subjective versus objective</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="conjugate-priors" class="level2">
+<h2 class="anchored" data-anchor-id="conjugate-priors">Conjugate priors</h2>
+<ul>
+<li><p>A prior is conjugate if the posterior is a member of the same parametric family.</p></li>
+<li><p>We have seen that if the response is normal and we use a normal prior on the regression parameter, the posterior is also a normal (if we use an inverse gamma distribution for the variance, the posterior is also inverse gamma).</p>
+<ul>
+<li><p>This requires a pairing of the likelihood and prior.</p></li>
+<li><p>There is a long list of <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate priors</a>.</p></li>
+</ul></li>
+<li><p>The advantage of a conjugate prior is that the posterior is available in closed form.</p></li>
+<li><p>No longer critical with Stan!</p></li>
+</ul>
+</section>
+<section id="informative-versus-uninformative-priors" class="level2">
+<h2 class="anchored" data-anchor-id="informative-versus-uninformative-priors">Informative versus uninformative priors</h2>
+<ul>
+<li><p>In some cases informative priors are available.</p></li>
+<li><p>Potential sources include: literature reviews; pilot studies; expert opinions; etc.</p></li>
+<li><p>Prior elicitation is the process of converting expert information to prior distribution.</p></li>
+<li><p>For example, the expert might not comprehend an inverse gamma pdf, but if they give you an estimate and a spread you can back out <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p></li>
+</ul>
+</section>
+<section id="informative-versus-uninformative-priors-1" class="level2">
+<h2 class="anchored" data-anchor-id="informative-versus-uninformative-priors-1">Informative versus uninformative priors</h2>
+<ul>
+<li><p>Strong priors for the parameters of interest can be hard to defend.</p></li>
+<li><p>Strong priors for nuisance parameters are more common.</p></li>
+<li><p>For example, say you are doing a Bayesian t-test to study the mean <span class="math inline">\(\mu\)</span>, you might use an informative prior for the nuisance parameter <span class="math inline">\(\sigma^2\)</span>.</p></li>
+<li><p>Any time informative priors are used you should conduct a sensitivity analysis.</p>
+<ul>
+<li>That is, compare the posterior for several priors.</li>
+</ul></li>
+</ul>
+</section>
+<section id="informative-versus-uninformative-priors-2" class="level2">
+<h2 class="anchored" data-anchor-id="informative-versus-uninformative-priors-2">Informative versus uninformative priors</h2>
+<ul>
+<li><p>In most cases prior information is not available and so uninformative priors are used.</p></li>
+<li><p>Other names: vague, weak, flat, diffuse, etc.</p>
+<ul>
+<li>These all refer to priors with large variance.</li>
+</ul></li>
+<li><p>Examples: <span class="math inline">\(\theta \sim Uniform(0, 1)\)</span> or <span class="math inline">\(\mu ∼ N(0, 1000^2)\)</span></p></li>
+<li><p>Uninformative priors can be conjugate or not conjugate.</p></li>
+<li><p>The idea is that the likelihood overwhelms the prior.</p></li>
+<li><p>You should verify this with a sensitivity analysis.</p></li>
+</ul>
+</section>
+<section id="improper-priors" class="level2">
+<h2 class="anchored" data-anchor-id="improper-priors">Improper priors</h2>
+<ul>
+<li><p>Extreme case: <span class="math inline">\(\mu \sim N(0, \tau^2)\)</span> and we set <span class="math inline">\(\tau = \infty\)</span>.</p></li>
+<li><p>A “prior” that doesn’t integrate to one is called <strong>improper</strong>.</p></li>
+<li><p>Example: <span class="math inline">\(f(\mu) = 1\)</span> for all <span class="math inline">\(\mu \in \mathbb{R}\)</span>.</p></li>
+<li><p>It’s OK to use an improper prior so long as you verify that the posterior integrates to one.</p></li>
+<li><p>For example, in linear regression an improper prior can be used for the slopes as long as the number of observations exceeds the number of covariates and there are no redundant predictors.</p></li>
+</ul>
+</section>
+<section id="subjective-versus-objective-priors" class="level2">
+<h2 class="anchored" data-anchor-id="subjective-versus-objective-priors">Subjective versus objective priors</h2>
+<ul>
+<li><p>A subjective Bayesian picks a prior that corresponds to their current state of knowledge before collecting data.</p></li>
+<li><p>Of course, if the reader does not share this prior then they might not accept the analysis, and so sensitivity analysis is common.</p></li>
+<li><p>An <strong>objective analysis</strong> is one that requires no subjective decisions by the analyst.</p></li>
+<li><p>Subjective decisions include picking the likelihood, treatment of outliers, transformations, … and prior specification.</p></li>
+<li><p>A completely objective analysis may be feasible in tightly controlled experiments, but is impossible in many analyses.</p></li>
+</ul>
+</section>
+<section id="objective-bayes" class="level2">
+<h2 class="anchored" data-anchor-id="objective-bayes">Objective Bayes</h2>
+<ul>
+<li><p>An objective Bayesian attempts to replace the subjective choice of prior with an algorithm that determines the prior.</p></li>
+<li><p>There are many approaches: Jeffreys, reference, probability matching, maximum entropy, empirical Bayes, penalized complexity, etc.</p></li>
+<li><p>Jeffreys priors are the most common: <span class="math inline">\(f(\boldsymbol{\theta}) \propto \sqrt{\det[I(\boldsymbol{\theta})]}\)</span>, where <span class="math inline">\(I(\boldsymbol{\theta})_{ij} = \mathbb{E}\left[\frac{f(\mathbf{Y}|\boldsymbol{\theta})}{\partial \theta_i}\frac{f(\mathbf{Y}|\boldsymbol{\theta})}{\partial \theta_j}\right]\)</span> is the Fisher Information matrix.</p></li>
+<li><p>Many of these priors are improper and so you have to check that the posterior is proper.</p></li>
+</ul>
+</section>
+<section id="hyperpriors" class="level2">
+<h2 class="anchored" data-anchor-id="hyperpriors">Hyperpriors</h2>
+<p><strong>Prior</strong> is the name for the distribution of model parameters that show up in the likelihood.</p>
+<ul>
+<li>For example: In linear regression, <span class="math inline">\(\boldsymbol{\beta}\)</span> and <span class="math inline">\(\sigma^2\)</span> are parameters in the likelihood, thus <span class="math inline">\(f(\boldsymbol{\beta})\)</span> and <span class="math inline">\(f(\sigma^2)\)</span> are called priors.</li>
+</ul>
+<p><strong>Hyperprior</strong> is the name for the distribution of model parameters not in the likelihood.</p>
+<p><strong>Hyperparameter</strong> is the name for the parameters in a hyperprior.</p>
+</section>
+<section id="hyperpriors-1" class="level2">
+<h2 class="anchored" data-anchor-id="hyperpriors-1">Hyperpriors</h2>
+<ul>
+<li><p>For example: Suppose in linear regression, we place the following prior for <span class="math inline">\(\boldsymbol{\beta}\)</span>, <span class="math inline">\(f(\boldsymbol{\beta} | \boldsymbol{\beta}_0, \sigma_{\beta}^2) = N(\boldsymbol{\beta}_0,\sigma_{\beta}^2 \mathbf{I})\)</span> and</p>
+<ul>
+<li><p><span class="math inline">\(f(\boldsymbol{\beta}_0) = N(\mathbf{0}, \mathbf{I})\)</span></p></li>
+<li><p><span class="math inline">\(f(\sigma_{\beta}^2) = IG(a_{\beta}, b_{\beta})\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(f(\boldsymbol{\beta}_0)\)</span> and <span class="math inline">\(f(\sigma_{\beta}^2)\)</span> are <strong>hyperpriors</strong>.</p></li>
+<li><p><span class="math inline">\(a_{\beta}, b_{\beta}\)</span> are <strong>hyperparameters</strong>.</p></li>
+</ul>
+<p>. . .</p>
+<p><strong>Question:</strong> Why would a researcher be interested in a hyperprior?</p>
+</section>
+<section id="prior-predictive-checks" class="level2">
+<h2 class="anchored" data-anchor-id="prior-predictive-checks">Prior predictive checks</h2>
+<ul>
+<li>Use the prior distribution to obtain samples of the data, <span class="math inline">\(\mathbf{Y}\)</span>.</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+f(\mathbf{Y}) &amp;= \int f(\mathbf{Y}, \boldsymbol{\theta}) d\boldsymbol{\theta}\\
+&amp;= \int f(\mathbf{Y} | \boldsymbol{\theta})f(\boldsymbol{\theta}) d\boldsymbol{\theta}
+\end{aligned}\]</span></p>
+<ul>
+<li><p>This is easy to sample from using the following steps, 1. <span class="math inline">\(\boldsymbol{\theta}^{sim} \sim f(\boldsymbol{\theta})\)</span> and 2. <span class="math inline">\(\mathbf{Y}^{sim} \sim f(\mathbf{Y} | \boldsymbol{\theta}^{sim})\)</span>.</p></li>
+<li><p>Similar to Gibbs sampling, this gives a sample from the joint <span class="math inline">\((\mathbf{Y}^{sim}, \boldsymbol{\theta}^{sim})\)</span> and also the marginal <span class="math inline">\(\mathbf{Y}^{sim}\)</span>.</p></li>
+</ul>
+</section>
+<section id="prior-predictive-checks-1" class="level2">
+<h2 class="anchored" data-anchor-id="prior-predictive-checks-1">Prior predictive checks</h2>
+<ul>
+<li><p>Suppose that I am interested in modeling the number of patients who are in the waiting room during an hour in the Duke ED, <span class="math inline">\(Y_i\)</span>.</p></li>
+<li><p>We can model this random variable as <span class="math inline">\(Y_i \stackrel{iid}{\sim}Poisson(\lambda)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>. A conjugate prior for <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\lambda \sim Gamma(a,b)\)</span>.</p></li>
+<li><p>We know from experience that on average there are 20 patients waiting during an hour, so we want <span class="math inline">\(\mathbb{E}[Y_i]=\lambda = 20\)</span>.</p></li>
+<li><p>Thus, we place a prior on <span class="math inline">\(\lambda\)</span> that is centered at 20, which requires that <span class="math inline">\(a/b=20\)</span>.</p></li>
+<li><p>There are infinitely many priors specifications.</p></li>
+</ul>
+</section>
+<section id="prior-predictive-checks-2" class="level2">
+<h2 class="anchored" data-anchor-id="prior-predictive-checks-2">Prior predictive checks</h2>
+<ul>
+<li>Prior predictive checks can be used to determine a realistic specification for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</li>
+</ul>
+<div class="cell" data-output.var="prior pc">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; b;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span> lambda = gamma_rng(a, b);</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] y_sim;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) y_sim[i] = poisson_rng(lambda);</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>When running Stan for prior predictive checks you must specify <code>algorithm = "Fixed_param"</code></li>
+</ul>
+</section>
+<section id="visualizing-prior-predictive-checks" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="visualizing-prior-predictive-checks">Visualizing prior predictive checks</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-priors-ppds_files/figure-revealjs/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>We can use the samples of <span class="math inline">\(Y_i\)</span> under different prior specifications to compute a summary statstic, for example for the maximum value.</li>
+</ul>
+</section>
+</section>
+<section id="posterior-summaries" class="level1">
+<h1>Posterior summaries</h1>
+<section id="posterior-summaries-point-estimates" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-summaries-point-estimates">Posterior summaries: point estimates</h2>
+<ul>
+<li><p>The output of Bayesian inference is a probability distribution. It is often convenient to summarize the posterior in various ways.</p></li>
+<li><p>Usually summaries are computed for individual parameters using the marginal distributions,</p></li>
+</ul>
+<p><span class="math display">\[f(\theta_i|\mathbf{Y}) = \int f(\boldsymbol{\theta} | \mathbf{Y}) d\boldsymbol{\theta}_{-i}.\]</span></p>
+<ul>
+<li>The <strong>posterior mean</strong> is defined by,</li>
+</ul>
+<p><span class="math display">\[\int_{-\infty}^{\infty}\theta_i f(\theta_i|\mathbf{Y}) d\theta_i.\]</span></p>
+</section>
+<section id="posterior-summaries-point-estimates-1" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-summaries-point-estimates-1">Posterior summaries: point estimates</h2>
+<ul>
+<li>The <strong>posterior median</strong> <em>m</em> is defined by,</li>
+</ul>
+<p><span class="math display">\[\int_{-\infty}^{m} f(\theta_i|\mathbf{Y}) d\theta_i = 0.5 = \int_m^{\infty} f(\theta_i|\mathbf{Y}) d\theta_i.\]</span></p>
+<ul>
+<li>The <strong>posterior mode</strong> is given by,</li>
+</ul>
+<p><span class="math display">\[M=\text{argmax} f(\theta_i|\mathbf{Y}) \]</span></p>
+<ul>
+<li>The mean and mode are also well defined for the joint posterior distribution.</li>
+</ul>
+</section>
+<section id="posterior-summaries-intervals" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-summaries-intervals">Posterior summaries: intervals</h2>
+<ul>
+<li><p>The Bayesian analogue of a frequentist confidence interval is a <strong>credible interval</strong>.</p></li>
+<li><p>An interval <span class="math inline">\((a,b)\)</span> is a <span class="math inline">\(100(1-\alpha)\%\)</span> posterior credible interval for <span class="math inline">\(\theta_i\)</span> if</p></li>
+</ul>
+<p><span class="math display">\[\int_a^b f(\theta_i|\mathbf{Y}) d\theta_i = (1-\alpha),\quad 0\leq \alpha \leq 1.\]</span></p>
+<ul>
+<li>A <strong>credible region</strong> can be defined similarly for a joint distribution.</li>
+</ul>
+</section>
+<section id="posterior-summaries-intervals-1" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-summaries-intervals-1">Posterior summaries: intervals</h2>
+<ul>
+<li><p>Credible intervals are not unique. The two most common are <strong>symmetric</strong> and <strong>highest posterior density (HPD)</strong>.</p>
+<ul>
+<li>Symmetric: An interval <span class="math inline">\((a,b)\)</span> is a symmetric <span class="math inline">\(100(1-\alpha)\%\)</span> credible interval if,</li>
+</ul>
+<p><span class="math display">\[\int_{-\infty}^a f(\theta_i|\mathbf{Y}) d\theta_i = \frac{\alpha}{2} = \int_b^{\infty} f(\theta_i|\mathbf{Y}) d\theta_i.\]</span></p>
+<ul>
+<li><p>Highest posterior density (HPD): An interval <span class="math inline">\((a,b)\)</span> is a <span class="math inline">\(100(1-\alpha)\%\)</span> HPD interval if,</p>
+<ol type="1">
+<li><p><span class="math inline">\([a,b]\)</span> is a <span class="math inline">\(100(1-\alpha)\%\)</span> credible interval for <span class="math inline">\(\theta_i\)</span></p></li>
+<li><p>For all <span class="math inline">\(\theta_i \in [a,b]\)</span> and <span class="math inline">\(\theta_i^* \notin [a,b]\)</span>, <span class="math inline">\(f(\theta_i|\mathbf{Y}) \geq f(\theta_i^*|\mathbf{Y})\)</span></p></li>
+</ol></li>
+</ul></li>
+</ul>
+</section>
+<section id="posterior-summaries-hpd-credible-interval" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-summaries-hpd-credible-interval">Posterior summaries: HPD credible interval</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/05/hpd.png" class="quarto-figure quarto-figure-center figure-img" style="height:5in" alt="hpd-hoff"></p>
+</figure>
+</div>
+</section>
+<section id="posterior-summaries-hpd-credible-interval-1" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-summaries-hpd-credible-interval-1">Posterior summaries: HPD credible interval</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/05/hpd-other.png" class="quarto-figure quarto-figure-center figure-img" style="height:5in" alt="hpd-other"></p>
+</figure>
+</div>
+</section>
+<section id="posterior-summaries-probability" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-summaries-probability">Posterior summaries: probability</h2>
+<ul>
+<li><p>We may be interested in a hypothesis test: <span class="math inline">\(H_0: \theta \leq c\)</span> versus <span class="math inline">\(H_1: \theta \geq c\)</span></p></li>
+<li><p>We can report the posterior probability of the null hypothesis</p>
+<ul>
+<li><span class="math inline">\(P(\theta \leq c | \mathbf{Y}) = \mathbb{E}[1(\theta \leq c) | \mathbf{Y}]\)</span></li>
+</ul></li>
+<li><p>Interpretation of the posteriour probability:</p>
+<ul>
+<li>Probability that the null is true <span class="math inline">\(P(\theta \leq c | \mathbf{Y})\)</span></li>
+</ul></li>
+<li><p>Interpretation of the p-value:</p>
+<ul>
+<li><p>Probability of observing a test-statistic as or more extreme given that the null is true</p></li>
+<li><p>Evidence for or against the null (reject or fail to reject)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="posterior-summaries-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-summaries-estimation">Posterior summaries: estimation</h2>
+<ul>
+<li><p>We have already seen that we can use MC or MCMC to estimate these posterior summaries!</p></li>
+<li><p>To compute the HPD interval we can use the <code>hdi</code> function from the <code>ggdist</code> R package</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdist)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">10000</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(y, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    2.5%    97.5% 
+0.610091 7.096755 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ggdist<span class="sc">::</span><span class="fu">hdi</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          [,1]     [,2]
+[1,] 0.3306513 6.319382</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="posterior-predictive-distribution-ppd" class="level1">
+<h1>Posterior predictive distribution (PPD)</h1>
+<section id="linear-regression-recall" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression-recall">Linear regression recall</h2>
+<ul>
+<li><p>Assume we observe <span class="math inline">\((Y_i,\mathbf{x}_i)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>, where <span class="math display">\[Y_i|\boldsymbol{\beta},\sigma^2 \sim N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2).\]</span></p></li>
+<li><p>The full data likelihood is given by, <span class="math display">\[f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) = \prod_{i=1}^n f(Y_i|\boldsymbol{\beta},\sigma^2),\]</span> where <span class="math inline">\(\mathbf{Y} = (Y_1,\ldots,Y_n)\)</span>.</p></li>
+<li><p>We have parameters <span class="math inline">\(\boldsymbol{\theta} = (\boldsymbol{\beta}^\top,\sigma^2)\)</span> and <span class="math inline">\(f(\boldsymbol{\theta}) = f(\boldsymbol{\beta})f(\sigma^2)\)</span>.</p></li>
+</ul>
+</section>
+<section id="posterior-predictive-distribution-definition" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="posterior-predictive-distribution-definition">Posterior predictive distribution: definition</h2>
+<ul>
+<li><p>Assume we observe a new <span class="math inline">\(\mathbf{x}'\)</span> and we would like to make some type of prediction about <span class="math inline">\(Y'\)</span> given the data we have already observed, <span class="math inline">\(\mathbf{Y}\)</span>.</p></li>
+<li><p>The <strong>posterior predictive distribution</strong> is defined as <span class="math inline">\(f(Y'|\mathbf{Y})\)</span> and can be written as, <span class="math display">\[\begin{aligned}
+f(Y' | \mathbf{Y}) &amp;= \int f(Y' , \boldsymbol{\theta} | \mathbf{Y}) d\boldsymbol{\theta},\quad\text{(marginal)}\\
+&amp;= \int f(Y' | \boldsymbol{\theta},\mathbf{Y}) f(\boldsymbol{\theta} | \mathbf{Y})d\boldsymbol{\theta},\quad\text{(conditional)}\\
+&amp;= \int \underbrace{f(Y' | \boldsymbol{\theta})}_{likelihood} \underbrace{f(\boldsymbol{\theta} | \mathbf{Y})}_{posterior}d\boldsymbol{\theta}.\quad\text{(independence)}
+\end{aligned}\]</span></p></li>
+</ul>
+</section>
+<section id="posterior-predictive-distribution-estimation" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="posterior-predictive-distribution-estimation">Posterior predictive distribution: estimation</h2>
+<ul>
+<li>The PPD can be written as an expectation,</li>
+</ul>
+<p><span class="math display">\[f(Y' | \mathbf{Y})  = \int f(Y' | \boldsymbol{\theta}) f(\boldsymbol{\theta} | \mathbf{Y})d\boldsymbol{\theta} = \mathbb{E}_{\boldsymbol{\theta} | \mathbf{Y}}\left[f(Y' | \boldsymbol{\theta})\right].\]</span></p>
+<ul>
+<li>Thus, we can estimate the PPD using a Monte Carlo estimate,</li>
+</ul>
+<p><span class="math display">\[\mathbb{E}_{\boldsymbol{\theta} | \mathbf{Y}}\left[f(Y' | \boldsymbol{\theta})\right] \approx \frac{1}{S} \sum_{s = 1}^S f\left(Y' | \boldsymbol{\theta}^{(s)}\right),\]</span></p>
+<p>where <span class="math inline">\(\left\{\boldsymbol{\theta}^{(1)},\ldots,\boldsymbol{\theta}^{(S)}\right\}\)</span> are samples from the posterior.</p>
+</section>
+<section id="posterior-predictive-distribution-stan" class="level2">
+<h2 class="anchored" data-anchor-id="posterior-predictive-distribution-stan">Posterior predictive distribution: Stan</h2>
+<ul>
+<li><p>We want to compute the posterior predictive distribution.</p></li>
+<li><p>Use <strong>generated quantities</strong> block.</p></li>
+</ul>
+<div class="cell" data-output.var="ppd">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] in_sample;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    in_sample[i] = normal_rng(X[i] * beta, sigma);</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="posterior-predictive-distribution-stan-1" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="posterior-predictive-distribution-stan-1">Posterior predictive distribution: Stan</h2>
+<div class="cell" data-output.var="ppd">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] in_sample;</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    in_sample[i] = normal_rng(X[i] * beta, sigma);</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The function <code>normal_rng</code> generates a single independent sample from a normal distribution with parameters:</p>
+<ul>
+<li><p><code>mean = X[i, ] * beta</code>, where <code>beta</code> is a sample from the estimated posterior.</p></li>
+<li><p><code>sd = sigma</code>, where <code>sigma</code> is a sample from the estimated posterior.</p></li>
+</ul>
+<p>This computes the posterior predictive distribution for the original data.</p>
+</section>
+<section id="posterior-predictive-distribution-stan-2" class="level2 midi">
+<h2 class="midi anchored" data-anchor-id="posterior-predictive-distribution-stan-2">Posterior predictive distribution: Stan</h2>
+<p>The following additions are added to the linear regression Stan code.</p>
+<div class="cell" data-output.var="ppd">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// saved in linear_regression_ppd.stan</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n_pred; <span class="co">// number of new observations</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">matrix</span>[n_pred, p + <span class="dv">1</span>] X_pred; <span class="co">// covariate matrix for new observations</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] in_sample;</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n_pred] out_sample;</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    in_sample[i] = normal_rng(X[i, ] * beta, sigma);</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n_pred) {</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    out_sample[i] = normal_rng(X_pred[i, ] * beta, sigma);</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lets-simulate-some-data-again" class="level2">
+<h2 class="anchored" data-anchor-id="lets-simulate-some-data-again">Let’s simulate some data again</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">###True parameters</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">1.5</span> <span class="co"># true measurement error</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>, <span class="dv">3</span>), <span class="at">ncol =</span> <span class="dv">1</span>) <span class="co"># true beta</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="do">###Simulation settings</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># number of observations</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(beta) <span class="sc">-</span> <span class="dv">1</span> <span class="co"># number of covariates</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>n_pred <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">###Simulate data</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">54</span>) <span class="co"># set seed</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n <span class="sc">*</span> p), <span class="at">ncol =</span> p))</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, sigma))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>X_pred <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n_pred <span class="sc">*</span> p), <span class="at">ncol =</span> p))</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>Y_pred <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X_pred <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n_pred, <span class="dv">0</span>, sigma))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fit-linear-regression-using-stan" class="level2">
+<h2 class="anchored" data-anchor-id="fit-linear-regression-using-stan">Fit linear regression using Stan</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">###Load packages</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="do">###Create stan data object</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> n, <span class="at">p =</span> p, <span class="at">Y =</span> Y, <span class="at">X =</span> X,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">beta0 =</span> <span class="dv">0</span>, <span class="at">sigma_beta =</span> <span class="dv">10</span>, <span class="at">a =</span> <span class="dv">3</span>,  <span class="at">b =</span> <span class="dv">1</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">n_pred =</span> n_pred, <span class="at">X_pred =</span> X_pred)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="do">###Compile model separately</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>stan_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"linear_regression_ppd.stan"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="do">###Run model and save</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_model, <span class="at">data =</span> stan_data, </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">1000</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit, <span class="at">file =</span> <span class="st">"linear_regression_ppd_fit.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="examining-prediction-performance" class="level2">
+<h2 class="anchored" data-anchor-id="examining-prediction-performance">Examining prediction performance</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">###Inspect the ppd</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ppds <span class="ot">&lt;-</span> <span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"in_sample"</span>, <span class="st">"out_sample"</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(ppds, dim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$in_sample
+[1] 2000  100
+
+$out_sample
+[1] 2000   10</code></pre>
+</div>
+</div>
+<p>. . .</p>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-priors-ppds_files/figure-revealjs/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="prepare-for-next-class" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-for-next-class">Prepare for next class</h2>
+<ul>
+<li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-01">HW 01</a> which is due next Tuesday before class</p></li>
+<li><p>Be sure to turn in your AE by Sunday evening</p></li>
+<li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
+<li><p>Tuesday’s lecture: Model checking</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/biostat725-sp25\.netlify\.app");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Samuel Berchuck</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/biostat725-sp25/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

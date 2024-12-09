@@ -210,15 +210,15 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/overview.html</loc>
-    <lastmod>2024-11-14T01:26:00.022Z</lastmod>
+    <lastmod>2024-12-05T18:28:01.004Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/syllabus.html</loc>
-    <lastmod>2024-11-16T15:09:37.953Z</lastmod>
+    <lastmod>2024-12-05T18:23:21.077Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/support.html</loc>
-    <lastmod>2024-11-14T01:24:56.980Z</lastmod>
+    <lastmod>2024-12-05T18:27:34.430Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-05.html</loc>
@@ -226,7 +226,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/links.html</loc>
-    <lastmod>2024-10-27T15:37:46.994Z</lastmod>
+    <lastmod>2024-12-05T18:28:37.686Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/02-slr.html</loc>
@@ -238,7 +238,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/01-welcome.html</loc>
-    <lastmod>2024-11-19T01:33:38.013Z</lastmod>
+    <lastmod>2024-12-05T18:48:29.230Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/02-prob-bayes.html</loc>
@@ -258,7 +258,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-00.html</loc>
-    <lastmod>2024-11-18T18:32:08.968Z</lastmod>
+    <lastmod>2024-11-19T14:36:27.798Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-03.html</loc>
@@ -306,11 +306,11 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/02-probability.html</loc>
-    <lastmod>2024-11-19T01:31:31.389Z</lastmod>
+    <lastmod>2024-11-19T03:01:43.976Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-01-linear-regression.html</loc>
-    <lastmod>2024-11-18T22:07:19.352Z</lastmod>
+    <lastmod>2024-11-23T16:56:07.640Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/03-linear-regression.html</loc>
@@ -318,7 +318,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-01-creation.html</loc>
-    <lastmod>2024-11-19T00:09:12.689Z</lastmod>
+    <lastmod>2024-11-20T11:46:01.338Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-01-test.html</loc>
@@ -330,10 +330,46 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/prepare/prepare-jan14.html</loc>
-    <lastmod>2024-11-18T20:42:19.364Z</lastmod>
+    <lastmod>2024-11-20T13:43:58.059Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/prepare/prepare-jan16.html</loc>
-    <lastmod>2024-11-18T20:43:13.873Z</lastmod>
+    <lastmod>2024-11-20T13:48:07.160Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/notes/probability.html</loc>
+    <lastmod>2024-11-19T02:49:48.892Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/02-monte-carlo.html</loc>
+    <lastmod>2024-12-07T13:15:52.095Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/03-mcmc.html</loc>
+    <lastmod>2024-12-07T21:30:57.288Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/04-stan.html</loc>
+    <lastmod>2024-12-07T14:01:21.520Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/06-model-checking.html</loc>
+    <lastmod>2024-12-07T14:12:06.449Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/05-priors-ppds.html</loc>
+    <lastmod>2024-12-07T21:30:53.539Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/07-workflow.html</loc>
+    <lastmod>2024-12-07T14:44:03.725Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/07-model-comparison.html</loc>
+    <lastmod>2024-12-09T15:58:44.196Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/08-workflow.html</loc>
+    <lastmod>2024-12-09T16:07:24.955Z</lastmod>
   </url>
 </urlset>
