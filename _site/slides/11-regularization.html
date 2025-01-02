@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Prof.&nbsp;Sam Berchuck">
-  <title>BIOSTAT 725 - Spring 2025 – Probability and Bayesian Statistics</title>
+  <title>BIOSTAT 725 - Spring 2025 – Regularization</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -393,7 +393,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Probability and Bayesian Statistics</h1>
+  <h1 class="title">Regularization</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -403,443 +403,277 @@ Prof.&nbsp;Sam Berchuck
 </div>
 </div>
 
-  <p class="date">Jan 14, 2025</p>
+  <p class="date">Feb 13, 2025</p>
 </section>
-<section id="agenda" class="title-slide slide level1 center">
-<h1>Agenda</h1>
+<section id="review-of-last-lecture" class="slide level2">
+<h2>Review of last lecture</h2>
 <ul>
-<li><p>Review of probability concepts</p></li>
-<li><p>Introduction to Bayesian linear regression</p></li>
-<li><p>Monte Carlo sampling</p></li>
+<li><p>On Tuesday, we learned about robust regression.</p>
+<ul>
+<li><p>Heteroskedasticity</p></li>
+<li><p>Heavy-tailed distributions</p></li>
+<li><p>Quantile regression</p></li>
+</ul></li>
+<li><p>These were all models for the observed data <span class="math inline">\(Y_i\)</span>.</p></li>
+<li><p>Today, we will focus on prior specifications for <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p></li>
 </ul>
 </section>
-
-<section>
-<section id="bayesian-linear-regression-closed-form-posterior" class="title-slide slide level1 center">
-<h1>Bayesian Linear Regression: Closed Form Posterior</h1>
-
-</section>
-<section id="defining-the-model" class="slide level2">
-<h2>Defining the model</h2>
-<p>Suppose we have an observation <span class="math inline">\(Y_i\)</span> for subject <span class="math inline">\(i\)</span> (<span class="math inline">\(i=1,\ldots,n\)</span>), that is modeled as follows,</p>
-<p><span class="math display">\[\begin{aligned}
-Y_i &amp;= \beta_0 + x_{i1} \beta_1 + \cdots + x_{ip} \beta_p + \epsilon_i, \quad \epsilon_i \sim N(0, \sigma^2)\\
-&amp;= \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i.
-\end{aligned}\]</span></p>
+<section id="sparsity-in-regression-problems" class="slide level2">
+<h2>Sparsity in regression problems</h2>
 <ul>
-<li><span class="math inline">\(\mathbf{x}_i = (1, x_{i1},\ldots,x_{ip})\)</span> is a <span class="math inline">\((p+1)\)</span>-dimensional row vector of covariates (and intercept).</li>
-<li><span class="math inline">\(\boldsymbol{\beta} = (\beta_0, \beta_1,\ldots,\beta_p)^\top\)</span> is a <span class="math inline">\((p+1)\)</span>-dimensional column vector of population regression parameters.</li>
-<li><span class="math inline">\(\epsilon_i\)</span> is a Gaussian measurement error term with variance <span class="math inline">\(\sigma^2\)</span>.</li>
-<li>For the purpose of today’s lecture, we assume <span class="math inline">\(\sigma\)</span> is known.</li>
+<li><p>Supervised learning can be cast as the problem of estimating a set of coefficients <span class="math inline">\(\boldsymbol{\beta} = \{\beta_j\}_{j=1}^{p}\)</span> that determines some functional relationship between a set of <span class="math inline">\(\{x_j\}_{j = 1}^p\)</span> and a target variable <span class="math inline">\(y\)</span>.</p></li>
+<li><p>This is a central focus of statistics and machine learning.</p></li>
+<li><p>Challenges arise in “large-<span class="math inline">\(p\)</span>” problems where, in order to avoid overly complex models that predict poorly, some form of dimension reduction is needed.</p></li>
+<li><p>Finding a sparse solution, where some <span class="math inline">\(\beta_j\)</span> are zero, is desirable.</p></li>
 </ul>
 </section>
-<section id="defining-the-likelihood" class="slide level2">
-<h2>Defining the likelihood</h2>
-<p>The individual likelihood contribution for subject <span class="math inline">\(i\)</span> is given by, <span class="math display">\[Y_i|\boldsymbol{\beta} \sim N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2) \Leftrightarrow f(Y_i|\boldsymbol{\beta}) = N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2),\]</span> and the full data likelihood (or observed data likelihood) is given by, <span class="math display">\[f(\mathbf{Y} | \boldsymbol{\beta}) = \prod_{i=1}^n f(Y_i|\boldsymbol{\beta}),\]</span> where <span class="math inline">\(\mathbf{Y} = (Y_1,\ldots,Y_n)\)</span>.</p>
-</section>
-<section id="defining-the-likelihood-matrix-version" class="slide level2">
-<h2>Defining the likelihood (matrix version)</h2>
-<p>We can also write the likelihood directly, <span class="math display">\[\mathbf{Y} | \boldsymbol{\beta} \sim N(\mathbf{X} \boldsymbol{\beta}, \sigma^2 \mathbf{I}_n),\]</span> where <span class="math inline">\(\mathbf{X}\)</span> is an <span class="math inline">\(n \times (p + 1)\)</span> dimensional matrix with row <span class="math inline">\(\mathbf{x}_i\)</span> and <span class="math inline">\(\mathbf{I}_n\)</span> is an <span class="math inline">\(n\)</span>-dimensional identity matrix. Thus, the mean of the observed data is modeled as a linear function of the parameters,</p>
-<p><span class="math display">\[
-\mathbb{E}[ \mathbf{Y} | \boldsymbol{\beta} ]  =
-  \begin{bmatrix}
-    1 &amp; x_{12} &amp; \ldots &amp; x_{1p} \\
-    1 &amp; x_{22} &amp; \ldots &amp; x_{2p} \\
-    \vdots &amp; \vdots &amp; &amp; \vdots\\
-    1 &amp; x_{n2} &amp; \ldots &amp; x_{np}
-  \end{bmatrix}
-    \begin{bmatrix}
-    \beta_0\\
-    \beta_1\\
-    \vdots\\
-    \beta_p
-  \end{bmatrix} = \mathbf{X} \boldsymbol{\beta}.
-\]</span></p>
-</section>
-<section id="linear-regression-estimation" class="slide level2">
-<h2>Linear regression estimation</h2>
+<section id="bayesian-sparse-estimation" class="slide level2">
+<h2>Bayesian sparse estimation</h2>
 <ul>
-<li>Ordinary least squares (OLS)</li>
-</ul>
-<center>
-<span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{OLS}} = \underset{\boldsymbol{\beta}}{\operatorname{argmin}} || \mathbf{Y} - \mathbf{X}\boldsymbol{\beta}||^2\)</span>
-</center>
+<li><p>From a Bayesian-learning perspective, there are two main sparse-estimation alternatives: discrete mixtures and shrinkage priors.</p></li>
+<li><p>Discrete mixtures have been very popular, with the spike-and-slab prior being the gold standard.</p>
 <ul>
-<li>Maximum likelihood estimation (MLE)</li>
-</ul>
-<center>
-<span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{MLE}} = \underset{\boldsymbol{\beta}}{\operatorname{argmax}} f(\mathbf{Y} | \boldsymbol{\beta})\)</span>
-</center>
+<li>Easy to force <span class="math inline">\(\beta_j\)</span> to exactly zero, but require discrete parameter specification.</li>
+</ul></li>
+<li><p>Shrinkage priors force <span class="math inline">\(\beta_j\)</span> to zero using regularization, but struggle to get exact zeros.</p>
 <ul>
-<li><span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}} = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y}\)</span></li>
-</ul>
-</section>
-<section id="bayesian-estimation" class="slide level2">
-<h2>Bayesian estimation</h2>
-<p>Estimation in a Bayesian setting is uniquely encoded through the posterior, <span class="math display">\[\begin{aligned}
-f(\boldsymbol{\beta} | \mathbf{Y}) &amp;= \frac{f(\mathbf{Y}, \boldsymbol{\beta})}{f(\mathbf{Y})}\\
-&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}) f(\boldsymbol{\beta})}{f(\mathbf{Y})}\\
-&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}) f(\boldsymbol{\beta})}{\int f(\mathbf{Y} | \boldsymbol{\beta}) f(\boldsymbol{\beta})d\boldsymbol{\beta}}.
-\end{aligned}\]</span></p>
-<p>To compute the posterior distribution, we need the prior <span class="math inline">\(f(\boldsymbol{\beta})\)</span>.</p>
-</section>
-<section id="prior-definition" class="slide level2">
-<h2>Prior definition</h2>
-<p>Let’s assume that the prior for <span class="math inline">\(\boldsymbol{\beta}\)</span> is Gassian,</p>
-<p><span class="math display">\[f(\boldsymbol{\beta}) = N(\boldsymbol{\beta}_0,\sigma_{\beta}^2 \mathbf{I}_{p+1}).\]</span></p>
-<ul>
-<li><span class="math inline">\(\boldsymbol{\beta}_0\)</span> is the prior mean (i.e., our a-priori guess for the likely value of <span class="math inline">\(\boldsymbol{\beta}\)</span>)</li>
-<li><span class="math inline">\(\sigma_{\beta}^2\)</span> is the prior variance (i.e., encodes our certainty for our a-priori guess)</li>
-</ul>
-</section>
-<section id="computing-the-posterior" class="slide level2">
-<h2>Computing the posterior</h2>
-<p>With this prior, the posterior can be found in closed-form. The posterior is Gaussian with the following moments: <span class="math display">\[\begin{aligned}
-\mathbb{V}(\boldsymbol{\beta} | \mathbf{Y}) &amp;= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\\
-\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}] &amp;= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\left(\frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{Y}}{\sigma^2}\right)
-\end{aligned}\]</span></p>
-</section>
-<section id="techniques-to-find-this-posterior" class="slide level2">
-<h2>Techniques to find this posterior</h2>
-<ul>
-<li><p>Brute force: complete the square</p></li>
-<li><p>Easy: kernel recognition</p></li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Definition</strong></p>
-</div>
-<div class="callout-content">
-<p>The part of the pdf/pmf that depends on the variable is called the <strong>kernel</strong>.</p>
-<p>Example:</p>
-<ul>
-<li>The kernel of the multivariate normal pdf, <span class="math inline">\(\mathbf{Y} \sim N(\boldsymbol{\mu}, \boldsymbol{\Sigma})\)</span>, is</li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-f(\mathbf{Y} | \boldsymbol{\mu}, \boldsymbol{\Sigma}) &amp;\propto \exp\left\{-\frac{1}{2}\left[\left(\mathbf{Y} - \boldsymbol{\mu}\right)^\top \boldsymbol{\Sigma}^{-1}\left(\mathbf{Y} - \boldsymbol{\mu}\right)\right]\right\}\\
-&amp;\propto \exp\left\{-\frac{1}{2}\left[\mathbf{Y}^\top \boldsymbol{\Sigma}^{-1}\mathbf{Y} - 2\mathbf{Y}^\top \boldsymbol{\Sigma}^{-1} \boldsymbol{\mu}\right]\right\}
-\end{aligned}\]</span></p>
-</div>
-</div>
-</div>
-</section>
-<section id="using-the-kernel-to-find-the-posterior" class="slide level2 small">
-<h2>Using the kernel to find the posterior</h2>
-<p><span class="math display">\[\begin{aligned}
-f(\boldsymbol{\beta} | \mathbf{Y}) &amp;\propto f(\mathbf{Y} | \boldsymbol{\beta}) f(\boldsymbol{\beta})\\
-&amp;\propto \exp\left\{-\frac{1}{2}\left[\frac{\left(\mathbf{Y} - \mathbf{X}\boldsymbol{\beta}\right)^\top\left(\mathbf{Y} - \mathbf{X}\boldsymbol{\beta}\right)}{\sigma^2}\right]\right\}\\
-&amp;\quad \times \exp\left\{-\frac{1}{2}\left[\frac{\left(\boldsymbol{\beta} - \boldsymbol{\beta}_0\right)^\top\left(\boldsymbol{\beta}_0 - \boldsymbol{\beta}_0\right)}{\sigma_{\beta}^2}\right]\right\}\\
-&amp;\propto \exp\left\{-\frac{1}{2}\left[\boldsymbol{\beta}\left(\frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2} + \frac{\mathbf{I}_n}{\sigma_{\beta}^2} \right)\boldsymbol{\beta} - 2\boldsymbol{\beta}^\top\left(\frac{\mathbf{X}^\top\mathbf{Y}}{\sigma^2} + \frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2}\right)\right]\right\}\\
-&amp;\propto \exp\left\{-\frac{1}{2}\left[\boldsymbol{\beta}\mathbf{A}\boldsymbol{\beta} - 2\boldsymbol{\beta}^\top\mathbf{a}\right]\right\}
-\end{aligned}\]</span></p>
-<p>This is the kernel of a multivariate normal for <span class="math inline">\(\boldsymbol{\beta}\)</span>, with <span class="math inline">\(\mathbf{A} = \boldsymbol{\Sigma}^{-1}\)</span> and <span class="math inline">\(\mathbf{a} = \boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}\)</span>. It’s easy to see then that, <span class="math inline">\(f(\boldsymbol{\beta} | \mathbf{Y}) = N(\mathbf{A}^{-1}\mathbf{a},\mathbf{A}^{-1}).\)</span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Recall the kernel for the multivariate normal: <span class="math inline">\(\exp\left\{-\frac{1}{2}\left[\mathbf{Y}^\top \boldsymbol{\Sigma}^{-1}\mathbf{Y} - 2\mathbf{Y}^\top \boldsymbol{\Sigma}^{-1} \boldsymbol{\mu}\right]\right\}\)</span></strong></p>
-</div>
-<div class="callout-content">
-
-</div>
-</div>
-</div>
-</section>
-<section id="back-to-the-posterior" class="slide level2">
-<h2>Back to the posterior</h2>
-<p>With this prior, the posterior can be found in closed-form. The posterior is Gaussian with the following moments: <span class="math display">\[\begin{aligned}
-\mathbb{V}(\boldsymbol{\beta} | \mathbf{Y}) &amp;= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\\
-\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}] &amp;= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\left(\frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{Y}}{\sigma^2}\right)
-\end{aligned}\]</span></p>
-<div class="fragment">
-<ul>
-<li><span class="math inline">\(\sigma_{\beta}^2 \rightarrow \infty: \mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}] = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y} = \hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}}\)</span></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="math inline">\(\sigma^2 \rightarrow \infty: \mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}] = \boldsymbol{\beta}_0\)</span></li>
-</ul>
-</div>
-</section>
-<section id="how-can-we-use-the-posterior" class="slide level2">
-<h2>How can we use the posterior?</h2>
-<p>Let’s simulate some data:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="do">###True parameters</span></span>
-<span id="cb1-2"><a></a>sigma <span class="ot">&lt;-</span> <span class="fl">1.5</span> <span class="co"># true measurement error</span></span>
-<span id="cb1-3"><a></a>beta <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>, <span class="dv">3</span>), <span class="at">ncol =</span> <span class="dv">1</span>) <span class="co"># true beta</span></span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="do">###Simulation settings</span></span>
-<span id="cb1-6"><a></a>n <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># number of observations</span></span>
-<span id="cb1-7"><a></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(beta) <span class="sc">-</span> <span class="dv">1</span> <span class="co"># number of covariates</span></span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="do">###Simulate data</span></span>
-<span id="cb1-10"><a></a><span class="fu">set.seed</span>(<span class="dv">54</span>) <span class="co"># set seed</span></span>
-<span id="cb1-11"><a></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n <span class="sc">*</span> p), <span class="at">ncol =</span> p))</span>
-<span id="cb1-12"><a></a>Y <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, sigma))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="visualize-simulated-data" class="slide level2">
-<h2>Visualize simulated data</h2>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-probability_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-probability_files/figure-revealjs/unnamed-chunk-3-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="inspecting-the-prior" class="slide level2">
-<h2>Inspecting the prior</h2>
-<p>First, we define hyperparameteters.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>beta0 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> p <span class="sc">+</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb2-2"><a></a>sigma_beta <span class="ot">&lt;-</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-probability_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-probability_files/figure-revealjs/unnamed-chunk-5-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-probability_files/figure-revealjs/unnamed-chunk-5-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="comparison-with-olsmle" class="slide level2">
-<h2>Comparison with OLS/MLE</h2>
-<p>Compute posterior moments</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>var_beta <span class="ot">&lt;-</span> <span class="fu">chol2inv</span>(<span class="fu">chol</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X <span class="sc">/</span> sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">diag</span>(p <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb3-2"><a></a>mean_beta <span class="ot">&lt;-</span> var_beta <span class="sc">%*%</span> (beta0 <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y <span class="sc">/</span> sigma<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">parameter</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">true</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">bayes</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">ols/mle</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">intercept</td>
-<td style="text-align: right;">-1.5</td>
-<td style="text-align: right;">-1.475944</td>
-<td style="text-align: right;">-1.476236</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">slope</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">3.296296</td>
-<td style="text-align: right;">3.296984</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<!-- ## Summarizing the posterior -->
-<!-- - Summarizing a posterior (with known parametric form) is straightforward for basic quantities of interest -->
-<!-- 1. Posterior means, medians, modes, and variances -->
-<!-- 2. Joint, conditional, and marginal probabilities, for example:  $P(\beta_j < c | \mathbf{Y})$ -->
-<!-- 3. $\alpha$-quantiles: $\{q_{\alpha} : P(\beta_j < q_{\alpha} | \mathbf{Y}) = \alpha\}, \alpha \in (0,1)$ -->
-<!-- 4. $\ldots$ -->
-</section>
-<section id="summarizing-the-posterior" class="slide level2">
-<h2>Summarizing the posterior</h2>
-<ul>
-<li><p>Posteriors are often not available in closed form.</p></li>
-<li><p>Even when we have a closed form posterior, it can be difficult to compute summaries of interest.</p></li>
-<li><p>For example, consider <span class="math inline">\(P(\beta_j &lt; c |\mathbf{Y})\)</span>. What are our options to calculate this probability?</p>
-<ul>
-<li><p>Direct integration (by hand)</p></li>
-<li><p>Numerical integration/software packages (e.g., <span class="math inline">\(\texttt{pnorm}\)</span>)</p></li>
+<li>In recent years, shrinkage priors have become dominant in Bayesian sparsity priors.</li>
 </ul></li>
 </ul>
-<p>These methods work well for standard posterior quantities and distributions</p>
 </section>
-<section id="summarizing-the-posterior-1" class="slide level2">
-<h2>Summarizing the posterior</h2>
-<p>However, sometimes we will want to summarize other aspects of a posterior distribution</p>
+<section id="horseshoe-prior" class="slide level2">
+<h2>Horseshoe prior</h2>
 <ul>
-<li><p><span class="math inline">\(P(\beta_j \in A|\mathbf{Y})\)</span> for some arbitrary set <span class="math inline">\(A\)</span></p></li>
-<li><p>Means and standard deviations of some function of <span class="math inline">\(\beta_j\)</span>, <span class="math inline">\(g\left(\beta_j\right)\)</span></p></li>
-<li><p>The posterior distribution of functions of many parameters:</p>
-<ul>
-<li><span class="math inline">\(|\beta_1 - \beta_2|\)</span>, <span class="math inline">\(\beta_1/\beta_2\)</span>, <span class="math inline">\(\max\left\{\beta_1,\ldots,\beta_p\right\}\)</span>, <span class="math inline">\(\dots\)</span></li>
-</ul></li>
-<li><p>Obtaining exact values for these posterior quantities can be difficult or even impossible</p></li>
+<li><p>Let’s assume <span class="math inline">\(\mathbf{Y} \stackrel{}{\sim}N\left(\mathbf{X}\boldsymbol{\beta},\sigma^2\mathbf{I}_n\right)\)</span>, where <span class="math inline">\(\boldsymbol{\beta}\)</span> is assumed to be sparse.</p></li>
+<li><p>The horseshoe prior is specified as,</p></li>
 </ul>
-<p>What are our options?</p>
-</section></section>
-<section>
-<section id="introduction-to-monte-carlo-approximation" class="title-slide slide level1 center">
-<h1>Introduction to Monte Carlo approximation</h1>
-
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau &amp;\sim N(0, \lambda_j^2 \tau^2)\\
+\lambda_j &amp;\sim \mathcal C^+(0, 1),
+\end{aligned}\]</span> where <span class="math inline">\(\mathcal C^+(0, 1)\)</span> is a half-Cauchy distribution for the standard deviation <span class="math inline">\(\lambda_j\)</span>.</p>
 </section>
-<section id="monte-carlo-mc-approximation" class="slide level2">
-<h2>Monte Carlo (MC) approximation</h2>
+<section id="half-cauchy-distribution" class="slide level2">
+<h2>Half-Cauchy distribution</h2>
+<p>A random variable <span class="math inline">\(X \sim \mathcal C^+(\mu,\sigma)\)</span> follows a half-Cauchy distribution with location <span class="math inline">\(\mu\)</span> and scale <span class="math inline">\(\sigma &gt; 0\)</span> and has the following density,</p>
+<p><span class="math display">\[f(X | \mu, \sigma) = \frac{2}{\pi \sigma}\frac{1}{1 + (X - \mu)^2 / \sigma^2},\quad X \geq \mu\]</span></p>
 <ul>
-<li><p>Integration method based on random sampling</p></li>
-<li><p>The general principles and procedures remain relatively constant across a broad class of problems</p></li>
-<li><p>Suppose we have <span class="math inline">\(S\)</span> iid samples from our posterior distribution: <span class="math inline">\(\boldsymbol{\beta}^{\left(1\right)},\ldots,\boldsymbol{\beta}^{\left(S\right)}\stackrel{\text{iid}}{\sim}f\left(\boldsymbol{\beta}|\mathbf{Y}\right)\)</span></p></li>
-<li><p>Then the empirical distribution of <span class="math inline">\(\left\{\boldsymbol{\beta}^{\left(1\right)},\ldots,\boldsymbol{\beta}^{\left(S\right)}\right\}\)</span> would approximate <span class="math inline">\(f\left(\boldsymbol{\beta}|\mathbf{Y}\right)\)</span>, with the approximation improving as <span class="math inline">\(S\)</span> increases</p></li>
-<li><p>The empirical distribution of <span class="math inline">\(\left\{\boldsymbol{\beta}^{\left(1\right)},\ldots,\boldsymbol{\beta}^{\left(S\right)}\right\}\)</span> is known as a MC approximation to <span class="math inline">\(f\left(\boldsymbol{\beta}|\mathbf{Y}\right)\)</span></p></li>
+<li>The Half-Cauchy distribution with <span class="math inline">\(\mu = 0\)</span> is a useful prior for non-negative parameters that may be very large, as allowed by the very heavy tails of the Half-Cauchy distribution.</li>
 </ul>
 </section>
-<section id="mc-approximation" class="slide level2">
-<h2>MC approximation</h2>
-<p>Let <span class="math inline">\(g\left(\boldsymbol{\beta}\right)\)</span> be (just about) any function of <span class="math inline">\(\boldsymbol{\beta}\)</span>. The law of large numbers says that if,</p>
-<p><span class="math display">\[\boldsymbol{\beta}^{\left(1\right)},\ldots,\boldsymbol{\beta}^{\left(S\right)}\stackrel{\text{iid}}{\sim}f\left(\boldsymbol{\beta}|\mathbf{Y}\right),\]</span> then, <span class="math display">\[\frac{1}{S}\sum_{s=1}^S g\left(\boldsymbol{\beta}^{\left(s\right)}\right)\rightarrow \mathbb{E}\left[g\left(\boldsymbol{\beta}\right)|\mathbf{Y}\right]=\int g\left(\boldsymbol{\beta}\right)f\left(\boldsymbol{\beta}|\mathbf{Y}\right)d\boldsymbol{\beta},\]</span> as <span class="math inline">\(S\rightarrow \infty\)</span>.</p>
-</section>
-<section id="mc-approximation-1" class="slide level2">
-<h2>MC approximation</h2>
-<ul>
-<li><p>Implications (as <span class="math inline">\(S\rightarrow \infty\)</span>):</p>
-<ul>
-<li><p><span class="math inline">\(\overline{\boldsymbol{\beta}}=\frac{1}{S}\sum_{s=1}^S \boldsymbol{\beta}^{\left(s\right)} \rightarrow \mathbb{E}\left[\boldsymbol{\beta}|\mathbf{Y}\right]\)</span></p></li>
-<li><p><span class="math inline">\(\frac{1}{S-1}\sum_{s=1}^S \left(\boldsymbol{\beta}^{\left(s\right)}-\overline{\boldsymbol{\beta}}\right)^2 \rightarrow \mathbb{V}\left(\boldsymbol{\beta}|\mathbf{Y}\right)\)</span></p></li>
-<li><p><span class="math inline">\(\frac{1}{S}\sum_{s=1}^S 1\left(\boldsymbol{\beta}^{\left(s\right)}\leq \mathbf{c}\right) \rightarrow P\left(\boldsymbol{\beta}\leq \mathbf{c} | \mathbf{Y}\right)\)</span></p></li>
-<li><p><span class="math inline">\(\alpha\)</span>-quantile of <span class="math inline">\(\left\{\boldsymbol{\beta}^{\left(1\right)},\ldots,\boldsymbol{\beta}^{\left(S\right)}\right\}\rightarrow q_{\alpha}\)</span></p></li>
-</ul></li>
-<li><p>Just about any aspect of the posterior distribution can be approximated arbitrarily exactly with a large enough MC sample</p></li>
-</ul>
-</section>
-<section id="posterior-inference-for-arbitrary-functions" class="slide level2">
-<h2>Posterior inference for arbitrary functions</h2>
-<p>Interest in the posterior distribution of a function of <span class="math inline">\(\boldsymbol{\beta}\)</span>, <span class="math inline">\(g\left(\boldsymbol{\beta}\right)\)</span></p>
-<ul>
-<li><p>MC sampling plan:</p>
-<ul>
-<li><p>Draw <span class="math inline">\(\boldsymbol{\beta}^{\left(1\right)}\)</span> from <span class="math inline">\(f\left(\boldsymbol{\beta}|\mathbf{Y}\right)\)</span>, calculate <span class="math inline">\(g\left(\boldsymbol{\beta}^{\left(1\right)}\right)\)</span></p>
-<p><span class="math inline">\(\ldots\)</span></p></li>
-<li><p>Draw <span class="math inline">\(\boldsymbol{\beta}^{\left(S\right)}\)</span> from <span class="math inline">\(f\left(\boldsymbol{\beta}|\mathbf{Y}\right)\)</span>, calculate <span class="math inline">\(g\left(\boldsymbol{\beta}^{\left(S\right)}\right)\)</span></p></li>
-</ul>
-<p><span class="math inline">\(\Rightarrow g\left(\boldsymbol{\beta}^{\left(1\right)}\right),\ldots,g\left(\boldsymbol{\beta}^{\left(S\right)}\right)\stackrel{\text{iid}}{\sim}f\left(g\left(\boldsymbol{\beta}\right)|\mathbf{Y}\right)\)</span></p></li>
-<li><p>Therefore, similar quantities can be estimated (posterior mean, variance, quantiles, distribution, etc.)</p></li>
-</ul>
-</section>
-<section id="how-many-samples-to-take" class="slide level2 small">
-<h2>How many samples to take?</h2>
-<p>We can use a central limit theorem: <span class="math inline">\(\sqrt{S}\left(\overline{\boldsymbol{\beta}}-\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}]\right)/\sigma \stackrel{d}{\rightarrow} \text{N}\left(0,1\right)\)</span>,</p>
-<p>where <span class="math inline">\(\sigma^2 = \mathbb{V}\left(\overline{\boldsymbol{\beta}}\right) = \frac{1}{S^2}\sum_{s=1}^S\mathbb{V}\left(\boldsymbol{\beta}^{(s)}\right) = \frac{1}{S}\mathbb{V}\left(\boldsymbol{\beta} | \mathbf{Y}\right)\)</span>.</p>
-<p><span class="math inline">\(\implies \overline{\boldsymbol{\beta}}\approx N\left(\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}],\sigma^2/S\right)\)</span></p>
-<ul>
-<li><p>MC standard error: <span class="math inline">\(\sqrt{\frac{\widehat{\sigma}^2}{S}}\)</span>, <span class="math inline">\(\widehat{\sigma}^2=\frac{1}{S-1}\sum_{s=1}^S\left(\boldsymbol{\beta}^{\left(s\right)}-\overline{\boldsymbol{\beta}}\right)^2\)</span></p></li>
-<li><p>Approximate 95% MC confidence interval for the posterior mean: <span class="math inline">\(\overline{\boldsymbol{\beta}} \pm 2\sqrt{\frac{\widehat{\sigma}^2}{S}}\)</span></p></li>
-<li><p>Choose <span class="math inline">\(S\)</span> large enough to report the posterior mean with your desired precision</p></li>
-<li><p>Reporting MC standard errors for the posterior mean is a good way to indicate that <span class="math inline">\(S\)</span> is large enough</p></li>
-</ul>
-</section>
-<section id="returning-to-linear-regression" class="slide level2">
-<h2>Returning to linear regression</h2>
-<p>Let’s obtain <span class="math inline">\(S = 1,000\)</span> samples from our posterior.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(mvtnorm) <span class="co"># multivariate rng</span></span>
-<span id="cb4-2"><a></a>beta_samples <span class="ot">&lt;-</span> <span class="fu">rmvnorm</span>(<span class="dv">1000</span>, mean_beta, var_beta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We can compute the posterior mean and variance.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">print</span>(<span class="fu">apply</span>(beta_samples, <span class="dv">2</span>, mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.474821  3.298521</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">print</span>(<span class="fu">apply</span>(beta_samples, <span class="dv">2</span>, var))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.02316256 0.02189517</code></pre>
-</div>
+<section id="half-cauchy-distribution-in-stan" class="slide level2">
+<h2>Half-Cauchy distribution in Stan</h2>
+<p>In Stan, the half-Cauchy distribution can be specified by putting a constraint on the parameter definition.</p>
+<div class="cell" data-output.var="half-cauchy">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb1-2"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; lambda;</span>
+<span id="cb1-3"><a></a>}</span>
+<span id="cb1-4"><a></a><span class="kw">model</span> {</span>
+<span id="cb1-5"><a></a>  <span class="kw">target +=</span> cauchy_lpdf(lambda | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb1-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="assessing-accuracy" class="slide level2">
-<h2>Assessing accuracy</h2>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<section id="horseshoe-prior-1" class="slide level2">
+<h2>Horseshoe prior</h2>
+<ul>
+<li>The horseshoe prior is specified as,</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau &amp;\sim N(0, \lambda_j^2 \tau^2)\\
+\lambda_j &amp;\sim \mathcal C^+(0, 1),
+\end{aligned}\]</span> where <span class="math inline">\(\mathcal C^+(0, 1)\)</span> is a half-Cauchy distribution for the standard deviation <span class="math inline">\(\lambda_j\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\lambda_j\)</span>’s are the <em>local</em> shrinkage parameters.</p></li>
+<li><p><span class="math inline">\(\tau\)</span> is the <em>global</em> shrinkage parameter.</p></li>
+</ul>
+</section>
+<section id="horseshoe-prior-2" class="slide level2">
+<h2>Horseshoe prior</h2>
+<p>The horseshoe prior has two interesting features that make it particularly useful as a shrinkage prior for sparse problems.</p>
+<ol type="1">
+<li><p>It has flat, Cauchy-like tails that allow strong signals to remain large (that is, un-shrunk) a posteriori.</p></li>
+<li><p>It has an infinitely tall spike at the origin that provides severe shrinkage for the zero elements of <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p></li>
+</ol>
+<p>As we will see, these are key elements that make the horseshoe an attractive choice for handling sparse vectors.</p>
+</section>
+<section id="relation-to-other-shrinkage-priors" class="slide level2">
+<h2>Relation to other shrinkage priors</h2>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau &amp;\sim N(0, \lambda_j^2 \tau^2)\\
+\lambda_j^2 &amp;\sim f(\lambda_j)
+\end{aligned}\]</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(\lambda_j = \lambda\)</span>, implies a Gaussian prior for <span class="math inline">\(\beta_j\)</span> (Ridge regression).</p></li>
+<li><p><span class="math inline">\(f(\lambda_j) = \text{Exponential}(2)\)</span>, implies independent Laplacian priors for <span class="math inline">\(\beta_j\)</span> (LASSO).</p></li>
+<li><p><span class="math inline">\(f(\lambda_j) = \text{Inverse-Gamma}(a,b)\)</span>, implies independent Student-t priors for <span class="math inline">\(\beta_j\)</span> (relevance vector machine).</p></li>
+</ol>
+</section>
+<section id="horsehoe-density" class="slide level2">
+<h2>Horsehoe density</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="02-probability_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="images/10/carvalho1.png" class="quarto-figure quarto-figure-center" style="height:4.5in" alt="workflow"></p>
 </figure>
 </div>
-</div>
-</div>
-</div>
+<p><a href="https://proceedings.mlr.press/v5/carvalho09a/carvalho09a.pdf">From Carvalho 2009</a></p>
 </section>
-<section id="additional-posterior-summaries" class="slide level2">
-<h2>Additional posterior summaries</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># median</span></span>
-<span id="cb9-2"><a></a><span class="fu">apply</span>(beta_samples, <span class="dv">2</span>, median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.475117  3.292516</code></pre>
+<section id="shrinkage-of-each-prior" class="slide level2">
+<h2>Shrinkage of each prior</h2>
+<ul>
+<li><p>Define the posterior mean of <span class="math inline">\(\beta_j\)</span> as <span class="math inline">\(\bar{\beta}_j\)</span> and the maximum likelihood estimator for <span class="math inline">\(\beta_j\)</span> as <span class="math inline">\(\hat{\beta}_j\)</span>.</p></li>
+<li><p>The following relationship holds: <span class="math inline">\(\bar{\beta}_j = (1 - \kappa_j) \hat{\beta}_j\)</span>,</p></li>
+</ul>
+<p><span class="math display">\[\kappa_j = \frac{1}{1 + n\sigma^{-2}\tau^{2}s_j^2\lambda_j^2}.\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\kappa_j\)</span> is called the shrinkage factor for <span class="math inline">\(\beta_j\)</span>.</p></li>
+<li><p><span class="math inline">\(s_j^2 = \mathbb{V}(x_j)\)</span> is the variance for each predictor.</p></li>
+</ul>
+</section>
+<section id="standardization-of-predictors" class="slide level2">
+<h2>Standardization of predictors</h2>
+<ul>
+<li><p>In regularization problems, predictors are standardized (to mean zero and standard deviation one).</p></li>
+<li><p>This means that so that <span class="math inline">\(s_j = 1\)</span>.</p></li>
+<li><p>Shrinkage parameter:</p></li>
+</ul>
+<p><span class="math display">\[\kappa_j = \frac{1}{1 + n\sigma^{-2}\tau^{2}\lambda_j^2}.\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\kappa_j = 1\)</span>, implies complete shrinkage.</p></li>
+<li><p><span class="math inline">\(\kappa_j = 0\)</span>, implies no shrinkage.</p></li>
+</ul>
+</section>
+<section id="shrinkage-parameter" class="slide level2">
+<h2>Shrinkage parameter</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/10/carvalho2.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="workflow"></p>
+</figure>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># 95% credible intervals</span></span>
-<span id="cb11-2"><a></a><span class="fu">apply</span>(beta_samples, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           [,1]     [,2]
-2.5%  -1.763541 3.017254
-97.5% -1.188284 3.590548</code></pre>
+<p><a href="https://proceedings.mlr.press/v5/carvalho09a/carvalho09a.pdf">From Carvalho 2009</a></p>
+</section>
+<section id="horseshoe-shrinkage-parameter" class="slide level2">
+<h2>Horseshoe shrinkage parameter</h2>
+<ul>
+<li><p>Choosing <span class="math inline">\(\lambda_j ∼ \mathcal C^+(0, 1)\)</span> implies <span class="math inline">\(\kappa_j ∼ \text{Beta}(0.5, 0.5)\)</span>, a density that is symmetric and unbounded at both 0 and 1.</p></li>
+<li><p>This horseshoe-shaped shrinkage profile expects to see two things a priori:</p>
+<ol type="1">
+<li><p>Strong signals (<span class="math inline">\(\kappa \approx 0\)</span>, no shrinkage), and</p></li>
+<li><p>Zeros (<span class="math inline">\(\kappa \approx 1\)</span>, total shrinkage).</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="spike-and-slab-prior" class="slide level2">
+<h2>Spike-and-slab prior</h2>
+<ul>
+<li>The prior is often written as a two-component mixture of Gaussians,</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, c^2, \epsilon &amp;\sim \lambda_j N(0, c^2) + (1-\lambda_j) N(0,\omega^2)\\
+\lambda_j &amp;\sim \text{Bernoulli}(\pi).
+\end{aligned}\]</span></p>
+<ul>
+<li><span class="math inline">\(\omega \ll c\)</span> and the indicator variable <span class="math inline">\(\lambda_j \in \{0, 1\}\)</span> denotes whether <span class="math inline">\(\beta_j\)</span> is close to zero (comes from the “spike”, <span class="math inline">\(\lambda_j = 0\)</span>) or nonzero (comes from the “slab”, <span class="math inline">\(\lambda_j = 1\)</span>).</li>
+</ul>
+</section>
+<section id="spike-and-slab-prior-1" class="slide level2">
+<h2>Spike-and-slab prior</h2>
+<ul>
+<li>Often <span class="math inline">\(\omega = 0\)</span> (the spike is a true spike), and the prior can be written as,</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, c^2 &amp;\sim N(0, \lambda_j^2 c^2)\\
+\lambda_j &amp;\sim \text{Bernoulli}(\pi).
+\end{aligned}\]</span></p>
+<ul>
+<li><p>Instead of giving continuous priors for <span class="math inline">\(\lambda_j\)</span>’s as in the horseshoe, here only two values are allowed (0,1).</p></li>
+<li><p>The shrinkage factor <span class="math inline">\(\kappa_j\)</span> only has mass at <span class="math inline">\(\kappa_j = \frac{1}{1 + n\sigma^{-2}\tau^{2}}\)</span> and <span class="math inline">\(\kappa_j = 1\)</span> with probabilities <span class="math inline">\(\pi\)</span> and <span class="math inline">\(1-\pi\)</span>,</p></li>
+</ul>
+</section>
+<section id="similarity-to-horseshoe" class="slide level2 midi">
+<h2>Similarity to horseshoe</h2>
+<ul>
+<li>Letting <span class="math inline">\(c \rightarrow \infty\)</span>, all the mass is concentrated at the extremes <span class="math inline">\(\kappa_j = 0\)</span> and <span class="math inline">\(\kappa_j = 1\)</span> (this resembles the horseshoe).</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/10/aki1.png" class="quarto-figure quarto-figure-center" style="height:3in" alt="workflow"></p>
+</figure>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># evaluating probability</span></span>
-<span id="cb13-2"><a></a><span class="fu">mean</span>(beta_samples[, <span class="dv">1</span>] <span class="sc">&lt;</span> <span class="sc">-</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4358</code></pre>
+<p><a href="https://doi.org/10.1214/17-EJS1337SI">From Piironena and Vehtari 2017</a></p>
+<ul>
+<li>The horseshoe can be seen as a continuous approximation to the spike-and-slab prior as <span class="math inline">\(c \rightarrow \infty\)</span>.</li>
+</ul>
+</section>
+<section id="regularized-horseshoe-prior" class="slide level2">
+<h2>Regularized horseshoe prior</h2>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau, c &amp;\sim N\left(0, \tau^2 \tilde{\lambda}_j^2\right),\quad \tilde{\lambda}_j^2 = \frac{c^2 \lambda_j^2}{c^2 + \tau^2 \lambda_j^2},\\
+\lambda_j &amp;\sim \mathcal C^+(0,1).
+\end{aligned}\]</span></p>
+<ul>
+<li><p>When <span class="math inline">\(\tau^2 \lambda_j^2 \ll c^2\)</span> (i.e., <span class="math inline">\(\beta_j\)</span> close to zero), <span class="math inline">\(\beta_j \sim  N\left(0, \tau^2\lambda_j^2\right)\)</span></p></li>
+<li><p>When <span class="math inline">\(\tau^2 \lambda_j^2 \gg c^2\)</span>, (i.e., <span class="math inline">\(\beta_j\)</span> far from zero), <span class="math inline">\(\beta_j \sim  N\left(0, c^2\right)\)</span></p></li>
+<li><p><span class="math inline">\(c \rightarrow \infty\)</span> recovers the original horseshoe.</p></li>
+</ul>
+<p><strong>Why is this an appealing extension?</strong></p>
+</section>
+<section id="regularized-horseshoe-compared-to-spike-and-slab" class="slide level2">
+<h2>Regularized horseshoe compared to spike-and-slab</h2>
+<ul>
+<li>The regularized horseshoe prior is comparable to the spike-and-slab with finite <span class="math inline">\(c\)</span>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/10/aki2.png" class="quarto-figure quarto-figure-center" style="height:3in" alt="workflow"></p>
+</figure>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># summarizing arbitrary functions of the parameters</span></span>
-<span id="cb15-2"><a></a>beta_new <span class="ot">&lt;-</span> beta_samples[, <span class="dv">1</span>] <span class="sc">*</span> beta_samples[, <span class="dv">2</span>]<span class="sc">^</span><span class="dv">3</span></span>
-<span id="cb15-3"><a></a><span class="fu">c</span>(<span class="fu">mean</span>(beta_new), <span class="fu">quantile</span>(beta_new, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>               2.5%     97.5% 
--53.15221 -71.43863 -38.00378 </code></pre>
+<p><a href="https://doi.org/10.1214/17-EJS1337SI">From Piironena and Vehtari 2017</a></p>
+</section>
+<section id="choosing-a-prior-for-c2" class="slide level2">
+<h2>Choosing a prior for <span class="math inline">\(c^2\)</span></h2>
+<ul>
+<li><p>Unless substantial knowledge about the scale of the relevant coefficients exists, it is recommended to place a prior for <span class="math inline">\(c\)</span> instead of fixing it.</p></li>
+<li><p>Often a reasonable choice is, <span class="math display">\[c^2 \sim \text{Inv-Gamma}(\alpha, \beta), \quad \alpha = \nu/2, \beta = \nu s^2 / 2,\]</span></p></li>
+<li><p>This translates to a <span class="math inline">\(t_{\nu}(0,s^2)\)</span> slab for the coefficients far from 0.</p></li>
+<li><p>Another motivation for using inverse-Gamma is that it has a heavy right tail accompanied by a light left tail thereby preventing much mass from accumulating near zero.</p></li>
+</ul>
+</section>
+<section id="choosing-a-prior-for-tau" class="slide level2">
+<h2>Choosing a prior for <span class="math inline">\(\tau\)</span></h2>
+<ul>
+<li><p>Carvalho et al.&nbsp;2009 suggest <span class="math inline">\(\tau \sim \mathcal C^+(0,1)\)</span>.</p></li>
+<li><p>Polson and Scott 2011 recommend <span class="math inline">\(\tau | \sigma \sim \mathcal C^+(0, \sigma^2)\)</span>.</p></li>
+<li><p>Another prior comes from a quantity called the effective number of nonzero coefficients,<br>
+<span class="math display">\[m_{eff} = \sum_{j=1}^p (1 - \kappa_j).\]</span></p></li>
+</ul>
+</section>
+<section id="global-shrinkage-parameter-tau" class="slide level2">
+<h2>Global shrinkage parameter <span class="math inline">\(\tau\)</span></h2>
+<ul>
+<li>The prior mean can be shown to be,</li>
+</ul>
+<p><span class="math display">\[\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = \frac{\tau \sigma^{-1} \sqrt{n}}{1 + \tau \sigma^{-1} \sqrt{n}}p.\]</span></p>
+<ul>
+<li>Setting <span class="math inline">\(\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = p_0\)</span> (prior guess for the number of non-zero coefficients) yields for <span class="math inline">\(\tau\)</span>,</li>
+</ul>
+<p><span class="math display">\[\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}\]</span></p>
+</section>
+<section id="global-shrinkage-parameter-tau-1" class="slide level2">
+<h2>Global shrinkage parameter <span class="math inline">\(\tau\)</span></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/10/aki3.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="workflow"></p>
+</figure>
 </div>
-</div>
+<p><a href="https://doi.org/10.1214/17-EJS1337SI">From Piironena and Vehtari 2017</a></p>
+</section>
+<section id="prepare-for-next-class" class="slide level2">
+<h2>Prepare for next class</h2>
+<ul>
+<li><p>We are going to jump into an AE on body fat, but first some reminders.</p></li>
+<li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-03">HW 03</a>, which was just assigned.</p></li>
+<li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
+<li><p>Tuesday’s lecture: Classification</p></li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <p><img src="../images/logo.png" class="slide-logo"></p>
@@ -847,7 +681,7 @@ f(\boldsymbol{\beta} | \mathbf{Y}) &amp;\propto f(\mathbf{Y} | \boldsymbol{\beta
 <p><a href="https://biostat725-sp25.netlify.app/">🔗 BIOSTAT 725 - Spring 2025</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

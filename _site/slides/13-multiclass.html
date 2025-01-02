@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Prof.&nbsp;Sam Berchuck">
-  <title>BIOSTAT 725 - Spring 2025 – Bayesian Linear Regression</title>
+  <title>BIOSTAT 725 - Spring 2025 – Multiclass Classification</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -393,7 +393,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Bayesian Linear Regression</h1>
+  <h1 class="title">Multiclass Classification</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -403,383 +403,574 @@ Prof.&nbsp;Sam Berchuck
 </div>
 </div>
 
-  <p class="date">Jan 16, 2025</p>
+  <p class="date">Feb 20, 2025</p>
 </section>
 <section id="review-of-last-lecture" class="slide level2">
 <h2>Review of last lecture</h2>
-<p>On Tuesday, we performed posterior inference for Bayesian linear regression, but we assumed the measurement error (<span class="math inline">\(\sigma\)</span>) was known!</p>
 <ul>
-<li><p>We did this so we could sample from a closed form posterior.</p></li>
-<li><p>Monte Carlo approximation.</p></li>
-</ul>
-<p>We will consider the same model, <span class="math display">\[\mathbf{Y} | \boldsymbol{\beta}, \sigma^2 \sim N(\mathbf{X} \boldsymbol{\beta}, \sigma^2 \mathbf{I}_n)\]</span></p>
-<ul>
-<li>In today’s lecture we will estimate both <span class="math inline">\(\boldsymbol{\beta}\)</span> and <span class="math inline">\(\sigma^2\)</span>. This will require a new algorithm called <strong>Gibbs sampling</strong>.</li>
+<li><p>On Tuesday, we learned about classification using logistic regression.</p></li>
+<li><p>Today, we will focus on multiclass classification: multinomial regression, ordinal regression.</p></li>
 </ul>
 </section>
-<section>
-<section id="gibbs-sampling" class="title-slide slide level1 center">
-<h1>Gibbs Sampling</h1>
-
+<section id="generalized-linear-models" class="slide level2">
+<h2>Generalized linear models</h2>
+<ul>
+<li>Previously, we have focused on linear regression. Other forms of regression follow naturally from linear regression.</li>
+</ul>
 </section>
-<section id="posterior-for-linear-regression" class="slide level2">
-<h2>Posterior for linear regression</h2>
+<section id="models-for-binary-outcomes" class="slide level2">
+<h2>Models for binary outcomes</h2>
+<ul>
+<li><p>Suppose we have a binary outcome (e.g., <span class="math inline">\(Y = 1\)</span> if a condition is satisfied and <span class="math inline">\(Y = 0\)</span> if not) and predictors on a variety of scales.</p></li>
+<li><p>If the predictors are discrete and the binary outcomes are independent, we can use the Bernoulli distribution for individual 0-1 data or the binomial distribution for grouped data that are counts of successes in each group.</p></li>
+</ul>
+</section>
+<section id="models-for-binary-outcomes-1" class="slide level2">
+<h2>Models for binary outcomes</h2>
+<ul>
+<li><p>Let’s suppose we want to model <span class="math inline">\(P(Y = 1)\)</span>.</p></li>
+<li><p>One strategy might be to simply fit a linear regression model to the probabilities.</p></li>
+<li><p>For example,</p></li>
+</ul>
 <p><span class="math display">\[\begin{aligned}
-f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) &amp;= \frac{f(\mathbf{Y}, \boldsymbol{\beta}, \sigma^2)}{f(\mathbf{Y})}\\
-&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)}{f(\mathbf{Y})}\\
-&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)}{\int f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)d\boldsymbol{\beta}d\sigma^2}.
+P(Y_i = 1) &amp;= \alpha + \beta_1x_{i1} + \cdots + \beta_px_{ip} + \epsilon_i\\
+&amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta}.
 \end{aligned}\]</span></p>
-<p>No closed form exists for the posterior. <span class="math display">\[f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)\]</span></p>
 </section>
-<section id="motivation-for-gibbs-sampling" class="slide level2">
-<h2>Motivation for Gibbs sampling</h2>
+<section id="primary-biliary-cirrhosis" class="slide level2">
+<h2>Primary biliary cirrhosis</h2>
 <ul>
-<li><p>Suppose we were given <span class="math inline">\(\sigma^{2(1)}\)</span>, a single sample from the marginal posterior distribution <span class="math inline">\(f\left(\sigma^2|\mathbf{Y}\right)\)</span> (from where, who knows?)</p></li>
-<li><p>Use the sample to generate <span class="math inline">\(\boldsymbol{\beta}^{(1)}\)</span> from <span class="math inline">\(f\left(\boldsymbol{\beta}|\mathbf{Y},\sigma^{2(1)}\right)\)</span></p></li>
-<li><p><span class="math inline">\(\left(\boldsymbol{\beta}^{(1)},\sigma^{2(1)}\right)\)</span> is a sample from <span class="math inline">\(f\left(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}\right)\)</span></p></li>
-<li><p><span class="math inline">\(\boldsymbol{\beta}^{(1)}\)</span> is a sample from <span class="math inline">\(f\left(\boldsymbol{\beta} | \mathbf{Y}\right)\)</span></p></li>
+<li><p>The Mayo Clinic conducted a trial for primary biliary cirrhosis, comparing the drug D-penicillamine vs.&nbsp;placebo. Patients were followed for a specified duration, and their status at the end of follow-up (whether they died) was recorded.</p></li>
+<li><p>Researchers are interested in predicting whether a patient died based on the following variables:</p>
+<ul>
+<li><p>ascites: whether the patient had ascites (1 = yes, 0 = no)</p></li>
+<li><p>bilirubin: serum bilirubin in mg/dL</p></li>
+<li><p>stage: histologic stage of disease (ordinal categorical variable with stages 1, 2, 3, and 4)</p></li>
+</ul></li>
 </ul>
+</section>
+<section id="what-can-go-wrong" class="slide level2">
+<h2>What can go wrong?</h2>
+<ul>
+<li>Suppose we fit the following model:</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+P(Y_i = 1) &amp;= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
+&amp;\quad+\beta_3(stage = 2)_i + \beta_4(stage = 3)_i\\
+&amp;\quad+\beta_5(stage = 4)_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)
+\end{aligned}\]</span></p>
 <div class="fragment">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Recall</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math inline">\(f\left(\boldsymbol{\beta}, \sigma^{2}|\mathbf{Y}\right) = f\left(\boldsymbol{\beta} | \sigma^{2},\mathbf{Y}\right)f\left(\sigma^{2}|\mathbf{Y}\right)\)</span></p>
-</div>
-</div>
-</div>
+<p><strong>What can go wrong?</strong></p>
 </div>
 </section>
-<section id="gibbs-sampler-for-linear-regression" class="slide level2">
-<h2>Gibbs sampler for linear regression</h2>
-<p>Suppose we can sample from the following two distribution,</p>
-<ol type="1">
-<li><p><span class="math inline">\(f(\boldsymbol{\beta} | \mathbf{Y}, \sigma^2) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta})\)</span></p></li>
-<li><p><span class="math inline">\(f(\sigma^2 | \mathbf{Y}, \boldsymbol{\beta}) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\sigma^2)\)</span></p></li>
-</ol>
-<p>These are called <strong>full conditional distributions</strong>.</p>
-<p>Set initial values for <span class="math inline">\(\boldsymbol{\theta}^{(0)} = (\boldsymbol{\beta}^{(0)}, \sigma^{2(0)})\)</span>. Then, given a current state of parameters <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>, we can generate a new state as follows:</p>
-<ol type="1">
-<li><p>Sample <span class="math inline">\(\boldsymbol{\beta}^{(s + 1)} \sim f(\boldsymbol{\beta} | \mathbf{Y}, \sigma^{2(s)})\)</span></p></li>
-<li><p>Sample <span class="math inline">\(\sigma^{2(s + 1)} \sim f(\sigma^2 | \mathbf{Y}, \boldsymbol{\beta}^{(s + 1)})\)</span></p></li>
-<li><p>Let <span class="math inline">\(\boldsymbol{\theta}^{(s+1)} = (\boldsymbol{\beta}^{(s + 1)}, \sigma^{2(s + 1)})\)</span></p></li>
-</ol>
+<section id="what-can-go-wrong-1" class="slide level2">
+<h2>What can go wrong?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/11/resid.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="resid"></p>
+</figure>
+</div>
 </section>
-<section id="why-does-this-work" class="slide level2">
-<h2>Why does this work?</h2>
+<section id="what-can-go-wrong-2" class="slide level2">
+<h2>What can go wrong?</h2>
 <ul>
-<li><p><span class="math inline">\(\boldsymbol{\theta}^{(0)}\)</span> isn’t a sample from the posterior, it is an arbitrarily chosen initial value</p></li>
-<li><p><span class="math inline">\(\boldsymbol{\theta}^{(1)}\)</span> likely isn’t from the posterior either. Its distribution depends on <span class="math inline">\(\boldsymbol{\theta}^{(0)}\)</span></p></li>
-<li><p><span class="math inline">\(\boldsymbol{\theta}^{(2)}\)</span> likely isn’t from the posterior either. Its distribution depends on <span class="math inline">\(\boldsymbol{\theta}^{(0)}\)</span> and <span class="math inline">\(\boldsymbol{\theta}^{(1)}\)</span></p></li>
-<li><p><strong>Theorem:</strong> For any initial values, the chain will eventually converge to the posterior</p></li>
-<li><p><strong>Theorem:</strong> If <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> is a sample from the posterior, then <span class="math inline">\(\boldsymbol{\theta}^{(s+1)}\)</span> is too</p></li>
+<li>Additionally, as a probability, <span class="math inline">\(P(Y_i = 1)\)</span> must be in the interval [0, 1], but there is nothing in the model that enforces this constraint, so that you could be estimating probabilities that are negative or that are greater than 1!</li>
 </ul>
 </section>
-<section id="gibbs-sampler" class="slide level2">
-<h2>Gibbs sampler</h2>
+<section id="from-probabilities-to-log-odds" class="slide level2">
+<h2>From probabilities to log-odds</h2>
 <ul>
-<li><p>Under mild regulatory conditions that are generally satisfied for most statistical models, one can show that the iteration <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> converges in distribution to a draw from the true joint posterior distribution</p></li>
-<li><p>So for <span class="math inline">\(s\)</span> sufficiently large (say, bigger than <span class="math inline">\(s_0\)</span>), <span class="math inline">\(\left\{\boldsymbol{\theta}^{(s)}, s=s_0+1,\ldots,S\right\}\)</span> is a <strong>correlated</strong> sample from the true joint posterior (and <span class="math inline">\(\boldsymbol{\beta}^{(s)}\)</span> and <span class="math inline">\(\sigma^{2(s)}\)</span> are samples from the marginals)</p></li>
-<li><p>Similar to Monte Carlo approximation, we can use these samples to estimate posterior quantities of interest</p></li>
+<li><p>Suppose the <strong>probability</strong> of an event is <span class="math inline">\(\pi\)</span>.</p></li>
+<li><p>Then the <strong>odds</strong> that the event occurs is <span class="math inline">\(\frac{\pi}{1 - \pi}\)</span>.</p></li>
+<li><p>Taking the (natural) log of the odds, we have the <strong>logit</strong> of <span class="math inline">\(\pi\)</span>: the <strong>log-odds</strong>:</p></li>
+</ul>
+<p><span class="math display">\[\text{logit}(\pi) = \log\left(\frac{\pi}{1-\pi}\right).\]</span></p>
+<ul>
+<li>Note that although <span class="math inline">\(\pi\)</span> is constrained to lie between 0 and 1, the logit of <span class="math inline">\(\pi\)</span> is unconstrained - it can be anything from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\infty\)</span>.</li>
 </ul>
 </section>
-<section id="gibbs-sampler-1" class="slide level2">
-<h2>Gibbs sampler</h2>
+<section id="logistic-regression-model" class="slide level2">
+<h2>Logistic regression model</h2>
 <ul>
-<li><p><span class="math inline">\(\boldsymbol{\theta}^{(t)}\)</span> depends on <span class="math inline">\(\boldsymbol{\theta}^{(0)},\ldots,\boldsymbol{\theta}^{(t-1)}\)</span> only through <span class="math inline">\(\boldsymbol{\theta}^{(t-1)}\)</span></p></li>
-<li><p><span class="math inline">\(\boldsymbol{\theta}^{(t)}\)</span> is conditionally independent of <span class="math inline">\(\boldsymbol{\theta}^{(0)},\ldots,\boldsymbol{\theta}^{(t-2)}\)</span> given <span class="math inline">\(\boldsymbol{\theta}^{(t-1)}\)</span></p>
-<p><span class="math inline">\(\implies\)</span> Markov property, so the sequence is called a Markov chain</p></li>
-<li><p>We use the samples similar to MC approximation; therefore, Gibbs sampling is a form of Markov chain Monte Carlo (MCMC)</p></li>
-<li><p>We will cover diagnostics for MCMC in another lecture!</p></li>
+<li><p>Let’s create a model for the logit of <span class="math inline">\(\pi\)</span>: <span class="math inline">\(\text{logit}(\pi_i)= \alpha + \mathbf{x}_i \boldsymbol{\beta}.\)</span></p></li>
+<li><p>This is a linear model for a transformation of the outcome of interest, and is also equivalent to,</p></li>
+</ul>
+<p><span class="math display">\[\pi_i = \frac{\exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})}{1 + \exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})} = \text{expit}(\alpha + \mathbf{x}_i \boldsymbol{\beta}).\]</span></p>
+<ul>
+<li>The expression on the right is called a <strong>logistic function</strong> and cannot yield a value that is negative or a value that is &gt;1. Fitting a model of this form is known as <strong>logistic regression</strong>.</li>
 </ul>
 </section>
-<section id="gibbs-sampler-for-linear-regression-1" class="slide level2">
-<h2>Gibbs sampler for linear regression</h2>
+<section id="logistic-regression" class="slide level2">
+<h2>Logistic regression</h2>
+<p><span class="math display">\[\text{logit}(\pi_i) = \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\]</span></p>
 <ul>
-<li><p>Computing the full conditionals.</p>
-<ol type="1">
-<li>We already have the full conditional for <span class="math inline">\(\boldsymbol{\beta}\)</span>:</li>
-</ol>
-<p><span class="math inline">\(\boldsymbol{\beta} | \mathbf{Y}, \sigma^2 \sim N \left(\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}], \mathbb{V}(\boldsymbol{\beta} | \mathbf{Y})\right)\)</span></p></li>
+<li>Negative logits represent probabilities less than one-half, and positive logits represent probabilities above one-half.</li>
 </ul>
-<p><span class="math display">\[\begin{aligned}
-\mathbb{V}(\boldsymbol{\beta} | \mathbf{Y}) &amp;= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\\
-\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}] &amp;= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\left(\frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{Y}}{\sigma^2}\right)
-\end{aligned}\]</span></p>
 </section>
-<section id="gibbs-sampler-for-linear-regression-2" class="slide level2">
-<h2>Gibbs sampler for linear regression</h2>
+<section id="interpreting-parameters-in-logistic-regression" class="slide level2">
+<h2>Interpreting parameters in logistic regression</h2>
 <ul>
-<li><p>Computing the full conditionals.</p>
-<ol type="1">
-<li><p><span class="math inline">\(\boldsymbol{\beta} | \mathbf{Y}, \sigma^2 \sim N \left(\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y}], \mathbb{V}(\boldsymbol{\beta} | \mathbf{Y})\right)\)</span></p></li>
-<li><p>Full conditional for <span class="math inline">\(\sigma^2\)</span>, assuming <span class="math inline">\(f(\sigma^2) \sim IG(a, b)\)</span>:</p></li>
-</ol>
-<p><span class="math display">\[\sigma^2 |  \mathbf{Y} , \boldsymbol{\beta} \sim IG\left(a + \frac{n}{2},b+\frac{\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)^\top\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)}{2}\right)\]</span></p>
+<li>Typically we interpret functions of parameters in logistic regression rather than the parameters themselves.</li>
+</ul>
+<p>For the simple model: <span class="math inline">\(\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \beta x_{i},\)</span> we note that the probability that <span class="math inline">\(Y_i = 1\)</span> when <span class="math inline">\(X_i = 0\)</span> is</p>
+<p><span class="math display">\[P(Y_i = 1 | X_{i} = 0) = \frac{\exp(\alpha)}{1 + \exp(\alpha)}.\]</span></p>
+</section>
+<section id="interpreting-parameters-in-logistic-regression-1" class="slide level2">
+<h2>Interpreting parameters in logistic regression</h2>
 <ul>
-<li>Why inverse-Gamma (<span class="math inline">\(IG\)</span>) distribution for <span class="math inline">\(\sigma^2\)</span>?</li>
+<li><p>Suppose that <span class="math inline">\(X\)</span> is a binary (0/1) variable (e.g., <span class="math inline">\(X\)</span> = 1 for males and 0 for non-males).</p>
+<ul>
+<li><p>In this case, we interpret <span class="math inline">\(\exp(\beta)\)</span> as the <strong>odds ratio</strong> (OR) of the response for the two possible levels of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>For <span class="math inline">\(X\)</span> on other scales, <span class="math inline">\(\exp(\beta)\)</span> is interpreted as the odds ratio of the response comparing two values of <span class="math inline">\(X\)</span> one unit apart.</p></li>
 </ul></li>
+<li><p>Why?</p></li>
 </ul>
 </section>
-<section id="how-can-we-use-the-posterior" class="slide level2">
-<h2>How can we use the posterior?</h2>
-<p>Let’s simulate some data again:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="do">###True parameters</span></span>
-<span id="cb1-2"><a></a>sigma <span class="ot">&lt;-</span> <span class="fl">1.5</span> <span class="co"># true measurement error</span></span>
-<span id="cb1-3"><a></a>beta <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>, <span class="dv">3</span>), <span class="at">ncol =</span> <span class="dv">1</span>) <span class="co"># true beta</span></span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="do">###Simulation settings</span></span>
-<span id="cb1-6"><a></a>n <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># number of observations</span></span>
-<span id="cb1-7"><a></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(beta) <span class="sc">-</span> <span class="dv">1</span> <span class="co"># number of covariates</span></span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="do">###Simulate data</span></span>
-<span id="cb1-10"><a></a><span class="fu">set.seed</span>(<span class="dv">54</span>) <span class="co"># set seed</span></span>
-<span id="cb1-11"><a></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n <span class="sc">*</span> p), <span class="at">ncol =</span> p))</span>
-<span id="cb1-12"><a></a>Y <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, sigma))</span>
-<span id="cb1-13"><a></a></span>
-<span id="cb1-14"><a></a><span class="do">###Define hyperparameteters</span></span>
-<span id="cb1-15"><a></a>beta0 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> p <span class="sc">+</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb1-16"><a></a>sigma_beta <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb1-17"><a></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb1-18"><a></a>b <span class="ot">&lt;-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="interpreting-parameters-in-logistic-regression-2" class="slide level2">
+<h2>Interpreting parameters in logistic regression</h2>
+<ul>
+<li><p>The log odds of response for <span class="math inline">\(X = 1\)</span> is given by <span class="math inline">\(\alpha + \beta\)</span>, and the log odds of response for <span class="math inline">\(X = 0\)</span> is <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>So the odds ratio of response comparing <span class="math inline">\(X = 1\)</span> to <span class="math inline">\(X = 0\)</span> is given by <span class="math inline">\(\frac{\exp(\alpha + \beta)}{\exp(\alpha)} = \exp(\beta)\)</span>.</p></li>
+<li><p>In a <em>multivariable logistic regression</em> model with more than one predictor, this OR is interpreted conditionally on values of other variables (i.e., controlling for them).</p></li>
+</ul>
+</section>
+<section id="bayesian-logistic-regression" class="slide level2">
+<h2>Bayesian logistic regression</h2>
+<ul>
+<li><p>We start with observations <span class="math inline">\(Y_i \in \{0,1\}\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>, where <span class="math inline">\(Y_i \stackrel{ind}{\sim} \text{Bernoulli}(\pi_i)\)</span>, <span class="math inline">\(\pi_i = P(Y_i = 1)\)</span>.</p></li>
+<li><p>The log-odds are modeled as <span class="math inline">\(\text{logit}(\pi_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>.</p></li>
+<li><p>To complete the Bayesian model specification, we must place priors on <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p>
+<ul>
+<li>All priors we have discussed up-to-this point apply!</li>
+</ul></li>
+<li><p>Historically, this was a difficult model to fit, but can be easily implemented in Stan.</p></li>
+</ul>
+</section>
+<section id="logistic-regression-in-stan" class="slide level2">
+<h2>Logistic regression in Stan</h2>
+<div class="cell" data-output.var="log_reg">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a></a><span class="co">// Saved in logistic_regression.stan</span></span>
+<span id="cb1-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb1-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb1-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb1-5"><a></a>  <span class="dt">int</span> Y[n];</span>
+<span id="cb1-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb1-7"><a></a>}</span>
+<span id="cb1-8"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb1-9"><a></a>  <span class="dt">real</span> alpha;</span>
+<span id="cb1-10"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb1-11"><a></a>}</span>
+<span id="cb1-12"><a></a><span class="kw">model</span> {</span>
+<span id="cb1-13"><a></a>  <span class="kw">target +=</span> bernoulli_logit_lpmf(Y | alpha + X * beta);</span>
+<span id="cb1-14"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb1-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb1-16"><a></a>}</span>
+<span id="cb1-17"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb1-18"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
+<span id="cb1-19"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
+<span id="cb1-20"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb1-21"><a></a>    in_sample[i] = bernoulli_logit_rng(alpha + height_c[i] * beta);</span>
+<span id="cb1-22"><a></a>    log_lik[i] = bernoulli_logit_lmpf(Y[i] | alpha + X[i, ] * beta);</span>
+<span id="cb1-23"><a></a>  }</span>
+<span id="cb1-24"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="perform-gibbs-sampling" class="slide level2">
-<h2>Perform Gibbs sampling</h2>
+<section id="primary-biliary-cirrhosis-1" class="slide level2">
+<h2>Primary biliary cirrhosis</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>sigma2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>)) <span class="co"># initial value</span></span>
-<span id="cb2-2"><a></a>samples <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb2-3"><a></a><span class="cf">for</span> (s <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5000</span>) {</span>
-<span id="cb2-4"><a></a>  <span class="do">###Sample from full conditional for beta</span></span>
-<span id="cb2-5"><a></a>  var_beta <span class="ot">&lt;-</span> <span class="fu">chol2inv</span>(<span class="fu">chol</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X <span class="sc">/</span> sigma2 <span class="sc">+</span> <span class="fu">diag</span>(p <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb2-6"><a></a>  mean_beta <span class="ot">&lt;-</span> var_beta <span class="sc">%*%</span> (beta0 <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y <span class="sc">/</span> sigma2)</span>
-<span id="cb2-7"><a></a>  beta <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rmvnorm</span>(<span class="dv">1</span>, mean_beta, var_beta))</span>
-<span id="cb2-8"><a></a>  </span>
-<span id="cb2-9"><a></a>  <span class="do">###Sample from full conditional for sigma2</span></span>
-<span id="cb2-10"><a></a>  quadratic <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">t</span>(Y <span class="sc">-</span> X <span class="sc">%*%</span> beta) <span class="sc">%*%</span> (Y <span class="sc">-</span> X <span class="sc">%*%</span> beta))</span>
-<span id="cb2-11"><a></a>  sigma2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">rgamma</span>(<span class="dv">1</span>, <span class="at">shape =</span> a <span class="sc">+</span> n <span class="sc">/</span> <span class="dv">2</span>, <span class="at">rate =</span> b <span class="sc">+</span> quadratic <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb2-12"><a></a>  </span>
-<span id="cb2-13"><a></a>  <span class="do">###Save samples after a burn-in</span></span>
-<span id="cb2-14"><a></a>  samples <span class="ot">&lt;-</span> <span class="fu">rbind</span>(samples, <span class="fu">c</span>(beta, sigma2))</span>
-<span id="cb2-15"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">head</span>(pbc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id trt      age sex ascites hepato spiders edema bili chol albumin copper
+1  1   1 58.76523   f       1      1       1   1.0 14.5  261    2.60    156
+2  2   1 56.44627   f       0      1       1   0.0  1.1  302    4.14     54
+3  3   1 70.07255   m       0      0       0   0.5  1.4  176    3.48    210
+4  4   1 54.74059   f       0      1       1   0.5  1.8  244    2.54     64
+5  5   2 38.10541   f       0      1       1   0.0  3.4  279    3.53    143
+6  7   2 55.53457   f       0      1       0   0.0  1.0  322    4.09     52
+  alk.phos    ast trig platelet protime stage outcome
+1   1718.0 137.95  172      190    12.2     4       1
+2   7394.8 113.52   88      221    10.6     3       0
+3    516.0  96.10   55      151    12.0     4       1
+4   6121.8  60.63   92      183    10.3     4       1
+5    671.0 113.15   72      136    10.9     3       1
+6    824.0  60.45  213      204     9.7     3       0</code></pre>
+</div>
 </div>
 </section>
-<section id="inspect-results" class="slide level2">
-<h2>Inspect results</h2>
+<section id="prepare-data-for-stan" class="slide level2">
+<h2>Prepare data for Stan</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="at">object =</span> <span class="sc">~</span> ascites <span class="sc">+</span> bili <span class="sc">+</span> <span class="fu">as.factor</span>(stage), <span class="at">data =</span> pbc)[, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb4-2"><a></a>Y <span class="ot">&lt;-</span> pbc<span class="sc">$</span>outcome</span>
+<span id="cb4-3"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="fu">nrow</span>(pbc),</span>
+<span id="cb4-4"><a></a>                  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb4-5"><a></a>                  <span class="at">Y =</span> Y,</span>
+<span id="cb4-6"><a></a>                  <span class="at">X =</span> X)</span>
+<span id="cb4-7"><a></a><span class="fu">head</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ascites bili as.factor(stage)2 as.factor(stage)3 as.factor(stage)4
+1       1 14.5                 0                 0                 1
+2       0  1.1                 0                 1                 0
+3       0  1.4                 0                 0                 1
+4       0  1.8                 0                 0                 1
+5       0  3.4                 0                 1                 0
+6       0  1.0                 0                 1                 0</code></pre>
+</div>
+</div>
+</section>
+<section id="logistic-regression-in-stan-1" class="slide level2">
+<h2>Logistic regression in Stan</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(rstan)</span>
+<span id="cb6-2"><a></a>compiled_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"logistic_regression.stan"</span>)</span>
+<span id="cb6-3"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">sampling</span>(compiled_model, <span class="at">data =</span> stan_data)</span>
+<span id="cb6-4"><a></a><span class="fu">print</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.5</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+         mean se_mean   sd  2.5%   50% 97.5% n_eff Rhat
+alpha   -3.35    0.04 1.21 -6.13 -3.24 -1.41   791    1
+beta[1]  2.24    0.04 1.32  0.18  2.05  5.48  1252    1
+beta[2]  0.38    0.00 0.08  0.24  0.38  0.54  2005    1
+beta[3]  1.71    0.04 1.25 -0.34  1.59  4.55   783    1
+beta[4]  2.19    0.04 1.22  0.20  2.07  4.96   806    1
+beta[5]  2.61    0.04 1.23  0.59  2.48  5.46   798    1
+
+Samples were drawn using NUTS(diag_e) at Mon Dec 30 14:36:11 2024.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+</div>
+</div>
+</section>
+<section id="convergence-diagnostics" class="slide level2">
+<h2>Convergence diagnostics</h2>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="03-linear-regression_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="03-linear-regression_files/figure-revealjs/unnamed-chunk-4-2.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="parameter-estimation-vs.-posterior-approximation" class="slide level2">
-<h2>Parameter estimation vs.&nbsp;posterior approximation</h2>
-<ul>
-<li><p>Model specification: Choice of likelihood and introduction of model parameters</p></li>
-<li><p>Prior specification</p></li>
-<li><p>Calculation of the posterior</p></li>
-<li><p>Summarizing the posterior using MC or MCMC methods:</p>
-<ul>
-<li><p>These are not models!</p></li>
-<li><p>They do not generate more information than is in <span class="math inline">\(\mathbf{Y}\)</span> or <span class="math inline">\(f\left(\boldsymbol{\theta}\right)\)</span></p></li>
-<li><p>They are simply ways of looking at <span class="math inline">\(f\left(\boldsymbol{\theta}|\mathbf{Y}\right)\)</span></p></li>
-</ul></li>
-</ul>
-</section>
-<section id="additional-topic-metropolis-sampling" class="slide level2">
-<h2>Additional topic: Metropolis sampling</h2>
-<ul>
-<li><p>Before we start using Stan for probabilistic programming, we need to understand the MCMC algorithm that is the engine for Stan’s inference, Hamiltonian Monte Carlo.</p></li>
-<li><p>To get us one step closer we will quickly review the concept of Metropolis sampling, another MCMC variant</p></li>
-</ul>
-</section>
-<section id="intuition-behind-metropolis-samping" class="slide level2">
-<h2>Intuition behind Metropolis samping</h2>
-<p>Suppose we have a working collection <span class="math inline">\(\{\boldsymbol{\theta}^{(1)},\ldots,\boldsymbol{\theta}^{(s)}\}\)</span> to which we would like to add a new value <span class="math inline">\(\boldsymbol{\theta}^{(s+1)}\)</span>. Let’s consider adding a value <span class="math inline">\(\boldsymbol{\theta}^*\)</span> which is nearby <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>. Should we include <span class="math inline">\(\boldsymbol{\theta}^*\)</span> in the set or not?</p>
-<ul>
-<li><p>If <span class="math inline">\(f(\boldsymbol{\theta}^* | \mathbf{Y}) &gt; f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})\)</span> then we want more <span class="math inline">\(\boldsymbol{\theta}^*\)</span>’s in the set than <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>’s.</p>
-<ul>
-<li>Since <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> is already in the set, then it seems we should include <span class="math inline">\(\boldsymbol{\theta}^*\)</span> as well.</li>
-</ul></li>
-<li><p>On the other hand, if <span class="math inline">\(f(\boldsymbol{\theta}^* | \mathbf{Y}) &lt; f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})\)</span> then it seems we should not necessarily include <span class="math inline">\(\boldsymbol{\theta}^*\)</span>.</p></li>
-<li><p>So, perhaps our decision to include <span class="math inline">\(\boldsymbol{\theta}^*\)</span> or not should be based on a comparison of <span class="math inline">\(f(\boldsymbol{\theta}^* | \mathbf{Y})\)</span> to <span class="math inline">\(f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})\)</span>.</p></li>
-</ul>
-</section>
-<section id="metropolis-acceptance-ratio" class="slide level2">
-<h2>Metropolis acceptance ratio</h2>
-<ul>
-<li>Fortunately, the comparison of <span class="math inline">\(f(\boldsymbol{\theta}^* | \mathbf{Y})\)</span> to <span class="math inline">\(f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})\)</span> can be made even if we cannot compute <span class="math inline">\(f(\boldsymbol{\theta} | \mathbf{Y})\)</span>.</li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-r &amp;= \frac{f(\boldsymbol{\theta}^* | \mathbf{Y})}{f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})}\\
-&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\theta}^*)f(\boldsymbol{\theta}^*)}{f(\mathbf{Y})}\frac{f(\mathbf{Y})}{f(\mathbf{Y} | \boldsymbol{\theta}^{(s)})f(\boldsymbol{\theta}^{(s)})}\\
-&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\theta}^*)f(\boldsymbol{\theta}^*)}{f(\mathbf{Y} | \boldsymbol{\theta}^{(s)})f(\boldsymbol{\theta}^{(s)})}
-\end{aligned}\]</span></p>
-<p>Having computed <span class="math inline">\(r\)</span>, how should we proceed?</p>
-</section>
-<section id="metropolis-intuition" class="slide level2 midi">
-<h2>Metropolis intuition</h2>
-<p>Metropolis ratio: <span class="math inline">\(r = \frac{f(\mathbf{Y} | \boldsymbol{\theta}^*)f(\boldsymbol{\theta}^*)}{f(\mathbf{Y} | \boldsymbol{\theta}^{(s)})f(\boldsymbol{\theta}^{(s)})}\)</span></p>
-<p>If <span class="math inline">\(r &gt; 1:\)</span></p>
-<ul>
-<li><p><em>Intuition:</em> Since <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> is already in our set, we should include <span class="math inline">\(\boldsymbol{\theta}^*\)</span> as it has a higher probability than <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span></p></li>
-<li><p><em>Procedure:</em> Accept <span class="math inline">\(\boldsymbol{\theta}^*\)</span> into our set (i.e., set <span class="math inline">\(\boldsymbol{\theta}^{(s + 1)} = \boldsymbol{\theta}^*\)</span>)</p></li>
-</ul>
-<p>If <span class="math inline">\(r &lt; 1:\)</span></p>
-<ul>
-<li><p><em>Intuition:</em> The relative frequency of <span class="math inline">\(\boldsymbol{\theta}\)</span>-values in our set equal to <span class="math inline">\(\boldsymbol{\theta}^*\)</span> compared to those equal to <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> should be <span class="math inline">\(r\)</span>. This means that for every instance of <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>, we should have only a “fraction” of an instance of a <span class="math inline">\(\boldsymbol{\theta}^*\)</span> value.</p></li>
-<li><p><em>Procedure:</em> Set <span class="math inline">\(\boldsymbol{\theta}^{(s + 1)}\)</span> equal to either <span class="math inline">\(\boldsymbol{\theta}^*\)</span> or <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>, with probability <span class="math inline">\(r\)</span> and <span class="math inline">\(1 − r\)</span> respectively.</p></li>
-</ul>
-</section>
-<section id="metropolis-update" class="slide level2">
-<h2>Metropolis update</h2>
-<p>Given <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>, the Metropolis algorithm generates a value <span class="math inline">\(\boldsymbol{\theta}^{(s + 1)}\)</span> as follows:</p>
-<ol type="1">
-<li><p>Sample <span class="math inline">\(\boldsymbol{\theta}^*\)</span> from a proposal distribution, <span class="math inline">\(\boldsymbol{\theta}^* ∼ J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)})\)</span></p></li>
-<li><p>Compute the acceptance ratio <span class="math inline">\(r\)</span></p></li>
-<li><p>Let <span class="math display">\[\boldsymbol{\theta}^{(s + 1)} =
-\left\{
-  \begin{array}{ll}
-\boldsymbol{\theta}^* &amp; \text{with probability }\min(r, 1) \\
-\boldsymbol{\theta}^{(s)} &amp; \text{with probability }1 -\min(r, 1)
-  \end{array}
-\right.\]</span></p></li>
-</ol>
-</section>
-<section id="metropolis-proposal-distribution" class="slide level2">
-<h2>Metropolis proposal distribution</h2>
-<ul>
-<li><p>The proposal distribution is symmetric (i.e., <span class="math inline">\(J(\boldsymbol{\theta}_a | \boldsymbol{\theta}_b) = J(\boldsymbol{\theta}_b | \boldsymbol{\theta}_a)\)</span></p></li>
-<li><p>Usually <span class="math inline">\(J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)})\)</span> is very simple, with samples from <span class="math inline">\(J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)})\)</span> being near <span class="math inline">\(\boldsymbol{\theta}\)</span> with high probability.</p></li>
-<li><p>The most common proposal is a normal distribution</p>
-<ul>
-<li><span class="math inline">\(J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)}) = N(\boldsymbol{\theta}^{(s)}, \boldsymbol{\Delta})\)</span></li>
-</ul></li>
-<li><p>The value of the parameter <span class="math inline">\(\boldsymbol{\Delta}\)</span> is generally chosen to make the approximation algorithm run efficiently</p></li>
-</ul>
-</section>
-<section id="metropolis-and-gibbs-combined" class="slide level2">
-<h2>Metropolis and Gibbs combined</h2>
-<ul>
-<li><p>The Gibbs and Metropolis samplers are actually both algorithms within a larger class of Metropolis-Hastings algorithms</p></li>
-<li><p>When performing MCMC, one can actually choose to update a parameter using either a Gibbs or Metropolis update</p></li>
-<li><p>Let’s see this in action using our linear regression example</p></li>
-</ul>
-</section>
-<section id="linear-regression-using-metropolisgibbs" class="slide level2">
-<h2>Linear regression using Metropolis/Gibbs</h2>
-<ul>
-<li><p>In this example, we will use a Metropolis update for <span class="math inline">\(\sigma^2\)</span>, however we will actually focus on <span class="math inline">\(\log\sigma^2\)</span>.</p>
-<ul>
-<li>Metropolis requires a symmetric proposal, so it is often easier to transform parameters to be on the real line and use a normal proposal.</li>
-</ul></li>
-<li><p>We will use the following proposal, <span class="math inline">\(\log\sigma^{2*} \sim N\left(\log\sigma^{2(s)}, \delta\right)\)</span>, where <span class="math inline">\(\delta = 1\)</span>.</p></li>
-<li><p>We will place <span class="math inline">\(\log\sigma^2 \sim N(0,1)\)</span>.</p></li>
-</ul>
-</section>
-<section id="linear-regression-using-metropolisgibbs-1" class="slide level2">
-<h2>Linear regression using Metropolis/Gibbs</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>sigma2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>))</span>
-<span id="cb3-2"><a></a>samples <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb3-3"><a></a>delta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb3-4"><a></a><span class="cf">for</span> (s <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
-<span id="cb3-5"><a></a>  <span class="do">###Sample from full conditional for beta</span></span>
-<span id="cb3-6"><a></a>  var_beta <span class="ot">&lt;-</span> <span class="fu">chol2inv</span>(<span class="fu">chol</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X <span class="sc">/</span> sigma2 <span class="sc">+</span> <span class="fu">diag</span>(p <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb3-7"><a></a>  mean_beta <span class="ot">&lt;-</span> var_beta <span class="sc">%*%</span> (beta0 <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y <span class="sc">/</span> sigma2)</span>
-<span id="cb3-8"><a></a>  beta <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rmvnorm</span>(<span class="dv">1</span>, mean_beta, var_beta))</span>
-<span id="cb3-9"><a></a></span>
-<span id="cb3-10"><a></a>  <span class="do">###Metropolis update for sigma2</span></span>
-<span id="cb3-11"><a></a>  <span class="co"># Sample a proposal value</span></span>
-<span id="cb3-12"><a></a>  log_sigma2_proposal <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="fu">log</span>(sigma2), delta)</span>
-<span id="cb3-13"><a></a>  <span class="co"># Compute the ratio r on the log scale for numeric stability</span></span>
-<span id="cb3-14"><a></a>  <span class="co"># Also, I've decided to update log(sigma2) instead of sigma2, so I can use a normal proposal distribution</span></span>
-<span id="cb3-15"><a></a>  <span class="co"># I've placed a normal prior on log(sigma2)</span></span>
-<span id="cb3-16"><a></a>  likelihood_proposal <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(Y, X <span class="sc">%*%</span> beta, <span class="fu">sqrt</span>(<span class="fu">exp</span>(log_sigma2_proposal)), <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb3-17"><a></a>  likelihood_current <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(Y, X <span class="sc">%*%</span> beta, <span class="fu">sqrt</span>(sigma2), <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb3-18"><a></a>  prior_proposal <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(log_sigma2_proposal, <span class="dv">0</span>, <span class="dv">1</span>, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-19"><a></a>  prior_current <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="fu">log</span>(sigma2), <span class="dv">0</span>, <span class="dv">1</span>, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-20"><a></a>  log_r <span class="ot">&lt;-</span> (likelihood_proposal <span class="sc">+</span> prior_proposal) <span class="sc">-</span> (likelihood_current <span class="sc">+</span> prior_current)</span>
-<span id="cb3-21"><a></a>  <span class="co"># Update beta using Metropolis ratio</span></span>
-<span id="cb3-22"><a></a>  <span class="cf">if</span> (<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">1</span>)) <span class="sc">&lt;</span> log_r) sigma2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_sigma2_proposal)</span>
-<span id="cb3-23"><a></a></span>
-<span id="cb3-24"><a></a>  <span class="do">###Save samples after a burn-in</span></span>
-<span id="cb3-25"><a></a>  <span class="cf">if</span> (s <span class="sc">&gt;</span> <span class="dv">5000</span>) samples <span class="ot">&lt;-</span> <span class="fu">rbind</span>(samples, <span class="fu">c</span>(beta, sigma2))</span>
-<span id="cb3-26"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="inspect-results-1" class="slide level2">
-<h2>Inspect results</h2>
+<section id="convergence-diagnostics-1" class="slide level2">
+<h2>Convergence diagnostics</h2>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="03-linear-regression_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="03-linear-regression_files/figure-revealjs/unnamed-chunk-6-2.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="looking-towards-stan" class="slide level2">
-<h2>Looking towards Stan</h2>
+<section id="back-to-the-pbc-data" class="slide level2">
+<h2>Back to the PBC data</h2>
 <ul>
-<li><p>We can use Monte Carlo approximation, when the posterior is available in closed form.</p></li>
-<li><p>We can use Gibbs sampling when the full conditional distributions are available in closed form.</p></li>
-<li><p>We can always use Metropolis (or its more general form Metropolis Hastings) regardless of the form of the posterior, we only need to be able to compute <span class="math inline">\(f(\mathbf{Y} | \boldsymbol{\theta})f(\boldsymbol{\theta})\)</span></p>
+<li>Fitting a logistic regression model, we obtain</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">variable</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">2.5%</th>
+<th style="text-align: right;">97.5%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">alpha</td>
+<td style="text-align: left;">intercept</td>
+<td style="text-align: right;">-3.35</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">-6.13</td>
+<td style="text-align: right;">-1.41</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">beta[1]</td>
+<td style="text-align: left;">ascites</td>
+<td style="text-align: right;">2.24</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">5.48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">beta[2]</td>
+<td style="text-align: left;">bilirubin</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.24</td>
+<td style="text-align: right;">0.54</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">beta[3]</td>
+<td style="text-align: left;">stage == 2</td>
+<td style="text-align: right;">1.71</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">-0.34</td>
+<td style="text-align: right;">4.55</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">beta[4]</td>
+<td style="text-align: left;">stage == 3</td>
+<td style="text-align: right;">2.19</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">4.96</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">beta[5]</td>
+<td style="text-align: left;">stage == 4</td>
+<td style="text-align: right;">2.61</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">5.46</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <ul>
-<li><p>This amounts to specifying a likelihood and a prior (which is the fun modeling part!)</p></li>
-<li><p>Metropolis can be difficult to tune (i.e., finding <span class="math inline">\(\boldsymbol{\Delta}\)</span>)</p></li>
+<li>How might we interpret these coefficients as odds ratios?</li>
+</ul>
+</section>
+<section id="back-to-the-pbc-data-1" class="slide level2 small">
+<h2>Back to the PBC data</h2>
+<ul>
+<li><p>Remember, we are interested in the probability that a patient died during follow-up (a “success”). We are predicting the log-odds of this event happening.</p>
+<ul>
+<li><p>The posterior mean for ascites was 2.24. Thus, the odds ratio for dying is <span class="math inline">\(\exp(2.24) \approx 9.4\)</span>. That is, patients with ascites have 9.4 times the odds of dying compared to patients that do not, holding all other variables constant.</p></li>
+<li><p>The posterior mean for bilirubin was 0.38. Thus, the odds ratio for dying for a patient with 1 additional mg/dL serum bilirubin compared to another is <span class="math inline">\(\exp(0.38) \approx 1.46\)</span>, holding all other variables constant.</p></li>
+<li><p>The baseline stage was 1. The posterior mean for stage 3 was 2.19. Thus, patients in stage 3 have approximately 8.93 times the odds of dying compared to patients that do not, holding all other variables constant.</p></li>
 </ul></li>
 </ul>
 </section>
-<section id="looking-towards-stan-1" class="slide level2">
-<h2>Looking towards Stan</h2>
+<section id="predicted-probabilities" class="slide level2">
+<h2>Predicted probabilities</h2>
 <ul>
-<li><p>Stan uses an algorithm called Hamiltonian Monte Carlo, which is a form of MCMC that uses a Metropolis update</p></li>
-<li><p>Stan does all of the MCMC tuning, allowing us to only focus on the modeling!</p></li>
-<li><p>This means that our job moving forward will be to focus on specifying the</p>
+<li><p>There is a one-to-one relationship between <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\text{logit}(\pi)\)</span>. So, if we predict <span class="math inline">\(\text{logit}(\pi)\)</span>, we can “back-transform” to get back to a predicted probability.</p></li>
+<li><p>For instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>x_i <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb8-2"><a></a>pars <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>))</span>
+<span id="cb8-3"><a></a>log_odds <span class="ot">&lt;-</span> pars<span class="sc">$</span>alpha <span class="sc">+</span> <span class="fu">as.numeric</span>(pars<span class="sc">$</span>beta <span class="sc">%*%</span> x_i)</span>
+<span id="cb8-4"><a></a>pi <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_odds) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(log_odds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="predicted-probabilities-1" class="slide level2">
+<h2>Predicted probabilities</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Posterior mean of the predicted probabilities is 0.56.</li>
+</ul>
+</section>
+<section id="posterior-predictive-checks" class="slide level2">
+<h2>Posterior predictive checks</h2>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>y_pred <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="st">"in_sample"</span>)<span class="sc">$</span>in_sample</span>
+<span id="cb9-2"><a></a><span class="fu">ppc_dens_overlay</span>(stan_data<span class="sc">$</span>Y, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="posterior-predictive-checks-1" class="slide level2">
+<h2>Posterior predictive checks</h2>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ppc_bars</span>(stan_data<span class="sc">$</span>Y, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="posterior-predictive-checks-2" class="slide level2">
+<h2>Posterior predictive checks</h2>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"mean"</span>) <span class="co"># from bayesplot</span></span>
+<span id="cb11-2"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"sd"</span>)</span>
+<span id="cb11-3"><a></a>q025 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.025</span>)</span>
+<span id="cb11-4"><a></a>q975 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.975</span>)</span>
+<span id="cb11-5"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q025"</span>)</span>
+<span id="cb11-6"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q975"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-16-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-16-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-16-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-comparison" class="slide level2">
+<h2>Model comparison</h2>
+<ul>
+<li>Comparing our model to a baseline that removed stage.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(loo)</span>
+<span id="cb12-2"><a></a>log_lik <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-3"><a></a>log_lik_baseline <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_baseline, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-4"><a></a>waic_model <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik)</span>
+<span id="cb12-5"><a></a>waic_model_baseline <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_baseline)</span>
+<span id="cb12-6"><a></a></span>
+<span id="cb12-7"><a></a><span class="do">###Make a comparison</span></span>
+<span id="cb12-8"><a></a>comp_waic <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo_compare</span>(<span class="fu">list</span>(<span class="st">"full"</span> <span class="ot">=</span> waic_model, <span class="st">"baseline"</span> <span class="ot">=</span> waic_model_baseline))</span>
+<span id="cb12-9"><a></a><span class="fu">print</span>(comp_waic, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic   
+full        0.00      0.00 -155.94      9.51         7.69    2.09    311.88
+baseline   -1.69      3.09 -157.63      9.36         4.86    1.98    315.25
+         se_waic
+full       19.01
+baseline   18.73</code></pre>
+</div>
+</div>
+</section>
+<section id="other-models-for-binary-data" class="slide level2">
+<h2>Other models for binary data</h2>
+<ul>
+<li>Other transformations (also called <em>link functions</em>) can be used to ensure the probabilities lie in [0, 1], including the Probit (popular in Bayesian statistics).</li>
+</ul>
+</section>
+<section id="steps-to-selecting-a-bayesian-glm" class="slide level2">
+<h2>Steps to selecting a Bayesian GLM</h2>
 <ol type="1">
-<li><p>likelihood: <span class="math inline">\(f(\mathbf{Y} | \boldsymbol{\theta})\)</span></p></li>
-<li><p>prior: <span class="math inline">\(f(\boldsymbol{\theta})\)</span></p></li>
-</ol></li>
+<li><p>Identify the support of the response distribution.</p></li>
+<li><p>Select the likelihood by picking a parametric family of distributions with this support.</p></li>
+<li><p>Choose a link function <span class="math inline">\(g\)</span> that transforms the range of parameters to the whole real line.</p></li>
+<li><p>Specify a linear model on the transformed parameters.</p></li>
+<li><p>Select priors for the regression coefficients.</p></li>
+</ol>
+</section>
+<section id="example-of-selecting-a-bayesian-glm" class="slide level2">
+<h2>Example of selecting a Bayesian GLM</h2>
+<ol type="1">
+<li><p>Support: <span class="math inline">\(Y_i \in \{0, 1, 2, \ldots\}\)</span>.</p></li>
+<li><p>Likelihood family: <span class="math inline">\(Y_i \stackrel{ind}{\sim} \text{Poisson}(\lambda_i)\)</span>.</p></li>
+<li><p>Link: <span class="math inline">\(g(\lambda_i) = \log(\lambda_i) \in (−\infty, \infty)\)</span>.</p></li>
+<li><p>Regression model: <span class="math inline">\(\log(\lambda_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>.</p></li>
+<li><p>Priors: <span class="math inline">\(\alpha, \beta_j \sim N(0, 10^2)\)</span>.</p></li>
+</ol>
+</section>
+<section id="multinomial-regression" class="slide level2 small">
+<h2>Multinomial regression</h2>
+<p>Assume an outcome <span class="math inline">\(Y_i \in \{1,\ldots,K\}\)</span>. You can imagine running <span class="math inline">\(K\)</span> independent binary logistic regression models, in which one outcome is chosen as a “pivot” and then the other K − 1 outcomes are separately regressed against the pivot outcome. If outcome K (the last outcome) is chosen as the pivot, the K − 1 regression equations are:</p>
+<p><span class="math display">\[\log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots, K-1\}\]</span></p>
+<ul>
+<li>It can be seen that:</li>
+</ul>
+<p><span class="math display">\[P(Y_i = k) = \frac{\exp\{\mathbf{x}_i \boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i \boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\}.\]</span> and <span class="math inline">\(P(Y_i = K) = 1 - \sum_{j=1}^{K-1}P(Y_i = j)\)</span>.</p>
+<ul>
+<li>This is known as the additive log-ratio model.</li>
+</ul>
+</section>
+<section id="multinomial-regression-1" class="slide level2 small">
+<h2>Multinomial regression</h2>
+<p>Let <span class="math inline">\(Y_i \in \{1,\ldots,K\}\)</span> be an ordinal outcome with <span class="math inline">\(K\)</span> categories. Then <span class="math inline">\(P(Y \leq k)\)</span> is the cumulative probability of <span class="math inline">\(Y\)</span> less than or equal to a specific category <span class="math inline">\(k=1,\ldots,K-1\)</span>. The odds of being less than or equal a particular category can be defined as, <span class="math display">\[\frac{P(Y\leq k)}{P(Y &gt; k)}\]</span> for <span class="math inline">\(k=1,\ldots,K-1\)</span>, since <span class="math inline">\(P(Y &gt; K) = 0\)</span> and dividing by zero is undefined. The log odds is also known as the logit, so that <span class="math display">\[\log \frac{P(Y\leq k)}{P(Y &gt; k)} = \text{logit}P(Y\leq k) = \alpha_k + \mathbf{x}_i \boldsymbol{\beta}\]</span></p>
+<ul>
+<li>Proportional odds regression.</li>
+</ul>
+</section>
+<section id="ordinal-regression-using-stan" class="slide level2">
+<h2>Ordinal regression using Stan</h2>
+<div class="cell" data-output.var="ordinal">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb14-1"><a></a><span class="kw">data</span> {</span>
+<span id="cb14-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">2</span>&gt; K;</span>
+<span id="cb14-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; n;</span>
+<span id="cb14-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb14-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = K&gt; Y[n]</span>
+<span id="cb14-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb14-7"><a></a>}</span>
+<span id="cb14-8"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb14-9"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb14-10"><a></a>  <span class="dt">ordered</span>[K - <span class="dv">1</span>] alpha;</span>
+<span id="cb14-11"><a></a>}</span>
+<span id="cb14-12"><a></a><span class="kw">model</span> {</span>
+<span id="cb14-13"><a></a>  <span class="kw">target +=</span> ordered_logistic_glm_lpmf(Y | X, beta, alpha);</span>
+<span id="cb14-14"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb14-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb14-16"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="prepare-for-next-class" class="slide level2">
+<h2>Prepare for next class</h2>
+<ul>
+<li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-03">HW 03</a>.</p></li>
+<li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
+<li><p>Tuesday’s lecture: Missing data</p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -788,7 +979,7 @@ r &amp;= \frac{f(\boldsymbol{\theta}^* | \mathbf{Y})}{f(\boldsymbol{\theta}^{(s)
 <p><a href="https://biostat725-sp25.netlify.app/">🔗 BIOSTAT 725 - Spring 2025</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
