@@ -51,14 +51,13 @@ $$f(\boldsymbol{\theta} | \mathbf{Y}) = \frac{f(\mathbf{Y} | \boldsymbol{\theta}
 
 . . .
 
-
-- Rethinking Bayes theorem:
+-   Rethinking Bayes theorem:
 
 $$f(\boldsymbol{\theta} | \mathbf{Y}) \propto f(\mathbf{Y}, \boldsymbol{\theta}) = f(\mathbf{Y} | \boldsymbol{\theta})f(\boldsymbol{\theta}) $$
 
 . . .
 
-- In Stan:
+-   In Stan:
 
 $$\log f(\mathbf{Y} | \boldsymbol{\theta}) + \log f(\boldsymbol{\theta})$$
 
@@ -90,59 +89,59 @@ $$\log f(\mathbf{Y} | \boldsymbol{\theta}) + \log f(\boldsymbol{\theta})$$
 
 ![[Taken from Bayesian workflow by Francesca Capel](https://francescacapel.com/BayesianWorkflow/index.html)](images/07/workflow0.png){fig-alt="workflow0" fig-align="center" height="4in"}
 
-- Today we will talk about a general strategy for taking a question and data to a robust conclusion.
+-   Today we will talk about a general strategy for taking a question and data to a robust conclusion.
 
 ## A simplified workflow {.midi}
 
-1. *Setting up a full probability model:* a joint probability distribution for all observable and unobservable quantities in a problem. The model should be consistent with knowledge about the underlying scientific problem and the data collection process.
+1.  *Setting up a full probability model:* a joint probability distribution for all observable and unobservable quantities in a problem. The model should be consistent with knowledge about the underlying scientific problem and the data collection process.
 
-2. *Conditioning on observed data:* calculating and interpreting the appropriate posterior distribution — the conditional probability distribution of the unobserved quantities of ultimate interest, given the observed data.
+2.  *Conditioning on observed data:* calculating and interpreting the appropriate posterior distribution — the conditional probability distribution of the unobserved quantities of ultimate interest, given the observed data.
 
-3. *Evaluating the fit of the model and the implications of the resulting posterior distribution:* how well does the model fit the data, are the substantive conclusions reasonable, and how sensitive are the results to the modeling assumptions in step 1? In response, one can alter or expand the model and repeat the three steps.
+3.  *Evaluating the fit of the model and the implications of the resulting posterior distribution:* how well does the model fit the data, are the substantive conclusions reasonable, and how sensitive are the results to the modeling assumptions in step 1? In response, one can alter or expand the model and repeat the three steps.
 
-- From BDA3.
-
-## Bayesian workflow
-
-1. **Research question:** What are your dependent and indepednent variables? What associations are you interested in? EDA.
-
-. . .
-
-2. **Specify likelihood & priors:** Use knowledge of the problem to construct a generative model.
-
-. . .
-
-3. **Check the model with simulated data:** Generate data from the model and evaluate fit as a sanity check (prior predictive checks).
-
-. . .
-
-4. **Fit the model to real data:** Estimate parameters using MCMC.
+-   From BDA3.
 
 ## Bayesian workflow
 
-5. **Check diagnostics:** Use MCMC diagnostics to guarentee that the algorithm converged.
+1.  **Research question:** What are your dependent and indepednent variables? What associations are you interested in? EDA.
 
 . . .
 
-6. **Examine posterior fit:** Create posterior summaries that are relevant to the research question. 
+2.  **Specify likelihood & priors:** Use knowledge of the problem to construct a generative model.
 
 . . .
 
-7. **Check predictions:** Examing posterior predictive checks.
+3.  **Check the model with simulated data:** Generate data from the model and evaluate fit as a sanity check (prior predictive checks).
 
 . . .
 
-8. **Compare models:** Iterate on model design and choose a model.
+4.  **Fit the model to real data:** Estimate parameters using MCMC.
+
+## Bayesian workflow
+
+5.  **Check diagnostics:** Use MCMC diagnostics to guarentee that the algorithm converged.
+
+. . .
+
+6.  **Examine posterior fit:** Create posterior summaries that are relevant to the research question.
+
+. . .
+
+7.  **Check predictions:** Examing posterior predictive checks.
+
+. . .
+
+8.  **Compare models:** Iterate on model design and choose a model.
 
 ## Motivating example: predicting weight from height {.midi}
 
 **Research question:** We would like to understand the relationship between a person's height and weight. A few particular questions we have are:
 
-  1. How much does a person's weight increase when their height increases? 
-  
-  2. How certain we can be about the magnitude of the increase?
-  
-  3. Can we predict a person’s weight based on their height?
+1.  How much does a person's weight increase when their height increases?
+
+2.  How certain we can be about the magnitude of the increase?
+
+3.  Can we predict a person’s weight based on their height?
 
 **Data:** We will use the `bdims` dataset from the `openintro` package. This dataset contains body girth measurements and skeletal diameter measurements, as well as age, weight, height and gender.
 
@@ -203,9 +202,9 @@ dat |> ggplot(aes(y = weight, x = height, col = sex)) +
 
 ## 2. **Specify likelihood & priors:**
 
-- Construct a data generating process. 
+-   Construct a data generating process.
 
-- We would like to model weight as a function of height using a linear regression model.
+-   We would like to model weight as a function of height using a linear regression model.
 
 $$weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
 
@@ -219,9 +218,9 @@ data {
 
 ## 2. **Specify likelihood & priors:**
 
-- Construct a data generating process. 
+-   Construct a data generating process.
 
-- We would like to model weight as a function of height using a linear regression model.
+-   We would like to model weight as a function of height using a linear regression model.
 
 $$weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
 
@@ -235,9 +234,9 @@ parameter {
 
 ## 2. **Specify likelihood & priors:**
 
-- Construct a data generating process. 
+-   Construct a data generating process.
 
-- We would like to model weight as a function of height using a linear regression model.
+-   We would like to model weight as a function of height using a linear regression model.
 
 $$weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
 
@@ -253,11 +252,11 @@ $$weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N
 
 Think about reasonable priors for your parameters:
 
-- $\alpha$ is the intercept, or average weight for someone who is zero inches (not a particularly useful number on its own)
+-   $\alpha$ is the intercept, or average weight for someone who is zero inches (not a particularly useful number on its own)
 
-- $\beta$ measures the association between weight and height, in pounds/inch
+-   $\beta$ measures the association between weight and height, in pounds/inch
 
-- $\sigma$ is the measurement error for the population
+-   $\sigma$ is the measurement error for the population
 
 ```{stan output.var = "workflow", eval = FALSE}
 model {
@@ -274,7 +273,7 @@ $$\mathbb{E}[weight_i] = \alpha + \beta \times (height_i - \bar{x)},\quad\bar{x}
 
 Think about reasonable priors for your parameters:
 
-- $\alpha$ is the intercept, or average weight for someone who is an average height
+-   $\alpha$ is the intercept, or average weight for someone who is an average height
 
 ```{stan output.var = "workflow", eval = FALSE}
 model {
@@ -287,9 +286,9 @@ model {
 
 ## Quick aside
 
-What does it mean to use the prior `sigma ~ normal(0, 5)`? 
+What does it mean to use the prior `sigma ~ normal(0, 5)`?
 
-- When a parameter is truncated, for example `real<lower = 0> sigma`, priors can still be placed across the real line, $\mathbb{R}$.
+-   When a parameter is truncated, for example `real<lower = 0> sigma`, priors can still be placed across the real line, $\mathbb{R}$.
 
 ```{stan output.var = "workflow", eval = FALSE}
 parameters {
@@ -300,15 +299,16 @@ model {
 }
 ```
 
-- This specification induces a prior on the truncated space $\mathbb{R}^+$. 
+-   This specification induces a prior on the truncated space $\mathbb{R}^+$.
 
-- The induced prior for `sigma` is a [half-normal distribution](https://en.wikipedia.org/wiki/Half-normal_distribution).
+-   The induced prior for `sigma` is a [half-normal distribution](https://en.wikipedia.org/wiki/Half-normal_distribution).
 
 ## Quick aside
 
-- The half-normal is a useful prior for nonnegative parameters that should not be too large and may be very close to zero. 
+-   The half-normal is a useful prior for nonnegative parameters that should not be too large and may be very close to zero.
 
-- Similar distributions for scale parameters are [half-t](https://en.wikipedia.org/wiki/Folded-t_and_half-t_distributions) and [half-Cauchy](https://distribution-explorer.github.io/continuous/halfcauchy.html) priors, these have heavier tales.
+-   Similar distributions for scale parameters are [half-t](https://en.wikipedia.org/wiki/Folded-t_and_half-t_distributions) and [half-Cauchy](https://distribution-explorer.github.io/continuous/halfcauchy.html) priors, these have heavier tales.
+
 ```{r}
 #| echo: false
 #| fig-align: "center"
@@ -330,13 +330,13 @@ dat.fig |> ggplot(aes(x = x, y = value, color = distribution)) +
 
 ## 3. **Check the model with simulated data:** {.small}
 
-  1. Draw parameter values from priors.
+1.  Draw parameter values from priors.
 
-  2. Generate data based on those parameter values.
+2.  Generate data based on those parameter values.
 
-  3. Fit model to generated data.
+3.  Fit model to generated data.
 
-  4. Check fit is reasonable.
+4.  Check fit is reasonable.
 
 ```{stan output.var = "workflow", eval = FALSE}
 data {
@@ -354,7 +354,7 @@ generated quantities {
 }
 ```
 
-- Need `algorithm = "Fixed_param"`.
+-   Need `algorithm = "Fixed_param"`.
 
 ## 3. **Check the model with simulated data:**
 
@@ -364,7 +364,7 @@ generated quantities {
 #| fig-width: 12
 #| fig-height: 4
 #| layout-ncol: 1
-load(file = "robjects/07_fake_data.RData")
+load(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/07_fake_data.RData")
 dat.fig |> ggplot(aes(x = value)) + 
   geom_histogram() +
   facet_grid(. ~ variable, scales = "free_x", labeller = label_parsed) + 
@@ -417,8 +417,9 @@ regression_model <- stan_model(file = "linear_regression_workflow.stan")
 fit <- sampling(regression_model, data = stan_data)
 print(fit)
 ```
+
 ```{r, echo = FALSE}
-fit <- readRDS(file = "robjects/linear_regression_workflow.rds")
+fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow.rds")
 print(fit, pars = c("alpha", "beta", "sigma"), probs = c(0.025, 0.5, 0.975))
 ```
 
@@ -475,6 +476,7 @@ dat.fig |> ggplot(aes(x = x, y = mean)) +
   geom_point(data = dat, aes(x = height, y = weight)) + 
   labs(x = "Height (inches)", y = "Weight (pounds)", subtitle = "Posterior regression line with 95% credible interval")
 ```
+
 Regression line corresponds to posterior mean and 95% credible interval for $\mu = \alpha + \beta \times height_i$.
 
 ## 7.**Check predictions:**
@@ -524,6 +526,7 @@ dat.fig |> ggplot(aes(x = x, y = y)) +
   geom_ribbon(data = dat.fig, aes(ymin = lower, ymax = upper), alpha = 0.3) + 
   labs(x = "Height (inches)", y = "Weight (pounds)", subtitle = "Posterior regression line with 95% predictive interval")
 ```
+
 Regression line corresponds to posterior predictive distribution mean and 95% credible interval, $f(weight_{i'} | weight_{1:n})$.
 
 ## `shinystan`
@@ -536,7 +539,7 @@ sso <- shinystan::launch_shinystan(fit)
 
 ## 8. Compare models
 
-- Suppose we would like to compare our original model with models that also includes sex and an interaction between sex and height.
+-   Suppose we would like to compare our original model with models that also includes sex and an interaction between sex and height.
 
 \begin{align*}
 \mathbb{E}[weight_i] &= \alpha + \beta_1 height_i\\
@@ -547,7 +550,7 @@ sso <- shinystan::launch_shinystan(fit)
 ## 8. Compare models {.midi}
 
 ```{r, echo = FALSE, eval = FALSE}
-regression_model <- stan_model(file = "robjects/linear_regression_ppd_log_lik.stan")
+regression_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_ppd_log_lik.stan")
 data_model1 <- list(n = nrow(dat),
                     p = 1,
                     Y = dat$weight,
@@ -581,15 +584,15 @@ data_model3 <- list(n = nrow(dat),
                     n_pred = 10,
                     X_pred = cbind(1, rnorm(10), rbinom(10, 1, 0.5), rnorm(10)))
 fit_model3 <- sampling(regression_model, data = data_model3)
-saveRDS(fit_model1, file = "robjects/linear_regression_workflow_model1.rds")
-saveRDS(fit_model2, file = "robjects/linear_regression_workflow_model2.rds")
-saveRDS(fit_model3, file = "robjects/linear_regression_workflow_model3.rds")
+saveRDS(fit_model1, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model1.rds")
+saveRDS(fit_model2, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model2.rds")
+saveRDS(fit_model3, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model3.rds")
 ```
 
 ```{r, echo=FALSE}
-fit_model1 <- readRDS(file = "robjects/linear_regression_workflow_model1.rds")
-fit_model2 <- readRDS(file = "robjects/linear_regression_workflow_model2.rds")
-fit_model3 <- readRDS(file = "robjects/linear_regression_workflow_model3.rds")
+fit_model1 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model1.rds")
+fit_model2 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model2.rds")
+fit_model3 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model3.rds")
 ```
 
 ```{r}
@@ -622,9 +625,9 @@ print(comp_loo, digits = 2, simplify = FALSE)
 
 ## The plan moving forward
 
-- We have now learned all of the skills needed to implement a Bayesian workflow.
+-   We have now learned all of the skills needed to implement a Bayesian workflow.
 
-- The remainder of the course will be focused on introducing new models for types of data that are common when working in the biomedical data setting. 
+-   The remainder of the course will be focused on introducing new models for types of data that are common when working in the biomedical data setting.
 
 ## Prepare for next class
 

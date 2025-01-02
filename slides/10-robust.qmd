@@ -1,0 +1,655 @@
+---
+title: "Robust Regression"
+author: "Prof. Sam Berchuck"
+date: "2025-02-11"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+filters:
+  - parse-latex
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(mvtnorm)
+library(coda)
+```
+
+## Review of last lecture
+
+-   On Thursday, we learned about approaches for nonlinear regression.
+
+## A motivating research question
+
+-   In today's lecture, we will look at data on serum concentration (grams per litre) of immunoglobulin-G (IgG) in 298 children aged from 6 months to 6 years.
+
+    -   A detailed discussion of this data set may be found in Isaacs et al. (1983) and Royston and Altman (1994).
+
+-   For an example patient, we define $Y_i$ as the serum concentration value and $X_i$ as a child's age, given in years.
+
+## Pulling the data
+
+```{r}
+library(Brq)
+data("ImmunogG")
+head(ImmunogG)
+```
+
+## Visualizing IgG data
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 3
+#| fig-height: 3
+#| layout-ncol: 3
+dat_fig <- data.frame(X = ImmunogG$Age, Y = ImmunogG$IgG)
+ggplot(dat_fig, aes(x = X, y = Y)) + 
+  geom_point() + 
+  scale_x_continuous(name = "Age of children in years") + 
+  scale_y_continuous(name = "Immunoglobulin G (g/liter)")
+ggplot(dat_fig, aes(x = Y)) + 
+  geom_histogram(bins = 30) + 
+  scale_x_continuous(name = "Immunoglobulin G (g/liter)") + 
+  labs(y = "Count")
+ggplot(dat_fig, aes(x = Y)) + 
+  geom_density() + 
+  scale_x_continuous(name = "Immunoglobulin G (g/liter)") + 
+  labs(y = "Density")
+```
+
+## Disease progression
+
+-   OLS can be written as follows for $i = 1,\ldots,n$,
+
+$$Y_i = \beta_0 + \beta_1 X_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2).$$
+
+-   $\beta_1$ represent the the change in IgG serum concentration a one year increase in age.
+
+-   Often the following hypothesis is tested: $$H_0: \beta_1=0,H_1: \beta_1 < 0.$$
+
+## OLS regression assumptions
+
+\begin{align*}
+Y_i &= \beta_0 + \beta_1 X_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\\
+&= \mu_i + \epsilon_i.
+\end{align*}
+
+Assumptions:
+
+1.  $Y_i$ are independent observations (independence).
+
+2.  $Y_i$ is linearly related to $X_i$ (linearity).
+
+3.  $\epsilon_i = Y_i - \mu_i$ is normally distributed (normality).
+
+4.  $\epsilon_i$ has constant variance across $X_i$ (homoskedasticity).
+
+## Assessing assumptions
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 4
+#| fig-height: 4
+#| layout-ncol: 2
+reg <- lm(dat_fig$Y ~ dat_fig$X)
+dat.fig <- data.frame(
+  residuals = resid(reg),
+  x = dat_fig$X,
+  y = dat_fig$Y
+)
+ggplot(dat.fig, aes(x = residuals)) + 
+  geom_histogram(bins = 30) + 
+  scale_x_continuous(name = "Residuals") + 
+  labs(y = "Count")
+ggplot(dat.fig, aes(x = x, y = residuals)) + 
+  geom_point() + 
+  scale_x_continuous(name = "Age of children in years") + 
+  scale_y_continuous(name = "Residuals")
+```
+
+## Robust regression
+
+-   Today we will learn about regression techniques that are robust to the assumptions of linear regression.
+
+-   We will introduce the idea of robust regression by exploring ways to generalize the homoskedastic variance assumption in linear regression.
+
+-   We will touch on heteroskedasticity, heavy-tailed distributions, and median regression (more generally quantile regression).
+
+## Heteroskedasticity
+
+-   Heteroskedasticity is the violation of the assumption of constant variance.
+
+-   How can we handle this?
+
+-   In OLS, there are approaches like [heteroskedastic consistent errors](https://en.wikipedia.org/wiki/Heteroskedasticity-consistent_standard_errors), but this is not a generative model.
+
+-   In the Bayesian framework, we generally like to write down generative models.
+
+## Weighted regression
+
+-   A common case is **weighted** regression, where each $Y_i$ represents the mean of $n_i$ observations. Then the scale of each observation is, $$\tau_i^2 = \sigma^2/n_i,$$ where $\sigma^2$ is a global scale parameter.
+
+-   Alternatively, suppose each observation represents the sum of each $n_i$ observations. Then the scale of each observation is, $$\tau_i^2 = n_i \sigma^2.$$
+
+## Modeling the scale with covariates {.midi}
+
+-   The scale can also be modeled with covariates.
+
+-   It is common to model the log-transformation of the scale or variance to transform it to $\mathbb{R}$,
+
+$$\log \tau_i^2 = \mathbf{z}_i \boldsymbol{\gamma},$$
+
+where $\mathbf{z}_i = (z_{i1},\ldots,z_{ip})$ are a $p$-dimensional vector of covariates and $\boldsymbol{\gamma}$ are parameters that regress the covariates onto the log variance.
+
+-   Other options include: $\log \tau_i^2 = \mathbf{z}_i \boldsymbol{\gamma} + \nu_i,\quad \nu_i \sim N(0, \sigma^2)$
+
+-   Other options include: $\log \tau_i^2 = f(\mu_i)$
+
+-   Any plausible generative model can be specified!
+
+## Modeling the scale with covariates {.midi}
+
+```{stan output.var = "covariates", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  int<lower = 1> q;
+  vector[n] Y;
+  matrix[n, p] X;
+  matrix[n, q] Z;
+}
+parameters {
+  vector[p] beta;
+  vector[q] gamma;
+}
+transformed parameters {
+  vector[n] tau = exp(Z * gamma);
+}
+model {
+  target += normal_lpdf(Y | X * beta, tau);
+}
+```
+
+## Heteroskedastic variance
+
+-   We can write the regression model using a observation specific variance, $$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{ind}{\sim} N(0,\tau_i^2).$$
+
+-   One way of writing the variance is: $\tau_i^2 = \sigma^2 \lambda_i$.
+
+    -   $\sigma^2$ is a global scale parameter.
+
+    -   $\lambda_i$ is an observation specific scale parameter.
+
+-   In the Bayesian framework, we must place a prior on $\lambda_i$.
+
+## Bayesian prior to induce structure
+
+-   Suppse we would like $\sum_{i=1}^n \lambda_i = 1$, $\lambda_i >0$.
+
+-   We could specify the following,
+
+$$\boldsymbol{\lambda} \sim \text{Dirichlet}(\boldsymbol{\alpha}),$$
+
+where $\boldsymbol{\lambda} = (\lambda_1,\ldots,\lambda_n)$ and $\boldsymbol{\alpha} = (\alpha_1,\ldots,\alpha_n)$.
+
+-   The prior mean is $\mathbb{E}[\lambda_i] = \alpha_i / \alpha_0$, where $\alpha_0 = \sum_{i=1}^n \alpha_i.$
+
+-   Typically, $\alpha_i = 1 \forall i$.
+
+## Dirchlet prior in Stan {.midi}
+
+```{stan output.var = "covariates", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+  vector<lower = 0>[n] alpha;
+}
+parameters {
+  vector[p] beta;
+  real<lower = 0> sigma;
+  simplex[n] lambda;
+}
+transformed parameters {
+  vector[n] tau = sigma * sqrt(lambda);
+}
+model {
+  target += normal_lpdf(Y | X * beta, tau);
+  target += dirichlet_lpdf(lambda | alpha);
+}
+```
+
+## A prior to induce a heavy-tail
+
+-   A common prior for $\lambda_i$ is as follows:
+
+$$\lambda_i \stackrel{iid}{\sim} \text{Inverse-Gamma}\left(\frac{\nu}{2},\frac{\nu}{2}\right).$$
+
+-   Under this prior, the marginal likelihood for $Y_i$ is equivalent to a Student-t distribution,
+
+$$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \sim t_{\nu}\left(0, \sigma\right).$$
+
+## Understanding the equivalence {.midi}
+
+-   Heteroskedastic variances assumption is equivalent to assuming a heavy-tailed distribution.
+
+$$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \sim t_{\nu}\left(0, \sigma\right).$$
+
+$$\iff$$
+
+\begin{align*}
+Y_i &= \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{ind}{\sim} N\left(0,\sigma^2 \lambda_i\right)\\
+\lambda_i &\stackrel{iid}{\sim} \text{Inverse-Gamma}\left(\frac{\nu}{2},\frac{\nu}{2}\right)
+\end{align*}
+
+-   Note that since the number of $\lambda_i$ parameters is equal to the number of observations, this model will not have a proper posterior distribution without a proper prior distribution.
+
+## Understanding the equivalence {.midi}
+
+\begin{align*}
+f(Y_i) &= \int_0^{\infty} f(Y_i , \lambda_i) d\lambda_i\\
+&= \int_0^{\infty} f(Y_i | \lambda_i) f(\lambda_i) d\lambda_i\\
+&= \int_0^{\infty} N(Y_i ; \mu_i, \sigma^2 \lambda_i) \text{Inverse-Gamma}\left(\lambda_i ; \frac{\nu}{2},\frac{\nu}{2}\right) d\lambda_i\\
+&= t_{\nu}\left(\mu_i,\sigma\right).
+\end{align*}
+
+-   The marginal likelihood can be viewed as a mixture of a Gaussian likelihood with an Inverse-Gamma scale parameter.
+
+## Understanding the equivalence {.midi}
+
+\begin{align*}
+T_i &= \frac{Z_i}{\sqrt{\frac{W_i}{\nu}}},\quad Z_i \stackrel{iid}{\sim} N(0,1), W_i \stackrel{iid}{\sim}\chi^2_{\nu}\\
+&= \frac{Z_i}{\sqrt{\frac{1}{\nu V_i}}},\quad V_i \stackrel{iid}{\sim} \text{Inv-}\chi^2_{\nu}\\
+&= \sqrt{\nu V_i} Z_i,\quad \lambda_i = \nu V_i\\
+&= \sqrt{\lambda_i} Z_i, \quad \lambda_i \stackrel{iid}{\sim} \text{Inverse-Gamma}\left(\frac{\nu}{2},\frac{\nu}{2}\right)\\
+&\sim t_{\nu}
+\end{align*}
+
+-   We then have: $Y_i = \mu_i + \sigma T_i \sim t_{\nu}(\mu_i, \sigma).$
+
+## Student-t in Stan {.midi}
+
+```{stan output.var = "covariates", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+}
+parameters {
+  vector[p] beta;
+  real<lower = 0> sigma;
+  real<lower = 0> nu;
+}
+model {
+  target += student_t_lpdf(Y | nu, X * beta, sigma);
+}
+```
+
+## Student-t in Stan: mixture {.midi}
+
+```{stan output.var = "covariates", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+}
+parameters {
+  vector[p] beta;
+  real<lower = 0> sigma;
+  vector[n] lambda;
+}
+transformed parameters {
+  vector[n] tau = sigma * sqrt(lambda);
+}
+model {
+  target += normal_lpdf(Y | X * beta, tau);
+  target += inv_gamma_lpdf(lambda | 0.5 * nu, 0.5 * nu);
+}
+```
+
+## Why heavy-tailed distributions?
+
+-   Replacing the normal distribution with a distribution with heavy-tails (e.g., Student-t, Laplace) is a common approach to robust regression.
+
+-   Robust regression refers to regression methods which are less sensitive to outliers or small sample sizes.
+
+-   Linear regression, including Bayesian regression with normally distributed errors is sensitive to outliers, because the normal distribution has narrow tail probabilities.
+
+-   Our heteroskedastic model that we just explored is only one example of a robust regression model.
+
+## Vizualizing heavy tail distributions
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 5
+#| layout-ncol: 1
+x <- seq(-4, 4, length.out = 1001)
+dens1 <- dt(x, df = 1)
+dens2 <- dt(x, df = 2)
+dens5 <- dt(x, df = 5)
+dens100 <- dt(x, df = 100)
+dat.fig <- data.frame(
+  x = rep(x, 4),
+  y = c(dens1, dens2, dens5, dens100),
+  nu = rep(c(1, 2, 5, 100), each = 1001)
+)
+ggplot(dat.fig, aes(x = x, y = y, color = as.factor(nu))) + 
+  geom_line(lwd = 1.25) + 
+  labs(x = "X", y = "Density", subtitle = expression(paste("Student-t distribution with various ", nu)), color = expression(nu))
+```
+
+## Vizualizing heavy tail distributions
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 5
+#| layout-ncol: 1
+library(nimble)
+library(extraDistr)
+x <- seq(-4, 4, length.out = 1001)
+dens_norm <- dnorm(x, mean = 0, sd = 1)
+dens_t <- dlst(x, df = 4, mu = 0, sigma = sqrt(0.5))
+dens_laplace <- dlaplace(x, mu = 0, sigma = sqrt(0.5))
+dat.fig <- data.frame(
+  x = rep(x, 3),
+  y = c(dens_norm, dens_t, dens_laplace),
+  sigma = rep(c("Gaussian", "Student-t", "Laplace"), each = 1001)
+)
+ggplot(dat.fig, aes(x = x, y = y, color = as.factor(sigma))) + 
+  geom_line(lwd = 1) + 
+  labs(x = "X", y = "Density", subtitle = expression(paste("Various distributions with zero mean and variance one")), color = "Distribution")
+# Laplace: variance = 2 * scale^2, mean = location
+# t: variance scale^2 * nu / (nu - 2), mean = location
+# normal: variance: scale^2, mean = location
+```
+
+## Another example of robust regression
+
+-   Let's revisit our general heteroskedastic regression, $$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{ind}{\sim} N(0,\sigma^2 \lambda_i).$$
+
+-   We can induce another form of robust regression using the following prior for $\lambda_i$, $\lambda_i \sim \text{Exponential}(1/2)$.
+
+-   Under this prior, the induced marginal model is, $$Y_i = \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \stackrel{ind}{\sim} \text{Laplace}(\mu, \sigma).$$
+
+-   $f(\epsilon_i | \mu, \sigma) = \frac{1}{2\sigma} \exp\left\{-\frac{|\epsilon_i - \mu|}{\sigma}\right\}$
+
+## Median regression using Laplace
+
+Least absolute deviation (LAD) regression minimizes the following objective function,
+
+$$\hat{\boldsymbol{\beta}}_{\text{LAD}} = \arg \min_{\boldsymbol{\beta}} \sum_{i=1}^n |Y_i - \mathbf{x}_i\boldsymbol{\beta}|.$$
+
+The Bayesian analog is the Laplace distribution,
+
+$f(\mathbf{Y} | \boldsymbol{\beta}, \sigma) = \left(\frac{1}{2\sigma}\right)^n \exp\left\{-\sum_{i=1}^n\frac{|Y_i - \mathbf{x}_i \boldsymbol{\beta}|}{\sigma}\right\}.$
+
+## Median regression using Laplace
+
+-   The Laplace distribution is analogous to least absolute deviations because the kernel of the distribution is $|x−\mu|$, so minimizing the likelihood will also minimize the least absolute distances.
+
+-   Laplace distribution is also known as the double-exponential distribution (symmetric exponential distributions around $\mu$ with scale $\sigma$).
+
+-   Thus, a linear regression with Laplace errors is analogous to a median regression,
+
+-   Why is median regression considered more robust than regression of the mean?
+
+## Laplace regression in Stan {.midi}
+
+```{stan output.var = "covariates", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+}
+parameters {
+  vector[p] beta;
+  real<lower = 0> sigma;
+}
+model {
+  target += double_exponential_lpdf(Y | X * beta, sigma);
+}
+```
+
+## Laplace regression in Stan: mixture {.midi}
+
+```{stan output.var = "covariates", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+}
+parameters {
+  vector[p] beta;
+  real<lower = 0> sigma;
+  vector[n] lambda;
+}
+transformed parameters {
+  vector[n] tau = sigma * sqrt(lambda);
+}
+model {
+  target += normal_lpdf(Y | X * beta, tau);
+  target += exponential_lpdf(lambda | 0.5);
+}
+```
+
+## Asymmetric Laplace distribution
+
+A random variable, $Y \sim ALD_p(\mu,\sigma)$ is said to follow an asymmetric Laplace distribution (ALD) if the pdf is given by,
+
+$$f(Y) = \frac{p(1-p)}{\sigma} \exp \left\{-\rho_p\left(\frac{Y - \mu}{\sigma}\right)\right\},$$
+
+where $p \in (0,1)$ is the percentile and $$\rho_p(x) = x\left(p - 1(u < 0)\right) = \frac{|x| + (2p - 1)x}{2}.$$
+
+-   When $p = 0.5$ it reduces to a regular Laplace distribution.
+
+## General quantile regression
+
+```{stan output.var = "ald", eval = FALSE}
+functions {
+  real asym_laplace_lpdf(real y, real mu, real sigma, real tau) {
+    return log(tau) + log1m(tau)
+      - log(sigma)
+      - 2 * ((y < mu) ? (1 - tau) * (mu - y) : tau * (y - mu)) / sigma;
+  }
+}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+  real<lower = 0, upper = 1> tau;
+}
+parameters {
+  vector[p] beta;
+  real<lower = 0> sigma;
+}
+model {
+  for (i in 1:n) target += asym_laplace_lpdf(Y[i] | X[i, ] * beta, sigma, tau);
+}
+```
+
+```{r, echo = FALSE, eval = FALSE}
+library(rstan)
+X <- cbind(1, ImmunogG$Age)
+stan_data <- list(
+  n = nrow(ImmunogG),
+  p = ncol(X),
+  Y = ImmunogG$IgG,
+  X = X,
+  tau = 0.5
+)
+regression_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_reg.stan")
+fit_model_median <- sampling(regression_model, data = stan_data)
+stan_data$tau <- 0.025
+fit_model_025 <- sampling(regression_model, data = stan_data)
+stan_data$tau <- 0.25
+fit_model_25 <- sampling(regression_model, data = stan_data)
+stan_data$tau <- 0.975
+fit_model_975 <- sampling(regression_model, data = stan_data)
+stan_data$tau <- 0.75
+fit_model_75 <- sampling(regression_model, data = stan_data)
+saveRDS(fit_model_median, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_median.rds")
+saveRDS(fit_model_025, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_025.rds")
+saveRDS(fit_model_25, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_25.rds")
+saveRDS(fit_model_75, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_75.rds")
+saveRDS(fit_model_975, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_975.rds")
+```
+
+```{r, echo = FALSE}
+fit_model_median <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_median.rds")
+fit_model_025 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_025.rds")
+fit_model_25 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_25.rds")
+fit_model_75 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_75.rds")
+fit_model_975 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_975.rds")
+mu <- rstan::extract(fit_model_median, pars = "mu")$mu
+post_mean_median <- apply(mu, 2, mean)
+post_lower_median <- apply(mu, 2, function(x) quantile(x, probs = c(0.025)))
+post_upper_median <- apply(mu, 2, function(x) quantile(x, probs = c(0.975)))
+mu <- rstan::extract(fit_model_025, pars = "mu")$mu
+post_mean_025 <- apply(mu, 2, mean)
+post_lower_025 <- apply(mu, 2, function(x) quantile(x, probs = c(0.025)))
+post_upper_025 <- apply(mu, 2, function(x) quantile(x, probs = c(0.975)))
+mu <- rstan::extract(fit_model_25, pars = "mu")$mu
+post_mean_25 <- apply(mu, 2, mean)
+post_lower_25 <- apply(mu, 2, function(x) quantile(x, probs = c(0.025)))
+post_upper_25 <- apply(mu, 2, function(x) quantile(x, probs = c(0.975)))
+mu <- rstan::extract(fit_model_975, pars = "mu")$mu
+post_mean_975 <- apply(mu, 2, mean)
+post_lower_975 <- apply(mu, 2, function(x) quantile(x, probs = c(0.025)))
+post_upper_975 <- apply(mu, 2, function(x) quantile(x, probs = c(0.975)))
+mu <- rstan::extract(fit_model_75, pars = "mu")$mu
+post_mean_75 <- apply(mu, 2, mean)
+post_lower_75 <- apply(mu, 2, function(x) quantile(x, probs = c(0.025)))
+post_upper_75 <- apply(mu, 2, function(x) quantile(x, probs = c(0.975)))
+```
+
+## Quantile regression
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 8
+#| fig-height: 5
+#| layout-ncol: 1
+dat_fig <- data.frame(X = ImmunogG$Age, Y = ImmunogG$IgG)
+dat_lines <- data.frame(
+  Quantile = rep(c(0.025, 0.25, 0.5, 0.75, 0.975), each = nrow(ImmunogG)),
+  X = rep(ImmunogG$Age, 5),
+  Y = rep(ImmunogG$IgG, 5),
+  Mean = c(post_mean_025, post_mean_25, post_mean_median, post_mean_75, post_mean_975),
+  Lower = c(post_lower_025, post_lower_25, post_lower_median, post_lower_75, post_lower_975),
+  Upper = c(post_upper_025, post_upper_25, post_upper_median, post_upper_75, post_upper_975)
+)
+dat_lines$Quantile <- as.factor(dat_lines$Quantile)
+
+ggplot(dat_lines, aes(x = X, y = Mean, color = Quantile)) + 
+  geom_point(aes(x = X, y = Y), color = "black") + 
+  geom_line() + 
+  scale_x_continuous(name = "Age of children in years") + 
+  scale_y_continuous(name = "Immunoglobulin G (g/liter)") + 
+  geom_ribbon(aes(ymin = Lower, ymax = Upper, fill = Quantile), alpha = 0.3, color = NA) + 
+  labs(subtitle = "Posterior mean (95% credible interval) estimate for each quantile regression")
+```
+
+## Posterior of $\beta_1$
+
+```{r, echo = FALSE}
+beta <- rstan::extract(fit_model_median, pars = "beta")$beta
+beta_median <- apply(beta, 2, mean)[2]
+beta_median_lower <- apply(beta, 2, function(x) quantile(x, probs = 0.025))[2]
+beta_median_upper <- apply(beta, 2, function(x) quantile(x, probs = 0.975))[2]
+beta <- rstan::extract(fit_model_025, pars = "beta")$beta
+beta_025 <- apply(beta, 2, mean)[2]
+beta_025_lower <- apply(beta, 2, function(x) quantile(x, probs = 0.025))[2]
+beta_025_upper <- apply(beta, 2, function(x) quantile(x, probs = 0.975))[2]
+beta <- rstan::extract(fit_model_25, pars = "beta")$beta
+beta_25 <- apply(beta, 2, mean)[2]
+beta_25_lower <- apply(beta, 2, function(x) quantile(x, probs = 0.025))[2]
+beta_25_upper <- apply(beta, 2, function(x) quantile(x, probs = 0.975))[2]
+beta <- rstan::extract(fit_model_975, pars = "beta")$beta
+beta_975 <- apply(beta, 2, mean)[2]
+beta_975_lower <- apply(beta, 2, function(x) quantile(x, probs = 0.025))[2]
+beta_975_upper <- apply(beta, 2, function(x) quantile(x, probs = 0.975))[2]
+beta <- rstan::extract(fit_model_75, pars = "beta")$beta
+beta_75 <- apply(beta, 2, mean)[2]
+beta_75_lower <- apply(beta, 2, function(x) quantile(x, probs = 0.025))[2]
+beta_75_upper <- apply(beta, 2, function(x) quantile(x, probs = 0.975))[2]
+betas <- data.frame(quantile = c(0.025, 0.25, 0.5, 0.75, 0.975), 
+                    mean = c(beta_025, beta_25, beta_median, beta_75, beta_975),
+                    lower = c(beta_025_lower, beta_25_lower, beta_median_lower, beta_75_lower, beta_975_lower),
+                    upper = c(beta_025_upper, beta_25_upper, beta_median_upper, beta_75_upper, beta_975_upper))
+kable(betas)
+```
+
+## Scale-mixture representation
+
+The above may also be written as a mixture of exponential and normal distributions. Letting, $Z_i \sim Exponential(1)$ and $\sigma \sim Exponential(1)$.
+
+$$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \sigma \theta Z_i + \epsilon_i,\quad \epsilon_i \sim N\left(0, \tau^2 \sigma^2 Z_i\right),$$
+
+where $$\theta = \frac{1-2p}{p(1-p)}$$ and $$\tau \sqrt{\frac{2}{p(1-p)}}.$$
+
+## Scale-mixture in Stan
+
+```{stan output.var = "ald", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+  real<lower = 0, upper = 1> q;
+}
+transformed data {
+  real theta = (1 - 2 * q) / (q * (1 - q));
+  real tau = sqrt(2 / (q * (1 - q)));
+}
+parameters {
+  vector[p] beta;
+  real<lower = 0> sigma;
+  vector<lower=0>[n] z;
+}
+model {
+  target += normal_lpdf(Y | X * beta + sigma * theta * z, tau * sqrt(z) * sigma);
+  target += exponential_lpdf(sigma | 1);
+  target += exponential_lpdf(z | 1);
+}
+```
+
+## Prepare for next class
+
+-   Work on [HW 02](https://biostat725-sp25.netlify.app/hw/hw-02), which is due before next class.
+
+-   Complete reading to prepare for next Thursday's lecture
+
+-   Thursday's lecture: Regularization

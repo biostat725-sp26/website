@@ -1,0 +1,473 @@
+---
+title: "Classification"
+author: "Prof. Sam Berchuck"
+date: "2025-02-18"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+filters:
+  - parse-latex
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(mvtnorm)
+library(coda)
+library(lars)
+library(LaplacesDemon)
+library(nimble)
+```
+
+## Review of last lecture
+
+-   On Thursday, we learned about Bayesian approaches to regularization.
+
+    -   Global-local shrinage priors
+
+-   Today, we will focus on classification: logistic regression.
+
+## Generalized linear models
+
+-   Previously, we have focused on linear regression. Other forms of regression follow naturally from linear regression.
+
+## Models for binary outcomes
+
+-   Suppose we have a binary outcome (e.g., $Y = 1$ if a condition is satisfied and $Y = 0$ if not) and predictors on a variety of scales.
+
+-   If the predictors are discrete and the binary outcomes are independent, we can use the Bernoulli distribution for individual 0-1 data or the binomial distribution for grouped data that are counts of successes in each group.
+
+## Models for binary outcomes
+
+-   Let's suppose we want to model $P(Y = 1)$.
+
+-   One strategy might be to simply fit a linear regression model to the probabilities.
+
+-   For example,
+
+\begin{align*}
+P(Y_i = 1) &= \alpha + \beta_1x_{i1} + \cdots + \beta_px_{ip} + \epsilon_i\\
+&= \alpha + \mathbf{x}_i \boldsymbol{\beta}.
+\end{align*}
+
+## Primary biliary cirrhosis
+
+-   The Mayo Clinic conducted a trial for primary biliary cirrhosis, comparing the drug D-penicillamine vs. placebo. Patients were followed for a specified duration, and their status at the end of follow-up (whether they died) was recorded.
+
+-   Researchers are interested in predicting whether a patient died based on the following variables:
+
+    -   ascites: whether the patient had ascites (1 = yes, 0 = no)
+
+    -   bilirubin: serum bilirubin in mg/dL
+
+    -   stage: histologic stage of disease (ordinal categorical variable with stages 1, 2, 3, and 4)
+
+## What can go wrong?
+
+-   Suppose we fit the following model:
+
+\begin{align*}
+P(Y_i = 1) &= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
+&\quad+\beta_3(stage = 2)_i + \beta_4(stage = 3)_i\\
+&\quad+\beta_5(stage = 4)_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)
+\end{align*}
+
+. . .
+
+**What can go wrong?**
+
+## What can go wrong?
+
+![](images/11/resid.png){fig-alt="resid" fig-align="center" height="5in"}
+
+## What can go wrong?
+
+-   Additionally, as a probability, $P(Y_i = 1)$ must be in the interval \[0, 1\], but there is nothing in the model that enforces this constraint, so that you could be estimating probabilities that are negative or that are greater than 1!
+
+## From probabilities to log-odds
+
+-   Suppose the **probability** of an event is $\pi$.
+
+-   Then the **odds** that the event occurs is $\frac{\pi}{1 - \pi}$.
+
+-   Taking the (natural) log of the odds, we have the **logit** of $\pi$: the **log-odds**:
+
+$$\text{logit}(\pi) = \log\left(\frac{\pi}{1-\pi}\right).$$
+
+-   Note that although $\pi$ is constrained to lie between 0 and 1, the logit of $\pi$ is unconstrained - it can be anything from $-\infty$ to $\infty$.
+
+## Logistic regression model
+
+-   Let's create a model for the logit of $\pi$: $\text{logit}(\pi_i)= \alpha + \mathbf{x}_i \boldsymbol{\beta}.$
+
+-   This is a linear model for a transformation of the outcome of interest, and is also equivalent to,
+
+$$\pi_i = \frac{\exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})}{1 + \exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})} = \text{expit}(\alpha + \mathbf{x}_i \boldsymbol{\beta}).$$
+
+-   The expression on the right is called a **logistic function** and cannot yield a value that is negative or a value that is \>1. Fitting a model of this form is known as **logistic regression**.
+
+## Logistic regression
+
+$$\text{logit}(\pi_i) = \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \mathbf{x}_i \boldsymbol{\beta}$$
+
+-   Negative logits represent probabilities less than one-half, and positive logits represent probabilities above one-half.
+
+## Interpreting parameters in logistic regression
+
+-   Typically we interpret functions of parameters in logistic regression rather than the parameters themselves.
+
+For the simple model: $\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \beta x_{i},$ we note that the probability that $Y_i = 1$ when $X_i = 0$ is
+
+$$P(Y_i = 1 | X_{i} = 0) = \frac{\exp(\alpha)}{1 + \exp(\alpha)}.$$
+
+## Interpreting parameters in logistic regression
+
+-   Suppose that $X$ is a binary (0/1) variable (e.g., $X$ = 1 for males and 0 for non-males).
+
+    -   In this case, we interpret $\exp(\beta)$ as the **odds ratio** (OR) of the response for the two possible levels of $X$.
+
+    -   For $X$ on other scales, $\exp(\beta)$ is interpreted as the odds ratio of the response comparing two values of $X$ one unit apart.
+
+-   Why?
+
+## Interpreting parameters in logistic regression
+
+-   The log odds of response for $X = 1$ is given by $\alpha + \beta$, and the log odds of response for $X = 0$ is $\alpha$.
+
+-   So the odds ratio of response comparing $X = 1$ to $X = 0$ is given by $\frac{\exp(\alpha + \beta)}{\exp(\alpha)} = \exp(\beta)$.
+
+-   In a \emph{multivariable logistic regression} model with more than one predictor, this OR is interpreted conditionally on values of other variables (i.e., controlling for them).
+
+## Bayesian logistic regression
+
+-   We start with observations $Y_i \in \{0,1\}$ for $i = 1,\ldots,n$, where $Y_i \stackrel{ind}{\sim} \text{Bernoulli}(\pi_i)$, $\pi_i = P(Y_i = 1)$.
+
+-   The log-odds are modeled as $\text{logit}(\pi_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}$.
+
+-   To complete the Bayesian model specification, we must place priors on $\alpha$ and $\boldsymbol{\beta}$.
+
+    -   All priors we have discussed up-to-this point apply!
+
+-   Historically, this was a difficult model to fit, but can be easily implemented in Stan.
+
+## Logistic regression in Stan
+
+```{stan output.var = "log_reg", eval = FALSE}
+// Saved in logistic_regression.stan
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  int Y[n];
+  matrix[n, p] X;
+}
+parameters {
+  real alpha;
+  vector[p] beta;
+}
+model {
+  target += bernoulli_logit_lpmf(Y | alpha + X * beta);
+  target += normal_lpdf(alpha | 0, 10);
+  target += normal_lpdf(beta | 0, 10);
+}
+generated quantities {
+  vector[n] in_sample;
+  vector[n] log_lik;
+  for (i in 1:n) {
+    in_sample[i] = bernoulli_logit_rng(alpha + height_c[i] * beta);
+    log_lik[i] = bernoulli_logit_lmpf(Y[i] | alpha + X[i, ] * beta);
+  }
+}
+```
+
+## Primary biliary cirrhosis
+
+```{r, echo=FALSE}
+pbc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/Material/Data/pbc.csv")
+```
+
+```{r}
+head(pbc)
+```
+
+## Prepare data for Stan
+
+```{r}
+X <- model.matrix(object = ~ ascites + bili + as.factor(stage), data = pbc)[, -1]
+Y <- pbc$outcome
+stan_data <- list(n = nrow(pbc),
+                  p = ncol(X),
+                  Y = Y,
+                  X = X)
+head(X)
+```
+
+## Logistic regression in Stan
+
+```{r, eval = FALSE, echo = FALSE}
+library(rstan)
+compiled_model <- rstan::stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression.stan")
+pbc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/Material/Data/pbc.csv")
+X <- model.matrix(object = ~ ascites + bili + as.factor(stage), data = pbc)[, -1]
+Y <- pbc$outcome
+stan_data <- list(n = nrow(pbc),
+                  p = ncol(X),
+                  Y = Y,
+                  X = X)
+fit <- sampling(compiled_model, data = stan_data)
+saveRDS(fit, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression.rds")
+print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
+X <- model.matrix(object = ~ ascites + bili, data = pbc)[, -1]
+stan_data <- list(n = nrow(pbc),
+                  p = ncol(X),
+                  Y = Y,
+                  X = X)
+fit_baseline <- sampling(compiled_model, data = stan_data)
+saveRDS(fit_baseline, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression_baseline.rds")
+```
+
+```{r, eval=FALSE}
+library(rstan)
+compiled_model <- stan_model(file = "logistic_regression.stan")
+fit <- sampling(compiled_model, data = stan_data)
+print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
+```
+
+```{r, eval = TRUE, echo = FALSE}
+fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression.rds")
+fit_baseline <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression_baseline.rds")
+print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
+```
+
+## Convergence diagnostics
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 6
+#| layout-ncol: 1
+rstan::traceplot(fit, pars = c("alpha", "beta"))
+```
+
+## Convergence diagnostics
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 6
+#| layout-ncol: 1
+library(bayesplot)
+bayesplot::mcmc_acf(fit, regex_pars = c("alpha", "beta"))
+```
+
+## Back to the PBC data
+
+-   Fitting a logistic regression model, we obtain
+
+```{r, echo = FALSE}
+library(knitr)
+out <- rstan::summary(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
+out <- out[[1]]
+out <- data.frame(out)
+out <- out[, c(1, 2, 4, 6)]
+out <- cbind(c("intercept", "ascites", "bilirubin", "stage == 2", "stage == 3", "stage == 4"), out)
+colnames(out) <- c("variable", "mean", "sd", "2.5%", "97.5%")
+knitr::kable(out, digits = 2)
+```
+
+-   How might we interpret these coefficients as odds ratios?
+
+## Back to the PBC data {.small}
+
+-   Remember, we are interested in the probability that a patient died during follow-up (a "success"). We are predicting the log-odds of this event happening.
+
+    -   The posterior mean for ascites was 2.24. Thus, the odds ratio for dying is $\exp(2.24) \approx 9.4$. That is, patients with ascites have 9.4 times the odds of dying compared to patients that do not, holding all other variables constant.
+
+    -   The posterior mean for bilirubin was 0.38. Thus, the odds ratio for dying for a patient with 1 additional mg/dL serum bilirubin compared to another is $\exp(0.38) \approx 1.46$, holding all other variables constant.
+
+    -   The baseline stage was 1. The posterior mean for stage 3 was 2.19. Thus, patients in stage 3 have approximately 8.93 times the odds of dying compared to patients that do not, holding all other variables constant.
+
+## Predicted probabilities
+
+-   There is a one-to-one relationship between $\pi$ and $\text{logit}(\pi)$. So, if we predict $\text{logit}(\pi)$, we can "back-transform" to get back to a predicted probability.
+
+-   For instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.
+
+```{r}
+x_i <- matrix(c(0, 5, 1, 0, 0), ncol = 1)
+pars <- rstan::extract(fit, pars = c("alpha", "beta"))
+log_odds <- pars$alpha + as.numeric(pars$beta %*% x_i)
+pi <- exp(log_odds) / (1 + exp(log_odds))
+```
+
+## Predicted probabilities
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 8
+#| fig-height: 4
+#| layout-ncol: 1
+library(ggplot2)
+dat_fig <- data.frame(
+  Value = c(log_odds, pi),
+  Type = rep(c("Log-odds", "Predicted probability"), each = length(pi))
+)
+ggplot(dat_fig, aes(x = Value)) + 
+  geom_histogram() + 
+  facet_grid(. ~ Type, scales = "free_x") + 
+  labs(y = "Count")
+  
+```
+
+-   Posterior mean of the predicted probabilities is `r round(mean(pi), 2)`.
+
+## Posterior predictive checks
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+#| fig-height: 4
+#| layout-nrow: 1
+y_pred <- rstan::extract(fit, pars = "in_sample")$in_sample
+ppc_dens_overlay(stan_data$Y, y_pred[1:100, ])
+```
+
+## Posterior predictive checks
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+#| fig-height: 4
+#| layout-nrow: 1
+ppc_bars(stan_data$Y, y_pred[1:100, ])
+```
+
+## Posterior predictive checks
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+#| fig-height: 1.4
+#| fig-width: 4
+#| layout-nrow: 2
+#| layout-ncol: 2
+ppc_stat(stan_data$Y, y_pred, stat = "mean") # from bayesplot
+ppc_stat(stan_data$Y, y_pred, stat = "sd")
+q025 <- function(y) quantile(y, 0.025)
+q975 <- function(y) quantile(y, 0.975)
+ppc_stat(stan_data$Y, y_pred, stat = "q025")
+ppc_stat(stan_data$Y, y_pred, stat = "q975")
+```
+
+## Model comparison
+
+-   Comparing our model to a baseline that removed stage.
+
+```{r}
+library(loo)
+log_lik <- loo::extract_log_lik(fit, parameter_name = "log_lik", merge_chains = TRUE)
+log_lik_baseline <- loo::extract_log_lik(fit_baseline, parameter_name = "log_lik", merge_chains = TRUE)
+waic_model <- loo::waic(log_lik)
+waic_model_baseline <- loo::waic(log_lik_baseline)
+
+###Make a comparison
+comp_waic <- loo::loo_compare(list("full" = waic_model, "baseline" = waic_model_baseline))
+print(comp_waic, digits = 2, simplify = FALSE)
+```
+
+## Other models for binary data
+
+-   Other transformations (also called \emph{link functions}) can be used to ensure the probabilities lie in \[0, 1\], including the Probit (popular in Bayesian statistics).
+
+## Steps to selecting a Bayesian GLM
+
+1.  Identify the support of the response distribution.
+
+2.  Select the likelihood by picking a parametric family of distributions with this support.
+
+3.  Choose a link function $g$ that transforms the range of parameters to the whole real line.
+
+4.  Specify a linear model on the transformed parameters.
+
+5.  Select priors for the regression coefficients.
+
+## Example of selecting a Bayesian GLM
+
+1.  Support: $Y_i \in \{0, 1, 2, \ldots\}$.
+
+2.  Likelihood family: $Y_i \stackrel{ind}{\sim} \text{Poisson}(\lambda_i)$.
+
+3.  Link: $g(\lambda_i) = \log(\lambda_i) \in (−\infty, \infty)$.
+
+4.  Regression model: $\log(\lambda_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}$.
+
+5.  Priors: $\alpha, \beta_j \sim N(0, 10^2)$.
+
+## Multinomial regression {.small}
+
+Assume an outcome $Y_i \in \{1,\ldots,K\}$. You can imagine running $K$ independent binary logistic regression models, in which one outcome is chosen as a "pivot" and then the other K − 1 outcomes are separately regressed against the pivot outcome. If outcome K (the last outcome) is chosen as the pivot, the K − 1 regression equations are:
+
+$$\log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots, K-1\}$$
+
+-   It can be seen that:
+
+$$P(Y_i = k) = \frac{\exp\{\mathbf{x}_i \boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i \boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\}.$$ and $P(Y_i = K) = 1 - \sum_{j=1}^{K-1}P(Y_i = j)$.
+
+-   This is known as the additive log-ratio model.
+
+## Multinomial regression {.small}
+
+Let $Y_i \in \{1,\ldots,K\}$ be an ordinal outcome with $K$ categories. Then $P(Y \leq k)$ is the cumulative probability of $Y$ less than or equal to a specific category $k=1,\ldots,K-1$. The odds of being less than or equal a particular category can be defined as, $$\frac{P(Y\leq k)}{P(Y > k)}$$ for $k=1,\ldots,K-1$, since $P(Y > K) = 0$ and dividing by zero is undefined. The log odds is also known as the logit, so that $$\log \frac{P(Y\leq k)}{P(Y > k)} = \text{logit}P(Y\leq k) = \alpha_k + \mathbf{x}_i \boldsymbol{\beta}$$
+
+-   Proportional odds regression.
+
+## Ordinal regression using Stan
+
+```{stan output.var = "ordinal", eval = FALSE}
+data {
+  int<lower = 2> K;
+  int<lower = 0> n;
+  int<lower = 1> p;
+  int<lower = 1, upper = K> Y[n]
+  matrix[n, p] X;
+}
+parameters {
+  vector[p] beta;
+  ordered[K - 1] alpha;
+}
+model {
+  target += ordered_logistic_lpmf(Y | X, beta, alpha);
+  target += ordered_logistic_glm_lpmf(Y | X * beta, alpha);
+  target += normal_lpdf(beta | 0, 10);
+  target += normal_lpdf(alpha | 0, 10);
+}
+```
+
+## Prepare for next class
+
+-   Work on [HW 03](https://biostat725-sp25.netlify.app/hw/hw-03).
+
+-   Complete reading to prepare for next Thursday's lecture
+
+-   Thursday's lecture: Multiclass classification

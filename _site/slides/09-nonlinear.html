@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -342,18 +407,667 @@ Prof.&nbsp;Sam Berchuck
 </section>
 <section id="review-of-last-lecture" class="slide level2">
 <h2>Review of last lecture</h2>
-<p>On Tuesday, we put all of our skills together and learned about the Bayesian workflow.</p>
 <ul>
-<li>We are now ready to start playing</li>
+<li><p>On Tuesday, we put all of our skills together and learned about the Bayesian workflow.</p></li>
+<li><p>We have now learned all the skills needed to perform Bayesian inference.</p></li>
+<li><p>The rest of the course we will introduce new models and data types that are useful for performing biomedical data science.</p></li>
 </ul>
-<p>Today, we will put these concepts within the larger framework of the Bayesian workflow.</p>
+</section>
+<section id="learning-objectives-today" class="slide level2">
+<h2>Learning objectives today</h2>
+<ul>
+<li><p>Thus far, we have focused on linear regression models.</p></li>
+<li><p>Today we will focus on two common approaches that use linear regression to build nonlinear associations: polynomial regression and b-splines.</p></li>
+<li><p>Both approaches work by transforming a single predictor variable into several synthetic variables.</p></li>
+<li><p>We will also look at a change point model, that encodes clinical context into a nonlinear framework.</p></li>
+</ul>
+</section>
+<section id="linear-regression" class="slide level2">
+<h2>Linear regression</h2>
+<ul>
+<li>Consider the classic parametric model:</li>
+</ul>
+<p><span class="math display">\[Y_i = \alpha + X_i \beta + \epsilon_i, \quad \epsilon_i \sim N(0, \sigma^2).\]</span></p>
+<ul>
+<li><p>Assumptions:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\epsilon_i\)</span> are independent.</p></li>
+<li><p><span class="math inline">\(\epsilon_i\)</span> are Gaussian.</p></li>
+<li><p>The mean of <span class="math inline">\(Y_i\)</span> is linear in <span class="math inline">\(X_i\)</span>.</p></li>
+<li><p>The residual distribution does not depend on <span class="math inline">\(X_i\)</span>.</p></li>
+</ol></li>
+</ul>
+<p><strong>Today we will generalize the linearity assumption.</strong></p>
+</section>
+<section id="nonlinear-regression" class="slide level2">
+<h2>Nonlinear regression</h2>
+<ul>
+<li><p>Define: <span class="math inline">\(\mu_i = \mathbb{E}[Y_i] = \alpha + x_i\beta.\)</span></p></li>
+<li><p>The mean process can modeled flexibly, <span class="math inline">\(\mu_i = g(X_i)\)</span>, where <span class="math inline">\(g\)</span> is some function that relates <span class="math inline">\(X_i\)</span> to <span class="math inline">\(\mathbb{E}[Y_i | X_i].\)</span></p></li>
+<li><p>A form of nonlinear regression approximates the function <span class="math inline">\(g\)</span> using a finite basis expansion, <span class="math display">\[g(X_i) = \alpha + \sum_{j=1}^J B_j(X_i)\beta_j,\]</span> where <span class="math inline">\(B_j(X)\)</span> are known basis functions and <span class="math inline">\(\beta_j\)</span> are unknown parameters that determine the shape of <span class="math inline">\(g\)</span>.</p></li>
+</ul>
+</section>
+<section id="nonlinear-regression-1" class="slide level2">
+<h2>Nonlinear regression</h2>
+<ul>
+<li><p>Example: Polynomial regression takes <span class="math inline">\(B_j(X_i) = X_i^j\)</span>.</p></li>
+<li><p>Example: Gaussian radial basis functions: <span class="math display">\[B_j(X_i) = \exp\left\{-\frac{|X_i - \nu_j|^2}{l^2}\right\},\]</span> where <span class="math inline">\(\nu_j\)</span> are centers of the basis functions and <span class="math inline">\(l\)</span> is a common width parameter.</p></li>
+<li><p>The number of of basis functions and the width parameter <span class="math inline">\(l\)</span> controls the scale at which the model can vary as a function of <span class="math inline">\(X_i\)</span>.</p></li>
+</ul>
+</section>
+<section id="nonlinear-regression-2" class="slide level2 smaller">
+<h2>Nonlinear regression</h2>
+<ul>
+<li>Example: The cubic B-spline basis function is the following piecewise cubic polynomial:</li>
+</ul>
+<p><span class="math display">\[B_j(X_i) = \left\{
+\begin{matrix*}[l]
+\frac{1}{6}u^3 &amp; \text{for }X_i \in (\nu_j,\nu_{j+1}), &amp; u = (X_i - \nu_j) / \delta\\
+\frac{1}{6}(1 + 3u + 3u^2 - 3u^3) &amp; \text{for }X_i \in (\nu_{j+1},\nu_{j+2}), &amp; u = (X_i - \nu_{j+1}) / \delta\\
+\frac{1}{6}(4 - 6u^2 + 3u^3) &amp; \text{for }X_i \in (\nu_{j+2},\nu_{j+3}), &amp; u = (X_i - \nu_{j+2}) / \delta\\
+\frac{1}{6}(1 - 3u + 3u^2 - u^3) &amp; \text{for }X_i \in (\nu_{j+3},\nu_{j+4}), &amp; u = (X_i - \nu_{j+3}) / \delta\\
+0 &amp; \text{otherwise.}
+\end{matrix*}
+\right.\]</span></p>
+<ul>
+<li><p>B-splines are a piecewise continuous function defined conditional on some set of knots.</p></li>
+<li><p>Here we assume a uniform knot locations <span class="math inline">\(\nu_{j + k} = \nu_j + \delta k\)</span>.</p></li>
+<li><p>B-splines have compact support, so the design matrix is sparse.</p></li>
+</ul>
+</section>
+<section id="nonlinear-regression-3" class="slide level2">
+<h2>Nonlinear regression</h2>
+<ul>
+<li><p>Conditionally on the selected baseis <span class="math inline">\(B\)</span>, the model is linear in the parameters. Hence we can write, <span class="math display">\[Y_i = \mu(X_i) + \epsilon_i = \mathbf{w}_i \boldsymbol{\beta} + \epsilon_i,\]</span> with <span class="math inline">\(\mathbf{w}_i = (B_1(X_i),\ldots,B_J(X_i))\)</span>.</p></li>
+<li><p>Model fitting can proceed as in linear regression models, since the resulting model is linear in <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p></li>
+<li><p>It is often useful to center the basis function model around the linear model, <span class="math inline">\(\mu(X_i) = \alpha + X_i \beta + \mathbf{w}_i\boldsymbol{\beta}\)</span>.</p></li>
+</ul>
+</section>
+<section id="glaucoma-disease-progression" class="slide level2 midi">
+<h2>Glaucoma disease progression</h2>
+<ul>
+<li><p>Today we will use data from the <a href="http://www.rodrep.com/longitudinal-glaucomatous-vf-data---description.html">Rotterdam Ophthalmic Data Repository</a>.</p></li>
+<li><p>Glaucoma is the leading cause of irreversible blindness world wide with over 60 million glaucoma patients as of 2012. Since impairment caused by glaucoma is irreversible, early detection of disease progression is crucial for effective treatment.</p></li>
+<li><p>Patients with glaucoma are routinely followed up and administered visual fields, a functional assessment of their vision.</p></li>
+<li><p>After each visual field test their current disease status is reported as a mean deviation (MD) value, measured in decibels (dB). A lower mean deviation indicates worse vision.</p></li>
+<li><p>Central clinical challenges are i) identifying disease progression of MD, and ii) predicting future MD.</p></li>
+</ul>
+</section>
+<section id="glaucoma-data" class="slide level2">
+<h2>Glaucoma data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="do">### Load and process data to obtain data for an example patient</span></span>
+<span id="cb1-2"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"LongGlaucVF_20150216/VisualFields.csv"</span>)</span>
+<span id="cb1-3"><a></a>dat <span class="ot">&lt;-</span> dat[<span class="fu">order</span>(dat<span class="sc">$</span>STUDY_ID, dat<span class="sc">$</span>SITE), ]</span>
+<span id="cb1-4"><a></a>dat<span class="sc">$</span>EYE_ID <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="sc">!</span><span class="fu">duplicated</span>(dat[, <span class="fu">c</span>(<span class="st">"STUDY_ID"</span>, <span class="st">"SITE"</span>)]))</span>
+<span id="cb1-5"><a></a>dat_pat <span class="ot">&lt;-</span> dat[dat<span class="sc">$</span>EYE_ID <span class="sc">==</span> <span class="st">"4"</span>, ] <span class="co"># 4</span></span>
+<span id="cb1-6"><a></a>dat_pat<span class="sc">$</span>time <span class="ot">&lt;-</span> (dat_pat<span class="sc">$</span>AGE <span class="sc">-</span> dat_pat<span class="sc">$</span>AGE[<span class="dv">1</span>]) <span class="sc">/</span> <span class="dv">365</span></span>
+<span id="cb1-7"><a></a>dat_pat <span class="ot">&lt;-</span> dat_pat[, <span class="fu">c</span>(<span class="st">"time"</span>, <span class="st">"MD"</span>)]</span>
+<span id="cb1-8"><a></a><span class="fu">colnames</span>(dat_pat) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"X"</span>, <span class="st">"Y"</span>)</span>
+<span id="cb1-9"><a></a><span class="fu">glimpse</span>(dat_pat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 18
+Columns: 2
+$ X &lt;dbl&gt; 0.0000000, 0.6136986, 1.1315068, 1.6520548, 2.1671233, 2.6794521, 3.…
+$ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -1.61…</code></pre>
+</div>
+</div>
+</section>
+<section id="an-example-patient" class="slide level2">
+<h2>An example patient</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="linear-regression-1" class="slide level2">
+<h2>Linear regression</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="linear-regression-2" class="slide level2">
+<h2>Linear regression</h2>
+<ul>
+<li><p>Linear regression is simple.</p></li>
+<li><p>Linear regression is highly interpretable. It encodes disease progression into a slope, which is the amount of MD loss (dB) per year.</p>
+<ul>
+<li>Interpretability is important!</li>
+</ul></li>
+<li><p>A linear relationship may be an oversimplification.</p></li>
+<li><p>Often in prediction contexts, a nonlinear approach is preferred.</p></li>
+</ul>
+</section>
+<section id="polynomials" class="slide level2">
+<h2>Polynomials</h2>
+<ul>
+<li>Model for the mean process becomes nonlinear:</li>
+</ul>
+<p><span class="math display">\[\mathbb{E}[MD_i] = \alpha + \beta_1 Time_i + \cdots + \beta_p Time_i^p\]</span></p>
+<ul>
+<li><p><span class="math inline">\(p\)</span> is chosen depending on the degree of non-linearity.</p></li>
+<li><p>When fitting non-linear regression in Bayesian context it is useful to standardize the data.</p></li>
+</ul>
+</section>
+<section id="polynomial-regression-in-stan" class="slide level2">
+<h2>Polynomial regression in Stan</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>dat_poly <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-2"><a></a>  <span class="at">Y =</span> <span class="fu">scale</span>(dat_pat<span class="sc">$</span>Y),</span>
+<span id="cb3-3"><a></a>  <span class="at">X =</span> <span class="fu">scale</span>(dat_pat<span class="sc">$</span>X)</span>
+<span id="cb3-4"><a></a>)</span>
+<span id="cb3-5"><a></a>dat_poly<span class="sc">$</span>X2 <span class="ot">&lt;-</span> dat_poly<span class="sc">$</span>X<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb3-6"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb3-7"><a></a>  <span class="at">n =</span> <span class="fu">nrow</span>(dat_pat),</span>
+<span id="cb3-8"><a></a>  <span class="at">p =</span> <span class="dv">2</span>,</span>
+<span id="cb3-9"><a></a>  <span class="at">Y =</span> dat_poly<span class="sc">$</span>Y,</span>
+<span id="cb3-10"><a></a>  <span class="at">X =</span> <span class="fu">cbind</span>(dat_poly<span class="sc">$</span>X, dat_poly<span class="sc">$</span>X2),</span>
+<span id="cb3-11"><a></a>)</span>
+<span id="cb3-12"><a></a>compile_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"nonlinear_linear.stan"</span>)</span>
+<span id="cb3-13"><a></a>fit_quadratic <span class="ot">&lt;-</span> <span class="fu">sampling</span>(compile_model, <span class="at">data =</span> stan_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="polynomial-regression-in-stan-1" class="slide level2">
+<h2>Polynomial regression in Stan</h2>
+<div class="cell" data-output.var="test">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb4-1"><a></a><span class="co">// saved in nonlinear_linear.stan</span></span>
+<span id="cb4-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb4-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n; <span class="co">// number of observations</span></span>
+<span id="cb4-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p; <span class="co">// number of covariates</span></span>
+<span id="cb4-5"><a></a>  <span class="dt">vector</span>[n] Y; <span class="co">// outcome vector</span></span>
+<span id="cb4-6"><a></a>  <span class="dt">matrix</span>[n, p] X; <span class="co">// covariate vector</span></span>
+<span id="cb4-7"><a></a>}</span>
+<span id="cb4-8"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb4-9"><a></a>  <span class="dt">real</span> alpha;</span>
+<span id="cb4-10"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb4-11"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb4-12"><a></a>}</span>
+<span id="cb4-13"><a></a><span class="kw">model</span> {</span>
+<span id="cb4-14"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | X * beta, sigma); <span class="co">// likelihood</span></span>
+<span id="cb4-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">1</span>); <span class="co">// prior for beta</span></span>
+<span id="cb4-16"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">1</span>); <span class="co">// prior for beta</span></span>
+<span id="cb4-17"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(sigma | <span class="dv">3</span>, <span class="dv">1</span>); <span class="co">// prior for sigma</span></span>
+<span id="cb4-18"><a></a>}</span>
+<span id="cb4-19"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb4-20"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
+<span id="cb4-21"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
+<span id="cb4-22"><a></a>  <span class="dt">vector</span>[n] mu;</span>
+<span id="cb4-23"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb4-24"><a></a>    mu[i] = alpha + X[i, ] * beta;</span>
+<span id="cb4-25"><a></a>    in_sample[i] = normal_rng(mu[i], sigma);</span>
+<span id="cb4-26"><a></a>    log_lik[i] = normal_lpdf(Y[i] |  mu[i], sigma);</span>
+<span id="cb4-27"><a></a>  }</span>
+<span id="cb4-28"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="quadratic-regression" class="slide level2">
+<h2>Quadratic regression</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="extract-posterior-mean-for-mu" class="slide level2">
+<h2>Extract posterior mean for <span class="math inline">\(\mu\)</span></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>mu <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit_quadratic, <span class="at">pars =</span> <span class="st">"mu"</span>)<span class="sc">$</span>mu</span>
+<span id="cb5-2"><a></a>mu <span class="ot">&lt;-</span> mu <span class="sc">*</span> <span class="fu">sd</span>(dat_pat<span class="sc">$</span>Y) <span class="sc">+</span> <span class="fu">mean</span>(dat_pat<span class="sc">$</span>Y) <span class="co"># transform to original unstandardized Y_i</span></span>
+<span id="cb5-3"><a></a>mu_mean <span class="ot">&lt;-</span> <span class="fu">apply</span>(mu, <span class="dv">2</span>, mean)</span>
+<span id="cb5-4"><a></a>mu_lower <span class="ot">&lt;-</span> <span class="fu">apply</span>(mu, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fl">0.025</span>))</span>
+<span id="cb5-5"><a></a>mu_upper <span class="ot">&lt;-</span> <span class="fu">apply</span>(mu, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cubic-regression" class="slide level2">
+<h2>Cubic regression</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-spline-regression-with-5-knots" class="slide level2">
+<h2>B-spline regression with 5 knots</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-15-2.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-spline-regression-with-10-knots" class="slide level2">
+<h2>B-spline regression with 10 knots</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-16-2.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-spline-regression" class="slide level2 smaller">
+<h2>B-spline regression</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(splines)</span>
+<span id="cb6-2"><a></a>num_knots <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb6-3"><a></a>knot_list <span class="ot">&lt;-</span> <span class="fu">quantile</span>(dat_pat<span class="sc">$</span>X, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">length.out =</span> num_knots))</span>
+<span id="cb6-4"><a></a>B <span class="ot">&lt;-</span> <span class="fu">bs</span>(dat_pat<span class="sc">$</span>X,</span>
+<span id="cb6-5"><a></a>        <span class="at">knots =</span> knot_list[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, num_knots)], </span>
+<span id="cb6-6"><a></a>        <span class="at">degree =</span> <span class="dv">3</span>, </span>
+<span id="cb6-7"><a></a>        <span class="at">intercept =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-8"><a></a>B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 1            2            3           4            5
+ [1,] 1.0000000000 0.0000000000 0.0000000000 0.000000000 0.0000000000
+ [2,] 0.3932160225 0.5205689817 0.0833170637 0.002897932 0.0000000000
+ [3,] 0.1303337386 0.6136422453 0.2378607351 0.018163281 0.0000000000
+ [4,] 0.0220025742 0.5116331668 0.4098320335 0.056532225 0.0000000000
+ [5,] 0.0001737807 0.3325401051 0.5396793792 0.127606735 0.0000000000
+ [6,] 0.0000000000 0.1814804087 0.5792969517 0.238573820 0.0006488199
+ [7,] 0.0000000000 0.0883598392 0.5363295039 0.367729756 0.0075809005
+ [8,] 0.0000000000 0.0097143260 0.3289042281 0.593688910 0.0676925363
+ [9,] 0.0000000000 0.0003772242 0.1863761908 0.659307134 0.1539394508
+[10,] 0.0000000000 0.0000000000 0.0788259578 0.624941237 0.2955691681
+[11,] 0.0000000000 0.0000000000 0.0357900241 0.542804472 0.4124556582
+[12,] 0.0000000000 0.0000000000 0.0107764123 0.421496598 0.5286019082
+[13,] 0.0000000000 0.0000000000 0.0006952375 0.263269190 0.6110273290
+[14,] 0.0000000000 0.0000000000 0.0000000000 0.145095180 0.5888020313
+[15,] 0.0000000000 0.0000000000 0.0000000000 0.060977201 0.4468755310
+[16,] 0.0000000000 0.0000000000 0.0000000000 0.016061781 0.2349278937
+[17,] 0.0000000000 0.0000000000 0.0000000000 0.002189635 0.0740048857
+[18,] 0.0000000000 0.0000000000 0.0000000000 0.000000000 0.0000000000
+                 6            7
+ [1,] 0.0000000000 0.0000000000
+ [2,] 0.0000000000 0.0000000000
+ [3,] 0.0000000000 0.0000000000
+ [4,] 0.0000000000 0.0000000000
+ [5,] 0.0000000000 0.0000000000
+ [6,] 0.0000000000 0.0000000000
+ [7,] 0.0000000000 0.0000000000
+ [8,] 0.0000000000 0.0000000000
+ [9,] 0.0000000000 0.0000000000
+[10,] 0.0006636368 0.0000000000
+[11,] 0.0089498455 0.0000000000
+[12,] 0.0391250811 0.0000000000
+[13,] 0.1250082431 0.0000000000
+[14,] 0.2659535203 0.0001492682
+[15,] 0.4675827148 0.0245645535
+[16,] 0.5868492773 0.1621610484
+[17,] 0.4743685242 0.4494369547
+[18,] 0.0000000000 1.0000000000
+attr(,"degree")
+[1] 3
+attr(,"knots")
+     25%      50%      75% 
+2.295205 4.965753 6.997945 
+attr(,"Boundary.knots")
+[1] 0.000000 9.257534
+attr(,"intercept")
+[1] TRUE
+attr(,"class")
+[1] "bs"     "basis"  "matrix"</code></pre>
+</div>
+</div>
+</section>
+<section id="b-spline-regression-1" class="slide level2 smaller">
+<h2>B-spline regression</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb8-2"><a></a>  <span class="at">n =</span> <span class="fu">nrow</span>(dat_pat),</span>
+<span id="cb8-3"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(B),</span>
+<span id="cb8-4"><a></a>  <span class="at">Y =</span> dat_poly<span class="sc">$</span>Y,</span>
+<span id="cb8-5"><a></a>  <span class="at">X =</span> B</span>
+<span id="cb8-6"><a></a>)</span>
+<span id="cb8-7"><a></a>fit_bspline <span class="ot">&lt;-</span> <span class="fu">sampling</span>(compile_model, <span class="at">data =</span> stan_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-comparison" class="slide level2">
+<h2>Model comparison</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-align="center" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-21-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-21-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-21-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-is-the-point" class="slide level2">
+<h2>What is the point?</h2>
+<ul>
+<li><p>Choice of model is highly dependent on the context.</p></li>
+<li><p>As we learned in the model comparison lecture, a better fit to the sample might not actually be a better model.</p></li>
+<li><p>These basis models are difficult to interpret and are not particularly useful for a clinical setting (they may be useful for prediction!).</p></li>
+</ul>
+</section>
+<section id="change-point-motivation" class="slide level2">
+<h2>Change point motivation</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<ul>
+<li><p>Progression is defined by slow (or stable) deterioration, followed by a rapid decrease.</p></li>
+<li><p>Flexible modeling of MD across time.</p></li>
+<li><p>Biological representation of progression through the change point.</p></li>
+<li><p>Change points are a framework for inherently parameterizing progression.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="writing-down-a-model" class="slide level2">
+<h2>Writing down a model</h2>
+<ul>
+<li>Model for the observed data:</li>
+</ul>
+<p><span class="math display">\[Y_i = \mu(X_i) + \epsilon_i, \quad \epsilon_i \sim N(0,\sigma^2).\]</span></p>
+<div class="fragment">
+<ul>
+<li>Model for the mean process:</li>
+</ul>
+<p><span class="math display">\[\mu(X_i) =\left\{ \begin{array}{ll}
+        {\beta}_0 + \beta_1 X_i &amp; \text{ } \mbox{$X_i \leq \theta$},\\
+        {\beta}_0 + \beta_1 \theta + {\beta}_2\{X_i - \theta\}&amp; \text{ } \mbox{$X_i &gt; \theta.$}\end{array} \right.\]</span></p>
+<ul>
+<li><span class="math inline">\(\theta \in (\min X_i, \max X_i)\)</span> represents a change point.</li>
+</ul>
+</div>
+</section>
+<section id="change-point-model-in-stan" class="slide level2">
+<h2>Change point model in Stan</h2>
+<div class="cell" data-output.var="cp">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb9-1"><a></a><span class="co">// saved in change_points.stan</span></span>
+<span id="cb9-2"><a></a><span class="kw">functions</span> {</span>
+<span id="cb9-3"><a></a>  <span class="dt">vector</span> compute_mean(<span class="dt">vector</span> X, <span class="dt">real</span> beta0, <span class="dt">real</span> beta1, <span class="dt">real</span> beta2, <span class="dt">real</span> theta) {</span>
+<span id="cb9-4"><a></a>    <span class="dt">int</span> n = size(X);</span>
+<span id="cb9-5"><a></a>    <span class="dt">vector</span>[n] mu;</span>
+<span id="cb9-6"><a></a>    <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb9-7"><a></a>      <span class="cf">if</span> (X[t] &lt;= theta) mu[t] = beta0 + beta1 * X[t];</span>
+<span id="cb9-8"><a></a>      <span class="cf">if</span> (X[t] &gt; theta) mu[t] = beta0 + beta1 * theta + beta2 * (X[t] - theta);</span>
+<span id="cb9-9"><a></a>  }</span>
+<span id="cb9-10"><a></a>  <span class="cf">return</span> mu;</span>
+<span id="cb9-11"><a></a>  }</span>
+<span id="cb9-12"><a></a>}</span>
+<span id="cb9-13"><a></a><span class="kw">data</span> {</span>
+<span id="cb9-14"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">1</span>&gt; n;</span>
+<span id="cb9-15"><a></a>  <span class="dt">vector</span>[n] Y;</span>
+<span id="cb9-16"><a></a>  <span class="dt">vector</span>[n] X;</span>
+<span id="cb9-17"><a></a>  <span class="dt">int</span> n_pred;</span>
+<span id="cb9-18"><a></a>  <span class="dt">vector</span>[n_pred] X_pred;</span>
+<span id="cb9-19"><a></a>}</span>
+<span id="cb9-20"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb9-21"><a></a>  <span class="dt">real</span> min_X = min(X);</span>
+<span id="cb9-22"><a></a>  <span class="dt">real</span> max_X = max(X);</span>
+<span id="cb9-23"><a></a>}</span>
+<span id="cb9-24"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb9-25"><a></a>  <span class="dt">real</span> beta0;</span>
+<span id="cb9-26"><a></a>  <span class="dt">real</span> beta1;</span>
+<span id="cb9-27"><a></a>  <span class="dt">real</span> beta2;</span>
+<span id="cb9-28"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb9-29"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = min_X, <span class="kw">upper</span> = max_X&gt; theta;</span>
+<span id="cb9-30"><a></a>}</span>
+<span id="cb9-31"><a></a><span class="kw">model</span> {</span>
+<span id="cb9-32"><a></a>  <span class="dt">vector</span>[n] mu = compute_mean(X, beta0, beta1, beta2, theta);</span>
+<span id="cb9-33"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | mu, sigma);</span>
+<span id="cb9-34"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb9-35"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta0 | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb9-36"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta1 | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb9-37"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta2 | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb9-38"><a></a>}</span>
+<span id="cb9-39"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb9-40"><a></a>  <span class="dt">vector</span>[n_pred] mu_pred = compute_mean(X_pred, beta0, beta1, beta2, theta);</span>
+<span id="cb9-41"><a></a>  <span class="dt">array</span>[n_pred] <span class="dt">real</span> Y_pred_out = normal_rng(mu_pred, sigma);</span>
+<span id="cb9-42"><a></a>  <span class="dt">vector</span>[n] mu = compute_mean(X, beta0, beta1, beta2, theta);</span>
+<span id="cb9-43"><a></a>  <span class="dt">array</span>[n] <span class="dt">real</span> Y_pred_in = normal_rng(mu, sigma);</span>
+<span id="cb9-44"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="change-point-regression" class="slide level2 smaller">
+<h2>Change point regression</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>stan_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"change_points.stan"</span>)</span>
+<span id="cb10-2"><a></a>n_pred <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb10-3"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Y =</span> dat_pat<span class="sc">$</span>Y, </span>
+<span id="cb10-4"><a></a>                  <span class="at">X =</span> dat_pat<span class="sc">$</span>X,</span>
+<span id="cb10-5"><a></a>                  <span class="at">n =</span> <span class="fu">nrow</span>(dat_pat),</span>
+<span id="cb10-6"><a></a>                  <span class="at">n_pred =</span> n_pred,</span>
+<span id="cb10-7"><a></a>                  <span class="at">X_pred =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(dat_pat<span class="sc">$</span>X) <span class="sc">+</span> <span class="dv">2</span>, <span class="at">length.out =</span> n_pred))</span>
+<span id="cb10-8"><a></a>fit_cp <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_model, <span class="at">data =</span> stan_data)</span>
+<span id="cb10-9"><a></a><span class="fu">print</span>(fit_cp, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.5</span>, <span class="fl">0.0975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+       mean se_mean   sd   25%   50%   75% n_eff Rhat
+beta0 -1.82    0.02 0.66 -2.29 -1.85 -1.40   749 1.00
+beta1 -0.05    0.01 0.29 -0.19 -0.04  0.10   560 1.01
+beta2 -0.84    0.02 0.45 -1.12 -0.87 -0.58   889 1.00
+sigma  1.27    0.01 0.26  1.08  1.23  1.41   792 1.00
+theta  5.36    0.07 1.79  4.69  5.57  6.34   749 1.00
+
+Samples were drawn using NUTS(diag_e) at Wed Jan  1 17:29:30 2025.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+</div>
+</div>
+</section>
+<section id="diagnostics" class="slide level2">
+<h2>Diagnostics</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="posterior-fit" class="slide level2">
+<h2>Posterior fit</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="posterior-fit-1" class="slide level2">
+<h2>Posterior fit</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="prediction" class="slide level2">
+<h2>Prediction</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="09-nonlinear_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>
 <ul>
-<li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-02">HW 02</a></p></li>
+<li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-02">HW 02</a>.</p></li>
 <li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
-<li><p>Tuesday’s lecture: Robust Regression</p></li>
+<li><p>Tuesday’s lecture: Robust regression</p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">

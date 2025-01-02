@@ -206,7 +206,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/index.html</loc>
-    <lastmod>2024-12-09T20:36:18.345Z</lastmod>
+    <lastmod>2024-12-31T14:09:42.546Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/overview.html</loc>
@@ -366,14 +366,54 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/07-model-comparison.html</loc>
-    <lastmod>2024-12-09T17:15:05.048Z</lastmod>
+    <lastmod>2024-12-31T14:31:59.650Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/08-workflow.html</loc>
-    <lastmod>2024-12-09T16:07:24.955Z</lastmod>
+    <lastmod>2024-12-31T14:12:00.269Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/09-nonlinear.html</loc>
-    <lastmod>2024-12-09T17:22:04.379Z</lastmod>
+    <lastmod>2025-01-01T22:30:05.916Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/09-robust.html</loc>
+    <lastmod>2024-12-17T18:54:20.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/10-regularization.html</loc>
+    <lastmod>2024-12-23T15:34:21.211Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/11-classification.html</loc>
+    <lastmod>2024-12-30T21:14:44.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/10-robust.html</loc>
+    <lastmod>2024-12-31T14:23:10.489Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/12-classification.html</loc>
+    <lastmod>2025-01-02T16:10:53.984Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/11-regularization.html</loc>
+    <lastmod>2024-12-31T14:23:02.376Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/slides/13-multiclass.html</loc>
+    <lastmod>2025-01-02T16:19:19.267Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/ae/ae-01-slr.html</loc>
+    <lastmod>2024-09-30T13:50:05.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/ae/ae-03-inference.html</loc>
+    <lastmod>2024-09-30T13:50:05.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/ae/ae-02-mlr.html</loc>
+    <lastmod>2024-09-30T13:50:05.000Z</lastmod>
   </url>
 </urlset>
