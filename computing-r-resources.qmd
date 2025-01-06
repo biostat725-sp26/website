@@ -10,7 +10,7 @@ Below are freely available resources to learn or review the following in R: **da
 
 -   Includes videos, readings, practice exercise, quizzes, and other resources
 -   You can select content within the modules you want to complete.
--   Focus on Modules 2 and 3. Review the content in Module 1 as needed.s
+-   Focus on Modules 2 and 3. Review the content in Module 1 as needed.
 -   [Click here](https://docs.google.com/document/d/1csywQxZTAnCwwvt_l6BR-qfb49SL8CPnnivY7OAgBxc/edit#heading=h.6m3xi2f2t1ph) for instructions to register for Coursera for free as a Duke student
 
 ## **In-depth review**

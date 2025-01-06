@@ -3,7 +3,7 @@ title: "Useful links"
 ---
 
 |  |  |
-|--------------------|---------------------------------------------------|
+|----|----|
 | RStudio containers | 🔗 for [Duke Container Manager](https://cmgr.oit.duke.edu/containers) |
 | Course GitHub organization | 🔗 for [GitHub](https://github.com/biostat725-sp25) |
 | Course Canvas site | 🔗 for [Canvas](https://canvas.duke.edu/courses/53305) |

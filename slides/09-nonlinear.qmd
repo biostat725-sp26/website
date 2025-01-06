@@ -81,9 +81,7 @@ $$Y_i = \alpha + X_i \beta + \epsilon_i, \quad \epsilon_i \sim N(0, \sigma^2).$$
 
 -   The mean process can modeled flexibly, $\mu_i = g(X_i)$, where $g$ is some function that relates $X_i$ to $\mathbb{E}[Y_i | X_i].$
 
--   A form of nonlinear regression approximates the function $g$ using a finite basis expansion, 
-$$g(X_i) = \alpha + \sum_{j=1}^J B_j(X_i)\beta_j,$$
-where $B_j(X)$ are known basis functions and $\beta_j$ are unknown parameters that determine the shape of $g$.
+-   A form of nonlinear regression approximates the function $g$ using a finite basis expansion, $$g(X_i) = \alpha + \sum_{j=1}^J B_j(X_i)\beta_j,$$ where $B_j(X)$ are known basis functions and $\beta_j$ are unknown parameters that determine the shape of $g$.
 
 ## Nonlinear regression
 
@@ -91,11 +89,11 @@ where $B_j(X)$ are known basis functions and $\beta_j$ are unknown parameters th
 
 -   Example: Gaussian radial basis functions: $$B_j(X_i) = \exp\left\{-\frac{|X_i - \nu_j|^2}{l^2}\right\},$$ where $\nu_j$ are centers of the basis functions and $l$ is a common width parameter.
 
-- The number of of basis functions and the width parameter $l$ controls the scale at which the model can vary as a function of $X_i$.
+-   The number of of basis functions and the width parameter $l$ controls the scale at which the model can vary as a function of $X_i$.
 
 ## Nonlinear regression {.smaller}
 
-- Example: The cubic B-spline basis function is the following piecewise cubic polynomial:
+-   Example: The cubic B-spline basis function is the following piecewise cubic polynomial:
 
 $$B_j(X_i) = \left\{
 \begin{matrix*}[l]
@@ -107,21 +105,19 @@ $$B_j(X_i) = \left\{
 \end{matrix*}
 \right.$$
 
-- B-splines are a piecewise continuous function defined conditional on some set of knots. 
+-   B-splines are a piecewise continuous function defined conditional on some set of knots.
 
-- Here we assume a uniform knot locations $\nu_{j + k} = \nu_j + \delta k$.
+-   Here we assume a uniform knot locations $\nu_{j + k} = \nu_j + \delta k$.
 
-- B-splines have compact support, so the design matrix is sparse. 
+-   B-splines have compact support, so the design matrix is sparse.
 
 ## Nonlinear regression
 
-- Conditionally on the selected baseis $B$, the model is linear in the parameters. Hence we can write, 
-$$Y_i = \mu(X_i) + \epsilon_i = \mathbf{w}_i \boldsymbol{\beta} + \epsilon_i,$$ 
-with $\mathbf{w}_i = (B_1(X_i),\ldots,B_J(X_i))$.
+-   Conditionally on the selected baseis $B$, the model is linear in the parameters. Hence we can write, $$Y_i = \mu(X_i) + \epsilon_i = \mathbf{w}_i \boldsymbol{\beta} + \epsilon_i,$$ with $\mathbf{w}_i = (B_1(X_i),\ldots,B_J(X_i))$.
 
-- Model fitting can proceed as in linear regression models, since the resulting model is linear in $\boldsymbol{\beta}$.
+-   Model fitting can proceed as in linear regression models, since the resulting model is linear in $\boldsymbol{\beta}$.
 
-- It is often useful to center the basis function model around the linear model, $\mu(X_i) = \alpha + X_i \beta + \mathbf{w}_i\boldsymbol{\beta}$.
+-   It is often useful to center the basis function model around the linear model, $\mu(X_i) = \alpha + X_i \beta + \mathbf{w}_i\boldsymbol{\beta}$.
 
 ## Glaucoma disease progression {.midi}
 
@@ -484,7 +480,6 @@ dat_fig_bspline |> ggplot(aes(x = x, y = mean)) +
   labs(x = "Years from baseline visual field", y = "Mean deviation (dB)", subtitle = "B-spline regression")
 ```
 
-
 ## Model comparison
 
 ```{r}
@@ -526,7 +521,7 @@ dat_fig_bspline |> ggplot(aes(x = x, y = mean)) +
 
 ## Change point motivation
 
-:::::: columns
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: false
@@ -542,31 +537,31 @@ ggplot(dat_pat, aes(x = X, y = Y)) +
 :::
 
 ::: {.column width="60%"}
-- Progression is defined by slow (or stable) deterioration, followed by a rapid decrease.
+-   Progression is defined by slow (or stable) deterioration, followed by a rapid decrease.
 
-- Flexible modeling of MD across time.
+-   Flexible modeling of MD across time.
 
-- Biological representation of progression through the change point.
+-   Biological representation of progression through the change point.
 
-- Change points are a framework for inherently parameterizing progression.
+-   Change points are a framework for inherently parameterizing progression.
 :::
-::::::
+:::::
 
 ## Writing down a model
 
-- Model for the observed data:
+-   Model for the observed data:
 
 $$Y_i = \mu(X_i) + \epsilon_i, \quad \epsilon_i \sim N(0,\sigma^2).$$
 
 . . .
 
-- Model for the mean process:
+-   Model for the mean process:
 
 $$\mu(X_i) =\left\{ \begin{array}{ll}
         {\beta}_0 + \beta_1 X_i & \text{ } \mbox{$X_i \leq \theta$},\\
         {\beta}_0 + \beta_1 \theta + {\beta}_2\{X_i - \theta\}& \text{ } \mbox{$X_i > \theta.$}\end{array} \right.$$
 
-- $\theta \in (\min X_i, \max X_i)$ represents a change point.
+-   $\theta \in (\min X_i, \max X_i)$ represents a change point.
 
 ## Change point model in Stan
 

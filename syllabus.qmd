@@ -17,15 +17,17 @@ format:
 ### Teaching team
 
 +--------------------+----------------+------------------------------+
-| Name               | Role           | Office Hours (these are TBD) |
+| Name               | Role           | Office Hours                 |
 +====================+================+==============================+
-| Prof. Sam Berchuck | Instructor     | Mon 1:30 - 2:30pm, Hock 9028 |
+| Prof. Sam Berchuck | Instructor     | TBD                          |
 |                    |                |                              |
-|                    |                | Thu 3 - 4pm, Hock 9028       |
+|                    |                | TBD                          |
 |                    |                |                              |
 |                    |                | *or by appointment*          |
 +--------------------+----------------+------------------------------+
-| Dr. Youngsoo Baek  | TA\            | Tue 1:30 - 3:30pm, Hock 9061 |
+| Dr. Youngsoo Baek  | TA\            | Wed 2 - 4pm, Hock 10090      |
++--------------------+----------------+------------------------------+
+| Braden Scherting   | TA\            | TBD                          |
 +--------------------+----------------+------------------------------+
 
 ## Course description
@@ -59,7 +61,7 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 Furthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:
 
--   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your academic dean is an excellent resource.
+-   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your academic dean or director of graduate studies (DGS) are excellent resources.
 -   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please let me or a member of the teaching team know.
 
 ### Pronouns
@@ -84,7 +86,7 @@ If you have questions about assignment extensions, accommodations, or any other 
 
 ## Five tips for success
 
-Your success on this course depends very much on you and the effort you put into it. Your TA and I will help you be providing you with materials and answering questions and setting a pace, but for this to work you must do the following:
+Your success on this course depends very much on you and the effort you put into it. Your TA(s) and I will help you be providing you with materials and answering questions and setting a pace, but for this to work you must do the following:
 
 1.  Complete all the preparation work before class.
 
@@ -152,13 +154,13 @@ The final course grade will be calculated as follows:
 
 <center>
 
-| Category                       | Percentage |
-|--------------------------------|------------|
-| Homework                       | 40%        |
-| Exam 01                        | 20%        |
-| Exam 02                        | 20%        |
-| Live Coding                    | 10%        |
-| Application exercises          | 10%        |
+| Category              | Percentage |
+|-----------------------|------------|
+| Homework              | 40%        |
+| Exam 01               | 20%        |
+| Exam 02               | 20%        |
+| Live Coding           | 10%        |
+| Application exercises | 10%        |
 
 </center>
 
@@ -247,7 +249,7 @@ Regrade requests must be submitted on Gradescope within a week of when an assign
 
 ### Attendance policy
 
-Every student is expected to attend and participate in lecture. There may be times, however, when you cannot attend class. Lecture recordings will be available. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture.
+Every student is expected to attend and participate in lecture. There may be times, however, when you cannot attend class. Lecture recordings will be are available upon request for students who have an excused absence. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture.
 
 <!-- are available upon request for students who have an excused absence. See the [Lecture recording request] policy for more detail. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture. -->
 

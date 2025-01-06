@@ -44,410 +44,314 @@ library(nimble)
 
 -   Today, we will focus on multiclass classification: multinomial regression, ordinal regression.
 
-## Generalized linear models
+## Multiclass regression
 
--   Previously, we have focused on linear regression. Other forms of regression follow naturally from linear regression.
+- Often times one encounters an outcome variable that is nominal and has more than two categories.
 
-## Models for binary outcomes
+- If there is no inherent rank or order to the variable, we can use multinomial regression. Examples include: 
 
--   Suppose we have a binary outcome (e.g., $Y = 1$ if a condition is satisfied and $Y = 0$ if not) and predictors on a variety of scales.
-
--   If the predictors are discrete and the binary outcomes are independent, we can use the Bernoulli distribution for individual 0-1 data or the binomial distribution for grouped data that are counts of successes in each group.
-
-## Models for binary outcomes
-
--   Let's suppose we want to model $P(Y = 1)$.
-
--   One strategy might be to simply fit a linear regression model to the probabilities.
-
--   For example,
-
-\begin{align*}
-P(Y_i = 1) &= \alpha + \beta_1x_{i1} + \cdots + \beta_px_{ip} + \epsilon_i\\
-&= \alpha + \mathbf{x}_i \boldsymbol{\beta}.
-\end{align*}
-
-## Primary biliary cirrhosis
-
--   The Mayo Clinic conducted a trial for primary biliary cirrhosis, comparing the drug D-penicillamine vs. placebo. Patients were followed for a specified duration, and their status at the end of follow-up (whether they died) was recorded.
-
--   Researchers are interested in predicting whether a patient died based on the following variables:
-
-    -   ascites: whether the patient had ascites (1 = yes, 0 = no)
-
-    -   bilirubin: serum bilirubin in mg/dL
-
-    -   stage: histologic stage of disease (ordinal categorical variable with stages 1, 2, 3, and 4)
-
-## What can go wrong?
-
--   Suppose we fit the following model:
-
-\begin{align*}
-P(Y_i = 1) &= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
-&\quad+\beta_3(stage = 2)_i + \beta_4(stage = 3)_i\\
-&\quad+\beta_5(stage = 4)_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)
-\end{align*}
-
-. . .
-
-**What can go wrong?**
-
-## What can go wrong?
-
-![](images/11/resid.png){fig-alt="resid" fig-align="center" height="5in"}
-
-## What can go wrong?
-
--   Additionally, as a probability, $P(Y_i = 1)$ must be in the interval \[0, 1\], but there is nothing in the model that enforces this constraint, so that you could be estimating probabilities that are negative or that are greater than 1!
-
-## From probabilities to log-odds
-
--   Suppose the **probability** of an event is $\pi$.
-
--   Then the **odds** that the event occurs is $\frac{\pi}{1 - \pi}$.
-
--   Taking the (natural) log of the odds, we have the **logit** of $\pi$: the **log-odds**:
-
-$$\text{logit}(\pi) = \log\left(\frac{\pi}{1-\pi}\right).$$
-
--   Note that although $\pi$ is constrained to lie between 0 and 1, the logit of $\pi$ is unconstrained - it can be anything from $-\infty$ to $\infty$.
-
-## Logistic regression model
-
--   Let's create a model for the logit of $\pi$: $\text{logit}(\pi_i)= \alpha + \mathbf{x}_i \boldsymbol{\beta}.$
-
--   This is a linear model for a transformation of the outcome of interest, and is also equivalent to,
-
-$$\pi_i = \frac{\exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})}{1 + \exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})} = \text{expit}(\alpha + \mathbf{x}_i \boldsymbol{\beta}).$$
-
--   The expression on the right is called a **logistic function** and cannot yield a value that is negative or a value that is \>1. Fitting a model of this form is known as **logistic regression**.
-
-## Logistic regression
-
-$$\text{logit}(\pi_i) = \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \mathbf{x}_i \boldsymbol{\beta}$$
-
--   Negative logits represent probabilities less than one-half, and positive logits represent probabilities above one-half.
-
-## Interpreting parameters in logistic regression
-
--   Typically we interpret functions of parameters in logistic regression rather than the parameters themselves.
-
-For the simple model: $\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \beta x_{i},$ we note that the probability that $Y_i = 1$ when $X_i = 0$ is
-
-$$P(Y_i = 1 | X_{i} = 0) = \frac{\exp(\alpha)}{1 + \exp(\alpha)}.$$
-
-## Interpreting parameters in logistic regression
-
--   Suppose that $X$ is a binary (0/1) variable (e.g., $X$ = 1 for males and 0 for non-males).
-
-    -   In this case, we interpret $\exp(\beta)$ as the **odds ratio** (OR) of the response for the two possible levels of $X$.
-
-    -   For $X$ on other scales, $\exp(\beta)$ is interpreted as the odds ratio of the response comparing two values of $X$ one unit apart.
-
--   Why?
-
-## Interpreting parameters in logistic regression
-
--   The log odds of response for $X = 1$ is given by $\alpha + \beta$, and the log odds of response for $X = 0$ is $\alpha$.
-
--   So the odds ratio of response comparing $X = 1$ to $X = 0$ is given by $\frac{\exp(\alpha + \beta)}{\exp(\alpha)} = \exp(\beta)$.
-
--   In a \emph{multivariable logistic regression} model with more than one predictor, this OR is interpreted conditionally on values of other variables (i.e., controlling for them).
-
-## Bayesian logistic regression
-
--   We start with observations $Y_i \in \{0,1\}$ for $i = 1,\ldots,n$, where $Y_i \stackrel{ind}{\sim} \text{Bernoulli}(\pi_i)$, $\pi_i = P(Y_i = 1)$.
-
--   The log-odds are modeled as $\text{logit}(\pi_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}$.
-
--   To complete the Bayesian model specification, we must place priors on $\alpha$ and $\boldsymbol{\beta}$.
-
-    -   All priors we have discussed up-to-this point apply!
-
--   Historically, this was a difficult model to fit, but can be easily implemented in Stan.
-
-## Logistic regression in Stan
-
-```{stan output.var = "log_reg", eval = FALSE}
-// Saved in logistic_regression.stan
-data {
-  int<lower = 1> n;
-  int<lower = 1> p;
-  int Y[n];
-  matrix[n, p] X;
-}
-parameters {
-  real alpha;
-  vector[p] beta;
-}
-model {
-  target += bernoulli_logit_lpmf(Y | alpha + X * beta);
-  target += normal_lpdf(alpha | 0, 10);
-  target += normal_lpdf(beta | 0, 10);
-}
-generated quantities {
-  vector[n] in_sample;
-  vector[n] log_lik;
-  for (i in 1:n) {
-    in_sample[i] = bernoulli_logit_rng(alpha + height_c[i] * beta);
-    log_lik[i] = bernoulli_logit_lmpf(Y[i] | alpha + X[i, ] * beta);
-  }
-}
-```
-
-## Primary biliary cirrhosis
-
-```{r, echo=FALSE}
-pbc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/Material/Data/pbc.csv")
-```
-
-```{r}
-head(pbc)
-```
-
-## Prepare data for Stan
-
-```{r}
-X <- model.matrix(object = ~ ascites + bili + as.factor(stage), data = pbc)[, -1]
-Y <- pbc$outcome
-stan_data <- list(n = nrow(pbc),
-                  p = ncol(X),
-                  Y = Y,
-                  X = X)
-head(X)
-```
-
-## Logistic regression in Stan
-
-```{r, eval = FALSE, echo = FALSE}
-library(rstan)
-compiled_model <- rstan::stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression.stan")
-pbc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/Material/Data/pbc.csv")
-X <- model.matrix(object = ~ ascites + bili + as.factor(stage), data = pbc)[, -1]
-Y <- pbc$outcome
-stan_data <- list(n = nrow(pbc),
-                  p = ncol(X),
-                  Y = Y,
-                  X = X)
-fit <- sampling(compiled_model, data = stan_data)
-saveRDS(fit, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression.rds")
-print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
-X <- model.matrix(object = ~ ascites + bili, data = pbc)[, -1]
-stan_data <- list(n = nrow(pbc),
-                  p = ncol(X),
-                  Y = Y,
-                  X = X)
-fit_baseline <- sampling(compiled_model, data = stan_data)
-saveRDS(fit_baseline, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression_baseline.rds")
-```
-
-```{r, eval=FALSE}
-library(rstan)
-compiled_model <- stan_model(file = "logistic_regression.stan")
-fit <- sampling(compiled_model, data = stan_data)
-print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
-```
-
-```{r, eval = TRUE, echo = FALSE}
-fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression.rds")
-fit_baseline <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression_baseline.rds")
-print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
-```
-
-## Convergence diagnostics
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| fig-width: 10
-#| fig-height: 6
-#| layout-ncol: 1
-rstan::traceplot(fit, pars = c("alpha", "beta"))
-```
-
-## Convergence diagnostics
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| fig-width: 10
-#| fig-height: 6
-#| layout-ncol: 1
-library(bayesplot)
-bayesplot::mcmc_acf(fit, regex_pars = c("alpha", "beta"))
-```
-
-## Back to the PBC data
-
--   Fitting a logistic regression model, we obtain
-
-```{r, echo = FALSE}
-library(knitr)
-out <- rstan::summary(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
-out <- out[[1]]
-out <- data.frame(out)
-out <- out[, c(1, 2, 4, 6)]
-out <- cbind(c("intercept", "ascites", "bilirubin", "stage == 2", "stage == 3", "stage == 4"), out)
-colnames(out) <- c("variable", "mean", "sd", "2.5%", "97.5%")
-knitr::kable(out, digits = 2)
-```
-
--   How might we interpret these coefficients as odds ratios?
-
-## Back to the PBC data {.small}
-
--   Remember, we are interested in the probability that a patient died during follow-up (a "success"). We are predicting the log-odds of this event happening.
-
-    -   The posterior mean for ascites was 2.24. Thus, the odds ratio for dying is $\exp(2.24) \approx 9.4$. That is, patients with ascites have 9.4 times the odds of dying compared to patients that do not, holding all other variables constant.
-
-    -   The posterior mean for bilirubin was 0.38. Thus, the odds ratio for dying for a patient with 1 additional mg/dL serum bilirubin compared to another is $\exp(0.38) \approx 1.46$, holding all other variables constant.
-
-    -   The baseline stage was 1. The posterior mean for stage 3 was 2.19. Thus, patients in stage 3 have approximately 8.93 times the odds of dying compared to patients that do not, holding all other variables constant.
-
-## Predicted probabilities
-
--   There is a one-to-one relationship between $\pi$ and $\text{logit}(\pi)$. So, if we predict $\text{logit}(\pi)$, we can "back-transform" to get back to a predicted probability.
-
--   For instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.
-
-```{r}
-x_i <- matrix(c(0, 5, 1, 0, 0), ncol = 1)
-pars <- rstan::extract(fit, pars = c("alpha", "beta"))
-log_odds <- pars$alpha + as.numeric(pars$beta %*% x_i)
-pi <- exp(log_odds) / (1 + exp(log_odds))
-```
-
-## Predicted probabilities
-
-```{r}
-#| echo: false
-#| fig-align: "center"
-#| fig-width: 8
-#| fig-height: 4
-#| layout-ncol: 1
-library(ggplot2)
-dat_fig <- data.frame(
-  Value = c(log_odds, pi),
-  Type = rep(c("Log-odds", "Predicted probability"), each = length(pi))
-)
-ggplot(dat_fig, aes(x = Value)) + 
-  geom_histogram() + 
-  facet_grid(. ~ Type, scales = "free_x") + 
-  labs(y = "Count")
+  - gender (male, female, non-binary), 
   
-```
+  - blood type (A, B, AB, O). 
 
--   Posterior mean of the predicted probabilities is `r round(mean(pi), 2)`.
+- If there is an order to the variable, we can use ordinal regression. Examples include: 
 
-## Posterior predictive checks
+  - stages of cancer (stage I, II, III, IV), 
+  
+  - pain level (mild, moderate, severe).
 
-```{r}
-#| echo: true
-#| fig-align: "center"
-#| fig-height: 4
-#| layout-nrow: 1
-y_pred <- rstan::extract(fit, pars = "in_sample")$in_sample
-ppc_dens_overlay(stan_data$Y, y_pred[1:100, ])
-```
+## Multinomial random variable
 
-## Posterior predictive checks
+- Assume an outcome $Y_i \in \{1,\ldots,K\}$ for $i = 1,\ldots,n$. 
 
-```{r}
-#| echo: true
-#| fig-align: "center"
-#| fig-height: 4
-#| layout-nrow: 1
-ppc_bars(stan_data$Y, y_pred[1:100, ])
-```
+- The likelihood in multinomial regression can be written as the following categorical likelihood, 
 
-## Posterior predictive checks
+$$f(\mathbf{Y} | \boldsymbol{\beta}) = \prod_{i=1}^n \prod_{j=1}^K P(Y_i = j)^{\delta_{ij}},$$
 
-```{r}
-#| echo: true
-#| fig-align: "center"
-#| fig-height: 1.4
-#| fig-width: 4
-#| layout-nrow: 2
-#| layout-ncol: 2
-ppc_stat(stan_data$Y, y_pred, stat = "mean") # from bayesplot
-ppc_stat(stan_data$Y, y_pred, stat = "sd")
-q025 <- function(y) quantile(y, 0.025)
-q975 <- function(y) quantile(y, 0.975)
-ppc_stat(stan_data$Y, y_pred, stat = "q025")
-ppc_stat(stan_data$Y, y_pred, stat = "q975")
-```
+- $\delta_{ij} = 1(Y_i = j)$ is the Kronecker delta.
 
-## Model comparison
+- Since $Y_i$ is discrete, we only need to specify $P(Y_i = j)$ for all $i$ and $j$. 
 
--   Comparing our model to a baseline that removed stage.
+## Log-linear regression
 
-```{r}
-library(loo)
-log_lik <- loo::extract_log_lik(fit, parameter_name = "log_lik", merge_chains = TRUE)
-log_lik_baseline <- loo::extract_log_lik(fit_baseline, parameter_name = "log_lik", merge_chains = TRUE)
-waic_model <- loo::waic(log_lik)
-waic_model_baseline <- loo::waic(log_lik_baseline)
+- One way to motivate multinomial regression is through a log-linear specification:
 
-###Make a comparison
-comp_waic <- loo::loo_compare(list("full" = waic_model, "baseline" = waic_model_baseline))
-print(comp_waic, digits = 2, simplify = FALSE)
-```
+$$\log P(Y_i = j) = \mathbf{x}_i\boldsymbol{\beta}_j - \log Z.$$
 
-## Other models for binary data
+- $\boldsymbol{\beta}_j$ is a $j$ specific set of regression parameters.
 
--   Other transformations (also called \emph{link functions}) can be used to ensure the probabilities lie in \[0, 1\], including the Probit (popular in Bayesian statistics).
+- $P(Y_i = j) = \exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}/Z$.
 
-## Steps to selecting a Bayesian GLM
+- $Z$ is a normalizing constant that guarentees that $\sum_{j=1}^K P(Y_i = j) = 1$.
 
-1.  Identify the support of the response distribution.
+## Finding the normalizing constant
 
-2.  Select the likelihood by picking a parametric family of distributions with this support.
+- We know that,
 
-3.  Choose a link function $g$ that transforms the range of parameters to the whole real line.
+\begin{align*}
+1 &= \sum_{j=1}^K P(Y_i = j) = \frac{1}{Z}\sum_{j=1}^K \exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}\\
+&\implies Z = \sum_{j=1}^K \exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}
+\end{align*}
 
-4.  Specify a linear model on the transformed parameters.
+## Multinomial probabilities
 
-5.  Select priors for the regression coefficients.
+- Thus, we have the following,
 
-## Example of selecting a Bayesian GLM
+$$P(Y_i = k) = \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{\sum_{j = 1}^K\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.$$
 
-1.  Support: $Y_i \in \{0, 1, 2, \ldots\}$.
+- This function is called the **softmax** function.
 
-2.  Likelihood family: $Y_i \stackrel{ind}{\sim} \text{Poisson}(\lambda_i)$.
+- Unfortunately, this specification is not identifiable.
 
-3.  Link: $g(\lambda_i) = \log(\lambda_i) \in (−\infty, \infty)$.
+## Identifiability issue
 
-4.  Regression model: $\log(\lambda_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}$.
+- We can add a vector $\mathbf{c}$ to all parameters and get the same result,
 
-5.  Priors: $\alpha, \beta_j \sim N(0, 10^2)$.
+\begin{align*}
+\frac{\exp\{\mathbf{x}_i(\boldsymbol{\beta}_k + \mathbf{c})\}}{\sum_{j = 1}^K\exp\{\mathbf{x}_i(\boldsymbol{\beta}_j + \mathbf{c})\}} &= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{\sum_{j = 1}^K\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.
+\end{align*}
 
-## Multinomial regression {.small}
+- A common solution is to set: $\boldsymbol{\beta}_K = \mathbf{0}$.
 
-Assume an outcome $Y_i \in \{1,\ldots,K\}$. You can imagine running $K$ independent binary logistic regression models, in which one outcome is chosen as a "pivot" and then the other K − 1 outcomes are separately regressed against the pivot outcome. If outcome K (the last outcome) is chosen as the pivot, the K − 1 regression equations are:
+## Updating the probabilities
+
+- Using the identifiability constraint of $\boldsymbol{\beta}_K = \mathbf{0}$, the probabilities become, 
+\begin{align*}
+P(Y_i = k) &= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\},\\
+P(Y_i = K) &= \frac{1}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.
+\end{align*}
+
+- How to interpret the $\boldsymbol{\beta}_k$?
+
+## Deriving the additive log ratio model
+
+- Using our specification of the probabilities, it can be seen that,
+
+\begin{align*}
+P(Y_i = k) &= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}\\
+&= \left[\frac{1}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}\right]\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}\\
+&= P(Y_i = K) \exp\{\mathbf{x}_i \boldsymbol{\beta}_k\}.
+\end{align*}
+
+$\implies \log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots,K-1\}$
+
+## Additive log ratio model
+
+- If outcome $K$ is chosen as reference, the $K − 1$ regression equations are:
 
 $$\log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots, K-1\}$$
 
--   It can be seen that:
+- This formulation is called **additive log ratio**.
 
-$$P(Y_i = k) = \frac{\exp\{\mathbf{x}_i \boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i \boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\}.$$ and $P(Y_i = K) = 1 - \sum_{j=1}^{K-1}P(Y_i = j)$.
+- $\boldsymbol{\beta}_k$ has a nice interpretation as a **relative risk**.
 
--   This is known as the additive log-ratio model.
+## Getting back to the likelihood
 
-## Multinomial regression {.small}
+- The log-likelihood can be written as,
 
-Let $Y_i \in \{1,\ldots,K\}$ be an ordinal outcome with $K$ categories. Then $P(Y \leq k)$ is the cumulative probability of $Y$ less than or equal to a specific category $k=1,\ldots,K-1$. The odds of being less than or equal a particular category can be defined as, $$\frac{P(Y\leq k)}{P(Y > k)}$$ for $k=1,\ldots,K-1$, since $P(Y > K) = 0$ and dividing by zero is undefined. The log odds is also known as the logit, so that $$\log \frac{P(Y\leq k)}{P(Y > k)} = \text{logit}P(Y\leq k) = \alpha_k + \mathbf{x}_i \boldsymbol{\beta}$$
+$$\log f(\mathbf{Y} | \boldsymbol{\beta}) = \sum_{i=1}^n \sum_{j=1}^K \delta_{ij} \log P(Y_i = j).$$
 
--   Proportional odds regression.
+- The $P(Y_i = j)$ are given by the additive log ratio model.
 
+- As Bayesians, we only need to specify priors for $\boldsymbol{\beta}_k, k \in \{1,\ldots,K-1\}$.
+
+## Multinomial regression in Stan
+
+- Hard coding the likelihood.
+
+```{stan output.var = "alr", eval = FALSE}
+// additive_log_ratio.stan
+functions {
+  matrix compute_alr_probs(int n, int K, int p, matrix X, matrix beta) {
+    matrix[n, K] probs;
+    matrix[n, K - 1] expXbeta = exp(X * beta);
+    for (i in 1:n) {
+      real sum_i = sum(expXbeta[i, ]);
+      for (j in 1:K) {
+        if (j < K) {
+          probs[i, j] = expXbeta[i, j] / (1 + sum_i);
+        }
+        if (j == K) probs[i, j] = 1 - sum(probs[i, 1:(K - 1)]);
+      }
+    }
+    return probs
+  }
+}
+data {
+  int<lower = 1> K;
+  int<lower = 1> n;
+  int<lower = 1> p;
+  array[n] int<lower = 1, upper = K> Y;
+  matrix[n, p] X;
+  matrix[n, K] delta;
+}
+parameters {
+  matrix[p, K - 1] beta;
+}
+model {
+  matrix[n, K] probs = compute_alr_probs(n, K, p, X, beta);
+  for (i in 1:n) {
+    for (j in 1:K) {
+      target += delta[i, j] * log(probs[i, j]);
+    }
+  }
+  target += normal_lpdf(to_vector(beta) | 0, 10);
+}
+```
+
+## Multinomial regression in Stan
+
+- Non-identifiable version.
+
+```{stan output.var = "multi_bad", eval = FALSE}
+// multi_logit_bad.stan
+data {
+  int<lower = 1> K;
+  int<lower = 1> n;
+  int<lower = 1> p;
+  array[n] int<lower = 1, upper = K> Y;
+  matrix[n, p] X;
+}
+parameters {
+  matrix[p, K] beta;
+}
+model {
+  matrix[n, K] Xbeta = X * beta;
+  for (i in 1:n) {
+    Y[i] ~ categorical_logit(Xbeta[i]');
+  }
+  to_vector(beta) ~ normal(0, 10);
+}
+```
+
+[categorical_logit](https://mc-stan.org/docs/functions-reference/bounded_discrete_distributions.html#categorical-logit-glm)
+
+## Multinomial regression in Stan
+
+- Zero identifiability constraint.
+
+```{stan output.var = "multi", eval = FALSE}
+// multi_logit.stan
+data {
+  int<lower = 1> K;
+  int<lower = 1> n;
+  int<lower = 1> p;
+  array[n] int<lower = 1, upper = K> Y;
+  matrix[n, p] X;
+}
+transformed data {
+  vector[p] zeros = rep_vector(0, p);
+}
+parameters {
+  matrix[p, K - 1] beta_raw;
+}
+transformed parameters {
+  matrix[p, K] beta = append_col(beta_raw, zeros);
+}
+model {
+  matrix[n, K] Xbeta = X * beta;
+  for (i in 1:n) {
+    Y[i] ~ categorical_logit(Xbeta[i]');
+  }
+  to_vector(beta) ~ normal(0, 10);
+}
+```
+
+## Ordinal regression
+
+Let $Y_i \in \{1,\ldots,K\}$ be an ordinal outcome with $K$ categories. 
+
+- The likelihood in ordinal regression is identical to the one from multinomial regression,
+
+$$f(\mathbf{Y} | \boldsymbol{\beta}) = \prod_{i=1}^n \prod_{j=1}^K P(Y_i = j)^{\delta_{ij}}.$$
+
+- We need to add additional constraints that guarentee ordinality. 
+
+## Proportional odds assumption
+
+- $P(Y_i \leq k)$ is the cumulative probability of $Y_i$ less than or equal to a specific category $k=1,\ldots,K-1$. 
+
+- The odds of being less than or equal to a particular category can be defined as, $$\frac{P(Y\leq k)}{P(Y > k)} \text { for } k=1,\ldots,K-1.$$
+
+- Not defined for $k = K$, since division by zero is not defined.
+
+## Proportional odds regression
+
+The log odds can then be modeled as follows, $$\log \frac{P(Y_i\leq k)}{P(Y_i > k)} = \text{logit}P(Y_i\leq k) = \alpha_k - \mathbf{x}_i \boldsymbol{\beta}$$
+
+- Why $-\boldsymbol{\beta}$?
+
+- $\boldsymbol{\beta}$ is a common regression parameter. For a one-unit increase in $x_{ij}$, $\beta_j$ is the change in log odds of moving to a more severe level of the outcome $Y_i$.
+
+- $\alpha_k$ for $k = 1,\ldots,K-1$ are $k$-specific intercepts that corresponds to the log odds of moving from level $k$ to $k+1$. 
+
+## Understanding the probabilities
+
+- One can solve for $P(Y_i \leq k), \quad k = 1,\ldots,K-1$),
+
+$$P(Y_i \leq k) = \frac{\exp\{\alpha_k - \mathbf{x}_i\boldsymbol{\beta}\}}{1 + \exp\{\alpha_k - \mathbf{x}_i\boldsymbol{\beta}\}} = \text{expit}(\alpha_k - \mathbf{x}_i\boldsymbol{\beta}).$$
+
+
+  -   $P(Y_i \leq K) = 1$.
+
+The individual probabilities are then given by,
+
+\begin{align*}
+P(Y_i = k) &= P(Y_i \leq k) - P(Y_i \leq k-1)\\
+&= \text{expit}(\alpha_k - \mathbf{x}_i\boldsymbol{\beta}) - \text{expit}(\alpha_{k-1} - \mathbf{x}_i\boldsymbol{\beta}).
+\end{align*}
+
+## A latent variable representation
+
+- Define a latent variable,
+
+$$Y_i^* = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \sim \text{Logistic}(0, 1).$$
+
+  - $\mathbb{E}[\epsilon_i] = 0$.
+
+  - $\mathbb{V}(\epsilon_i) = \pi^2/3$.
+
+  - CDF: $P(\epsilon_i \leq x) = \frac{1}{1 + \exp\{-x\}} = \frac{\exp\{x\}}{1 + \exp\{x\}} = \text{expit}(x).$
+
+## A latent variable representation
+
+- Define a set of $K-1$ cut-points, $(c_1,\ldots,c_{K-1}) \in \mathbb{R}^{K-1}$. We also define $c_0 = -\infty, c_K = \infty$.  
+
+- Our ordinal random variable can be generated as,
+
+$$Y_i = \left\{
+\begin{matrix*}[l]
+1 & c_0 < Y_i^* \leq c_1\\
+2 & c_1 < Y_i^* \leq c_2\\
+\vdots & \\
+K & c_{K-1} < Y_i^* \leq c_K\\
+\end{matrix*}
+\right.$$
+
+## Equivalence of the two specifications
+
+- Probabilities under the latent specification:
+\begin{align*}
+P(Y_i = k) &= P(c_{k-1} < Y_i^* \leq c_k)\\
+&= P(c_{k-1} < \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i \leq c_k)\\
+&= P(\mathbf{x}_i \boldsymbol{\beta} + \epsilon_i \leq c_k) - P(\mathbf{x}_i \boldsymbol{\beta} + \epsilon_i < c_{k-1})\\
+&= P(\epsilon_i \leq c_k - \mathbf{x}_i \boldsymbol{\beta}) - P(\epsilon_i < c_{k-1} - \mathbf{x}_i \boldsymbol{\beta})\\
+&= \text{expit}(c_k - \mathbf{x}_i\boldsymbol{\beta}) - \text{expit}(c_{k-1} - \mathbf{x}_i\boldsymbol{\beta}).
+\end{align*}
+
+- Equivalency:
+
+  - $\alpha_k = c_k, \quad k = 1,\ldots, K-1$, assuming that $\alpha_k < \alpha_{k+1}$.
+  
 ## Ordinal regression using Stan
 
 ```{stan output.var = "ordinal", eval = FALSE}
+// ordinal.stan
 data {
   int<lower = 2> K;
   int<lower = 0> n;
   int<lower = 1> p;
-  int<lower = 1, upper = K> Y[n]
+  int<lower = 1, upper = K> Y[n];
   matrix[n, p] X;
 }
 parameters {
@@ -460,6 +364,8 @@ model {
   target += normal_lpdf(alpha | 0, 10);
 }
 ```
+
+[ordered_logistic_glm_lpmf](https://mc-stan.org/docs/functions-reference/bounded_discrete_distributions.html#ordered-logistic-generalized-linear-model-ordinal-regression)
 
 ## Prepare for next class
 

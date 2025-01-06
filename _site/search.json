@@ -1499,7 +1499,7 @@
     "href": "computing-r-resources.html#in-depth-introduction",
     "title": "Resources for learning R",
     "section": "In-depth introduction",
-    "text": "In-depth introduction\nCoursera: Data Visualization and Transformation with R by Mine Çetinkaya-Rundel and Elijah Meyer\n\nIncludes videos, readings, practice exercise, quizzes, and other resources\nYou can select content within the modules you want to complete.\nFocus on Modules 2 and 3. Review the content in Module 1 as needed.s\nClick here for instructions to register for Coursera for free as a Duke student",
+    "text": "In-depth introduction\nCoursera: Data Visualization and Transformation with R by Mine Çetinkaya-Rundel and Elijah Meyer\n\nIncludes videos, readings, practice exercise, quizzes, and other resources\nYou can select content within the modules you want to complete.\nFocus on Modules 2 and 3. Review the content in Module 1 as needed.\nClick here for instructions to register for Coursera for free as a Duke student",
     "crumbs": [
       "Computing",
       "R resources"
@@ -1935,7 +1935,7 @@
     "href": "overview.html#teaching-assistants",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "Teaching assistants",
-    "text": "Teaching assistants\n\n\n\nName\nRole\nOffice Hours\n\n\nDr. Youngsoo Baek\nTA\nTue 1:30 - 3:30pm, Hock 9061",
+    "text": "Teaching assistants\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\nDr. Youngsoo Baek\nTA\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\nTBD\nTBD",
     "crumbs": [
       "Overview"
     ]
@@ -2457,7 +2457,7 @@
     "href": "support.html#email",
     "title": "Course support",
     "section": "Email",
-    "text": "Email\nIf you have questions about personal matters that are not appropriate for the class discussion forum (e.g. illness, accommodations, etc.), you may me at sib2@duke.edu. If you email me, please include “BIOSTAT 725” in the subject line. Barring extenuating circumstances, I will respond to BIOSTAT 725 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.",
+    "text": "Email\nIf you have questions about personal matters that are not appropriate for the class discussion forum (e.g. illness, accommodations, etc.), you may email me at sib2@duke.edu. If you email me, please include “BIOSTAT 725” in the subject line. Barring extenuating circumstances, I will respond to BIOSTAT 725 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.",
     "crumbs": [
       "Support"
     ]
@@ -2517,7 +2517,7 @@
     "href": "computing-access.html",
     "title": "Computing access",
     "section": "",
-    "text": "To access computing resources for the introductory data science courses offered by the Duke University Department of Statistical Science, go to the Duke Container Manager website, cmgr.oit.duke.edu/containers.\nIf this is your first time accessing the containers, click on reserve BIOSTAT725 on the Reservations available menu on the right. You only need to do this once, and when you do, you’ll see this container moved to the My reservations menu on the left.\nNext, click on BIOSTAT725 under My reservations to access the RStudio instance you’ll use for the course.",
+    "text": "To access computing resources for the introductory data science courses offered by the Duke University Department of Statistical Science, go to the Duke Container Manager website, cmgr.oit.duke.edu/containers.\nIf this is your first time accessing the containers, click on reserve STA725 on the Reservations available menu on the right. You only need to do this once, and when you do, you’ll see this container moved to the My reservations menu on the left.\nNext, click on STA725 under My reservations to access the RStudio instance you’ll use for the course.",
     "crumbs": [
       "Computing",
       "Access"
@@ -3651,7 +3651,7 @@
     "href": "syllabus.html",
     "title": "BIOSTAT 725 Syllabus",
     "section": "",
-    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours (these are TBD)\n\n\n\n\nProf. Sam Berchuck\nInstructor\nMon 1:30 - 2:30pm, Hock 9028\nThu 3 - 4pm, Hock 9028\nor by appointment\n\n\nDr. Youngsoo Baek\nTA\n\nTue 1:30 - 3:30pm, Hock 9061",
+    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTBD\nTBD\nor by appointment\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm, Hock 10090\n\n\nBraden Scherting\nTA\n\nTBD",
     "crumbs": [
       "Syllabus"
     ]
@@ -3661,7 +3661,7 @@
     "href": "syllabus.html#course-info",
     "title": "BIOSTAT 725 Syllabus",
     "section": "",
-    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours (these are TBD)\n\n\n\n\nProf. Sam Berchuck\nInstructor\nMon 1:30 - 2:30pm, Hock 9028\nThu 3 - 4pm, Hock 9028\nor by appointment\n\n\nDr. Youngsoo Baek\nTA\n\nTue 1:30 - 3:30pm, Hock 9061",
+    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTBD\nTBD\nor by appointment\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm, Hock 10090\n\n\nBraden Scherting\nTA\n\nTBD",
     "crumbs": [
       "Syllabus"
     ]
@@ -3701,7 +3701,7 @@
     "href": "syllabus.html#course-community",
     "title": "BIOSTAT 725 Syllabus",
     "section": "Course community",
-    "text": "Course community\n\nInclusive community\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with Duke’s Commitment to Diversity and Inclusion. Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.\nFurthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:\n\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your academic dean is an excellent resource.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please let me or a member of the teaching team know.\n\n\n\nPronouns\nPronouns are meaningful tools to communicate identities and experiences, and using pronouns supports a campus environment where all community members can thrive. Please update your gender pronouns in Duke Hub. You can find instructions to do so here. You can learn more at the Center for Sexual and Gender Diversity’s website.\n\n\nAccessibility\nIf there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make appropriate accommodations.\nThe Student Disability Access Office (SDAO) is available to ensure that students are able to engage with their courses and related assignments. Students should be in touch with the Student Disability Access Office to request or update accommodations under these circumstances.\n\n\nCommunication\nAll lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, biostat725-sp25.netlify.app.\nLinks to Zoom meetings may be found in Canvas. Periodic announcements will be sent via email and will also be available through Ed Discussion and Canvas Announcements. Please check your email regularly to ensure you have the latest announcements for the course.\n\n\nEmail\nIf you have questions about assignment extensions, accommodations, or any other matter not appropriate for the class discussion forum, please email me directly at sib2@duke.edu. If you email me, please include “BIOSTAT 725” in the subject line. Barring extenuating circumstances, I will respond to BIOSTAT 725 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.",
+    "text": "Course community\n\nInclusive community\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with Duke’s Commitment to Diversity and Inclusion. Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.\nFurthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:\n\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your academic dean or director of graduate studies (DGS) are excellent resources.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please let me or a member of the teaching team know.\n\n\n\nPronouns\nPronouns are meaningful tools to communicate identities and experiences, and using pronouns supports a campus environment where all community members can thrive. Please update your gender pronouns in Duke Hub. You can find instructions to do so here. You can learn more at the Center for Sexual and Gender Diversity’s website.\n\n\nAccessibility\nIf there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make appropriate accommodations.\nThe Student Disability Access Office (SDAO) is available to ensure that students are able to engage with their courses and related assignments. Students should be in touch with the Student Disability Access Office to request or update accommodations under these circumstances.\n\n\nCommunication\nAll lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, biostat725-sp25.netlify.app.\nLinks to Zoom meetings may be found in Canvas. Periodic announcements will be sent via email and will also be available through Ed Discussion and Canvas Announcements. Please check your email regularly to ensure you have the latest announcements for the course.\n\n\nEmail\nIf you have questions about assignment extensions, accommodations, or any other matter not appropriate for the class discussion forum, please email me directly at sib2@duke.edu. If you email me, please include “BIOSTAT 725” in the subject line. Barring extenuating circumstances, I will respond to BIOSTAT 725 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday.",
     "crumbs": [
       "Syllabus"
     ]
@@ -3711,7 +3711,7 @@
     "href": "syllabus.html#five-tips-for-success",
     "title": "BIOSTAT 725 Syllabus",
     "section": "Five tips for success",
-    "text": "Five tips for success\nYour success on this course depends very much on you and the effort you put into it. Your TA and I will help you be providing you with materials and answering questions and setting a pace, but for this to work you must do the following:\n\nComplete all the preparation work before class.\nAsk questions. As often as you can. In class, out of class. Ask me, ask the TA, ask your friends, ask the person sitting next to you. This will help you more than anything else. If you get a question wrong on an assessment, ask us why. If you’re not sure about the homework, ask. If you hear something on the news that sounds related to what we discussed, ask. If the reading is confusing, ask.\nDo the readings and other preparation work.\nDo the homeworks. The earlier you start, the better. It’s not enough to just mechanically plow through the exercises. You should ask yourself how these exercises relate to earlier material, and imagine how they might be changed (to make questions for an exam, for example).\nDon’t procrastinate. The content builds upon what was taught in previous weeks, so if something is confusing to you in Week 2, Week 3 will become more confusing, Week 4 even worse, etc. Don’t let the week end with unanswered questions. But if you find yourself falling behind and not knowing where to begin asking, come to office hours and work with a member of the teaching team to help you identify a good (re)starting point.",
+    "text": "Five tips for success\nYour success on this course depends very much on you and the effort you put into it. Your TA(s) and I will help you be providing you with materials and answering questions and setting a pace, but for this to work you must do the following:\n\nComplete all the preparation work before class.\nAsk questions. As often as you can. In class, out of class. Ask me, ask the TA, ask your friends, ask the person sitting next to you. This will help you more than anything else. If you get a question wrong on an assessment, ask us why. If you’re not sure about the homework, ask. If you hear something on the news that sounds related to what we discussed, ask. If the reading is confusing, ask.\nDo the readings and other preparation work.\nDo the homeworks. The earlier you start, the better. It’s not enough to just mechanically plow through the exercises. You should ask yourself how these exercises relate to earlier material, and imagine how they might be changed (to make questions for an exam, for example).\nDon’t procrastinate. The content builds upon what was taught in previous weeks, so if something is confusing to you in Week 2, Week 3 will become more confusing, Week 4 even worse, etc. Don’t let the week end with unanswered questions. But if you find yourself falling behind and not knowing where to begin asking, come to office hours and work with a member of the teaching team to help you identify a good (re)starting point.",
     "crumbs": [
       "Syllabus"
     ]
@@ -3761,7 +3761,7 @@
     "href": "syllabus.html#course-policies",
     "title": "BIOSTAT 725 Syllabus",
     "section": "Course policies",
-    "text": "Course policies\n\nDuke Community Standard\nAll students must adhere to the Duke Community Standard (DCS): Duke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, and accountability. Citizens of this community commit to reflect upon these principles in all academic and non-academic endeavors, and to protect and promote a culture of integrity.\nTo uphold the Duke Community Standard, students agree:\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors;and\nI will act if the Standard is compromised.\n\n\n\n\n\n\nAcademic honesty\nTL;DR: Don’t cheat!\n\nThe homework assignments must be completed individually and you are welcomed to discuss the assignment with classmates at a high level (e.g., discuss what’s the best way for approaching a problem, what functions are useful for accomplishing a particular task, etc.). However you may not directly share answers to homework questions (including any code) with anyone other than myself and the teaching assistants.\nYou may not discuss or otherwise work with others on the exams. Unauthorized collaboration or using unauthorized materials will be considered a violation for all students involved. More details will be given closer to the exam date.\n\n\n\nReusing code: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.\nUse of artificial intelligence (AI): You should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course:2 (1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning. (2) Ethical dimension: Students using AI should be transparent about their use and make sure it aligns with academic integrity.\n\nAI tools for code: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. You may use these guidelines for citing AI-generated content.\nNo AI tools for narrative: Unless instructed otherwise, AI is not permitted for writing narrative on assignments. In general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content.\n\n\nIf you are unsure if the use of a particular resource complies with the academic honesty policy, please ask a member of the teaching team.\nRegardless of course delivery format, it is the responsibility of all students to understand and follow all Duke policies, including academic integrity (e.g., completing one’s own work, following proper citation of sources, adhering to guidance around group work projects,and more). Ignoring these requirements is a violation of the Duke Community Standard. Any questions and/or concerns regarding academic integrity can be directed to the Office of Student Conduct and Community Standards at conduct@duke.edu.\n\n\nLate work policy\nThe due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback in a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline. Note that the lowest homework assignment will be dropped to accommodate such circumstances.\n\nHomework may be submitted up to 2 days late. There will be a 5% deduction for each 24-hour period the assignment is late.\nThe late work policy for exams will be provided with the exam instructions.\n\n\n\nWaiver for extenuating circumstances\nIf there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email me at sib2@duke.edu before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. This waiver may only be used once in the semester, so only use it for a truly extenuating circumstance.\nIf there are circumstances that are having a longer-term impact on your academic performance, please let your director of graduate studies (DGS) know, as they can be a resource. Please let me know if you need help contacting your DGS.\n\n\nRegrade Requests\nRegrade requests must be submitted on Gradescope within a week of when an assignment is returned. Regrade requests will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect. Requests to dispute the number of points deducted for an incorrect response will not be considered. Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.\nNo grades will be changed after the last day of classes.\n\n\nAttendance policy\nEvery student is expected to attend and participate in lecture. There may be times, however, when you cannot attend class. Lecture recordings will be available. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture.",
+    "text": "Course policies\n\nDuke Community Standard\nAll students must adhere to the Duke Community Standard (DCS): Duke University is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, and accountability. Citizens of this community commit to reflect upon these principles in all academic and non-academic endeavors, and to protect and promote a culture of integrity.\nTo uphold the Duke Community Standard, students agree:\n\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors;and\nI will act if the Standard is compromised.\n\n\n\n\n\n\nAcademic honesty\nTL;DR: Don’t cheat!\n\nThe homework assignments must be completed individually and you are welcomed to discuss the assignment with classmates at a high level (e.g., discuss what’s the best way for approaching a problem, what functions are useful for accomplishing a particular task, etc.). However you may not directly share answers to homework questions (including any code) with anyone other than myself and the teaching assistants.\nYou may not discuss or otherwise work with others on the exams. Unauthorized collaboration or using unauthorized materials will be considered a violation for all students involved. More details will be given closer to the exam date.\n\n\n\nReusing code: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.\nUse of artificial intelligence (AI): You should treat AI tools, such as ChatGPT, the same as other online resources. There are two guiding principles that govern how you can use AI in this course:2 (1) Cognitive dimension: Working with AI should not reduce your ability to think clearly. We will practice using AI to facilitate—rather than hinder—learning. (2) Ethical dimension: Students using AI should be transparent about their use and make sure it aligns with academic integrity.\n\nAI tools for code: You may make use of the technology for coding examples on assignments; if you do so, you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. You may use these guidelines for citing AI-generated content.\nNo AI tools for narrative: Unless instructed otherwise, AI is not permitted for writing narrative on assignments. In general, you may use AI as a resource as you complete assignments but not to answer the exercises for you. You are ultimately responsible for the work you turn in; it should reflect your understanding of the course content.\n\n\nIf you are unsure if the use of a particular resource complies with the academic honesty policy, please ask a member of the teaching team.\nRegardless of course delivery format, it is the responsibility of all students to understand and follow all Duke policies, including academic integrity (e.g., completing one’s own work, following proper citation of sources, adhering to guidance around group work projects,and more). Ignoring these requirements is a violation of the Duke Community Standard. Any questions and/or concerns regarding academic integrity can be directed to the Office of Student Conduct and Community Standards at conduct@duke.edu.\n\n\nLate work policy\nThe due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback in a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline. Note that the lowest homework assignment will be dropped to accommodate such circumstances.\n\nHomework may be submitted up to 2 days late. There will be a 5% deduction for each 24-hour period the assignment is late.\nThe late work policy for exams will be provided with the exam instructions.\n\n\n\nWaiver for extenuating circumstances\nIf there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email me at sib2@duke.edu before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. This waiver may only be used once in the semester, so only use it for a truly extenuating circumstance.\nIf there are circumstances that are having a longer-term impact on your academic performance, please let your director of graduate studies (DGS) know, as they can be a resource. Please let me know if you need help contacting your DGS.\n\n\nRegrade Requests\nRegrade requests must be submitted on Gradescope within a week of when an assignment is returned. Regrade requests will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect. Requests to dispute the number of points deducted for an incorrect response will not be considered. Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.\nNo grades will be changed after the last day of classes.\n\n\nAttendance policy\nEvery student is expected to attend and participate in lecture. There may be times, however, when you cannot attend class. Lecture recordings will be are available upon request for students who have an excused absence. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture.",
     "crumbs": [
       "Syllabus"
     ]
@@ -10863,21 +10863,21 @@
     "href": "slides/13-multiclass.html#multinomial-regression",
     "title": "Multiclass Classification",
     "section": "Multinomial regression",
-    "text": "Multinomial regression\nAssume an outcome \\(Y_i \\in \\{1,\\ldots,K\\}\\). You can imagine running \\(K\\) independent binary logistic regression models, in which one outcome is chosen as a “pivot” and then the other K − 1 outcomes are separately regressed against the pivot outcome. If outcome K (the last outcome) is chosen as the pivot, the K − 1 regression equations are:\n\\[\\log \\frac{P(Y_i = k)}{P(Y_i = K)} = \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots, K-1\\}\\]\n\nIt can be seen that:\n\n\\[P(Y_i = k) = \\frac{\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_k\\}}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_j\\}}, \\quad k \\in \\{1,\\ldots,K-1\\}.\\] and \\(P(Y_i = K) = 1 - \\sum_{j=1}^{K-1}P(Y_i = j)\\).\n\nThis is known as the additive log-ratio model."
+    "text": "Multinomial regression\n\nUnder this formulation,\n\n\\[P(Y_i = k) = P(Y_i = K) \\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_k\\}, \\quad k \\in \\{1,\\ldots,K-1\\}.\\]\n\nThen it follows that (since probabilities must sum to 1),\n\n\\[\\begin{aligned}\nP(Y_i = K) &= 1 - \\sum_{j=1}^{K-1} P(Y_i = j)\\\\\n&= 1 - \\sum_{j=1}^{K-1} P(Y_i = K)\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_j\\}.\\\\\n\\implies P(Y_i = K) &= \\frac{1}{1 + \\sum_{j=1}^{K-1}\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_j\\}}.\n\\end{aligned}\\]\n\nThe individual probabilities are given by, \\[P(Y_i = k) = \\frac{\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_k\\}}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_j\\}}, \\quad k \\in \\{1,\\ldots,K-1\\}.\\]"
   },
   {
     "objectID": "slides/13-multiclass.html#multinomial-regression-1",
     "href": "slides/13-multiclass.html#multinomial-regression-1",
     "title": "Multiclass Classification",
     "section": "Multinomial regression",
-    "text": "Multinomial regression\nLet \\(Y_i \\in \\{1,\\ldots,K\\}\\) be an ordinal outcome with \\(K\\) categories. Then \\(P(Y \\leq k)\\) is the cumulative probability of \\(Y\\) less than or equal to a specific category \\(k=1,\\ldots,K-1\\). The odds of being less than or equal a particular category can be defined as, \\[\\frac{P(Y\\leq k)}{P(Y &gt; k)}\\] for \\(k=1,\\ldots,K-1\\), since \\(P(Y &gt; K) = 0\\) and dividing by zero is undefined. The log odds is also known as the logit, so that \\[\\log \\frac{P(Y\\leq k)}{P(Y &gt; k)} = \\text{logit}P(Y\\leq k) = \\alpha_k + \\mathbf{x}_i \\boldsymbol{\\beta}\\]\n\nProportional odds regression."
+    "text": "Multinomial regression\n\nUnder this formulation,\n\n\\[P(Y_i = k) = P(Y_i = K) \\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_k\\}, \\quad k \\in \\{1,\\ldots,K-1\\}.\\]\n\nThen it follows that (since probabilities must sum to 1),\n\n\\[\\begin{aligned}\nP(Y_i = K) &= 1 - \\sum_{j=1}^{K-1} P(Y_i = j)\\\\\n&= 1 - \\sum_{j=1}^{K-1} P(Y_i = K)\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_j\\}.\\\\\n\\implies P(Y_i = K) &= \\frac{1}{1 + \\sum_{j=1}^{K-1}\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_j\\}}.\n\\end{aligned}\\]\n\nThe individual probabilities are given by, \\[P(Y_i = k) = \\frac{\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_k\\}}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_j\\}}, \\quad k \\in \\{1,\\ldots,K-1\\}.\\]"
   },
   {
     "objectID": "slides/13-multiclass.html#ordinal-regression-using-stan",
     "href": "slides/13-multiclass.html#ordinal-regression-using-stan",
     "title": "Multiclass Classification",
     "section": "Ordinal regression using Stan",
-    "text": "Ordinal regression using Stan\n\ndata {\n  int&lt;lower = 2&gt; K;\n  int&lt;lower = 0&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1, upper = K&gt; Y[n]\n  matrix[n, p] X;\n}\nparameters {\n  vector[p] beta;\n  ordered[K - 1] alpha;\n}\nmodel {\n  target += ordered_logistic_glm_lpmf(Y | X, beta, alpha);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(alpha | 0, 10);\n}"
+    "text": "Ordinal regression using Stan\n\n// ordinal.stan\ndata {\n  int&lt;lower = 2&gt; K;\n  int&lt;lower = 0&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1, upper = K&gt; Y[n];\n  matrix[n, p] X;\n}\nparameters {\n  vector[p] beta;\n  ordered[K - 1] alpha;\n}\nmodel {\n  target += ordered_logistic_glm_lpmf(Y | X, beta, alpha);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(alpha | 0, 10);\n}\n\nordered_logistic_glm_lpmf"
   },
   {
     "objectID": "slides/13-multiclass.html#prepare-for-next-class",
@@ -10885,5 +10885,208 @@
     "title": "Multiclass Classification",
     "section": "Prepare for next class",
     "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-regression-2",
+    "href": "slides/13-multiclass.html#multinomial-regression-2",
+    "title": "Multiclass Classification",
+    "section": "Multinomial regression",
+    "text": "Multinomial regression\nLet \\(Y_i \\in \\{1,\\ldots,K\\}\\) be an ordinal outcome with \\(K\\) categories. Then \\(P(Y \\leq k)\\) is the cumulative probability of \\(Y\\) less than or equal to a specific category \\(k=1,\\ldots,K-1\\). The odds of being less than or equal a particular category can be defined as, \\[\\frac{P(Y\\leq k)}{P(Y &gt; k)}\\] for \\(k=1,\\ldots,K-1\\), since \\(P(Y &gt; K) = 0\\) and dividing by zero is undefined. The log odds is also known as the logit, so that \\[\\log \\frac{P(Y\\leq k)}{P(Y &gt; k)} = \\text{logit}P(Y\\leq k) = \\alpha_k + \\mathbf{x}_i \\boldsymbol{\\beta}\\]\n\nProportional odds regression."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#ordinal-regression",
+    "href": "slides/13-multiclass.html#ordinal-regression",
+    "title": "Multiclass Classification",
+    "section": "Ordinal regression",
+    "text": "Ordinal regression\nLet \\(Y_i \\in \\{1,\\ldots,K\\}\\) be an ordinal outcome with \\(K\\) categories.\n\nThe likelihood in ordinal regression is identical to the one from multinomial regression,\n\n\\[f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\prod_{i=1}^n \\prod_{j=1}^K P(Y_i = j)^{\\delta_{ij}}.\\]\n\nWe need to add additional constraints that guarentee ordinality."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-likelihood",
+    "href": "slides/13-multiclass.html#multinomial-likelihood",
+    "title": "Multiclass Classification",
+    "section": "Multinomial likelihood",
+    "text": "Multinomial likelihood"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-regression-in-stan",
+    "href": "slides/13-multiclass.html#multinomial-regression-in-stan",
+    "title": "Multiclass Classification",
+    "section": "Multinomial regression in Stan",
+    "text": "Multinomial regression in Stan\n\nHard coding the likelihood.\n\n\n// additive_log_ratio.stan\nfunctions {\n  matrix compute_alr_probs(int n, int K, int p, matrix X, matrix beta) {\n    matrix[n, K] probs;\n    matrix[n, K - 1] expXbeta = exp(X * beta);\n    for (i in 1:n) {\n      real sum_i = sum(expXbeta[i, ]);\n      for (j in 1:K) {\n        if (j &lt; K) {\n          probs[i, j] = expXbeta[i, j] / (1 + sum_i);\n        }\n        if (j == K) probs[i, j] = 1 - sum(probs[i, 1:(K - 1)]);\n      }\n    }\n    return probs\n  }\n}\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n  matrix[n, K] delta;\n}\nparameters {\n  matrix[p, K - 1] beta;\n}\nmodel {\n  matrix[n, K] probs = compute_alr_probs(n, K, p, X, beta);\n  for (i in 1:n) {\n    for (j in 1:K) {\n      target += delta[i, j] * log(probs[i, j]);\n    }\n  }\n  target += normal_lpdf(to_vector(beta) | 0, 10);\n}"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-regression-in-stan-2",
+    "href": "slides/13-multiclass.html#multinomial-regression-in-stan-2",
+    "title": "Multiclass Classification",
+    "section": "Multinomial regression in Stan",
+    "text": "Multinomial regression in Stan\n\nZero identifiability constraint.\n\n\n// multi_logit.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[p] zeros = rep_vector(0, p);\n}\nparameters {\n  matrix[p, K - 1] beta_raw;\n}\ntransformed parameters {\n  matrix[p, K] beta = append_col(beta_raw, zeros);\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    Y[i] ~ categorical_logit(Xbeta[i]');\n  }\n  to_vector(beta) ~ normal(0, 10);\n}"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#m",
+    "href": "slides/13-multiclass.html#m",
+    "title": "Multiclass Classification",
+    "section": "M",
+    "text": "M\n\nThe most common form of multinomial regression is motivated through \\(K - 1\\) independent binary logistic regression models, where one outcome is chosen as the reference.\nIf outcome \\(K\\) is chosen as reference, the \\(K − 1\\) regression equations are:\n\n\\[\\log \\frac{P(Y_i = k)}{P(Y_i = K)} = \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots, K-1\\}\\]\n\nThis formulation is called additive log ratio."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#a",
+    "href": "slides/13-multiclass.html#a",
+    "title": "Multiclass Classification",
+    "section": "a",
+    "text": "a\n\nThe log-likelihood can be written as,\n\n\\[\\log f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\sum_{i=1}^n \\sum_{j=1}^K \\delta_{ij} \\log P(Y_i = j).\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-random-variable",
+    "href": "slides/13-multiclass.html#multinomial-random-variable",
+    "title": "Multiclass Classification",
+    "section": "Multinomial random variable",
+    "text": "Multinomial random variable\n\nAssume an outcome \\(Y_i \\in \\{1,\\ldots,K\\}\\) for \\(i = 1,\\ldots,n\\).\nThe likelihood in multinomial regression can be written as the following categorical likelihood,\n\n\\[f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\prod_{i=1}^n \\prod_{j=1}^K P(Y_i = j)^{\\delta_{ij}},\\]\n\n\\(\\delta_{ij} = 1(Y_i = j)\\) is the Kronecker delta.\nSince \\(Y_i\\) is discrete, we only need to specify \\(P(Y_i = j)\\) for all \\(i\\) and \\(j\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#log-linear-regression",
+    "href": "slides/13-multiclass.html#log-linear-regression",
+    "title": "Multiclass Classification",
+    "section": "Log-linear regression",
+    "text": "Log-linear regression\n\nOne way to motivate multinomial regression is through a log-linear specification:\n\n\\[\\log P(Y_i = j) = \\mathbf{x}_i\\boldsymbol{\\beta}_j - \\log Z.\\]\n\n\\(\\boldsymbol{\\beta}_j\\) is a \\(j\\) specific set of regression parameters.\n\\(P(Y_i = j) = \\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}/Z\\).\n\\(Z\\) is a normalizing constant that guarentees that \\(\\sum_{j=1}^K P(Y_i = j) = 1\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#adsf",
+    "href": "slides/13-multiclass.html#adsf",
+    "title": "Multiclass Classification",
+    "section": "adsf",
+    "text": "adsf\n\nThe log-likelihood can be written as,\n\n\\[\\log f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\sum_{i=1}^n \\sum_{j=1}^K \\delta_{ij} \\log P(Y_i = j).\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#finding-the-normalizing-constant",
+    "href": "slides/13-multiclass.html#finding-the-normalizing-constant",
+    "title": "Multiclass Classification",
+    "section": "Finding the normalizing constant",
+    "text": "Finding the normalizing constant\n\nWe know that,\n\n\\[\\begin{aligned}\n1 &= \\sum_{j=1}^K P(Y_i = j) = \\frac{1}{Z}\\sum_{j=1}^K \\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}\\\\\n&\\implies Z = \\sum_{j=1}^K \\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-probabilities",
+    "href": "slides/13-multiclass.html#multinomial-probabilities",
+    "title": "Multiclass Classification",
+    "section": "Multinomial probabilities",
+    "text": "Multinomial probabilities\n\nThus, we have the following,\n\n\\[P(Y_i = k) = \\frac{\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}}{\\sum_{j = 1}^K\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}.\\]\n\nThis function is called the softmax function.\nUnfortunately, this specification is not identifiable."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#identifiability-issue",
+    "href": "slides/13-multiclass.html#identifiability-issue",
+    "title": "Multiclass Classification",
+    "section": "Identifiability issue",
+    "text": "Identifiability issue\n\nWe can add a vector \\(\\mathbf{c}\\) to all parameters and get the same result,\n\n\\[\\begin{aligned}\n\\frac{\\exp\\{\\mathbf{x}_i(\\boldsymbol{\\beta}_k + \\mathbf{c})\\}}{\\sum_{j = 1}^K\\exp\\{\\mathbf{x}_i(\\boldsymbol{\\beta}_j + \\mathbf{c})\\}} &= \\frac{\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}}{\\sum_{j = 1}^K\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}.\n\\end{aligned}\\]\n\nA common solution is to set: \\(\\boldsymbol{\\beta}_K = \\mathbf{0}\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#updating-the-probabilities",
+    "href": "slides/13-multiclass.html#updating-the-probabilities",
+    "title": "Multiclass Classification",
+    "section": "Updating the probabilities",
+    "text": "Updating the probabilities\n\nUsing the identifiability constraint of \\(\\boldsymbol{\\beta}_K = \\mathbf{0}\\), the probabilities become, \\[\\begin{aligned}\nP(Y_i = k) &= \\frac{\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}, \\quad k \\in \\{1,\\ldots,K-1\\},\\\\\nP(Y_i = K) &= \\frac{1}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}.\n\\end{aligned}\\]\nHow to interpret the \\(\\boldsymbol{\\beta}_k\\)?"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#deriving-the-log-additive-ratio-model",
+    "href": "slides/13-multiclass.html#deriving-the-log-additive-ratio-model",
+    "title": "Multiclass Classification",
+    "section": "Deriving the log-additive ratio model",
+    "text": "Deriving the log-additive ratio model\n\nUsing our specification of the probabilities, it can be seen that,\n\n\\[\\begin{aligned}\nP(Y_i = k) &= \\frac{\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}\\\\\n&= \\left[\\frac{1}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}\\right]\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}\\\\\n&= P(Y_i = K) \\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_k\\}.\n\\end{aligned}\\]\n\\(\\implies \\log \\frac{P(Y_i = k)}{P(Y_i = K)} = \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots,K-1\\}\\)"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#deriving-the-additive-log-ratio-model",
+    "href": "slides/13-multiclass.html#deriving-the-additive-log-ratio-model",
+    "title": "Multiclass Classification",
+    "section": "Deriving the additive log ratio model",
+    "text": "Deriving the additive log ratio model\n\nUsing our specification of the probabilities, it can be seen that,\n\n\\[\\begin{aligned}\nP(Y_i = k) &= \\frac{\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}\\\\\n&= \\left[\\frac{1}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}\\right]\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}\\\\\n&= P(Y_i = K) \\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_k\\}.\n\\end{aligned}\\]\n\\(\\implies \\log \\frac{P(Y_i = k)}{P(Y_i = K)} = \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots,K-1\\}\\)"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#additive-log-ratio-model",
+    "href": "slides/13-multiclass.html#additive-log-ratio-model",
+    "title": "Multiclass Classification",
+    "section": "Additive log ratio model",
+    "text": "Additive log ratio model\n\nIf outcome \\(K\\) is chosen as reference, the \\(K − 1\\) regression equations are:\n\n\\[\\log \\frac{P(Y_i = k)}{P(Y_i = K)} = \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots, K-1\\}\\]\n\nThis formulation is called additive log ratio.\n\\(\\boldsymbol{\\beta}_k\\) has a nice interpretation as a relative risk."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#getting-back-to-the-likelihood",
+    "href": "slides/13-multiclass.html#getting-back-to-the-likelihood",
+    "title": "Multiclass Classification",
+    "section": "Getting back to the likelihood",
+    "text": "Getting back to the likelihood\n\nThe log-likelihood can be written as,\n\n\\[\\log f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\sum_{i=1}^n \\sum_{j=1}^K \\delta_{ij} \\log P(Y_i = j).\\]\n\nThe \\(P(Y_i = j)\\) are given by the additive log ratio model.\nAs Bayesians, we only need to specify priors for \\(\\boldsymbol{\\beta}_k, k \\in \\{1,\\ldots,K-1\\}\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-regression-in-stan-1",
+    "href": "slides/13-multiclass.html#multinomial-regression-in-stan-1",
+    "title": "Multiclass Classification",
+    "section": "Multinomial regression in Stan",
+    "text": "Multinomial regression in Stan\n\nNon-identifiable version.\n\n\n// multi_logit_bad.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\nparameters {\n  matrix[p, K] beta;\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    Y[i] ~ categorical_logit(Xbeta[i]');\n  }\n  to_vector(beta) ~ normal(0, 10);\n}\n\ncategorical_logit"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multiclass-regression",
+    "href": "slides/13-multiclass.html#multiclass-regression",
+    "title": "Multiclass Classification",
+    "section": "Multiclass regression",
+    "text": "Multiclass regression\n\nOften times one encounters an outcome variable that is nominal and has more than two categories.\nIf there is no inherent rank or order to the variable, we can use multinomial regression. Examples include:\n\ngender (male, female, non-binary),\nblood type (A, B, AB, O).\n\nIf there is an order to the variable, we can use ordinal regression. Examples include:\n\nstages of cancer (stage I, II, III, IV),\npain level (mild, moderate, severe)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#ordinal-regression-1",
+    "href": "slides/13-multiclass.html#ordinal-regression-1",
+    "title": "Multiclass Classification",
+    "section": "Ordinal regression",
+    "text": "Ordinal regression\nThe log odds is also known as the logit, so that \\[\\log \\frac{P(Y\\leq k)}{P(Y &gt; k)} = \\text{logit}P(Y\\leq k) = \\alpha_k + \\mathbf{x}_i \\boldsymbol{\\beta}\\]\n\nProportional odds regression."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#proportional-odds-assumption",
+    "href": "slides/13-multiclass.html#proportional-odds-assumption",
+    "title": "Multiclass Classification",
+    "section": "Proportional odds assumption",
+    "text": "Proportional odds assumption\n\n\\(P(Y_i \\leq k)\\) is the cumulative probability of \\(Y_i\\) less than or equal to a specific category \\(k=1,\\ldots,K-1\\).\nThe odds of being less than or equal to a particular category can be defined as, \\[\\frac{P(Y\\leq k)}{P(Y &gt; k)} \\text { for } k=1,\\ldots,K-1.\\]\nNot defined for \\(k = K\\), since division by zero is not defined."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#proportional-odds-assumption-1",
+    "href": "slides/13-multiclass.html#proportional-odds-assumption-1",
+    "title": "Multiclass Classification",
+    "section": "Proportional odds assumption",
+    "text": "Proportional odds assumption\nThe log odds can then be modeled as follows, \\[\\log \\frac{P(Y\\leq k)}{P(Y &gt; k)} = \\text{logit}P(Y\\leq k) = \\alpha_k + \\mathbf{x}_i \\boldsymbol{\\beta}\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#proportional-odds-regression",
+    "href": "slides/13-multiclass.html#proportional-odds-regression",
+    "title": "Multiclass Classification",
+    "section": "Proportional odds regression",
+    "text": "Proportional odds regression\nThe log odds can then be modeled as follows, \\[\\log \\frac{P(Y_i\\leq k)}{P(Y_i &gt; k)} = \\text{logit}P(Y_i\\leq k) = \\alpha_k - \\mathbf{x}_i \\boldsymbol{\\beta}\\]\n\nWhy \\(-\\boldsymbol{\\beta}\\)?\n\\(\\boldsymbol{\\beta}\\) is a common regression parameter. For a one-unit increase in \\(x_{ij}\\), \\(\\beta_j\\) is the change in log odds of moving to a more severe level of the outcome \\(Y_i\\).\n\\(\\alpha_k\\) for \\(k = 1,\\ldots,K-1\\) are \\(k\\)-specific intercepts that corresponds to the log odds of moving from level \\(k\\) to \\(k+1\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#a-latent-variable-representation",
+    "href": "slides/13-multiclass.html#a-latent-variable-representation",
+    "title": "Multiclass Classification",
+    "section": "A latent variable representation",
+    "text": "A latent variable representation\n\nDefine a latent variable,\n\n\\[Y_i^* = \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\sim \\text{Logistic}(0, 1).\\]\n\n\\(\\mathbb{E}[\\epsilon_i] = 0\\).\n\\(\\mathbb{V}(\\epsilon_i) = \\pi^2/3\\).\nCDF: \\(P(\\epsilon_i \\leq x) = \\frac{1}{1 + \\exp\\{-x\\}} = \\frac{\\exp\\{x\\}}{1 + \\exp\\{x\\}} = \\text{expit}(x).\\)"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#a-latent-variable-representation-1",
+    "href": "slides/13-multiclass.html#a-latent-variable-representation-1",
+    "title": "Multiclass Classification",
+    "section": "A latent variable representation",
+    "text": "A latent variable representation\n\nDefine a set of \\(K-1\\) cut-points, \\((c_1,\\ldots,c_{K-1}) \\in \\mathbb{R}^{K-1}\\). We also define \\(c_0 = -\\infty, c_K = \\infty\\).\nOur ordinal random variable can be generated as,\n\n\\[Y_i = \\left\\{\n\\begin{matrix*}[l]\n1 & c_0 &lt; Y_i^* \\leq c_1\\\\\n2 & c_1 &lt; Y_i^* \\leq c_2\\\\\n\\vdots & \\\\\nK & c_{K-1} &lt; Y_i^* \\leq c_K\\\\\n\\end{matrix*}\n\\right.\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#induced-pmf-on-y_i",
+    "href": "slides/13-multiclass.html#induced-pmf-on-y_i",
+    "title": "Multiclass Classification",
+    "section": "Induced pmf on \\(Y_i\\)",
+    "text": "Induced pmf on \\(Y_i\\)\n\\[\\begin{aligned}\nP(Y_i = k) &= P(c_{k-1} &lt; Y_i^* \\leq c_k)\\\\\n&= P(c_{k-1} &lt; \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i \\leq c_k)\\\\\n&= P(\\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i \\leq c_k) - P(\\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i &lt; c_{k-1})\\\\\n&= P(\\epsilon_i \\leq c_k - \\mathbf{x}_i \\boldsymbol{\\beta}) - P(\\epsilon_i &lt; c_{k-1} - \\mathbf{x}_i \\boldsymbol{\\beta})\\\\\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#understanding-the-probabilities",
+    "href": "slides/13-multiclass.html#understanding-the-probabilities",
+    "title": "Multiclass Classification",
+    "section": "Understanding the probabilities",
+    "text": "Understanding the probabilities\n\nOne can solve for \\(P(Y_i \\leq k), \\quad k = 1,\\ldots,K-1\\)),\n\n\\[P(Y_i \\leq k) = \\frac{\\exp\\{\\alpha_k - \\mathbf{x}_i\\boldsymbol{\\beta}\\}}{1 + \\exp\\{\\alpha_k - \\mathbf{x}_i\\boldsymbol{\\beta}\\}} = \\text{expit}(\\alpha_k - \\mathbf{x}_i\\boldsymbol{\\beta}).\\]\n\n\\(P(Y_i \\leq K) = 1\\).\n\nThe individual probabilities are then given by,\n\\[\\begin{aligned}\nP(Y_i = k) &= P(Y_i \\leq k) - P(Y_i \\leq k-1)\\\\\n&= \\text{expit}(\\alpha_k - \\mathbf{x}_i\\boldsymbol{\\beta}) - \\text{expit}(\\alpha_{k-1} - \\mathbf{x}_i\\boldsymbol{\\beta}).\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#equivalence-of-the-two-specifications",
+    "href": "slides/13-multiclass.html#equivalence-of-the-two-specifications",
+    "title": "Multiclass Classification",
+    "section": "Equivalence of the two specifications",
+    "text": "Equivalence of the two specifications\n\nProbabilities under the latent specification: \\[\\begin{aligned}\nP(Y_i = k) &= P(c_{k-1} &lt; Y_i^* \\leq c_k)\\\\\n&= P(c_{k-1} &lt; \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i \\leq c_k)\\\\\n&= P(\\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i \\leq c_k) - P(\\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i &lt; c_{k-1})\\\\\n&= P(\\epsilon_i \\leq c_k - \\mathbf{x}_i \\boldsymbol{\\beta}) - P(\\epsilon_i &lt; c_{k-1} - \\mathbf{x}_i \\boldsymbol{\\beta})\\\\\n&= \\text{expit}(c_k - \\mathbf{x}_i\\boldsymbol{\\beta}) - \\text{expit}(c_{k-1} - \\mathbf{x}_i\\boldsymbol{\\beta}).\n\\end{aligned}\\]\nEquivalency:\n\n\\(\\alpha_k = c_k, \\quad k = 1,\\ldots, K-1\\), assuming that \\(\\alpha_k &lt; \\alpha_{k+1}\\)."
   }
 ]

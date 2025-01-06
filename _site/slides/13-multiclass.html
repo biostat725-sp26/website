@@ -412,558 +412,335 @@ Prof.&nbsp;Sam Berchuck
 <li><p>Today, we will focus on multiclass classification: multinomial regression, ordinal regression.</p></li>
 </ul>
 </section>
-<section id="generalized-linear-models" class="slide level2">
-<h2>Generalized linear models</h2>
+<section id="multiclass-regression" class="slide level2">
+<h2>Multiclass regression</h2>
 <ul>
-<li>Previously, we have focused on linear regression. Other forms of regression follow naturally from linear regression.</li>
+<li><p>Often times one encounters an outcome variable that is nominal and has more than two categories.</p></li>
+<li><p>If there is no inherent rank or order to the variable, we can use multinomial regression. Examples include:</p>
+<ul>
+<li><p>gender (male, female, non-binary),</p></li>
+<li><p>blood type (A, B, AB, O).</p></li>
+</ul></li>
+<li><p>If there is an order to the variable, we can use ordinal regression. Examples include:</p>
+<ul>
+<li><p>stages of cancer (stage I, II, III, IV),</p></li>
+<li><p>pain level (mild, moderate, severe).</p></li>
+</ul></li>
 </ul>
 </section>
-<section id="models-for-binary-outcomes" class="slide level2">
-<h2>Models for binary outcomes</h2>
+<section id="multinomial-random-variable" class="slide level2">
+<h2>Multinomial random variable</h2>
 <ul>
-<li><p>Suppose we have a binary outcome (e.g., <span class="math inline">\(Y = 1\)</span> if a condition is satisfied and <span class="math inline">\(Y = 0\)</span> if not) and predictors on a variety of scales.</p></li>
-<li><p>If the predictors are discrete and the binary outcomes are independent, we can use the Bernoulli distribution for individual 0-1 data or the binomial distribution for grouped data that are counts of successes in each group.</p></li>
+<li><p>Assume an outcome <span class="math inline">\(Y_i \in \{1,\ldots,K\}\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>.</p></li>
+<li><p>The likelihood in multinomial regression can be written as the following categorical likelihood,</p></li>
+</ul>
+<p><span class="math display">\[f(\mathbf{Y} | \boldsymbol{\beta}) = \prod_{i=1}^n \prod_{j=1}^K P(Y_i = j)^{\delta_{ij}},\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\delta_{ij} = 1(Y_i = j)\)</span> is the Kronecker delta.</p></li>
+<li><p>Since <span class="math inline">\(Y_i\)</span> is discrete, we only need to specify <span class="math inline">\(P(Y_i = j)\)</span> for all <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>.</p></li>
 </ul>
 </section>
-<section id="models-for-binary-outcomes-1" class="slide level2">
-<h2>Models for binary outcomes</h2>
+<section id="log-linear-regression" class="slide level2">
+<h2>Log-linear regression</h2>
 <ul>
-<li><p>Let’s suppose we want to model <span class="math inline">\(P(Y = 1)\)</span>.</p></li>
-<li><p>One strategy might be to simply fit a linear regression model to the probabilities.</p></li>
-<li><p>For example,</p></li>
+<li>One way to motivate multinomial regression is through a log-linear specification:</li>
+</ul>
+<p><span class="math display">\[\log P(Y_i = j) = \mathbf{x}_i\boldsymbol{\beta}_j - \log Z.\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\boldsymbol{\beta}_j\)</span> is a <span class="math inline">\(j\)</span> specific set of regression parameters.</p></li>
+<li><p><span class="math inline">\(P(Y_i = j) = \exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}/Z\)</span>.</p></li>
+<li><p><span class="math inline">\(Z\)</span> is a normalizing constant that guarentees that <span class="math inline">\(\sum_{j=1}^K P(Y_i = j) = 1\)</span>.</p></li>
+</ul>
+</section>
+<section id="finding-the-normalizing-constant" class="slide level2">
+<h2>Finding the normalizing constant</h2>
+<ul>
+<li>We know that,</li>
 </ul>
 <p><span class="math display">\[\begin{aligned}
-P(Y_i = 1) &amp;= \alpha + \beta_1x_{i1} + \cdots + \beta_px_{ip} + \epsilon_i\\
-&amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta}.
+1 &amp;= \sum_{j=1}^K P(Y_i = j) = \frac{1}{Z}\sum_{j=1}^K \exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}\\
+&amp;\implies Z = \sum_{j=1}^K \exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}
 \end{aligned}\]</span></p>
 </section>
-<section id="primary-biliary-cirrhosis" class="slide level2">
-<h2>Primary biliary cirrhosis</h2>
+<section id="multinomial-probabilities" class="slide level2">
+<h2>Multinomial probabilities</h2>
 <ul>
-<li><p>The Mayo Clinic conducted a trial for primary biliary cirrhosis, comparing the drug D-penicillamine vs.&nbsp;placebo. Patients were followed for a specified duration, and their status at the end of follow-up (whether they died) was recorded.</p></li>
-<li><p>Researchers are interested in predicting whether a patient died based on the following variables:</p>
+<li>Thus, we have the following,</li>
+</ul>
+<p><span class="math display">\[P(Y_i = k) = \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{\sum_{j = 1}^K\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.\]</span></p>
 <ul>
-<li><p>ascites: whether the patient had ascites (1 = yes, 0 = no)</p></li>
-<li><p>bilirubin: serum bilirubin in mg/dL</p></li>
-<li><p>stage: histologic stage of disease (ordinal categorical variable with stages 1, 2, 3, and 4)</p></li>
-</ul></li>
+<li><p>This function is called the <strong>softmax</strong> function.</p></li>
+<li><p>Unfortunately, this specification is not identifiable.</p></li>
 </ul>
 </section>
-<section id="what-can-go-wrong" class="slide level2">
-<h2>What can go wrong?</h2>
+<section id="identifiability-issue" class="slide level2">
+<h2>Identifiability issue</h2>
 <ul>
-<li>Suppose we fit the following model:</li>
+<li>We can add a vector <span class="math inline">\(\mathbf{c}\)</span> to all parameters and get the same result,</li>
 </ul>
 <p><span class="math display">\[\begin{aligned}
-P(Y_i = 1) &amp;= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
-&amp;\quad+\beta_3(stage = 2)_i + \beta_4(stage = 3)_i\\
-&amp;\quad+\beta_5(stage = 4)_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)
+\frac{\exp\{\mathbf{x}_i(\boldsymbol{\beta}_k + \mathbf{c})\}}{\sum_{j = 1}^K\exp\{\mathbf{x}_i(\boldsymbol{\beta}_j + \mathbf{c})\}} &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{\sum_{j = 1}^K\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.
 \end{aligned}\]</span></p>
-<div class="fragment">
-<p><strong>What can go wrong?</strong></p>
-</div>
-</section>
-<section id="what-can-go-wrong-1" class="slide level2">
-<h2>What can go wrong?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/11/resid.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="resid"></p>
-</figure>
-</div>
-</section>
-<section id="what-can-go-wrong-2" class="slide level2">
-<h2>What can go wrong?</h2>
 <ul>
-<li>Additionally, as a probability, <span class="math inline">\(P(Y_i = 1)\)</span> must be in the interval [0, 1], but there is nothing in the model that enforces this constraint, so that you could be estimating probabilities that are negative or that are greater than 1!</li>
+<li>A common solution is to set: <span class="math inline">\(\boldsymbol{\beta}_K = \mathbf{0}\)</span>.</li>
 </ul>
 </section>
-<section id="from-probabilities-to-log-odds" class="slide level2">
-<h2>From probabilities to log-odds</h2>
+<section id="updating-the-probabilities" class="slide level2">
+<h2>Updating the probabilities</h2>
 <ul>
-<li><p>Suppose the <strong>probability</strong> of an event is <span class="math inline">\(\pi\)</span>.</p></li>
-<li><p>Then the <strong>odds</strong> that the event occurs is <span class="math inline">\(\frac{\pi}{1 - \pi}\)</span>.</p></li>
-<li><p>Taking the (natural) log of the odds, we have the <strong>logit</strong> of <span class="math inline">\(\pi\)</span>: the <strong>log-odds</strong>:</p></li>
-</ul>
-<p><span class="math display">\[\text{logit}(\pi) = \log\left(\frac{\pi}{1-\pi}\right).\]</span></p>
-<ul>
-<li>Note that although <span class="math inline">\(\pi\)</span> is constrained to lie between 0 and 1, the logit of <span class="math inline">\(\pi\)</span> is unconstrained - it can be anything from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\infty\)</span>.</li>
+<li><p>Using the identifiability constraint of <span class="math inline">\(\boldsymbol{\beta}_K = \mathbf{0}\)</span>, the probabilities become, <span class="math display">\[\begin{aligned}
+P(Y_i = k) &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\},\\
+P(Y_i = K) &amp;= \frac{1}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.
+\end{aligned}\]</span></p></li>
+<li><p>How to interpret the <span class="math inline">\(\boldsymbol{\beta}_k\)</span>?</p></li>
 </ul>
 </section>
-<section id="logistic-regression-model" class="slide level2">
-<h2>Logistic regression model</h2>
+<section id="deriving-the-additive-log-ratio-model" class="slide level2">
+<h2>Deriving the additive log ratio model</h2>
 <ul>
-<li><p>Let’s create a model for the logit of <span class="math inline">\(\pi\)</span>: <span class="math inline">\(\text{logit}(\pi_i)= \alpha + \mathbf{x}_i \boldsymbol{\beta}.\)</span></p></li>
-<li><p>This is a linear model for a transformation of the outcome of interest, and is also equivalent to,</p></li>
+<li>Using our specification of the probabilities, it can be seen that,</li>
 </ul>
-<p><span class="math display">\[\pi_i = \frac{\exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})}{1 + \exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})} = \text{expit}(\alpha + \mathbf{x}_i \boldsymbol{\beta}).\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+P(Y_i = k) &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}\\
+&amp;= \left[\frac{1}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}\right]\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}\\
+&amp;= P(Y_i = K) \exp\{\mathbf{x}_i \boldsymbol{\beta}_k\}.
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(\implies \log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots,K-1\}\)</span></p>
+</section>
+<section id="additive-log-ratio-model" class="slide level2">
+<h2>Additive log ratio model</h2>
 <ul>
-<li>The expression on the right is called a <strong>logistic function</strong> and cannot yield a value that is negative or a value that is &gt;1. Fitting a model of this form is known as <strong>logistic regression</strong>.</li>
+<li>If outcome <span class="math inline">\(K\)</span> is chosen as reference, the <span class="math inline">\(K − 1\)</span> regression equations are:</li>
 </ul>
-</section>
-<section id="logistic-regression" class="slide level2">
-<h2>Logistic regression</h2>
-<p><span class="math display">\[\text{logit}(\pi_i) = \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\]</span></p>
-<ul>
-<li>Negative logits represent probabilities less than one-half, and positive logits represent probabilities above one-half.</li>
-</ul>
-</section>
-<section id="interpreting-parameters-in-logistic-regression" class="slide level2">
-<h2>Interpreting parameters in logistic regression</h2>
-<ul>
-<li>Typically we interpret functions of parameters in logistic regression rather than the parameters themselves.</li>
-</ul>
-<p>For the simple model: <span class="math inline">\(\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \beta x_{i},\)</span> we note that the probability that <span class="math inline">\(Y_i = 1\)</span> when <span class="math inline">\(X_i = 0\)</span> is</p>
-<p><span class="math display">\[P(Y_i = 1 | X_{i} = 0) = \frac{\exp(\alpha)}{1 + \exp(\alpha)}.\]</span></p>
-</section>
-<section id="interpreting-parameters-in-logistic-regression-1" class="slide level2">
-<h2>Interpreting parameters in logistic regression</h2>
-<ul>
-<li><p>Suppose that <span class="math inline">\(X\)</span> is a binary (0/1) variable (e.g., <span class="math inline">\(X\)</span> = 1 for males and 0 for non-males).</p>
-<ul>
-<li><p>In this case, we interpret <span class="math inline">\(\exp(\beta)\)</span> as the <strong>odds ratio</strong> (OR) of the response for the two possible levels of <span class="math inline">\(X\)</span>.</p></li>
-<li><p>For <span class="math inline">\(X\)</span> on other scales, <span class="math inline">\(\exp(\beta)\)</span> is interpreted as the odds ratio of the response comparing two values of <span class="math inline">\(X\)</span> one unit apart.</p></li>
-</ul></li>
-<li><p>Why?</p></li>
-</ul>
-</section>
-<section id="interpreting-parameters-in-logistic-regression-2" class="slide level2">
-<h2>Interpreting parameters in logistic regression</h2>
-<ul>
-<li><p>The log odds of response for <span class="math inline">\(X = 1\)</span> is given by <span class="math inline">\(\alpha + \beta\)</span>, and the log odds of response for <span class="math inline">\(X = 0\)</span> is <span class="math inline">\(\alpha\)</span>.</p></li>
-<li><p>So the odds ratio of response comparing <span class="math inline">\(X = 1\)</span> to <span class="math inline">\(X = 0\)</span> is given by <span class="math inline">\(\frac{\exp(\alpha + \beta)}{\exp(\alpha)} = \exp(\beta)\)</span>.</p></li>
-<li><p>In a <em>multivariable logistic regression</em> model with more than one predictor, this OR is interpreted conditionally on values of other variables (i.e., controlling for them).</p></li>
-</ul>
-</section>
-<section id="bayesian-logistic-regression" class="slide level2">
-<h2>Bayesian logistic regression</h2>
-<ul>
-<li><p>We start with observations <span class="math inline">\(Y_i \in \{0,1\}\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>, where <span class="math inline">\(Y_i \stackrel{ind}{\sim} \text{Bernoulli}(\pi_i)\)</span>, <span class="math inline">\(\pi_i = P(Y_i = 1)\)</span>.</p></li>
-<li><p>The log-odds are modeled as <span class="math inline">\(\text{logit}(\pi_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>.</p></li>
-<li><p>To complete the Bayesian model specification, we must place priors on <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p>
-<ul>
-<li>All priors we have discussed up-to-this point apply!</li>
-</ul></li>
-<li><p>Historically, this was a difficult model to fit, but can be easily implemented in Stan.</p></li>
-</ul>
-</section>
-<section id="logistic-regression-in-stan" class="slide level2">
-<h2>Logistic regression in Stan</h2>
-<div class="cell" data-output.var="log_reg">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a></a><span class="co">// Saved in logistic_regression.stan</span></span>
-<span id="cb1-2"><a></a><span class="kw">data</span> {</span>
-<span id="cb1-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
-<span id="cb1-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
-<span id="cb1-5"><a></a>  <span class="dt">int</span> Y[n];</span>
-<span id="cb1-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
-<span id="cb1-7"><a></a>}</span>
-<span id="cb1-8"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb1-9"><a></a>  <span class="dt">real</span> alpha;</span>
-<span id="cb1-10"><a></a>  <span class="dt">vector</span>[p] beta;</span>
-<span id="cb1-11"><a></a>}</span>
-<span id="cb1-12"><a></a><span class="kw">model</span> {</span>
-<span id="cb1-13"><a></a>  <span class="kw">target +=</span> bernoulli_logit_lpmf(Y | alpha + X * beta);</span>
-<span id="cb1-14"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb1-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb1-16"><a></a>}</span>
-<span id="cb1-17"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb1-18"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
-<span id="cb1-19"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
-<span id="cb1-20"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb1-21"><a></a>    in_sample[i] = bernoulli_logit_rng(alpha + height_c[i] * beta);</span>
-<span id="cb1-22"><a></a>    log_lik[i] = bernoulli_logit_lmpf(Y[i] | alpha + X[i, ] * beta);</span>
-<span id="cb1-23"><a></a>  }</span>
-<span id="cb1-24"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="primary-biliary-cirrhosis-1" class="slide level2">
-<h2>Primary biliary cirrhosis</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">head</span>(pbc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  id trt      age sex ascites hepato spiders edema bili chol albumin copper
-1  1   1 58.76523   f       1      1       1   1.0 14.5  261    2.60    156
-2  2   1 56.44627   f       0      1       1   0.0  1.1  302    4.14     54
-3  3   1 70.07255   m       0      0       0   0.5  1.4  176    3.48    210
-4  4   1 54.74059   f       0      1       1   0.5  1.8  244    2.54     64
-5  5   2 38.10541   f       0      1       1   0.0  3.4  279    3.53    143
-6  7   2 55.53457   f       0      1       0   0.0  1.0  322    4.09     52
-  alk.phos    ast trig platelet protime stage outcome
-1   1718.0 137.95  172      190    12.2     4       1
-2   7394.8 113.52   88      221    10.6     3       0
-3    516.0  96.10   55      151    12.0     4       1
-4   6121.8  60.63   92      183    10.3     4       1
-5    671.0 113.15   72      136    10.9     3       1
-6    824.0  60.45  213      204     9.7     3       0</code></pre>
-</div>
-</div>
-</section>
-<section id="prepare-data-for-stan" class="slide level2">
-<h2>Prepare data for Stan</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="at">object =</span> <span class="sc">~</span> ascites <span class="sc">+</span> bili <span class="sc">+</span> <span class="fu">as.factor</span>(stage), <span class="at">data =</span> pbc)[, <span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb4-2"><a></a>Y <span class="ot">&lt;-</span> pbc<span class="sc">$</span>outcome</span>
-<span id="cb4-3"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="fu">nrow</span>(pbc),</span>
-<span id="cb4-4"><a></a>                  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
-<span id="cb4-5"><a></a>                  <span class="at">Y =</span> Y,</span>
-<span id="cb4-6"><a></a>                  <span class="at">X =</span> X)</span>
-<span id="cb4-7"><a></a><span class="fu">head</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  ascites bili as.factor(stage)2 as.factor(stage)3 as.factor(stage)4
-1       1 14.5                 0                 0                 1
-2       0  1.1                 0                 1                 0
-3       0  1.4                 0                 0                 1
-4       0  1.8                 0                 0                 1
-5       0  3.4                 0                 1                 0
-6       0  1.0                 0                 1                 0</code></pre>
-</div>
-</div>
-</section>
-<section id="logistic-regression-in-stan-1" class="slide level2">
-<h2>Logistic regression in Stan</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(rstan)</span>
-<span id="cb6-2"><a></a>compiled_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"logistic_regression.stan"</span>)</span>
-<span id="cb6-3"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">sampling</span>(compiled_model, <span class="at">data =</span> stan_data)</span>
-<span id="cb6-4"><a></a><span class="fu">print</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.5</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Inference for Stan model: anon_model.
-4 chains, each with iter=2000; warmup=1000; thin=1; 
-post-warmup draws per chain=1000, total post-warmup draws=4000.
-
-         mean se_mean   sd  2.5%   50% 97.5% n_eff Rhat
-alpha   -3.35    0.04 1.21 -6.13 -3.24 -1.41   791    1
-beta[1]  2.24    0.04 1.32  0.18  2.05  5.48  1252    1
-beta[2]  0.38    0.00 0.08  0.24  0.38  0.54  2005    1
-beta[3]  1.71    0.04 1.25 -0.34  1.59  4.55   783    1
-beta[4]  2.19    0.04 1.22  0.20  2.07  4.96   806    1
-beta[5]  2.61    0.04 1.23  0.59  2.48  5.46   798    1
-
-Samples were drawn using NUTS(diag_e) at Mon Dec 30 14:36:11 2024.
-For each parameter, n_eff is a crude measure of effective sample size,
-and Rhat is the potential scale reduction factor on split chains (at 
-convergence, Rhat=1).</code></pre>
-</div>
-</div>
-</section>
-<section id="convergence-diagnostics" class="slide level2">
-<h2>Convergence diagnostics</h2>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="convergence-diagnostics-1" class="slide level2">
-<h2>Convergence diagnostics</h2>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="back-to-the-pbc-data" class="slide level2">
-<h2>Back to the PBC data</h2>
-<ul>
-<li>Fitting a logistic regression model, we obtain</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">variable</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">sd</th>
-<th style="text-align: right;">2.5%</th>
-<th style="text-align: right;">97.5%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">alpha</td>
-<td style="text-align: left;">intercept</td>
-<td style="text-align: right;">-3.35</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">-6.13</td>
-<td style="text-align: right;">-1.41</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">beta[1]</td>
-<td style="text-align: left;">ascites</td>
-<td style="text-align: right;">2.24</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.18</td>
-<td style="text-align: right;">5.48</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">beta[2]</td>
-<td style="text-align: left;">bilirubin</td>
-<td style="text-align: right;">0.38</td>
-<td style="text-align: right;">0.00</td>
-<td style="text-align: right;">0.24</td>
-<td style="text-align: right;">0.54</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">beta[3]</td>
-<td style="text-align: left;">stage == 2</td>
-<td style="text-align: right;">1.71</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">-0.34</td>
-<td style="text-align: right;">4.55</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">beta[4]</td>
-<td style="text-align: left;">stage == 3</td>
-<td style="text-align: right;">2.19</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.20</td>
-<td style="text-align: right;">4.96</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">beta[5]</td>
-<td style="text-align: left;">stage == 4</td>
-<td style="text-align: right;">2.61</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.59</td>
-<td style="text-align: right;">5.46</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<ul>
-<li>How might we interpret these coefficients as odds ratios?</li>
-</ul>
-</section>
-<section id="back-to-the-pbc-data-1" class="slide level2 small">
-<h2>Back to the PBC data</h2>
-<ul>
-<li><p>Remember, we are interested in the probability that a patient died during follow-up (a “success”). We are predicting the log-odds of this event happening.</p>
-<ul>
-<li><p>The posterior mean for ascites was 2.24. Thus, the odds ratio for dying is <span class="math inline">\(\exp(2.24) \approx 9.4\)</span>. That is, patients with ascites have 9.4 times the odds of dying compared to patients that do not, holding all other variables constant.</p></li>
-<li><p>The posterior mean for bilirubin was 0.38. Thus, the odds ratio for dying for a patient with 1 additional mg/dL serum bilirubin compared to another is <span class="math inline">\(\exp(0.38) \approx 1.46\)</span>, holding all other variables constant.</p></li>
-<li><p>The baseline stage was 1. The posterior mean for stage 3 was 2.19. Thus, patients in stage 3 have approximately 8.93 times the odds of dying compared to patients that do not, holding all other variables constant.</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="predicted-probabilities" class="slide level2">
-<h2>Predicted probabilities</h2>
-<ul>
-<li><p>There is a one-to-one relationship between <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\text{logit}(\pi)\)</span>. So, if we predict <span class="math inline">\(\text{logit}(\pi)\)</span>, we can “back-transform” to get back to a predicted probability.</p></li>
-<li><p>For instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>x_i <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb8-2"><a></a>pars <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>))</span>
-<span id="cb8-3"><a></a>log_odds <span class="ot">&lt;-</span> pars<span class="sc">$</span>alpha <span class="sc">+</span> <span class="fu">as.numeric</span>(pars<span class="sc">$</span>beta <span class="sc">%*%</span> x_i)</span>
-<span id="cb8-4"><a></a>pi <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_odds) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(log_odds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="predicted-probabilities-1" class="slide level2">
-<h2>Predicted probabilities</h2>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<ul>
-<li>Posterior mean of the predicted probabilities is 0.56.</li>
-</ul>
-</section>
-<section id="posterior-predictive-checks" class="slide level2">
-<h2>Posterior predictive checks</h2>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>y_pred <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="st">"in_sample"</span>)<span class="sc">$</span>in_sample</span>
-<span id="cb9-2"><a></a><span class="fu">ppc_dens_overlay</span>(stan_data<span class="sc">$</span>Y, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="posterior-predictive-checks-1" class="slide level2">
-<h2>Posterior predictive checks</h2>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ppc_bars</span>(stan_data<span class="sc">$</span>Y, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="posterior-predictive-checks-2" class="slide level2">
-<h2>Posterior predictive checks</h2>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"mean"</span>) <span class="co"># from bayesplot</span></span>
-<span id="cb11-2"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"sd"</span>)</span>
-<span id="cb11-3"><a></a>q025 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.025</span>)</span>
-<span id="cb11-4"><a></a>q975 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.975</span>)</span>
-<span id="cb11-5"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q025"</span>)</span>
-<span id="cb11-6"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q975"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2" data-layout-align="center">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-16-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-16-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-16-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="model-comparison" class="slide level2">
-<h2>Model comparison</h2>
-<ul>
-<li>Comparing our model to a baseline that removed stage.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(loo)</span>
-<span id="cb12-2"><a></a>log_lik <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb12-3"><a></a>log_lik_baseline <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_baseline, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb12-4"><a></a>waic_model <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik)</span>
-<span id="cb12-5"><a></a>waic_model_baseline <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_baseline)</span>
-<span id="cb12-6"><a></a></span>
-<span id="cb12-7"><a></a><span class="do">###Make a comparison</span></span>
-<span id="cb12-8"><a></a>comp_waic <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo_compare</span>(<span class="fu">list</span>(<span class="st">"full"</span> <span class="ot">=</span> waic_model, <span class="st">"baseline"</span> <span class="ot">=</span> waic_model_baseline))</span>
-<span id="cb12-9"><a></a><span class="fu">print</span>(comp_waic, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic   
-full        0.00      0.00 -155.94      9.51         7.69    2.09    311.88
-baseline   -1.69      3.09 -157.63      9.36         4.86    1.98    315.25
-         se_waic
-full       19.01
-baseline   18.73</code></pre>
-</div>
-</div>
-</section>
-<section id="other-models-for-binary-data" class="slide level2">
-<h2>Other models for binary data</h2>
-<ul>
-<li>Other transformations (also called <em>link functions</em>) can be used to ensure the probabilities lie in [0, 1], including the Probit (popular in Bayesian statistics).</li>
-</ul>
-</section>
-<section id="steps-to-selecting-a-bayesian-glm" class="slide level2">
-<h2>Steps to selecting a Bayesian GLM</h2>
-<ol type="1">
-<li><p>Identify the support of the response distribution.</p></li>
-<li><p>Select the likelihood by picking a parametric family of distributions with this support.</p></li>
-<li><p>Choose a link function <span class="math inline">\(g\)</span> that transforms the range of parameters to the whole real line.</p></li>
-<li><p>Specify a linear model on the transformed parameters.</p></li>
-<li><p>Select priors for the regression coefficients.</p></li>
-</ol>
-</section>
-<section id="example-of-selecting-a-bayesian-glm" class="slide level2">
-<h2>Example of selecting a Bayesian GLM</h2>
-<ol type="1">
-<li><p>Support: <span class="math inline">\(Y_i \in \{0, 1, 2, \ldots\}\)</span>.</p></li>
-<li><p>Likelihood family: <span class="math inline">\(Y_i \stackrel{ind}{\sim} \text{Poisson}(\lambda_i)\)</span>.</p></li>
-<li><p>Link: <span class="math inline">\(g(\lambda_i) = \log(\lambda_i) \in (−\infty, \infty)\)</span>.</p></li>
-<li><p>Regression model: <span class="math inline">\(\log(\lambda_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>.</p></li>
-<li><p>Priors: <span class="math inline">\(\alpha, \beta_j \sim N(0, 10^2)\)</span>.</p></li>
-</ol>
-</section>
-<section id="multinomial-regression" class="slide level2 small">
-<h2>Multinomial regression</h2>
-<p>Assume an outcome <span class="math inline">\(Y_i \in \{1,\ldots,K\}\)</span>. You can imagine running <span class="math inline">\(K\)</span> independent binary logistic regression models, in which one outcome is chosen as a “pivot” and then the other K − 1 outcomes are separately regressed against the pivot outcome. If outcome K (the last outcome) is chosen as the pivot, the K − 1 regression equations are:</p>
 <p><span class="math display">\[\log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots, K-1\}\]</span></p>
 <ul>
-<li>It can be seen that:</li>
-</ul>
-<p><span class="math display">\[P(Y_i = k) = \frac{\exp\{\mathbf{x}_i \boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i \boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\}.\]</span> and <span class="math inline">\(P(Y_i = K) = 1 - \sum_{j=1}^{K-1}P(Y_i = j)\)</span>.</p>
-<ul>
-<li>This is known as the additive log-ratio model.</li>
+<li><p>This formulation is called <strong>additive log ratio</strong>.</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\beta}_k\)</span> has a nice interpretation as a <strong>relative risk</strong>.</p></li>
 </ul>
 </section>
-<section id="multinomial-regression-1" class="slide level2 small">
-<h2>Multinomial regression</h2>
-<p>Let <span class="math inline">\(Y_i \in \{1,\ldots,K\}\)</span> be an ordinal outcome with <span class="math inline">\(K\)</span> categories. Then <span class="math inline">\(P(Y \leq k)\)</span> is the cumulative probability of <span class="math inline">\(Y\)</span> less than or equal to a specific category <span class="math inline">\(k=1,\ldots,K-1\)</span>. The odds of being less than or equal a particular category can be defined as, <span class="math display">\[\frac{P(Y\leq k)}{P(Y &gt; k)}\]</span> for <span class="math inline">\(k=1,\ldots,K-1\)</span>, since <span class="math inline">\(P(Y &gt; K) = 0\)</span> and dividing by zero is undefined. The log odds is also known as the logit, so that <span class="math display">\[\log \frac{P(Y\leq k)}{P(Y &gt; k)} = \text{logit}P(Y\leq k) = \alpha_k + \mathbf{x}_i \boldsymbol{\beta}\]</span></p>
+<section id="getting-back-to-the-likelihood" class="slide level2">
+<h2>Getting back to the likelihood</h2>
 <ul>
-<li>Proportional odds regression.</li>
+<li>The log-likelihood can be written as,</li>
+</ul>
+<p><span class="math display">\[\log f(\mathbf{Y} | \boldsymbol{\beta}) = \sum_{i=1}^n \sum_{j=1}^K \delta_{ij} \log P(Y_i = j).\]</span></p>
+<ul>
+<li><p>The <span class="math inline">\(P(Y_i = j)\)</span> are given by the additive log ratio model.</p></li>
+<li><p>As Bayesians, we only need to specify priors for <span class="math inline">\(\boldsymbol{\beta}_k, k \in \{1,\ldots,K-1\}\)</span>.</p></li>
+</ul>
+</section>
+<section id="multinomial-regression-in-stan" class="slide level2">
+<h2>Multinomial regression in Stan</h2>
+<ul>
+<li>Hard coding the likelihood.</li>
+</ul>
+<div class="cell" data-output.var="alr">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a></a><span class="co">// additive_log_ratio.stan</span></span>
+<span id="cb1-2"><a></a><span class="kw">functions</span> {</span>
+<span id="cb1-3"><a></a>  <span class="dt">matrix</span> compute_alr_probs(<span class="dt">int</span> n, <span class="dt">int</span> K, <span class="dt">int</span> p, <span class="dt">matrix</span> X, <span class="dt">matrix</span> beta) {</span>
+<span id="cb1-4"><a></a>    <span class="dt">matrix</span>[n, K] probs;</span>
+<span id="cb1-5"><a></a>    <span class="dt">matrix</span>[n, K - <span class="dv">1</span>] expXbeta = exp(X * beta);</span>
+<span id="cb1-6"><a></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb1-7"><a></a>      <span class="dt">real</span> sum_i = sum(expXbeta[i, ]);</span>
+<span id="cb1-8"><a></a>      <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span>:K) {</span>
+<span id="cb1-9"><a></a>        <span class="cf">if</span> (j &lt; K) {</span>
+<span id="cb1-10"><a></a>          probs[i, j] = expXbeta[i, j] / (<span class="dv">1</span> + sum_i);</span>
+<span id="cb1-11"><a></a>        }</span>
+<span id="cb1-12"><a></a>        <span class="cf">if</span> (j == K) probs[i, j] = <span class="dv">1</span> - sum(probs[i, <span class="dv">1</span>:(K - <span class="dv">1</span>)]);</span>
+<span id="cb1-13"><a></a>      }</span>
+<span id="cb1-14"><a></a>    }</span>
+<span id="cb1-15"><a></a>    <span class="cf">return</span> probs</span>
+<span id="cb1-16"><a></a>  }</span>
+<span id="cb1-17"><a></a>}</span>
+<span id="cb1-18"><a></a><span class="kw">data</span> {</span>
+<span id="cb1-19"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; K;</span>
+<span id="cb1-20"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb1-21"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb1-22"><a></a>  <span class="dt">array</span>[n] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = K&gt; Y;</span>
+<span id="cb1-23"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb1-24"><a></a>  <span class="dt">matrix</span>[n, K] delta;</span>
+<span id="cb1-25"><a></a>}</span>
+<span id="cb1-26"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb1-27"><a></a>  <span class="dt">matrix</span>[p, K - <span class="dv">1</span>] beta;</span>
+<span id="cb1-28"><a></a>}</span>
+<span id="cb1-29"><a></a><span class="kw">model</span> {</span>
+<span id="cb1-30"><a></a>  <span class="dt">matrix</span>[n, K] probs = compute_alr_probs(n, K, p, X, beta);</span>
+<span id="cb1-31"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb1-32"><a></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span>:K) {</span>
+<span id="cb1-33"><a></a>      <span class="kw">target +=</span> delta[i, j] * log(probs[i, j]);</span>
+<span id="cb1-34"><a></a>    }</span>
+<span id="cb1-35"><a></a>  }</span>
+<span id="cb1-36"><a></a>  <span class="kw">target +=</span> normal_lpdf(to_vector(beta) | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb1-37"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="multinomial-regression-in-stan-1" class="slide level2">
+<h2>Multinomial regression in Stan</h2>
+<ul>
+<li>Non-identifiable version.</li>
+</ul>
+<div class="cell" data-output.var="multi_bad">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb2-1"><a></a><span class="co">// multi_logit_bad.stan</span></span>
+<span id="cb2-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb2-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; K;</span>
+<span id="cb2-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb2-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb2-6"><a></a>  <span class="dt">array</span>[n] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = K&gt; Y;</span>
+<span id="cb2-7"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb2-8"><a></a>}</span>
+<span id="cb2-9"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb2-10"><a></a>  <span class="dt">matrix</span>[p, K] beta;</span>
+<span id="cb2-11"><a></a>}</span>
+<span id="cb2-12"><a></a><span class="kw">model</span> {</span>
+<span id="cb2-13"><a></a>  <span class="dt">matrix</span>[n, K] Xbeta = X * beta;</span>
+<span id="cb2-14"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb2-15"><a></a>    Y[i] ~ categorical_logit(Xbeta[i]');</span>
+<span id="cb2-16"><a></a>  }</span>
+<span id="cb2-17"><a></a>  to_vector(beta) ~ normal(<span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb2-18"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="https://mc-stan.org/docs/functions-reference/bounded_discrete_distributions.html#categorical-logit-glm">categorical_logit</a></p>
+</section>
+<section id="multinomial-regression-in-stan-2" class="slide level2">
+<h2>Multinomial regression in Stan</h2>
+<ul>
+<li>Zero identifiability constraint.</li>
+</ul>
+<div class="cell" data-output.var="multi">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb3-1"><a></a><span class="co">// multi_logit.stan</span></span>
+<span id="cb3-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb3-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; K;</span>
+<span id="cb3-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb3-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb3-6"><a></a>  <span class="dt">array</span>[n] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = K&gt; Y;</span>
+<span id="cb3-7"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb3-8"><a></a>}</span>
+<span id="cb3-9"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb3-10"><a></a>  <span class="dt">vector</span>[p] zeros = rep_vector(<span class="dv">0</span>, p);</span>
+<span id="cb3-11"><a></a>}</span>
+<span id="cb3-12"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb3-13"><a></a>  <span class="dt">matrix</span>[p, K - <span class="dv">1</span>] beta_raw;</span>
+<span id="cb3-14"><a></a>}</span>
+<span id="cb3-15"><a></a><span class="kw">transformed parameters</span> {</span>
+<span id="cb3-16"><a></a>  <span class="dt">matrix</span>[p, K] beta = append_col(beta_raw, zeros);</span>
+<span id="cb3-17"><a></a>}</span>
+<span id="cb3-18"><a></a><span class="kw">model</span> {</span>
+<span id="cb3-19"><a></a>  <span class="dt">matrix</span>[n, K] Xbeta = X * beta;</span>
+<span id="cb3-20"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb3-21"><a></a>    Y[i] ~ categorical_logit(Xbeta[i]');</span>
+<span id="cb3-22"><a></a>  }</span>
+<span id="cb3-23"><a></a>  to_vector(beta) ~ normal(<span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb3-24"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ordinal-regression" class="slide level2">
+<h2>Ordinal regression</h2>
+<p>Let <span class="math inline">\(Y_i \in \{1,\ldots,K\}\)</span> be an ordinal outcome with <span class="math inline">\(K\)</span> categories.</p>
+<ul>
+<li>The likelihood in ordinal regression is identical to the one from multinomial regression,</li>
+</ul>
+<p><span class="math display">\[f(\mathbf{Y} | \boldsymbol{\beta}) = \prod_{i=1}^n \prod_{j=1}^K P(Y_i = j)^{\delta_{ij}}.\]</span></p>
+<ul>
+<li>We need to add additional constraints that guarentee ordinality.</li>
+</ul>
+</section>
+<section id="proportional-odds-assumption" class="slide level2">
+<h2>Proportional odds assumption</h2>
+<ul>
+<li><p><span class="math inline">\(P(Y_i \leq k)\)</span> is the cumulative probability of <span class="math inline">\(Y_i\)</span> less than or equal to a specific category <span class="math inline">\(k=1,\ldots,K-1\)</span>.</p></li>
+<li><p>The odds of being less than or equal to a particular category can be defined as, <span class="math display">\[\frac{P(Y\leq k)}{P(Y &gt; k)} \text { for } k=1,\ldots,K-1.\]</span></p></li>
+<li><p>Not defined for <span class="math inline">\(k = K\)</span>, since division by zero is not defined.</p></li>
+</ul>
+</section>
+<section id="proportional-odds-regression" class="slide level2">
+<h2>Proportional odds regression</h2>
+<p>The log odds can then be modeled as follows, <span class="math display">\[\log \frac{P(Y_i\leq k)}{P(Y_i &gt; k)} = \text{logit}P(Y_i\leq k) = \alpha_k - \mathbf{x}_i \boldsymbol{\beta}\]</span></p>
+<ul>
+<li><p>Why <span class="math inline">\(-\boldsymbol{\beta}\)</span>?</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\beta}\)</span> is a common regression parameter. For a one-unit increase in <span class="math inline">\(x_{ij}\)</span>, <span class="math inline">\(\beta_j\)</span> is the change in log odds of moving to a more severe level of the outcome <span class="math inline">\(Y_i\)</span>.</p></li>
+<li><p><span class="math inline">\(\alpha_k\)</span> for <span class="math inline">\(k = 1,\ldots,K-1\)</span> are <span class="math inline">\(k\)</span>-specific intercepts that corresponds to the log odds of moving from level <span class="math inline">\(k\)</span> to <span class="math inline">\(k+1\)</span>.</p></li>
+</ul>
+</section>
+<section id="understanding-the-probabilities" class="slide level2">
+<h2>Understanding the probabilities</h2>
+<ul>
+<li>One can solve for <span class="math inline">\(P(Y_i \leq k), \quad k = 1,\ldots,K-1\)</span>),</li>
+</ul>
+<p><span class="math display">\[P(Y_i \leq k) = \frac{\exp\{\alpha_k - \mathbf{x}_i\boldsymbol{\beta}\}}{1 + \exp\{\alpha_k - \mathbf{x}_i\boldsymbol{\beta}\}} = \text{expit}(\alpha_k - \mathbf{x}_i\boldsymbol{\beta}).\]</span></p>
+<ul>
+<li><span class="math inline">\(P(Y_i \leq K) = 1\)</span>.</li>
+</ul>
+<p>The individual probabilities are then given by,</p>
+<p><span class="math display">\[\begin{aligned}
+P(Y_i = k) &amp;= P(Y_i \leq k) - P(Y_i \leq k-1)\\
+&amp;= \text{expit}(\alpha_k - \mathbf{x}_i\boldsymbol{\beta}) - \text{expit}(\alpha_{k-1} - \mathbf{x}_i\boldsymbol{\beta}).
+\end{aligned}\]</span></p>
+</section>
+<section id="a-latent-variable-representation" class="slide level2">
+<h2>A latent variable representation</h2>
+<ul>
+<li>Define a latent variable,</li>
+</ul>
+<p><span class="math display">\[Y_i^* = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \sim \text{Logistic}(0, 1).\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{E}[\epsilon_i] = 0\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{V}(\epsilon_i) = \pi^2/3\)</span>.</p></li>
+<li><p>CDF: <span class="math inline">\(P(\epsilon_i \leq x) = \frac{1}{1 + \exp\{-x\}} = \frac{\exp\{x\}}{1 + \exp\{x\}} = \text{expit}(x).\)</span></p></li>
+</ul>
+</section>
+<section id="a-latent-variable-representation-1" class="slide level2">
+<h2>A latent variable representation</h2>
+<ul>
+<li><p>Define a set of <span class="math inline">\(K-1\)</span> cut-points, <span class="math inline">\((c_1,\ldots,c_{K-1}) \in \mathbb{R}^{K-1}\)</span>. We also define <span class="math inline">\(c_0 = -\infty, c_K = \infty\)</span>.</p></li>
+<li><p>Our ordinal random variable can be generated as,</p></li>
+</ul>
+<p><span class="math display">\[Y_i = \left\{
+\begin{matrix*}[l]
+1 &amp; c_0 &lt; Y_i^* \leq c_1\\
+2 &amp; c_1 &lt; Y_i^* \leq c_2\\
+\vdots &amp; \\
+K &amp; c_{K-1} &lt; Y_i^* \leq c_K\\
+\end{matrix*}
+\right.\]</span></p>
+</section>
+<section id="equivalence-of-the-two-specifications" class="slide level2">
+<h2>Equivalence of the two specifications</h2>
+<ul>
+<li><p>Probabilities under the latent specification: <span class="math display">\[\begin{aligned}
+P(Y_i = k) &amp;= P(c_{k-1} &lt; Y_i^* \leq c_k)\\
+&amp;= P(c_{k-1} &lt; \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i \leq c_k)\\
+&amp;= P(\mathbf{x}_i \boldsymbol{\beta} + \epsilon_i \leq c_k) - P(\mathbf{x}_i \boldsymbol{\beta} + \epsilon_i &lt; c_{k-1})\\
+&amp;= P(\epsilon_i \leq c_k - \mathbf{x}_i \boldsymbol{\beta}) - P(\epsilon_i &lt; c_{k-1} - \mathbf{x}_i \boldsymbol{\beta})\\
+&amp;= \text{expit}(c_k - \mathbf{x}_i\boldsymbol{\beta}) - \text{expit}(c_{k-1} - \mathbf{x}_i\boldsymbol{\beta}).
+\end{aligned}\]</span></p></li>
+<li><p>Equivalency:</p>
+<ul>
+<li><span class="math inline">\(\alpha_k = c_k, \quad k = 1,\ldots, K-1\)</span>, assuming that <span class="math inline">\(\alpha_k &lt; \alpha_{k+1}\)</span>.</li>
+</ul></li>
 </ul>
 </section>
 <section id="ordinal-regression-using-stan" class="slide level2">
 <h2>Ordinal regression using Stan</h2>
 <div class="cell" data-output.var="ordinal">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb14-1"><a></a><span class="kw">data</span> {</span>
-<span id="cb14-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">2</span>&gt; K;</span>
-<span id="cb14-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; n;</span>
-<span id="cb14-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
-<span id="cb14-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = K&gt; Y[n]</span>
-<span id="cb14-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
-<span id="cb14-7"><a></a>}</span>
-<span id="cb14-8"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb14-9"><a></a>  <span class="dt">vector</span>[p] beta;</span>
-<span id="cb14-10"><a></a>  <span class="dt">ordered</span>[K - <span class="dv">1</span>] alpha;</span>
-<span id="cb14-11"><a></a>}</span>
-<span id="cb14-12"><a></a><span class="kw">model</span> {</span>
-<span id="cb14-13"><a></a>  <span class="kw">target +=</span> ordered_logistic_glm_lpmf(Y | X, beta, alpha);</span>
-<span id="cb14-14"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb14-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb14-16"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb4-1"><a></a><span class="co">// ordinal.stan</span></span>
+<span id="cb4-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb4-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">2</span>&gt; K;</span>
+<span id="cb4-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; n;</span>
+<span id="cb4-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb4-6"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = K&gt; Y[n];</span>
+<span id="cb4-7"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb4-8"><a></a>}</span>
+<span id="cb4-9"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb4-10"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb4-11"><a></a>  <span class="dt">ordered</span>[K - <span class="dv">1</span>] alpha;</span>
+<span id="cb4-12"><a></a>}</span>
+<span id="cb4-13"><a></a><span class="kw">model</span> {</span>
+<span id="cb4-14"><a></a>  <span class="kw">target +=</span> ordered_logistic_glm_lpmf(Y | X, beta, alpha);</span>
+<span id="cb4-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb4-16"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb4-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><a href="https://mc-stan.org/docs/functions-reference/bounded_discrete_distributions.html#ordered-logistic-generalized-linear-model-ordinal-regression">ordered_logistic_glm_lpmf</a></p>
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>

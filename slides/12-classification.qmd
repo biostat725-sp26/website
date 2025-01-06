@@ -424,46 +424,6 @@ print(comp_waic, digits = 2, simplify = FALSE)
 
 5.  Priors: $\alpha, \beta_j \sim N(0, 10^2)$.
 
-## Multinomial regression {.small}
-
-Assume an outcome $Y_i \in \{1,\ldots,K\}$. You can imagine running $K$ independent binary logistic regression models, in which one outcome is chosen as a "pivot" and then the other K − 1 outcomes are separately regressed against the pivot outcome. If outcome K (the last outcome) is chosen as the pivot, the K − 1 regression equations are:
-
-$$\log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots, K-1\}$$
-
--   It can be seen that:
-
-$$P(Y_i = k) = \frac{\exp\{\mathbf{x}_i \boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i \boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\}.$$ and $P(Y_i = K) = 1 - \sum_{j=1}^{K-1}P(Y_i = j)$.
-
--   This is known as the additive log-ratio model.
-
-## Multinomial regression {.small}
-
-Let $Y_i \in \{1,\ldots,K\}$ be an ordinal outcome with $K$ categories. Then $P(Y \leq k)$ is the cumulative probability of $Y$ less than or equal to a specific category $k=1,\ldots,K-1$. The odds of being less than or equal a particular category can be defined as, $$\frac{P(Y\leq k)}{P(Y > k)}$$ for $k=1,\ldots,K-1$, since $P(Y > K) = 0$ and dividing by zero is undefined. The log odds is also known as the logit, so that $$\log \frac{P(Y\leq k)}{P(Y > k)} = \text{logit}P(Y\leq k) = \alpha_k + \mathbf{x}_i \boldsymbol{\beta}$$
-
--   Proportional odds regression.
-
-## Ordinal regression using Stan
-
-```{stan output.var = "ordinal", eval = FALSE}
-data {
-  int<lower = 2> K;
-  int<lower = 0> n;
-  int<lower = 1> p;
-  int<lower = 1, upper = K> Y[n]
-  matrix[n, p] X;
-}
-parameters {
-  vector[p] beta;
-  ordered[K - 1] alpha;
-}
-model {
-  target += ordered_logistic_lpmf(Y | X, beta, alpha);
-  target += ordered_logistic_glm_lpmf(Y | X * beta, alpha);
-  target += normal_lpdf(beta | 0, 10);
-  target += normal_lpdf(alpha | 0, 10);
-}
-```
-
 ## Prepare for next class
 
 -   Work on [HW 03](https://biostat725-sp25.netlify.app/hw/hw-03).
