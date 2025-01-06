@@ -433,7 +433,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -508,7 +508,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
+<div class="cell quarto-layout-panel" data-layout-ncol="3" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -539,7 +539,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -556,7 +556,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -724,7 +724,7 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -741,7 +741,7 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -869,11 +869,11 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">print</span>(<span class="fu">mean</span>(pi_samples))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2412684</code></pre>
+<pre><code>[1] 0.2403665</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">print</span>(<span class="fu">var</span>(pi_samples))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0003574553</code></pre>
+<pre><code>[1] 0.0003811683</code></pre>
 </div>
 </div>
 </section>
@@ -882,7 +882,7 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -900,25 +900,25 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># median</span></span>
 <span id="cb6-2"><a></a><span class="fu">median</span>(pi_samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2408114</code></pre>
+<pre><code>[1] 0.240722</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># 95% credible intervals</span></span>
 <span id="cb8-2"><a></a><span class="fu">quantile</span>(pi_samples, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5%     97.5% 
-0.2053340 0.2786704 </code></pre>
+0.2048398 0.2788959 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># evaluating probability</span></span>
 <span id="cb10-2"><a></a><span class="fu">mean</span>(pi_samples <span class="sc">&lt;</span> <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.687</code></pre>
+<pre><code>[1] 0.682</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># summarizing arbitrary functions of the parameters</span></span>
 <span id="cb12-2"><a></a>pi_new <span class="ot">&lt;-</span> pi_samples<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> pi_samples</span>
 <span id="cb12-3"><a></a><span class="fu">c</span>(<span class="fu">mean</span>(pi_new), <span class="fu">quantile</span>(pi_new, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 2.5%      97.5% 
--0.2267887 -0.2570297 -0.1966767 </code></pre>
+-0.2268475 -0.2572026 -0.1962448 </code></pre>
 </div>
 </div>
 </section></section>

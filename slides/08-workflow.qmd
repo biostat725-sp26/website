@@ -364,7 +364,7 @@ generated quantities {
 #| fig-width: 12
 #| fig-height: 4
 #| layout-ncol: 1
-load(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/07_fake_data.RData")
+load(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/07_fake_data.RData")
 dat.fig |> ggplot(aes(x = value)) + 
   geom_histogram() +
   facet_grid(. ~ variable, scales = "free_x", labeller = label_parsed) + 
@@ -419,7 +419,7 @@ print(fit)
 ```
 
 ```{r, echo = FALSE}
-fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow.rds")
+fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow.rds")
 print(fit, pars = c("alpha", "beta", "sigma"), probs = c(0.025, 0.5, 0.975))
 ```
 
@@ -550,7 +550,7 @@ sso <- shinystan::launch_shinystan(fit)
 ## 8. Compare models {.midi}
 
 ```{r, echo = FALSE, eval = FALSE}
-regression_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_ppd_log_lik.stan")
+regression_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_ppd_log_lik.stan")
 data_model1 <- list(n = nrow(dat),
                     p = 1,
                     Y = dat$weight,
@@ -584,15 +584,15 @@ data_model3 <- list(n = nrow(dat),
                     n_pred = 10,
                     X_pred = cbind(1, rnorm(10), rbinom(10, 1, 0.5), rnorm(10)))
 fit_model3 <- sampling(regression_model, data = data_model3)
-saveRDS(fit_model1, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model1.rds")
-saveRDS(fit_model2, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model2.rds")
-saveRDS(fit_model3, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model3.rds")
+saveRDS(fit_model1, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model1.rds")
+saveRDS(fit_model2, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model2.rds")
+saveRDS(fit_model3, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model3.rds")
 ```
 
 ```{r, echo=FALSE}
-fit_model1 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model1.rds")
-fit_model2 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model2.rds")
-fit_model3 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_workflow_model3.rds")
+fit_model1 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model1.rds")
+fit_model2 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model2.rds")
+fit_model3 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model3.rds")
 ```
 
 ```{r}

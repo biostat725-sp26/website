@@ -306,11 +306,11 @@ fit <- stan(file = 'straightforward.stan', data = list(Y= Y),
 # Y <- rnorm(10, mean = 0, sd = 1)
 # 
 # ## Compile and run model, and save in fit
-# fit <- stan(file = 'robjects/straightforward.stan', data = list(Y= Y), 
+# fit <- stan(file = '/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/straightforward.stan', data = list(Y= Y), 
 #             iter = 1000, chains = 4)
-# saveRDS(fit, file = "robjects/straightforward_fit.rds")
+# saveRDS(fit, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/straightforward_fit.rds")
 library(rstan)
-fit <- readRDS(file = "robjects/straightforward_fit.rds")
+fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/straightforward_fit.rds")
 ```
 
 ## Running Stan on example model
@@ -535,8 +535,8 @@ saveRDS(fit, file = "linear_regression_fit.rds")
 # 
 # ###Run model and save
 # fit <- sampling(stan_model, data = stan_data, chains = 4, iter = 1000)
-# saveRDS(fit, file = "robjects/linear_regression_fit.rds")
-fit <- readRDS(file = "robjects/linear_regression_fit.rds")
+# saveRDS(fit, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_fit.rds")
+fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_fit.rds")
 ```
 
 ## Example model: results

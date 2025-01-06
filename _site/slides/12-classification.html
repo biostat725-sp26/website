@@ -655,7 +655,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -672,7 +672,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -788,7 +788,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -842,7 +842,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb11-4"><a></a>q975 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.975</span>)</span>
 <span id="cb11-5"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q025"</span>)</span>
 <span id="cb11-6"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q975"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -927,47 +927,6 @@ baseline   18.73</code></pre>
 <li><p>Regression model: <span class="math inline">\(\log(\lambda_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>.</p></li>
 <li><p>Priors: <span class="math inline">\(\alpha, \beta_j \sim N(0, 10^2)\)</span>.</p></li>
 </ol>
-</section>
-<section id="multinomial-regression" class="slide level2 small">
-<h2>Multinomial regression</h2>
-<p>Assume an outcome <span class="math inline">\(Y_i \in \{1,\ldots,K\}\)</span>. You can imagine running <span class="math inline">\(K\)</span> independent binary logistic regression models, in which one outcome is chosen as a “pivot” and then the other K − 1 outcomes are separately regressed against the pivot outcome. If outcome K (the last outcome) is chosen as the pivot, the K − 1 regression equations are:</p>
-<p><span class="math display">\[\log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots, K-1\}\]</span></p>
-<ul>
-<li>It can be seen that:</li>
-</ul>
-<p><span class="math display">\[P(Y_i = k) = \frac{\exp\{\mathbf{x}_i \boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i \boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\}.\]</span> and <span class="math inline">\(P(Y_i = K) = 1 - \sum_{j=1}^{K-1}P(Y_i = j)\)</span>.</p>
-<ul>
-<li>This is known as the additive log-ratio model.</li>
-</ul>
-</section>
-<section id="multinomial-regression-1" class="slide level2 small">
-<h2>Multinomial regression</h2>
-<p>Let <span class="math inline">\(Y_i \in \{1,\ldots,K\}\)</span> be an ordinal outcome with <span class="math inline">\(K\)</span> categories. Then <span class="math inline">\(P(Y \leq k)\)</span> is the cumulative probability of <span class="math inline">\(Y\)</span> less than or equal to a specific category <span class="math inline">\(k=1,\ldots,K-1\)</span>. The odds of being less than or equal a particular category can be defined as, <span class="math display">\[\frac{P(Y\leq k)}{P(Y &gt; k)}\]</span> for <span class="math inline">\(k=1,\ldots,K-1\)</span>, since <span class="math inline">\(P(Y &gt; K) = 0\)</span> and dividing by zero is undefined. The log odds is also known as the logit, so that <span class="math display">\[\log \frac{P(Y\leq k)}{P(Y &gt; k)} = \text{logit}P(Y\leq k) = \alpha_k + \mathbf{x}_i \boldsymbol{\beta}\]</span></p>
-<ul>
-<li>Proportional odds regression.</li>
-</ul>
-</section>
-<section id="ordinal-regression-using-stan" class="slide level2">
-<h2>Ordinal regression using Stan</h2>
-<div class="cell" data-output.var="ordinal">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb14-1"><a></a><span class="kw">data</span> {</span>
-<span id="cb14-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">2</span>&gt; K;</span>
-<span id="cb14-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; n;</span>
-<span id="cb14-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
-<span id="cb14-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = K&gt; Y[n]</span>
-<span id="cb14-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
-<span id="cb14-7"><a></a>}</span>
-<span id="cb14-8"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb14-9"><a></a>  <span class="dt">vector</span>[p] beta;</span>
-<span id="cb14-10"><a></a>  <span class="dt">ordered</span>[K - <span class="dv">1</span>] alpha;</span>
-<span id="cb14-11"><a></a>}</span>
-<span id="cb14-12"><a></a><span class="kw">model</span> {</span>
-<span id="cb14-13"><a></a>  <span class="kw">target +=</span> ordered_logistic_lpmf(Y | X, beta, alpha);</span>
-<span id="cb14-14"><a></a>  <span class="kw">target +=</span> ordered_logistic_glm_lpmf(Y | X * beta, alpha);</span>
-<span id="cb14-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb14-16"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb14-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>

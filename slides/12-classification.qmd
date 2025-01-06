@@ -201,7 +201,7 @@ generated quantities {
 ## Primary biliary cirrhosis
 
 ```{r, echo=FALSE}
-pbc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/Material/Data/pbc.csv")
+pbc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/pbc.csv")
 ```
 
 ```{r}
@@ -224,7 +224,7 @@ head(X)
 
 ```{r, eval = FALSE, echo = FALSE}
 library(rstan)
-compiled_model <- rstan::stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression.stan")
+compiled_model <- rstan::stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression.stan")
 pbc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/Material/Data/pbc.csv")
 X <- model.matrix(object = ~ ascites + bili + as.factor(stage), data = pbc)[, -1]
 Y <- pbc$outcome
@@ -233,7 +233,7 @@ stan_data <- list(n = nrow(pbc),
                   Y = Y,
                   X = X)
 fit <- sampling(compiled_model, data = stan_data)
-saveRDS(fit, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression.rds")
+saveRDS(fit, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression.rds")
 print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
 X <- model.matrix(object = ~ ascites + bili, data = pbc)[, -1]
 stan_data <- list(n = nrow(pbc),
@@ -241,7 +241,7 @@ stan_data <- list(n = nrow(pbc),
                   Y = Y,
                   X = X)
 fit_baseline <- sampling(compiled_model, data = stan_data)
-saveRDS(fit_baseline, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression_baseline.rds")
+saveRDS(fit_baseline, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression_baseline.rds")
 ```
 
 ```{r, eval=FALSE}
@@ -252,8 +252,8 @@ print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
 ```
 
 ```{r, eval = TRUE, echo = FALSE}
-fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression.rds")
-fit_baseline <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/logistic_regression_baseline.rds")
+fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression.rds")
+fit_baseline <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression_baseline.rds")
 print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
 ```
 

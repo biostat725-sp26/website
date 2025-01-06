@@ -207,7 +207,7 @@ f(\mathbf{Y}) &= \int f(\mathbf{Y}, \boldsymbol{\theta}) d\boldsymbol{\theta}\\
 -   Prior predictive checks can be used to determine a realistic specification for $a$ and $b$.
 
 ```{r, echo = FALSE}
-# stan_model <- stan_model(file = "robjects/prior_predictive_check.stan")
+# stan_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/prior_predictive_check.stan")
 # n <- 1000 # number of observations
 # data1 <- list(n = n, a = 0.2, b = 0.01)
 # data2 <- list(n = n, a = 1, b = 0.1)
@@ -217,14 +217,14 @@ f(\mathbf{Y}) &= \int f(\mathbf{Y}, \boldsymbol{\theta}) d\boldsymbol{\theta}\\
 # fit2 <- sampling(ppc, data = data2, algorithm = "Fixed_param")
 # fit3 <- sampling(ppc, data = data3, algorithm = "Fixed_param")
 # fit4 <- sampling(ppc, data = data4, algorithm = "Fixed_param")
-# saveRDS(fit1, file = "robjects/prior_pc1.rds")
-# saveRDS(fit2, file = "robjects/prior_pc2.rds")
-# saveRDS(fit3, file = "robjects/prior_pc3.rds")
-# saveRDS(fit4, file = "robjects/prior_pc4.rds")
-fit1 <- readRDS(file = "robjects/prior_pc1.rds")
-fit2 <- readRDS(file = "robjects/prior_pc2.rds")
-fit3 <- readRDS(file = "robjects/prior_pc3.rds")
-fit4 <- readRDS(file = "robjects/prior_pc4.rds")
+# saveRDS(fit1, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/prior_pc1.rds")
+# saveRDS(fit2, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/prior_pc2.rds")
+# saveRDS(fit3, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/prior_pc3.rds")
+# saveRDS(fit4, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/prior_pc4.rds")
+fit1 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/prior_pc1.rds")
+fit2 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/prior_pc2.rds")
+fit3 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/prior_pc3.rds")
+fit4 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/prior_pc4.rds")
 ```
 
 ```{stan output.var = "prior pc", eval = FALSE}
@@ -496,7 +496,7 @@ saveRDS(fit, file = "linear_regression_ppd_fit.rds")
 
 ```{r, echo=FALSE}
 library(rstan)
-fit <- readRDS(file = "robjects/linear_regression_ppd_fit.rds")
+fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_ppd_fit.rds")
 ```
 
 ## Examining prediction performance {.midi}

@@ -397,7 +397,7 @@ Note
 <h3 class="anchored" data-anchor-id="reserve-rstudio-container">Reserve RStudio container</h3>
 <ul>
 <li><p>Go to <a href="https://cmgr.oit.duke.edu/containers" class="uri">https://cmgr.oit.duke.edu/containers</a>. You will log in using your NetID credentials.</p></li>
-<li><p>Click “<strong>Reserve BIOSTAT 725</strong>” to reserve an RStudio container. Be sure you reserve the container labeled <code>BIOSTAT 725</code> to ensure you have the computing set up you need for the class.</p></li>
+<li><p>Click “<strong>Reserve STA725</strong>” to reserve an RStudio container. Be sure you reserve the container labeled <code>STA725</code> to ensure you have the computing set up you need for the class.</p></li>
 </ul>
 <p>You only need to reserve a container once per semester.</p>
 </section>
@@ -405,7 +405,7 @@ Note
 <h3 class="anchored" data-anchor-id="open-rstudio-container">Open RStudio container</h3>
 <ul>
 <li><p>Go to <a href="https://cmgr.oit.duke.edu/containers" class="uri">https://cmgr.oit.duke.edu/containers</a> and log in with your Duke NetID and Password.</p></li>
-<li><p>Click <code>BIOSTAT725</code> to log into the Docker container. You should now see the RStudio environment.</p></li>
+<li><p>Click <code>STA725</code> to log into the Docker container. You should now see the RStudio environment.</p></li>
 </ul>
 </section>
 </section>
@@ -466,7 +466,7 @@ Note
 </div>
 <p>Next, we test to see if the model can compile. Note compilation can sometimes take a bit of time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stan_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"hw00/test.stan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stan_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"test.stan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>OK, great. We will now obtain posterior samples, using default specifications for inference.</p>
 <div class="cell">
@@ -481,14 +481,14 @@ Note
 post-warmup draws per chain=1000, total post-warmup draws=4000.
 
            mean se_mean   sd    2.5%     25%     50%     75%   97.5% n_eff Rhat
-beta[1]    1.89    0.00 0.18    1.53    1.77    1.89    2.01    2.22  4854    1
-beta[2]    0.20    0.00 0.17   -0.14    0.09    0.20    0.32    0.54  5183    1
-beta[3]   -0.31    0.00 0.16   -0.63   -0.42   -0.31   -0.19    0.01  4591    1
-beta[4]    1.58    0.00 0.19    1.19    1.46    1.59    1.71    1.96  5115    1
-sigma      1.71    0.00 0.12    1.49    1.62    1.70    1.79    1.98  3895    1
-lp__    -102.47    0.04 1.59 -106.38 -103.30 -102.13 -101.29 -100.36  1875    1
+beta[1]    1.89    0.00 0.18    1.54    1.77    1.89    2.01    2.23  4666    1
+beta[2]    0.20    0.00 0.18   -0.15    0.08    0.20    0.32    0.55  4391    1
+beta[3]   -0.30    0.00 0.16   -0.62   -0.41   -0.31   -0.19    0.01  5189    1
+beta[4]    1.58    0.00 0.19    1.22    1.46    1.58    1.71    1.95  4983    1
+sigma      1.71    0.00 0.13    1.49    1.63    1.71    1.79    1.98  4479    1
+lp__    -102.49    0.04 1.61 -106.30 -103.33 -102.13 -101.31 -100.34  1907    1
 
-Samples were drawn using NUTS(diag_e) at Tue Nov 19 09:36:53 2024.
+Samples were drawn using NUTS(diag_e) at Mon Jan  6 15:15:47 2025.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).</code></pre>
@@ -520,7 +520,7 @@ Note
 </div>
 <section id="sign-up-for-github-account" class="level3">
 <h3 class="anchored" data-anchor-id="sign-up-for-github-account">Sign up for GitHub account</h3>
-<p>You will need a GitHub account to access the assignments, project, and in-class exercises for the course.</p>
+<p>You will need a GitHub account to access the assignments, exams, and in-class exercises for the course.</p>
 <ul>
 <li>If you do not have a GitHub account, go to <a href="https://github.com" class="uri">https://github.com</a> and sign up for an account.</li>
 </ul>
@@ -562,7 +562,7 @@ Note
 </div>
 </div>
 <ul>
-<li><strong>Step 0:</strong> Open your RStudio (either the <code>BIOSTAT 725</code> RStudio container or your laptop).</li>
+<li><strong>Step 0:</strong> Open your RStudio (either the <code>STA725</code> RStudio container or your laptop).</li>
 <li><strong>Step 1</strong>: Type <code>credentials::ssh_setup_github()</code> into the <strong>console</strong> on the bottom left of the RStudio environment.</li>
 <li><strong>Step 2</strong>: R will ask “No SSH key found. Generate one now?” Click 1 for yes.</li>
 <li><strong>Step 3</strong>: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.</li>
@@ -596,7 +596,7 @@ Note
 </section>
 <section id="biostat-725-student-survey" class="level1">
 <h1>BIOSTAT 725 Student Survey</h1>
-<p>Use the link below to complete the BIOSTAT 725 Student Survey. This survey will help me learn more about you, your interests, and your previous statistics and computing experience. I will also use the survey to form lab teams.</p>
+<p>Use the link below to complete the BIOSTAT 725 Student Survey. This survey will help me learn more about you, your interests, and your previous statistics and computing experience.</p>
 <p>🔗 <a href="https://forms.office.com/r/ygCiEV0wK3" class="uri">https://forms.office.com/r/ygCiEV0wK3</a></p>
 
 

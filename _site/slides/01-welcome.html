@@ -370,17 +370,21 @@ Prof.&nbsp;Sam Berchuck
 <li>Phd in Statistical Science from Duke University</li>
 <li>Postdoc in Biostatistics &amp; Bioinformatics</li>
 </ul></li>
+<li>Braden Scherting
+<ul>
+<li>Phd candidate in Statistical Science</li>
+</ul></li>
 </ul>
 </section>
 <section id="check-in-on-ed-discussion" class="slide level2">
 <h2>Check-in on Ed Discussion!</h2>
 <div class="question">
 <p>Click on the link or scan the QR code to answer the Ed Discussion poll</p>
-<p><a href="https://edstem.org/us/courses/62513/discussion/625046" class="uri">https://edstem.org/us/courses/62513/discussion/625046</a></p>
+<p><a href="https://edstem.org/us/courses/68995/discussion/5942168" class="uri">https://edstem.org/us/courses/68995/discussion/5942168</a></p>
 <center>
 <p><br>
 </p>
-<p><img data-src="images/01/ed-discussion-qr-lec-01.png" style="width:30.0%"></p>
+<p><img data-src="images/01/frame.png" style="width:20.0%"></p>
 </center>
 </div>
 </section>
@@ -527,7 +531,7 @@ Prof.&nbsp;Sam Berchuck
 </ul></li>
 </ul>
 </section>
-<section id="computing-toolkit" class="slide level2 midi">
+<section id="computing-toolkit" class="slide level2 small">
 <h2>Computing toolkit</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -543,7 +547,7 @@ Prof.&nbsp;Sam Berchuck
 <li><p>All analyses using R, a statistical programming language</p></li>
 <li><p>Inference using Stan, a probabilistic programming language (<a href="https://mc-stan.org/users/interfaces/rstan">rstan</a>)</p></li>
 <li><p>Write reproducible reports in Quarto</p></li>
-<li><p>Access RStudio through <a href="https://cmgr.oit.duke.edu/containers">BIOSTAT 725 Docker Containers</a></p></li>
+<li><p>Access RStudio through <a href="https://cmgr.oit.duke.edu/containers">STA725 Docker Containers</a></p></li>
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
@@ -662,9 +666,9 @@ Prof.&nbsp;Sam Berchuck
 <section id="review-of-probability" class="slide level2">
 <h2>Review of probability</h2>
 <ul>
-<li><p>The goal of Bayesian statistics is to compute the posterior distribution (i.e., the uncertainty distribution of the parameters, <span class="math inline">\(\boldsymbol{\theta}\)</span>, after observing the data, <span class="math inline">\(\mathbf{Y}\)</span>)</p></li>
-<li><p>This is the conditional distribution of <span class="math inline">\(\boldsymbol{\theta}\)</span> given <span class="math inline">\(\mathbf{Y}\)</span></p></li>
-<li><p>Therefore, we need to review the probability concepts that lead to the conditional distribution of one variable conditioned on another</p>
+<li><p>The goal of Bayesian statistics is to compute the posterior distribution (i.e., the uncertainty distribution of the parameters, <span class="math inline">\(\boldsymbol{\theta}\)</span>, after observing the data, <span class="math inline">\(\mathbf{Y}\)</span>).</p></li>
+<li><p>This is the conditional distribution of <span class="math inline">\(\boldsymbol{\theta}\)</span> given <span class="math inline">\(\mathbf{Y}\)</span>.</p></li>
+<li><p>Therefore, we need to review the probability concepts that lead to the conditional distribution of one variable conditioned on another.</p>
 <ol type="1">
 <li><p>Probability mass (pmf) and density (pdf) functions</p></li>
 <li><p>Joint distributions</p></li>
@@ -675,30 +679,30 @@ Prof.&nbsp;Sam Berchuck
 <section id="random-variables" class="slide level2">
 <h2>Random variables</h2>
 <ul>
-<li><p><span class="math inline">\(X\)</span> (capital) is a random variable</p></li>
-<li><p>We want to compute the probability that <span class="math inline">\(X\)</span> takes on a specific value <span class="math inline">\(x\)</span> (lowercase)</p>
+<li><p><span class="math inline">\(X\)</span> (capital) is a random variable.</p></li>
+<li><p>We want to compute the probability that <span class="math inline">\(X\)</span> takes on a specific value <span class="math inline">\(x\)</span> (lowercase).</p>
 <ul>
-<li>This is denoted <span class="math inline">\(P(X = x)\)</span></li>
+<li>This is denoted <span class="math inline">\(P(X = x)\)</span>.</li>
 </ul></li>
-<li><p>We also might want to compute the probability of <span class="math inline">\(X\)</span> being in a set <span class="math inline">\(\mathcal A\)</span></p>
+<li><p>We also might want to compute the probability of <span class="math inline">\(X\)</span> being in a set <span class="math inline">\(\mathcal A\)</span>.</p>
 <ul>
-<li>This is denoted <span class="math inline">\(P(X \in \mathcal A)\)</span></li>
+<li>This is denoted <span class="math inline">\(P(X \in \mathcal A)\)</span>.</li>
 </ul></li>
-<li><p>The set of possible values that <span class="math inline">\(X\)</span> can take on is called its support, <span class="math inline">\(\mathcal S\)</span></p></li>
+<li><p>The set of possible values that <span class="math inline">\(X\)</span> can take on is called its support, <span class="math inline">\(\mathcal S\)</span>.</p></li>
 </ul>
 </section>
 <section id="random-variables---example" class="slide level2">
 <h2>Random variables - example</h2>
 <ul>
-<li><p>Example 1: <span class="math inline">\(X\)</span> is the roll of a die</p>
+<li><p>Example 1: <span class="math inline">\(X\)</span> is the roll of a die.</p>
 <ul>
-<li>The support is <span class="math inline">\(\mathcal S = \{1, 2, 3, 4, 5, 6\}\)</span></li>
-<li><span class="math inline">\(P(X = 1) = 1/6\)</span></li>
+<li>The support is <span class="math inline">\(\mathcal S = \{1, 2, 3, 4, 5, 6\}\)</span>.</li>
+<li><span class="math inline">\(P(X = 1) = 1/6\)</span>.</li>
 </ul></li>
-<li><p>Example 2: <span class="math inline">\(X\)</span> is a newborn baby’s weight</p>
+<li><p>Example 2: <span class="math inline">\(X\)</span> is a newborn baby’s weight.</p>
 <ul>
-<li>The support is <span class="math inline">\(\mathcal S = (0, \infty)\)</span></li>
-<li><span class="math inline">\(P(X \in [0, \infty]) = 1\)</span></li>
+<li>The support is <span class="math inline">\(\mathcal S = (0, \infty)\)</span>.</li>
+<li><span class="math inline">\(P(X \in [0, \infty]) = 1\)</span>.</li>
 </ul></li>
 </ul>
 <!-- ## Axioms of probability -->
@@ -718,29 +722,29 @@ Prof.&nbsp;Sam Berchuck
 <h2>What is probability?</h2>
 <p>Objective (associated with frequentist)</p>
 <ul>
-<li><span class="math inline">\(P(X = x)\)</span> as a purely mathematical statement</li>
-<li>If we repeatedly sampled <span class="math inline">\(X\)</span>, the the proportion of draws equal to <span class="math inline">\(x\)</span> converges to <span class="math inline">\(P(X = x)\)</span></li>
+<li><span class="math inline">\(P(X = x)\)</span> as a purely mathematical statement.</li>
+<li>If we repeatedly sampled <span class="math inline">\(X\)</span>, then the proportion of draws equal to <span class="math inline">\(x\)</span> converges to <span class="math inline">\(P(X = x)\)</span>.</li>
 </ul>
 <p>Subjective (associated with Bayesian)</p>
 <ul>
-<li><span class="math inline">\(P(X = x)\)</span> represents an individual’s degree of belief</li>
-<li>Often quantified as the amount an individual would be willing to wager that <span class="math inline">\(X\)</span> will be <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(P(X = x)\)</span> represents an individual’s degree of belief.</li>
+<li>Often quantified as the amount an individual would be willing to wager that <span class="math inline">\(X\)</span> will be <span class="math inline">\(x\)</span>.</li>
 </ul>
-<p>A Bayesian analysis makes use of both of these concepts</p>
+<p>A Bayesian analysis makes use of both of these concepts.</p>
 </section>
 <section id="what-is-uncertainty" class="slide level2">
 <h2>What is uncertainty?</h2>
 <p>Aleatoric uncertainty (likelihood)</p>
 <ul>
-<li><p>Uncontrollable randomness in the experiment</p></li>
-<li><p>For example, the results of a fair coin flip can never be predicted with certainty</p></li>
+<li><p>Uncontrollable randomness in the experiment.</p></li>
+<li><p>For example, the results of a fair coin flip can never be predicted with certainty.</p></li>
 </ul>
 <p>Epistemic uncertainty (prior/posterior)</p>
 <ul>
-<li><p>Uncertainty about a quantity that could theoretically be known</p></li>
-<li><p>For example, if we flipped a coin infinitely-many times we could know the true probability of a head</p></li>
+<li><p>Uncertainty about a quantity that could theoretically be known.</p></li>
+<li><p>For example, if we flipped a coin infinitely-many times we could know the true probability of a head.</p></li>
 </ul>
-<p>A Bayesian analysis makes use of both of these concepts</p>
+<p>A Bayesian analysis makes use of both of these concepts.</p>
 <!-- ## Probability versus statistics -->
 <!-- Probability is the forward problem -->
 <!-- -   We assume we know how the data are being generated and compute the probability of events -->
@@ -753,63 +757,61 @@ Prof.&nbsp;Sam Berchuck
 <section id="univariate-distributions" class="slide level2">
 <h2>Univariate distributions</h2>
 <ul>
-<li><p>We often distinguish between discrete and continuous random variables</p></li>
-<li><p>The random variable <span class="math inline">\(X\)</span> is <strong>discrete</strong> if its support <span class="math inline">\(\mathcal S\)</span> is countable</p></li>
+<li><p>We often distinguish between discrete and continuous random variables.</p></li>
+<li><p>The random variable <span class="math inline">\(X\)</span> is <strong>discrete</strong> if its support <span class="math inline">\(\mathcal S\)</span> is countable.</p></li>
 <li><p>Examples:</p></li>
 </ul>
-<p><span class="math inline">\(X \in \{0, 1, 2, 3\}\)</span> is the number of successes in 3 trials<br>
-</p>
-<p><span class="math inline">\(X \in \{0, 1, 2, \ldots\}\)</span> is the number of patients with COVID in Durham County</p>
+<p><span class="math inline">\(X \in \{0, 1, 2, 3\}\)</span> is the number of successes in 3 trials.</p>
+<p><span class="math inline">\(X \in \{0, 1, 2, \ldots\}\)</span> is the number of patients with COVID in Durham County.</p>
 </section>
 <section id="univariate-distributions-1" class="slide level2">
 <h2>Univariate distributions</h2>
 <ul>
-<li><p>We often distinguish between discrete and continuous random variables</p></li>
-<li><p>The random variable <span class="math inline">\(X\)</span> is <strong>continuous</strong> if its support <span class="math inline">\(\mathcal S\)</span> is uncountable</p></li>
+<li><p>We often distinguish between discrete and continuous random variables.</p></li>
+<li><p>The random variable <span class="math inline">\(X\)</span> is <strong>continuous</strong> if its support <span class="math inline">\(\mathcal S\)</span> is uncountable.</p></li>
 <li><p>Examples with <span class="math inline">\(\mathcal S = (0, \infty)\)</span>:</p></li>
 </ul>
-<p><span class="math inline">\(X &gt; 0\)</span> is systolic blood pressure<br>
-</p>
-<p><span class="math inline">\(X &gt; 0\)</span> is a patient’s BMI</p>
+<p><span class="math inline">\(X &gt; 0\)</span> is systolic blood pressure.</p>
+<p><span class="math inline">\(X &gt; 0\)</span> is a patient’s BMI.</p>
 </section>
 <section id="discrete-univariate-distributions" class="slide level2">
 <h2>Discrete univariate distributions</h2>
 <ul>
-<li><p>If <span class="math inline">\(X\)</span> is discrete we describe its distribution with its <strong>probability mass function (pmf)</strong></p></li>
-<li><p>The pmf is <span class="math inline">\(f(x) = P(X = x)\)</span></p></li>
-<li><p>The domain of <span class="math inline">\(X\)</span> is the set of <span class="math inline">\(x\)</span> with <span class="math inline">\(f(x) &gt; 0\)</span></p></li>
-<li><p>We must have <span class="math inline">\(f(x) \geq 0\)</span> and <span class="math inline">\(\sum_x f(x) = 1\)</span></p></li>
-<li><p>The mean is <span class="math inline">\(\mathbb E[X] = \sum_x x f(x)\)</span></p></li>
-<li><p>The variance is <span class="math inline">\(\mathbb V(X) = \sum_x(x − \mathbb E[X])^2f(x)\)</span></p></li>
-<li><p>The last three sums are over <span class="math inline">\(X\)</span>’s domain</p></li>
+<li><p>If <span class="math inline">\(X\)</span> is discrete we describe its distribution with its <strong>probability mass function (pmf)</strong>.</p></li>
+<li><p>The pmf is <span class="math inline">\(f(x) = P(X = x)\)</span>.</p></li>
+<li><p>The domain of <span class="math inline">\(X\)</span> is the set of <span class="math inline">\(x\)</span> with <span class="math inline">\(f(x) &gt; 0\)</span>.</p></li>
+<li><p>We must have <span class="math inline">\(f(x) \geq 0\)</span> and <span class="math inline">\(\sum_x f(x) = 1\)</span>.</p></li>
+<li><p>The mean is <span class="math inline">\(\mathbb E[X] = \sum_x x f(x)\)</span>.</p></li>
+<li><p>The variance is <span class="math inline">\(\mathbb V(X) = \sum_x(x − \mathbb E[X])^2f(x)\)</span>.</p></li>
+<li><p>The last three sums are over <span class="math inline">\(X\)</span>’s domain.</p></li>
 </ul>
 </section>
 <section id="parametric-families-of-distributions" class="slide level2">
 <h2>Parametric families of distributions</h2>
 <ul>
-<li><p>A statistical analysis typically proceeds by selecting a pmf that seems to match the distribution of a sample</p></li>
-<li><p>We rarely know the pmf exactly, but we assume it is from a parametric family of distributions</p></li>
-<li><p>For example, Binomial(10, 0.5) and Binomial(4, 0.1) are different but both from the binomial family</p></li>
-<li><p>A family of distributions have the same equation for the pmf but differ by some unknown parameters <span class="math inline">\(\boldsymbol{\theta}\)</span></p></li>
-<li><p>We must estimate these parameters</p></li>
+<li><p>A statistical analysis typically proceeds by selecting a pmf that seems to match the distribution of a sample.</p></li>
+<li><p>We rarely know the pmf exactly, but we assume it is from a parametric family of distributions.</p></li>
+<li><p>For example, Binomial(10, 0.5) and Binomial(4, 0.1) are different but both from the binomial family.</p></li>
+<li><p>A family of distributions have the same equation for the pmf but differ by some unknown parameters <span class="math inline">\(\boldsymbol{\theta}\)</span>.</p></li>
+<li><p>We must estimate these parameters.</p></li>
 </ul>
 </section>
 <section id="continuous-univariate-distributions" class="slide level2 midi">
 <h2>Continuous univariate distributions</h2>
 <ul>
-<li><p>If <span class="math inline">\(X\)</span> is continuous we describe its distribution with the <strong>probability density function (pdf)</strong> <span class="math inline">\(f(x) \geq 0\)</span></p></li>
-<li><p>Since there are uncountably many possible values, <span class="math inline">\(P(X = x) = 0\)</span> for all <span class="math inline">\(x\)</span>,</p></li>
-<li><p>Probabilities are computed as areas under the pdf curve <span class="math display">\[P(a &lt; X &lt; b) = \int_a^b f(x)dx\]</span></p></li>
-<li><p>Therefore, to be valid <span class="math inline">\(f(x)\)</span> must satisfy <span class="math inline">\(f(x) \geq 0\)</span> and <span class="math display">\[P(−\infty &lt; X &lt; \infty) = \int_{-\infty}^{\infty} f(x)dx = 1\]</span></p></li>
+<li><p>If <span class="math inline">\(X\)</span> is continuous we describe its distribution with the <strong>probability density function (pdf)</strong> <span class="math inline">\(f(x) \geq 0\)</span>.</p></li>
+<li><p>Since there are uncountably many possible values, <span class="math inline">\(P(X = x) = 0\)</span> for all <span class="math inline">\(x\)</span>.</p></li>
+<li><p>Probabilities are computed as areas under the pdf curve <span class="math display">\[P(a &lt; X &lt; b) = \int_a^b f(x)dx.\]</span></p></li>
+<li><p>Therefore, to be valid <span class="math inline">\(f(x)\)</span> must satisfy <span class="math inline">\(f(x) \geq 0\)</span> and <span class="math display">\[P(−\infty &lt; X &lt; \infty) = \int_{-\infty}^{\infty} f(x)dx = 1.\]</span></p></li>
 </ul>
 </section>
 <section id="continuous-univariate-distributions-1" class="slide level2">
 <h2>Continuous univariate distributions</h2>
 <ul>
-<li><p>The domain is the set of <span class="math inline">\(x\)</span> values with <span class="math inline">\(f(x) &gt; 0\)</span></p></li>
-<li><p>The mean and the variance are defined similarly to the discrete case but with the sums replaced by integrals</p></li>
-<li><p>The mean is <span class="math inline">\(\mathbb E[X] = \int x f(x)dx\)</span></p></li>
-<li><p>The variance is <span class="math inline">\(\mathbb V(X) = \int (x − \mathbb E[X])^2 f(x)dx\)</span></p></li>
+<li><p>The domain is the set of <span class="math inline">\(x\)</span> values with <span class="math inline">\(f(x) &gt; 0\)</span>.</p></li>
+<li><p>The mean and the variance are defined similarly to the discrete case but with the sums replaced by integrals.</p></li>
+<li><p>The mean is <span class="math inline">\(\mathbb E[X] = \int x f(x)dx\)</span>.</p></li>
+<li><p>The variance is <span class="math inline">\(\mathbb V(X) = \int (x − \mathbb E[X])^2 f(x)dx\)</span>.</p></li>
 </ul>
 </section>
 <section id="joint-distributions" class="slide level2">
@@ -817,74 +819,77 @@ Prof.&nbsp;Sam Berchuck
 <ul>
 <li><p><span class="math inline">\(\mathbf{X} = (X_1, \ldots, X_p)\)</span> is a random vector (vectors and matrices should be in bold).</p></li>
 <li><p>For notational convenience, let’s consider only <span class="math inline">\(p = 2\)</span> random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p></li>
-<li><p><span class="math inline">\((X, Y)\)</span> is discrete if it can take on a countable number of values, such as<br>
-<span class="math inline">\(X\)</span> = number of hearts and <span class="math inline">\(Y\)</span> = number of face cards.</p></li>
-<li><p><span class="math inline">\((X, Y)\)</span> is continuous if it can take on an uncountable number of values, such as<br>
-<span class="math inline">\(X\)</span> = birthweight and <span class="math inline">\(Y\)</span> = gestational age.</p></li>
+<li><p><span class="math inline">\((X, Y)\)</span> is discrete if it can take on a countable number of values, such as:</p>
+<ul>
+<li><span class="math inline">\(X\)</span> = number of hearts and <span class="math inline">\(Y\)</span> = number of face cards.</li>
+</ul></li>
+<li><p><span class="math inline">\((X, Y)\)</span> is continuous if it can take on an uncountable number of values, such as:</p>
+<ul>
+<li><span class="math inline">\(X\)</span> = birthweight and <span class="math inline">\(Y\)</span> = gestational age.</li>
+</ul></li>
 </ul>
 </section>
 <section id="discrete-random-variables" class="slide level2">
 <h2>Discrete random variables</h2>
 <ul>
-<li><p>The <strong>joint pmf</strong> is <span class="math inline">\(f(x, y) = P(X = x, Y = y)\)</span></p>
+<li><p>The <strong>joint pmf</strong> is <span class="math inline">\(f(x, y) = P(X = x, Y = y)\)</span>.</p>
 <ul>
 <li><span class="math inline">\(\sum_x \sum_y f(x, y) = 1\)</span></li>
 </ul></li>
-<li><p>The <strong>marginal pmf</strong> for <span class="math inline">\(X\)</span> is <span class="math inline">\(f_X(x) = P(X = x) = \sum_y f(x, y)\)</span></p></li>
-<li><p>The <strong>marginal pmf</strong> for <span class="math inline">\(Y\)</span> is <span class="math inline">\(f_Y(y) = P(Y = y) = \sum_x
-f(x, y)\)</span></p></li>
-<li><p>The marginal distribution is the same as univariate distribution as if we ignored the other variable</p></li>
+<li><p>The <strong>marginal pmf</strong> for <span class="math inline">\(X\)</span> is <span class="math inline">\(f_X(x) = P(X = x) = \sum_y f(x, y)\)</span>.</p></li>
+<li><p>The <strong>marginal pmf</strong> for <span class="math inline">\(Y\)</span> is <span class="math inline">\(f_Y(y) = P(Y = y) = \sum_x f(x, y)\)</span>.</p></li>
+<li><p>The marginal distribution is the same as univariate distribution as if we ignored the other variable.</p></li>
 </ul>
 </section>
 <section id="discrete-random-variables-1" class="slide level2">
 <h2>Discrete random variables</h2>
 <ul>
 <li><p>The <strong>conditional pmf</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> is <span class="math inline">\(f(y|x) = P(Y = y|X = x) = \frac{P(X = x, Y = y)}{P(X = x)} = \frac{f(x, y)}{f_X (x)}.\)</span></p></li>
-<li><p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong> if <span class="math inline">\(f(x, y) = f_X(x)f_Y(y)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p>
+<li><p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong> if <span class="math inline">\(f(x, y) = f_X(x)f_Y(y)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
 <ul>
-<li>Variables are dependent if they are not independent</li>
+<li>Variables are dependent if they are not independent.</li>
 </ul></li>
-<li><p>Equivalently, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if <span class="math inline">\(f(x|y) = f_X(x)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p></li>
+<li><p>Equivalently, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if <span class="math inline">\(f(x|y) = f_X(x)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p></li>
 </ul>
 </section>
 <section id="discrete-random-variables-2" class="slide level2">
 <h2>Discrete random variables</h2>
 <ul>
-<li><p>Notation: <span class="math inline">\(X_1, \dots, X_n \overset{\mathrm{iid}}{\sim} f(x)\)</span> means that <span class="math inline">\(X_1, \ldots, X_n\)</span> are independent and identically distributed</p></li>
-<li><p>This implies the <strong>joint pmf</strong> is <span class="math display">\[P(X_1 = x_1, \ldots, X_n = x_n) = \prod_{i=1}^n f(x_i)\]</span></p></li>
-<li><p>The same notation and definitions of independence apply to continuous random variables</p></li>
-<li><p>In this class, assume independence unless otherwise noted</p></li>
+<li><p>Notation: <span class="math inline">\(X_1, \dots, X_n \overset{\mathrm{iid}}{\sim} f(x)\)</span> means that <span class="math inline">\(X_1, \ldots, X_n\)</span> are independent and identically distributed.</p></li>
+<li><p>This implies the <strong>joint pmf</strong> is <span class="math display">\[P(X_1 = x_1, \ldots, X_n = x_n) = \prod_{i=1}^n f(x_i).\]</span></p></li>
+<li><p>The same notation and definitions of independence apply to continuous random variables.</p></li>
+<li><p>In this class, assume independence unless otherwise noted.</p></li>
 </ul>
 </section>
 <section id="continuous-random-variables" class="slide level2">
 <h2>Continuous random variables</h2>
 <ul>
-<li><p>Manipulating joint pdfs is similar to joint pmfs but sums are replaced by integrals</p></li>
-<li><p>The <strong>joint pdf</strong> is denoted <span class="math inline">\(f(x, y)\)</span></p></li>
-<li><p>Probabilities are computed as volume under the pdf: <span class="math display">\[P((X, Y) ∈ A) = \int_A f(x, y)dxdy\]</span> where <span class="math inline">\(A \subset \mathbb{R}^2\)</span></p></li>
+<li><p>Manipulating joint pdfs is similar to joint pmfs but sums are replaced by integrals.</p></li>
+<li><p>The <strong>joint pdf</strong> is denoted <span class="math inline">\(f(x, y)\)</span>.</p></li>
+<li><p>Probabilities are computed as volume under the pdf: <span class="math display">\[P((X, Y) ∈ A) = \int_A f(x, y)dxdy\]</span> where <span class="math inline">\(A \subset \mathbb{R}^2\)</span>.</p></li>
 </ul>
 </section>
 <section id="continuous-random-variables-1" class="slide level2">
 <h2>Continuous random variables</h2>
 <ul>
-<li><p>The <strong>marginal pdf</strong> of <span class="math inline">\(X\)</span> is <span class="math inline">\(f_X(x) = \int f(x, y)dy\)</span></p></li>
-<li><p><span class="math inline">\(f_X\)</span> is the univariate pdf for <span class="math inline">\(X\)</span> as if we never considered <span class="math inline">\(Y\)</span></p></li>
-<li><p>The <strong>conditional pdf</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> is <span class="math display">\[f(y|x) = \frac{f(x, y)}{f_X (x)}\]</span></p></li>
-<li><p>Proper: <span class="math inline">\(\int f(y|x)dy = \int \frac{f(x,y)}{f_X(x)}dy = \int \frac{f(x,y)dy}{f_X(x)} = 1\)</span></p></li>
+<li><p>The <strong>marginal pdf</strong> of <span class="math inline">\(X\)</span> is <span class="math inline">\(f_X(x) = \int f(x, y)dy\)</span>.</p></li>
+<li><p><span class="math inline">\(f_X\)</span> is the univariate pdf for <span class="math inline">\(X\)</span> as if we never considered <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>The <strong>conditional pdf</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> is <span class="math display">\[f(y|x) = \frac{f(x, y)}{f_X (x)}.\]</span></p></li>
+<li><p>Proper: <span class="math inline">\(\int f(y|x)dy = \int \frac{f(x,y)}{f_X(x)}dy = \int \frac{f(x,y)dy}{f_X(x)} = 1\)</span>.</p></li>
 </ul>
 </section>
 <section id="defining-joint-distributions-conditionally" class="slide level2">
 <h2>Defining joint distributions conditionally</h2>
 <ul>
-<li><p>Specifying joint distributions is hard</p></li>
-<li><p>Every joint distribution can be written <span class="math inline">\(f(x, y) = f(y|x)f(x)\)</span></p></li>
-<li><p>Therefore, any joint distribution can be defined by</p>
+<li><p>Specifying joint distributions is hard.</p></li>
+<li><p>Every joint distribution can be written <span class="math inline">\(f(x, y) = f(y|x)f(x)\)</span>.</p></li>
+<li><p>Therefore, any joint distribution can be defined by,</p>
 <ol type="1">
 <li><p><span class="math inline">\(X\)</span>’s marginal distribution</p></li>
 <li><p>The conditional distribution of <span class="math inline">\(Y|X\)</span></p></li>
 </ol></li>
-<li><p>The joint problem reduces to two univariate problems</p></li>
-<li><p>This idea forms the basis of hierarchical modeling</p></li>
+<li><p>The joint problem reduces to two univariate problems.</p></li>
+<li><p>This idea forms the basis of hierarchical modeling.</p></li>
 </ul>
 <!-- ## Review: Set theory {.small} -->
 <!-- ::: callout-note -->
@@ -928,7 +933,7 @@ f(x, y)\)</span></p></li>
 <!--     $A = \{2, 4, 6 \}$ -->
 <!-- ::: -->
 </section>
-<section id="bayes-rule" class="slide level2">
+<section id="bayes-rule" class="slide level2 midi">
 <h2>Bayes rule</h2>
 <div class="columns">
 <div class="column" style="width:10%;">

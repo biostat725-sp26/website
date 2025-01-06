@@ -179,9 +179,9 @@ stan_data <- list(
   Y = dat_pat$Y,
   X = matrix(dat_pat$X, ncol = 1)
 )
-compile_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/nonlinear_linear.stan")
+compile_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/nonlinear_linear.stan")
 fit_linear <- sampling(compile_model, data = stan_data)
-saveRDS(fit_linear, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_linear.rds")
+saveRDS(fit_linear, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_linear.rds")
 ```
 
 ```{r}
@@ -190,7 +190,7 @@ saveRDS(fit_linear, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/ro
 #| fig-width: 8
 #| fig-height: 6
 #| layout-ncol: 1
-fit_linear <- readRDS("/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_linear.rds")
+fit_linear <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_linear.rds")
 mu <- rstan::extract(fit_linear, pars = "mu")$mu
 mu_mean <- apply(mu, 2, mean)
 mu_lower <- apply(mu, 2, function(x) quantile(x, probs = 0.025))
@@ -284,7 +284,7 @@ generated quantities {
 #| fig-width: 8
 #| fig-height: 6
 #| layout-ncol: 1
-fit_quadratic <- readRDS("/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_quadratic.rds")
+fit_quadratic <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_quadratic.rds")
 rstan::traceplot(fit_quadratic, pars = c("alpha", "beta"))
 ```
 
@@ -311,9 +311,9 @@ stan_data <- list(
   Y = dat_poly$Y,
   X = cbind(dat_poly$X, dat_poly$X2)
 )
-# compile_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/nonlinear_linear.stan")
+# compile_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/nonlinear_linear.stan")
 fit_quadratic <- sampling(compile_model, data = stan_data)
-saveRDS(fit_quadratic, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_quadratic.rds")
+saveRDS(fit_quadratic, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_quadratic.rds")
 ```
 
 ```{r}
@@ -344,9 +344,9 @@ stan_data <- list(
   Y = dat_poly$Y,
   X = cbind(dat_poly$X, dat_poly$X2, dat_poly$X3)
 )
-# compile_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/nonlinear_linear.stan")
+# compile_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/nonlinear_linear.stan")
 fit_cubic <- sampling(compile_model, data = stan_data)
-saveRDS(fit_cubic, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_cubic.rds")
+saveRDS(fit_cubic, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_cubic.rds")
 ```
 
 ```{r}
@@ -355,7 +355,7 @@ saveRDS(fit_cubic, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/rob
 #| fig-width: 8
 #| fig-height: 6
 #| layout-ncol: 1
-fit_cubic <- readRDS("/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_cubic.rds")
+fit_cubic <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_cubic.rds")
 mu <- rstan::extract(fit_cubic, pars = "mu")$mu
 mu <- mu * sd(dat_pat$Y) + mean(dat_pat$Y)
 mu_mean <- apply(mu, 2, mean)
@@ -445,9 +445,9 @@ stan_data <- list(
   Y = dat_poly$Y,
   X = B
 )
-# compile_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/nonlinear_linear.stan")
+# compile_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/nonlinear_linear.stan")
 fit_bspline <- sampling(compile_model, data = stan_data)
-saveRDS(fit_bspline, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_bspline.rds")
+saveRDS(fit_bspline, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_bspline.rds")
 ```
 
 ```{r, eval = FALSE}
@@ -466,7 +466,7 @@ fit_bspline <- sampling(compile_model, data = stan_data)
 #| fig-width: 8
 #| fig-height: 4
 #| layout-ncol: 1
-fit_bspline <- readRDS("/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_bspline.rds")
+fit_bspline <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_bspline.rds")
 mu <- rstan::extract(fit_bspline, pars = "mu")$mu
 mu <- mu * sd(dat_pat$Y) + mean(dat_pat$Y)
 mu_mean <- apply(mu, 2, mean)
@@ -615,7 +615,7 @@ generated quantities {
 ## Change point regression {.smaller}
 
 ```{r, eval = FALSE, echo = FALSE}
-stan_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/Material/ChangePoints/change_points.stan")
+stan_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/play/change-points/change_points.stan")
 n_pred <- 1000
 stan_data <- list(Y = dat_pat$Y, 
                   X = dat_pat$X,
@@ -623,7 +623,7 @@ stan_data <- list(Y = dat_pat$Y,
                   n_pred = n_pred,
                   X_pred = seq(0, max(dat_pat$X) + 2, length.out = n_pred))
 fit_cp <- sampling(stan_model, data = stan_data)
-saveRDS(fit_cp, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_cp.rds")
+saveRDS(fit_cp, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_cp.rds")
 ```
 
 ```{r, eval = FALSE}
@@ -645,7 +645,7 @@ stan_data <- list(Y = dat_pat$Y,
                   n = nrow(dat_pat),
                   n_pred = n_pred,
                   X_pred = seq(0, max(dat_pat$X) + 2, length.out = n_pred))
-fit_cp <- readRDS("/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/fit_cp.rds")
+fit_cp <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_cp.rds")
 print(fit_cp, probs = c(0.25, 0.5, 0.75), pars = c("beta0", "beta1", "beta2", "sigma", "theta"))
 ```
 

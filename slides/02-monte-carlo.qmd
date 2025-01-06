@@ -76,7 +76,7 @@ ggplot() +
 :::
 :::::
 
-- If we have an estimate for the ratio we can solve for $\pi$. The challenge becomes estimating this ratio.
+-   If we have an estimate for the ratio we can solve for $\pi$. The challenge becomes estimating this ratio.
 
 ## Monte Carlo sampling
 

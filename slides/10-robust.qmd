@@ -509,7 +509,7 @@ stan_data <- list(
   X = X,
   tau = 0.5
 )
-regression_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_reg.stan")
+regression_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_reg.stan")
 fit_model_median <- sampling(regression_model, data = stan_data)
 stan_data$tau <- 0.025
 fit_model_025 <- sampling(regression_model, data = stan_data)
@@ -519,19 +519,19 @@ stan_data$tau <- 0.975
 fit_model_975 <- sampling(regression_model, data = stan_data)
 stan_data$tau <- 0.75
 fit_model_75 <- sampling(regression_model, data = stan_data)
-saveRDS(fit_model_median, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_median.rds")
-saveRDS(fit_model_025, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_025.rds")
-saveRDS(fit_model_25, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_25.rds")
-saveRDS(fit_model_75, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_75.rds")
-saveRDS(fit_model_975, file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_975.rds")
+saveRDS(fit_model_median, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_median.rds")
+saveRDS(fit_model_025, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_025.rds")
+saveRDS(fit_model_25, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_25.rds")
+saveRDS(fit_model_75, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_75.rds")
+saveRDS(fit_model_975, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_975.rds")
 ```
 
 ```{r, echo = FALSE}
-fit_model_median <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_median.rds")
-fit_model_025 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_025.rds")
-fit_model_25 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_25.rds")
-fit_model_75 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_75.rds")
-fit_model_975 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/robjects/quantile_fit_975.rds")
+fit_model_median <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_median.rds")
+fit_model_025 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_025.rds")
+fit_model_25 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_25.rds")
+fit_model_75 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_75.rds")
+fit_model_975 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/quantile_fit_975.rds")
 mu <- rstan::extract(fit_model_median, pars = "mu")$mu
 post_mean_median <- apply(mu, 2, mean)
 post_lower_median <- apply(mu, 2, function(x) quantile(x, probs = c(0.025)))

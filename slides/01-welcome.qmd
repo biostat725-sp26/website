@@ -53,18 +53,21 @@ library(ggplot2)
     -   Phd in Statistical Science from Duke University
     -   Postdoc in Biostatistics & Bioinformatics
 
+-   Braden Scherting
+    -   Phd candidate in Statistical Science
+
 ## Check-in on Ed Discussion!
 
 ::: question
 Click on the link or scan the QR code to answer the Ed Discussion poll
 
-<https://edstem.org/us/courses/62513/discussion/625046>
+<https://edstem.org/us/courses/68995/discussion/5942168>
 
 <center>
 
 \
 
-![](images/01/ed-discussion-qr-lec-01.png){width="30%"}
+![](images/01/frame.png){width="20%"}
 
 </center>
 :::
@@ -204,7 +207,7 @@ By the end of the semester, you will be able to...
     -   Distribute assignments
     -   Platform for version control and collaboration
 
-## Computing toolkit {.midi}
+## Computing toolkit {.small}
 
 ::::::::: columns
 ::::: {.column width="50%"}
@@ -219,7 +222,7 @@ By the end of the semester, you will be able to...
 
 -   Write reproducible reports in Quarto
 
--   Access RStudio through [BIOSTAT 725 Docker Containers](https://cmgr.oit.duke.edu/containers)
+-   Access RStudio through [STA725 Docker Containers](https://cmgr.oit.duke.edu/containers)
 :::
 :::::
 
@@ -323,11 +326,11 @@ This is foundational material that you should have already learned in a previous
 
 ## Review of probability
 
--   The goal of Bayesian statistics is to compute the posterior distribution (i.e., the uncertainty distribution of the parameters, $\boldsymbol{\theta}$, after observing the data, $\mathbf{Y}$)
+-   The goal of Bayesian statistics is to compute the posterior distribution (i.e., the uncertainty distribution of the parameters, $\boldsymbol{\theta}$, after observing the data, $\mathbf{Y}$).
 
--   This is the conditional distribution of $\boldsymbol{\theta}$ given $\mathbf{Y}$
+-   This is the conditional distribution of $\boldsymbol{\theta}$ given $\mathbf{Y}$.
 
--   Therefore, we need to review the probability concepts that lead to the conditional distribution of one variable conditioned on another
+-   Therefore, we need to review the probability concepts that lead to the conditional distribution of one variable conditioned on another.
 
     1.  Probability mass (pmf) and density (pdf) functions
 
@@ -337,29 +340,29 @@ This is foundational material that you should have already learned in a previous
 
 ## Random variables
 
--   $X$ (capital) is a random variable
+-   $X$ (capital) is a random variable.
 
--   We want to compute the probability that $X$ takes on a specific value $x$ (lowercase)
+-   We want to compute the probability that $X$ takes on a specific value $x$ (lowercase).
 
-    -   This is denoted $P(X = x)$
+    -   This is denoted $P(X = x)$.
 
--   We also might want to compute the probability of $X$ being in a set $\mathcal A$
+-   We also might want to compute the probability of $X$ being in a set $\mathcal A$.
 
-    -   This is denoted $P(X \in \mathcal A)$
+    -   This is denoted $P(X \in \mathcal A)$.
 
--   The set of possible values that $X$ can take on is called its support, $\mathcal S$
+-   The set of possible values that $X$ can take on is called its support, $\mathcal S$.
 
 ## Random variables - example
 
--   Example 1: $X$ is the roll of a die
+-   Example 1: $X$ is the roll of a die.
 
-    -   The support is $\mathcal S = \{1, 2, 3, 4, 5, 6\}$
-    -   $P(X = 1) = 1/6$
+    -   The support is $\mathcal S = \{1, 2, 3, 4, 5, 6\}$.
+    -   $P(X = 1) = 1/6$.
 
--   Example 2: $X$ is a newborn baby’s weight
+-   Example 2: $X$ is a newborn baby’s weight.
 
-    -   The support is $\mathcal S = (0, \infty)$
-    -   $P(X \in [0, \infty]) = 1$
+    -   The support is $\mathcal S = (0, \infty)$.
+    -   $P(X \in [0, \infty]) = 1$.
 
 <!-- ## Axioms of probability -->
 
@@ -389,31 +392,31 @@ This is foundational material that you should have already learned in a previous
 
 Objective (associated with frequentist)
 
--   $P(X = x)$ as a purely mathematical statement
--   If we repeatedly sampled $X$, the the proportion of draws equal to $x$ converges to $P(X = x)$
+-   $P(X = x)$ as a purely mathematical statement.
+-   If we repeatedly sampled $X$, then the proportion of draws equal to $x$ converges to $P(X = x)$.
 
 Subjective (associated with Bayesian)
 
--   $P(X = x)$ represents an individual’s degree of belief
--   Often quantified as the amount an individual would be willing to wager that $X$ will be $x$
+-   $P(X = x)$ represents an individual’s degree of belief.
+-   Often quantified as the amount an individual would be willing to wager that $X$ will be $x$.
 
-A Bayesian analysis makes use of both of these concepts
+A Bayesian analysis makes use of both of these concepts.
 
 ## What is uncertainty?
 
 Aleatoric uncertainty (likelihood)
 
--   Uncontrollable randomness in the experiment
+-   Uncontrollable randomness in the experiment.
 
--   For example, the results of a fair coin flip can never be predicted with certainty
+-   For example, the results of a fair coin flip can never be predicted with certainty.
 
 Epistemic uncertainty (prior/posterior)
 
--   Uncertainty about a quantity that could theoretically be known
+-   Uncertainty about a quantity that could theoretically be known.
 
--   For example, if we flipped a coin infinitely-many times we could know the true probability of a head
+-   For example, if we flipped a coin infinitely-many times we could know the true probability of a head.
 
-A Bayesian analysis makes use of both of these concepts
+A Bayesian analysis makes use of both of these concepts.
 
 <!-- ## Probability versus statistics -->
 
@@ -433,75 +436,75 @@ A Bayesian analysis makes use of both of these concepts
 
 ## Univariate distributions
 
--   We often distinguish between discrete and continuous random variables
+-   We often distinguish between discrete and continuous random variables.
 
--   The random variable $X$ is **discrete** if its support $\mathcal S$ is countable
+-   The random variable $X$ is **discrete** if its support $\mathcal S$ is countable.
 
 -   Examples:
 
-$X \in \{0, 1, 2, 3\}$ is the number of successes in 3 trials\
+$X \in \{0, 1, 2, 3\}$ is the number of successes in 3 trials.
 
-$X \in \{0, 1, 2, \ldots\}$ is the number of patients with COVID in Durham County
+$X \in \{0, 1, 2, \ldots\}$ is the number of patients with COVID in Durham County.
 
 ## Univariate distributions
 
--   We often distinguish between discrete and continuous random variables
+-   We often distinguish between discrete and continuous random variables.
 
--   The random variable $X$ is **continuous** if its support $\mathcal S$ is uncountable
+-   The random variable $X$ is **continuous** if its support $\mathcal S$ is uncountable.
 
 -   Examples with $\mathcal S = (0, \infty)$:
 
-$X > 0$ is systolic blood pressure\
+$X > 0$ is systolic blood pressure.
 
-$X > 0$ is a patient's BMI
+$X > 0$ is a patient's BMI.
 
 ## Discrete univariate distributions
 
--   If $X$ is discrete we describe its distribution with its **probability mass function (pmf)**
+-   If $X$ is discrete we describe its distribution with its **probability mass function (pmf)**.
 
--   The pmf is $f(x) = P(X = x)$
+-   The pmf is $f(x) = P(X = x)$.
 
--   The domain of $X$ is the set of $x$ with $f(x) > 0$
+-   The domain of $X$ is the set of $x$ with $f(x) > 0$.
 
--   We must have $f(x) \geq 0$ and $\sum_x f(x) = 1$
+-   We must have $f(x) \geq 0$ and $\sum_x f(x) = 1$.
 
--   The mean is $\mathbb E[X] = \sum_x x f(x)$
+-   The mean is $\mathbb E[X] = \sum_x x f(x)$.
 
--   The variance is $\mathbb V(X) = \sum_x(x − \mathbb E[X])^2f(x)$
+-   The variance is $\mathbb V(X) = \sum_x(x − \mathbb E[X])^2f(x)$.
 
--   The last three sums are over $X$’s domain
+-   The last three sums are over $X$’s domain.
 
 ## Parametric families of distributions
 
--   A statistical analysis typically proceeds by selecting a pmf that seems to match the distribution of a sample
+-   A statistical analysis typically proceeds by selecting a pmf that seems to match the distribution of a sample.
 
--   We rarely know the pmf exactly, but we assume it is from a parametric family of distributions
+-   We rarely know the pmf exactly, but we assume it is from a parametric family of distributions.
 
--   For example, Binomial(10, 0.5) and Binomial(4, 0.1) are different but both from the binomial family
+-   For example, Binomial(10, 0.5) and Binomial(4, 0.1) are different but both from the binomial family.
 
--   A family of distributions have the same equation for the pmf but differ by some unknown parameters $\boldsymbol{\theta}$
+-   A family of distributions have the same equation for the pmf but differ by some unknown parameters $\boldsymbol{\theta}$.
 
--   We must estimate these parameters
+-   We must estimate these parameters.
 
 ## Continuous univariate distributions {.midi}
 
--   If $X$ is continuous we describe its distribution with the **probability density function (pdf)** $f(x) \geq 0$
+-   If $X$ is continuous we describe its distribution with the **probability density function (pdf)** $f(x) \geq 0$.
 
--   Since there are uncountably many possible values, $P(X = x) = 0$ for all $x$,
+-   Since there are uncountably many possible values, $P(X = x) = 0$ for all $x$.
 
--   Probabilities are computed as areas under the pdf curve $$P(a < X < b) = \int_a^b f(x)dx$$
+-   Probabilities are computed as areas under the pdf curve $$P(a < X < b) = \int_a^b f(x)dx.$$
 
--   Therefore, to be valid $f(x)$ must satisfy $f(x) \geq 0$ and $$P(−\infty < X < \infty) = \int_{-\infty}^{\infty} f(x)dx = 1$$
+-   Therefore, to be valid $f(x)$ must satisfy $f(x) \geq 0$ and $$P(−\infty < X < \infty) = \int_{-\infty}^{\infty} f(x)dx = 1.$$
 
 ## Continuous univariate distributions
 
--   The domain is the set of $x$ values with $f(x) > 0$
+-   The domain is the set of $x$ values with $f(x) > 0$.
 
--   The mean and the variance are defined similarly to the discrete case but with the sums replaced by integrals
+-   The mean and the variance are defined similarly to the discrete case but with the sums replaced by integrals.
 
--   The mean is $\mathbb E[X] = \int x f(x)dx$
+-   The mean is $\mathbb E[X] = \int x f(x)dx$.
 
--   The variance is $\mathbb V(X) = \int (x − \mathbb E[X])^2 f(x)dx$
+-   The variance is $\mathbb V(X) = \int (x − \mathbb E[X])^2 f(x)dx$.
 
 ## Joint distributions
 
@@ -509,78 +512,79 @@ $X > 0$ is a patient's BMI
 
 -   For notational convenience, let’s consider only $p = 2$ random variables $X$ and $Y$.
 
--   $(X, Y)$ is discrete if it can take on a countable number of values, such as\
-    $X$ = number of hearts and $Y$ = number of face cards.
+-   $(X, Y)$ is discrete if it can take on a countable number of values, such as:
 
--   $(X, Y)$ is continuous if it can take on an uncountable number of values, such as\
-    $X$ = birthweight and $Y$ = gestational age.
+    -   $X$ = number of hearts and $Y$ = number of face cards.
+
+-   $(X, Y)$ is continuous if it can take on an uncountable number of values, such as:
+
+    -   $X$ = birthweight and $Y$ = gestational age.
 
 ## Discrete random variables
 
--   The **joint pmf** is $f(x, y) = P(X = x, Y = y)$
+-   The **joint pmf** is $f(x, y) = P(X = x, Y = y)$.
 
     -   $\sum_x \sum_y f(x, y) = 1$
 
--   The **marginal pmf** for $X$ is $f_X(x) = P(X = x) = \sum_y f(x, y)$
+-   The **marginal pmf** for $X$ is $f_X(x) = P(X = x) = \sum_y f(x, y)$.
 
--   The **marginal pmf** for $Y$ is $f_Y(y) = P(Y = y) = \sum_x
-    f(x, y)$
+-   The **marginal pmf** for $Y$ is $f_Y(y) = P(Y = y) = \sum_x f(x, y)$.
 
--   The marginal distribution is the same as univariate distribution as if we ignored the other variable
+-   The marginal distribution is the same as univariate distribution as if we ignored the other variable.
 
 ## Discrete random variables
 
 -   The **conditional pmf** of $Y$ given $X$ is $f(y|x) = P(Y = y|X = x) = \frac{P(X = x, Y = y)}{P(X = x)} = \frac{f(x, y)}{f_X (x)}.$
 
--   $X$ and $Y$ are **independent** if $f(x, y) = f_X(x)f_Y(y)$ for all $x$ and $y$
+-   $X$ and $Y$ are **independent** if $f(x, y) = f_X(x)f_Y(y)$ for all $x$ and $y$.
 
-    -   Variables are dependent if they are not independent
+    -   Variables are dependent if they are not independent.
 
--   Equivalently, $X$ and $Y$ are independent if $f(x|y) = f_X(x)$ for all $x$ and $y$
+-   Equivalently, $X$ and $Y$ are independent if $f(x|y) = f_X(x)$ for all $x$ and $y$.
 
 ## Discrete random variables
 
--   Notation: $X_1, \dots, X_n \overset{\mathrm{iid}}{\sim} f(x)$ means that $X_1, \ldots, X_n$ are independent and identically distributed
+-   Notation: $X_1, \dots, X_n \overset{\mathrm{iid}}{\sim} f(x)$ means that $X_1, \ldots, X_n$ are independent and identically distributed.
 
--   This implies the **joint pmf** is $$P(X_1 = x_1, \ldots, X_n = x_n) = \prod_{i=1}^n f(x_i)$$
+-   This implies the **joint pmf** is $$P(X_1 = x_1, \ldots, X_n = x_n) = \prod_{i=1}^n f(x_i).$$
 
--   The same notation and definitions of independence apply to continuous random variables
+-   The same notation and definitions of independence apply to continuous random variables.
 
--   In this class, assume independence unless otherwise noted
-
-## Continuous random variables
-
--   Manipulating joint pdfs is similar to joint pmfs but sums are replaced by integrals
-
--   The **joint pdf** is denoted $f(x, y)$
-
--   Probabilities are computed as volume under the pdf: $$P((X, Y) ∈ A) = \int_A f(x, y)dxdy$$ where $A \subset \mathbb{R}^2$
+-   In this class, assume independence unless otherwise noted.
 
 ## Continuous random variables
 
--   The **marginal pdf** of $X$ is $f_X(x) = \int f(x, y)dy$
+-   Manipulating joint pdfs is similar to joint pmfs but sums are replaced by integrals.
 
--   $f_X$ is the univariate pdf for $X$ as if we never considered $Y$
+-   The **joint pdf** is denoted $f(x, y)$.
 
--   The **conditional pdf** of $Y$ given $X$ is $$f(y|x) = \frac{f(x, y)}{f_X (x)}$$
+-   Probabilities are computed as volume under the pdf: $$P((X, Y) ∈ A) = \int_A f(x, y)dxdy$$ where $A \subset \mathbb{R}^2$.
 
--   Proper: $\int f(y|x)dy = \int \frac{f(x,y)}{f_X(x)}dy = \int \frac{f(x,y)dy}{f_X(x)} = 1$
+## Continuous random variables
+
+-   The **marginal pdf** of $X$ is $f_X(x) = \int f(x, y)dy$.
+
+-   $f_X$ is the univariate pdf for $X$ as if we never considered $Y$.
+
+-   The **conditional pdf** of $Y$ given $X$ is $$f(y|x) = \frac{f(x, y)}{f_X (x)}.$$
+
+-   Proper: $\int f(y|x)dy = \int \frac{f(x,y)}{f_X(x)}dy = \int \frac{f(x,y)dy}{f_X(x)} = 1$.
 
 ## Defining joint distributions conditionally
 
--   Specifying joint distributions is hard
+-   Specifying joint distributions is hard.
 
--   Every joint distribution can be written $f(x, y) = f(y|x)f(x)$
+-   Every joint distribution can be written $f(x, y) = f(y|x)f(x)$.
 
--   Therefore, any joint distribution can be defined by
+-   Therefore, any joint distribution can be defined by,
 
     1.  $X$’s marginal distribution
 
     2.  The conditional distribution of $Y|X$
 
--   The joint problem reduces to two univariate problems
+-   The joint problem reduces to two univariate problems.
 
--   This idea forms the basis of hierarchical modeling
+-   This idea forms the basis of hierarchical modeling.
 
 <!-- ## Review: Set theory {.small} -->
 
@@ -664,7 +668,7 @@ $X > 0$ is a patient's BMI
 
 <!-- ::: -->
 
-## Bayes rule
+## Bayes rule {.midi}
 
 :::::: columns
 ::: {.column width="10%"}

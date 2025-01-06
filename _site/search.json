@@ -2773,14 +2773,14 @@
     "href": "slides/01-welcome.html#teaching-assistants-tas",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Teaching Assistants (TAs)",
-    "text": "Teaching Assistants (TAs)\n\nDr. Youngsoo Baek (PhD)\n\nPhd in Statistical Science from Duke University\nPostdoc in Biostatistics & Bioinformatics"
+    "text": "Teaching Assistants (TAs)\n\nDr. Youngsoo Baek (PhD)\n\nPhd in Statistical Science from Duke University\nPostdoc in Biostatistics & Bioinformatics\n\nBraden Scherting\n\nPhd candidate in Statistical Science"
   },
   {
     "objectID": "slides/01-welcome.html#check-in-on-ed-discussion",
     "href": "slides/01-welcome.html#check-in-on-ed-discussion",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Check-in on Ed Discussion!",
-    "text": "Check-in on Ed Discussion!\n\nClick on the link or scan the QR code to answer the Ed Discussion poll\nhttps://edstem.org/us/courses/62513/discussion/625046"
+    "text": "Check-in on Ed Discussion!\n\nClick on the link or scan the QR code to answer the Ed Discussion poll\nhttps://edstem.org/us/courses/68995/discussion/5942168"
   },
   {
     "objectID": "slides/01-welcome.html#topics",
@@ -2836,7 +2836,7 @@
     "href": "slides/01-welcome.html#computing-toolkit",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Computing toolkit",
-    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nInference using Stan, a probabilistic programming language (rstan)\nWrite reproducible reports in Quarto\nAccess RStudio through BIOSTAT 725 Docker Containers\n\n\n\n\n\n\n\n\n\n\n\n\nAccess assignments\nFacilitates version control and collaboration\nAll work in BIOSTAT 725 course organization"
+    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nInference using Stan, a probabilistic programming language (rstan)\nWrite reproducible reports in Quarto\nAccess RStudio through STA725 Docker Containers\n\n\n\n\n\n\n\n\n\n\n\n\nAccess assignments\nFacilitates version control and collaboration\nAll work in BIOSTAT 725 course organization"
   },
   {
     "objectID": "slides/01-welcome.html#classroom-community",
@@ -4131,7 +4131,7 @@
     "href": "hw/hw-00.html#rstudio",
     "title": "HW 00",
     "section": "RStudio",
-    "text": "RStudio\n\n\n\n\n\n\nNote\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\nIn this class, you have the option to use RStudio on your laptop (i.e., locally) or on through a container hosted by Duke OIT. My suggestion is for everyone to be comfortable using both options, for the following reasons:\n\nFlexibility: If you’re laptop has problems right before a due date, it will be helpful to be setup in the container.\nIndependence: It is important to be able to compute on your laptop, because when you graduate you will no longer have access to the Duke containers.\n\nThe container is offered as a convenience and you should take advantage of it when needed. We will now give instructions for using both.\n\nInstalling RStudio on your laptop\n\nMost of you probably already have RStudio installed on your laptop. In case you do not, please follow these instructions to install both R and RStudio, Installation instruction.\nWhen given the option, choose the most recent stable version of both.\n\n\n\nReserve RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers. You will log in using your NetID credentials.\nClick “Reserve BIOSTAT 725” to reserve an RStudio container. Be sure you reserve the container labeled BIOSTAT 725 to ensure you have the computing set up you need for the class.\n\nYou only need to reserve a container once per semester.\n\n\nOpen RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers and log in with your Duke NetID and Password.\nClick BIOSTAT725 to log into the Docker container. You should now see the RStudio environment.",
+    "text": "RStudio\n\n\n\n\n\n\nNote\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\nIn this class, you have the option to use RStudio on your laptop (i.e., locally) or on through a container hosted by Duke OIT. My suggestion is for everyone to be comfortable using both options, for the following reasons:\n\nFlexibility: If you’re laptop has problems right before a due date, it will be helpful to be setup in the container.\nIndependence: It is important to be able to compute on your laptop, because when you graduate you will no longer have access to the Duke containers.\n\nThe container is offered as a convenience and you should take advantage of it when needed. We will now give instructions for using both.\n\nInstalling RStudio on your laptop\n\nMost of you probably already have RStudio installed on your laptop. In case you do not, please follow these instructions to install both R and RStudio, Installation instruction.\nWhen given the option, choose the most recent stable version of both.\n\n\n\nReserve RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers. You will log in using your NetID credentials.\nClick “Reserve STA725” to reserve an RStudio container. Be sure you reserve the container labeled STA725 to ensure you have the computing set up you need for the class.\n\nYou only need to reserve a container once per semester.\n\n\nOpen RStudio container\n\nGo to https://cmgr.oit.duke.edu/containers and log in with your Duke NetID and Password.\nClick STA725 to log into the Docker container. You should now see the RStudio environment.",
     "crumbs": [
       "Homework",
       "HW 00"
@@ -4142,7 +4142,7 @@
     "href": "hw/hw-00.html#git-and-github",
     "title": "HW 00",
     "section": "Git and GitHub",
-    "text": "Git and GitHub\nIn addition to R and RStudio, we will use git and GitHub for version control and collaboration.\n\n\n\n\n\n\nNote\n\n\n\nGit is a version control system (like “Track Changes” features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better). Git is important because:\n\nResults produced are more reliable and trustworthy (Ostblom and Timbers 2022)\nFacilitates more effective collaboration (Ostblom and Timbers 2022)\nContributing to science, which builds and organizes knowledge in terms of testable hypotheses (Alexander 2023)\nPossible to identify and correct errors or biases in the analysis process (Alexander 2023)\n\n\n\n\nSign up for GitHub account\nYou will need a GitHub account to access the assignments, project, and in-class exercises for the course.\n\nIf you do not have a GitHub account, go to https://github.com and sign up for an account.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for advice on choosing a username.\n\n\n\nIf you already have a GitHub account, you can move on to the next step.",
+    "text": "Git and GitHub\nIn addition to R and RStudio, we will use git and GitHub for version control and collaboration.\n\n\n\n\n\n\nNote\n\n\n\nGit is a version control system (like “Track Changes” features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better). Git is important because:\n\nResults produced are more reliable and trustworthy (Ostblom and Timbers 2022)\nFacilitates more effective collaboration (Ostblom and Timbers 2022)\nContributing to science, which builds and organizes knowledge in terms of testable hypotheses (Alexander 2023)\nPossible to identify and correct errors or biases in the analysis process (Alexander 2023)\n\n\n\n\nSign up for GitHub account\nYou will need a GitHub account to access the assignments, exams, and in-class exercises for the course.\n\nIf you do not have a GitHub account, go to https://github.com and sign up for an account.\n\n\n\n\n\n\n\nTip\n\n\n\nClick here for advice on choosing a username.\n\n\n\nIf you already have a GitHub account, you can move on to the next step.",
     "crumbs": [
       "Homework",
       "HW 00"
@@ -4153,7 +4153,7 @@
     "href": "hw/hw-00.html#connect-rstudio-and-github",
     "title": "HW 00",
     "section": "Connect RStudio and GitHub",
-    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. Below are an outline of the authentication steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system. So, if you are using both your laptop and the container, you will need to do this process twice.\n\n\n\nStep 0: Open your RStudio (either the BIOSTAT 725 RStudio container or your laptop).\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used (e.g., biostat725).\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"berchuck\",\n  user.email = \"sib2@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio! We will begin working with RStudio and GitHub in lecture this week.",
+    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. Below are an outline of the authentication steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system. So, if you are using both your laptop and the container, you will need to do this process twice.\n\n\n\nStep 0: Open your RStudio (either the STA725 RStudio container or your laptop).\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used (e.g., biostat725).\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"berchuck\",\n  user.email = \"sib2@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio! We will begin working with RStudio and GitHub in lecture this week.",
     "crumbs": [
       "Homework",
       "HW 00"
@@ -4175,7 +4175,7 @@
     "href": "hw/hw-00.html#stan",
     "title": "HW 00",
     "section": "Stan",
-    "text": "Stan\nIn this course, we will use the package rstan as our primary tool for conducting Bayesian inference. The container already has rstan installed, so these steps need to be used for installation on your laptop.\n\nFollow the installation guide here: https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started\n\nMake sure to follow these instructions closely, since prior to installing rstan, you need to configure your R installation to be able to compile C++ code.\n\nStan Hello World!\nOnce rstan has been installed, test to make sure we can load the R package.\n\nlibrary(rstan)\n\nNow we will simulate some data that we can fit with linear regression. We will also define a Stan data object (no need to understand this now, we will go into this in detail in future lectures).\n\n###Set a seed for reproducibility\nset.seed(54)\n\n###Simulation settings\nn &lt;- 100 # number of observations\np &lt;- 3 # number of covariates\n\n###True parameter values\nbeta &lt;- matrix(c(rnorm(p + 1)), ncol = 1)\nsigma &lt;- 1.5\n\n###Simulate covariates and outcome\nX &lt;- cbind(1, matrix(rnorm(n * p), ncol = p))\nY &lt;- as.numeric(X %*% beta + rnorm(n, 0, sigma))\n\n###Create a Stan data object\nstan_data &lt;- list(\n  n = n,\n  p = p,\n  Y = Y,  \n  X = X\n)\n\nNow, we can define a Stan model (you do not need to understand this yet, we are just testing!). In RStudio, create a new .stan file called test.stan and then copy and paste the following Stan code. To create a .stan file from RStudio, File -&gt; New File -&gt; Stan File.\n\n// Saved in test.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p + 1] X;\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  Y ~ normal(X * beta, sigma);\n}\n\nNext, we test to see if the model can compile. Note compilation can sometimes take a bit of time.\n\nstan_model &lt;- stan_model(file = \"hw00/test.stan\")\n\nOK, great. We will now obtain posterior samples, using default specifications for inference.\n\nfit &lt;- sampling(stan_model, data = stan_data, refresh = 0)\n\nFinally, print some summary estimates for the model parameters.\n\nprint(fit)\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n           mean se_mean   sd    2.5%     25%     50%     75%   97.5% n_eff Rhat\nbeta[1]    1.89    0.00 0.18    1.53    1.77    1.89    2.01    2.22  4854    1\nbeta[2]    0.20    0.00 0.17   -0.14    0.09    0.20    0.32    0.54  5183    1\nbeta[3]   -0.31    0.00 0.16   -0.63   -0.42   -0.31   -0.19    0.01  4591    1\nbeta[4]    1.58    0.00 0.19    1.19    1.46    1.59    1.71    1.96  5115    1\nsigma      1.71    0.00 0.12    1.49    1.62    1.70    1.79    1.98  3895    1\nlp__    -102.47    0.04 1.59 -106.38 -103.30 -102.13 -101.29 -100.36  1875    1\n\nSamples were drawn using NUTS(diag_e) at Tue Nov 19 09:36:53 2024.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1).",
+    "text": "Stan\nIn this course, we will use the package rstan as our primary tool for conducting Bayesian inference. The container already has rstan installed, so these steps need to be used for installation on your laptop.\n\nFollow the installation guide here: https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started\n\nMake sure to follow these instructions closely, since prior to installing rstan, you need to configure your R installation to be able to compile C++ code.\n\nStan Hello World!\nOnce rstan has been installed, test to make sure we can load the R package.\n\nlibrary(rstan)\n\nNow we will simulate some data that we can fit with linear regression. We will also define a Stan data object (no need to understand this now, we will go into this in detail in future lectures).\n\n###Set a seed for reproducibility\nset.seed(54)\n\n###Simulation settings\nn &lt;- 100 # number of observations\np &lt;- 3 # number of covariates\n\n###True parameter values\nbeta &lt;- matrix(c(rnorm(p + 1)), ncol = 1)\nsigma &lt;- 1.5\n\n###Simulate covariates and outcome\nX &lt;- cbind(1, matrix(rnorm(n * p), ncol = p))\nY &lt;- as.numeric(X %*% beta + rnorm(n, 0, sigma))\n\n###Create a Stan data object\nstan_data &lt;- list(\n  n = n,\n  p = p,\n  Y = Y,  \n  X = X\n)\n\nNow, we can define a Stan model (you do not need to understand this yet, we are just testing!). In RStudio, create a new .stan file called test.stan and then copy and paste the following Stan code. To create a .stan file from RStudio, File -&gt; New File -&gt; Stan File.\n\n// Saved in test.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p + 1] X;\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  Y ~ normal(X * beta, sigma);\n}\n\nNext, we test to see if the model can compile. Note compilation can sometimes take a bit of time.\n\nstan_model &lt;- stan_model(file = \"test.stan\")\n\nOK, great. We will now obtain posterior samples, using default specifications for inference.\n\nfit &lt;- sampling(stan_model, data = stan_data, refresh = 0)\n\nFinally, print some summary estimates for the model parameters.\n\nprint(fit)\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n           mean se_mean   sd    2.5%     25%     50%     75%   97.5% n_eff Rhat\nbeta[1]    1.89    0.00 0.18    1.54    1.77    1.89    2.01    2.23  4666    1\nbeta[2]    0.20    0.00 0.18   -0.15    0.08    0.20    0.32    0.55  4391    1\nbeta[3]   -0.30    0.00 0.16   -0.62   -0.41   -0.31   -0.19    0.01  5189    1\nbeta[4]    1.58    0.00 0.19    1.22    1.46    1.58    1.71    1.95  4983    1\nsigma      1.71    0.00 0.13    1.49    1.63    1.71    1.79    1.98  4479    1\nlp__    -102.49    0.04 1.61 -106.30 -103.33 -102.13 -101.31 -100.34  1907    1\n\nSamples were drawn using NUTS(diag_e) at Mon Jan  6 15:15:47 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1).",
     "crumbs": [
       "Homework",
       "HW 00"
@@ -5452,35 +5452,35 @@
     "href": "slides/01-welcome.html#review-of-probability",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Review of probability",
-    "text": "Review of probability\n\nThe goal of Bayesian statistics is to compute the posterior distribution (i.e., the uncertainty distribution of the parameters, \\(\\boldsymbol{\\theta}\\), after observing the data, \\(\\mathbf{Y}\\))\nThis is the conditional distribution of \\(\\boldsymbol{\\theta}\\) given \\(\\mathbf{Y}\\)\nTherefore, we need to review the probability concepts that lead to the conditional distribution of one variable conditioned on another\n\nProbability mass (pmf) and density (pdf) functions\nJoint distributions\nMarginal and conditional distributions"
+    "text": "Review of probability\n\nThe goal of Bayesian statistics is to compute the posterior distribution (i.e., the uncertainty distribution of the parameters, \\(\\boldsymbol{\\theta}\\), after observing the data, \\(\\mathbf{Y}\\)).\nThis is the conditional distribution of \\(\\boldsymbol{\\theta}\\) given \\(\\mathbf{Y}\\).\nTherefore, we need to review the probability concepts that lead to the conditional distribution of one variable conditioned on another.\n\nProbability mass (pmf) and density (pdf) functions\nJoint distributions\nMarginal and conditional distributions"
   },
   {
     "objectID": "slides/01-welcome.html#random-variables",
     "href": "slides/01-welcome.html#random-variables",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Random variables",
-    "text": "Random variables\n\n\\(X\\) (capital) is a random variable\nWe want to compute the probability that \\(X\\) takes on a specific value \\(x\\) (lowercase)\n\nThis is denoted \\(P(X = x)\\)\n\nWe also might want to compute the probability of \\(X\\) being in a set \\(\\mathcal A\\)\n\nThis is denoted \\(P(X \\in \\mathcal A)\\)\n\nThe set of possible values that \\(X\\) can take on is called its support, \\(\\mathcal S\\)"
+    "text": "Random variables\n\n\\(X\\) (capital) is a random variable.\nWe want to compute the probability that \\(X\\) takes on a specific value \\(x\\) (lowercase).\n\nThis is denoted \\(P(X = x)\\).\n\nWe also might want to compute the probability of \\(X\\) being in a set \\(\\mathcal A\\).\n\nThis is denoted \\(P(X \\in \\mathcal A)\\).\n\nThe set of possible values that \\(X\\) can take on is called its support, \\(\\mathcal S\\)."
   },
   {
     "objectID": "slides/01-welcome.html#random-variables---example",
     "href": "slides/01-welcome.html#random-variables---example",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Random variables - example",
-    "text": "Random variables - example\n\nExample 1: \\(X\\) is the roll of a die\n\nThe support is \\(\\mathcal S = \\{1, 2, 3, 4, 5, 6\\}\\)\n\\(P(X = 1) = 1/6\\)\n\nExample 2: \\(X\\) is a newborn baby’s weight\n\nThe support is \\(\\mathcal S = (0, \\infty)\\)\n\\(P(X \\in [0, \\infty]) = 1\\)"
+    "text": "Random variables - example\n\nExample 1: \\(X\\) is the roll of a die.\n\nThe support is \\(\\mathcal S = \\{1, 2, 3, 4, 5, 6\\}\\).\n\\(P(X = 1) = 1/6\\).\n\nExample 2: \\(X\\) is a newborn baby’s weight.\n\nThe support is \\(\\mathcal S = (0, \\infty)\\).\n\\(P(X \\in [0, \\infty]) = 1\\)."
   },
   {
     "objectID": "slides/01-welcome.html#what-is-probability",
     "href": "slides/01-welcome.html#what-is-probability",
     "title": "Welcome to BIOSTAT 725!",
     "section": "What is probability?",
-    "text": "What is probability?\nObjective (associated with frequentist)\n\n\\(P(X = x)\\) as a purely mathematical statement\nIf we repeatedly sampled \\(X\\), the the proportion of draws equal to \\(x\\) converges to \\(P(X = x)\\)\n\nSubjective (associated with Bayesian)\n\n\\(P(X = x)\\) represents an individual’s degree of belief\nOften quantified as the amount an individual would be willing to wager that \\(X\\) will be \\(x\\)\n\nA Bayesian analysis makes use of both of these concepts"
+    "text": "What is probability?\nObjective (associated with frequentist)\n\n\\(P(X = x)\\) as a purely mathematical statement.\nIf we repeatedly sampled \\(X\\), then the proportion of draws equal to \\(x\\) converges to \\(P(X = x)\\).\n\nSubjective (associated with Bayesian)\n\n\\(P(X = x)\\) represents an individual’s degree of belief.\nOften quantified as the amount an individual would be willing to wager that \\(X\\) will be \\(x\\).\n\nA Bayesian analysis makes use of both of these concepts."
   },
   {
     "objectID": "slides/01-welcome.html#what-is-uncertainty",
     "href": "slides/01-welcome.html#what-is-uncertainty",
     "title": "Welcome to BIOSTAT 725!",
     "section": "What is uncertainty?",
-    "text": "What is uncertainty?\nAleatoric uncertainty (likelihood)\n\nUncontrollable randomness in the experiment\nFor example, the results of a fair coin flip can never be predicted with certainty\n\nEpistemic uncertainty (prior/posterior)\n\nUncertainty about a quantity that could theoretically be known\nFor example, if we flipped a coin infinitely-many times we could know the true probability of a head\n\nA Bayesian analysis makes use of both of these concepts"
+    "text": "What is uncertainty?\nAleatoric uncertainty (likelihood)\n\nUncontrollable randomness in the experiment.\nFor example, the results of a fair coin flip can never be predicted with certainty.\n\nEpistemic uncertainty (prior/posterior)\n\nUncertainty about a quantity that could theoretically be known.\nFor example, if we flipped a coin infinitely-many times we could know the true probability of a head.\n\nA Bayesian analysis makes use of both of these concepts."
   },
   {
     "objectID": "slides/01-welcome.html#probability-versus-statistics",
@@ -5494,91 +5494,91 @@
     "href": "slides/01-welcome.html#univariate-distributions",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Univariate distributions",
-    "text": "Univariate distributions\n\nWe often distinguish between discrete and continuous random variables\nThe random variable \\(X\\) is discrete if its support \\(\\mathcal S\\) is countable\nExamples:\n\n\\(X \\in \\{0, 1, 2, 3\\}\\) is the number of successes in 3 trials\n\n\\(X \\in \\{0, 1, 2, \\ldots\\}\\) is the number of patients with COVID in Durham County"
+    "text": "Univariate distributions\n\nWe often distinguish between discrete and continuous random variables.\nThe random variable \\(X\\) is discrete if its support \\(\\mathcal S\\) is countable.\nExamples:\n\n\\(X \\in \\{0, 1, 2, 3\\}\\) is the number of successes in 3 trials.\n\\(X \\in \\{0, 1, 2, \\ldots\\}\\) is the number of patients with COVID in Durham County."
   },
   {
     "objectID": "slides/01-welcome.html#univariate-distributions-1",
     "href": "slides/01-welcome.html#univariate-distributions-1",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Univariate distributions",
-    "text": "Univariate distributions\n\nWe often distinguish between discrete and continuous random variables\nThe random variable \\(X\\) is continuous if its support \\(\\mathcal S\\) is uncountable\nExamples with \\(\\mathcal S = (0, \\infty)\\):\n\n\\(X &gt; 0\\) is systolic blood pressure\n\n\\(X &gt; 0\\) is a patient’s BMI"
+    "text": "Univariate distributions\n\nWe often distinguish between discrete and continuous random variables.\nThe random variable \\(X\\) is continuous if its support \\(\\mathcal S\\) is uncountable.\nExamples with \\(\\mathcal S = (0, \\infty)\\):\n\n\\(X &gt; 0\\) is systolic blood pressure.\n\\(X &gt; 0\\) is a patient’s BMI."
   },
   {
     "objectID": "slides/01-welcome.html#discrete-univariate-distributions",
     "href": "slides/01-welcome.html#discrete-univariate-distributions",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Discrete univariate distributions",
-    "text": "Discrete univariate distributions\n\nIf \\(X\\) is discrete we describe its distribution with its probability mass function (pmf)\nThe pmf is \\(f(x) = P(X = x)\\)\nThe domain of \\(X\\) is the set of \\(x\\) with \\(f(x) &gt; 0\\)\nWe must have \\(f(x) \\geq 0\\) and \\(\\sum_x f(x) = 1\\)\nThe mean is \\(\\mathbb E[X] = \\sum_x x f(x)\\)\nThe variance is \\(\\mathbb V(X) = \\sum_x(x − \\mathbb E[X])^2f(x)\\)\nThe last three sums are over \\(X\\)’s domain"
+    "text": "Discrete univariate distributions\n\nIf \\(X\\) is discrete we describe its distribution with its probability mass function (pmf).\nThe pmf is \\(f(x) = P(X = x)\\).\nThe domain of \\(X\\) is the set of \\(x\\) with \\(f(x) &gt; 0\\).\nWe must have \\(f(x) \\geq 0\\) and \\(\\sum_x f(x) = 1\\).\nThe mean is \\(\\mathbb E[X] = \\sum_x x f(x)\\).\nThe variance is \\(\\mathbb V(X) = \\sum_x(x − \\mathbb E[X])^2f(x)\\).\nThe last three sums are over \\(X\\)’s domain."
   },
   {
     "objectID": "slides/01-welcome.html#parametric-families-of-distributions",
     "href": "slides/01-welcome.html#parametric-families-of-distributions",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Parametric families of distributions",
-    "text": "Parametric families of distributions\n\nA statistical analysis typically proceeds by selecting a pmf that seems to match the distribution of a sample\nWe rarely know the pmf exactly, but we assume it is from a parametric family of distributions\nFor example, Binomial(10, 0.5) and Binomial(4, 0.1) are different but both from the binomial family\nA family of distributions have the same equation for the pmf but differ by some unknown parameters \\(\\boldsymbol{\\theta}\\)\nWe must estimate these parameters"
+    "text": "Parametric families of distributions\n\nA statistical analysis typically proceeds by selecting a pmf that seems to match the distribution of a sample.\nWe rarely know the pmf exactly, but we assume it is from a parametric family of distributions.\nFor example, Binomial(10, 0.5) and Binomial(4, 0.1) are different but both from the binomial family.\nA family of distributions have the same equation for the pmf but differ by some unknown parameters \\(\\boldsymbol{\\theta}\\).\nWe must estimate these parameters."
   },
   {
     "objectID": "slides/01-welcome.html#continuous-univariate-distributions",
     "href": "slides/01-welcome.html#continuous-univariate-distributions",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Continuous univariate distributions",
-    "text": "Continuous univariate distributions\n\nIf \\(X\\) is continuous we describe its distribution with the probability density function (pdf) \\(f(x) \\geq 0\\)\nSince there are uncountably many possible values, \\(P(X = x) = 0\\) for all \\(x\\),\nProbabilities are computed as areas under the pdf curve \\[P(a &lt; X &lt; b) = \\int_a^b f(x)dx\\]\nTherefore, to be valid \\(f(x)\\) must satisfy \\(f(x) \\geq 0\\) and \\[P(−\\infty &lt; X &lt; \\infty) = \\int_{-\\infty}^{\\infty} f(x)dx = 1\\]"
+    "text": "Continuous univariate distributions\n\nIf \\(X\\) is continuous we describe its distribution with the probability density function (pdf) \\(f(x) \\geq 0\\).\nSince there are uncountably many possible values, \\(P(X = x) = 0\\) for all \\(x\\).\nProbabilities are computed as areas under the pdf curve \\[P(a &lt; X &lt; b) = \\int_a^b f(x)dx.\\]\nTherefore, to be valid \\(f(x)\\) must satisfy \\(f(x) \\geq 0\\) and \\[P(−\\infty &lt; X &lt; \\infty) = \\int_{-\\infty}^{\\infty} f(x)dx = 1.\\]"
   },
   {
     "objectID": "slides/01-welcome.html#continuous-univariate-distributions-1",
     "href": "slides/01-welcome.html#continuous-univariate-distributions-1",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Continuous univariate distributions",
-    "text": "Continuous univariate distributions\n\nThe domain is the set of \\(x\\) values with \\(f(x) &gt; 0\\)\nThe mean and the variance are defined similarly to the discrete case but with the sums replaced by integrals\nThe mean is \\(\\mathbb E[X] = \\int x f(x)dx\\)\nThe variance is \\(\\mathbb V(X) = \\int (x − \\mathbb E[X])^2 f(x)dx\\)"
+    "text": "Continuous univariate distributions\n\nThe domain is the set of \\(x\\) values with \\(f(x) &gt; 0\\).\nThe mean and the variance are defined similarly to the discrete case but with the sums replaced by integrals.\nThe mean is \\(\\mathbb E[X] = \\int x f(x)dx\\).\nThe variance is \\(\\mathbb V(X) = \\int (x − \\mathbb E[X])^2 f(x)dx\\)."
   },
   {
     "objectID": "slides/01-welcome.html#joint-distributions",
     "href": "slides/01-welcome.html#joint-distributions",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Joint distributions",
-    "text": "Joint distributions\n\n\\(\\mathbf{X} = (X_1, \\ldots, X_p)\\) is a random vector (vectors and matrices should be in bold).\nFor notational convenience, let’s consider only \\(p = 2\\) random variables \\(X\\) and \\(Y\\).\n\\((X, Y)\\) is discrete if it can take on a countable number of values, such as\n\\(X\\) = number of hearts and \\(Y\\) = number of face cards.\n\\((X, Y)\\) is continuous if it can take on an uncountable number of values, such as\n\\(X\\) = birthweight and \\(Y\\) = gestational age."
+    "text": "Joint distributions\n\n\\(\\mathbf{X} = (X_1, \\ldots, X_p)\\) is a random vector (vectors and matrices should be in bold).\nFor notational convenience, let’s consider only \\(p = 2\\) random variables \\(X\\) and \\(Y\\).\n\\((X, Y)\\) is discrete if it can take on a countable number of values, such as:\n\n\\(X\\) = number of hearts and \\(Y\\) = number of face cards.\n\n\\((X, Y)\\) is continuous if it can take on an uncountable number of values, such as:\n\n\\(X\\) = birthweight and \\(Y\\) = gestational age."
   },
   {
     "objectID": "slides/01-welcome.html#discrete-random-variables",
     "href": "slides/01-welcome.html#discrete-random-variables",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Discrete random variables",
-    "text": "Discrete random variables\n\nThe joint pmf is \\(f(x, y) = P(X = x, Y = y)\\)\n\n\\(\\sum_x \\sum_y f(x, y) = 1\\)\n\nThe marginal pmf for \\(X\\) is \\(f_X(x) = P(X = x) = \\sum_y f(x, y)\\)\nThe marginal pmf for \\(Y\\) is \\(f_Y(y) = P(Y = y) = \\sum_x\nf(x, y)\\)\nThe marginal distribution is the same as univariate distribution as if we ignored the other variable"
+    "text": "Discrete random variables\n\nThe joint pmf is \\(f(x, y) = P(X = x, Y = y)\\).\n\n\\(\\sum_x \\sum_y f(x, y) = 1\\)\n\nThe marginal pmf for \\(X\\) is \\(f_X(x) = P(X = x) = \\sum_y f(x, y)\\).\nThe marginal pmf for \\(Y\\) is \\(f_Y(y) = P(Y = y) = \\sum_x f(x, y)\\).\nThe marginal distribution is the same as univariate distribution as if we ignored the other variable."
   },
   {
     "objectID": "slides/01-welcome.html#discrete-random-variables-1",
     "href": "slides/01-welcome.html#discrete-random-variables-1",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Discrete random variables",
-    "text": "Discrete random variables\n\nThe conditional pmf of \\(Y\\) given \\(X\\) is \\(f(y|x) = P(Y = y|X = x) = \\frac{P(X = x, Y = y)}{P(X = x)} = \\frac{f(x, y)}{f_X (x)}.\\)\n\\(X\\) and \\(Y\\) are independent if \\(f(x, y) = f_X(x)f_Y(y)\\) for all \\(x\\) and \\(y\\)\n\nVariables are dependent if they are not independent\n\nEquivalently, \\(X\\) and \\(Y\\) are independent if \\(f(x|y) = f_X(x)\\) for all \\(x\\) and \\(y\\)"
+    "text": "Discrete random variables\n\nThe conditional pmf of \\(Y\\) given \\(X\\) is \\(f(y|x) = P(Y = y|X = x) = \\frac{P(X = x, Y = y)}{P(X = x)} = \\frac{f(x, y)}{f_X (x)}.\\)\n\\(X\\) and \\(Y\\) are independent if \\(f(x, y) = f_X(x)f_Y(y)\\) for all \\(x\\) and \\(y\\).\n\nVariables are dependent if they are not independent.\n\nEquivalently, \\(X\\) and \\(Y\\) are independent if \\(f(x|y) = f_X(x)\\) for all \\(x\\) and \\(y\\)."
   },
   {
     "objectID": "slides/01-welcome.html#discrete-random-variables-2",
     "href": "slides/01-welcome.html#discrete-random-variables-2",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Discrete random variables",
-    "text": "Discrete random variables\n\nNotation: \\(X_1, \\dots, X_n \\overset{\\mathrm{iid}}{\\sim} f(x)\\) means that \\(X_1, \\ldots, X_n\\) are independent and identically distributed\nThis implies the joint pmf is \\[P(X_1 = x_1, \\ldots, X_n = x_n) = \\prod_{i=1}^n f(x_i)\\]\nThe same notation and definitions of independence apply to continuous random variables\nIn this class, assume independence unless otherwise noted"
+    "text": "Discrete random variables\n\nNotation: \\(X_1, \\dots, X_n \\overset{\\mathrm{iid}}{\\sim} f(x)\\) means that \\(X_1, \\ldots, X_n\\) are independent and identically distributed.\nThis implies the joint pmf is \\[P(X_1 = x_1, \\ldots, X_n = x_n) = \\prod_{i=1}^n f(x_i).\\]\nThe same notation and definitions of independence apply to continuous random variables.\nIn this class, assume independence unless otherwise noted."
   },
   {
     "objectID": "slides/01-welcome.html#continuous-random-variables",
     "href": "slides/01-welcome.html#continuous-random-variables",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Continuous random variables",
-    "text": "Continuous random variables\n\nManipulating joint pdfs is similar to joint pmfs but sums are replaced by integrals\nThe joint pdf is denoted \\(f(x, y)\\)\nProbabilities are computed as volume under the pdf: \\[P((X, Y) ∈ A) = \\int_A f(x, y)dxdy\\] where \\(A \\subset \\mathbb{R}^2\\)"
+    "text": "Continuous random variables\n\nManipulating joint pdfs is similar to joint pmfs but sums are replaced by integrals.\nThe joint pdf is denoted \\(f(x, y)\\).\nProbabilities are computed as volume under the pdf: \\[P((X, Y) ∈ A) = \\int_A f(x, y)dxdy\\] where \\(A \\subset \\mathbb{R}^2\\)."
   },
   {
     "objectID": "slides/01-welcome.html#continuous-random-variables-1",
     "href": "slides/01-welcome.html#continuous-random-variables-1",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Continuous random variables",
-    "text": "Continuous random variables\n\nThe marginal pdf of \\(X\\) is \\(f_X(x) = \\int f(x, y)dy\\)\n\\(f_X\\) is the univariate pdf for \\(X\\) as if we never considered \\(Y\\)\nThe conditional pdf of \\(Y\\) given \\(X\\) is \\[f(y|x) = \\frac{f(x, y)}{f_X (x)}\\]\nProper: \\(\\int f(y|x)dy = \\int \\frac{f(x,y)}{f_X(x)}dy = \\int \\frac{f(x,y)dy}{f_X(x)} = 1\\)"
+    "text": "Continuous random variables\n\nThe marginal pdf of \\(X\\) is \\(f_X(x) = \\int f(x, y)dy\\).\n\\(f_X\\) is the univariate pdf for \\(X\\) as if we never considered \\(Y\\).\nThe conditional pdf of \\(Y\\) given \\(X\\) is \\[f(y|x) = \\frac{f(x, y)}{f_X (x)}.\\]\nProper: \\(\\int f(y|x)dy = \\int \\frac{f(x,y)}{f_X(x)}dy = \\int \\frac{f(x,y)dy}{f_X(x)} = 1\\)."
   },
   {
     "objectID": "slides/01-welcome.html#defining-joint-distributions-conditionally",
     "href": "slides/01-welcome.html#defining-joint-distributions-conditionally",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Defining joint distributions conditionally",
-    "text": "Defining joint distributions conditionally\n\nSpecifying joint distributions is hard\nEvery joint distribution can be written \\(f(x, y) = f(y|x)f(x)\\)\nTherefore, any joint distribution can be defined by\n\n\\(X\\)’s marginal distribution\nThe conditional distribution of \\(Y|X\\)\n\nThe joint problem reduces to two univariate problems\nThis idea forms the basis of hierarchical modeling"
+    "text": "Defining joint distributions conditionally\n\nSpecifying joint distributions is hard.\nEvery joint distribution can be written \\(f(x, y) = f(y|x)f(x)\\).\nTherefore, any joint distribution can be defined by,\n\n\\(X\\)’s marginal distribution\nThe conditional distribution of \\(Y|X\\)\n\nThe joint problem reduces to two univariate problems.\nThis idea forms the basis of hierarchical modeling."
   },
   {
     "objectID": "slides/01-welcome.html#bayes-rule",
@@ -5753,7 +5753,7 @@
     "href": "slides/02-monte-carlo.html#additional-posterior-summaries",
     "title": "Monte Carlo Sampling",
     "section": "Additional posterior summaries",
-    "text": "Additional posterior summaries\n\n# median\nmedian(pi_samples)\n\n[1] 0.2408114\n\n# 95% credible intervals\nquantile(pi_samples, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.2053340 0.2786704 \n\n# evaluating probability\nmean(pi_samples &lt; 0.25)\n\n[1] 0.687\n\n# summarizing arbitrary functions of the parameters\npi_new &lt;- pi_samples^3 - pi_samples\nc(mean(pi_new), quantile(pi_new, probs = c(0.025, 0.975)))\n\n                 2.5%      97.5% \n-0.2267887 -0.2570297 -0.1966767"
+    "text": "Additional posterior summaries\n\n# median\nmedian(pi_samples)\n\n[1] 0.240722\n\n# 95% credible intervals\nquantile(pi_samples, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.2048398 0.2788959 \n\n# evaluating probability\nmean(pi_samples &lt; 0.25)\n\n[1] 0.682\n\n# summarizing arbitrary functions of the parameters\npi_new &lt;- pi_samples^3 - pi_samples\nc(mean(pi_new), quantile(pi_new, probs = c(0.025, 0.975)))\n\n                 2.5%      97.5% \n-0.2268475 -0.2572026 -0.1962448"
   },
   {
     "objectID": "slides/02-monte-carlo.html#matrix-likelihood-specification",
@@ -6614,7 +6614,7 @@
     "href": "slides/05-priors-ppds.html#posterior-summaries-estimation",
     "title": "Priors, Posteriors, and PPDs!",
     "section": "Posterior summaries: estimation",
-    "text": "Posterior summaries: estimation\n\nWe have already seen that we can use MC or MCMC to estimate these posterior summaries!\nTo compute the HPD interval we can use the hdi function from the ggdist R package\n\n\nlibrary(ggdist)\ny &lt;- rgamma(10000, 3, 1)\nquantile(y, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.6096203 7.2709121 \n\nggdist::hdi(y)\n\n       [,1]     [,2]\n[1,] 0.3156 6.418598"
+    "text": "Posterior summaries: estimation\n\nWe have already seen that we can use MC or MCMC to estimate these posterior summaries!\nTo compute the HPD interval we can use the hdi function from the ggdist R package\n\n\nlibrary(ggdist)\ny &lt;- rgamma(10000, 3, 1)\nquantile(y, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.6211652 7.2186263 \n\nggdist::hdi(y)\n\n         [,1]     [,2]\n[1,] 0.335666 6.421781"
   },
   {
     "objectID": "slides/05-priors-ppds.html#linear-regression-recall",
@@ -7636,7 +7636,7 @@
     "href": "slides/02-monte-carlo.html#returning-to-our-posterior",
     "title": "Monte Carlo Sampling",
     "section": "Returning to our posterior",
-    "text": "Returning to our posterior\nLet’s obtain \\(S = 1,000\\) samples from our posterior.\n\npi_samples &lt;- rbeta(1000, 1 + 120, 1 + 380)\n\nWe can compute the posterior mean and variance.\n\nprint(mean(pi_samples))\n\n[1] 0.2412684\n\nprint(var(pi_samples))\n\n[1] 0.0003574553"
+    "text": "Returning to our posterior\nLet’s obtain \\(S = 1,000\\) samples from our posterior.\n\npi_samples &lt;- rbeta(1000, 1 + 120, 1 + 380)\n\nWe can compute the posterior mean and variance.\n\nprint(mean(pi_samples))\n\n[1] 0.2403665\n\nprint(var(pi_samples))\n\n[1] 0.0003811683"
   },
   {
     "objectID": "slides/02-monte-carlo.html#algorithm-for-estimating-pi-1",
@@ -8056,7 +8056,7 @@
     "href": "slides/07-model-comparison.html#prepare-for-next-class",
     "title": "Model Comparison",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02, which was just assigned\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Bayesian Workflow"
+    "text": "Prepare for next class\n\nWork on HW 02, which was just assigned\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Bayesian Workflow\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/08-workflow.html#review-of-last-lecture",
@@ -8469,7 +8469,7 @@
     "href": "slides/07-model-comparison.html#computing-waic",
     "title": "Model Comparison",
     "section": "Computing WAIC",
-    "text": "Computing WAIC\n\nBegin by extracting the log-likelihood values from the model.\nWe will use the loo package.\n\n\n###Load loo package\nlibrary(loo)\n\nThis is loo version 2.8.0\n\n\n- Online documentation and vignettes at mc-stan.org/loo\n\n\n- As of v2.0.0 loo defaults to 1 core but we recommend using as many as possible. Use the 'cores' argument or set options(mc.cores = NUM_CORES) for an entire session. \n\n###Extract log likelihood\nlog_lik_model1 &lt;- loo::extract_log_lik(fit_model1, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_model2 &lt;- loo::extract_log_lik(fit_model2, parameter_name = \"log_lik\", merge_chains = TRUE)\n\n###Explore the object\nclass(log_lik_model1)\n\n[1] \"matrix\" \"array\" \n\ndim(log_lik_model1)\n\n[1] 2000  100"
+    "text": "Computing WAIC\n\nBegin by extracting the log-likelihood values from the model.\nWe will use the loo package.\n\n\n###Load loo package\nlibrary(loo)\n\n###Extract log likelihood\nlog_lik_model1 &lt;- loo::extract_log_lik(fit_model1, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_model2 &lt;- loo::extract_log_lik(fit_model2, parameter_name = \"log_lik\", merge_chains = TRUE)\n\n###Explore the object\nclass(log_lik_model1)\n\n[1] \"matrix\" \"array\" \n\ndim(log_lik_model1)\n\n[1] 2000  100"
   },
   {
     "objectID": "slides/07-model-comparison.html#computing-waic-1",
@@ -8504,14 +8504,14 @@
     "href": "slides/07-model-comparison.html#overfitting-and-underfitting",
     "title": "Model Comparison",
     "section": "Overfitting and underfitting",
-    "text": "Overfitting and underfitting\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type\n'expression'\nWarning in is.na(x): is.na() applied to non-(list or vector) of type\n'expression'\n\n\nWarning: Removed 39 rows containing missing values or values outside the scale range\n(`geom_smooth()`).\nis.na() applied to non-(list or vector) of type 'expression'\nis.na() applied to non-(list or vector) of type 'expression'\n\n\nWarning: Removed 33 rows containing missing values or values outside the scale range\n(`geom_smooth()`).\nis.na() applied to non-(list or vector) of type 'expression'\nis.na() applied to non-(list or vector) of type 'expression'\n\n\nWarning: Removed 44 rows containing missing values or values outside the scale range\n(`geom_smooth()`).\nis.na() applied to non-(list or vector) of type 'expression'\nis.na() applied to non-(list or vector) of type 'expression'"
+    "text": "Overfitting and underfitting"
   },
   {
     "objectID": "slides/07-model-comparison.html#overfitting-and-underfitting-1",
     "href": "slides/07-model-comparison.html#overfitting-and-underfitting-1",
     "title": "Model Comparison",
     "section": "Overfitting and underfitting",
-    "text": "Overfitting and underfitting\n\nWarning in is.na(x): is.na() applied to non-(list or vector) of type\n'expression'\n\n\nWarning: Removed 482 rows containing missing values or values outside the scale range\n(`geom_line()`).\nis.na() applied to non-(list or vector) of type 'expression'\n\n\nWarning: Removed 406 rows containing missing values or values outside the scale range\n(`geom_line()`).\nis.na() applied to non-(list or vector) of type 'expression'\n\n\nWarning: Removed 541 rows containing missing values or values outside the scale range\n(`geom_line()`).\nis.na() applied to non-(list or vector) of type 'expression'"
+    "text": "Overfitting and underfitting"
   },
   {
     "objectID": "slides/07-model-comparison.html#model-comparison",
@@ -8560,7 +8560,7 @@
     "href": "slides/07-model-comparison.html#kullback-leibler-divergence-1",
     "title": "Model Comparison",
     "section": "Kullback-Leibler divergence",
-    "text": "Kullback-Leibler divergence\nAs an example, assume that the data are generated by a true model \\(M_0\\), and we have two candidate models \\(M_1\\) and \\(M_2\\), where\n\n\n\n\\(M_0: Y_i \\sim N(3,2)\\)\n\\(M_1: Y_i \\sim N(3.5, 2.5)\\)\n\\(M_2: Y_i \\sim Cauchy(3,2)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(D_{KL}(M_0 |M_1) = 0.063\\), \\(D_{KL}(M_0 | M_1) = 0.259\\), so \\(M_1\\) is a better model than \\(M_2\\)."
+    "text": "Kullback-Leibler divergence\nAs an example, assume that the data are generated by a true model \\(M_0\\), and we have two candidate models \\(M_1\\) and \\(M_2\\), where\n\n\n\n\\(M_0: Y_i \\sim N(3,2)\\)\n\\(M_1: Y_i \\sim N(3.5, 2.5)\\)\n\\(M_2: Y_i \\sim Cauchy(3,2)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(D_{KL}(M_0 |M_1) = 0.063\\), \\(D_{KL}(M_0 | M_1) = 0.259\\), so \\(M_1\\) is a better model than \\(M_2\\)."
   },
   {
     "objectID": "slides/07-model-comparison.html#comparing-models-using-kl-divergence",
@@ -8665,7 +8665,7 @@
     "href": "slides/07-model-comparison.html#model-fit-an-example-data-set-1",
     "title": "Model Comparison",
     "section": "Model fit: an example data set",
-    "text": "Model fit: an example data set\n\nlibrary(openintro)\n\nLoading required package: airports\n\n\nLoading required package: cherryblossom\n\n\nLoading required package: usdata\n\ndat &lt;- data.frame(weight = bdims$wgt * 2.20462, # convert weight to lbs\n                  height = bdims$hgt * 0.393701, # convert height to inches\n                  sex = ifelse(bdims$sex == 1, \"Male\", \"Female\"))"
+    "text": "Model fit: an example data set\n\nlibrary(openintro)\ndat &lt;- data.frame(weight = bdims$wgt * 2.20462, # convert weight to lbs\n                  height = bdims$hgt * 0.393701, # convert height to inches\n                  sex = ifelse(bdims$sex == 1, \"Male\", \"Female\"))"
   },
   {
     "objectID": "slides/07-model-comparison.html#waic",

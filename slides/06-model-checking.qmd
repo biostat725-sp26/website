@@ -116,7 +116,7 @@ Y <- as.numeric(X %*% beta + rnorm(n, 0, sigma))
 X_pred <- cbind(1, matrix(rnorm(n_pred * p), ncol = p))
 Y_pred <- as.numeric(X_pred %*% beta + rnorm(n_pred, 0, sigma))
 library(rstan)
-fit <- readRDS(file = "robjects/linear_regression_ppd_fit.rds")
+fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_ppd_fit.rds")
 rstan::traceplot(fit, pars = c("beta", "sigma"), 
                  inc_warmup = TRUE)
 ```

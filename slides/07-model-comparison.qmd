@@ -515,7 +515,7 @@ saveRDS(fit_model1, file = "linear_regression_ppd_log_lik_fit_model1.rds")
 ```
 
 ```{r, echo=FALSE}
-fit_model1 <- readRDS(file = "~/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_ppd_log_lik_fit_model1.rds")
+fit_model1 <- readRDS(file = "~/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_ppd_log_lik_fit_model1.rds")
 ```
 
 ## Fit model 2
@@ -533,7 +533,7 @@ saveRDS(fit_model2, file = "linear_regression_ppd_log_lik_fit_model2.rds")
 ```
 
 ```{r, echo=FALSE}
-fit_model2 <- readRDS(file = "~/Box Sync/Faculty/Education/BIOSTAT725/robjects/linear_regression_ppd_log_lik_fit_model2.rds")
+fit_model2 <- readRDS(file = "~/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_ppd_log_lik_fit_model2.rds")
 ```
 
 ## Computing WAIC
