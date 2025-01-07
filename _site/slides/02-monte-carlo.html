@@ -764,8 +764,8 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <h2>Summarizing the posterior</h2>
 <ol type="1">
 <li><p>Posterior means, medians, modes, and variances</p></li>
-<li><p>Joint, conditional, and marginal probabilities, for example: <span class="math inline">\(P(\pi &lt; c | \mathbf{Y})\)</span></p></li>
-<li><p><span class="math inline">\(\alpha\)</span>-quantiles: <span class="math inline">\(\{q_{\alpha} : P(\pi &lt; q_{\alpha} | \mathbf{Y}) = \alpha\}, \alpha \in (0,1)\)</span></p></li>
+<li><p>Joint, conditional, and marginal probabilities, for example: <span class="math inline">\(P(\pi &lt; c | Z)\)</span></p></li>
+<li><p><span class="math inline">\(\alpha\)</span>-quantiles: <span class="math inline">\(\{q_{\alpha} : P(\pi &lt; q_{\alpha} | Z) = \alpha\}, \alpha \in (0,1)\)</span></p></li>
 <li><p><span class="math inline">\(\ldots\)</span></p></li>
 </ol>
 <p>Summarizing a posterior (with known parametric form) is straightforward for basic quantities of interest.</p>
@@ -775,7 +775,7 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <ul>
 <li><p>Posteriors are often not available in closed form.</p></li>
 <li><p>Even when we have a closed form posterior, it can be difficult to compute summaries of interest.</p></li>
-<li><p>For example, consider <span class="math inline">\(P(\pi &lt; c |\mathbf{Y})\)</span>. What are our options to calculate this probability?</p>
+<li><p>For example, consider <span class="math inline">\(P(\pi &lt; c | Z)\)</span>. What are our options to calculate this probability?</p>
 <ul>
 <li><p>Direct integration (by hand)</p></li>
 <li><p>Numerical integration/software packages (e.g., <span class="math inline">\(\texttt{pbeta}\)</span>)</p></li>
@@ -787,7 +787,7 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <h2>Summarizing the posterior</h2>
 <p>However, sometimes we will want to summarize other aspects of a posterior distribution.</p>
 <ul>
-<li><p><span class="math inline">\(P(\pi \in A|\mathbf{Y})\)</span> for some arbitrary set <span class="math inline">\(A\)</span></p></li>
+<li><p><span class="math inline">\(P(\pi \in A| Z)\)</span> for some arbitrary set <span class="math inline">\(A\)</span></p></li>
 <li><p>Means and standard deviations of some function of <span class="math inline">\(\pi\)</span>, <span class="math inline">\(g\left(\pi\right)\)</span></p></li>
 <li><p>The posterior distribution of functions of many parameters:</p>
 <ul>
@@ -867,13 +867,13 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 </div>
 <p>We can compute the posterior mean and variance.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">print</span>(<span class="fu">mean</span>(pi_samples))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">mean</span>(pi_samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2403665</code></pre>
+<pre><code>[1] 0.2418891</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">print</span>(<span class="fu">var</span>(pi_samples))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">var</span>(pi_samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0003811683</code></pre>
+<pre><code>[1] 0.0003432385</code></pre>
 </div>
 </div>
 </section>
@@ -900,25 +900,25 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># median</span></span>
 <span id="cb6-2"><a></a><span class="fu">median</span>(pi_samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.240722</code></pre>
+<pre><code>[1] 0.2402622</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># 95% credible intervals</span></span>
 <span id="cb8-2"><a></a><span class="fu">quantile</span>(pi_samples, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5%     97.5% 
-0.2048398 0.2788959 </code></pre>
+0.2033069 0.2797239 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># evaluating probability</span></span>
 <span id="cb10-2"><a></a><span class="fu">mean</span>(pi_samples <span class="sc">&lt;</span> <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.682</code></pre>
+<pre><code>[1] 0.6916</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># summarizing arbitrary functions of the parameters</span></span>
 <span id="cb12-2"><a></a>pi_new <span class="ot">&lt;-</span> pi_samples<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> pi_samples</span>
 <span id="cb12-3"><a></a><span class="fu">c</span>(<span class="fu">mean</span>(pi_new), <span class="fu">quantile</span>(pi_new, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 2.5%      97.5% 
--0.2268475 -0.2572026 -0.1962448 </code></pre>
+-0.2265362 -0.2578368 -0.1949035 </code></pre>
 </div>
 </div>
 </section></section>

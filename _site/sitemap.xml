@@ -310,7 +310,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-01-linear-regression.html</loc>
-    <lastmod>2024-11-23T16:56:07.640Z</lastmod>
+    <lastmod>2025-01-07T16:21:22.996Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/03-linear-regression.html</loc>
@@ -318,7 +318,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-01-creation.html</loc>
-    <lastmod>2025-01-06T20:26:44.854Z</lastmod>
+    <lastmod>2025-01-07T16:24:45.192Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-01-test.html</loc>
@@ -342,7 +342,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/02-monte-carlo.html</loc>
-    <lastmod>2025-01-06T20:12:00.237Z</lastmod>
+    <lastmod>2025-01-07T15:29:13.396Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/03-mcmc.html</loc>
@@ -415,5 +415,13 @@
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-02-mlr.html</loc>
     <lastmod>2024-09-30T13:50:05.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/ae/ae-01-monte-carlo.html</loc>
+    <lastmod>2025-01-07T15:15:51.632Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/ae/ae-01-mcmc.html</loc>
+    <lastmod>2025-01-07T16:21:22.996Z</lastmod>
   </url>
 </urlset>

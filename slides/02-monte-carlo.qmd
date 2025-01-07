@@ -422,9 +422,9 @@ ggplot(dat.fig, aes(x = x, y = y, color = Type)) +
 
 1.  Posterior means, medians, modes, and variances
 
-2.  Joint, conditional, and marginal probabilities, for example: $P(\pi < c | \mathbf{Y})$
+2.  Joint, conditional, and marginal probabilities, for example: $P(\pi < c | Z)$
 
-3.  $\alpha$-quantiles: $\{q_{\alpha} : P(\pi < q_{\alpha} | \mathbf{Y}) = \alpha\}, \alpha \in (0,1)$
+3.  $\alpha$-quantiles: $\{q_{\alpha} : P(\pi < q_{\alpha} | Z) = \alpha\}, \alpha \in (0,1)$
 
 4.  $\ldots$
 
@@ -436,7 +436,7 @@ Summarizing a posterior (with known parametric form) is straightforward for basi
 
 -   Even when we have a closed form posterior, it can be difficult to compute summaries of interest.
 
--   For example, consider $P(\pi < c |\mathbf{Y})$. What are our options to calculate this probability?
+-   For example, consider $P(\pi < c | Z)$. What are our options to calculate this probability?
 
     -   Direct integration (by hand)
 
@@ -448,7 +448,7 @@ These methods work well for standard posterior quantities and distributions.
 
 However, sometimes we will want to summarize other aspects of a posterior distribution.
 
--   $P(\pi \in A|\mathbf{Y})$ for some arbitrary set $A$
+-   $P(\pi \in A| Z)$ for some arbitrary set $A$
 
 -   Means and standard deviations of some function of $\pi$, $g\left(\pi\right)$
 
@@ -539,8 +539,8 @@ pi_samples <- rbeta(1000, 1 + 120, 1 + 380)
 We can compute the posterior mean and variance.
 
 ```{r}
-print(mean(pi_samples))
-print(var(pi_samples))
+mean(pi_samples)
+var(pi_samples)
 ```
 
 ## Assessing accuracy
