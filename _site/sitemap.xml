@@ -210,11 +210,11 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/overview.html</loc>
-    <lastmod>2025-01-06T15:44:07.407Z</lastmod>
+    <lastmod>2025-01-07T20:27:43.777Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/syllabus.html</loc>
-    <lastmod>2025-01-06T15:32:34.475Z</lastmod>
+    <lastmod>2025-01-07T20:28:14.450Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/support.html</loc>
@@ -318,7 +318,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-01-creation.html</loc>
-    <lastmod>2025-01-07T16:24:45.192Z</lastmod>
+    <lastmod>2025-01-08T16:05:52.108Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-01-test.html</loc>
@@ -423,5 +423,9 @@
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-01-mcmc.html</loc>
     <lastmod>2025-01-07T16:21:22.996Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/hw/hw-02-creation.html</loc>
+    <lastmod>2025-01-07T16:32:11.096Z</lastmod>
   </url>
 </urlset>

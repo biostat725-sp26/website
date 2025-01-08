@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 01: Bayesian principles – BIOSTAT 725 - Spring 2025</title>
+<title>HW 01: Bayesian linear regression – BIOSTAT 725 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 01: Bayesian principles</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 01: Bayesian linear regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -307,15 +307,14 @@ window.Quarto = {
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#exercises-1-5" id="toc-exercises-1-5" class="nav-link" data-scroll-target="#exercises-1-5">Exercises 1-5</a>
-  <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  </ul></li>
-  <li><a href="#exercise-6-10" id="toc-exercise-6-10" class="nav-link" data-scroll-target="#exercise-6-10">Exercise 6-10</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
@@ -327,8 +326,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 01: Bayesian principles</h1>
-<p class="subtitle lead">United States Births in 2014</p>
+<h1 class="title">HW 01: Bayesian linear regression</h1>
+<p class="subtitle lead">Physical activity and access to recreational facilities in Cook County, Chicago</p>
 </div>
 
 
@@ -373,255 +372,219 @@ Due date
 <h1>Packages</h1>
 <p>The following packages are used in this assignment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Every year, the United States releases to the public a large dataset containing information on births recorded in the country. This dataset has been of interest to medical researchers who are studying the relation between habits and practices of expectant mothers and the birth of their children. A random sample of 1,000 cases from the dataset released in 2014 can be found in the <code>births14</code> data set in the <strong>openintro</strong> R package.</p>
-<p>We will focus on the following variables:</p>
+<p>It is estimated that only 3.0% of Americans engage in a fully healthy lifestyle, which entails refraining from smoking, eating five or more fruits and vegetables daily, maintaining a healthy weight, and participating in regular exercise (a component of physical activity). Lack of physical activity is a leading risk factor for chronic disease and having access to recreational facilities has been associated with an individual’s level of physical activity and exercise. Researchers were interested in analyzing the association between access to recreational facilities and exercise, controlling for crime. It has been suggested that reductions of violence/crime and increased perceptions of neighborhood safety may contribute to higher population levels of physical activity.</p>
+<p>Researchers performed a cross-sectional observational study of Cook County, Chicago, randomly recruiting 87 pregnant women and obtained an estimate of weekly exercise as measured by metabolic equivalent (MET) minutes per week. Measures of neighborhood recreational facilities and crime were obtained based on geographical kernel estimates. The data they collected can be found in the dataset, <em>exercise.csv</em>, which is available in the homework repo.</p>
+<p>The following variables are in the dataset:</p>
 <ul>
-<li><p><code>visits</code>: Number of hospital visits during pregnancy</p></li>
-<li><p><code>weight</code>: Weight of the baby at birth in pounds</p></li>
-<li><p><code>habit</code>: Status of the mother as a <code>nonsmoker</code> or a <code>smoker</code></p></li>
+<li><p><code>exercise</code>: exercise measured in metabolic equivalent (MET) minutes per week.</p></li>
+<li><p><code>recreation</code>: number of recreational facilities within a one-mile radius of a participant’s home.</p></li>
+<li><p><code>crime</code>: total yearly average of all crimes in a one-mile buffer surrounding an individual’s residence per 1,000 persons.</p></li>
+<li><p><code>age</code>: age in years.</p></li>
+<li><p><code>married</code>: marriage status (1 = married; 0 = single)</p></li>
+<li><p><code>race</code>: race (0 = White ; 1 = African-American/black, 2 = Asian)</p></li>
 </ul>
-<p>For this homework, work with the complete case dataset.</p>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Setup a multivariable regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Assume that <span class="math inline">\(exercise_i \stackrel{iid}{\sim} N(\mu_i, \sigma^2)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span> where <span class="math display">\[\begin{align*}
+\mu_i &amp;= \alpha + recreation_i \beta_1 + crime_i \beta_2+(recreation_i \times crime_i) \beta_3\\
+&amp;+ age_i \beta_4 + black_i \beta_5 + asian_i \beta_6 + married_i \beta_7.
+\end{align*}\]</span></p>
+<p>Present the results from your regression.</p>
+<ul>
+<li><strong><em>Answer:</em></strong> We will perform a multivariable linear regression where the dependent variable is exercise, and the predictors are: recreation, crime, age, married, and race. Plus, to allow for the association between recreation and exercise to vary across crime, we include an interaction between crime and recreation. Note that we must be sure race is treated as a dummy variable, so we use the <span class="math inline">\(\{as.factor}\)</span> function.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>births14 <span class="ot">&lt;-</span> births14[<span class="fu">complete.cases</span>(births14), ]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(births14)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>exercise<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(exercise<span class="sc">$</span>race)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(exercise <span class="sc">~</span> recreation <span class="sc">+</span> crime <span class="sc">+</span> recreation <span class="sc">*</span> crime </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> age <span class="sc">+</span> race <span class="sc">+</span> married, <span class="at">data =</span> exercise)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 794
-Columns: 13
-$ fage           &lt;int&gt; 34, 36, 37, 32, 32, 37, 29, 30, 29, 30, 34, 28, 32, 24,…
-$ mage           &lt;dbl&gt; 34, 31, 36, 31, 26, 36, 24, 32, 26, 34, 27, 22, 25, 20,…
-$ mature         &lt;chr&gt; "younger mom", "younger mom", "mature mom", "younger mo…
-$ weeks          &lt;dbl&gt; 37, 41, 37, 36, 39, 36, 40, 39, 39, 42, 40, 40, 34, 37,…
-$ premie         &lt;chr&gt; "full term", "full term", "full term", "premie", "full …
-$ visits         &lt;dbl&gt; 14, 12, 10, 12, 14, 10, 13, 15, 11, 14, 16, 20, 20, 10,…
-$ gained         &lt;dbl&gt; 28, 41, 28, 48, 45, 20, 65, 25, 22, 40, 30, 31, 25, 70,…
-$ weight         &lt;dbl&gt; 6.96, 8.86, 7.51, 6.75, 6.69, 6.13, 6.74, 8.94, 9.12, 8…
-$ lowbirthweight &lt;chr&gt; "not low", "not low", "not low", "not low", "not low", …
-$ sex            &lt;chr&gt; "male", "female", "female", "female", "female", "female…
-$ habit          &lt;chr&gt; "nonsmoker", "nonsmoker", "nonsmoker", "nonsmoker", "no…
-$ marital        &lt;chr&gt; "married", "married", "married", "married", "married", …
-$ whitemom       &lt;chr&gt; "white", "white", "not white", "white", "white", "white…</code></pre>
+<pre><code>
+Call:
+lm(formula = exercise ~ recreation + crime + recreation * crime + 
+    age + race + married, data = exercise)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.8386 -1.4686  0.2276  1.6052  4.1927 
+
+Coefficients:
+                  Estimate Std. Error  t value Pr(&gt;|t|)    
+(Intercept)      469.82486    1.52939  307.197  &lt; 2e-16 ***
+recreation         2.96943    0.04534   65.489  &lt; 2e-16 ***
+crime             -0.05616    0.03491   -1.609    0.112    
+age               -1.48267    0.03957  -37.464  &lt; 2e-16 ***
+race1             -9.29598    0.61490  -15.118  &lt; 2e-16 ***
+race2              5.01344    0.82803    6.055 4.48e-08 ***
+married            0.46918    0.61921    0.758    0.451    
+recreation:crime  -0.29750    0.00277 -107.410  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.538 on 79 degrees of freedom
+Multiple R-squared:  0.9975,    Adjusted R-squared:  0.9973 
+F-statistic:  4457 on 7 and 79 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<section id="exercises-1-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercises-1-5">Exercises 1-5</h2>
-<p>Define a random variable <span class="math inline">\(Y_i\)</span> that represents the number of hospital visits during pregnancy for each woman <span class="math inline">\(i\)</span>. Assume that this random variable follows a Poisson distribution with rate <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(Y_i \stackrel{iid}{\sim} \text{Poisson}(\lambda)\)</span>. For a Poisson distribution, the mean and variance of the are equal to <span class="math inline">\(\lambda\)</span>. We are interested in performing statistical inference on <span class="math inline">\(\lambda\)</span> using a Bayesian approach. A frequently used prior for <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\text{Gamma}(\text{shape = }a, \text{rate = }b)\)</span>, where <span class="math inline">\(\mathbb{E}[\lambda] = a/b\)</span> and <span class="math inline">\(\mathbb{V}(\lambda) = a/b^2\)</span>.</p>
-<section id="exercise-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>The researchers have prior knowledge that leads them to believe that <span class="math inline">\(\lambda\)</span> should have mean 8 and variance 4. What values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> should they specify?</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If <span class="math inline">\(\mu\)</span> is the mean of <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\sigma^2\)</span> is the variance, it is easy to see that <span class="math inline">\(a = \mu^2/\sigma^2\)</span> and <span class="math inline">\(b=\mu/\sigma^2\)</span>. To obtain a prior distribution with mean 8 (i.e., <span class="math inline">\(\mu=8\)</span>) and variance 4 (i.e., <span class="math inline">\(\sigma^2=4\)</span>), they would need to specify <span class="math inline">\(a=16\)</span> and <span class="math inline">\(b=2\)</span>.</p>
-</div>
+<div class="cell" data-output.var="compiled_model">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Saved in linear_regression.stan</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] Y;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">matrix</span>[n, p + <span class="dv">1</span>] X;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma_beta;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a;</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; b;</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">parameters</span> {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[p + <span class="dv">1</span>] beta;</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">model</span> {</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  Y ~ normal(X * beta, sigma);</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  beta ~ normal(<span class="dv">0</span>, sigma_beta);</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  sigma ~ </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Using the prior specified in <strong>Exercise 1</strong>, what is the a priori probability that <span class="math inline">\(\lambda\)</span> is greater than 11? This is equivalent to computing <span class="math inline">\(P(\lambda &gt; 11)\)</span>. To find your answer use Monte Carlo sampling. Report your Monte Carlo standard error and make sure it is less than 0.01.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We can use Monte Carlo sampling for this. Below I take <span class="math inline">\(S=50,000\)</span> samples from the prior distribution and compute the <span class="math inline">\(P(\lambda &gt; 11)\)</span>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>prior_samples <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">50000</span>, <span class="at">shape =</span> <span class="dv">16</span>, <span class="at">rate =</span> <span class="dv">2</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(prior_samples <span class="sc">&gt;</span> <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.07726</code></pre>
-</div>
-</div>
-<p>I also verify that the Monte Carlo standard error is smaller than 0.01.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(prior_samples) <span class="sc">/</span> <span class="fu">length</span>(prior_samples))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.008933571</code></pre>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Assess the assumptions required for validity of the regression in Exercise 1.</p>
+<ul>
+<li><strong><em>Answer:</em></strong> We require independence of observations, linearity, normality of the residuals, and homeskedastic variance. We can create a figure to assess the last three assumptions.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hw-02-creation_files/figure-html/ass-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
 </div>
 </div>
 </div>
+<p>The figure on the left is of the fitted values versus the residuals. From this figure we see that there is no evidence of heteroskedasticity, so our variance assumption is OK. This figure also indicates that linearity is satisfied, as there is no pattern in the residuals across the fitted values. Then, in the figure on the right we see that the distribution of the residuals is normally distributed, so our distributional assumptions is OK. Finally, independence is satisfied, because we are randomly sampling pregnant women from across Cook County, Chicago. Linearity could have also been assessed by looking at all pairwise scatterplots as follows:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hw-02-creation_files/figure-html/linear-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
 </div>
+</div>
+</div>
+<p>Our outcome variable, exercise appears to be linearly related to all of our continous predictors.</p>
 </section>
-<section id="exercise-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>Using the prior specified in <strong>Exercise 1</strong>, compute the posterior distribution for <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(f(\lambda | \mathbf{Y})\)</span>, where <span class="math inline">\(\mathbf{Y}_i = (Y_1,\ldots,Y_n).\)</span> Recall that the Gamma prior for <span class="math inline">\(\lambda\)</span> is a conjugate prior, so that the posterior is given by: <span class="math inline">\(f(\lambda|\mathbf{Y}) \sim Gamma(a + \sum_{i=1}^nY_i,b+n)\)</span>. For this analysis, remove missing values of <code>visits</code>. Visualize the posterior distribution and report the posterior mean and a 95% credible interval. Provide an interpretation of the posterior distribution within the context of the US births data.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>I will start by obtaining <span class="math inline">\(S=50,000\)</span> samples from the posterior distribution and plotting the samples using a histogram with a density plot (both are not necessary).</p>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>What is interpretation of the slope main effect corresponding to <code>recreation</code> in your model at the 0.05 significance level? Is this interpretation appropriate?</p>
+<ul>
+<li><strong><em>Answer:</em></strong> Assuming a crime level of zero, we can interpret the slope corresponding to recreation, assuming all other variables are fixed. The interpretation is that for a one unit increase in recreation (i.e., number of recreational centers within a one-mile radius), exercise MET per week will increase by 2.97 MET. The p-value for this effect is significant at the 0.05 level, therefore we can conclude that for those people who live in areas of zero crime, there is an association between access to recreational facilities and exercise. This interpretation is likely not appropriate, because there are no areas with zero crime.</li>
+</ul>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>What is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people?</p>
+<ul>
+<li><strong><em>Answer:</em></strong> The association between access to recreational facilities and exercise is a function of crime. In particular, this effect is given by the following: <span class="math inline">\(\beta_{Rec} + \beta_{Rec \times Crime} \times \texttt{crime}_i = 2.969 - 0.298 \times  \texttt{crime}_i\)</span>. Plugging in for a crime value of 5, we get: 1.479. For a crime value of 15, we get a slope of -1.501.</li>
+</ul>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Interpret the slopes from (d) and compare and contrast them. What do these slopes say about the impact of crime on the relationship between access to recreational facilities and exercise.</p>
+<ul>
+<li><strong><em>Answer:</em></strong> The interpretation of the slopes are as follows: At an annual level of crime of 5/1,000 people and keeping all of the variables constant, the association between recreational facilities and exercise has a slope of 1.479. This indicates that a one-unit increase in recreational facilities will result in a 1.5 MET increase in exercise. When crime increases to an annual level of 15/1,000 people, this slope becomes negative, -1.5. This indicates that crime is an effect modifier for the association of interest. In particular, for low levels of crime, the association is positive, however for larger values of crime the slope becomes negative.</li>
+</ul>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>At what level of crime does the association between recreational facilities and exercise disappear?</p>
+<ul>
+<li><strong><em>Answer:</em></strong> We know that the effect of recreational facilities on exercies is a function of crime, because of the interaction term. In particular, this effect is given by the followiing: <span class="math inline">\(\beta_{Rec} + \beta_{Rec \times Crime} \times \texttt{crime}_i = 2.969 - 0.298 \times  \texttt{crime}_i\)</span>. Therefore, we would like to set this effect to zero and solve for <span class="math inline">\(\texttt{crime}_i\)</span>. Doing this, we find that <span class="math inline">\(\texttt{crime}_i = 2.969 / 0.298 = 9.963.\)</span></li>
+</ul>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>To confirm your conclusions from (f), create a visualization that demontrates the relationship between recreation and exercise, across crime levels below and above the value you found in (f). An effective figure provides a title, axis labels, and a legible legend.</p>
+<ul>
+<li><strong><em>Answer:</em></strong> We will create a scatterplot that plots recreation vs.&nbsp;exercise. To visualize the association across crime, we will create a new variable that is an indicator of a crime value below and above the value we found in (f), 9.963. Then, we will color code the points based on this variable. This visualization confirms our conclusions about the association between recreation and exercise, as the slope is positive for low crime and negative for high crime.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>visits <span class="ot">&lt;-</span> births14<span class="sc">$</span>visits[<span class="sc">!</span><span class="fu">is.na</span>(births14<span class="sc">$</span>visits)] <span class="co"># remove missing values</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(visits)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sum_y <span class="ot">&lt;-</span> <span class="fu">sum</span>(visits)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>posterior_samples <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">50000</span>, <span class="at">shape =</span> <span class="dv">16</span> <span class="sc">+</span> sum_y, <span class="at">rate =</span> <span class="dv">2</span> <span class="sc">+</span> n)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">samples =</span> posterior_samples) <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> samples)) <span class="sc">+</span> </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="dv">1</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(lambda),</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Posterior distribution of "</span>, lambda)),</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Rate for number of hospital visits in 2014 for each woman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>exercise <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">crime2 =</span> <span class="dv">1</span> <span class="sc">*</span> (crime <span class="sc">&gt;=</span> <span class="fl">9.963</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> recreation, <span class="at">y =</span> exercise, <span class="at">col =</span> <span class="fu">as.factor</span>(crime2))) <span class="sc">+</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Crime &gt;= 9.963"</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatter plot of recreational facilities vs. exercise (MET)"</span>) <span class="sc">+</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Exercises (MET/week)"</span>) <span class="sc">+</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Number of recreational facilities within 1-mile radius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="hw-01-creation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="hw-02-creation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The posterior mean and 95% credible interval can be computed as follows.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>summaries <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mean =</span> <span class="fu">mean</span>(posterior_samples),</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">lower =</span> <span class="fu">quantile</span>(posterior_samples, <span class="at">probs =</span> <span class="fl">0.025</span>),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">upper =</span> <span class="fu">quantile</span>(posterior_samples, <span class="at">probs =</span> <span class="fl">0.975</span>))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(summaries) <span class="ot">&lt;-</span> <span class="st">"Posterior Estimates"</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>summaries <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">row.names =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Mean"</span>, <span class="st">"2.5%"</span>, <span class="st">"97.5%"</span>),</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">escape =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">Mean</th>
-<th style="text-align: right;">2.5%</th>
-<th style="text-align: right;">97.5%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Posterior Estimates</td>
-<td style="text-align: right;">11.63</td>
-<td style="text-align: right;">11.39</td>
-<td style="text-align: right;">11.86</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Through this analysis, we estimated the posterior mean number of hospital visits for women during their pregnancies in the United States in 2014 to be 11.63. The 95% credible interval was (11.39, 11.86), indicating that the posterior probability that <span class="math inline">\(\lambda\)</span> falls between 11.39 and 11.86 is 95%.</p>
-</div>
-</div>
 </section>
-<section id="exercise-4" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>What is the posterior probability that <span class="math inline">\(\lambda\)</span> is greater than 11? This is equivalent to computing <span class="math inline">\(P(\lambda &gt; 11 | \mathbf{Y})\)</span>. Again, use Monte Carlo sampling. Provide an interpretation for this probability in the context of hospital visits.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The posterior probability can be computed using the posterior samples computed in <strong>Exercise 3</strong>.</p>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>Now, assume the researchers are interested in understanding the impact of marital status on the relationship between access to recreational facililities and exercise. Setup a multivariable regression to estimate this association. There is no need to include other confounders. Does the association of interest (i.e., the relationship between access to recreational facilities and exercise) change across marital status? For a married pregnant women, what is the estimated slope of recreational facilities on exercise? What about for single pregnant women?</p>
+<ul>
+<li><strong><em>Answer:</em></strong> The regression is as follows:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(posterior_samples <span class="sc">&gt;</span> <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(exercise <span class="sc">~</span> recreation <span class="sc">*</span> married, <span class="at">data =</span> exercise)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
+<pre><code>
+Call:
+lm(formula = exercise ~ recreation * married, data = exercise)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-154.734  -15.102    4.876   21.932  129.803 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         406.383     13.482  30.144   &lt;2e-16 ***
+recreation            1.504      1.021   1.474   0.1443    
+married              11.693     16.742   0.698   0.4869    
+recreation:married   -2.857      1.236  -2.311   0.0233 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 46.83 on 83 degrees of freedom
+Multiple R-squared:  0.09682,   Adjusted R-squared:  0.06417 
+F-statistic: 2.966 on 3 and 83 DF,  p-value: 0.0367</code></pre>
 </div>
 </div>
-<p>The posterior probability that <span class="math inline">\(\lambda\)</span> is greater than 11 is equal to 1. This indicates that in 2014, the mean number of hospital visits per pregnancy was almost certainly greater than 11, with a probability of approximately 1.</p>
-</div>
-</div>
-</section>
-<section id="exercise-5" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>Create a figure that includes both the prior and posterior distributions for <span class="math inline">\(\lambda\)</span>. Also, include a figure of the observed data. Use these figures to make a comparison of the prior and posterior probabilities found in <strong>Exercise 2</strong> and <strong>Exercise 4</strong>, respectively. Describe any changes in these two probabilities within the context of the observed data.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We can plot the prior and posterior distributions, along with a figure of the observed data.</p>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n_seq <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">30</span>, <span class="at">length.out =</span> n_seq)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>prior_dens <span class="ot">&lt;-</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">16</span>, <span class="at">rate =</span> <span class="dv">2</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>posterior_dens <span class="ot">&lt;-</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">16</span> <span class="sc">+</span> sum_y, <span class="at">rate =</span> <span class="dv">2</span> <span class="sc">+</span> n)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>dat.fig <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rep</span>(x, <span class="dv">2</span>), </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="fu">c</span>(prior_dens, posterior_dens),</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Type =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Prior"</span>, <span class="st">"Posterior"</span>), <span class="at">each =</span> n_seq)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat.fig, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> Type)) <span class="sc">+</span> </span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.25</span>) <span class="sc">+</span> </span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(pi), </span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>, </span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Prior and posterior distributions with the following prior: Gamma(a = 16, b = 2)"</span>) <span class="sc">+</span> </span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(births14, <span class="fu">aes</span>(<span class="at">x =</span> visits)) <span class="sc">+</span> </span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>,</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="dv">1</span>,</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of hospital visits per pregnancy"</span>,</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Visualization of number of visits per pregnancy in 2014"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hw-01-creation_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hw-01-creation_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>The prior probability of <span class="math inline">\(\lambda\)</span> being greater than 11 was equal to 0.08. The posterior probability is 1. The posterior value is nearly 1, as opposed to a prior probability much closer to 0. This makes sense in light of the above figures. In particular, since the observed data has a large sample size (n = 794) the posterior is going to be pulled towards the likelihood. Furthermore, since the mean of the observered data is 11.64, combined with the large sample size, it makes sense that the posterior distribution is pulled above 11.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="exercise-6-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6-10">Exercise 6-10</h2>
-<p>Define a random variable <span class="math inline">\(Y_i\)</span> that represents the weight of the baby at birth in ounces <span class="math inline">\(i\)</span>. Assume that this random variable follows a Poisson distribution with rate <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(Y_i \stackrel{iid}{\sim} \text{Poisson}(\lambda)\)</span>. For a Poisson distribution, the mean and variance of the are equal to <span class="math inline">\(\lambda\)</span>. We are interested in performing statistical inference on <span class="math inline">\(\lambda\)</span> using a Bayesian approach. A frequently used prior for <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\text{Gamma}(\text{shape = }a, \text{rate = }b)\)</span>, where <span class="math inline">\(\mathbb{E}[\lambda] = a/b\)</span> and <span class="math inline">\(\mathbb{V}(\lambda) = a/b^2\)</span>.</p>
+<p>From this we see that the interaction between marital status and recreational facilities is significant, with a p-value of 0.0233. The hypotheses that this corresponds to is <span class="math inline">\(H_0:\beta_3 = 0, H_1:\beta_3 \neq 0\)</span> at the <span class="math inline">\(\alpha = 0.05\)</span> level. Therefore, the association of interest does change across marital status. In particular, for a married pregnant woman the association (or slope) is <span class="math inline">\(\beta_1 + \beta_3 = 1.504 - 2.857 = -1.353\)</span>, and for single pregnant women, <span class="math inline">\(\beta_1 = 1.504\)</span>.</p>
 <div class="render-commit-push">
 <p>You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that <u>all</u> documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.</p>
 </div>
