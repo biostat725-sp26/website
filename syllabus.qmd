@@ -249,7 +249,7 @@ Regrade requests must be submitted on Gradescope within a week of when an assign
 
 ### Attendance policy
 
-Every student is expected to attend and participate in lecture. There may be times, however, when you cannot attend class. Lecture recordings will be are available upon request for students who have an excused absence. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture.
+Every student is expected to attend and participate in lecture. There may be times, however, when you cannot attend class. Lecture recordings will be made available upon request for students who have an excused absence. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture.
 
 <!-- are available upon request for students who have an excused absence. See the [Lecture recording request] policy for more detail. If you miss a lecture, make sure to review the material and complete the application exercise, if applicable, before the next lecture. -->
 

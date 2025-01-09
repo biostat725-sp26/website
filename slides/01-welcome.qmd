@@ -52,7 +52,6 @@ library(ggplot2)
 -   Dr. Youngsoo Baek (PhD)
     -   Phd in Statistical Science from Duke University
     -   Postdoc in Biostatistics & Bioinformatics
-
 -   Braden Scherting
     -   Phd candidate in Statistical Science
 
@@ -269,7 +268,7 @@ By the end of the semester, you will be able to...
 
 -   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp25.netlify.app/syllabus#late-work-policy)
 
--   Group 9: [Attendance and lecture recording request](https://biostat725-sp25.netlify.app/syllabus#regrade-requests)
+-   Group 9: [Regrade requests and attendance policy](https://biostat725-sp25.netlify.app/syllabus#regrade-requests)
 
 -   Group 10: [Getting help in the course](https://biostat725-sp25.netlify.app/syllabus#getting-help-in-the-course)
 
@@ -292,7 +291,7 @@ By the end of the semester, you will be able to...
 
 -   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp25.netlify.app/syllabus#late-work-policy)
 
--   Group 9: [Attendance and lecture recording request](https://biostat725-sp25.netlify.app/syllabus#regrade-requests)
+-   Group 9: [Regrade requests and attendance policy](https://biostat725-sp25.netlify.app/syllabus#regrade-requests)
 
 -   Group 10: [Getting help in the course](https://biostat725-sp25.netlify.app/syllabus#getting-help-in-the-course)
 :::
@@ -522,13 +521,13 @@ $X > 0$ is a patient's BMI.
 
 ## Discrete random variables
 
--   The **joint pmf** is $f(x, y) = P(X = x, Y = y)$.
+-   The **joint pmf**: $f(x, y) = P(X = x, Y = y)$
 
     -   $\sum_x \sum_y f(x, y) = 1$
 
--   The **marginal pmf** for $X$ is $f_X(x) = P(X = x) = \sum_y f(x, y)$.
+-   The **marginal pmf** for $X$: $f_X(x) = P(X = x) = \sum_y f(x, y)$
 
--   The **marginal pmf** for $Y$ is $f_Y(y) = P(Y = y) = \sum_x f(x, y)$.
+-   The **marginal pmf** for $Y$: $f_Y(y) = P(Y = y) = \sum_x f(x, y)$
 
 -   The marginal distribution is the same as univariate distribution as if we ignored the other variable.
 

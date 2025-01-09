@@ -8,4 +8,6 @@ title: Prepare for January 16 lecture
 
 📖 Read **Hoff** Chapter 10, Sections 10.2-10.4 to learn about Metropolis sampling
 
-✅ Complete [HW 00](https://biostat725-sp25.netlify.app/hw/hw00) tasks
+📖 Review [simple linear regression](https://introregression.netlify.app/04-slr)
+
+✅ Complete [HW 00](https://biostat725-sp25.netlify.app/hw/hw-00) tasks before  class
