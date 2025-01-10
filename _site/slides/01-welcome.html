@@ -875,7 +875,7 @@ Prof.&nbsp;Sam Berchuck
 <li><p>The <strong>marginal pdf</strong> of <span class="math inline">\(X\)</span> is <span class="math inline">\(f_X(x) = \int f(x, y)dy\)</span>.</p></li>
 <li><p><span class="math inline">\(f_X\)</span> is the univariate pdf for <span class="math inline">\(X\)</span> as if we never considered <span class="math inline">\(Y\)</span>.</p></li>
 <li><p>The <strong>conditional pdf</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> is <span class="math display">\[f(y|x) = \frac{f(x, y)}{f_X (x)}.\]</span></p></li>
-<li><p>Proper: <span class="math inline">\(\int f(y|x)dy = \int \frac{f(x,y)}{f_X(x)}dy = \int \frac{f(x,y)dy}{f_X(x)} = 1\)</span>.</p></li>
+<li><p>Proper: <span class="math inline">\(\int f(y|x)dy = \int \frac{f(x,y)}{f_X(x)}dy = \frac{\int f(x,y)dy}{f_X(x)} = 1\)</span>.</p></li>
 </ul>
 </section>
 <section id="defining-joint-distributions-conditionally" class="slide level2">

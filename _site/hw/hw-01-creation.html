@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 01: Bayesian principles – BIOSTAT 725 - Spring 2025</title>
+<title>HW 01: Inference using Bayesian statistics – BIOSTAT 725 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 01: Bayesian principles</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 01: Inference using Bayesian statistics</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -303,19 +303,26 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><strong>Getting started</strong></a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#exercises-1-5" id="toc-exercises-1-5" class="nav-link" data-scroll-target="#exercises-1-5">Exercises 1-5</a>
+  <li><a href="#exercises-1-7" id="toc-exercises-1-7" class="nav-link" data-scroll-target="#exercises-1-7">Exercises 1-7</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   </ul></li>
-  <li><a href="#exercise-6-10" id="toc-exercise-6-10" class="nav-link" data-scroll-target="#exercise-6-10">Exercise 6-10</a></li>
+  <li><a href="#exercise-8-10" id="toc-exercise-8-10" class="nav-link" data-scroll-target="#exercise-8-10">Exercise 8-10</a>
+  <ul class="collapse">
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
@@ -327,7 +334,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 01: Bayesian principles</h1>
+<h1 class="title">HW 01: Inference using Bayesian statistics</h1>
 <p class="subtitle lead">United States Births in 2014</p>
 </div>
 
@@ -363,7 +370,7 @@ Due date
 </div>
 </div>
 <section id="getting-started" class="level1">
-<h1><strong>Getting started</strong></h1>
+<h1>Getting started</h1>
 <ul>
 <li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>hw-01</strong>. It contains the starter documents you need to complete the homework.</p></li>
 <li><p>Clone the repo and start a new project in RStudio. See the <a href="https://biostat725-sp25.netlify.app/ae/ae-01-mcmc#clone-the-repo-start-new-rstudio-project">AE 01 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
@@ -412,219 +419,62 @@ $ marital        &lt;chr&gt; "married", "married", "married", "married", "marrie
 $ whitemom       &lt;chr&gt; "white", "white", "not white", "white", "white", "white…</code></pre>
 </div>
 </div>
-<section id="exercises-1-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercises-1-5">Exercises 1-5</h2>
-<p>Define a random variable <span class="math inline">\(Y_i\)</span> that represents the number of hospital visits during pregnancy for each woman <span class="math inline">\(i\)</span>. Assume that this random variable follows a Poisson distribution with rate <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(Y_i \stackrel{iid}{\sim} \text{Poisson}(\lambda)\)</span>. For a Poisson distribution, the mean and variance of the are equal to <span class="math inline">\(\lambda\)</span>. We are interested in performing statistical inference on <span class="math inline">\(\lambda\)</span> using a Bayesian approach. A frequently used prior for <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\text{Gamma}(\text{shape = }a, \text{rate = }b)\)</span>, where <span class="math inline">\(\mathbb{E}[\lambda] = a/b\)</span> and <span class="math inline">\(\mathbb{V}(\lambda) = a/b^2\)</span>.</p>
+<section id="exercises-1-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercises-1-7">Exercises 1-7</h2>
+<p>Define a random variable <span class="math inline">\(Y_i\)</span> that represents the number of hospital visits during pregnancy for each woman <span class="math inline">\(i\)</span>, for <span class="math inline">\(i = 1,\ldots,n\)</span>. Assume that this random variable follows a Poisson distribution with rate <span class="math inline">\(\lambda\)</span>, such that <span class="math inline">\(Y_i \stackrel{iid}{\sim} \text{Poisson}(\lambda)\)</span>. For a Poisson distribution, the mean and variance are equal to <span class="math inline">\(\lambda\)</span>. We are interested in performing statistical inference on <span class="math inline">\(\lambda\)</span> using a Bayesian approach. A frequently used prior for <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\text{Gamma}(\text{shape = }a, \text{rate = }b)\)</span>, where <span class="math inline">\(\mathbb{E}[\lambda] = a/b\)</span> and <span class="math inline">\(\mathbb{V}(\lambda) = a/b^2\)</span>.</p>
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
 <p>The researchers have prior knowledge that leads them to believe that <span class="math inline">\(\lambda\)</span> should have mean 8 and variance 4. What values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> should they specify?</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If <span class="math inline">\(\mu\)</span> is the mean of <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\sigma^2\)</span> is the variance, it is easy to see that <span class="math inline">\(a = \mu^2/\sigma^2\)</span> and <span class="math inline">\(b=\mu/\sigma^2\)</span>. To obtain a prior distribution with mean 8 (i.e., <span class="math inline">\(\mu=8\)</span>) and variance 4 (i.e., <span class="math inline">\(\sigma^2=4\)</span>), they would need to specify <span class="math inline">\(a=16\)</span> and <span class="math inline">\(b=2\)</span>.</p>
-</div>
-</div>
 </section>
 <section id="exercise-2" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Using the prior specified in <strong>Exercise 1</strong>, what is the a priori probability that <span class="math inline">\(\lambda\)</span> is greater than 11? This is equivalent to computing <span class="math inline">\(P(\lambda &gt; 11)\)</span>. To find your answer use Monte Carlo sampling. Report your Monte Carlo standard error and make sure it is less than 0.01.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We can use Monte Carlo sampling for this. Below I take <span class="math inline">\(S=50,000\)</span> samples from the prior distribution and compute the <span class="math inline">\(P(\lambda &gt; 11)\)</span>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>prior_samples <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">50000</span>, <span class="at">shape =</span> <span class="dv">16</span>, <span class="at">rate =</span> <span class="dv">2</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(prior_samples <span class="sc">&gt;</span> <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.07726</code></pre>
-</div>
-</div>
-<p>I also verify that the Monte Carlo standard error is smaller than 0.01.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(prior_samples) <span class="sc">/</span> <span class="fu">length</span>(prior_samples))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.008933571</code></pre>
-</div>
-</div>
-</div>
-</div>
+<p>Using the prior specified in <strong>Exercise 1</strong>, compute the probability that <span class="math inline">\(\lambda\)</span> is greater than 11? For this computation compute the exact probability using the <code>pgamma</code> function in R. This is equivalent to computing <span class="math inline">\(P(\lambda &gt; 11)\)</span>.</p>
 </section>
 <section id="exercise-3" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>Using the prior specified in <strong>Exercise 1</strong>, compute the posterior distribution for <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(f(\lambda | \mathbf{Y})\)</span>, where <span class="math inline">\(\mathbf{Y}_i = (Y_1,\ldots,Y_n).\)</span> Recall that the Gamma prior for <span class="math inline">\(\lambda\)</span> is a conjugate prior, so that the posterior is given by: <span class="math inline">\(f(\lambda|\mathbf{Y}) \sim Gamma(a + \sum_{i=1}^nY_i,b+n)\)</span>. For this analysis, remove missing values of <code>visits</code>. Visualize the posterior distribution and report the posterior mean and a 95% credible interval. Provide an interpretation of the posterior distribution within the context of the US births data.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>I will start by obtaining <span class="math inline">\(S=50,000\)</span> samples from the posterior distribution and plotting the samples using a histogram with a density plot (both are not necessary).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>visits <span class="ot">&lt;-</span> births14<span class="sc">$</span>visits[<span class="sc">!</span><span class="fu">is.na</span>(births14<span class="sc">$</span>visits)] <span class="co"># remove missing values</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(visits)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sum_y <span class="ot">&lt;-</span> <span class="fu">sum</span>(visits)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>posterior_samples <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">50000</span>, <span class="at">shape =</span> <span class="dv">16</span> <span class="sc">+</span> sum_y, <span class="at">rate =</span> <span class="dv">2</span> <span class="sc">+</span> n)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">samples =</span> posterior_samples) <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> samples)) <span class="sc">+</span> </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="dv">1</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(lambda),</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Posterior distribution of "</span>, lambda)),</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Rate for number of hospital visits in 2014 for each woman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hw-01-creation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The posterior mean and 95% credible interval can be computed as follows.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>summaries <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mean =</span> <span class="fu">mean</span>(posterior_samples),</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">lower =</span> <span class="fu">quantile</span>(posterior_samples, <span class="at">probs =</span> <span class="fl">0.025</span>),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">upper =</span> <span class="fu">quantile</span>(posterior_samples, <span class="at">probs =</span> <span class="fl">0.975</span>))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(summaries) <span class="ot">&lt;-</span> <span class="st">"Posterior Estimates"</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>summaries <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">row.names =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Mean"</span>, <span class="st">"2.5%"</span>, <span class="st">"97.5%"</span>),</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">escape =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">Mean</th>
-<th style="text-align: right;">2.5%</th>
-<th style="text-align: right;">97.5%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Posterior Estimates</td>
-<td style="text-align: right;">11.63</td>
-<td style="text-align: right;">11.39</td>
-<td style="text-align: right;">11.86</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Through this analysis, we estimated the posterior mean number of hospital visits for women during their pregnancies in the United States in 2014 to be 11.63. The 95% credible interval was (11.39, 11.86), indicating that the posterior probability that <span class="math inline">\(\lambda\)</span> falls between 11.39 and 11.86 is 95%.</p>
-</div>
-</div>
+<p>Compute the same probability as in <strong>Exercise 2</strong>, this time using Monte Carlo sampling. Report your Monte Carlo standard error and make sure it is less than 0.01.</p>
 </section>
 <section id="exercise-4" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>What is the posterior probability that <span class="math inline">\(\lambda\)</span> is greater than 11? This is equivalent to computing <span class="math inline">\(P(\lambda &gt; 11 | \mathbf{Y})\)</span>. Again, use Monte Carlo sampling. Provide an interpretation for this probability in the context of hospital visits.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The posterior probability can be computed using the posterior samples computed in <strong>Exercise 3</strong>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(posterior_samples <span class="sc">&gt;</span> <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-<p>The posterior probability that <span class="math inline">\(\lambda\)</span> is greater than 11 is equal to 1. This indicates that in 2014, the mean number of hospital visits per pregnancy was almost certainly greater than 11, with a probability of approximately 1.</p>
-</div>
-</div>
+<p>Suppose the researchers are interested in the quantity, <span class="math inline">\(\alpha = \sqrt{\lambda}\)</span>. Compute the probability that <span class="math inline">\(\alpha\)</span> is greater than 2.5. Use the same number of Monte Carlo samples as in <strong>Exercise 3</strong> and describe why Monte Carlo sampling makes this computation much more efficient than computing the exact probability.</p>
 </section>
 <section id="exercise-5" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>Create a figure that includes both the prior and posterior distributions for <span class="math inline">\(\lambda\)</span>. Also, include a figure of the observed data. Use these figures to make a comparison of the prior and posterior probabilities found in <strong>Exercise 2</strong> and <strong>Exercise 4</strong>, respectively. Describe any changes in these two probabilities within the context of the observed data.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We can plot the prior and posterior distributions, along with a figure of the observed data.</p>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n_seq <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">30</span>, <span class="at">length.out =</span> n_seq)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>prior_dens <span class="ot">&lt;-</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">16</span>, <span class="at">rate =</span> <span class="dv">2</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>posterior_dens <span class="ot">&lt;-</span> <span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">16</span> <span class="sc">+</span> sum_y, <span class="at">rate =</span> <span class="dv">2</span> <span class="sc">+</span> n)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>dat.fig <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rep</span>(x, <span class="dv">2</span>), </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="fu">c</span>(prior_dens, posterior_dens),</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Type =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Prior"</span>, <span class="st">"Posterior"</span>), <span class="at">each =</span> n_seq)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat.fig, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> Type)) <span class="sc">+</span> </span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.25</span>) <span class="sc">+</span> </span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(pi), </span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>, </span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Prior and posterior distributions with the following prior: Gamma(a = 16, b = 2)"</span>) <span class="sc">+</span> </span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(births14, <span class="fu">aes</span>(<span class="at">x =</span> visits)) <span class="sc">+</span> </span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>,</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="dv">1</span>,</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of hospital visits per pregnancy"</span>,</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Visualization of number of visits per pregnancy in 2014"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hw-01-creation_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hw-01-creation_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>The prior probability of <span class="math inline">\(\lambda\)</span> being greater than 11 was equal to 0.08. The posterior probability is 1. The posterior value is nearly 1, as opposed to a prior probability much closer to 0. This makes sense in light of the above figures. In particular, since the observed data has a large sample size (n = 794) the posterior is going to be pulled towards the likelihood. Furthermore, since the mean of the observered data is 11.64, combined with the large sample size, it makes sense that the posterior distribution is pulled above 11.</p>
-</div>
-</div>
+<p>Using the prior specified in <strong>Exercise 1</strong>, compute the posterior distribution for <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(f(\lambda | \mathbf{Y})\)</span>, where <span class="math inline">\(\mathbf{Y}_i = (Y_1,\ldots,Y_n).\)</span> Recall that the Gamma prior for <span class="math inline">\(\lambda\)</span> is a conjugate prior, so that the posterior is given by: <span class="math inline">\(f(\lambda|\mathbf{Y}) \sim Gamma(a + \sum_{i=1}^nY_i,b+n)\)</span>. Visualize the posterior distribution and report the posterior mean and a 95% credible interval. Provide an interpretation of the posterior summaries within the context of the US births data.</p>
+</section>
+<section id="exercise-6" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
+<p>What is the posterior probability that <span class="math inline">\(\lambda\)</span> is greater than 11? This is equivalent to computing <span class="math inline">\(P(\lambda &gt; 11 | \mathbf{Y})\)</span>. Again, use Monte Carlo sampling. Provide an interpretation for this probability in the context of hospital visits.</p>
+</section>
+<section id="exercise-7" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
+<p>Create a figure that includes both the prior and posterior distributions for <span class="math inline">\(\lambda\)</span>. Also, include a figure of the observed data. Use these figures to make a comparison of the prior and posterior probabilities found in <strong>Exercise 3</strong> and <strong>Exercise 6</strong>, respectively. Describe any changes in these two probabilities and how they relate to the observed data.</p>
 </section>
 </section>
-<section id="exercise-6-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6-10">Exercise 6-10</h2>
-<p>Define a random variable <span class="math inline">\(Y_i\)</span> that represents the weight of the baby at birth in ounces <span class="math inline">\(i\)</span>. Assume that this random variable follows a Poisson distribution with rate <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(Y_i \stackrel{iid}{\sim} \text{Poisson}(\lambda)\)</span>. For a Poisson distribution, the mean and variance of the are equal to <span class="math inline">\(\lambda\)</span>. We are interested in performing statistical inference on <span class="math inline">\(\lambda\)</span> using a Bayesian approach. A frequently used prior for <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\text{Gamma}(\text{shape = }a, \text{rate = }b)\)</span>, where <span class="math inline">\(\mathbb{E}[\lambda] = a/b\)</span> and <span class="math inline">\(\mathbb{V}(\lambda) = a/b^2\)</span>.</p>
+<section id="exercise-8-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8-10">Exercise 8-10</h2>
+<p>Define a random variable <span class="math inline">\(weight_i\)</span> that represents the weight of the baby at birth in ounces for pregnancy <span class="math inline">\(i\)</span>. We are interested in learning the association between birth weight and the smoking habit, <span class="math inline">\(habit_i\)</span>, of the mother. Fit the following Bayesian linear regression model using Gibbs sampling,</p>
+<p><span class="math display">\[\begin{align*}
+weight_i &amp;= \beta_0 + \beta_1 \times 1(habit_i = \text{smoker}) + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2),\\
+&amp;= \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i,\\
+\boldsymbol{\beta} &amp;\sim N(\mathbf{0}, 100 \mathbf{I})\\
+\sigma^2 &amp;\sim \text{Inv-Gamma}(3,1).
+\end{align*}\]</span></p>
+<section id="exercise-8" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
+<p>Obtain samples from the posterior distribution of <span class="math inline">\((\boldsymbol{\beta},\sigma^2)\)</span> given the observed data. Visualize the posterior distributions and provide justification that the Gibbs sampler has converged.</p>
+</section>
+<section id="exercise-9" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
+<p>Report the posterior mean, standard deviation, and 95% credible intervals for each parameter.</p>
+</section>
+<section id="exercise-10" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
+<p>Report the one-sided p-value that corresponds to the statistical hypothesis test: <span class="math inline">\(H_0: \beta_1 = 0, H_1: \beta_1 &lt; 0\)</span>. Interpret this p-value in the context of the association between smoking and low birth weight.</p>
 <div class="render-commit-push">
 <p>You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that <u>all</u> documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.</p>
 </div>
+</section>
 </section>
 </section>
 <section id="submission" class="level1">
@@ -664,11 +514,11 @@ Warning
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;">2</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;">2</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 3</td>
@@ -680,31 +530,35 @@ Warning
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 5</td>
-<td style="text-align: left;">5</td>
+<td style="text-align: left;">7</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 6</td>
-<td style="text-align: left;">5</td>
+<td style="text-align: left;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 7</td>
-<td style="text-align: left;">6</td>
+<td style="text-align: left;">7</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 8</td>
-<td style="text-align: left;">5</td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 9</td>
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 10</td>
-<td style="text-align: left;">5</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Workflow &amp; formatting</td>
 <td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;">50</td>
 </tr>
 </tbody>
 </table>

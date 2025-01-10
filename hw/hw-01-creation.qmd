@@ -1,5 +1,5 @@
 ---
-title: "HW 01: Bayesian principles"
+title: "HW 01: Inference using Bayesian statistics"
 subtitle: United States Births in 2014
 bibliography: references.bib
 ---
@@ -13,7 +13,7 @@ This assignment is due on **Thursday, January 30 at 11:45am.** To be considered 
 -   Final `.pdf` file submitted on Gradescope
 :::
 
-# **Getting started**
+# Getting started
 
 -   Go to the [biostat725-sp25](https://www.github.com/biostat725-sp25) organization on GitHub. Click on the repo with the prefix **hw-01**. It contains the starter documents you need to complete the homework.
 
@@ -54,146 +54,60 @@ births14 <- births14[complete.cases(births14), ]
 glimpse(births14)
 ```
 
-## Exercises 1-5
+## Exercises 1-7
 
-Define a random variable $Y_i$ that represents the number of hospital visits during pregnancy for each woman $i$. Assume that this random variable follows a Poisson distribution with rate $\lambda$, $Y_i \stackrel{iid}{\sim} \text{Poisson}(\lambda)$. For a Poisson distribution, the mean and variance of the are equal to $\lambda$. We are interested in performing statistical inference on $\lambda$ using a Bayesian approach. A frequently used prior for $\lambda$ is $\text{Gamma}(\text{shape = }a, \text{rate = }b)$, where $\mathbb{E}[\lambda] = a/b$ and $\mathbb{V}(\lambda) = a/b^2$.
+Define a random variable $Y_i$ that represents the number of hospital visits during pregnancy for each woman $i$, for $i = 1,\ldots,n$. Assume that this random variable follows a Poisson distribution with rate $\lambda$, such that $Y_i \stackrel{iid}{\sim} \text{Poisson}(\lambda)$. For a Poisson distribution, the mean and variance are equal to $\lambda$. We are interested in performing statistical inference on $\lambda$ using a Bayesian approach. A frequently used prior for $\lambda$ is $\text{Gamma}(\text{shape = }a, \text{rate = }b)$, where $\mathbb{E}[\lambda] = a/b$ and $\mathbb{V}(\lambda) = a/b^2$.
 
 ### Exercise 1
 
 The researchers have prior knowledge that leads them to believe that $\lambda$ should have mean 8 and variance 4. What values of $a$ and $b$ should they specify?
 
-::: callout-important
-## Solution
-
-If $\mu$ is the mean of $\lambda$ and $\sigma^2$ is the variance, it is easy to see that $a = \mu^2/\sigma^2$ and $b=\mu/\sigma^2$. To obtain a prior distribution with mean 8 (i.e., $\mu=8$) and variance 4 (i.e., $\sigma^2=4$), they would need to specify $a=16$ and $b=2$.
-:::
-
 ### Exercise 2
 
-Using the prior specified in **Exercise 1**, what is the a priori probability that $\lambda$ is greater than 11? This is equivalent to computing $P(\lambda > 11)$. To find your answer use Monte Carlo sampling. Report your Monte Carlo standard error and make sure it is less than 0.01.
+Using the prior specified in **Exercise 1**, compute the probability that $\lambda$ is greater than 11? For this computation compute the exact probability using the `pgamma` function in R. This is equivalent to computing $P(\lambda > 11)$.
 
-::: callout-important
-## Solution
+### Exercise 3 
 
-We can use Monte Carlo sampling for this. Below I take $S=50,000$ samples from the prior distribution and compute the $P(\lambda > 11)$.
-
-```{r}
-prior_samples <- rgamma(50000, shape = 16, rate = 2)
-mean(prior_samples > 11)
-```
-
-I also verify that the Monte Carlo standard error is smaller than 0.01.
-
-```{r}
-sqrt(var(prior_samples) / length(prior_samples))
-```
-:::
-
-### Exercise 3
-
-Using the prior specified in **Exercise 1**, compute the posterior distribution for $\lambda$, $f(\lambda | \mathbf{Y})$, where $\mathbf{Y}_i = (Y_1,\ldots,Y_n).$ Recall that the Gamma prior for $\lambda$ is a conjugate prior, so that the posterior is given by: $f(\lambda|\mathbf{Y}) \sim Gamma(a + \sum_{i=1}^nY_i,b+n)$. For this analysis, remove missing values of `visits`. Visualize the posterior distribution and report the posterior mean and a 95% credible interval. Provide an interpretation of the posterior distribution within the context of the US births data.
-
-::: callout-important
-## Solution
-
-I will start by obtaining $S=50,000$ samples from the posterior distribution and plotting the samples using a histogram with a density plot (both are not necessary).
-
-```{r, message=FALSE, warning=FALSE}
-visits <- births14$visits[!is.na(births14$visits)] # remove missing values
-n <- length(visits)
-sum_y <- sum(visits)
-posterior_samples <- rgamma(50000, shape = 16 + sum_y, rate = 2 + n)
-data.frame(samples = posterior_samples) |> ggplot(aes(x = samples)) + 
-  geom_histogram(aes(y = ..density..),
-                 colour = 1, fill = "white") +
-  geom_density(lwd = 1.2,
-               linetype = 1,
-               colour = "black") + 
-  labs(x = expression(lambda),
-       y = "Density",
-       title = expression(paste("Posterior distribution of ", lambda)),
-       subtitle = "Rate for number of hospital visits in 2014 for each woman")
-```
-
-The posterior mean and 95% credible interval can be computed as follows.
-
-```{r}
-summaries <- data.frame(mean = mean(posterior_samples),
-                        lower = quantile(posterior_samples, probs = 0.025),
-                        upper = quantile(posterior_samples, probs = 0.975))
-rownames(summaries) <- "Posterior Estimates"
-summaries |> kable(row.names = TRUE,
-                   col.names = c("Mean", "2.5%", "97.5%"),
-                   digits = 2,
-                   escape = FALSE)
-```
-
-Through this analysis, we estimated the posterior mean number of hospital visits for women during their pregnancies in the United States in 2014 to be `r round(summaries$mean, 2)`. The 95% credible interval was (`r round(summaries$lower, 2)`, `r round(summaries$upper, 2)`), indicating that the posterior probability that $\lambda$ falls between `r round(summaries$lower, 2)` and `r round(summaries$upper, 2)` is 95%. 
-:::
+Compute the same probability as in **Exercise 2**, this time using Monte Carlo sampling. Report your Monte Carlo standard error and make sure it is less than 0.01.
 
 ### Exercise 4
 
-What is the posterior probability that $\lambda$ is greater than 11? This is equivalent to computing $P(\lambda > 11 | \mathbf{Y})$. Again, use Monte Carlo sampling. Provide an interpretation for this probability in the context of hospital visits.
-
-::: callout-important
-## Solution
-
-The posterior probability can be computed using the posterior samples computed in **Exercise 3**.
-
-```{r}
-mean(posterior_samples > 11)
-```
-
-The posterior probability that $\lambda$ is greater than 11 is equal to `r round(mean(posterior_samples > 11), 2)`. This indicates that in 2014, the mean number of hospital visits per pregnancy was almost certainly greater than 11, with a probability of approximately 1.
-:::
+Suppose the researchers are interested in the quantity, $\alpha = \sqrt{\lambda}$. Compute the probability that $\alpha$ is greater than 2.5. Use the same number of Monte Carlo samples as in **Exercise 3** and describe why Monte Carlo sampling makes this computation much more efficient than computing the exact probability. 
 
 ### Exercise 5
 
-Create a figure that includes both the prior and posterior distributions for $\lambda$. Also, include a figure of the observed data. Use these figures to make a comparison of the prior and posterior probabilities found in **Exercise 2** and **Exercise 4**, respectively. Describe any changes in these two probabilities within the context of the observed data.
+Using the prior specified in **Exercise 1**, compute the posterior distribution for $\lambda$, $f(\lambda | \mathbf{Y})$, where $\mathbf{Y}_i = (Y_1,\ldots,Y_n).$ Recall that the Gamma prior for $\lambda$ is a conjugate prior, so that the posterior is given by: $f(\lambda|\mathbf{Y}) \sim Gamma(a + \sum_{i=1}^nY_i,b+n)$. Visualize the posterior distribution and report the posterior mean and a 95% credible interval. Provide an interpretation of the posterior summaries within the context of the US births data.
 
-::: callout-important
-## Solution
+### Exercise 6
 
-We can plot the prior and posterior distributions, along with a figure of the observed data.
+What is the posterior probability that $\lambda$ is greater than 11? This is equivalent to computing $P(\lambda > 11 | \mathbf{Y})$. Again, use Monte Carlo sampling. Provide an interpretation for this probability in the context of hospital visits.
 
-```{r}
-#| echo: true
-#| fig-align: "center"
-#| fig-width: 6
-#| layout-ncol: 2
-#| warning: false
-n_seq <- 1000
-x <- seq(0, 30, length.out = n_seq)
-prior_dens <- dgamma(x, shape = 16, rate = 2)
-posterior_dens <- dgamma(x, shape = 16 + sum_y, rate = 2 + n)
-dat.fig <- data.frame(x = rep(x, 2), 
-                      y = c(prior_dens, posterior_dens),
-                      Type = rep(c("Prior", "Posterior"), each = n_seq)
-)
-ggplot(dat.fig, aes(x = x, y = y, color = Type)) + 
-  geom_line(linewidth = 1.25) + 
-  labs(x = expression(pi), 
-       y = "Density", 
-       subtitle = "Prior and posterior distributions with the following prior: Gamma(a = 16, b = 2)") + 
-  theme(legend.position = "right")
-ggplot(births14, aes(x = visits)) + 
-  geom_histogram(aes(y = ..density..),
-                 colour = 1, fill = "white") +
-  geom_density(lwd = 1.2,
-               linetype = 1,
-               colour = "black") + 
-  labs(x = "Number of hospital visits per pregnancy",
-       y = "Density",
-       subtitle = "Visualization of number of visits per pregnancy in 2014")
+### Exercise 7
 
-```
+Create a figure that includes both the prior and posterior distributions for $\lambda$. Also, include a figure of the observed data. Use these figures to make a comparison of the prior and posterior probabilities found in **Exercise 3** and **Exercise 6**, respectively. Describe any changes in these two probabilities and how they relate to the observed data.
 
-The prior probability of $\lambda$ being greater than 11 was equal to `r round(mean(prior_samples > 11), 2)`. The posterior probability is `r round(mean(posterior_samples > 11), 2)`. The posterior value is nearly 1, as opposed to a prior probability much closer to 0. This makes sense in light of the above figures. In particular, since the observed data has a large sample size (n = `r n`) the posterior is going to be pulled towards the likelihood. Furthermore, since the mean of the observered data is `r round(mean(visits), 2)`, combined with the large sample size, it makes sense that the posterior distribution is pulled above 11.
-:::
+## Exercise 8-10
 
-## Exercise 6-10
+Define a random variable $weight_i$ that represents the weight of the baby at birth in ounces for pregnancy $i$. We are interested in learning the association between birth weight and the smoking habit, $habit_i$, of the mother. Fit the following Bayesian linear regression model using Gibbs sampling,
 
-Define a random variable $Y_i$ that represents the weight of the baby at birth in ounces $i$. Assume that this random variable follows a Poisson distribution with rate $\lambda$, $Y_i \stackrel{iid}{\sim} \text{Poisson}(\lambda)$. For a Poisson distribution, the mean and variance of the are equal to $\lambda$. We are interested in performing statistical inference on $\lambda$ using a Bayesian approach. A frequently used prior for $\lambda$ is $\text{Gamma}(\text{shape = }a, \text{rate = }b)$, where $\mathbb{E}[\lambda] = a/b$ and $\mathbb{V}(\lambda) = a/b^2$.
+\begin{align*}
+weight_i &= \beta_0 + \beta_1 \times 1(habit_i = \text{smoker}) + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2),\\
+&= \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i,\\
+\boldsymbol{\beta} &\sim N(\mathbf{0}, 100 \mathbf{I})\\
+\sigma^2 &\sim \text{Inv-Gamma}(3,1).
+\end{align*}
+
+### Exercise 8
+
+Obtain samples from the posterior distribution of $(\boldsymbol{\beta},\sigma^2)$ given the observed data. Visualize the posterior distributions and provide justification that the Gibbs sampler has converged. 
+
+### Exercise 9
+
+Report the posterior mean, standard deviation, and 95% credible intervals for each parameter.
+
+### Exercise 10
+
+Report the one-sided p-value that corresponds to the statistical hypothesis test: $H_0: \beta_1 = 0, H_1: \beta_1 < 0$. Interpret this p-value in the context of the association between smoking and low birth weight.
 
 ::: render-commit-push
 You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.
@@ -223,16 +137,17 @@ To submit your assignment:
 
 | Component             | Points |
 |:----------------------|:-------|
-| Ex 1                  | 2      |
-| Ex 2                  | 2      |
+| Ex 1                  | 3      |
+| Ex 2                  | 3      |
 | Ex 3                  | 3      |
 | Ex 4                  | 5      |
-| Ex 5                  | 5      |
-| Ex 6                  | 5      |
-| Ex 7                  | 6      |
-| Ex 8                  | 5      |
-| Ex 9                  | 8      |
-| Ex 10                 | 5      |
+| Ex 5                  | 7      |
+| Ex 6                  | 4      |
+| Ex 7                  | 7      |
+| Ex 8                  | 8      |
+| Ex 9                  | 3      |
+| Ex 10                 | 3      |
 | Workflow & formatting | 4      |
+| Total                 | 50      |
 
 The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.

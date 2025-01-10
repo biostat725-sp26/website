@@ -567,7 +567,7 @@ $X > 0$ is a patient's BMI.
 
 -   The **conditional pdf** of $Y$ given $X$ is $$f(y|x) = \frac{f(x, y)}{f_X (x)}.$$
 
--   Proper: $\int f(y|x)dy = \int \frac{f(x,y)}{f_X(x)}dy = \int \frac{f(x,y)dy}{f_X(x)} = 1$.
+-   Proper: $\int f(y|x)dy = \int \frac{f(x,y)}{f_X(x)}dy = \frac{\int f(x,y)dy}{f_X(x)} = 1$.
 
 ## Defining joint distributions conditionally
 

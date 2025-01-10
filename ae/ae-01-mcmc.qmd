@@ -39,7 +39,7 @@ By the end of the AE, you will...
 -   In RStudio, go to *File* $\rightarrow$ *New Project* $\rightarrow$ *Version Control* $\rightarrow$ *Git*.
 -   Copy and paste the URL of your assignment repo into the dialog box *Repository URL*. Again, please make sure to have *SSH* highlighted under *Clone* when you copy the address.
 -   Click *Create Project*, and the files from your GitHub repo will be displayed in the *Files* pane in RStudio.
--   Click `ae-01-linear-regression.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
+-   Click `ae-01-mcmc.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
 
 ## R and R Studio
 
