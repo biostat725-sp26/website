@@ -17,7 +17,7 @@ This assignment is due on **Thursday, January 30 at 11:45am.** To be considered 
 
 -   Go to the [biostat725-sp25](https://www.github.com/biostat725-sp25) organization on GitHub. Click on the repo with the prefix **hw-01**. It contains the starter documents you need to complete the homework.
 
--   Clone the repo and start a new project in RStudio. See the [AE 01 instructions](https://biostat725-sp25.netlify.app/ae/ae-01-mcmc#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new project in R.
+-   Clone the repo and start a new project in RStudio. See the [AE 01 instructions](https://biostat725-sp25.netlify.app/ae/ae-01-monte-carlo#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new project in R.
 
 # Packages
 
@@ -32,6 +32,7 @@ library(dplyr)
 library(ggplot2)
 library(openintro)
 library(knitr)
+library(mvtnorm)
 
 # load other packages as needed
 ```

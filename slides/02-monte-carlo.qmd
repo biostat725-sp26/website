@@ -217,7 +217,7 @@ ggplot(dat.fig, aes(x = x, y = diff)) +
 
 ## Intuition behing Monte Carlo sampling
 
--   Assume $X_i \sim Uniform(-1,1)$ and $Y_i \sim Uniform(-1,1)$ for $i = 1,\ldots,S$.
+-   Assume $X \sim Uniform(-1,1)$ and $Y \sim Uniform(-1,1)$.
 
 -   We can write our problem as, $\pi = 4P(X^2 + Y^2 \leq 1)$.
 
@@ -233,11 +233,11 @@ ggplot(dat.fig, aes(x = x, y = diff)) +
 
 $$P(X^2 + Y^2 \leq 1) = \mathbb{E}_{X,Y}\left[1\left(X^2 + Y^2 \leq 1\right)\right].$$
 
--   Recall that an expectation of an indicator is the probability of the event that it indicates, $\mathbb{E}_X[1(A)] = \int_A f_X(x)dx = P(X \in A)$.
+-   Recall: $\mathbb{E}_X[1(A)] = \int_A f_X(x)dx = P(X \in A)$.
 
 -   We then have that, $$\frac{1}{S}\sum_{i = 1}^S 1\left(X_i^2 + Y_i^2 \leq 1\right) \rightarrow \mathbb{E}_{X,Y}\left[1\left(X^2 + Y^2 \leq 1\right)\right],$$
 
-where $(X_i,Y_i) \sim f(X_i,Y_i)$.
+where $(X_i,Y_i) \sim f(X,Y)$.
 
 # Bayesian inference using MC sampling
 
@@ -286,9 +286,9 @@ What do we know about $\pi$?
 
 We should place a distribution on $\pi$ that permits these properties.
 
-One option is the Beta distribution, $$f(\pi) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}\pi^{\alpha-1}(1-\pi)^{\beta-1}.$$
+. . .
 
-If we assume that $\pi \sim Beta(\alpha,\beta)$, we can proceed to compute the posterior.
+One option is the Beta distribution, $\pi \sim Beta(\alpha,\beta)$, $$f(\pi) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}\pi^{\alpha-1}(1-\pi)^{\beta-1}.$$
 
 ## Computing the marginal likelihood {.midi}
 
@@ -305,9 +305,7 @@ f(Z) &= \int f(Z | \pi) f(\pi) d\pi\\
 
 The part of the pdf/pmf that depends on the variable is called the **kernel**.
 
-Example:
-
--   The kernel of the Beta pdf is $\pi^{\alpha-1}(1-\pi)^{\beta-1}$
+Example: The kernel of the Beta pdf is $\pi^{\alpha-1}(1-\pi)^{\beta-1}$
 :::
 
 ## Computing the marginal likelihood {.midi}
@@ -420,15 +418,27 @@ ggplot(dat.fig, aes(x = x, y = y, color = Type)) +
 
 ## Summarizing the posterior
 
+We now have a posterior distribution. What do we do now?
+
+. . . 
+
 1.  Posterior means, medians, modes, and variances
+
+. . .
 
 2.  Joint, conditional, and marginal probabilities, for example: $P(\pi < c | Z)$
 
+. . .
+
 3.  $\alpha$-quantiles: $\{q_{\alpha} : P(\pi < q_{\alpha} | Z) = \alpha\}, \alpha \in (0,1)$
+
+. . .
 
 4.  $\ldots$
 
-Summarizing a posterior (with known parametric form) is straightforward for basic quantities of interest.
+. . .
+
+How do we go about computing these summaries?
 
 ## Summarization can be complex
 

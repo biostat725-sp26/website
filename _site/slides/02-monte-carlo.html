@@ -571,7 +571,7 @@ Prof.&nbsp;Sam Berchuck
 <section id="intuition-behing-monte-carlo-sampling" class="slide level2">
 <h2>Intuition behing Monte Carlo sampling</h2>
 <ul>
-<li><p>Assume <span class="math inline">\(X_i \sim Uniform(-1,1)\)</span> and <span class="math inline">\(Y_i \sim Uniform(-1,1)\)</span> for <span class="math inline">\(i = 1,\ldots,S\)</span>.</p></li>
+<li><p>Assume <span class="math inline">\(X \sim Uniform(-1,1)\)</span> and <span class="math inline">\(Y \sim Uniform(-1,1)\)</span>.</p></li>
 <li><p>We can write our problem as, <span class="math inline">\(\pi = 4P(X^2 + Y^2 \leq 1)\)</span>.</p></li>
 <li><p>How could we do this without Monte Carlo?</p></li>
 <li><p>Define, <span class="math inline">\(Z = X^2 + Y^2\)</span>. We could then use change-of-variables to compute the density of <span class="math inline">\(Z\)</span> and then compute <span class="math inline">\(P(Z \leq 1)\)</span>.</p>
@@ -587,10 +587,10 @@ Prof.&nbsp;Sam Berchuck
 </ul>
 <p><span class="math display">\[P(X^2 + Y^2 \leq 1) = \mathbb{E}_{X,Y}\left[1\left(X^2 + Y^2 \leq 1\right)\right].\]</span></p>
 <ul>
-<li><p>Recall that an expectation of an indicator is the probability of the event that it indicates, <span class="math inline">\(\mathbb{E}_X[1(A)] = \int_A f_X(x)dx = P(X \in A)\)</span>.</p></li>
+<li><p>Recall: <span class="math inline">\(\mathbb{E}_X[1(A)] = \int_A f_X(x)dx = P(X \in A)\)</span>.</p></li>
 <li><p>We then have that, <span class="math display">\[\frac{1}{S}\sum_{i = 1}^S 1\left(X_i^2 + Y_i^2 \leq 1\right) \rightarrow \mathbb{E}_{X,Y}\left[1\left(X^2 + Y^2 \leq 1\right)\right],\]</span></p></li>
 </ul>
-<p>where <span class="math inline">\((X_i,Y_i) \sim f(X_i,Y_i)\)</span>.</p>
+<p>where <span class="math inline">\((X_i,Y_i) \sim f(X,Y)\)</span>.</p>
 </section></section>
 <section>
 <section id="bayesian-inference-using-mc-sampling" class="title-slide slide level1 center">
@@ -639,8 +639,9 @@ f(\pi | Z) &amp;= \frac{f(Z | \pi)f(\pi)}{f(Z)},\\
 <li><p><span class="math inline">\(\pi \in (0,1)\)</span>.</p></li>
 </ul>
 <p>We should place a distribution on <span class="math inline">\(\pi\)</span> that permits these properties.</p>
-<p>One option is the Beta distribution, <span class="math display">\[f(\pi) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}\pi^{\alpha-1}(1-\pi)^{\beta-1}.\]</span></p>
-<p>If we assume that <span class="math inline">\(\pi \sim Beta(\alpha,\beta)\)</span>, we can proceed to compute the posterior.</p>
+<div class="fragment">
+<p>One option is the Beta distribution, <span class="math inline">\(\pi \sim Beta(\alpha,\beta)\)</span>, <span class="math display">\[f(\pi) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}\pi^{\alpha-1}(1-\pi)^{\beta-1}.\]</span></p>
+</div>
 </section>
 <section id="computing-the-marginal-likelihood" class="slide level2 midi">
 <h2>Computing the marginal likelihood</h2>
@@ -660,10 +661,7 @@ f(Z) &amp;= \int f(Z | \pi) f(\pi) d\pi\\
 </div>
 <div class="callout-content">
 <p>The part of the pdf/pmf that depends on the variable is called the <strong>kernel</strong>.</p>
-<p>Example:</p>
-<ul>
-<li>The kernel of the Beta pdf is <span class="math inline">\(\pi^{\alpha-1}(1-\pi)^{\beta-1}\)</span></li>
-</ul>
+<p>Example: The kernel of the Beta pdf is <span class="math inline">\(\pi^{\alpha-1}(1-\pi)^{\beta-1}\)</span></p>
 </div>
 </div>
 </div>
@@ -762,13 +760,30 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 </section>
 <section id="summarizing-the-posterior" class="slide level2">
 <h2>Summarizing the posterior</h2>
+<p>We now have a posterior distribution. What do we do now?</p>
+<div class="fragment">
 <ol type="1">
-<li><p>Posterior means, medians, modes, and variances</p></li>
-<li><p>Joint, conditional, and marginal probabilities, for example: <span class="math inline">\(P(\pi &lt; c | Z)\)</span></p></li>
-<li><p><span class="math inline">\(\alpha\)</span>-quantiles: <span class="math inline">\(\{q_{\alpha} : P(\pi &lt; q_{\alpha} | Z) = \alpha\}, \alpha \in (0,1)\)</span></p></li>
-<li><p><span class="math inline">\(\ldots\)</span></p></li>
+<li>Posterior means, medians, modes, and variances</li>
 </ol>
-<p>Summarizing a posterior (with known parametric form) is straightforward for basic quantities of interest.</p>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Joint, conditional, and marginal probabilities, for example: <span class="math inline">\(P(\pi &lt; c | Z)\)</span></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li><span class="math inline">\(\alpha\)</span>-quantiles: <span class="math inline">\(\{q_{\alpha} : P(\pi &lt; q_{\alpha} | Z) = \alpha\}, \alpha \in (0,1)\)</span></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li><span class="math inline">\(\ldots\)</span></li>
+</ol>
+</div>
+<div class="fragment">
+<p>How do we go about computing these summaries?</p>
+</div>
 </section>
 <section id="summarization-can-be-complex" class="slide level2">
 <h2>Summarization can be complex</h2>
@@ -869,11 +884,11 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">mean</span>(pi_samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.241295</code></pre>
+<pre><code>[1] 0.2407837</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">var</span>(pi_samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0003580181</code></pre>
+<pre><code>[1] 0.0003471753</code></pre>
 </div>
 </div>
 </section>
@@ -900,25 +915,25 @@ f(\pi | Z) &amp;\propto f(Z | \pi) f(\pi)\\
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># median</span></span>
 <span id="cb6-2"><a></a><span class="fu">median</span>(pi_samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.239821</code></pre>
+<pre><code>[1] 0.2411695</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># 95% credible intervals</span></span>
 <span id="cb8-2"><a></a><span class="fu">quantile</span>(pi_samples, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5%     97.5% 
-0.2047430 0.2792173 </code></pre>
+0.2041437 0.2804683 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># evaluating probability</span></span>
 <span id="cb10-2"><a></a><span class="fu">mean</span>(pi_samples <span class="sc">&lt;</span> <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.7092</code></pre>
+<pre><code>[1] 0.6802</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># summarizing arbitrary functions of the parameters</span></span>
 <span id="cb12-2"><a></a>pi_new <span class="ot">&lt;-</span> pi_samples<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> pi_samples</span>
 <span id="cb12-3"><a></a><span class="fu">c</span>(<span class="fu">mean</span>(pi_new), <span class="fu">quantile</span>(pi_new, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 2.5%      97.5% 
--0.2261683 -0.2574488 -0.1961602 </code></pre>
+-0.2270457 -0.2584060 -0.1956361 </code></pre>
 </div>
 </div>
 </section></section>

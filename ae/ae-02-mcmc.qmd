@@ -1,5 +1,5 @@
 ---
-title: "AE 01: Posterior estimation using Gibbs sampling "
+title: "AE 02: Posterior estimation using Gibbs sampling "
 subtitle: "Glaucoma disease progression"
 date: "Jan 16, 2025"
 ---
@@ -9,7 +9,7 @@ date: "Jan 16, 2025"
 
 Application exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
 
-This AE is due on **Sunday, January 19 at 11:59pm.** To be considered on time, the following must be done by the due date:
+**This AE is a demonstration and you do not have to turn anything in!**
 
 -   Final `.qmd` and `.pdf` files pushed to your GitHub repo
 -   **Note:** For homeworks and exams, you will also be required to submit your final `.pdf` file submitted on Gradescope
@@ -17,7 +17,7 @@ This AE is due on **Sunday, January 19 at 11:59pm.** To be considered on time, t
 
 # Introduction
 
-This AE will go through much of the workflow we will use in the course. The main goal is to demo the use of R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.
+This AE will again demonstrate the process of using Github and RStudio to retrieve and complete assignments in this course. We will also continue looking at the glaucoma dataset and study a regression problem using Bayesian inference.
 
 ## Learning goals
 
@@ -33,59 +33,13 @@ By the end of the AE, you will...
 ## Clone the repo & start new RStudio project
 
 -   Go to the course organization at [github.com/biostat725-sp25](https://github.com/biostat725-sp25) organization on GitHub.
--   Click on the repo with the prefix **ae-01-**. It contains the starter documents you need to complete the AE.
+-   Click on the repo with the prefix **ae-02-**. It contains the starter documents you need to complete the AE.
 -   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you'll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
     -   See the [HW 00 instructions](https://biostat725-sp25.netlify.app/hw/hw-00#connect-rstudio-and-github) if you have not set up the SSH key or configured git.
 -   In RStudio, go to *File* $\rightarrow$ *New Project* $\rightarrow$ *Version Control* $\rightarrow$ *Git*.
 -   Copy and paste the URL of your assignment repo into the dialog box *Repository URL*. Again, please make sure to have *SSH* highlighted under *Clone* when you copy the address.
 -   Click *Create Project*, and the files from your GitHub repo will be displayed in the *Files* pane in RStudio.
--   Click `ae-01-mcmc.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
-
-## R and R Studio
-
-Below are the components of the RStudio IDE.
-
-![](images/rstudio-panes.png){fig-alt="Screenshot of RStudio IDE" fig-align="center"}
-
-Below are the components of a Quarto (`.qmd`) file.
-
-![](images/quarto.png){fig-alt="Screenshot of Quarto document and rendered PDF." fig-align="center"}
-
-### YAML
-
-The top portion of your Quarto file (between the three dashed lines) is called **YAML**. It stands for "YAML Ain't Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
-
-::: callout-important
-Open the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document.
-:::
-
-### Committing changes
-
-Now, go to the Git pane in your RStudio instance. This will be in the top right hand corner in a separate tab.
-
-If you have made changes to your Quarto (.qmd) file, you should see it listed here. Click on it to select it in this list and then click on **Diff**. This shows you the *diff*erence between the last committed state of the document and its current state including changes. You should see deletions in red and additions in green.
-
-If you're happy with these changes, we'll prepare the changes to be pushed to your remote repository. First, **stage** your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, "updated author name") in the **Commit message** box. Finally, click **Commit**. Note that every commit needs to have a commit message associated with it.
-
-You don't have to commit after every change, as this would get quite tedious. You should commit states that are *meaningful to you* for inspection, comparison, or restoration.
-
-In the first few assignments we may tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.
-
-### Push changes
-
-Now that you have made an update and committed this change, it's time to push these changes to your repo on GitHub.
-
-In order to push your changes to GitHub, you must have **staged** your **commit** to be pushed. click on **Push**.
-
-Now let's make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you're good to go!
-
-<!-- ::: callout-important -->
-
-<!-- Go to the [course GitHub organization](https://github.com/biostat725-sp25) and locate your `ae-01` repo to get started. -->
-
-<!-- Render, commit, and push your responses to GitHub by the end of class to submit your AE. -->
-
-<!-- ::: -->
+-   Click `AE 02.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
 
 # R packages
 
@@ -96,9 +50,7 @@ We will begin by loading R packages that we will use in this AE.
 #| message: false
 
 library(tidyverse)    # data wrangling and visualization
-library(tidymodels)   # broom and yardstick package
 library(knitr)        # format output
-library(skimr)        # quickly calculate summary statistics
 library(mvtnorm)      # multivariate normal rng
 ```
 
@@ -114,7 +66,7 @@ We will focus on two variables:
 
 -   `progression`: rate of disease progression, measured as the number dB lost per year (dB/year)
 
-The goal of this analysis is to use the IOP to understand variability in disease progression in glaucoma patients. The data is available in the `ae-01-` repo and is called `glaucoma.rds`.
+The goal of this analysis is to use the IOP to understand variability in disease progression in glaucoma patients. The data is available in the `ae-02-` repo and is called `glaucoma.rds`.
 
 ```{r, eval = FALSE}
 #| label: glimpse-data
@@ -133,6 +85,7 @@ Let's begin by examining the univariate distributions of the disease progression
 
 ```{r}
 #| label: progression-viz
+#| warning: false
 
 ggplot(data = glaucoma, aes(x = progression)) + 
   geom_histogram() +
@@ -262,7 +215,7 @@ Compute a 95% confidence interval for the regression slope. Provide an interpret
 
 ## Exercise 3
 
-Compute a one-sided Bayesian p-value for the regression slope: $P(\beta_1 < 0)$. Interpret the results in plain English. Is intraocular pressure associated with disease progression? 
+Compute a one-sided Bayesian p-value for the regression slope: $P(\beta_1 < 0)$. Interpret the results in plain English. Is intraocular pressure associated with disease progression?
 
 **Answer:**
 
@@ -278,4 +231,6 @@ To submit the AE:
 
 -   Render the document to produce the PDF with all of your work from today's class.
 -   Push all your work to your AE repo on GitHub. You're done! 🎉
+
+**This AE is a demonstration and you do not have to turn anything in!**
 :::

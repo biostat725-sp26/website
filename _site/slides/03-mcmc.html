@@ -438,7 +438,8 @@ Y_i &amp;= \beta_0 + x_{i1} \beta_1 + \cdots + x_{ip} \beta_p + \epsilon_i, \qua
 </section>
 <section id="defining-the-likelihood" class="slide level2">
 <h2>Defining the likelihood</h2>
-<p>The individual likelihood contribution for subject <span class="math inline">\(i\)</span> is given by, <span class="math display">\[Y_i|\boldsymbol{\beta},\sigma^2 \sim N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2) \Leftrightarrow f(Y_i|\boldsymbol{\beta},\sigma^2) = N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2),\]</span> and the full data likelihood (or observed data likelihood) is given by, <span class="math display">\[f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) = \prod_{i=1}^n f(Y_i|\boldsymbol{\beta},\sigma^2),\]</span> where <span class="math inline">\(\mathbf{Y} = (Y_1,\ldots,Y_n)\)</span>.</p>
+<p>The individual likelihood contribution for subject <span class="math inline">\(i\)</span> is given by,</p>
+<p><span class="math display">\[Y_i|\boldsymbol{\beta},\sigma^2 \stackrel{ind}{\sim} N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2) \Leftrightarrow f(Y_i|\boldsymbol{\beta},\sigma^2) = N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2),\]</span> and the full data likelihood (or observed data likelihood) is given by, <span class="math display">\[f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) = \prod_{i=1}^n f(Y_i|\boldsymbol{\beta},\sigma^2),\]</span> where <span class="math inline">\(\mathbf{Y} = (Y_1,\ldots,Y_n)\)</span>.</p>
 </section>
 <section id="matrix-likelihood-specification" class="slide level2">
 <h2>Matrix likelihood specification</h2>
@@ -471,7 +472,7 @@ Y_i &amp;= \beta_0 + x_{i1} \beta_1 + \cdots + x_{ip} \beta_p + \epsilon_i, \qua
 <li>Maximum likelihood estimation (MLE)</li>
 </ul>
 <center>
-<span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{MLE}} = \underset{\boldsymbol{\beta}}{\operatorname{argmax}} f(\mathbf{Y} | \boldsymbol{\beta})\)</span>
+<span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{MLE}} = \underset{\boldsymbol{\beta}}{\operatorname{argmax}} \log f(\mathbf{Y} | \boldsymbol{\beta})\)</span>
 </center>
 <ul>
 <li><span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}} = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y}\)</span></li>
@@ -517,7 +518,7 @@ f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) &amp;= \frac{f(\mathbf{Y}, \boldsym
 </section>
 <section id="gibbs-sampler-for-linear-regression" class="slide level2">
 <h2>Gibbs sampler for linear regression</h2>
-<p>Suppose we can sample from the following two distribution,</p>
+<p>Suppose we can sample from the following two distributions,</p>
 <ol type="1">
 <li><p><span class="math inline">\(f(\boldsymbol{\beta} | \mathbf{Y}, \sigma^2) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta})\)</span></p></li>
 <li><p><span class="math inline">\(f(\sigma^2 | \mathbf{Y}, \boldsymbol{\beta}) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\sigma^2)\)</span></p></li>
@@ -562,7 +563,7 @@ f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) &amp;= \frac{f(\mathbf{Y}, \boldsym
 <h2>Gibbs sampler for linear regression</h2>
 <ul>
 <li><p>We need to compute the full conditionals. Before doing this, we require prior distributions.</p></li>
-<li><p>Let’s assume that the prior for <span class="math inline">\(\boldsymbol{\beta}\)</span> is Gassian,</p></li>
+<li><p>Let’s assume that the prior for <span class="math inline">\(\boldsymbol{\beta}\)</span> is Gaussian,</p></li>
 </ul>
 <p><span class="math display">\[f(\boldsymbol{\beta}) = N(\boldsymbol{\beta}_0,\sigma_{\beta}^2 \mathbf{I}_{p+1}).\]</span></p>
 <ul>
@@ -953,7 +954,6 @@ r &amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}^*, \sigma^{2(s)}) f(\boldsymbol
 <h2>Prepare for next class</h2>
 <ul>
 <li><p>Begin <a href="https://biostat725-sp25.netlify.app/hw/hw-01">HW 01</a> which is due January 30</p></li>
-<li><p>Be sure to turn in your AE by Sunday evening</p></li>
 <li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
 <li><p>Tuesday’s lecture: Probabilistic Programming (Intro to Stan!)</p></li>
 </ul>

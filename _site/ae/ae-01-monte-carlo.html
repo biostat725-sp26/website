@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2025-01-14">
 
-<title>AE 00: Monte Carlo sampling – BIOSTAT 725 - Spring 2025</title>
+<title>AE 01: Monte Carlo sampling – BIOSTAT 725 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -143,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 00: Monte Carlo sampling</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 01: Monte Carlo sampling</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -322,7 +322,6 @@ window.Quarto = {
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory data analysis</a></li>
   <li><a href="#posterior-estimation" id="toc-posterior-estimation" class="nav-link" data-scroll-target="#posterior-estimation">Posterior estimation</a></li>
-  <li><a href="#insepction-of-gibbs-sampler" id="toc-insepction-of-gibbs-sampler" class="nav-link" data-scroll-target="#insepction-of-gibbs-sampler">Insepction of Gibbs sampler</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -337,8 +336,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 00: Monte Carlo sampling</h1>
-<p class="subtitle lead">Hospital visits during pregnancy</p>
+<h1 class="title">AE 01: Monte Carlo sampling</h1>
+<p class="subtitle lead">Estimating intraocular pressure</p>
 </div>
 
 
@@ -367,13 +366,13 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Overview of Application Exercises
+Due date
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Application exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.</p>
-<p><strong>This AE is a demo and you are not required to submit anything!</strong> Just follow along in class. At this point, you do not have access to the course GitHub. You will gain access after submission of HW 00, which includes submitting your GitHub username. I will add each student to the GitHub course after Thursday’s HW 00 deadline.</p>
-<p>Had this been a real AE, it would have been due on <strong>Friday, January 17 at 11:59pm.</strong> To be considered on time, the following must be done by the due date:</p>
+<p><strong>This AE is a demonstration and you do not have to turn anything in!</strong></p>
+<!-- This AE is due on **Sunday, January 19 at 11:59pm.** To be considered on time, the following must be done by the due date: -->
 <ul>
 <li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</li>
 <li><strong>Note:</strong> For homeworks and exams, you will also be required to submit your final <code>.pdf</code> file submitted on Gradescope</li>
@@ -390,7 +389,7 @@ Overview of Application Exercises
 <li>Be familiar with the workflow using RStudio and GitHub</li>
 <li>Gain practice writing a reproducible report using Quarto</li>
 <li>Practice version control using GitHub</li>
-<li>Perform Monte Carlo sampling for a one parameter Bayesian model</li>
+<li>Perform some Monte Carlo estimation</li>
 </ul>
 </section>
 </section>
@@ -401,14 +400,14 @@ Overview of Application Exercises
 <ul>
 <li>Go to the course organization at <a href="https://github.com/biostat725-sp25">github.com/biostat725-sp25</a> organization on GitHub.</li>
 <li>Click on the repo with the prefix <strong>ae-01-</strong>. It contains the starter documents you need to complete the AE.</li>
-<li>Click on the green <strong>CODE</strong> button, select <strong>Use SSH</strong> (this might already be selected by default, and if it is, you’ll see the text <strong>Clone with SSH</strong>). Click on the clipboard icon to copy the repo URL.
+<li>Click on the green <strong>CODE</strong> button, select <strong>Use HTTPS</strong> (this might already be selected by default, and if it is, you’ll see the text <strong>Clone using the web URL.</strong>). Click on the clipboard icon to copy the repo URL.
 <ul>
 <li>See the <a href="https://biostat725-sp25.netlify.app/hw/hw-00#connect-rstudio-and-github">HW 00 instructions</a> if you have not set up the SSH key or configured git.</li>
 </ul></li>
 <li>In RStudio, go to <em>File</em> <span class="math inline">\(\rightarrow\)</span> <em>New Project</em> <span class="math inline">\(\rightarrow\)</span> <em>Version Control</em> <span class="math inline">\(\rightarrow\)</span> <em>Git</em>.</li>
-<li>Copy and paste the URL of your assignment repo into the dialog box <em>Repository URL</em>. Again, please make sure to have <em>SSH</em> highlighted under <em>Clone</em> when you copy the address.</li>
+<li>Copy and paste the URL of your assignment repo into the dialog box <em>Repository URL</em>. Again, please make sure to have <em>HTTPS</em> highlighted under <em>Clone</em> when you copy the address.</li>
 <li>Click <em>Create Project</em>, and the files from your GitHub repo will be displayed in the <em>Files</em> pane in RStudio.</li>
-<li>Click <code>ae-01-monte-carlo.qmd</code> to open the template Quarto file. This is where you will write up your code and narrative for the AE.</li>
+<li>Click <code>AE 01.qmd</code> to open the template Quarto file. This is where you will write up your code and narrative for the AE.</li>
 </ul>
 </section>
 <section id="r-and-r-studio" class="level2">
@@ -449,12 +448,12 @@ Important
 <p>If you’re happy with these changes, we’ll prepare the changes to be pushed to your remote repository. First, <strong>stage</strong> your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, “updated author name”) in the <strong>Commit message</strong> box. Finally, click <strong>Commit</strong>. Note that every commit needs to have a commit message associated with it.</p>
 <p>You don’t have to commit after every change, as this would get quite tedious. You should commit states that are <em>meaningful to you</em> for inspection, comparison, or restoration.</p>
 <p>In the first few assignments we may tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.</p>
-<p>Now let’s make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!</p>
 </section>
 <section id="push-changes" class="level3">
 <h3 class="anchored" data-anchor-id="push-changes">Push changes</h3>
 <p>Now that you have made an update and committed this change, it’s time to push these changes to your repo on GitHub.</p>
 <p>In order to push your changes to GitHub, you must have <strong>staged</strong> your <strong>commit</strong> to be pushed. click on <strong>Push</strong>.</p>
+<p>Now let’s make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!</p>
 <!-- ::: callout-important -->
 <!-- Go to the [course GitHub organization](https://github.com/biostat725-sp25) and locate your `ae-01` repo to get started. -->
 <!-- Render, commit, and push your responses to GitHub by the end of class to submit your AE. -->
@@ -467,10 +466,7 @@ Important
 <p>We will begin by loading R packages that we will use in this AE.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)    <span class="co"># data wrangling and visualization</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)   <span class="co"># broom and yardstick package</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)        <span class="co"># format output</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)        <span class="co"># quickly calculate summary statistics</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)      <span class="co"># multivariate normal rng</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)        <span class="co"># format output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level1">
@@ -482,12 +478,11 @@ Important
 </figure>
 </div>
 <p>The data are on patients with glaucoma from the <a href="http://www.rodrep.com/longitudinal-glaucomatous-vf-data---description.html">Rotterdam Ophthalmic Data Repository</a>. Glaucoma is the leading cause of irreversible blindness world wide with over 60 million glaucoma patients as of 2012. Since impairment caused by glaucoma is irreversible, early detection of disease progression is crucial for effective treatment. Patients with glaucoma are routinely followed up and administered visual fields, a functional assessment of their vision. After each visual field test their current disease status is reported as a mean deviation value, measured in decibels (dB). A lower mean deviation indicates worse vision. An important predictor of disease progression is intraocular pressure (IOP), the pressure of fluids inside your eye.</p>
-<p>We will focus on two variables:</p>
+<p>Today, we will focus on the following variable:</p>
 <ul>
-<li><p><code>iop</code>: intraocular pressure, measured in millimeters of mercury (mmHg)</p></li>
-<li><p><code>progression</code>: rate of disease progression, measured as the number dB lost per year (dB/year)</p></li>
+<li><code>iop</code>: intraocular pressure, measured in millimeters of mercury (mmHg)</li>
 </ul>
-<p>The goal of this analysis is to use the IOP to understand variability in disease progression in glaucoma patients. The data is available in the <code>ae-01-</code> repo and is called <code>glaucoma.rds</code>.</p>
+<p>The goal of this analysis is to use estimate the baseline IOP. The data is available in the <code>ae-01-</code> repo and is called <code>glaucoma.rds</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>glaucoma <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"glaucoma.rds"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(glaucoma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -508,30 +503,27 @@ $ progression &lt;dbl&gt; -0.190141797, -0.055098961, 0.431682497, 0.218545250, 
 </section>
 <section id="exploratory-data-analysis" class="level1">
 <h1>Exploratory data analysis</h1>
-<p>Let’s begin by examining the univariate distributions of the disease progression and IOP. The code to visualize and calculate summary statistics for <code>progression</code> is below.</p>
+<p>Let’s begin by examining the univariate distributions of IOP. The code to visualize and calculate summary statistics for <code>iop</code> is below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> glaucoma, <span class="fu">aes</span>(<span class="at">x =</span> progression)) <span class="sc">+</span> </span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> glaucoma, <span class="fu">aes</span>(<span class="at">x =</span> iop)) <span class="sc">+</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Disease progression (db/year)"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Intraocular pressure (mmHg)"</span>, </span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Disease progression in glaucoma patients"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Intraocular pressure in glaucoma patients"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ae-01-monte-carlo_files/figure-html/progression-viz-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ae-01-monte-carlo_files/figure-html/iop-viz-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>glaucoma <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(progression), <span class="at">q1 =</span> <span class="fu">quantile</span>(progression, <span class="fl">0.25</span>), </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(progression), <span class="at">q3 =</span> <span class="fu">quantile</span>(progression, <span class="fl">0.75</span>), </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(progression), <span class="at">mean =</span> <span class="fu">mean</span>(progression), <span class="at">sd =</span> <span class="fu">sd</span>(progression)) <span class="sc">|&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>glaucoma <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(iop), <span class="at">q1 =</span> <span class="fu">quantile</span>(iop, <span class="fl">0.25</span>), </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(iop), <span class="at">q3 =</span> <span class="fu">quantile</span>(iop, <span class="fl">0.75</span>), </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(iop), <span class="at">mean =</span> <span class="fu">mean</span>(iop), <span class="at">sd =</span> <span class="fu">sd</span>(iop)) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -547,13 +539,13 @@ $ progression &lt;dbl&gt; -0.190141797, -0.055098961, 0.431682497, 0.218545250, 
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">-1.981</td>
-<td style="text-align: right;">-0.207</td>
-<td style="text-align: right;">-0.022</td>
-<td style="text-align: right;">0.149</td>
-<td style="text-align: right;">1.107</td>
-<td style="text-align: right;">-0.079</td>
-<td style="text-align: right;">0.441</td>
+<td style="text-align: right;">5.333</td>
+<td style="text-align: right;">12.292</td>
+<td style="text-align: right;">14.333</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">26.333</td>
+<td style="text-align: right;">14.249</td>
+<td style="text-align: right;">3.691</td>
 </tr>
 </tbody>
 </table>
@@ -562,62 +554,41 @@ $ progression &lt;dbl&gt; -0.190141797, -0.055098961, 0.431682497, 0.218545250, 
 </section>
 <section id="posterior-estimation" class="level1">
 <h1>Posterior estimation</h1>
-<p>You want to fit a model of the form</p>
-<p><span class="math display">\[
-progression_i = \beta_0 + \beta_1 ~ iop_i + \epsilon, \hspace{5mm} \epsilon \sim N(0, \sigma^2).
-\]</span></p>
-<p>We can obtain samples from the posterior distribution for the regression parameters using the specification from the slides. We define the data objects needed for posterior estimation. Note that the distribution of the outcome has a massive range, so we scale the outcome and predictor to have mean zero and standard deviation one. This will help stabilize inference in the Gibbs sampler.</p>
+<p>Suppose we are interested in using our data sample to estimate the mean IOP in glaucoma patients. To do this, we assume each a likelihood model for <code>iop</code>, where we define a random variable, <span class="math inline">\(Y_i\)</span>, with likelihood <span class="math inline">\(Y_i \stackrel{iid}{\sim} N\left(\mu,\sigma^2\right)\)</span>. Our goal is to estimate <span class="math inline">\(\mu\)</span>. In this AE, we will assume that <span class="math inline">\(\sigma^2 = 5\)</span> is known. We will specify the following prior for <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\mu \sim N(\mu_0, \sigma_{\mu}^2).\)</span></p>
+<p>Under this model, the posterior distribution for <span class="math inline">\(\mu\)</span> is known in closed form, <span class="math inline">\(f(\mu|\mathbf{Y}) = N(\mathbb{E}_{\mu},\mathbb{V}_{\mu})\)</span>, where</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E}_{\mu} &amp;= \left[\frac{\frac{1}{\sigma_{\mu}^2}}{\frac{1}{\sigma_{\mu}^2} + \frac{n}{\sigma^2}}\right] \mu_0 + \left[\frac{\frac{n}{\sigma^2}}{\frac{1}{\sigma_{\mu}^2} + \frac{n}{\sigma^2}}\right] \bar{Y},\\
+\mathbb{V}_{\mu} &amp;= \frac{\sigma^2\sigma_{\mu}^2}{n\sigma_{\mu}^2 + \sigma^2}.
+\end{align*}\]</span></p>
+<p>Since we have the posterior distribution for <span class="math inline">\(\mu\)</span> in closed form, we can perform inference using Monte Carlo sampling. We will begin by obtaining samples from the posterior. We start by defining the quantities needed to compute the posterior moments.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, glaucoma<span class="sc">$</span>iop)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> glaucoma<span class="sc">$</span>progression</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> glaucoma<span class="sc">$</span>iop</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(Y)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sigma_mu2 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Y_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We will then define hyperparameters for the priors. We will choose a weakly informative prior.</p>
+<p>We can then compute the posterior moments.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sigma_beta2 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>beta0 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, p <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mean_mu <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">/</span> sigma_mu2) <span class="sc">/</span> ((<span class="dv">1</span> <span class="sc">/</span> sigma_mu2) <span class="sc">+</span> (n <span class="sc">/</span> sigma2)) <span class="sc">*</span> mu0 <span class="sc">+</span> ((n <span class="sc">/</span> sigma2) <span class="sc">/</span> ((<span class="dv">1</span> <span class="sc">/</span> sigma_mu2) <span class="sc">+</span> (n <span class="sc">/</span> sigma2))) <span class="sc">*</span> Y_bar</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>var_mu <span class="ot">&lt;-</span> (sigma2 <span class="sc">*</span> sigma_mu2) <span class="sc">/</span> (n <span class="sc">*</span> sigma_mu2 <span class="sc">+</span> sigma2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can now obtain samples from the posterior using Gibbs sampling. Let’s set <span class="math inline">\(S=5,000\)</span>.</p>
+<p>Finally, we obtain posterior samples with <span class="math inline">\(S = 10,000\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>)) <span class="co"># initial value</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (s <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5000</span>) {</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">###Sample from full conditional for beta</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  var_beta <span class="ot">&lt;-</span> <span class="fu">chol2inv</span>(<span class="fu">chol</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X <span class="sc">/</span> sigma2 <span class="sc">+</span> <span class="fu">diag</span>(p <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> sigma_beta2))</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  mean_beta <span class="ot">&lt;-</span> var_beta <span class="sc">%*%</span> (beta0 <span class="sc">/</span> sigma_beta2 <span class="sc">+</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y <span class="sc">/</span> sigma2)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  beta <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rmvnorm</span>(<span class="dv">1</span>, mean_beta, var_beta))</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="do">###Sample from full conditional for sigma2</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  quadratic <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">t</span>(Y <span class="sc">-</span> X <span class="sc">%*%</span> beta) <span class="sc">%*%</span> (Y <span class="sc">-</span> X <span class="sc">%*%</span> beta))</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  sigma2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">rgamma</span>(<span class="dv">1</span>, <span class="at">shape =</span> a <span class="sc">+</span> n <span class="sc">/</span> <span class="dv">2</span>, <span class="at">rate =</span> b <span class="sc">+</span> quadratic <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="do">###Save samples after a burn-in</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  samples <span class="ot">&lt;-</span> <span class="fu">rbind</span>(samples, <span class="fu">c</span>(beta, sigma2))</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>S <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>posterior_mu <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(S, mean_mu, <span class="fu">sqrt</span>(var_mu))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="insepction-of-gibbs-sampler" class="level1">
-<h1>Insepction of Gibbs sampler</h1>
-<p>We can begin by inspecting the posterior density and traceplots.</p>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dat.fig <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">parameter =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"beta[0]"</span>, <span class="st">"beta[1]"</span>, <span class="st">"sigma^2"</span>), <span class="at">each =</span> <span class="dv">5000</span>),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">index =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5000</span>, <span class="dv">3</span>),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">as.numeric</span>(samples)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat.fig, <span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> parameter, <span class="at">labeller =</span> label_parsed, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Parameter value"</span>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat.fig, <span class="fu">aes</span>(<span class="at">x =</span> index, <span class="at">y =</span> value)) <span class="sc">+</span> </span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">lwd =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> parameter, <span class="at">labeller =</span> label_parsed, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span> </span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Parameter value"</span>) <span class="sc">+</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Sample index"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-align="center">
+<p>We can vizualize the posterior.</p>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">mu =</span> posterior_mu) <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mu)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(mu)) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">"Posterior histogram and density estimate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -627,43 +598,46 @@ progression_i = \beta_0 + \beta_1 ~ iop_i + \epsilon, \hspace{5mm} \epsilon \sim
 </div>
 </div>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="ae-01-monte-carlo_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
+</div>
+<p>The posterior mean can be computed as follows using Monte Carlo sampling.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(posterior_mu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.20115</code></pre>
 </div>
 </div>
+<p>To make sure we have sufficient precision, we can compute the Monte Carlo standard error.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(posterior_mu) <span class="sc">/</span> S)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.001881467</code></pre>
 </div>
 </div>
-<p>The traceplots do not exhibit much autocorrelation, indicating we are looking at samples from the posterior.</p>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Compute the posterior mean and standard deviation for the intercept, slope, and measurement error. Provide an interpretation for each of these parameter estimates.</p>
+<p>Compute a one-sided Bayesian p-value for <span class="math inline">\(\mu\)</span>: <span class="math inline">\(P(\mu &lt; 14 | \mathbf{Y})\)</span> using Monte Carlo sampling. Interpret the results in plain English.</p>
 <p><strong>Answer:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Compute a 95% confidence interval for the regression slope. Provide an interpretation for this confidence interval.</p>
+<p>We can also compute <span class="math inline">\(P(\mu &lt; 14 | \mathbf{Y})\)</span> using <code>pnorm</code>, since we have the posterior in closed form. Compute the exact probability and compare it to the Monte Carlo estimate given in <strong>Exercise 1</strong>.</p>
 <p><strong>Answer:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>In real estate, the price per square foot is an indicator of how expensive it is to buy living space in that area, with a higher price per square foot generally signifying a more expensive city due to factors like high demand for limited land, desirable location, and often, a high cost of living.</p>
-<p>Let’s assume that a city is considered to have a high living cost if the price per square foot is higher than 150. Using the slope as an estimate for price per square foot, estimate the probability that the Duke Forest area has a price per square foot greater than 150, <span class="math inline">\(P(\beta_1 &gt; 150)\)</span>. Interpret the results in plain English.</p>
+<p>Compute a 95% confidence interval for <span class="math inline">\(\mu\)</span>. Provide an interpretation for this confidence interval.</p>
 <p><strong>Answer:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -680,6 +654,7 @@ Important
 <li>Render the document to produce the PDF with all of your work from today’s class.</li>
 <li>Push all your work to your AE repo on GitHub. You’re done! 🎉</li>
 </ul>
+<p><strong>Recall: This AE is a demonstration and nothing needs to be turned in!</strong></p>
 </div>
 </div>
 

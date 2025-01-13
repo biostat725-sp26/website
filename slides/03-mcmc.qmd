@@ -65,7 +65,10 @@ Y_i &= \beta_0 + x_{i1} \beta_1 + \cdots + x_{ip} \beta_p + \epsilon_i, \quad \e
 
 ## Defining the likelihood
 
-The individual likelihood contribution for subject $i$ is given by, $$Y_i|\boldsymbol{\beta},\sigma^2 \sim N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2) \Leftrightarrow f(Y_i|\boldsymbol{\beta},\sigma^2) = N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2),$$ and the full data likelihood (or observed data likelihood) is given by, $$f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) = \prod_{i=1}^n f(Y_i|\boldsymbol{\beta},\sigma^2),$$ where $\mathbf{Y} = (Y_1,\ldots,Y_n)$.
+The individual likelihood contribution for subject $i$ is given by, 
+
+$$Y_i|\boldsymbol{\beta},\sigma^2 \stackrel{ind}{\sim} N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2) \Leftrightarrow f(Y_i|\boldsymbol{\beta},\sigma^2) = N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2),$$
+and the full data likelihood (or observed data likelihood) is given by, $$f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) = \prod_{i=1}^n f(Y_i|\boldsymbol{\beta},\sigma^2),$$ where $\mathbf{Y} = (Y_1,\ldots,Y_n)$.
 
 ## Matrix likelihood specification
 
@@ -95,7 +98,7 @@ $$
 
 -   Maximum likelihood estimation (MLE)
 
-<center>$\hat{\boldsymbol{\beta}}_{\text{MLE}} = \underset{\boldsymbol{\beta}}{\operatorname{argmax}} f(\mathbf{Y} | \boldsymbol{\beta})$</center>
+<center>$\hat{\boldsymbol{\beta}}_{\text{MLE}} = \underset{\boldsymbol{\beta}}{\operatorname{argmax}} \log f(\mathbf{Y} | \boldsymbol{\beta})$</center>
 
 -   $\hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}} = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y}$
 
@@ -131,7 +134,7 @@ $f\left(\boldsymbol{\beta}, \sigma^{2}|\mathbf{Y}\right) = f\left(\boldsymbol{\b
 
 ## Gibbs sampler for linear regression
 
-Suppose we can sample from the following two distribution,
+Suppose we can sample from the following two distributions,
 
 1.  $f(\boldsymbol{\beta} | \mathbf{Y}, \sigma^2) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta})$
 
@@ -183,7 +186,7 @@ Set initial values for $\boldsymbol{\theta}^{(0)} = (\boldsymbol{\beta}^{(0)}, \
 
 -   We need to compute the full conditionals. Before doing this, we require prior distributions.
 
--   Let's assume that the prior for $\boldsymbol{\beta}$ is Gassian,
+-   Let's assume that the prior for $\boldsymbol{\beta}$ is Gaussian,
 
 $$f(\boldsymbol{\beta}) = N(\boldsymbol{\beta}_0,\sigma_{\beta}^2 \mathbf{I}_{p+1}).$$
 
@@ -556,8 +559,6 @@ $$\log f(\boldsymbol{\theta} | \mathbf{Y}) \propto \log f(\mathbf{Y} | \boldsymb
 ## Prepare for next class
 
 -   Begin [HW 01](https://biostat725-sp25.netlify.app/hw/hw-01) which is due January 30
-
--   Be sure to turn in your AE by Sunday evening
 
 -   Complete reading to prepare for next Tuesday's lecture
 

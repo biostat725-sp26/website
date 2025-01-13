@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -5690,7 +5690,7 @@
     "href": "slides/02-monte-carlo.html#summarizing-the-posterior",
     "title": "Monte Carlo Sampling",
     "section": "Summarizing the posterior",
-    "text": "Summarizing the posterior\n\nPosterior means, medians, modes, and variances\nJoint, conditional, and marginal probabilities, for example: \\(P(\\pi &lt; c | Z)\\)\n\\(\\alpha\\)-quantiles: \\(\\{q_{\\alpha} : P(\\pi &lt; q_{\\alpha} | Z) = \\alpha\\}, \\alpha \\in (0,1)\\)\n\\(\\ldots\\)\n\nSummarizing a posterior (with known parametric form) is straightforward for basic quantities of interest."
+    "text": "Summarizing the posterior\nWe now have a posterior distribution. What do we do now?\n\n\nPosterior means, medians, modes, and variances\n\n\n\n\nJoint, conditional, and marginal probabilities, for example: \\(P(\\pi &lt; c | Z)\\)\n\n\n\n\n\\(\\alpha\\)-quantiles: \\(\\{q_{\\alpha} : P(\\pi &lt; q_{\\alpha} | Z) = \\alpha\\}, \\alpha \\in (0,1)\\)\n\n\n\n\n\\(\\ldots\\)\n\n\n\nHow do we go about computing these summaries?"
   },
   {
     "objectID": "slides/02-monte-carlo.html#summarizing-the-posterior-1",
@@ -5753,7 +5753,7 @@
     "href": "slides/02-monte-carlo.html#additional-posterior-summaries",
     "title": "Monte Carlo Sampling",
     "section": "Additional posterior summaries",
-    "text": "Additional posterior summaries\n\n# median\nmedian(pi_samples)\n\n[1] 0.239821\n\n# 95% credible intervals\nquantile(pi_samples, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.2047430 0.2792173 \n\n# evaluating probability\nmean(pi_samples &lt; 0.25)\n\n[1] 0.7092\n\n# summarizing arbitrary functions of the parameters\npi_new &lt;- pi_samples^3 - pi_samples\nc(mean(pi_new), quantile(pi_new, probs = c(0.025, 0.975)))\n\n                 2.5%      97.5% \n-0.2261683 -0.2574488 -0.1961602"
+    "text": "Additional posterior summaries\n\n# median\nmedian(pi_samples)\n\n[1] 0.2411695\n\n# 95% credible intervals\nquantile(pi_samples, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.2041437 0.2804683 \n\n# evaluating probability\nmean(pi_samples &lt; 0.25)\n\n[1] 0.6802\n\n# summarizing arbitrary functions of the parameters\npi_new &lt;- pi_samples^3 - pi_samples\nc(mean(pi_new), quantile(pi_new, probs = c(0.025, 0.975)))\n\n                 2.5%      97.5% \n-0.2270457 -0.2584060 -0.1956361"
   },
   {
     "objectID": "slides/02-monte-carlo.html#matrix-likelihood-specification",
@@ -5788,7 +5788,7 @@
     "href": "slides/03-mcmc.html#gibbs-sampler-for-linear-regression",
     "title": "Markov chain Monte Carlo",
     "section": "Gibbs sampler for linear regression",
-    "text": "Gibbs sampler for linear regression\nSuppose we can sample from the following two distribution,\n\n\\(f(\\boldsymbol{\\beta} | \\mathbf{Y}, \\sigma^2) \\propto f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\boldsymbol{\\beta})\\)\n\\(f(\\sigma^2 | \\mathbf{Y}, \\boldsymbol{\\beta}) \\propto f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\sigma^2)\\)\n\nThese are called full conditional distributions.\nSet initial values for \\(\\boldsymbol{\\theta}^{(0)} = (\\boldsymbol{\\beta}^{(0)}, \\sigma^{2(0)})\\). Then, given a current state of parameters \\(\\boldsymbol{\\theta}^{(s)}\\), we can generate a new state as follows:\n\nSample \\(\\boldsymbol{\\beta}^{(s + 1)} \\sim f(\\boldsymbol{\\beta} | \\mathbf{Y}, \\sigma^{2(s)})\\)\nSample \\(\\sigma^{2(s + 1)} \\sim f(\\sigma^2 | \\mathbf{Y}, \\boldsymbol{\\beta}^{(s + 1)})\\)\nLet \\(\\boldsymbol{\\theta}^{(s+1)} = (\\boldsymbol{\\beta}^{(s + 1)}, \\sigma^{2(s + 1)})\\)"
+    "text": "Gibbs sampler for linear regression\nSuppose we can sample from the following two distributions,\n\n\\(f(\\boldsymbol{\\beta} | \\mathbf{Y}, \\sigma^2) \\propto f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\boldsymbol{\\beta})\\)\n\\(f(\\sigma^2 | \\mathbf{Y}, \\boldsymbol{\\beta}) \\propto f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\sigma^2)\\)\n\nThese are called full conditional distributions.\nSet initial values for \\(\\boldsymbol{\\theta}^{(0)} = (\\boldsymbol{\\beta}^{(0)}, \\sigma^{2(0)})\\). Then, given a current state of parameters \\(\\boldsymbol{\\theta}^{(s)}\\), we can generate a new state as follows:\n\nSample \\(\\boldsymbol{\\beta}^{(s + 1)} \\sim f(\\boldsymbol{\\beta} | \\mathbf{Y}, \\sigma^{2(s)})\\)\nSample \\(\\sigma^{2(s + 1)} \\sim f(\\sigma^2 | \\mathbf{Y}, \\boldsymbol{\\beta}^{(s + 1)})\\)\nLet \\(\\boldsymbol{\\theta}^{(s+1)} = (\\boldsymbol{\\beta}^{(s + 1)}, \\sigma^{2(s + 1)})\\)"
   },
   {
     "objectID": "slides/03-mcmc.html#why-does-this-work",
@@ -5816,7 +5816,7 @@
     "href": "slides/03-mcmc.html#gibbs-sampler-for-linear-regression-1",
     "title": "Markov chain Monte Carlo",
     "section": "Gibbs sampler for linear regression",
-    "text": "Gibbs sampler for linear regression\n\nWe need to compute the full conditionals. Before doing this, we require prior distributions.\nLet’s assume that the prior for \\(\\boldsymbol{\\beta}\\) is Gassian,\n\n\\[f(\\boldsymbol{\\beta}) = N(\\boldsymbol{\\beta}_0,\\sigma_{\\beta}^2 \\mathbf{I}_{p+1}).\\]\n\n\\(\\boldsymbol{\\beta}_0\\) is the prior mean (i.e., our a-priori guess for the likely value of \\(\\boldsymbol{\\beta}\\))\n\\(\\sigma_{\\beta}^2\\) is the prior variance (i.e., encodes our certainty for our a-priori guess)"
+    "text": "Gibbs sampler for linear regression\n\nWe need to compute the full conditionals. Before doing this, we require prior distributions.\nLet’s assume that the prior for \\(\\boldsymbol{\\beta}\\) is Gaussian,\n\n\\[f(\\boldsymbol{\\beta}) = N(\\boldsymbol{\\beta}_0,\\sigma_{\\beta}^2 \\mathbf{I}_{p+1}).\\]\n\n\\(\\boldsymbol{\\beta}_0\\) is the prior mean (i.e., our a-priori guess for the likely value of \\(\\boldsymbol{\\beta}\\))\n\\(\\sigma_{\\beta}^2\\) is the prior variance (i.e., encodes our certainty for our a-priori guess)"
   },
   {
     "objectID": "slides/03-mcmc.html#gibbs-sampler-for-linear-regression-2",
@@ -6082,7 +6082,7 @@
     "href": "slides/03-mcmc.html#prepare-for-next-class",
     "title": "Markov chain Monte Carlo",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nBegin HW 01 which is due January 30\nBe sure to turn in your AE by Sunday evening\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Probabilistic Programming (Intro to Stan!)\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nBegin HW 01 which is due January 30\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Probabilistic Programming (Intro to Stan!)\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/04-stan.html#review-of-last-lecture",
@@ -7552,14 +7552,14 @@
     "href": "slides/02-monte-carlo.html#intuition-behing-monte-carlo-sampling",
     "title": "Monte Carlo Sampling",
     "section": "Intuition behing Monte Carlo sampling",
-    "text": "Intuition behing Monte Carlo sampling\n\nAssume \\(X_i \\sim Uniform(-1,1)\\) and \\(Y_i \\sim Uniform(-1,1)\\) for \\(i = 1,\\ldots,S\\).\nWe can write our problem as, \\(\\pi = 4P(X^2 + Y^2 \\leq 1)\\).\nHow could we do this without Monte Carlo?\nDefine, \\(Z = X^2 + Y^2\\). We could then use change-of-variables to compute the density of \\(Z\\) and then compute \\(P(Z \\leq 1)\\).\n\nThis is generally difficult!"
+    "text": "Intuition behing Monte Carlo sampling\n\nAssume \\(X \\sim Uniform(-1,1)\\) and \\(Y \\sim Uniform(-1,1)\\).\nWe can write our problem as, \\(\\pi = 4P(X^2 + Y^2 \\leq 1)\\).\nHow could we do this without Monte Carlo?\nDefine, \\(Z = X^2 + Y^2\\). We could then use change-of-variables to compute the density of \\(Z\\) and then compute \\(P(Z \\leq 1)\\).\n\nThis is generally difficult!"
   },
   {
     "objectID": "slides/02-monte-carlo.html#intuition-behing-monte-carlo-sampling-1",
     "href": "slides/02-monte-carlo.html#intuition-behing-monte-carlo-sampling-1",
     "title": "Monte Carlo Sampling",
     "section": "Intuition behing Monte Carlo sampling",
-    "text": "Intuition behing Monte Carlo sampling\n\nInstead, we could write our problem as an expectation and use the law of large numbers,\n\n\\[P(X^2 + Y^2 \\leq 1) = \\mathbb{E}_{X,Y}\\left[1\\left(X^2 + Y^2 \\leq 1\\right)\\right].\\]\n\nRecall that an expectation of an indicator is the probability of the event that it indicates, \\(\\mathbb{E}_X[1(A)] = \\int_A f_X(x)dx = P(X \\in A)\\).\nWe then have that, \\[\\frac{1}{S}\\sum_{i = 1}^S 1\\left(X_i^2 + Y_i^2 \\leq 1\\right) \\rightarrow \\mathbb{E}_{X,Y}\\left[1\\left(X^2 + Y^2 \\leq 1\\right)\\right],\\]\n\nwhere \\((X_i,Y_i) \\sim f(X_i,Y_i)\\)."
+    "text": "Intuition behing Monte Carlo sampling\n\nInstead, we could write our problem as an expectation and use the law of large numbers,\n\n\\[P(X^2 + Y^2 \\leq 1) = \\mathbb{E}_{X,Y}\\left[1\\left(X^2 + Y^2 \\leq 1\\right)\\right].\\]\n\nRecall: \\(\\mathbb{E}_X[1(A)] = \\int_A f_X(x)dx = P(X \\in A)\\).\nWe then have that, \\[\\frac{1}{S}\\sum_{i = 1}^S 1\\left(X_i^2 + Y_i^2 \\leq 1\\right) \\rightarrow \\mathbb{E}_{X,Y}\\left[1\\left(X^2 + Y^2 \\leq 1\\right)\\right],\\]\n\nwhere \\((X_i,Y_i) \\sim f(X,Y)\\)."
   },
   {
     "objectID": "slides/02-monte-carlo.html#a-motivating-example",
@@ -7587,7 +7587,7 @@
     "href": "slides/02-monte-carlo.html#prior-specification",
     "title": "Monte Carlo Sampling",
     "section": "Prior specification",
-    "text": "Prior specification\nWhat do we know about \\(\\pi\\)?\n\n\\(\\pi\\) is continuous.\n\\(\\pi \\in (0,1)\\).\n\nWe should place a distribution on \\(\\pi\\) that permits these properties.\nOne option is the Beta distribution, \\[f(\\pi) = \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}.\\]\nIf we assume that \\(\\pi \\sim Beta(\\alpha,\\beta)\\), we can proceed to compute the posterior."
+    "text": "Prior specification\nWhat do we know about \\(\\pi\\)?\n\n\\(\\pi\\) is continuous.\n\\(\\pi \\in (0,1)\\).\n\nWe should place a distribution on \\(\\pi\\) that permits these properties.\n\nOne option is the Beta distribution, \\(\\pi \\sim Beta(\\alpha,\\beta)\\), \\[f(\\pi) = \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}.\\]"
   },
   {
     "objectID": "slides/02-monte-carlo.html#computing-the-posterior-1",
@@ -7636,7 +7636,7 @@
     "href": "slides/02-monte-carlo.html#returning-to-our-posterior",
     "title": "Monte Carlo Sampling",
     "section": "Returning to our posterior",
-    "text": "Returning to our posterior\nLet’s obtain \\(S = 1,000\\) samples from our posterior.\n\npi_samples &lt;- rbeta(1000, 1 + 120, 1 + 380)\n\nWe can compute the posterior mean and variance.\n\nmean(pi_samples)\n\n[1] 0.241295\n\nvar(pi_samples)\n\n[1] 0.0003580181"
+    "text": "Returning to our posterior\nLet’s obtain \\(S = 1,000\\) samples from our posterior.\n\npi_samples &lt;- rbeta(1000, 1 + 120, 1 + 380)\n\nWe can compute the posterior mean and variance.\n\nmean(pi_samples)\n\n[1] 0.2407837\n\nvar(pi_samples)\n\n[1] 0.0003471753"
   },
   {
     "objectID": "slides/02-monte-carlo.html#algorithm-for-estimating-pi-1",
@@ -7650,7 +7650,7 @@
     "href": "slides/02-monte-carlo.html#computing-the-marginal-likelihood",
     "title": "Monte Carlo Sampling",
     "section": "Computing the marginal likelihood",
-    "text": "Computing the marginal likelihood\nUnder our prior specification, we can compute the marginal likelihood, \\(f(Z)\\):\n\\[\\begin{aligned}\nf(Z) &= \\int f(Z | \\pi) f(\\pi) d\\pi\\\\\n&= \\int {n \\choose z} \\pi^z(1-\\pi)^{n-z} \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1} d\\pi\\\\\n&= {n \\choose z}\\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)} \\int \\underbrace{\\pi^{(\\alpha + z) - 1}(1-\\pi)^{(\\beta + n - z) - 1}}_{Beta\\text{ }kernel} d\\pi\n\\end{aligned}\\]\n\n\n\n\n\n\nDefinition\n\n\nThe part of the pdf/pmf that depends on the variable is called the kernel.\nExample:\n\nThe kernel of the Beta pdf is \\(\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}\\)"
+    "text": "Computing the marginal likelihood\nUnder our prior specification, we can compute the marginal likelihood, \\(f(Z)\\):\n\\[\\begin{aligned}\nf(Z) &= \\int f(Z | \\pi) f(\\pi) d\\pi\\\\\n&= \\int {n \\choose z} \\pi^z(1-\\pi)^{n-z} \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1} d\\pi\\\\\n&= {n \\choose z}\\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)} \\int \\underbrace{\\pi^{(\\alpha + z) - 1}(1-\\pi)^{(\\beta + n - z) - 1}}_{Beta\\text{ }kernel} d\\pi\n\\end{aligned}\\]\n\n\n\n\n\n\nDefinition\n\n\nThe part of the pdf/pmf that depends on the variable is called the kernel.\nExample: The kernel of the Beta pdf is \\(\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}\\)"
   },
   {
     "objectID": "slides/02-monte-carlo.html#computing-the-marginal-likelihood-1",
@@ -7685,7 +7685,7 @@
     "href": "slides/03-mcmc.html#defining-the-likelihood",
     "title": "Markov chain Monte Carlo",
     "section": "Defining the likelihood",
-    "text": "Defining the likelihood\nThe individual likelihood contribution for subject \\(i\\) is given by, \\[Y_i|\\boldsymbol{\\beta},\\sigma^2 \\sim N(\\mathbf{x}_i \\boldsymbol{\\beta}, \\sigma^2) \\Leftrightarrow f(Y_i|\\boldsymbol{\\beta},\\sigma^2) = N(\\mathbf{x}_i \\boldsymbol{\\beta}, \\sigma^2),\\] and the full data likelihood (or observed data likelihood) is given by, \\[f(\\mathbf{Y} | \\boldsymbol{\\beta},\\sigma^2) = \\prod_{i=1}^n f(Y_i|\\boldsymbol{\\beta},\\sigma^2),\\] where \\(\\mathbf{Y} = (Y_1,\\ldots,Y_n)\\)."
+    "text": "Defining the likelihood\nThe individual likelihood contribution for subject \\(i\\) is given by,\n\\[Y_i|\\boldsymbol{\\beta},\\sigma^2 \\stackrel{ind}{\\sim} N(\\mathbf{x}_i \\boldsymbol{\\beta}, \\sigma^2) \\Leftrightarrow f(Y_i|\\boldsymbol{\\beta},\\sigma^2) = N(\\mathbf{x}_i \\boldsymbol{\\beta}, \\sigma^2),\\] and the full data likelihood (or observed data likelihood) is given by, \\[f(\\mathbf{Y} | \\boldsymbol{\\beta},\\sigma^2) = \\prod_{i=1}^n f(Y_i|\\boldsymbol{\\beta},\\sigma^2),\\] where \\(\\mathbf{Y} = (Y_1,\\ldots,Y_n)\\)."
   },
   {
     "objectID": "slides/03-mcmc.html#matrix-likelihood-specification",
@@ -7699,7 +7699,7 @@
     "href": "slides/03-mcmc.html#linear-regression-estimation",
     "title": "Markov chain Monte Carlo",
     "section": "Linear regression estimation",
-    "text": "Linear regression estimation\n\nOrdinary least squares (OLS)\n\n\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\underset{\\boldsymbol{\\beta}}{\\operatorname{argmin}} || \\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta}||^2\\)\n\n\nMaximum likelihood estimation (MLE)\n\n\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{MLE}} = \\underset{\\boldsymbol{\\beta}}{\\operatorname{argmax}} f(\\mathbf{Y} | \\boldsymbol{\\beta})\\)\n\n\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\hat{\\boldsymbol{\\beta}}_{\\text{MLE}} = (\\mathbf{X}^\\top \\mathbf{X})^{-1}\\mathbf{X}^\\top \\mathbf{Y}\\)"
+    "text": "Linear regression estimation\n\nOrdinary least squares (OLS)\n\n\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\underset{\\boldsymbol{\\beta}}{\\operatorname{argmin}} || \\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta}||^2\\)\n\n\nMaximum likelihood estimation (MLE)\n\n\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{MLE}} = \\underset{\\boldsymbol{\\beta}}{\\operatorname{argmax}} \\log f(\\mathbf{Y} | \\boldsymbol{\\beta})\\)\n\n\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\hat{\\boldsymbol{\\beta}}_{\\text{MLE}} = (\\mathbf{X}^\\top \\mathbf{X})^{-1}\\mathbf{X}^\\top \\mathbf{Y}\\)"
   },
   {
     "objectID": "slides/03-mcmc.html#bayesian-estimation",
@@ -11092,51 +11092,51 @@
   {
     "objectID": "ae/ae-01-monte-carlo.html",
     "href": "ae/ae-01-monte-carlo.html",
-    "title": "AE 00: Monte Carlo sampling",
+    "title": "AE 01: Monte Carlo sampling",
     "section": "",
-    "text": "Overview of Application Exercises\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\nThis AE is a demo and you are not required to submit anything! Just follow along in class. At this point, you do not have access to the course GitHub. You will gain access after submission of HW 00, which includes submitting your GitHub username. I will add each student to the GitHub course after Thursday’s HW 00 deadline.\nHad this been a real AE, it would have been due on Friday, January 17 at 11:59pm. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\nThis AE is a demonstration and you do not have to turn anything in!\n\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
   },
   {
     "objectID": "ae/ae-01-monte-carlo.html#learning-goals",
     "href": "ae/ae-01-monte-carlo.html#learning-goals",
-    "title": "AE 00: Monte Carlo sampling",
+    "title": "AE 01: Monte Carlo sampling",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of the AE, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nGain practice writing a reproducible report using Quarto\nPractice version control using GitHub\nPerform Monte Carlo sampling for a one parameter Bayesian model"
+    "text": "Learning goals\nBy the end of the AE, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nGain practice writing a reproducible report using Quarto\nPractice version control using GitHub\nPerform some Monte Carlo estimation"
   },
   {
     "objectID": "ae/ae-01-monte-carlo.html#clone-the-repo-start-new-rstudio-project",
     "href": "ae/ae-01-monte-carlo.html#clone-the-repo-start-new-rstudio-project",
-    "title": "AE 00: Monte Carlo sampling",
+    "title": "AE 01: Monte Carlo sampling",
     "section": "Clone the repo & start new RStudio project",
-    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-01-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-01-monte-carlo.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-01-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use HTTPS (this might already be selected by default, and if it is, you’ll see the text Clone using the web URL.). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have HTTPS highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick AE 01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
   },
   {
     "objectID": "ae/ae-01-monte-carlo.html#r-and-r-studio",
     "href": "ae/ae-01-monte-carlo.html#r-and-r-studio",
-    "title": "AE 00: Monte Carlo sampling",
+    "title": "AE 01: Monte Carlo sampling",
     "section": "R and R Studio",
-    "text": "R and R Studio\nBelow are the components of the RStudio IDE.\n\n\n\n\n\nBelow are the components of a Quarto (.qmd) file.\n\n\n\n\n\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for “YAML Ain’t Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document.\n\n\n\n\nCommitting changes\nNow, go to the Git pane in your RStudio instance. This will be in the top right hand corner in a separate tab.\nIf you have made changes to your Quarto (.qmd) file, you should see it listed here. Click on it to select it in this list and then click on Diff. This shows you the difference between the last committed state of the document and its current state including changes. You should see deletions in red and additions in green.\nIf you’re happy with these changes, we’ll prepare the changes to be pushed to your remote repository. First, stage your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, “updated author name”) in the Commit message box. Finally, click Commit. Note that every commit needs to have a commit message associated with it.\nYou don’t have to commit after every change, as this would get quite tedious. You should commit states that are meaningful to you for inspection, comparison, or restoration.\nIn the first few assignments we may tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.\nNow let’s make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!\n\n\nPush changes\nNow that you have made an update and committed this change, it’s time to push these changes to your repo on GitHub.\nIn order to push your changes to GitHub, you must have staged your commit to be pushed. click on Push."
+    "text": "R and R Studio\nBelow are the components of the RStudio IDE.\n\n\n\n\n\nBelow are the components of a Quarto (.qmd) file.\n\n\n\n\n\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for “YAML Ain’t Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document.\n\n\n\n\nCommitting changes\nNow, go to the Git pane in your RStudio instance. This will be in the top right hand corner in a separate tab.\nIf you have made changes to your Quarto (.qmd) file, you should see it listed here. Click on it to select it in this list and then click on Diff. This shows you the difference between the last committed state of the document and its current state including changes. You should see deletions in red and additions in green.\nIf you’re happy with these changes, we’ll prepare the changes to be pushed to your remote repository. First, stage your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, “updated author name”) in the Commit message box. Finally, click Commit. Note that every commit needs to have a commit message associated with it.\nYou don’t have to commit after every change, as this would get quite tedious. You should commit states that are meaningful to you for inspection, comparison, or restoration.\nIn the first few assignments we may tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.\n\n\nPush changes\nNow that you have made an update and committed this change, it’s time to push these changes to your repo on GitHub.\nIn order to push your changes to GitHub, you must have staged your commit to be pushed. click on Push.\nNow let’s make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!"
   },
   {
     "objectID": "ae/ae-01-monte-carlo.html#exercise-1",
     "href": "ae/ae-01-monte-carlo.html#exercise-1",
-    "title": "AE 00: Monte Carlo sampling",
+    "title": "AE 01: Monte Carlo sampling",
     "section": "Exercise 1",
-    "text": "Exercise 1\nCompute the posterior mean and standard deviation for the intercept, slope, and measurement error. Provide an interpretation for each of these parameter estimates.\nAnswer:\n\n# add code here"
+    "text": "Exercise 1\nCompute a one-sided Bayesian p-value for \\(\\mu\\): \\(P(\\mu &lt; 14 | \\mathbf{Y})\\) using Monte Carlo sampling. Interpret the results in plain English.\nAnswer:\n\n# add code here"
   },
   {
     "objectID": "ae/ae-01-monte-carlo.html#exercise-2",
     "href": "ae/ae-01-monte-carlo.html#exercise-2",
-    "title": "AE 00: Monte Carlo sampling",
+    "title": "AE 01: Monte Carlo sampling",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCompute a 95% confidence interval for the regression slope. Provide an interpretation for this confidence interval.\nAnswer:\n\n# add code here"
+    "text": "Exercise 2\nWe can also compute \\(P(\\mu &lt; 14 | \\mathbf{Y})\\) using pnorm, since we have the posterior in closed form. Compute the exact probability and compare it to the Monte Carlo estimate given in Exercise 1.\nAnswer:\n\n# add code here"
   },
   {
     "objectID": "ae/ae-01-monte-carlo.html#exercise-3",
     "href": "ae/ae-01-monte-carlo.html#exercise-3",
-    "title": "AE 00: Monte Carlo sampling",
+    "title": "AE 01: Monte Carlo sampling",
     "section": "Exercise 3",
-    "text": "Exercise 3\nIn real estate, the price per square foot is an indicator of how expensive it is to buy living space in that area, with a higher price per square foot generally signifying a more expensive city due to factors like high demand for limited land, desirable location, and often, a high cost of living.\nLet’s assume that a city is considered to have a high living cost if the price per square foot is higher than 150. Using the slope as an estimate for price per square foot, estimate the probability that the Duke Forest area has a price per square foot greater than 150, \\(P(\\beta_1 &gt; 150)\\). Interpret the results in plain English.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+    "text": "Exercise 3\nCompute a 95% confidence interval for \\(\\mu\\). Provide an interpretation for this confidence interval.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉\n\nRecall: This AE is a demonstration and nothing needs to be turned in!"
   },
   {
     "objectID": "ae/ae-01-mcmc.html",
@@ -11298,5 +11298,54 @@
     "title": "HW 01: Inference using Bayesian statistics",
     "section": "Exercise 8-10",
     "text": "Exercise 8-10\nDefine a random variable \\(weight_i\\) that represents the weight of the baby at birth in ounces for pregnancy \\(i\\). We are interested in learning the association between birth weight and the smoking habit, \\(habit_i\\), of the mother. Fit the following Bayesian linear regression model using Gibbs sampling,\n\\[\\begin{align*}\nweight_i &= \\beta_0 + \\beta_1 \\times 1(habit_i = \\text{smoker}) + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2),\\\\\n&= \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i,\\\\\n\\boldsymbol{\\beta} &\\sim N(\\mathbf{0}, 100 \\mathbf{I})\\\\\n\\sigma^2 &\\sim \\text{Inv-Gamma}(3,1).\n\\end{align*}\\]\n\nExercise 8\nObtain samples from the posterior distribution of \\((\\boldsymbol{\\beta},\\sigma^2)\\) given the observed data. Visualize the posterior distributions and provide justification that the Gibbs sampler has converged.\n\n\nExercise 9\nReport the posterior mean, standard deviation, and 95% credible intervals for each parameter.\n\n\nExercise 10\nReport the one-sided p-value that corresponds to the statistical hypothesis test: \\(H_0: \\beta_1 = 0, H_1: \\beta_1 &lt; 0\\). Interpret this p-value in the context of the association between smoking and low birth weight.\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html",
+    "href": "ae/ae-02-mcmc.html",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "",
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\nThis AE is a demonstration and you do not have to turn anything in!\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#learning-goals",
+    "href": "ae/ae-02-mcmc.html#learning-goals",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the AE, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nGain practice writing a reproducible report using Quarto\nPractice version control using GitHub\nPerform Gibbs sampling for Bayesian linear regression and compute some basic summaries"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-02-mcmc.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-02-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick AE 02.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#r-and-r-studio",
+    "href": "ae/ae-02-mcmc.html#r-and-r-studio",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "R and R Studio",
+    "text": "R and R Studio\nBelow are the components of the RStudio IDE.\n\n\n\n\n\nBelow are the components of a Quarto (.qmd) file.\n\n\n\n\n\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for “YAML Ain’t Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document.\n\n\n\n\nCommitting changes\nNow, go to the Git pane in your RStudio instance. This will be in the top right hand corner in a separate tab.\nIf you have made changes to your Quarto (.qmd) file, you should see it listed here. Click on it to select it in this list and then click on Diff. This shows you the difference between the last committed state of the document and its current state including changes. You should see deletions in red and additions in green.\nIf you’re happy with these changes, we’ll prepare the changes to be pushed to your remote repository. First, stage your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, “updated author name”) in the Commit message box. Finally, click Commit. Note that every commit needs to have a commit message associated with it.\nYou don’t have to commit after every change, as this would get quite tedious. You should commit states that are meaningful to you for inspection, comparison, or restoration.\nIn the first few assignments we may tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.\n\n\nPush changes\nNow that you have made an update and committed this change, it’s time to push these changes to your repo on GitHub.\nIn order to push your changes to GitHub, you must have staged your commit to be pushed. click on Push.\nNow let’s make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#exercise-1",
+    "href": "ae/ae-02-mcmc.html#exercise-1",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nCompute the posterior mean and standard deviation for the intercept, slope, and measurement error. Provide an interpretation for each of these parameter estimates.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#exercise-2",
+    "href": "ae/ae-02-mcmc.html#exercise-2",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCompute a 95% confidence interval for the regression slope. Provide an interpretation for this confidence interval.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#exercise-3",
+    "href": "ae/ae-02-mcmc.html#exercise-3",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCompute a one-sided Bayesian p-value for the regression slope: \\(P(\\beta_1 &lt; 0)\\). Interpret the results in plain English. Is intraocular pressure associated with disease progression?\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉\n\nThis AE is a demonstration and you do not have to turn anything in!"
   }
 ]
