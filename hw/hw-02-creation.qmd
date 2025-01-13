@@ -1,5 +1,5 @@
 ---
-title: "HW 01: Bayesian linear regression"
+title: "HW 02: Bayesian linear regression"
 subtitle: Physical activity and access to recreational facilities in Cook County, Chicago
 bibliography: references.bib
 ---
@@ -7,7 +7,7 @@ bibliography: references.bib
 ::: callout-important
 ## Due date
 
-This assignment is due on **Thursday, January 30 at 11:45am.** To be considered on time, the following must be done by the due date:
+This assignment is due on **Thursday, February 13 at 11:45am.** To be considered on time, the following must be done by the due date:
 
 -   Final `.qmd` and `.pdf` files pushed to your GitHub repo
 -   Final `.pdf` file submitted on Gradescope
@@ -15,7 +15,7 @@ This assignment is due on **Thursday, January 30 at 11:45am.** To be considered 
 
 # **Getting started**
 
--   Go to the [biostat725-sp25](https://www.github.com/biostat725-sp25) organization on GitHub. Click on the repo with the prefix **hw-01**. It contains the starter documents you need to complete the homework.
+-   Go to the [biostat725-sp25](https://www.github.com/biostat725-sp25) organization on GitHub. Click on the repo with the prefix **hw-02**. It contains the starter documents you need to complete the homework.
 
 -   Clone the repo and start a new project in RStudio. See the [AE 01 instructions](https://biostat725-sp25.netlify.app/ae/ae-01-mcmc#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new project in R.
 
@@ -27,8 +27,7 @@ The following packages are used in this assignment:
 #| eval: false
 
 library(tidyverse)
-library(tidymodels)
-library(knitr)
+library(rstan)
 
 # load other packages as needed
 ```
@@ -70,121 +69,47 @@ write.csv(exercise, file = "hw01/exercise.csv", row.names = FALSE)
 
 ## Exercise 1
 
-Setup a multivariable regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Assume that $exercise_i \stackrel{iid}{\sim} N(\mu_i, \sigma^2)$ for $i = 1,\ldots,n$ where \begin{align*}
+Setup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Assume that $exercise_i \stackrel{ind}{\sim} N(\mu_i, \sigma^2)$ for $i = 1,\ldots,n$ where \begin{align*}
 \mu_i &= \alpha + recreation_i \beta_1 + crime_i \beta_2+(recreation_i \times crime_i) \beta_3\\
-&+ age_i \beta_4 + black_i \beta_5 + asian_i \beta_6 + married_i \beta_7.
+&\quad+ age_i \beta_4 + black_i \beta_5 + asian_i \beta_6 + married_i \beta_7\\
+&= \alpha + \mathbf{x}_i\boldsymbol{\beta}.
 \end{align*}
 
-Present the results from your regression.
-
--   ***Answer:*** We will perform a multivariable linear regression where the dependent variable is exercise, and the predictors are: recreation, crime, age, married, and race. Plus, to allow for the association between recreation and exercise to vary across crime, we include an interaction between crime and recreation. Note that we must be sure race is treated as a dummy variable, so we use the $\{as.factor}$ function.
-
-```{r}
-exercise$race <- as.factor(exercise$race)
-reg <- lm(exercise ~ recreation + crime + recreation * crime 
-          + age + race + married, data = exercise)
-summary(reg)
-```
-
-```{stan output.var = "compiled_model", eval=FALSE}
-// Saved in linear_regression.stan
-data {
-  int<lower = 1> n;
-  int<lower = 1> p;
-  vector[n] Y;
-  matrix[n, p + 1] X;
-  real<lower = 0> sigma_beta;
-  real<lower = 0> a;
-  real<lower = 0> b;
-}
-parameters {
-  vector[p + 1] beta;
-  real<lower = 0> sigma;
-}
-model {
-  Y ~ normal(X * beta, sigma);
-  beta ~ normal(0, sigma_beta);
-  sigma ~ 
-}
-```
+Fit this regression using a Bayesian framework in Stan to estimate $(\alpha, \boldsymbol{\beta},\sigma)$. For all model parameters, choose weakly-informative priors. Evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well.
 
 ## Exercise 2
 
-Assess the assumptions required for validity of the regression in Exercise 1.
-
--   ***Answer:*** We require independence of observations, linearity, normality of the residuals, and homeskedastic variance. We can create a figure to assess the last three assumptions.
-
-```{r ass, echo = FALSE, out.width = '60%', fig.align = "center"}
-par(mfcol = c(1, 2))
-plot(fitted(reg), resid(reg), xlab = "Fitted Values", 
-     ylab = "Residuals", pch = 15, col = "lightgreen")
-abline(h = 0, lwd = 3, lty = 2, col = "gray")
-hist(resid(reg), xlab = "Residuals", main = "")
-```
-
-The figure on the left is of the fitted values versus the residuals. From this figure we see that there is no evidence of heteroskedasticity, so our variance assumption is OK. This figure also indicates that linearity is satisfied, as there is no pattern in the residuals across the fitted values. Then, in the figure on the right we see that the distribution of the residuals is normally distributed, so our distributional assumptions is OK. Finally, independence is satisfied, because we are randomly sampling pregnant women from across Cook County, Chicago. Linearity could have also been assessed by looking at all pairwise scatterplots as follows:
-
-```{r linear, echo = FALSE, out.width = '60%', fig.align = "center"}
-plot(exercise)
-```
-
-Our outcome variable, exercise appears to be linearly related to all of our continous predictors.
+Refit the model in **Exercise 1**, this time using a centered outcome variable, $Y_i = exercise_i - \overline{exercise}$, where $\overline{exercise} = \frac{1}{n}\sum_{i=1}^n exercise_i$. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and compare the model fit to that from **Exercise 1**. Make an argument for why this model may have improved model fit.
 
 ## Exercise 3
 
-What is interpretation of the slope main effect corresponding to `recreation` in your model at the 0.05 significance level? Is this interpretation appropriate?
+For the model from **Exercise 2**, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. 
 
--   ***Answer:*** Assuming a crime level of zero, we can interpret the slope corresponding to recreation, assuming all other variables are fixed. The interpretation is that for a one unit increase in recreation (i.e., number of recreational centers within a one-mile radius), exercise MET per week will increase by 2.97 MET. The p-value for this effect is significant at the 0.05 level, therefore we can conclude that for those people who live in areas of zero crime, there is an association between access to recreational facilities and exercise. This interpretation is likely not appropriate, because there are no areas with zero crime.
+## Exercise 3
+
+Assess the assumptions required for validity of the regression in Exercise 1.
+
+What is interpretation of the slope main effect corresponding to `recreation` in your model at the 0.05 significance level? Is this interpretation appropriate?
 
 ## Exercise 4
 
 What is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people?
 
--   ***Answer:*** The association between access to recreational facilities and exercise is a function of crime. In particular, this effect is given by the following: $\beta_{Rec} + \beta_{Rec \times Crime} \times \texttt{crime}_i = 2.969 - 0.298 \times  \texttt{crime}_i$. Plugging in for a crime value of 5, we get: 1.479. For a crime value of 15, we get a slope of -1.501.
-
 ## Exercise 5
 
 Interpret the slopes from (d) and compare and contrast them. What do these slopes say about the impact of crime on the relationship between access to recreational facilities and exercise.
-
--   ***Answer:*** The interpretation of the slopes are as follows: At an annual level of crime of 5/1,000 people and keeping all of the variables constant, the association between recreational facilities and exercise has a slope of 1.479. This indicates that a one-unit increase in recreational facilities will result in a 1.5 MET increase in exercise. When crime increases to an annual level of 15/1,000 people, this slope becomes negative, -1.5. This indicates that crime is an effect modifier for the association of interest. In particular, for low levels of crime, the association is positive, however for larger values of crime the slope becomes negative.
 
 ## Exercise 6
 
 At what level of crime does the association between recreational facilities and exercise disappear?
 
--   ***Answer:*** We know that the effect of recreational facilities on exercies is a function of crime, because of the interaction term. In particular, this effect is given by the followiing: $\beta_{Rec} + \beta_{Rec \times Crime} \times \texttt{crime}_i = 2.969 - 0.298 \times  \texttt{crime}_i$. Therefore, we would like to set this effect to zero and solve for $\texttt{crime}_i$. Doing this, we find that $\texttt{crime}_i = 2.969 / 0.298 = 9.963.$
-
 ## Exercise 7
 
 To confirm your conclusions from (f), create a visualization that demontrates the relationship between recreation and exercise, across crime levels below and above the value you found in (f). An effective figure provides a title, axis labels, and a legible legend.
 
--   ***Answer:*** We will create a scatterplot that plots recreation vs. exercise. To visualize the association across crime, we will create a new variable that is an indicator of a crime value below and above the value we found in (f), 9.963. Then, we will color code the points based on this variable. This visualization confirms our conclusions about the association between recreation and exercise, as the slope is positive for low crime and negative for high crime.
-
-```{r, warning = FALSE}
-library(ggplot2)
-library(dplyr)
-exercise %>% 
-  mutate(crime2 = 1 * (crime >= 9.963)) %>%
-  ggplot(aes(x = recreation, y = exercise, col = as.factor(crime2))) + 
-  geom_point() + 
-  scale_color_discrete(name = "Crime >= 9.963") +
-  labs(title = "Scatter plot of recreational facilities vs. exercise (MET)") + 
-  ylab("Exercises (MET/week)") + 
-  xlab("Number of recreational facilities within 1-mile radius")
-```
-
 ## Exercise 8
 
 Now, assume the researchers are interested in understanding the impact of marital status on the relationship between access to recreational facililities and exercise. Setup a multivariable regression to estimate this association. There is no need to include other confounders. Does the association of interest (i.e., the relationship between access to recreational facilities and exercise) change across marital status? For a married pregnant women, what is the estimated slope of recreational facilities on exercise? What about for single pregnant women?
-
--   ***Answer:*** The regression is as follows:
-
-```{r}
-reg2 <- lm(exercise ~ recreation * married, data = exercise)
-summary(reg2)
-```
-
-From this we see that the interaction between marital status and recreational facilities is significant, with a p-value of 0.0233. The hypotheses that this corresponds to is $H_0:\beta_3 = 0, H_1:\beta_3 \neq 0$ at the $\alpha = 0.05$ level. Therefore, the association of interest does change across marital status. In particular, for a married pregnant woman the association (or slope) is $\beta_1 + \beta_3 = 1.504 - 2.857 = -1.353$, and for single pregnant women, $\beta_1 = 1.504$.
 
 ::: render-commit-push
 You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.

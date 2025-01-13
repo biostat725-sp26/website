@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 01: Bayesian linear regression – BIOSTAT 725 - Spring 2025</title>
+<title>HW 02: Bayesian linear regression – BIOSTAT 725 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 01: Bayesian linear regression</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 02: Bayesian linear regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -310,6 +310,7 @@ window.Quarto = {
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-3-1" id="toc-exercise-3-1" class="nav-link" data-scroll-target="#exercise-3-1">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
@@ -326,7 +327,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 01: Bayesian linear regression</h1>
+<h1 class="title">HW 02: Bayesian linear regression</h1>
 <p class="subtitle lead">Physical activity and access to recreational facilities in Cook County, Chicago</p>
 </div>
 
@@ -354,7 +355,7 @@ Due date
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Thursday, January 30 at 11:45am.</strong> To be considered on time, the following must be done by the due date:</p>
+<p>This assignment is due on <strong>Thursday, February 13 at 11:45am.</strong> To be considered on time, the following must be done by the due date:</p>
 <ul>
 <li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</li>
 <li>Final <code>.pdf</code> file submitted on Gradescope</li>
@@ -364,7 +365,7 @@ Due date
 <section id="getting-started" class="level1">
 <h1><strong>Getting started</strong></h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>hw-01</strong>. It contains the starter documents you need to complete the homework.</p></li>
+<li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>hw-02</strong>. It contains the starter documents you need to complete the homework.</p></li>
 <li><p>Clone the repo and start a new project in RStudio. See the <a href="https://biostat725-sp25.netlify.app/ae/ae-01-mcmc#clone-the-repo-start-new-rstudio-project">AE 01 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
 </ul>
 </section>
@@ -373,10 +374,9 @@ Due date
 <p>The following packages are used in this assignment:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="introduction" class="level1">
@@ -394,197 +394,45 @@ Due date
 </ul>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Setup a multivariable regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Assume that <span class="math inline">\(exercise_i \stackrel{iid}{\sim} N(\mu_i, \sigma^2)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span> where <span class="math display">\[\begin{align*}
+<p>Setup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Assume that <span class="math inline">\(exercise_i \stackrel{ind}{\sim} N(\mu_i, \sigma^2)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span> where <span class="math display">\[\begin{align*}
 \mu_i &amp;= \alpha + recreation_i \beta_1 + crime_i \beta_2+(recreation_i \times crime_i) \beta_3\\
-&amp;+ age_i \beta_4 + black_i \beta_5 + asian_i \beta_6 + married_i \beta_7.
+&amp;\quad+ age_i \beta_4 + black_i \beta_5 + asian_i \beta_6 + married_i \beta_7\\
+&amp;= \alpha + \mathbf{x}_i\boldsymbol{\beta}.
 \end{align*}\]</span></p>
-<p>Present the results from your regression.</p>
-<ul>
-<li><strong><em>Answer:</em></strong> We will perform a multivariable linear regression where the dependent variable is exercise, and the predictors are: recreation, crime, age, married, and race. Plus, to allow for the association between recreation and exercise to vary across crime, we include an interaction between crime and recreation. Note that we must be sure race is treated as a dummy variable, so we use the <span class="math inline">\(\{as.factor}\)</span> function.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>exercise<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(exercise<span class="sc">$</span>race)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(exercise <span class="sc">~</span> recreation <span class="sc">+</span> crime <span class="sc">+</span> recreation <span class="sc">*</span> crime </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> age <span class="sc">+</span> race <span class="sc">+</span> married, <span class="at">data =</span> exercise)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = exercise ~ recreation + crime + recreation * crime + 
-    age + race + married, data = exercise)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--6.8386 -1.4686  0.2276  1.6052  4.1927 
-
-Coefficients:
-                  Estimate Std. Error  t value Pr(&gt;|t|)    
-(Intercept)      469.82486    1.52939  307.197  &lt; 2e-16 ***
-recreation         2.96943    0.04534   65.489  &lt; 2e-16 ***
-crime             -0.05616    0.03491   -1.609    0.112    
-age               -1.48267    0.03957  -37.464  &lt; 2e-16 ***
-race1             -9.29598    0.61490  -15.118  &lt; 2e-16 ***
-race2              5.01344    0.82803    6.055 4.48e-08 ***
-married            0.46918    0.61921    0.758    0.451    
-recreation:crime  -0.29750    0.00277 -107.410  &lt; 2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 2.538 on 79 degrees of freedom
-Multiple R-squared:  0.9975,    Adjusted R-squared:  0.9973 
-F-statistic:  4457 on 7 and 79 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<div class="cell" data-output.var="compiled_model">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Saved in linear_regression.stan</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] Y;</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">matrix</span>[n, p + <span class="dv">1</span>] X;</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma_beta;</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a;</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; b;</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">parameters</span> {</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[p + <span class="dv">1</span>] beta;</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">model</span> {</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  Y ~ normal(X * beta, sigma);</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  beta ~ normal(<span class="dv">0</span>, sigma_beta);</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  sigma ~ </span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Fit this regression using a Bayesian framework in Stan to estimate <span class="math inline">\((\alpha, \boldsymbol{\beta},\sigma)\)</span>. For all model parameters, choose weakly-informative priors. Evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Assess the assumptions required for validity of the regression in Exercise 1.</p>
-<ul>
-<li><strong><em>Answer:</em></strong> We require independence of observations, linearity, normality of the residuals, and homeskedastic variance. We can create a figure to assess the last three assumptions.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hw-02-creation_files/figure-html/ass-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The figure on the left is of the fitted values versus the residuals. From this figure we see that there is no evidence of heteroskedasticity, so our variance assumption is OK. This figure also indicates that linearity is satisfied, as there is no pattern in the residuals across the fitted values. Then, in the figure on the right we see that the distribution of the residuals is normally distributed, so our distributional assumptions is OK. Finally, independence is satisfied, because we are randomly sampling pregnant women from across Cook County, Chicago. Linearity could have also been assessed by looking at all pairwise scatterplots as follows:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="hw-02-creation_files/figure-html/linear-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Our outcome variable, exercise appears to be linearly related to all of our continous predictors.</p>
+<p>Refit the model in <strong>Exercise 1</strong>, this time using a centered outcome variable, <span class="math inline">\(Y_i = exercise_i - \overline{exercise}\)</span>, where <span class="math inline">\(\overline{exercise} = \frac{1}{n}\sum_{i=1}^n exercise_i\)</span>. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and compare the model fit to that from <strong>Exercise 1</strong>. Make an argument for why this model may have improved model fit.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>For the model from <strong>Exercise 2</strong>, present the posterior means, standard deviations, and 95% credible intervals for all model parameters.</p>
+</section>
+<section id="exercise-3-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-1">Exercise 3</h2>
+<p>Assess the assumptions required for validity of the regression in Exercise 1.</p>
 <p>What is interpretation of the slope main effect corresponding to <code>recreation</code> in your model at the 0.05 significance level? Is this interpretation appropriate?</p>
-<ul>
-<li><strong><em>Answer:</em></strong> Assuming a crime level of zero, we can interpret the slope corresponding to recreation, assuming all other variables are fixed. The interpretation is that for a one unit increase in recreation (i.e., number of recreational centers within a one-mile radius), exercise MET per week will increase by 2.97 MET. The p-value for this effect is significant at the 0.05 level, therefore we can conclude that for those people who live in areas of zero crime, there is an association between access to recreational facilities and exercise. This interpretation is likely not appropriate, because there are no areas with zero crime.</li>
-</ul>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
 <p>What is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people?</p>
-<ul>
-<li><strong><em>Answer:</em></strong> The association between access to recreational facilities and exercise is a function of crime. In particular, this effect is given by the following: <span class="math inline">\(\beta_{Rec} + \beta_{Rec \times Crime} \times \texttt{crime}_i = 2.969 - 0.298 \times  \texttt{crime}_i\)</span>. Plugging in for a crime value of 5, we get: 1.479. For a crime value of 15, we get a slope of -1.501.</li>
-</ul>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
 <p>Interpret the slopes from (d) and compare and contrast them. What do these slopes say about the impact of crime on the relationship between access to recreational facilities and exercise.</p>
-<ul>
-<li><strong><em>Answer:</em></strong> The interpretation of the slopes are as follows: At an annual level of crime of 5/1,000 people and keeping all of the variables constant, the association between recreational facilities and exercise has a slope of 1.479. This indicates that a one-unit increase in recreational facilities will result in a 1.5 MET increase in exercise. When crime increases to an annual level of 15/1,000 people, this slope becomes negative, -1.5. This indicates that crime is an effect modifier for the association of interest. In particular, for low levels of crime, the association is positive, however for larger values of crime the slope becomes negative.</li>
-</ul>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
 <p>At what level of crime does the association between recreational facilities and exercise disappear?</p>
-<ul>
-<li><strong><em>Answer:</em></strong> We know that the effect of recreational facilities on exercies is a function of crime, because of the interaction term. In particular, this effect is given by the followiing: <span class="math inline">\(\beta_{Rec} + \beta_{Rec \times Crime} \times \texttt{crime}_i = 2.969 - 0.298 \times  \texttt{crime}_i\)</span>. Therefore, we would like to set this effect to zero and solve for <span class="math inline">\(\texttt{crime}_i\)</span>. Doing this, we find that <span class="math inline">\(\texttt{crime}_i = 2.969 / 0.298 = 9.963.\)</span></li>
-</ul>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
 <p>To confirm your conclusions from (f), create a visualization that demontrates the relationship between recreation and exercise, across crime levels below and above the value you found in (f). An effective figure provides a title, axis labels, and a legible legend.</p>
-<ul>
-<li><strong><em>Answer:</em></strong> We will create a scatterplot that plots recreation vs.&nbsp;exercise. To visualize the association across crime, we will create a new variable that is an indicator of a crime value below and above the value we found in (f), 9.963. Then, we will color code the points based on this variable. This visualization confirms our conclusions about the association between recreation and exercise, as the slope is positive for low crime and negative for high crime.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>exercise <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">crime2 =</span> <span class="dv">1</span> <span class="sc">*</span> (crime <span class="sc">&gt;=</span> <span class="fl">9.963</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> recreation, <span class="at">y =</span> exercise, <span class="at">col =</span> <span class="fu">as.factor</span>(crime2))) <span class="sc">+</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Crime &gt;= 9.963"</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatter plot of recreational facilities vs. exercise (MET)"</span>) <span class="sc">+</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Exercises (MET/week)"</span>) <span class="sc">+</span> </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Number of recreational facilities within 1-mile radius"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hw-02-creation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
 <p>Now, assume the researchers are interested in understanding the impact of marital status on the relationship between access to recreational facililities and exercise. Setup a multivariable regression to estimate this association. There is no need to include other confounders. Does the association of interest (i.e., the relationship between access to recreational facilities and exercise) change across marital status? For a married pregnant women, what is the estimated slope of recreational facilities on exercise? What about for single pregnant women?</p>
-<ul>
-<li><strong><em>Answer:</em></strong> The regression is as follows:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(exercise <span class="sc">~</span> recreation <span class="sc">*</span> married, <span class="at">data =</span> exercise)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = exercise ~ recreation * married, data = exercise)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--154.734  -15.102    4.876   21.932  129.803 
-
-Coefficients:
-                   Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)         406.383     13.482  30.144   &lt;2e-16 ***
-recreation            1.504      1.021   1.474   0.1443    
-married              11.693     16.742   0.698   0.4869    
-recreation:married   -2.857      1.236  -2.311   0.0233 *  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 46.83 on 83 degrees of freedom
-Multiple R-squared:  0.09682,   Adjusted R-squared:  0.06417 
-F-statistic: 2.966 on 3 and 83 DF,  p-value: 0.0367</code></pre>
-</div>
-</div>
-<p>From this we see that the interaction between marital status and recreational facilities is significant, with a p-value of 0.0233. The hypotheses that this corresponds to is <span class="math inline">\(H_0:\beta_3 = 0, H_1:\beta_3 \neq 0\)</span> at the <span class="math inline">\(\alpha = 0.05\)</span> level. Therefore, the association of interest does change across marital status. In particular, for a married pregnant woman the association (or slope) is <span class="math inline">\(\beta_1 + \beta_3 = 1.504 - 2.857 = -1.353\)</span>, and for single pregnant women, <span class="math inline">\(\beta_1 = 1.504\)</span>.</p>
 <div class="render-commit-push">
 <p>You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that <u>all</u> documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.</p>
 </div>

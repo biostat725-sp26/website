@@ -471,7 +471,37 @@ weight_i &amp;= \beta_0 + \beta_1 \times 1(habit_i = \text{smoker}) + \epsilon_i
 </section>
 <section id="exercise-10" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
-<p>Report the one-sided p-value that corresponds to the statistical hypothesis test: <span class="math inline">\(H_0: \beta_1 = 0, H_1: \beta_1 &lt; 0\)</span>. Interpret this p-value in the context of the association between smoking and low birth weight.</p>
+<p>If someone were to fit the same regression using a frequentist approach the resulting model would look like the following.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> habit, <span class="at">data =</span> births14)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = weight ~ habit, data = births14)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-5.4965 -0.6865  0.0635  0.8150  3.1135 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  7.30654    0.04586 159.317  &lt; 2e-16 ***
+habitsmoker -0.75203    0.16412  -4.582 5.34e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.241 on 792 degrees of freedom
+Multiple R-squared:  0.02583,   Adjusted R-squared:  0.0246 
+F-statistic:    21 on 1 and 792 DF,  p-value: 5.345e-06</code></pre>
+</div>
+</div>
+<p>Suppose researchers are interested in testing the following hypothesis test: <span class="math inline">\(H_0: \beta_1 = 0, H_1: \beta_1 &lt; 0\)</span>. We can compute this p-value from the frequentist model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pvalue <span class="ot">&lt;-</span> <span class="fu">pt</span>(<span class="fu">coef</span>(res)[, <span class="dv">3</span>], mod<span class="sc">$</span>df, <span class="at">lower =</span> <span class="cn">TRUE</span>)[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The resulting p-value is &lt;0.001. Compute the Bayesian p-value that corresponds to the same hypothesis test, <span class="math inline">\(P(\beta_1 &lt; 0 | \mathbf{Y})\)</span>. Interpret both p-values at a Type-I error rate of 0.05 and compare and contrast their interpretations in the context of the association between smoking and low birth weight.</p>
 <div class="render-commit-push">
 <p>You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that <u>all</u> documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.</p>
 </div>

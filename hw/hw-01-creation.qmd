@@ -50,6 +50,7 @@ We will focus on the following variables:
 -   `habit`: Status of the mother as a `nonsmoker` or a `smoker`
 
 For this homework, work with the complete case dataset.
+
 ```{r}
 births14 <- births14[complete.cases(births14), ]
 glimpse(births14)
@@ -67,13 +68,13 @@ The researchers have prior knowledge that leads them to believe that $\lambda$ s
 
 Using the prior specified in **Exercise 1**, compute the probability that $\lambda$ is greater than 11? For this computation compute the exact probability using the `pgamma` function in R. This is equivalent to computing $P(\lambda > 11)$.
 
-### Exercise 3 
+### Exercise 3
 
 Compute the same probability as in **Exercise 2**, this time using Monte Carlo sampling. Report your Monte Carlo standard error and make sure it is less than 0.01.
 
 ### Exercise 4
 
-Suppose the researchers are interested in the quantity, $\alpha = \sqrt{\lambda}$. Compute the probability that $\alpha$ is greater than 2.5. Use the same number of Monte Carlo samples as in **Exercise 3** and describe why Monte Carlo sampling makes this computation much more efficient than computing the exact probability. 
+Suppose the researchers are interested in the quantity, $\alpha = \sqrt{\lambda}$. Compute the probability that $\alpha$ is greater than 2.5. Use the same number of Monte Carlo samples as in **Exercise 3** and describe why Monte Carlo sampling makes this computation much more efficient than computing the exact probability.
 
 ### Exercise 5
 
@@ -100,7 +101,7 @@ weight_i &= \beta_0 + \beta_1 \times 1(habit_i = \text{smoker}) + \epsilon_i,\qu
 
 ### Exercise 8
 
-Obtain samples from the posterior distribution of $(\boldsymbol{\beta},\sigma^2)$ given the observed data. Visualize the posterior distributions and provide justification that the Gibbs sampler has converged. 
+Obtain samples from the posterior distribution of $(\boldsymbol{\beta},\sigma^2)$ given the observed data. Visualize the posterior distributions and provide justification that the Gibbs sampler has converged.
 
 ### Exercise 9
 
@@ -108,7 +109,21 @@ Report the posterior mean, standard deviation, and 95% credible intervals for ea
 
 ### Exercise 10
 
-Report the one-sided p-value that corresponds to the statistical hypothesis test: $H_0: \beta_1 = 0, H_1: \beta_1 < 0$. Interpret this p-value in the context of the association between smoking and low birth weight.
+If someone were to fit the same regression using a frequentist approach the resulting model would look like the following.
+
+```{r}
+mod <- lm(weight ~ habit, data = births14)
+res <- summary(mod)
+print(res)
+```
+
+Suppose researchers are interested in testing the following hypothesis test: $H_0: \beta_1 = 0, H_1: \beta_1 < 0$. We can compute this p-value from the frequentist model.
+
+```{r}
+pvalue <- pt(coef(res)[, 3], mod$df, lower = TRUE)[2]
+```
+
+The resulting p-value is `r ifelse(pvalue < 0.001, "<0.001", round(pvalue, 3))`. Compute the Bayesian p-value that corresponds to the same hypothesis test, $P(\beta_1 < 0 | \mathbf{Y})$. Interpret both p-values at a Type-I error rate of 0.05 and compare and contrast their interpretations in the context of the association between smoking and low birth weight.
 
 ::: render-commit-push
 You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.
@@ -149,6 +164,6 @@ To submit your assignment:
 | Ex 9                  | 3      |
 | Ex 10                 | 3      |
 | Workflow & formatting | 4      |
-| Total                 | 50      |
+| Total                 | 50     |
 
 The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.
