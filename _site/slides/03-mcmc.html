@@ -478,6 +478,16 @@ Y_i &amp;= \beta_0 + x_{i1} \beta_1 + \cdots + x_{ip} \beta_p + \epsilon_i, \qua
 <li><span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}} = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y}\)</span></li>
 </ul>
 </section>
+<section id="linear-regression-assumptions" class="slide level2">
+<h2>Linear regression assumptions</h2>
+<ol type="1">
+<li><p>Linearity between <span class="math inline">\(\mathbf{X}\)</span> and <span class="math inline">\(\mathbf{Y}\)</span>: <span class="math inline">\(\mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \mathbf{\epsilon}\)</span></p></li>
+<li><p>Independence of errors: <span class="math inline">\(\epsilon_i\)</span>’s are independent Gaussian</p></li>
+<li><p>Homoskedasticity: constant <span class="math inline">\(\sigma^2\)</span> across <span class="math inline">\(\mathbf{x}_i\)</span></p></li>
+<li><p>Normality of errors: <span class="math inline">\(\epsilon_i \sim N(0,\sigma^2)\)</span></p></li>
+<li><p>No multicollinearity: <span class="math inline">\(\left(\mathbf{X}^\top \mathbf{X}\right)^{-1}\)</span> exists</p></li>
+</ol>
+</section>
 <section id="posterior-for-linear-regression" class="slide level2">
 <h2>Posterior for linear regression</h2>
 <p><span class="math display">\[\begin{aligned}
@@ -913,7 +923,7 @@ r &amp;= \frac{f(\boldsymbol{\theta}^* | \mathbf{Y})}{f(\boldsymbol{\theta}^{(s)
 <section id="metropolis-hastings-mh-algorithm" class="slide level2">
 <h2>Metropolis-Hastings (MH) algorithm</h2>
 <p>The proposal distribution is no longer assumed to be symmetric, so the acceptance ratio is, <span class="math display">\[\begin{aligned}
-r &amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}^*, \sigma^{2(s)}) f(\boldsymbol{\beta}^*)}{f(\mathbf{Y} | \boldsymbol{\beta}^{(s)},\sigma^{2(s)})f(\boldsymbol{\beta}^{(s)})} \frac{J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*)}{J(\boldsymbol{\beta}^* | \boldsymbol{\beta}^{(s)})}.
+r &amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}^*, \sigma^{2(s)}) f(\boldsymbol{\beta}^*)}{f(\mathbf{Y} | \boldsymbol{\beta}^{(s)},\sigma^{2(s)})f(\boldsymbol{\beta}^{(s)})} \frac{J(\boldsymbol{\beta}^* | \boldsymbol{\beta}^{(s)})}{J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*)}.
 \end{aligned}\]</span></p>
 <p>Both Metropolis and Gibbs can easily be seen as subcases of Metropolis Hastings.</p>
 <ul>

@@ -102,6 +102,18 @@ $$
 
 -   $\hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}} = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y}$
 
+## Linear regression assumptions
+
+1. Linearity between $\mathbf{X}$ and $\mathbf{Y}$: $\mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \mathbf{\epsilon}$
+
+2. Independence of errors: $\epsilon_i$'s are independent Gaussian
+
+3. Homoskedasticity: constant $\sigma^2$ across $\mathbf{x}_i$
+
+4. Normality of errors: $\epsilon_i \sim N(0,\sigma^2)$
+
+5. No multicollinearity: $\left(\mathbf{X}^\top \mathbf{X}\right)^{-1}$ exists
+
 ## Posterior for linear regression
 
 \begin{align*}
@@ -525,7 +537,7 @@ ggplot(dat.fig, aes(x = index, y = value)) +
 ## Metropolis-Hastings (MH) algorithm
 
 The proposal distribution is no longer assumed to be symmetric, so the acceptance ratio is, \begin{align*}
-r &= \frac{f(\mathbf{Y} | \boldsymbol{\beta}^*, \sigma^{2(s)}) f(\boldsymbol{\beta}^*)}{f(\mathbf{Y} | \boldsymbol{\beta}^{(s)},\sigma^{2(s)})f(\boldsymbol{\beta}^{(s)})} \frac{J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*)}{J(\boldsymbol{\beta}^* | \boldsymbol{\beta}^{(s)})}.
+r &= \frac{f(\mathbf{Y} | \boldsymbol{\beta}^*, \sigma^{2(s)}) f(\boldsymbol{\beta}^*)}{f(\mathbf{Y} | \boldsymbol{\beta}^{(s)},\sigma^{2(s)})f(\boldsymbol{\beta}^{(s)})} \frac{J(\boldsymbol{\beta}^* | \boldsymbol{\beta}^{(s)})}{J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*)}.
 \end{align*}
 
 Both Metropolis and Gibbs can easily be seen as subcases of Metropolis Hastings.

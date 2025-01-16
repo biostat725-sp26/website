@@ -1,6 +1,7 @@
 ---
 title: "HW 01: Inference using Bayesian statistics"
 subtitle: United States Births in 2014
+format: html
 bibliography: references.bib
 ---
 

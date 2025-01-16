@@ -28,6 +28,9 @@ The following packages are used in this assignment:
 
 library(tidyverse)
 library(rstan)
+library(bayesplot)
+library(knitr)
+library(loo)
 
 # load other packages as needed
 ```
@@ -79,37 +82,31 @@ Fit this regression using a Bayesian framework in Stan to estimate $(\alpha, \bo
 
 ## Exercise 2
 
-Refit the model in **Exercise 1**, this time using a centered outcome variable, $Y_i = exercise_i - \overline{exercise}$, where $\overline{exercise} = \frac{1}{n}\sum_{i=1}^n exercise_i$. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and compare the model fit to that from **Exercise 1**. Make an argument for why this model may have improved model fit.
+Refit the model in **Exercise 1**, this time using a centered outcome variable, $Y_i = exercise_i - \overline{exercise}$, where $\overline{exercise} = \frac{1}{n}\sum_{i=1}^n exercise_i$. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from **Exercise 1**. Make an argument for why this model may have improved model fit.
 
 ## Exercise 3
 
-For the model from **Exercise 2**, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. 
-
-## Exercise 3
-
-Assess the assumptions required for validity of the regression in Exercise 1.
-
-What is interpretation of the slope main effect corresponding to `recreation` in your model at the 0.05 significance level? Is this interpretation appropriate?
+For the model from **Exercise 2**, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to `recreation` in your model? Is this interpretation appropriate?
 
 ## Exercise 4
 
-What is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people?
+What is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people? Provide posterior mean and standard deviations for both quantities.
 
 ## Exercise 5
 
-Interpret the slopes from (d) and compare and contrast them. What do these slopes say about the impact of crime on the relationship between access to recreational facilities and exercise.
+Interpret the posterior mean and standard deviations from **Exercise 4** and compare and contrast them. What do these posterior slopes say about the impact of crime on the relationship between access to recreational facilities and exercise.
 
 ## Exercise 6
 
-At what level of crime does the association between recreational facilities and exercise disappear?
+Researchers are interested in the level of crime where the association between recreational facilities and exercise disappears. Present the posterior median and interquartile range (i.e., 25% and 75% percentiles) for this quantity.
 
 ## Exercise 7
 
-To confirm your conclusions from (f), create a visualization that demontrates the relationship between recreation and exercise, across crime levels below and above the value you found in (f). An effective figure provides a title, axis labels, and a legible legend.
+Compute the posterior predictive distribution for a patient with 10 recreational facilities within a one-mile radius, 5 crimes within a one-mile buffer per 1,000 people, is 40 years old, married, and white race. Report the posterior mean and 95% credible intervals.
 
 ## Exercise 8
 
-Now, assume the researchers are interested in understanding the impact of marital status on the relationship between access to recreational facililities and exercise. Setup a multivariable regression to estimate this association. There is no need to include other confounders. Does the association of interest (i.e., the relationship between access to recreational facilities and exercise) change across marital status? For a married pregnant women, what is the estimated slope of recreational facilities on exercise? What about for single pregnant women?
+Researchers are interested in comparing their original model (i.e., the one from **Exercise 2**) with a model that does not contain an interaction term between recreational facility use and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?
 
 ::: render-commit-push
 You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.
@@ -139,16 +136,11 @@ To submit your assignment:
 
 | Component             | Points |
 |:----------------------|:-------|
-| Ex 1                  | 2      |
-| Ex 2                  | 2      |
-| Ex 3                  | 3      |
-| Ex 4                  | 5      |
-| Ex 5                  | 5      |
+| Ex 1                  | 8      |
+| Ex 2                  | 8      |
+| Ex 3                  | 4      |
+| Ex 4                  | 4      |
+| Ex 5                  | 3      |
 | Ex 6                  | 5      |
 | Ex 7                  | 6      |
-| Ex 8                  | 5      |
-| Ex 9                  | 8      |
-| Ex 10                 | 5      |
-| Workflow & formatting | 4      |
-
-The "Workflow & formatting" grade is to assess the reproducible workflow and document format. This includes having at least 3 informative commit messages, a neatly organized document with readable code and your name and the date updated in the YAML.
+| Ex 8                  | 7      |
