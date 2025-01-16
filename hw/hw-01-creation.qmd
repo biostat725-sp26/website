@@ -146,7 +146,7 @@ To submit your assignment:
 
 -   Click on the assignment, and you’ll be prompted to submit it.
 
--   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).
+-   Mark the pages associated with each exercise. All of the pages of your homework should be associated with at least one question (i.e., should be “checked”).
 
 -   Select the first page of your .PDF submission to be associated with the *“Workflow & formatting”* section.
 

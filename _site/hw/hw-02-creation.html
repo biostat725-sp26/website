@@ -315,6 +315,7 @@ window.Quarto = {
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
@@ -401,7 +402,8 @@ Due date
 &amp;\quad+ age_i \beta_4 + black_i \beta_5 + asian_i \beta_6 + married_i \beta_7\\
 &amp;= \alpha + \mathbf{x}_i\boldsymbol{\beta}.
 \end{align*}\]</span></p>
-<p>Fit this regression using a Bayesian framework in Stan to estimate <span class="math inline">\((\alpha, \boldsymbol{\beta},\sigma)\)</span>. For all model parameters, choose weakly-informative priors. Evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well.</p>
+<p>Fit this regression using a Bayesian framework in Stan to estimate <span class="math inline">\((\alpha, \boldsymbol{\beta},\sigma)\)</span>. For all model parameters, choose weakly-informative priors. For example, <span class="math inline">\(\alpha \sim N(0,100)\)</span>, <span class="math inline">\(\beta_j \sim N(0,100)\)</span> for <span class="math inline">\(j=1,\ldots,p\)</span>, and <span class="math inline">\(\sigma \sim \text{Half-Normal}(0,100)\)</span>.</p>
+<p>Evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
@@ -429,7 +431,11 @@ Due date
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Researchers are interested in comparing their original model (i.e., the one from <strong>Exercise 2</strong>) with a model that does not contain an interaction term between recreational facility use and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?</p>
+<p>Researchers are interested in comparing their original model (i.e., the one from <strong>Exercise 2</strong>) with a model that does not contain an interaction term between recreational facility access and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?</p>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>Perform a sensitivity analysis to the choice of prior for <span class="math inline">\((\alpha,\boldsymbol{\beta},\sigma)\)</span>. Make sure to change the family of priors for each parameter. So, if you chose a Gaussian prior for <span class="math inline">\(\alpha\)</span> originally, choose another distribution, like a student-t. Are your results robust to the choice of prior?</p>
 <div class="render-commit-push">
 <p>You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that <u>all</u> documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.</p>
 </div>
@@ -456,8 +462,7 @@ Warning
 <ul>
 <li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/53305">BIOSTAT 725 Canvas site.</a></p></li>
 <li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
+<li><p>Mark the pages associated with each exercise. All of the pages of your homework should be associated with at least one question (i.e., should be “checked”).</p></li>
 </ul>
 </section>
 <section id="grading" class="level1">
@@ -501,6 +506,10 @@ Warning
 <tr class="even">
 <td style="text-align: left;">Ex 8</td>
 <td style="text-align: left;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 9</td>
+<td style="text-align: left;">5</td>
 </tr>
 </tbody>
 </table>

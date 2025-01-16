@@ -11213,7 +11213,7 @@
     "href": "hw/hw-02-creation.html#exercise-1",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nSetup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Assume that \\(exercise_i \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\) for \\(i = 1,\\ldots,n\\) where \\[\\begin{align*}\n\\mu_i &= \\alpha + recreation_i \\beta_1 + crime_i \\beta_2+(recreation_i \\times crime_i) \\beta_3\\\\\n&\\quad+ age_i \\beta_4 + black_i \\beta_5 + asian_i \\beta_6 + married_i \\beta_7\\\\\n&= \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\n\\end{align*}\\]\nFit this regression using a Bayesian framework in Stan to estimate \\((\\alpha, \\boldsymbol{\\beta},\\sigma)\\). For all model parameters, choose weakly-informative priors. Evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well."
+    "text": "Exercise 1\nSetup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Assume that \\(exercise_i \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\) for \\(i = 1,\\ldots,n\\) where \\[\\begin{align*}\n\\mu_i &= \\alpha + recreation_i \\beta_1 + crime_i \\beta_2+(recreation_i \\times crime_i) \\beta_3\\\\\n&\\quad+ age_i \\beta_4 + black_i \\beta_5 + asian_i \\beta_6 + married_i \\beta_7\\\\\n&= \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\n\\end{align*}\\]\nFit this regression using a Bayesian framework in Stan to estimate \\((\\alpha, \\boldsymbol{\\beta},\\sigma)\\). For all model parameters, choose weakly-informative priors. For example, \\(\\alpha \\sim N(0,100)\\), \\(\\beta_j \\sim N(0,100)\\) for \\(j=1,\\ldots,p\\), and \\(\\sigma \\sim \\text{Half-Normal}(0,100)\\).\nEvaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well."
   },
   {
     "objectID": "hw/hw-02-creation.html#exercise-2",
@@ -11262,7 +11262,7 @@
     "href": "hw/hw-02-creation.html#exercise-8",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 8",
-    "text": "Exercise 8\nResearchers are interested in comparing their original model (i.e., the one from Exercise 2) with a model that does not contain an interaction term between recreational facility use and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
+    "text": "Exercise 8\nResearchers are interested in comparing their original model (i.e., the one from Exercise 2) with a model that does not contain an interaction term between recreational facility access and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?"
   },
   {
     "objectID": "hw/hw-01-creation.html#exercises-1-5",
@@ -11375,5 +11375,12 @@
     "title": "Markov chain Monte Carlo",
     "section": "Linear regression assumptions",
     "text": "Linear regression assumptions\n\nLinearity between \\(\\mathbf{X}\\) and \\(\\mathbf{Y}\\): \\(\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{\\epsilon}\\)\nIndependence of errors: \\(\\epsilon_i\\)’s are independent Gaussian\nHomoskedasticity: constant \\(\\sigma^2\\) across \\(\\mathbf{x}_i\\)\nNormality of errors: \\(\\epsilon_i \\sim N(0,\\sigma^2)\\)\nNo multicollinearity: \\(\\left(\\mathbf{X}^\\top \\mathbf{X}\\right)^{-1}\\) exists"
+  },
+  {
+    "objectID": "hw/hw-02-creation.html#exercise-9",
+    "href": "hw/hw-02-creation.html#exercise-9",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nPerform a sensitivity analysis to the choice of prior for \\((\\alpha,\\boldsymbol{\\beta},\\sigma)\\). Make sure to change the family of priors for each parameter. So, if you chose a Gaussian prior for \\(\\alpha\\) originally, choose another distribution, like a student-t. Are your results robust to the choice of prior?\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
   }
 ]
