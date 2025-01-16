@@ -115,7 +115,7 @@ Researchers are interested in comparing their original model (i.e., the one from
 Perform a sensitivity analysis to the choice of prior for $(\alpha,\boldsymbol{\beta},\sigma)$. Make sure to change the family of priors for each parameter. So, if you chose a Gaussian prior for $\alpha$ originally, choose another distribution, like a student-t. Are your results robust to the choice of prior?
 
 ::: render-commit-push
-You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.
+You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.
 :::
 
 # Submission
@@ -138,14 +138,14 @@ To submit your assignment:
 
 # Grading
 
-| Component             | Points |
-|:----------------------|:-------|
-| Ex 1                  | 8      |
-| Ex 2                  | 8      |
-| Ex 3                  | 4      |
-| Ex 4                  | 4      |
-| Ex 5                  | 3      |
-| Ex 6                  | 5      |
-| Ex 7                  | 6      |
-| Ex 8                  | 7      |
-| Ex 9                  | 5      |
+| Component | Points |
+|:----------|:-------|
+| Ex 1      | 8      |
+| Ex 2      | 8      |
+| Ex 3      | 4      |
+| Ex 4      | 4      |
+| Ex 5      | 3      |
+| Ex 6      | 5      |
+| Ex 7      | 6      |
+| Ex 8      | 7      |
+| Ex 9      | 5      |
