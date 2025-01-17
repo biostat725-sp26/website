@@ -234,7 +234,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-01.html</loc>
-    <lastmod>2024-10-27T15:38:36.831Z</lastmod>
+    <lastmod>2025-01-16T15:50:37.006Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/01-welcome.html</loc>
@@ -431,5 +431,9 @@
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-02-mcmc.html</loc>
     <lastmod>2025-01-13T15:58:13.758Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/hw/hw-01-blank.html</loc>
+    <lastmod>2024-10-27T15:38:36.831Z</lastmod>
   </url>
 </urlset>
