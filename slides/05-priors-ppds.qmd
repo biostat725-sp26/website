@@ -529,9 +529,7 @@ dat.fig |> ggplot(aes(x = value)) +
 
 ## Prepare for next class
 
--   Work on [HW 01](https://biostat725-sp25.netlify.app/hw/hw-01) which is due next Tuesday before class
-
--   Be sure to turn in your AE by Sunday evening
+-   Work on [HW 01](https://biostat725-sp25.netlify.app/hw/hw-01) which is due next Thursday before class
 
 -   Complete reading to prepare for next Tuesday's lecture
 

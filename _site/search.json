@@ -6334,7 +6334,7 @@
     "href": "slides/04-stan.html#linear-regression-using-stan-data-and-parameter-chunks",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Linear regression using Stan: data and parameter chunks",
-    "text": "Linear regression using Stan: data and parameter chunks\n\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[, p + 1] X; // covariate vector\n  real beta0; // location hyperparameter for beta\n  real&lt;lower = 0&gt; sigma_beta; // scale hyperparameter for beta\n  real&lt;lower = 0&gt; a; // shape hyperparameter for sigma\n  real&lt;lower = 0&gt; b; // scale hyperparameter for sigma\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma;\n}"
+    "text": "Linear regression using Stan: data and parameter chunks\n\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p + 1] X; // covariate vector\n  real beta0; // location hyperparameter for beta\n  real&lt;lower = 0&gt; sigma_beta; // scale hyperparameter for beta\n  real&lt;lower = 0&gt; a; // shape hyperparameter for sigma\n  real&lt;lower = 0&gt; b; // scale hyperparameter for sigma\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma;\n}"
   },
   {
     "objectID": "slides/04-stan.html#linear-regression-using-stan-model-chunk",
@@ -6614,7 +6614,7 @@
     "href": "slides/05-priors-ppds.html#posterior-summaries-estimation",
     "title": "Priors, Posteriors, and PPDs!",
     "section": "Posterior summaries: estimation",
-    "text": "Posterior summaries: estimation\n\nWe have already seen that we can use MC or MCMC to estimate these posterior summaries!\nTo compute the HPD interval we can use the hdi function from the ggdist R package\n\n\nlibrary(ggdist)\ny &lt;- rgamma(10000, 3, 1)\nquantile(y, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.6211652 7.2186263 \n\nggdist::hdi(y)\n\n         [,1]     [,2]\n[1,] 0.335666 6.421781"
+    "text": "Posterior summaries: estimation\n\nWe have already seen that we can use MC or MCMC to estimate these posterior summaries!\nTo compute the HPD interval we can use the hdi function from the ggdist R package\n\n\nlibrary(ggdist)\ny &lt;- rgamma(10000, 3, 1)\nquantile(y, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.6234925 7.2014631 \n\nggdist::hdi(y)\n\n          [,1]     [,2]\n[1,] 0.3889383 6.520763"
   },
   {
     "objectID": "slides/05-priors-ppds.html#linear-regression-recall",
@@ -6705,7 +6705,7 @@
     "href": "slides/05-priors-ppds.html#prepare-for-next-class",
     "title": "Priors, Posteriors, and PPDs!",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 01 which is due next Tuesday before class\nBe sure to turn in your AE by Sunday evening\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Model checking\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 01 which is due next Thursday before class\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Model checking\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/06-model-checking.html#traceplots-1",
@@ -11108,7 +11108,7 @@
     "href": "ae/ae-01-monte-carlo.html#clone-the-repo-start-new-rstudio-project",
     "title": "AE 01: Monte Carlo sampling",
     "section": "Clone the repo & start new RStudio project",
-    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-01-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use HTTPS (this might already be selected by default, and if it is, you’ll see the text Clone using the web URL.). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have HTTPS highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick AE 01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-01-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone using the web URL.). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick AE 01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
   },
   {
     "objectID": "ae/ae-01-monte-carlo.html#r-and-r-studio",
@@ -11411,5 +11411,215 @@
       "Homework",
       "HW 01"
     ]
+  },
+  {
+    "objectID": "slides/14-missing.html#review-of-last-lecture",
+    "href": "slides/14-missing.html#review-of-last-lecture",
+    "title": "Multiclass Classification",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nLast, we learned about classification for binary and multiclass problems."
+  },
+  {
+    "objectID": "slides/14-missing.html#missing-data-framework",
+    "href": "slides/14-missing.html#missing-data-framework",
+    "title": "Multiclass Classification",
+    "section": "Missing data framework",
+    "text": "Missing data framework\n\nWe are interested in modeling a random variable \\(Y_{i}\\), for \\(i \\in \\{1,\\ldots,n\\}\\).\nIn a missing data setting, we only observe the outcome in subset of observations, \\(\\mathbf{Y}_{obs} = \\{Y_{i}:i \\in \\mathcal N_{obs}\\}\\).\n\n\\(\\mathcal N_{obs}\\) is the set of indeces in the observed set, such that \\(|\\mathcal N_{obs}|= n_{obs}\\) is the number of observed data points.\n\nThe remaining observations are assumed to be missing and are contained in \\(\\mathbf{Y}_{mis} = \\{Y_{i}:i \\in \\mathcal N_{mis}\\}\\).\n\n\\(\\mathcal N_{mis}\\) is the set of indeces of the missing data and \\(|\\mathcal N_{mis}|= n_{mis}\\) is the number of missing data points.\n\nThe full set of data is given by \\(\\mathbf{Y}=(\\mathbf{Y}_{obs},\\mathbf{Y}_{mis})\\)."
+  },
+  {
+    "objectID": "slides/14-missing.html#prepare-for-next-class",
+    "href": "slides/14-missing.html#prepare-for-next-class",
+    "title": "Multiclass Classification",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+  },
+  {
+    "objectID": "slides/14-missing.html#defining-the-full-data-likelihood",
+    "href": "slides/14-missing.html#defining-the-full-data-likelihood",
+    "title": "Multiclass Classification",
+    "section": "Defining the full data likelihood",
+    "text": "Defining the full data likelihood\n\nDefine \\(O_{i}\\) as a binary indicator of observation \\(Y_{i}\\) being present, where \\(O_{i} = 1\\) indicates that \\(Y_{i}\\) was observed.\nThe collection of missingness indicators is given by \\(\\mathbf{O} = \\{O_{i}:i = 1,\\ldots,n\\}\\).\nThe missing data mechanism is then defined by the form of \\(f(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\Omega},\\boldsymbol{\\Phi})\\).\n\nThe parameter block, \\((\\boldsymbol{\\Omega},\\boldsymbol{\\Phi})\\), consists of \\(\\boldsymbol{\\Omega}\\), the target parameters of interest (e.g., feature effects on gold standard response), and \\(\\boldsymbol{\\Phi}\\), the nuisance parameters for inference on \\(\\boldsymbol{\\Omega}\\).\n\nIn particular, this will include the parameters that affect the possible dependence of missing data mechanism on the data."
+  },
+  {
+    "objectID": "slides/14-missing.html#missing-data",
+    "href": "slides/14-missing.html#missing-data",
+    "title": "Multiclass Classification",
+    "section": "Missing data",
+    "text": "Missing data\n\nMissing data can appear in the outcome and/or predictors.\nWe will write down some math for the missingness occuring in the outcome space."
+  },
+  {
+    "objectID": "slides/14-missing.html#missing-data-notation",
+    "href": "slides/14-missing.html#missing-data-notation",
+    "title": "Multiclass Classification",
+    "section": "Missing data notation",
+    "text": "Missing data notation\n\nDefine \\(O_{i}\\) as a binary indicator of observation \\(Y_{i}\\) being present, where \\(O_{i} = 1\\) indicates that \\(Y_{i}\\) was observed.\nThe collection of missingness indicators is given by \\(\\mathbf{O} = \\{O_{i}:i = 1,\\ldots,n\\}\\).\nOur observed data then consists of \\((\\mathbf{Y}_{obs}, \\mathbf{O})\\)."
+  },
+  {
+    "objectID": "slides/14-missing.html#observed-data-likelihood",
+    "href": "slides/14-missing.html#observed-data-likelihood",
+    "title": "Multiclass Classification",
+    "section": "Observed data likelihood",
+    "text": "Observed data likelihood\n\nThe likelihood for the observed data must be written by marginalizing over the unobserved outcome variables.\n\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y}_{obs}, \\mathbf{Y}_{mis}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int \\underbrace{f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi})}_{\\text{complete data likelihood}} d\\mathbf{Y}_{mis}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/14-missing.html#next",
+    "href": "slides/14-missing.html#next",
+    "title": "Multiclass Classification",
+    "section": "Next",
+    "text": "Next\nThere are many ways to handle missing data. The simplest approach is to perform a complete case analysis, where we delete entries with a missing value for at least one variable. If the data are missing completely at random (MCAR), then we get unbiased parameter estimate. However:\nCredible intervals will usually be too wide, since the sample size has effectively been reduced (drastically). If missing values occur for other reasons, this yields biased estimates. The next step up is instead of dropping all the missing entries, we replace missing values of a feature with the mean or median of available values for the feature. This is called single mean/median imputation, and is often recommended in many machine learning tasks if the data are MCAR as it can still lead to unbiased parameter estimates.\nThere are also some drawbacks with this method, especially if you’re interested in studying the variability. Single mean/median imputation artificially reduces the variance of features, which results in credible intervals which are too narrow. As shown in Figure 2, the peak at the mean is much higher relative to the surrounding values. The mean of the distribution can still be estimated appropriately, but the amount of spread is reduced.\nAnother drawback is it doesn’t account for relationship between variables, thus reduces correlation. For example, the correlation between the two variables is 0.665 if we only look at the complete cases. If we use single mean imputation, the correlation decreases to 0.589.\nNote that if you don’t care about assessing variability in your estimates, which is often the case for classification tasks, then mean imputation can work quite well."
+  },
+  {
+    "objectID": "slides/14-missing.html#complete-data-likelihood",
+    "href": "slides/14-missing.html#complete-data-likelihood",
+    "title": "Multiclass Classification",
+    "section": "Complete data likelihood",
+    "text": "Complete data likelihood\n\nThe joint distribution of \\((\\mathbf{Y}, \\mathbf{O})\\) can be written as,\n\n\\[f(\\mathbf{Y}, \\mathbf{O} |  \\boldsymbol{\\theta},\\boldsymbol{\\phi}) = \\underbrace{f(\\mathbf{Y} | \\boldsymbol{\\theta})}_{\\text{likelihood}} \\times  \\underbrace{f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi})}_{\\text{missing model}}.\\]\n\nThe parameter block, \\((\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\), consists of:\n\n\\(\\boldsymbol{\\theta}\\), the target parameters of interest (e.g., feature effects on outcome), and\n\\(\\boldsymbol{\\phi}\\), the nuisance parameters.\n\n\n\nCan we perform inference using this likelihood?"
+  },
+  {
+    "objectID": "slides/14-missing.html#missing-data-models-mcar",
+    "href": "slides/14-missing.html#missing-data-models-mcar",
+    "title": "Multiclass Classification",
+    "section": "Missing data models: MCAR",
+    "text": "Missing data models: MCAR\nThe data are missing completely at random (MCAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\boldsymbol{\\phi})\\\\\n&= f(\\mathbf{O} | \\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness does not depend on any data."
+  },
+  {
+    "objectID": "slides/14-missing.html#missing-data-models-mar",
+    "href": "slides/14-missing.html#missing-data-models-mar",
+    "title": "Multiclass Classification",
+    "section": "Missing data models: MAR",
+    "text": "Missing data models: MAR\nThe data are missing at random (MAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\boldsymbol{\\phi})\\\\\n&= f(\\mathbf{O} | \\mathbf{Y}_{obs},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness depends on the observed data only."
+  },
+  {
+    "objectID": "slides/14-missing.html#missing-data-models-mnar",
+    "href": "slides/14-missing.html#missing-data-models-mnar",
+    "title": "Multiclass Classification",
+    "section": "Missing data models: MNAR",
+    "text": "Missing data models: MNAR\nThe data are missing not at random (MNAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness depends on the observed and missing data."
+  },
+  {
+    "objectID": "slides/14-missing.html#implications-of-the-missing-model",
+    "href": "slides/14-missing.html#implications-of-the-missing-model",
+    "title": "Multiclass Classification",
+    "section": "Implications of the missing model",
+    "text": "Implications of the missing model\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{O} | \\boldsymbol{\\phi}) \\int f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta})d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi})\\int  f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nUnder the MCAR assumption, we are allowed to fit the complete case analysis."
+  },
+  {
+    "objectID": "slides/14-missing.html#implications-of-the-missing-model-mcar",
+    "href": "slides/14-missing.html#implications-of-the-missing-model-mcar",
+    "title": "Multiclass Classification",
+    "section": "Implications of the missing model: MCAR",
+    "text": "Implications of the missing model: MCAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{O} | \\boldsymbol{\\phi}) \\int f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta})d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi})\\int  f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nUnder the MCAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model."
+  },
+  {
+    "objectID": "slides/14-missing.html#implications-of-the-missing-model-mar",
+    "href": "slides/14-missing.html#implications-of-the-missing-model-mar",
+    "title": "Multiclass Classification",
+    "section": "Implications of the missing model: MAR",
+    "text": "Implications of the missing model: MAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{O} | \\mathbf{Y}_{obs},\\boldsymbol{\\phi}) \\int f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta})d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} |\\mathbf{Y}_{obs}, \\boldsymbol{\\phi})\\int  f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} |\\mathbf{Y}_{obs}, \\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nUnder the MAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model."
+  },
+  {
+    "objectID": "slides/14-missing.html#implications-of-the-missing-model-mnar",
+    "href": "slides/14-missing.html#implications-of-the-missing-model-mnar",
+    "title": "Multiclass Classification",
+    "section": "Implications of the missing model: MNAR",
+    "text": "Implications of the missing model: MNAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{Y}_{mis}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi})d\\mathbf{Y}_{mis}\\\\\n&= f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta}) \\int f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi})d\\mathbf{Y}_{mis}\\\\\n\\end{aligned}\\]\n\nUnder the MNAR assumption, we are NOT allowed to ignore the missing data. We must specify a model for the missing data."
+  },
+  {
+    "objectID": "slides/14-missing.html#summary-of-missing-mechanisms",
+    "href": "slides/14-missing.html#summary-of-missing-mechanisms",
+    "title": "Multiclass Classification",
+    "section": "Summary of missing mechanisms",
+    "text": "Summary of missing mechanisms\n\nUnder MAR and MCAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered ignorable.\nUnder MNAR, we must model the missing data mechanism. This data is considered non-ignorable."
+  },
+  {
+    "objectID": "slides/14-missing.html#generating-data",
+    "href": "slides/14-missing.html#generating-data",
+    "title": "Multiclass Classification",
+    "section": "Generating data",
+    "text": "Generating data\n\nWe want to have data under the following criteria:\n\nFull data\nMCAR data\nMAR data\nMNAR data\n\nWe then want to fit the following models: Complete case analysis, full Bayesian model, mice version."
+  },
+  {
+    "objectID": "slides/14-missing.html#lets-look-at-some-data",
+    "href": "slides/14-missing.html#lets-look-at-some-data",
+    "title": "Multiclass Classification",
+    "section": "Let’s look at some data",
+    "text": "Let’s look at some data\n\nlibrary(openintro)\nfulldata &lt;- data.frame(y = bdims$wgt,\n                       x = bdims$hgt)"
+  },
+  {
+    "objectID": "slides/14-missing.html#simulate-mcar-data",
+    "href": "slides/14-missing.html#simulate-mcar-data",
+    "title": "Multiclass Classification",
+    "section": "Simulate MCAR data",
+    "text": "Simulate MCAR data\n\nset.seed(1)\nmissing_prop &lt;- 0.25\nmcardata &lt;- ampute(fulldata, \n                   prop = missing_prop, \n                   pattern = data.frame(y = c(0),\n                                        x = c(1)), \n                   freq = c(1), \n                   mech = \"MCAR\")\nmardata &lt;- ampute(fulldata, \n                   prop = missing_prop, \n                   pattern = data.frame(y = c(0),\n                                        x = c(1)), \n                   freq = c(1), \n                   mech = \"MAR\")\nmnardata &lt;- ampute(fulldata, \n                  prop = missing_prop, \n                  pattern = data.frame(y = c(0),\n                                       x = c(1)), \n                  freq = c(1), \n                  mech = \"MNAR\")"
+  },
+  {
+    "objectID": "slides/14-missing.html#visualize-data",
+    "href": "slides/14-missing.html#visualize-data",
+    "title": "Multiclass Classification",
+    "section": "Visualize data",
+    "text": "Visualize data"
+  },
+  {
+    "objectID": "slides/14-missing.html#model-fits",
+    "href": "slides/14-missing.html#model-fits",
+    "title": "Multiclass Classification",
+    "section": "Model fits",
+    "text": "Model fits"
+  },
+  {
+    "objectID": "slides/14-missing.html#simulate-missing-data",
+    "href": "slides/14-missing.html#simulate-missing-data",
+    "title": "Multiclass Classification",
+    "section": "Simulate missing data",
+    "text": "Simulate missing data\n\nlibrary(mice)\nset.seed(54)\nmissing_prop &lt;- 0.5\npattern &lt;- data.frame(y = c(0), x = c(1))\nmcardata &lt;- ampute(fulldata, \n                   prop = missing_prop, \n                   patterns = pattern,\n                   mech = \"MCAR\")\nmardata &lt;- ampute(fulldata, \n                   prop = missing_prop, \n                   patterns = pattern,\n                   mech = \"MAR\")\nmnardata &lt;- ampute(fulldata, \n                  prop = missing_prop, \n                  patterns = pattern,\n                  mech = \"MNAR\")"
+  },
+  {
+    "objectID": "slides/14-missing.html#missing-pattern",
+    "href": "slides/14-missing.html#missing-pattern",
+    "title": "Multiclass Classification",
+    "section": "Missing pattern",
+    "text": "Missing pattern\n\nmd.pattern(mcardata$amp, rotate.names = TRUE)\n\n\n    x   y    \n256 1   1   0\n251 1   0   1\n    0 251 251"
+  },
+  {
+    "objectID": "slides/14-missing.html#model",
+    "href": "slides/14-missing.html#model",
+    "title": "Multiclass Classification",
+    "section": "Model",
+    "text": "Model\n\\[\\begin{aligned}\nY_i &= \\alpha + X_i \\beta + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0, \\sigma^2)\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/14-missing.html#complete-case-model",
+    "href": "slides/14-missing.html#complete-case-model",
+    "title": "Multiclass Classification",
+    "section": "Complete-case model",
+    "text": "Complete-case model\n\\[\\begin{aligned}\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{obs}\\\\\n\\alpha &\\sim N(0,10)\\\\\n\\beta &\\sim N(0,10)\\\\\n\\sigma &\\sim \\text{Half-Normal}(0, 10)\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/14-missing.html#complete-case-model-1",
+    "href": "slides/14-missing.html#complete-case-model-1",
+    "title": "Multiclass Classification",
+    "section": "Complete-case model",
+    "text": "Complete-case model\n\\[\\begin{aligned}\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{obs}\\\\\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{mis}\\\\\n\\alpha &\\sim N(0,10)\\\\\n\\beta &\\sim N(0,10)\\\\\n\\sigma &\\sim \\text{Half-Normal}(0, 10)\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/14-missing.html#full-bayesian-model",
+    "href": "slides/14-missing.html#full-bayesian-model",
+    "title": "Multiclass Classification",
+    "section": "Full Bayesian model",
+    "text": "Full Bayesian model\n\\[\\begin{aligned}\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{obs}\\\\\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{mis}\\\\\n\\alpha &\\sim N(0,10)\\\\\n\\beta &\\sim N(0,10)\\\\\n\\sigma &\\sim \\text{Half-Normal}(0, 10)\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "prepare/prepare-jan21.html",
+    "href": "prepare/prepare-jan21.html",
+    "title": "Prepare for January 21 lecture",
+    "section": "",
+    "text": "📖 Read Getting started with Stan\n📖 Read Linear regression in Stan\n✅ Work on HW 01"
+  },
+  {
+    "objectID": "prepare/prepare-jan23.html",
+    "href": "prepare/prepare-jan23.html",
+    "title": "Prepare for January 23 lecture",
+    "section": "",
+    "text": "📖 Read about the posterior predictive distribution in Hoff Chapter 4, Section 4.3\n📖 Review prior choice recommendations\n✅ Work on HW 01"
   }
 ]

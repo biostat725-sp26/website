@@ -1,0 +1,15 @@
+---
+title: Prepare for January 23 lecture
+---
+
+<br>
+
+Occasionally during the semester we will reference material from the text book *Bayesian Data Analysis Third Edition* by Andrew Gelman et al. A PDF of the textbook is available for download at [Andrew Gelman's website](http://www.stat.columbia.edu/~gelman/book/). We will refer to this textbook as **BDA3**.
+
+📖 Read **BDA3** Chapter 6, Sections 6.1-6.5 to learn about Gibbs sampling
+
+📖 Read about the posterior predictive distribution in **Hoff** Chapter 4, Section 4.3
+
+📖 Review [prior choice recommendations](https://github.com/stan-dev/stan/wiki/prior-choice-recommendations)
+
+✅ Work on [HW 01](https://biostat725-sp25.netlify.app/hw/hw-01)

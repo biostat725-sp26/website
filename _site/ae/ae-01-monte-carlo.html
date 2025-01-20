@@ -400,12 +400,12 @@ Due date
 <ul>
 <li>Go to the course organization at <a href="https://github.com/biostat725-sp25">github.com/biostat725-sp25</a> organization on GitHub.</li>
 <li>Click on the repo with the prefix <strong>ae-01-</strong>. It contains the starter documents you need to complete the AE.</li>
-<li>Click on the green <strong>CODE</strong> button, select <strong>Use HTTPS</strong> (this might already be selected by default, and if it is, you’ll see the text <strong>Clone using the web URL.</strong>). Click on the clipboard icon to copy the repo URL.
+<li>Click on the green <strong>CODE</strong> button, select <strong>Use SSH</strong> (this might already be selected by default, and if it is, you’ll see the text <strong>Clone using the web URL.</strong>). Click on the clipboard icon to copy the repo URL.
 <ul>
 <li>See the <a href="https://biostat725-sp25.netlify.app/hw/hw-00#connect-rstudio-and-github">HW 00 instructions</a> if you have not set up the SSH key or configured git.</li>
 </ul></li>
 <li>In RStudio, go to <em>File</em> <span class="math inline">\(\rightarrow\)</span> <em>New Project</em> <span class="math inline">\(\rightarrow\)</span> <em>Version Control</em> <span class="math inline">\(\rightarrow\)</span> <em>Git</em>.</li>
-<li>Copy and paste the URL of your assignment repo into the dialog box <em>Repository URL</em>. Again, please make sure to have <em>HTTPS</em> highlighted under <em>Clone</em> when you copy the address.</li>
+<li>Copy and paste the URL of your assignment repo into the dialog box <em>Repository URL</em>. Again, please make sure to have <em>SSH</em> highlighted under <em>Clone</em> when you copy the address.</li>
 <li>Click <em>Create Project</em>, and the files from your GitHub repo will be displayed in the <em>Files</em> pane in RStudio.</li>
 <li>Click <code>AE 01.qmd</code> to open the template Quarto file. This is where you will write up your code and narrative for the AE.</li>
 </ul>
@@ -588,7 +588,7 @@ $ progression &lt;dbl&gt; -0.190141797, -0.055098961, 0.431682497, 0.218545250, 
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(mu)) <span class="sc">+</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">"Posterior histogram and density estimate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -603,14 +603,14 @@ $ progression &lt;dbl&gt; -0.190141797, -0.055098961, 0.431682497, 0.218545250, 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(posterior_mu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 14.20115</code></pre>
+<pre><code>[1] 14.19549</code></pre>
 </div>
 </div>
 <p>To make sure we have sufficient precision, we can compute the Monte Carlo standard error.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(posterior_mu) <span class="sc">/</span> S)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.001881467</code></pre>
+<pre><code>[1] 0.001897419</code></pre>
 </div>
 </div>
 </section>

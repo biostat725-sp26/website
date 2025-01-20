@@ -356,7 +356,7 @@ dim(pars$mu)
 #| echo: true
 #| fig-align: "center"
 #| fig-width: 4
-#| fig-height: 4
+#| fig-height: 3.5
 #| layout-nrow: 1
 ###Extract samples for particular parameters
 library(ggplot2)
@@ -416,7 +416,7 @@ data {
   int<lower = 1> n; // number of observations
   int<lower = 1> p; // number of covariates
   vector[n] Y; // outcome vector
-  matrix[, p + 1] X; // covariate vector
+  matrix[n, p + 1] X; // covariate vector
   real beta0; // location hyperparameter for beta
   real<lower = 0> sigma_beta; // scale hyperparameter for beta
   real<lower = 0> a; // shape hyperparameter for sigma

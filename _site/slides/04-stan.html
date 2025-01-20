@@ -727,7 +727,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb24-5"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb24-6"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(mu), <span class="at">y =</span> <span class="st">"Count"</span>, </span>
 <span id="cb24-7"><a></a>       <span class="at">subtitle =</span> <span class="fu">bquote</span>(<span class="st">"Posterior distribution for "</span> <span class="sc">~</span> mu))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -784,7 +784,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb28-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n; <span class="co">// number of observations</span></span>
 <span id="cb28-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p; <span class="co">// number of covariates</span></span>
 <span id="cb28-4"><a></a>  <span class="dt">vector</span>[n] Y; <span class="co">// outcome vector</span></span>
-<span id="cb28-5"><a></a>  <span class="dt">matrix</span>[, p + <span class="dv">1</span>] X; <span class="co">// covariate vector</span></span>
+<span id="cb28-5"><a></a>  <span class="dt">matrix</span>[n, p + <span class="dv">1</span>] X; <span class="co">// covariate vector</span></span>
 <span id="cb28-6"><a></a>  <span class="dt">real</span> beta0; <span class="co">// location hyperparameter for beta</span></span>
 <span id="cb28-7"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma_beta; <span class="co">// scale hyperparameter for beta</span></span>
 <span id="cb28-8"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a; <span class="co">// shape hyperparameter for sigma</span></span>

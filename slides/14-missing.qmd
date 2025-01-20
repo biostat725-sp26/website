@@ -1,0 +1,393 @@
+---
+title: "Multiclass Classification"
+author: "Prof. Sam Berchuck"
+date: "2025-02-25"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+filters:
+  - parse-latex
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(mvtnorm)
+library(coda)
+library(lars)
+library(LaplacesDemon)
+library(nimble)
+library(mice)
+```
+
+## Review of last lecture
+
+-   Last, we learned about classification for binary and multiclass problems.
+
+## Missing data
+
+- Missing data can appear in the outcome and/or predictors.
+
+- We will write down some math for the missingness occuring in the outcome space.
+
+## Missing data framework {.midi}
+
+- We are interested in modeling a random variable $Y_{i}$, for $i \in \{1,\ldots,n\}$.
+
+- In a missing data setting, we only observe the outcome in subset of observations, $\mathbf{Y}_{obs} = \{Y_{i}:i \in \mathcal N_{obs}\}$. 
+
+  - $\mathcal N_{obs}$ is the set of indeces in the observed set, such that $|\mathcal N_{obs}|= n_{obs}$ is the number of observed data points.
+
+- The remaining observations are assumed to be missing and are contained in $\mathbf{Y}_{mis} = \{Y_{i}:i \in \mathcal N_{mis}\}$. 
+
+  - $\mathcal N_{mis}$ is the set of indeces of the missing data and $|\mathcal N_{mis}|= n_{mis}$ is the number of missing data points. 
+
+- The full set of data is given by $\mathbf{Y}=(\mathbf{Y}_{obs},\mathbf{Y}_{mis})$.
+
+## Missing data notation
+
+- Define $O_{i}$ as a binary indicator of observation $Y_{i}$ being present, where $O_{i} = 1$ indicates that $Y_{i}$ was observed. 
+
+- The collection of missingness indicators is given by $\mathbf{O} = \{O_{i}:i = 1,\ldots,n\}$. 
+
+- Our observed data then consists of $(\mathbf{Y}_{obs}, \mathbf{O})$.
+
+## Complete data likelihood
+
+- The joint distribution of $(\mathbf{Y}, \mathbf{O})$ can be written as,
+
+$$f(\mathbf{Y}, \mathbf{O} |  \boldsymbol{\theta},\boldsymbol{\phi}) = \underbrace{f(\mathbf{Y} | \boldsymbol{\theta})}_{\text{likelihood}} \times  \underbrace{f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi})}_{\text{missing model}}.$$
+
+  - The parameter block, $(\boldsymbol{\theta},\boldsymbol{\phi})$, consists of: 
+  
+    - $\boldsymbol{\theta}$, the **target parameters** of interest (e.g., feature effects on outcome), and 
+    
+    - $\boldsymbol{\phi}$, the **nuisance parameters**.
+    
+. . .
+
+**Can we perform inference using this likelihood?**
+
+## Observed data likelihood 
+
+- The likelihood for the observed data must be written by marginalizing over the unobserved outcome variables.
+
+\begin{align*}
+f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y}_{obs}, \mathbf{Y}_{mis}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&= \int f(\mathbf{Y}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&= \int \underbrace{f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi})}_{\text{complete data likelihood}} d\mathbf{Y}_{mis}
+\end{align*}
+
+## Missing data models: MCAR
+
+The data are missing completely at random (MCAR) if the missing mechanism is defined as,
+\begin{align*}
+f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\boldsymbol{\phi})\\
+&= f(\mathbf{O} | \boldsymbol{\phi}).
+\end{align*}
+
+- The missingness does not depend on any data.
+
+## Implications of the missing model: MCAR {.midi}
+
+\begin{align*}
+f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&=  f(\mathbf{O} | \boldsymbol{\phi}) \int f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \boldsymbol{\theta})d\mathbf{Y}_{mis}\\
+&=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} | \boldsymbol{\phi})\int  f(\mathbf{Y}_{mis} | \boldsymbol{\theta}) d\mathbf{Y}_{mis}\\
+&=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} | \boldsymbol{\phi}).
+\end{align*}
+
+- Under the MCAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model.
+
+## Missing data models: MAR
+
+The data are missing at random (MAR) if the missing mechanism is defined as,
+\begin{align*}
+f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\boldsymbol{\phi})\\
+&= f(\mathbf{O} | \mathbf{Y}_{obs},\boldsymbol{\phi}).
+\end{align*}
+
+- The missingness depends on the observed data only.
+
+## Implications of the missing model: MAR {.midi}
+
+\begin{align*}
+f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}_{obs}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&=  f(\mathbf{O} | \mathbf{Y}_{obs},\boldsymbol{\phi}) \int f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \boldsymbol{\theta})d\mathbf{Y}_{mis}\\
+&=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} |\mathbf{Y}_{obs}, \boldsymbol{\phi})\int  f(\mathbf{Y}_{mis} | \boldsymbol{\theta}) d\mathbf{Y}_{mis}\\
+&=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} |\mathbf{Y}_{obs}, \boldsymbol{\phi}).
+\end{align*}
+
+- Under the MAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model.
+
+## Missing data models: MNAR
+
+The data are missing not at random (MNAR) if the missing mechanism is defined as,
+\begin{align*}
+f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\boldsymbol{\phi}).
+\end{align*}
+
+- The missingness depends on the observed and missing data.
+
+## Implications of the missing model: MNAR {.midi}
+
+\begin{align*}
+f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}_{obs},\mathbf{Y}_{mis}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&= \int f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi})d\mathbf{Y}_{mis}\\
+&= f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) \int f(\mathbf{Y}_{mis} | \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi})d\mathbf{Y}_{mis}\\
+
+\end{align*}
+
+- Under the MNAR assumption, we are NOT allowed to ignore the missing data. We must specify a model for the missing data.
+
+## Summary of missing mechanisms
+
+- Under MAR and MCAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered **ignorable**.
+
+- Under MNAR, we must model the missing data mechanism. This data is considered **non-ignorable**.
+
+
+## Generating data
+
+- We want to have data under the following criteria:
+
+  1. Full data
+  
+  2. MCAR data
+  
+  3. MAR data
+  
+  4. MNAR data
+  
+- We then want to fit the following models: Complete case analysis, full Bayesian model, mice version. 
+
+## Next
+
+There are many ways to handle missing data. The simplest approach is to perform a complete case analysis, where we delete entries with a missing value for at least one variable. If the data are missing completely at random (MCAR), then we get unbiased parameter estimate. However:
+
+Credible intervals will usually be too wide, since the sample size has effectively been reduced (drastically).
+If missing values occur for other reasons, this yields biased estimates.
+The next step up is instead of dropping all the missing entries, we replace missing values of a feature with the mean or median of available values for the feature. This is called single mean/median imputation, and is often recommended in many machine learning tasks if the data are MCAR as it can still lead to unbiased parameter estimates.
+
+There are also some drawbacks with this method, especially if you’re interested in studying the variability. Single mean/median imputation artificially reduces the variance of features, which results in credible intervals which are too narrow. As shown in Figure 2, the peak at the mean is much higher relative to the surrounding values. The mean of the distribution can still be estimated appropriately, but the amount of spread is reduced.
+
+Another drawback is it doesn’t account for relationship between variables, thus reduces correlation. For example, the correlation between the two variables is 0.665 if we only look at the complete cases. If we use single mean imputation, the correlation decreases to 0.589.
+
+Note that if you don’t care about assessing variability in your estimates, which is often the case for classification tasks, then mean imputation can work quite well.
+
+
+## Let's look at some data
+
+```{r, echo = FALSE}
+library(openintro)
+fulldata <- data.frame(y = bdims$wgt,
+                       x = bdims$hgt)
+```
+```{r, eval = FALSE}
+library(openintro)
+fulldata <- data.frame(y = bdims$wgt,
+                       x = bdims$hgt)
+```
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-height: 4
+#| layout-ncol: 1
+ggplot(fulldata, aes(x = x, y = y)) +
+  geom_point() + 
+  labs(x = "Height (centimeters)", 
+       y = "Weight (kilograms)")
+```
+
+## Simulate missing data
+
+```{r}
+library(mice)
+set.seed(54)
+missing_prop <- 0.5
+pattern <- data.frame(y = c(0), x = c(1))
+mcardata <- ampute(fulldata, 
+                   prop = missing_prop, 
+                   patterns = pattern,
+                   mech = "MCAR")
+mardata <- ampute(fulldata, 
+                   prop = missing_prop, 
+                   patterns = pattern,
+                   mech = "MAR")
+mnardata <- ampute(fulldata, 
+                  prop = missing_prop, 
+                  patterns = pattern,
+                  mech = "MNAR")
+```
+
+## Visualize data
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 4
+#| fig-height: 2.5
+#| layout-ncol: 2
+ggplot(fulldata, aes(x = x, y = y)) +
+  geom_point() + 
+  labs(x = "Height (centimeters)", 
+       y = "Weight (kilograms)",
+       subtitle = "Full data") + 
+  theme(plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+ggplot(fulldata, aes(x = x, y = y)) +
+  geom_point(color = "gray") +
+  geom_point(data = mcardata$amp, aes(x = x, y = y)) + 
+  labs(x = "Height (centimeters)", 
+       y = "Weight (kilograms)",
+       subtitle = "MCAR") + 
+    theme(plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+ggplot(fulldata, aes(x = x, y = y)) +
+  geom_point(color = "gray") +
+  geom_point(data = mardata$amp, aes(x = x, y = y)) + 
+  labs(x = "Height (centimeters)", 
+       y = "Weight (kilograms)",
+       subtitle = "MAR") + 
+    theme(plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+ggplot(fulldata, aes(x = x, y = y)) +
+  geom_point(color = "gray") +
+  geom_point(data = mnardata$amp, aes(x = x, y = y)) + 
+  labs(x = "Height (centimeters)", 
+       y = "Weight (kilograms)",
+       subtitle = "MNAR") + 
+    theme(plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+```
+
+## Model fits
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 4
+#| fig-height: 2.5
+#| layout-ncol: 2
+reg1 <- lm(y ~ x, data = fulldata)
+reg2 <- lm(y ~ x, data = mcardata$amp)
+reg3 <- lm(y ~ x, data = mardata$amp)
+reg4 <- lm(y ~ x, data = mnardata$amp)
+regs <- list(reg1, reg2, reg3, reg4)
+round2 <- function(x) format(round(x, 2), nsmall = 2)
+labels <- c("Full data", "MCAR", "MAR", "MNAR")
+datas <- list(fulldata, mcardata$amp, mardata$amp, mnardata$amp)
+for (i in 1:4) {
+  reg <- regs[[i]]
+  data <- datas[[i]]
+  if (i > 1) y_bar_mis <- mean(fulldata[which(is.na(datas[[i]][, 1])), "y"])
+  y_bar_obs <- mean(fulldata[which(!is.na(datas[[i]][, 1])), "y"])
+  slope <- summary(reg)$coef[2, 1]
+  x <- seq(min(fulldata$x), max(fulldata$x), length.out = 1001)
+  dat_curve <- data.frame(x = x,
+                          y = predict(reg, newdata = data.frame(x = x)))
+    if (i == 1) {
+      p <- ggplot(fulldata, aes(x = x, y = y)) + 
+        geom_point(color = "gray") + 
+        geom_point(data = data, mapping = aes(x = x, y = y)) + 
+        # geom_line(data = dat_curve, aes(x = x, y = y), color = "blue", lwd = 1.5) + 
+        geom_smooth(method = "lm", formula = y ~ x, se = TRUE, fullrange = TRUE, lwd = 1.5) +
+        xlim(min(fulldata$x), max(fulldata$x)) + 
+        ylim(min(fulldata$y), max(fulldata$y)) + 
+  labs(x = "Height (centimeters)", 
+       y = "Weight (kilograms)",
+             subtitle = labels[i]) + 
+        annotate("text", x = 148, y = 113, label = as.expression(bquote(bar(Y) == ~ .(round2(y_bar_obs)))), hjust = 0, vjust = 0) + 
+        annotate("text", x = 148, y = 103, label = as.expression(bquote("Slope" == ~ .(round2(slope)))), hjust = 0, vjust = 0) + 
+    theme(plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+    }
+    if (i > 1) {
+      p <- ggplot(fulldata, aes(x = x, y = y)) + 
+        geom_point(color = "gray") + 
+        geom_point(data = data, mapping = aes(x = x, y = y)) + 
+        # geom_line(data = dat_curve, aes(x = x, y = y), color = "blue", lwd = 1.5) + 
+        geom_smooth(method = "lm", formula = y ~ x, se = TRUE, fullrange = TRUE, lwd = 1.5) +
+        xlim(min(fulldata$x), max(fulldata$x)) + 
+        ylim(min(fulldata$y), max(fulldata$y)) + 
+  labs(x = "Height (centimeters)", 
+       y = "Weight (kilograms)",
+             subtitle = labels[i]) + 
+        annotate("text", x = 148, y = 111, label = as.expression(bquote(bar(Y)[obs] == ~ .(round2(y_bar_obs)))), hjust = 0, vjust = 0) + 
+        annotate("text", x = 148, y = 101, label = as.expression(bquote(bar(Y)[mis] == ~ .(round2(y_bar_mis)))), hjust = 0, vjust = 0) + 
+        annotate("text", x = 148, y = 91, label = as.expression(bquote("Slope" == ~ .(round2(slope)))), hjust = 0, vjust = 0) + 
+    theme(plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+    }
+  print(p)
+}
+
+```
+
+## Complete-case model
+
+\begin{align*}
+Y_i &\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{obs}\\
+\alpha &\sim N(0,10)\\
+\beta &\sim N(0,10)\\
+\sigma &\sim \text{Half-Normal}(0, 10)
+\end{align*}
+
+## Full Bayesian model
+
+\begin{align*}
+Y_i &\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{obs}\\
+Y_i &\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{mis}\\
+\alpha &\sim N(0,10)\\
+\beta &\sim N(0,10)\\
+\sigma &\sim \text{Half-Normal}(0, 10)
+\end{align*}
+
+
+## Missing pattern
+
+```{r}
+md.pattern(mcardata$amp, rotate.names = TRUE)
+```
+
+## Prepare for next class
+
+-   Work on [HW 03](https://biostat725-sp25.netlify.app/hw/hw-03).
+
+-   Complete reading to prepare for next Tuesday's lecture
+
+-   Tuesday's lecture: Missing data

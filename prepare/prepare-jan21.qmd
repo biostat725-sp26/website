@@ -1,0 +1,11 @@
+---
+title: Prepare for January 21 lecture
+---
+
+<br>
+
+📖 Read [Getting started with Stan](https://nicholasrjenkins.science/tutorials/bayesian-inference-with-stan/rstan/)
+
+📖 Read [Linear regression in Stan](https://mc-stan.org/docs/stan-users-guide/regression.html#linear-regression)
+
+✅ Work on [HW 01](https://biostat725-sp25.netlify.app/hw/hw-01) 

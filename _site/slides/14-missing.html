@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Prof.&nbsp;Sam Berchuck">
-  <title>BIOSTAT 725 - Spring 2025 – Priors, Posteriors, and PPDs!</title>
+  <title>BIOSTAT 725 - Spring 2025 – Multiclass Classification</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -393,7 +393,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Priors, Posteriors, and PPDs!</h1>
+  <h1 class="title">Multiclass Classification</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -403,485 +403,328 @@ Prof.&nbsp;Sam Berchuck
 </div>
 </div>
 
-  <p class="date">Jan 23, 2025</p>
+  <p class="date">Feb 25, 2025</p>
 </section>
 <section id="review-of-last-lecture" class="slide level2">
 <h2>Review of last lecture</h2>
-<p>On Tuesday, we learned about Stan</p>
 <ul>
-<li><p>A probabilistic programming language for Bayesian inference</p></li>
-<li><p>We learned about the <strong>data</strong>, <strong>parameter</strong>, and <strong>model</strong> code chunks</p></li>
-<li><p>We used Stan to fit a Bayesian linear regression</p></li>
-</ul>
-<p>Today, we will dive into priors, posterior summaries, and posterior predictive distributions (PPDs)</p>
-</section>
-<section>
-<section id="priors" class="title-slide slide level1 center">
-<h1>Priors</h1>
-
-</section>
-<section id="prior-elicitation" class="slide level2">
-<h2>Prior elicitation</h2>
-<ul>
-<li><p>Selecting the prior is one of the most important steps in a Bayesian analysis.</p></li>
-<li><p>There is no “right” way to select a prior.</p></li>
-<li><p>The choices often depend on the objective of the study and the nature of the data.</p>
-<ol type="1">
-<li><p>Conjugate versus non-conjugate</p></li>
-<li><p>Informative versus uninformative</p></li>
-<li><p>Proper versus improper</p></li>
-<li><p>Subjective versus objective</p></li>
-</ol></li>
+<li>Last, we learned about classification for binary and multiclass problems.</li>
 </ul>
 </section>
-<section id="conjugate-priors" class="slide level2">
-<h2>Conjugate priors</h2>
+<section id="missing-data" class="slide level2">
+<h2>Missing data</h2>
 <ul>
-<li><p>A prior is conjugate if the posterior is a member of the same parametric family.</p></li>
-<li><p>We have seen that if the response is normal and we use a normal prior on the regression parameter, the posterior is also a normal (if we use an inverse gamma distribution for the variance, the posterior is also inverse gamma).</p>
+<li><p>Missing data can appear in the outcome and/or predictors.</p></li>
+<li><p>We will write down some math for the missingness occuring in the outcome space.</p></li>
+</ul>
+</section>
+<section id="missing-data-framework" class="slide level2 midi">
+<h2>Missing data framework</h2>
 <ul>
-<li><p>This requires a pairing of the likelihood and prior.</p></li>
-<li><p>There is a long list of <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate priors</a>.</p></li>
+<li><p>We are interested in modeling a random variable <span class="math inline">\(Y_{i}\)</span>, for <span class="math inline">\(i \in \{1,\ldots,n\}\)</span>.</p></li>
+<li><p>In a missing data setting, we only observe the outcome in subset of observations, <span class="math inline">\(\mathbf{Y}_{obs} = \{Y_{i}:i \in \mathcal N_{obs}\}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\mathcal N_{obs}\)</span> is the set of indeces in the observed set, such that <span class="math inline">\(|\mathcal N_{obs}|= n_{obs}\)</span> is the number of observed data points.</li>
 </ul></li>
-<li><p>The advantage of a conjugate prior is that the posterior is available in closed form.</p></li>
-<li><p>No longer critical with Stan!</p></li>
-</ul>
-</section>
-<section id="informative-versus-uninformative-priors" class="slide level2">
-<h2>Informative versus uninformative priors</h2>
+<li><p>The remaining observations are assumed to be missing and are contained in <span class="math inline">\(\mathbf{Y}_{mis} = \{Y_{i}:i \in \mathcal N_{mis}\}\)</span>.</p>
 <ul>
-<li><p>In some cases informative priors are available.</p></li>
-<li><p>Potential sources include: literature reviews; pilot studies; expert opinions; etc.</p></li>
-<li><p>Prior elicitation is the process of converting expert information to prior distribution.</p></li>
-<li><p>For example, the expert might not comprehend an inverse gamma pdf, but if they give you an estimate and a spread you can back out <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p></li>
-</ul>
-</section>
-<section id="informative-versus-uninformative-priors-1" class="slide level2">
-<h2>Informative versus uninformative priors</h2>
-<ul>
-<li><p>Strong priors for the parameters of interest can be hard to defend.</p></li>
-<li><p>Strong priors for nuisance parameters are more common.</p></li>
-<li><p>For example, say you are doing a Bayesian t-test to study the mean <span class="math inline">\(\mu\)</span>, you might use an informative prior for the nuisance parameter <span class="math inline">\(\sigma^2\)</span>.</p></li>
-<li><p>Any time informative priors are used you should conduct a sensitivity analysis.</p>
-<ul>
-<li>That is, compare the posterior for several priors.</li>
+<li><span class="math inline">\(\mathcal N_{mis}\)</span> is the set of indeces of the missing data and <span class="math inline">\(|\mathcal N_{mis}|= n_{mis}\)</span> is the number of missing data points.</li>
 </ul></li>
+<li><p>The full set of data is given by <span class="math inline">\(\mathbf{Y}=(\mathbf{Y}_{obs},\mathbf{Y}_{mis})\)</span>.</p></li>
 </ul>
 </section>
-<section id="informative-versus-uninformative-priors-2" class="slide level2">
-<h2>Informative versus uninformative priors</h2>
+<section id="missing-data-notation" class="slide level2">
+<h2>Missing data notation</h2>
 <ul>
-<li><p>In most cases prior information is not available and so uninformative priors are used.</p></li>
-<li><p>Other names: vague, weak, flat, diffuse, etc.</p>
+<li><p>Define <span class="math inline">\(O_{i}\)</span> as a binary indicator of observation <span class="math inline">\(Y_{i}\)</span> being present, where <span class="math inline">\(O_{i} = 1\)</span> indicates that <span class="math inline">\(Y_{i}\)</span> was observed.</p></li>
+<li><p>The collection of missingness indicators is given by <span class="math inline">\(\mathbf{O} = \{O_{i}:i = 1,\ldots,n\}\)</span>.</p></li>
+<li><p>Our observed data then consists of <span class="math inline">\((\mathbf{Y}_{obs}, \mathbf{O})\)</span>.</p></li>
+</ul>
+</section>
+<section id="complete-data-likelihood" class="slide level2">
+<h2>Complete data likelihood</h2>
 <ul>
-<li>These all refer to priors with large variance.</li>
+<li>The joint distribution of <span class="math inline">\((\mathbf{Y}, \mathbf{O})\)</span> can be written as,</li>
+</ul>
+<p><span class="math display">\[f(\mathbf{Y}, \mathbf{O} |  \boldsymbol{\theta},\boldsymbol{\phi}) = \underbrace{f(\mathbf{Y} | \boldsymbol{\theta})}_{\text{likelihood}} \times  \underbrace{f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi})}_{\text{missing model}}.\]</span></p>
+<ul>
+<li><p>The parameter block, <span class="math inline">\((\boldsymbol{\theta},\boldsymbol{\phi})\)</span>, consists of:</p>
+<ul>
+<li><p><span class="math inline">\(\boldsymbol{\theta}\)</span>, the <strong>target parameters</strong> of interest (e.g., feature effects on outcome), and</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\phi}\)</span>, the <strong>nuisance parameters</strong>.</p></li>
 </ul></li>
-<li><p>Examples: <span class="math inline">\(\theta \sim Uniform(0, 1)\)</span> or <span class="math inline">\(\mu ∼ N(0, 1000^2)\)</span></p></li>
-<li><p>Uninformative priors can be conjugate or not conjugate.</p></li>
-<li><p>The idea is that the likelihood overwhelms the prior.</p></li>
-<li><p>You should verify this with a sensitivity analysis.</p></li>
-</ul>
-</section>
-<section id="improper-priors" class="slide level2">
-<h2>Improper priors</h2>
-<ul>
-<li><p>Extreme case: <span class="math inline">\(\mu \sim N(0, \tau^2)\)</span> and we set <span class="math inline">\(\tau = \infty\)</span>.</p></li>
-<li><p>A “prior” that doesn’t integrate to one is called <strong>improper</strong>.</p></li>
-<li><p>Example: <span class="math inline">\(f(\mu) = 1\)</span> for all <span class="math inline">\(\mu \in \mathbb{R}\)</span>.</p></li>
-<li><p>It’s OK to use an improper prior so long as you verify that the posterior integrates to one.</p></li>
-<li><p>For example, in linear regression an improper prior can be used for the slopes as long as the number of observations exceeds the number of covariates and there are no redundant predictors.</p></li>
-</ul>
-</section>
-<section id="subjective-versus-objective-priors" class="slide level2">
-<h2>Subjective versus objective priors</h2>
-<ul>
-<li><p>A subjective Bayesian picks a prior that corresponds to their current state of knowledge before collecting data.</p></li>
-<li><p>Of course, if the reader does not share this prior then they might not accept the analysis, and so sensitivity analysis is common.</p></li>
-<li><p>An <strong>objective analysis</strong> is one that requires no subjective decisions by the analyst.</p></li>
-<li><p>Subjective decisions include picking the likelihood, treatment of outliers, transformations, … and prior specification.</p></li>
-<li><p>A completely objective analysis may be feasible in tightly controlled experiments, but is impossible in many analyses.</p></li>
-</ul>
-</section>
-<section id="objective-bayes" class="slide level2">
-<h2>Objective Bayes</h2>
-<ul>
-<li><p>An objective Bayesian attempts to replace the subjective choice of prior with an algorithm that determines the prior.</p></li>
-<li><p>There are many approaches: Jeffreys, reference, probability matching, maximum entropy, empirical Bayes, penalized complexity, etc.</p></li>
-<li><p>Jeffreys priors are the most common: <span class="math inline">\(f(\boldsymbol{\theta}) \propto \sqrt{\det[I(\boldsymbol{\theta})]}\)</span>, where <span class="math inline">\(I(\boldsymbol{\theta})_{ij} = \mathbb{E}\left[\frac{f(\mathbf{Y}|\boldsymbol{\theta})}{\partial \theta_i}\frac{f(\mathbf{Y}|\boldsymbol{\theta})}{\partial \theta_j}\right]\)</span> is the Fisher Information matrix.</p></li>
-<li><p>Many of these priors are improper and so you have to check that the posterior is proper.</p></li>
-</ul>
-</section>
-<section id="hyperpriors" class="slide level2">
-<h2>Hyperpriors</h2>
-<p><strong>Prior</strong> is the name for the distribution of model parameters that show up in the likelihood.</p>
-<ul>
-<li>For example: In linear regression, <span class="math inline">\(\boldsymbol{\beta}\)</span> and <span class="math inline">\(\sigma^2\)</span> are parameters in the likelihood, thus <span class="math inline">\(f(\boldsymbol{\beta})\)</span> and <span class="math inline">\(f(\sigma^2)\)</span> are called priors.</li>
-</ul>
-<p><strong>Hyperprior</strong> is the name for the distribution of model parameters not in the likelihood.</p>
-<p><strong>Hyperparameter</strong> is the name for the parameters in a hyperprior.</p>
-</section>
-<section id="hyperpriors-1" class="slide level2">
-<h2>Hyperpriors</h2>
-<ul>
-<li><p>For example: Suppose in linear regression, we place the following prior for <span class="math inline">\(\boldsymbol{\beta}\)</span>, <span class="math inline">\(f(\boldsymbol{\beta} | \boldsymbol{\beta}_0, \sigma_{\beta}^2) = N(\boldsymbol{\beta}_0,\sigma_{\beta}^2 \mathbf{I})\)</span> and</p>
-<ul>
-<li><p><span class="math inline">\(f(\boldsymbol{\beta}_0) = N(\mathbf{0}, \mathbf{I})\)</span></p></li>
-<li><p><span class="math inline">\(f(\sigma_{\beta}^2) = IG(a_{\beta}, b_{\beta})\)</span></p></li>
-</ul></li>
-<li><p><span class="math inline">\(f(\boldsymbol{\beta}_0)\)</span> and <span class="math inline">\(f(\sigma_{\beta}^2)\)</span> are <strong>hyperpriors</strong>.</p></li>
-<li><p><span class="math inline">\(a_{\beta}, b_{\beta}\)</span> are <strong>hyperparameters</strong>.</p></li>
 </ul>
 <div class="fragment">
-<p><strong>Question:</strong> Why would a researcher be interested in a hyperprior?</p>
+<p><strong>Can we perform inference using this likelihood?</strong></p>
 </div>
 </section>
-<section id="prior-predictive-checks" class="slide level2">
-<h2>Prior predictive checks</h2>
+<section id="observed-data-likelihood" class="slide level2">
+<h2>Observed data likelihood</h2>
 <ul>
-<li>Use the prior distribution to obtain samples of the data, <span class="math inline">\(\mathbf{Y}\)</span>.</li>
+<li>The likelihood for the observed data must be written by marginalizing over the unobserved outcome variables.</li>
 </ul>
 <p><span class="math display">\[\begin{aligned}
-f(\mathbf{Y}) &amp;= \int f(\mathbf{Y}, \boldsymbol{\theta}) d\boldsymbol{\theta}\\
-&amp;= \int f(\mathbf{Y} | \boldsymbol{\theta})f(\boldsymbol{\theta}) d\boldsymbol{\theta}
+f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &amp;= \int f(\mathbf{Y}_{obs}, \mathbf{Y}_{mis}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&amp;= \int f(\mathbf{Y}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&amp;= \int \underbrace{f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi})}_{\text{complete data likelihood}} d\mathbf{Y}_{mis}
+\end{aligned}\]</span></p>
+</section>
+<section id="missing-data-models-mcar" class="slide level2">
+<h2>Missing data models: MCAR</h2>
+<p>The data are missing completely at random (MCAR) if the missing mechanism is defined as, <span class="math display">\[\begin{aligned}
+f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &amp;= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\boldsymbol{\phi})\\
+&amp;= f(\mathbf{O} | \boldsymbol{\phi}).
 \end{aligned}\]</span></p>
 <ul>
-<li><p>This is easy to sample from using the following steps, 1. <span class="math inline">\(\boldsymbol{\theta}^{sim} \sim f(\boldsymbol{\theta})\)</span> and 2. <span class="math inline">\(\mathbf{Y}^{sim} \sim f(\mathbf{Y} | \boldsymbol{\theta}^{sim})\)</span>.</p></li>
-<li><p>Similar to Gibbs sampling, this gives a sample from the joint <span class="math inline">\((\mathbf{Y}^{sim}, \boldsymbol{\theta}^{sim})\)</span> and also the marginal <span class="math inline">\(\mathbf{Y}^{sim}\)</span>.</p></li>
+<li>The missingness does not depend on any data.</li>
 </ul>
 </section>
-<section id="prior-predictive-checks-1" class="slide level2">
-<h2>Prior predictive checks</h2>
+<section id="implications-of-the-missing-model-mcar" class="slide level2 midi">
+<h2>Implications of the missing model: MCAR</h2>
+<p><span class="math display">\[\begin{aligned}
+f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &amp;= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&amp;= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&amp;=  f(\mathbf{O} | \boldsymbol{\phi}) \int f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \boldsymbol{\theta})d\mathbf{Y}_{mis}\\
+&amp;=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} | \boldsymbol{\phi})\int  f(\mathbf{Y}_{mis} | \boldsymbol{\theta}) d\mathbf{Y}_{mis}\\
+&amp;=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} | \boldsymbol{\phi}).
+\end{aligned}\]</span></p>
 <ul>
-<li><p>Suppose that I am interested in modeling the number of patients who are in the waiting room during an hour in the Duke ED, <span class="math inline">\(Y_i\)</span>.</p></li>
-<li><p>We can model this random variable as <span class="math inline">\(Y_i \stackrel{iid}{\sim}Poisson(\lambda)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>. A conjugate prior for <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\lambda \sim Gamma(a,b)\)</span>.</p></li>
-<li><p>We know from experience that on average there are 20 patients waiting during an hour, so we want <span class="math inline">\(\mathbb{E}[Y_i]=\lambda = 20\)</span>.</p></li>
-<li><p>Thus, we place a prior on <span class="math inline">\(\lambda\)</span> that is centered at 20, which requires that <span class="math inline">\(a/b=20\)</span>.</p></li>
-<li><p>There are infinitely many priors specifications.</p></li>
+<li>Under the MCAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model.</li>
 </ul>
 </section>
-<section id="prior-predictive-checks-2" class="slide level2">
-<h2>Prior predictive checks</h2>
+<section id="missing-data-models-mar" class="slide level2">
+<h2>Missing data models: MAR</h2>
+<p>The data are missing at random (MAR) if the missing mechanism is defined as, <span class="math display">\[\begin{aligned}
+f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &amp;= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\boldsymbol{\phi})\\
+&amp;= f(\mathbf{O} | \mathbf{Y}_{obs},\boldsymbol{\phi}).
+\end{aligned}\]</span></p>
 <ul>
-<li>Prior predictive checks can be used to determine a realistic specification for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</li>
-</ul>
-<div class="cell" data-output.var="prior pc">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a></a><span class="kw">data</span> {</span>
-<span id="cb1-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
-<span id="cb1-3"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a;</span>
-<span id="cb1-4"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; b;</span>
-<span id="cb1-5"><a></a>}</span>
-<span id="cb1-6"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb1-7"><a></a>  <span class="dt">real</span> lambda = gamma_rng(a, b);</span>
-<span id="cb1-8"><a></a>  <span class="dt">vector</span>[n] y_sim;</span>
-<span id="cb1-9"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) y_sim[i] = poisson_rng(lambda);</span>
-<span id="cb1-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>When running Stan for prior predictive checks you must specify <code>algorithm = "Fixed_param"</code></li>
+<li>The missingness depends on the observed data only.</li>
 </ul>
 </section>
-<section id="visualizing-prior-predictive-checks" class="slide level2 midi">
-<h2>Visualizing prior predictive checks</h2>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="05-priors-ppds_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<section id="implications-of-the-missing-model-mar" class="slide level2 midi">
+<h2>Implications of the missing model: MAR</h2>
+<p><span class="math display">\[\begin{aligned}
+f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &amp;= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&amp;= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}_{obs}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&amp;=  f(\mathbf{O} | \mathbf{Y}_{obs},\boldsymbol{\phi}) \int f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \boldsymbol{\theta})d\mathbf{Y}_{mis}\\
+&amp;=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} |\mathbf{Y}_{obs}, \boldsymbol{\phi})\int  f(\mathbf{Y}_{mis} | \boldsymbol{\theta}) d\mathbf{Y}_{mis}\\
+&amp;=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} |\mathbf{Y}_{obs}, \boldsymbol{\phi}).
+\end{aligned}\]</span></p>
 <ul>
-<li>We can use the samples of <span class="math inline">\(Y_i\)</span> under different prior specifications to compute a summary statstic, for example for the maximum value.</li>
-</ul>
-</section></section>
-<section>
-<section id="posterior-summaries" class="title-slide slide level1 center">
-<h1>Posterior summaries</h1>
-
-</section>
-<section id="posterior-summaries-point-estimates" class="slide level2 midi">
-<h2>Posterior summaries: point estimates</h2>
-<ul>
-<li><p>The output of Bayesian inference is a probability distribution. It is often convenient to summarize the posterior in various ways.</p></li>
-<li><p>Usually summaries are computed for individual parameters using the marginal distributions,</p></li>
-</ul>
-<p><span class="math display">\[f(\theta_i|\mathbf{Y}) = \int f(\boldsymbol{\theta} | \mathbf{Y}) d\boldsymbol{\theta}_{-i}.\]</span></p>
-<ul>
-<li>The <strong>posterior mean</strong> is defined by,</li>
-</ul>
-<p><span class="math display">\[\int_{-\infty}^{\infty}\theta_i f(\theta_i|\mathbf{Y}) d\theta_i.\]</span></p>
-</section>
-<section id="posterior-summaries-point-estimates-1" class="slide level2">
-<h2>Posterior summaries: point estimates</h2>
-<ul>
-<li>The <strong>posterior median</strong> <em>m</em> is defined by,</li>
-</ul>
-<p><span class="math display">\[\int_{-\infty}^{m} f(\theta_i|\mathbf{Y}) d\theta_i = 0.5 = \int_m^{\infty} f(\theta_i|\mathbf{Y}) d\theta_i.\]</span></p>
-<ul>
-<li>The <strong>posterior mode</strong> is given by,</li>
-</ul>
-<p><span class="math display">\[M=\text{argmax} f(\theta_i|\mathbf{Y}) \]</span></p>
-<ul>
-<li>The mean and mode are also well defined for the joint posterior distribution.</li>
+<li>Under the MAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model.</li>
 </ul>
 </section>
-<section id="posterior-summaries-intervals" class="slide level2">
-<h2>Posterior summaries: intervals</h2>
+<section id="missing-data-models-mnar" class="slide level2">
+<h2>Missing data models: MNAR</h2>
+<p>The data are missing not at random (MNAR) if the missing mechanism is defined as, <span class="math display">\[\begin{aligned}
+f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &amp;= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\boldsymbol{\phi}).
+\end{aligned}\]</span></p>
 <ul>
-<li><p>The Bayesian analogue of a frequentist confidence interval is a <strong>credible interval</strong>.</p></li>
-<li><p>An interval <span class="math inline">\((a,b)\)</span> is a <span class="math inline">\(100(1-\alpha)\%\)</span> posterior credible interval for <span class="math inline">\(\theta_i\)</span> if</p></li>
-</ul>
-<p><span class="math display">\[\int_a^b f(\theta_i|\mathbf{Y}) d\theta_i = (1-\alpha),\quad 0\leq \alpha \leq 1.\]</span></p>
-<ul>
-<li>A <strong>credible region</strong> can be defined similarly for a joint distribution.</li>
+<li>The missingness depends on the observed and missing data.</li>
 </ul>
 </section>
-<section id="posterior-summaries-intervals-1" class="slide level2">
-<h2>Posterior summaries: intervals</h2>
+<section id="implications-of-the-missing-model-mnar" class="slide level2 midi">
+<h2>Implications of the missing model: MNAR</h2>
+<p><span class="math display">\[\begin{aligned}
+f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &amp;= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&amp;= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}_{obs},\mathbf{Y}_{mis}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&amp;= \int f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi})d\mathbf{Y}_{mis}\\
+&amp;= f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) \int f(\mathbf{Y}_{mis} | \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi})d\mathbf{Y}_{mis}\\
+\end{aligned}\]</span></p>
 <ul>
-<li><p>Credible intervals are not unique. The two most common are <strong>symmetric</strong> and <strong>highest posterior density (HPD)</strong>.</p>
-<ul>
-<li>Symmetric: An interval <span class="math inline">\((a,b)\)</span> is a symmetric <span class="math inline">\(100(1-\alpha)\%\)</span> credible interval if,</li>
+<li>Under the MNAR assumption, we are NOT allowed to ignore the missing data. We must specify a model for the missing data.</li>
 </ul>
-<p><span class="math display">\[\int_{-\infty}^a f(\theta_i|\mathbf{Y}) d\theta_i = \frac{\alpha}{2} = \int_b^{\infty} f(\theta_i|\mathbf{Y}) d\theta_i.\]</span></p>
+</section>
+<section id="summary-of-missing-mechanisms" class="slide level2">
+<h2>Summary of missing mechanisms</h2>
 <ul>
-<li><p>Highest posterior density (HPD): An interval <span class="math inline">\((a,b)\)</span> is a <span class="math inline">\(100(1-\alpha)\%\)</span> HPD interval if,</p>
+<li><p>Under MAR and MCAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered <strong>ignorable</strong>.</p></li>
+<li><p>Under MNAR, we must model the missing data mechanism. This data is considered <strong>non-ignorable</strong>.</p></li>
+</ul>
+</section>
+<section id="generating-data" class="slide level2">
+<h2>Generating data</h2>
+<ul>
+<li><p>We want to have data under the following criteria:</p>
 <ol type="1">
-<li><p><span class="math inline">\([a,b]\)</span> is a <span class="math inline">\(100(1-\alpha)\%\)</span> credible interval for <span class="math inline">\(\theta_i\)</span></p></li>
-<li><p>For all <span class="math inline">\(\theta_i \in [a,b]\)</span> and <span class="math inline">\(\theta_i^* \notin [a,b]\)</span>, <span class="math inline">\(f(\theta_i|\mathbf{Y}) \geq f(\theta_i^*|\mathbf{Y})\)</span></p></li>
+<li><p>Full data</p></li>
+<li><p>MCAR data</p></li>
+<li><p>MAR data</p></li>
+<li><p>MNAR data</p></li>
 </ol></li>
-</ul></li>
+<li><p>We then want to fit the following models: Complete case analysis, full Bayesian model, mice version.</p></li>
 </ul>
 </section>
-<section id="posterior-summaries-hpd-credible-interval" class="slide level2">
-<h2>Posterior summaries: HPD credible interval</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/05/hpd.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="hpd-hoff"></p>
-</figure>
-</div>
+<section id="next" class="slide level2">
+<h2>Next</h2>
+<p>There are many ways to handle missing data. The simplest approach is to perform a complete case analysis, where we delete entries with a missing value for at least one variable. If the data are missing completely at random (MCAR), then we get unbiased parameter estimate. However:</p>
+<p>Credible intervals will usually be too wide, since the sample size has effectively been reduced (drastically). If missing values occur for other reasons, this yields biased estimates. The next step up is instead of dropping all the missing entries, we replace missing values of a feature with the mean or median of available values for the feature. This is called single mean/median imputation, and is often recommended in many machine learning tasks if the data are MCAR as it can still lead to unbiased parameter estimates.</p>
+<p>There are also some drawbacks with this method, especially if you’re interested in studying the variability. Single mean/median imputation artificially reduces the variance of features, which results in credible intervals which are too narrow. As shown in Figure 2, the peak at the mean is much higher relative to the surrounding values. The mean of the distribution can still be estimated appropriately, but the amount of spread is reduced.</p>
+<p>Another drawback is it doesn’t account for relationship between variables, thus reduces correlation. For example, the correlation between the two variables is 0.665 if we only look at the complete cases. If we use single mean imputation, the correlation decreases to 0.589.</p>
+<p>Note that if you don’t care about assessing variability in your estimates, which is often the case for classification tasks, then mean imputation can work quite well.</p>
 </section>
-<section id="posterior-summaries-hpd-credible-interval-1" class="slide level2">
-<h2>Posterior summaries: HPD credible interval</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/05/hpd-other.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="hpd-other"></p>
-</figure>
-</div>
-</section>
-<section id="posterior-summaries-probability" class="slide level2">
-<h2>Posterior summaries: probability</h2>
-<ul>
-<li><p>We may be interested in a hypothesis test: <span class="math inline">\(H_0: \theta \leq c\)</span> versus <span class="math inline">\(H_1: \theta \geq c\)</span></p></li>
-<li><p>We can report the posterior probability of the null hypothesis</p>
-<ul>
-<li><span class="math inline">\(P(\theta \leq c | \mathbf{Y}) = \mathbb{E}[1(\theta \leq c) | \mathbf{Y}]\)</span></li>
-</ul></li>
-<li><p>Interpretation of the posteriour probability:</p>
-<ul>
-<li>Probability that the null is true <span class="math inline">\(P(\theta \leq c | \mathbf{Y})\)</span></li>
-</ul></li>
-<li><p>Interpretation of the p-value:</p>
-<ul>
-<li><p>Probability of observing a test-statistic as or more extreme given that the null is true</p></li>
-<li><p>Evidence for or against the null (reject or fail to reject)</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="posterior-summaries-estimation" class="slide level2">
-<h2>Posterior summaries: estimation</h2>
-<ul>
-<li><p>We have already seen that we can use MC or MCMC to estimate these posterior summaries!</p></li>
-<li><p>To compute the HPD interval we can use the <code>hdi</code> function from the <code>ggdist</code> R package</p></li>
-</ul>
+<section id="lets-look-at-some-data" class="slide level2">
+<h2>Let’s look at some data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(ggdist)</span>
-<span id="cb2-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">10000</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
-<span id="cb2-3"><a></a><span class="fu">quantile</span>(y, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     2.5%     97.5% 
-0.6234925 7.2014631 </code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(openintro)</span>
+<span id="cb1-2"><a></a>fulldata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">y =</span> bdims<span class="sc">$</span>wgt,</span>
+<span id="cb1-3"><a></a>                       <span class="at">x =</span> bdims<span class="sc">$</span>hgt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>ggdist<span class="sc">::</span><span class="fu">hdi</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          [,1]     [,2]
-[1,] 0.3889383 6.520763</code></pre>
-</div>
-</div>
-</section></section>
-<section>
-<section id="posterior-predictive-distribution-ppd" class="title-slide slide level1 center">
-<h1>Posterior predictive distribution (PPD)</h1>
-
-</section>
-<section id="linear-regression-recall" class="slide level2">
-<h2>Linear regression recall</h2>
-<ul>
-<li><p>Assume we observe <span class="math inline">\((Y_i,\mathbf{x}_i)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>, where <span class="math display">\[Y_i|\boldsymbol{\beta},\sigma^2 \sim N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2).\]</span></p></li>
-<li><p>The full data likelihood is given by, <span class="math display">\[f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) = \prod_{i=1}^n f(Y_i|\boldsymbol{\beta},\sigma^2),\]</span> where <span class="math inline">\(\mathbf{Y} = (Y_1,\ldots,Y_n)\)</span>.</p></li>
-<li><p>We have parameters <span class="math inline">\(\boldsymbol{\theta} = (\boldsymbol{\beta}^\top,\sigma^2)\)</span> and <span class="math inline">\(f(\boldsymbol{\theta}) = f(\boldsymbol{\beta})f(\sigma^2)\)</span>.</p></li>
-</ul>
-</section>
-<section id="posterior-predictive-distribution-definition" class="slide level2 midi">
-<h2>Posterior predictive distribution: definition</h2>
-<ul>
-<li><p>Assume we observe a new <span class="math inline">\(\mathbf{x}'\)</span> and we would like to make some type of prediction about <span class="math inline">\(Y'\)</span> given the data we have already observed, <span class="math inline">\(\mathbf{Y}\)</span>.</p></li>
-<li><p>The <strong>posterior predictive distribution</strong> is defined as <span class="math inline">\(f(Y'|\mathbf{Y})\)</span> and can be written as, <span class="math display">\[\begin{aligned}
-f(Y' | \mathbf{Y}) &amp;= \int f(Y' , \boldsymbol{\theta} | \mathbf{Y}) d\boldsymbol{\theta},\quad\text{(marginal)}\\
-&amp;= \int f(Y' | \boldsymbol{\theta},\mathbf{Y}) f(\boldsymbol{\theta} | \mathbf{Y})d\boldsymbol{\theta},\quad\text{(conditional)}\\
-&amp;= \int \underbrace{f(Y' | \boldsymbol{\theta})}_{likelihood} \underbrace{f(\boldsymbol{\theta} | \mathbf{Y})}_{posterior}d\boldsymbol{\theta}.\quad\text{(independence)}
-\end{aligned}\]</span></p></li>
-</ul>
-</section>
-<section id="posterior-predictive-distribution-estimation" class="slide level2 midi">
-<h2>Posterior predictive distribution: estimation</h2>
-<ul>
-<li>The PPD can be written as an expectation,</li>
-</ul>
-<p><span class="math display">\[f(Y' | \mathbf{Y})  = \int f(Y' | \boldsymbol{\theta}) f(\boldsymbol{\theta} | \mathbf{Y})d\boldsymbol{\theta} = \mathbb{E}_{\boldsymbol{\theta} | \mathbf{Y}}\left[f(Y' | \boldsymbol{\theta})\right].\]</span></p>
-<ul>
-<li>Thus, we can estimate the PPD using a Monte Carlo estimate,</li>
-</ul>
-<p><span class="math display">\[\mathbb{E}_{\boldsymbol{\theta} | \mathbf{Y}}\left[f(Y' | \boldsymbol{\theta})\right] \approx \frac{1}{S} \sum_{s = 1}^S f\left(Y' | \boldsymbol{\theta}^{(s)}\right),\]</span></p>
-<p>where <span class="math inline">\(\left\{\boldsymbol{\theta}^{(1)},\ldots,\boldsymbol{\theta}^{(S)}\right\}\)</span> are samples from the posterior.</p>
-</section>
-<section id="posterior-predictive-distribution-stan" class="slide level2">
-<h2>Posterior predictive distribution: Stan</h2>
-<ul>
-<li><p>We want to compute the posterior predictive distribution.</p></li>
-<li><p>Use <strong>generated quantities</strong> block.</p></li>
-</ul>
-<div class="cell" data-output.var="ppd">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb6-2"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
-<span id="cb6-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb6-4"><a></a>    in_sample[i] = normal_rng(X[i] * beta, sigma);</span>
-<span id="cb6-5"><a></a>  }</span>
-<span id="cb6-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="posterior-predictive-distribution-stan-1" class="slide level2 midi">
-<h2>Posterior predictive distribution: Stan</h2>
-<div class="cell" data-output.var="ppd">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb7-2"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
-<span id="cb7-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb7-4"><a></a>    in_sample[i] = normal_rng(X[i] * beta, sigma);</span>
-<span id="cb7-5"><a></a>  }</span>
-<span id="cb7-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The function <code>normal_rng</code> generates a single independent sample from a normal distribution with parameters:</p>
-<ul>
-<li><p><code>mean = X[i, ] * beta</code>, where <code>beta</code> is a sample from the estimated posterior.</p></li>
-<li><p><code>sd = sigma</code>, where <code>sigma</code> is a sample from the estimated posterior.</p></li>
-</ul>
-<p>This computes the posterior predictive distribution for the original data.</p>
-</section>
-<section id="posterior-predictive-distribution-stan-2" class="slide level2 midi">
-<h2>Posterior predictive distribution: Stan</h2>
-<p>The following additions are added to the linear regression Stan code.</p>
-<div class="cell" data-output.var="ppd">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb8-1"><a></a><span class="co">// saved in linear_regression_ppd.stan</span></span>
-<span id="cb8-2"><a></a><span class="kw">data</span> {</span>
-<span id="cb8-3"><a></a>  ...</span>
-<span id="cb8-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n_pred; <span class="co">// number of new observations</span></span>
-<span id="cb8-5"><a></a>  <span class="dt">matrix</span>[n_pred, p + <span class="dv">1</span>] X_pred; <span class="co">// covariate matrix for new observations</span></span>
-<span id="cb8-6"><a></a>}</span>
-<span id="cb8-7"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb8-8"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
-<span id="cb8-9"><a></a>  <span class="dt">vector</span>[n_pred] out_sample;</span>
-<span id="cb8-10"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb8-11"><a></a>    in_sample[i] = normal_rng(X[i, ] * beta, sigma);</span>
-<span id="cb8-12"><a></a>  }</span>
-<span id="cb8-13"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n_pred) {</span>
-<span id="cb8-14"><a></a>    out_sample[i] = normal_rng(X_pred[i, ] * beta, sigma);</span>
-<span id="cb8-15"><a></a>  }</span>
-<span id="cb8-16"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="lets-simulate-some-data-again" class="slide level2">
-<h2>Let’s simulate some data again</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="do">###True parameters</span></span>
-<span id="cb9-2"><a></a>sigma <span class="ot">&lt;-</span> <span class="fl">1.5</span> <span class="co"># true measurement error</span></span>
-<span id="cb9-3"><a></a>beta <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>, <span class="dv">3</span>), <span class="at">ncol =</span> <span class="dv">1</span>) <span class="co"># true beta</span></span>
-<span id="cb9-4"><a></a></span>
-<span id="cb9-5"><a></a><span class="do">###Simulation settings</span></span>
-<span id="cb9-6"><a></a>n <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># number of observations</span></span>
-<span id="cb9-7"><a></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(beta) <span class="sc">-</span> <span class="dv">1</span> <span class="co"># number of covariates</span></span>
-<span id="cb9-8"><a></a>n_pred <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb9-9"><a></a>  </span>
-<span id="cb9-10"><a></a><span class="do">###Simulate data</span></span>
-<span id="cb9-11"><a></a><span class="fu">set.seed</span>(<span class="dv">54</span>) <span class="co"># set seed</span></span>
-<span id="cb9-12"><a></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n <span class="sc">*</span> p), <span class="at">ncol =</span> p))</span>
-<span id="cb9-13"><a></a>Y <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, sigma))</span>
-<span id="cb9-14"><a></a>X_pred <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n_pred <span class="sc">*</span> p), <span class="at">ncol =</span> p))</span>
-<span id="cb9-15"><a></a>Y_pred <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X_pred <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n_pred, <span class="dv">0</span>, sigma))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="fit-linear-regression-using-stan" class="slide level2">
-<h2>Fit linear regression using Stan</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="do">###Load packages</span></span>
-<span id="cb10-2"><a></a><span class="fu">library</span>(rstan)</span>
-<span id="cb10-3"><a></a></span>
-<span id="cb10-4"><a></a><span class="do">###Create stan data object</span></span>
-<span id="cb10-5"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> n, <span class="at">p =</span> p, <span class="at">Y =</span> Y, <span class="at">X =</span> X,</span>
-<span id="cb10-6"><a></a>                  <span class="at">beta0 =</span> <span class="dv">0</span>, <span class="at">sigma_beta =</span> <span class="dv">10</span>, <span class="at">a =</span> <span class="dv">3</span>,  <span class="at">b =</span> <span class="dv">1</span>,</span>
-<span id="cb10-7"><a></a>                  <span class="at">n_pred =</span> n_pred, <span class="at">X_pred =</span> X_pred)</span>
-<span id="cb10-8"><a></a>  </span>
-<span id="cb10-9"><a></a><span class="do">###Compile model separately</span></span>
-<span id="cb10-10"><a></a>stan_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"linear_regression_ppd.stan"</span>)</span>
-<span id="cb10-11"><a></a></span>
-<span id="cb10-12"><a></a><span class="do">###Run model and save</span></span>
-<span id="cb10-13"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_model, <span class="at">data =</span> stan_data, </span>
-<span id="cb10-14"><a></a>                <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">1000</span>)</span>
-<span id="cb10-15"><a></a><span class="fu">saveRDS</span>(fit, <span class="at">file =</span> <span class="st">"linear_regression_ppd_fit.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="examining-prediction-performance" class="slide level2 midi">
-<h2>Examining prediction performance</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="do">###Inspect the ppd</span></span>
-<span id="cb11-2"><a></a>ppds <span class="ot">&lt;-</span> <span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"in_sample"</span>, <span class="st">"out_sample"</span>))</span>
-<span id="cb11-3"><a></a><span class="fu">lapply</span>(ppds, dim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$in_sample
-[1] 2000  100
-
-$out_sample
-[1] 2000   10</code></pre>
-</div>
-</div>
-<div class="fragment">
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="05-priors-ppds_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
+</section>
+<section id="simulate-missing-data" class="slide level2">
+<h2>Simulate missing data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(mice)</span>
+<span id="cb2-2"><a></a><span class="fu">set.seed</span>(<span class="dv">54</span>)</span>
+<span id="cb2-3"><a></a>missing_prop <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb2-4"><a></a>pattern <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>))</span>
+<span id="cb2-5"><a></a>mcardata <span class="ot">&lt;-</span> <span class="fu">ampute</span>(fulldata, </span>
+<span id="cb2-6"><a></a>                   <span class="at">prop =</span> missing_prop, </span>
+<span id="cb2-7"><a></a>                   <span class="at">patterns =</span> pattern,</span>
+<span id="cb2-8"><a></a>                   <span class="at">mech =</span> <span class="st">"MCAR"</span>)</span>
+<span id="cb2-9"><a></a>mardata <span class="ot">&lt;-</span> <span class="fu">ampute</span>(fulldata, </span>
+<span id="cb2-10"><a></a>                   <span class="at">prop =</span> missing_prop, </span>
+<span id="cb2-11"><a></a>                   <span class="at">patterns =</span> pattern,</span>
+<span id="cb2-12"><a></a>                   <span class="at">mech =</span> <span class="st">"MAR"</span>)</span>
+<span id="cb2-13"><a></a>mnardata <span class="ot">&lt;-</span> <span class="fu">ampute</span>(fulldata, </span>
+<span id="cb2-14"><a></a>                  <span class="at">prop =</span> missing_prop, </span>
+<span id="cb2-15"><a></a>                  <span class="at">patterns =</span> pattern,</span>
+<span id="cb2-16"><a></a>                  <span class="at">mech =</span> <span class="st">"MNAR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="visualize-data" class="slide level2">
+<h2>Visualize data</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-6-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-6-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-6-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-fits" class="slide level2">
+<h2>Model fits</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-7-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-7-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-7-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="complete-case-model" class="slide level2">
+<h2>Complete-case model</h2>
+<p><span class="math display">\[\begin{aligned}
+Y_i &amp;\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{obs}\\
+\alpha &amp;\sim N(0,10)\\
+\beta &amp;\sim N(0,10)\\
+\sigma &amp;\sim \text{Half-Normal}(0, 10)
+\end{aligned}\]</span></p>
+</section>
+<section id="full-bayesian-model" class="slide level2">
+<h2>Full Bayesian model</h2>
+<p><span class="math display">\[\begin{aligned}
+Y_i &amp;\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{obs}\\
+Y_i &amp;\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{mis}\\
+\alpha &amp;\sim N(0,10)\\
+\beta &amp;\sim N(0,10)\\
+\sigma &amp;\sim \text{Half-Normal}(0, 10)
+\end{aligned}\]</span></p>
+</section>
+<section id="missing-pattern" class="slide level2">
+<h2>Missing pattern</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">md.pattern</span>(mcardata<span class="sc">$</span>amp, <span class="at">rotate.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="cell-output cell-output-stdout">
+<pre><code>    x   y    
+256 1   1   0
+251 1   0   1
+    0 251 251</code></pre>
+</div>
+</div>
+<img data-src="14-missing_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>
 <ul>
-<li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-01">HW 01</a> which is due next Thursday before class</p></li>
+<li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-03">HW 03</a>.</p></li>
 <li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
-<li><p>Tuesday’s lecture: Model checking</p></li>
+<li><p>Tuesday’s lecture: Missing data</p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -890,7 +733,7 @@ $out_sample
 <p><a href="https://biostat725-sp25.netlify.app/">🔗 BIOSTAT 725 - Spring 2025</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
