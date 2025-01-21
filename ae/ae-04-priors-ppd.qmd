@@ -1,0 +1,160 @@
+---
+title: "AE 04: Priors in Stan"
+subtitle: "Modeling diabetes disease progression"
+date: "Jan 23, 2025"
+---
+
+::: callout-important
+## Due date
+
+Application exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
+
+-   Final `.qmd` and `.pdf` files pushed to your GitHub repo
+-   **Note:** For homeworks and exams, you will also be required to submit your final `.pdf` file submitted on Gradescope
+:::
+
+# Introduction
+
+This AE will be an introduction to Stan using an example data set on diabetes disease progression. We will walk through a linear regression task using Stan and code up our first Stan model.
+
+## Learning goals
+
+By the end of the AE, you will...
+
+-   Be familiar with the workflow using RStudio and GitHub
+-   Perform Bayesian linear regression using HMC
+-   Prepare data for a regression task in Stan
+-   Learn how to specify priors for the regression parameters
+
+# Getting Started
+
+## Clone the repo & start new RStudio project
+
+-   Go to the course organization at [github.com/biostat725-sp25](https://github.com/biostat725-sp25) organization on GitHub.
+-   Click on the repo with the prefix **ae-03-**. It contains the starter documents you need to complete the AE.
+-   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you'll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
+    -   See the [HW 00 instructions](https://biostat725-sp25.netlify.app/hw/hw-00#connect-rstudio-and-github) if you have not set up the SSH key or configured git.
+-   In RStudio, go to *File* $\rightarrow$ *New Project* $\rightarrow$ *Version Control* $\rightarrow$ *Git*.
+-   Copy and paste the URL of your assignment repo into the dialog box *Repository URL*. Again, please make sure to have *SSH* highlighted under *Clone* when you copy the address.
+-   Click *Create Project*, and the files from your GitHub repo will be displayed in the *Files* pane in RStudio.
+-   Click `AE 03.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
+
+# R packages
+
+We will begin by loading R packages that we will use in this AE.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)    # data wrangling and visualization
+library(knitr)        # format output
+library(rstan)        # Stan
+```
+
+# Data
+
+Today we will use data from the paper [Least Angle Regression](https://projecteuclid.org/journals/annals-of-statistics/volume-32/issue-2/Least-angle-regression/10.1214/009053604000000067.full) by Efron et al. There are ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements were obtained for each of n = 442 diabetes patients, as well as the response of interest, a quantitative measure of disease progression one year after baseline.
+
+We will focus on the following variables:
+
+-   `Y`: measure of disease progression one year after baseline
+
+-   `AGE`: age in years
+
+-   `SEX`: sex (`1` = female, `2` = male)
+
+-   `BMI`: body mass index ($kg/m^2$)
+
+-   `BP`: average blood pressure (mm Hg)
+
+The goal of this analysis is to learn the associations between age, sex, BMI, and blood pressure on diabetic disease progression one year after baseline. The data is available in the `ae-03-` repo and is called `diabetes.txt`.
+
+```{r, eval = FALSE}
+#| label: glimpse-data
+diabetes <- read_table("diabetes.txt")
+glimpse(diabetes)
+```
+
+```{r, echo = FALSE}
+diabetes <- read_table("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/AE 03/diabetes.txt")
+glimpse(diabetes)
+```
+
+# Exploratory data analysis
+
+Let's begin by examining the univariate distributions of the diabetes disease progression. The code to visualize and calculate summary statistics for `Y` is below.
+
+```{r}
+#| label: progression-viz
+#| warning: false
+
+ggplot(data = diabetes, aes(x = Y)) + 
+  geom_histogram() +
+  labs(x = "Disease progression at one year from baseline", 
+       y = "Count",
+       title = "Disease progression in diabetes patients")
+```
+
+```{r}
+#| label: progression-summary
+diabetes |>
+  summarise(min = min(Y), q1 = quantile(Y, 0.25), 
+            median = median(Y), q3 = quantile(Y, 0.75), 
+            max = max(Y), mean = mean(Y), sd = sd(Y)) |>
+  kable(digits = 3)
+```
+
+# Exercises
+
+## Exercise 1
+
+You want to fit a model of the form
+
+$$
+Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2),
+$$ where $\mathbf{x}_i = (Age_i, 1(Sex_i = Male), BMI_i, BP_i)$ and $\alpha \sim N(0,10)$, $\beta_j \sim N(0,10)$, and $\sigma^2 \sim \text{Inv-Gamma}(3,1)$. Obtain posterior samples for this model using Stan.
+
+**Answer:**
+
+```{r}
+#| label: ex1
+
+# add code here
+
+```
+
+## Exercise 2
+
+Compute a 95% confidence interval for the regression slope. Provide an interpretation for this confidence interval.
+
+**Answer:**
+
+```{r}
+#| label: ex2
+
+# add code here
+
+```
+
+## Exercise 3
+
+Compute a one-sided Bayesian p-value for the regression slope: $P(\beta_1 < 0)$. Interpret the results in plain English. Is intraocular pressure associated with disease progression?
+
+**Answer:**
+
+```{r}
+#| label: ex3
+
+# add code here
+
+```
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Push all your work to your AE repo on GitHub. You're done! 🎉
+
+**This AE is a demonstration and you do not have to turn anything in!**
+:::

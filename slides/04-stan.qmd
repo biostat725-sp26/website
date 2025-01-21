@@ -36,27 +36,25 @@ library(coda)
 
 ## Review of last lecture
 
-On Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling
+On Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling.
 
--   We obtained correlated samples from the posterior using MCMC
+-   We obtained correlated samples from the posterior using MCMC.
 
 -   Gibbs required a lot math!
 
 -   Metropolis required tuning!
 
-Today we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference
+Today we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference.
 
 ## Learning objectives
 
 By the end of this lecture you should:
 
--   Know how to start coding up a model in Stan
+-   Know how to start coding up a model in Stan.
 
--   Appreciate how easy Stan makes things for us compared to coding up the algorithm ourselves
+-   Appreciate how easy Stan makes things for us compared to coding up the algorithm ourselves.
 
--   Know what to do when coding goes wrong
-
--   Know what to do when sampling goes wrong
+-   Be able to fit a basic linear regression in Stan.
 
 ## What is Stan and how do we use it?
 
@@ -72,13 +70,13 @@ By the end of this lecture you should:
 
 -   Stan is the brainchild of Andrew Gelman at Colombia.
 
--   Stan’s uses an extension of HMC called NUTS that automatically tunes. It is fast.
+-   Stan uses an extension of HMC called NUTS that automatically tunes. It is fast.
 
 -   Stan is simple to learn.
 
--   Stan has excellent documentation (a manual full of extensive examples).
+-   Stan has excellent [documentation](https://mc-stan.org/docs/) (a manual full of extensive examples).
 
--   **Most important:** Stan has a very active and helpful user forum and development team; for example, typical question answered in less than a couple of hours.
+-   **Most important:** Stan has a very active and helpful [user forum](https://discourse.mc-stan.org/) and development team; for example, typical question answered in less than a couple of hours.
 
 ## How do we use it?
 
@@ -294,7 +292,7 @@ library(rstan)
 Y <- rnorm(10, mean = 0, sd = 1)
 
 ###Compile and run model, and save in fit
-fit <- stan(file = 'straightforward.stan', data = list(Y= Y), 
+fit <- stan(file = 'straightforward.stan', data = list(Y = Y), 
             iter = 1000, chains = 4, seed = 1)
 ```
 
@@ -381,7 +379,7 @@ model {
 
 -   MCMC/HMC makes use of the log-posterior
 
-$$\log f(\boldsymbol{\theta} | \mathbf{Y}) \propto \log f(\boldsymbol{\theta}) + \sum_{i=1}^n \log f(\mathbf{Y} | \boldsymbol{\theta})$$
+$$\log f(\boldsymbol{\theta} | \mathbf{Y}) \propto \log f(\boldsymbol{\theta}) + \sum_{i=1}^n \log f({Y}_i | \boldsymbol{\theta})$$
 
 -   As such $\sim$ really means *increment log probability*
 
@@ -581,7 +579,7 @@ Stan has pretty much the full range of language constructs to allow pretty much 
 
 ## Stan speed concerns
 
-Whilst Stan is fast it pays to know the importance of each code block for efficiency.
+While Stan is fast it pays to know the importance of each code block for efficiency.
 
 -   **data:** called once at beginning of execution.
 

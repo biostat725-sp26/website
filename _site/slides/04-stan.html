@@ -407,22 +407,21 @@ Prof.&nbsp;Sam Berchuck
 </section>
 <section id="review-of-last-lecture" class="slide level2">
 <h2>Review of last lecture</h2>
-<p>On Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling</p>
+<p>On Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling.</p>
 <ul>
-<li><p>We obtained correlated samples from the posterior using MCMC</p></li>
+<li><p>We obtained correlated samples from the posterior using MCMC.</p></li>
 <li><p>Gibbs required a lot math!</p></li>
 <li><p>Metropolis required tuning!</p></li>
 </ul>
-<p>Today we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference</p>
+<p>Today we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference.</p>
 </section>
 <section id="learning-objectives" class="slide level2">
 <h2>Learning objectives</h2>
 <p>By the end of this lecture you should:</p>
 <ul>
-<li><p>Know how to start coding up a model in Stan</p></li>
-<li><p>Appreciate how easy Stan makes things for us compared to coding up the algorithm ourselves</p></li>
-<li><p>Know what to do when coding goes wrong</p></li>
-<li><p>Know what to do when sampling goes wrong</p></li>
+<li><p>Know how to start coding up a model in Stan.</p></li>
+<li><p>Appreciate how easy Stan makes things for us compared to coding up the algorithm ourselves.</p></li>
+<li><p>Be able to fit a basic linear regression in Stan.</p></li>
 </ul>
 </section>
 <section id="what-is-stan-and-how-do-we-use-it" class="slide level2">
@@ -438,10 +437,10 @@ Prof.&nbsp;Sam Berchuck
 <h2>Why should we use Stan?</h2>
 <ul>
 <li><p>Stan is the brainchild of Andrew Gelman at Colombia.</p></li>
-<li><p>Stan’s uses an extension of HMC called NUTS that automatically tunes. It is fast.</p></li>
+<li><p>Stan uses an extension of HMC called NUTS that automatically tunes. It is fast.</p></li>
 <li><p>Stan is simple to learn.</p></li>
-<li><p>Stan has excellent documentation (a manual full of extensive examples).</p></li>
-<li><p><strong>Most important:</strong> Stan has a very active and helpful user forum and development team; for example, typical question answered in less than a couple of hours.</p></li>
+<li><p>Stan has excellent <a href="https://mc-stan.org/docs/">documentation</a> (a manual full of extensive examples).</p></li>
+<li><p><strong>Most important:</strong> Stan has a very active and helpful <a href="https://discourse.mc-stan.org/">user forum</a> and development team; for example, typical question answered in less than a couple of hours.</p></li>
 </ul>
 </section>
 <section id="how-do-we-use-it" class="slide level2">
@@ -653,7 +652,7 @@ Prof.&nbsp;Sam Berchuck
 <span id="cb12-5"><a></a>Y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb12-6"><a></a></span>
 <span id="cb12-7"><a></a><span class="do">###Compile and run model, and save in fit</span></span>
-<span id="cb12-8"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="at">file =</span> <span class="st">'straightforward.stan'</span>, <span class="at">data =</span> <span class="fu">list</span>(<span class="at">Y=</span> Y), </span>
+<span id="cb12-8"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="at">file =</span> <span class="st">'straightforward.stan'</span>, <span class="at">data =</span> <span class="fu">list</span>(<span class="at">Y =</span> Y), </span>
 <span id="cb12-9"><a></a>            <span class="at">iter =</span> <span class="dv">1000</span>, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">seed =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -727,7 +726,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb24-5"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb24-6"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(mu), <span class="at">y =</span> <span class="st">"Count"</span>, </span>
 <span id="cb24-7"><a></a>       <span class="at">subtitle =</span> <span class="fu">bquote</span>(<span class="st">"Posterior distribution for "</span> <span class="sc">~</span> mu))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -752,7 +751,7 @@ convergence, Rhat=1).</code></pre>
 <li><p><span class="math inline">\(\sim\)</span> doesn’t mean <em>sampling</em>, although often times it can be thought of as sampling</p></li>
 <li><p>MCMC/HMC makes use of the log-posterior</p></li>
 </ul>
-<p><span class="math display">\[\log f(\boldsymbol{\theta} | \mathbf{Y}) \propto \log f(\boldsymbol{\theta}) + \sum_{i=1}^n \log f(\mathbf{Y} | \boldsymbol{\theta})\]</span></p>
+<p><span class="math display">\[\log f(\boldsymbol{\theta} | \mathbf{Y}) \propto \log f(\boldsymbol{\theta}) + \sum_{i=1}^n \log f({Y}_i | \boldsymbol{\theta})\]</span></p>
 <ul>
 <li><p>As such <span class="math inline">\(\sim\)</span> really means <em>increment log probability</em></p></li>
 <li><p>All we have to do in Stan is specify the log-posterior!</p></li>
@@ -946,7 +945,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="stan-speed-concerns" class="slide level2">
 <h2>Stan speed concerns</h2>
-<p>Whilst Stan is fast it pays to know the importance of each code block for efficiency.</p>
+<p>While Stan is fast it pays to know the importance of each code block for efficiency.</p>
 <ul>
 <li><p><strong>data:</strong> called once at beginning of execution.</p></li>
 <li><p><strong>transformed data:</strong> called once at beginning of execution.</p></li>

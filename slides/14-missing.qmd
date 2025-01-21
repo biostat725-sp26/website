@@ -1,5 +1,5 @@
 ---
-title: "Multiclass Classification"
+title: "Missing Data"
 author: "Prof. Sam Berchuck"
 date: "2025-02-25"
 date-format: "MMM DD, YYYY"
@@ -43,11 +43,50 @@ library(mice)
 
 -   Last, we learned about classification for binary and multiclass problems.
 
+## Missing data in research
+
+- In any real-world dataset, missing values are nearly always going to be present.
+
+  - Missing data can be a source of bias.
+
+  - Missing data be totally innocuous. 
+
+- Cannot determine which because there are no values to inspect.
+
+- Handling missing data is extremely difficult!
+
+## Examples
+
+- Suppose an individual's depression scores are missing in dataset of patients with colon cancer.
+
+- It could be missing because:
+
+  -   A data entry error where some values did not make it into the dataset.
+
+  -   The patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the depression itself).
+
+  -   The patient has depression, leading to them not completing the depression survey. 
+
+## Classifactions of missing data
+
+- Missing completely at random (MCAR)
+
+  - This is the ideal case but rarely seen in practice. Usually a data entry problem.
+
+- Missing at random (MAR)
+
+  - The missing value is related to some other variable that has been collected.
+
+- Missing not at random (MNAR)
+
+  - The missing value is related to a variable that was
+not collected or not observed.
+
 ## Missing data
 
 - Missing data can appear in the outcome and/or predictors.
 
-- We will write down some math for the missingness occuring in the outcome space.
+- Today, we will write down some math for missing data occuring in the outcome space, however this is generalizable to missingness in the predictor space.
 
 ## Missing data framework {.midi}
 
@@ -75,7 +114,7 @@ library(mice)
 
 - The joint distribution of $(\mathbf{Y}, \mathbf{O})$ can be written as,
 
-$$f(\mathbf{Y}, \mathbf{O} |  \boldsymbol{\theta},\boldsymbol{\phi}) = \underbrace{f(\mathbf{Y} | \boldsymbol{\theta})}_{\text{likelihood}} \times  \underbrace{f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi})}_{\text{missing model}}.$$
+$$f(\mathbf{Y}, \mathbf{O} | \mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi}) = \underbrace{f(\mathbf{Y} | \mathbf{X}, \boldsymbol{\theta})}_{\text{likelihood}} \times  \underbrace{f(\mathbf{O} | \mathbf{Y}, \mathbf{X}, \boldsymbol{\phi})}_{\text{missing model}}.$$
 
   - The parameter block, $(\boldsymbol{\theta},\boldsymbol{\phi})$, consists of: 
   
@@ -92,16 +131,16 @@ $$f(\mathbf{Y}, \mathbf{O} |  \boldsymbol{\theta},\boldsymbol{\phi}) = \underbra
 - The likelihood for the observed data must be written by marginalizing over the unobserved outcome variables.
 
 \begin{align*}
-f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y}_{obs}, \mathbf{Y}_{mis}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
-&= \int f(\mathbf{Y}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
-&= \int \underbrace{f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi})}_{\text{complete data likelihood}} d\mathbf{Y}_{mis}
+f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y}_{obs}, \mathbf{Y}_{mis}, \mathbf{O} | \mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&= \int f(\mathbf{Y}, \mathbf{O} |\mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&= \int \underbrace{f(\mathbf{Y} |\mathbf{X}, \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{X},\mathbf{Y}, \boldsymbol{\phi})}_{\text{complete data likelihood}} d\mathbf{Y}_{mis}
 \end{align*}
 
 ## Missing data models: MCAR
 
 The data are missing completely at random (MCAR) if the missing mechanism is defined as,
 \begin{align*}
-f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\boldsymbol{\phi})\\
+f(\mathbf{O} | \mathbf{Y},\mathbf{X},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\mathbf{X},\boldsymbol{\phi})\\
 &= f(\mathbf{O} | \boldsymbol{\phi}).
 \end{align*}
 
@@ -110,21 +149,27 @@ f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs},
 ## Implications of the missing model: MCAR {.midi}
 
 \begin{align*}
-f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
-&= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
-&=  f(\mathbf{O} | \boldsymbol{\phi}) \int f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \boldsymbol{\theta})d\mathbf{Y}_{mis}\\
-&=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} | \boldsymbol{\phi})\int  f(\mathbf{Y}_{mis} | \boldsymbol{\theta}) d\mathbf{Y}_{mis}\\
-&=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} | \boldsymbol{\phi}).
+f(\mathbf{Y}_{obs}, \mathbf{O} |\mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y} | \mathbf{X},\boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \mathbf{X},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&= \int f(\mathbf{Y} | \mathbf{X},\boldsymbol{\theta}) f(\mathbf{O} | \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&=  f(\mathbf{O} | \boldsymbol{\phi}) \int f(\mathbf{Y}_{obs} |\mathbf{X}_{obs}, \boldsymbol{\theta}) f(\mathbf{Y}_{mis} |\mathbf{X}_{mis}, \boldsymbol{\theta})d\mathbf{Y}_{mis}\\
+&=  f(\mathbf{Y}_{obs} | \mathbf{X}_{obs},\boldsymbol{\theta})f(\mathbf{O} | \boldsymbol{\phi})\int  f(\mathbf{Y}_{mis} |\mathbf{X}_{mis}, \boldsymbol{\theta}) d\mathbf{Y}_{mis}\\
+&=  f(\mathbf{Y}_{obs} | \mathbf{X}_{obs},\boldsymbol{\theta})f(\mathbf{O} | \boldsymbol{\phi}).
 \end{align*}
 
-- Under the MCAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model.
+## Key points about MCAR assumption
+
+- **No bias:** The analysis based on the observed data will not be biased, as the missingness does not systematically favor any particular pattern in the data. 
+
+- **Reduced power:** While unbiased, MCAR still reduces the statistical power of the analysis due to the smaller sample size resulting from missing data.
+  
+- **Simple handling methods:** Because of its random nature, MCAR allows for straightforward handling methods like ***listwise deletion*** (i.e., complete-case analysis) or simple imputation techniques (e.g., mean imputation) without introducing bias. 
 
 ## Missing data models: MAR
 
 The data are missing at random (MAR) if the missing mechanism is defined as,
 \begin{align*}
-f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\boldsymbol{\phi})\\
-&= f(\mathbf{O} | \mathbf{Y}_{obs},\boldsymbol{\phi}).
+f(\mathbf{O} | \mathbf{Y},\mathbf{X},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\mathbf{X},\boldsymbol{\phi})\\
+&= f(\mathbf{O} | \mathbf{Y}_{obs},\mathbf{X},\boldsymbol{\phi}).
 \end{align*}
 
 - The missingness depends on the observed data only.
@@ -132,20 +177,34 @@ f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs},
 ## Implications of the missing model: MAR {.midi}
 
 \begin{align*}
-f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
-&= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}_{obs}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
-&=  f(\mathbf{O} | \mathbf{Y}_{obs},\boldsymbol{\phi}) \int f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \boldsymbol{\theta})d\mathbf{Y}_{mis}\\
-&=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} |\mathbf{Y}_{obs}, \boldsymbol{\phi})\int  f(\mathbf{Y}_{mis} | \boldsymbol{\theta}) d\mathbf{Y}_{mis}\\
-&=  f(\mathbf{Y}_{obs} | \boldsymbol{\theta})f(\mathbf{O} |\mathbf{Y}_{obs}, \boldsymbol{\phi}).
+f(\mathbf{Y}_{obs}, \mathbf{O} |\mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y} |\mathbf{X}, \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y},\mathbf{X}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&\hspace{-2in}= \int f(\mathbf{Y} | \mathbf{X},\boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}_{obs},\mathbf{X}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&\hspace{-2in}=  f(\mathbf{O} | \mathbf{Y}_{obs},\mathbf{X},\boldsymbol{\phi}) \int f(\mathbf{Y}_{obs} | \mathbf{X}_{obs},\boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \mathbf{X}_{mis},\boldsymbol{\theta})d\mathbf{Y}_{mis}\\
+&\hspace{-2in}=  f(\mathbf{Y}_{obs} |\mathbf{X}_{obs}, \boldsymbol{\theta})f(\mathbf{O} |\mathbf{Y}_{obs},\mathbf{X}, \boldsymbol{\phi})\int  f(\mathbf{Y}_{mis} | \mathbf{X}_{mis},\boldsymbol{\theta}) d\mathbf{Y}_{mis}\\
+&\hspace{-2in}=  f(\mathbf{Y}_{obs} | \mathbf{X}_{obs},\boldsymbol{\theta})f(\mathbf{O} |\mathbf{Y}_{obs}, \mathbf{X},\boldsymbol{\phi}).
 \end{align*}
 
-- Under the MAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model.
+- **Unbiased Parameter Estimates:** Similar to MCAR, we can perform a complete case analysis and can ignore the missing data model! This is never done, however, because it leads to incorrect inference.
+
+## Key points about MAR assumption
+
+- **Complete-case analysis is not acceptable: **
+
+  - Parameter estimation remains unbiased, but estimation of variances and intervals does not.
+  
+  - Also, smaller sample size leads to less power and worse prediction.
+  
+  - Under certain missingness settings, parameter estimation may not be unbiased. 
+
+- **Simple handling approaches fail:** Methods like mean imputation will also result in small estimated standard errors.
+
+- **More advanced methods are needed:** Multiple imputation, Bayes.
 
 ## Missing data models: MNAR
 
 The data are missing not at random (MNAR) if the missing mechanism is defined as,
 \begin{align*}
-f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\boldsymbol{\phi}).
+f(\mathbf{O} | \mathbf{Y},\mathbf{X},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\mathbf{X},\boldsymbol{\phi}).
 \end{align*}
 
 - The missingness depends on the observed and missing data.
@@ -153,20 +212,35 @@ f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs},
 ## Implications of the missing model: MNAR {.midi}
 
 \begin{align*}
-f(\mathbf{Y}_{obs}, \mathbf{O} | \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
-&= \int f(\mathbf{Y} | \boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}_{obs},\mathbf{Y}_{mis}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
-&= \int f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi})d\mathbf{Y}_{mis}\\
-&= f(\mathbf{Y}_{obs} | \boldsymbol{\theta}) \int f(\mathbf{Y}_{mis} | \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y},\boldsymbol{\phi})d\mathbf{Y}_{mis}\\
-
+f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y} | \mathbf{X},\boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y},\mathbf{X}, \boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&\hspace{-2in}= \int f(\mathbf{Y} | \mathbf{X},\boldsymbol{\theta}) f(\mathbf{O} | \mathbf{Y}_{obs},\mathbf{Y}_{mis}, \mathbf{X},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
+&\hspace{-2in}= \int f(\mathbf{Y}_{obs} |\mathbf{X}_{obs}, \boldsymbol{\theta}) f(\mathbf{Y}_{mis} | \mathbf{X}_{mis},\boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y},\mathbf{X},\boldsymbol{\phi})d\mathbf{Y}_{mis}\\
+&\hspace{-2in}= f(\mathbf{Y}_{obs} | \mathbf{X}_{obs},\boldsymbol{\theta}) \int f(\mathbf{Y}_{mis} | \mathbf{X}_{mis},\boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y},\mathbf{X},\boldsymbol{\phi})d\mathbf{Y}_{mis}
 \end{align*}
 
 - Under the MNAR assumption, we are NOT allowed to ignore the missing data. We must specify a model for the missing data.
 
+- This is really hard! We can ignore this in our class.
+
 ## Summary of missing mechanisms
 
-- Under MAR and MCAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered **ignorable**.
+- Under MCAR and MAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered **ignorable**.
+
+- Under MAR, fitting the complete case analysis is not efficient and advanced techniques are needed to guarentee proper statistical inference.
 
 - Under MNAR, we must model the missing data mechanism. This data is considered **non-ignorable**.
+
+## Why Bayesian missing data
+
+Unbiased Parameter Estimates: Multiple imputation helps to ensure that the parameter estimates (e.g., regression coefficients, group means) are unbiased. By creating multiple imputed datasets and combining the results, we can obtain more accurate estimates that reflect the uncertainty due to missing data1.
+
+Accurate Standard Errors: Multiple imputation provides accurate standard errors, which leads to reliable p-values and appropriate statistical inferences. This is crucial for making valid conclusions from the data1.
+
+Flexibility: Multiple imputation is flexible and can handle various types of missing data patterns. It allows for the inclusion of covariates that explain the missingness, which is important for MAR data2.
+
+Handling Complex Data Structures: Multiple imputation can be used with complex data structures, such as hierarchical or longitudinal data, where the missingness mechanism may vary across different levels or time points2.
+
+Robustness to Model Misspecification: Multiple imputation is robust to certain types of model misspecification. For example, even if the imputation model is not perfectly specified, the combined results from multiple imputed datasets can still provide valid inferences3.
 
 
 ## Generating data
@@ -226,20 +300,34 @@ ggplot(fulldata, aes(x = x, y = y)) +
 ```{r}
 library(mice)
 set.seed(54)
-missing_prop <- 0.5
-pattern <- data.frame(y = c(0), x = c(1))
-mcardata <- ampute(fulldata, 
-                   prop = missing_prop, 
-                   patterns = pattern,
-                   mech = "MCAR")
-mardata <- ampute(fulldata, 
-                   prop = missing_prop, 
-                   patterns = pattern,
-                   mech = "MAR")
-mnardata <- ampute(fulldata, 
-                  prop = missing_prop, 
-                  patterns = pattern,
-                  mech = "MNAR")
+n <- nrow(fulldata)
+
+###Simulate MCAR data
+O <- rbinom(n, 1, prob = 0.40)
+mcardata <- data.frame(
+  o = O,
+  x = fulldata$x,
+  y = fulldata$y
+)
+mcardata_cc <- mcardata[mcardata$o == 1, ]
+
+###Simulate MAR data
+O <- rbinom(n, 1, prob = pnorm(scale(fulldata$x)))
+mardata <- data.frame(
+  o = O,
+  x = fulldata$x,
+  y = fulldata$y
+)
+mardata_cc <- mardata[mardata$o == 1, ]
+
+###Simulate MNAR data
+O <- rbinom(n, 1, prob = pnorm(scale(fulldata$y)))
+mnardata <- data.frame(
+  o = O,
+  x = fulldata$x,
+  y = fulldata$y
+)
+mnardata_cc <- mnardata[mnardata$o == 1, ]
 ```
 
 ## Visualize data
@@ -261,7 +349,7 @@ ggplot(fulldata, aes(x = x, y = y)) +
                              l = 0))
 ggplot(fulldata, aes(x = x, y = y)) +
   geom_point(color = "gray") +
-  geom_point(data = mcardata$amp, aes(x = x, y = y)) + 
+  geom_point(data = mcardata_cc, aes(x = x, y = y)) + 
   labs(x = "Height (centimeters)", 
        y = "Weight (kilograms)",
        subtitle = "MCAR") + 
@@ -271,7 +359,7 @@ ggplot(fulldata, aes(x = x, y = y)) +
                              l = 0))
 ggplot(fulldata, aes(x = x, y = y)) +
   geom_point(color = "gray") +
-  geom_point(data = mardata$amp, aes(x = x, y = y)) + 
+  geom_point(data = mardata_cc, aes(x = x, y = y)) + 
   labs(x = "Height (centimeters)", 
        y = "Weight (kilograms)",
        subtitle = "MAR") + 
@@ -281,7 +369,7 @@ ggplot(fulldata, aes(x = x, y = y)) +
                              l = 0))
 ggplot(fulldata, aes(x = x, y = y)) +
   geom_point(color = "gray") +
-  geom_point(data = mnardata$amp, aes(x = x, y = y)) + 
+  geom_point(data = mnardata_cc, aes(x = x, y = y)) + 
   labs(x = "Height (centimeters)", 
        y = "Weight (kilograms)",
        subtitle = "MNAR") + 
@@ -300,18 +388,21 @@ ggplot(fulldata, aes(x = x, y = y)) +
 #| fig-height: 2.5
 #| layout-ncol: 2
 reg1 <- lm(y ~ x, data = fulldata)
-reg2 <- lm(y ~ x, data = mcardata$amp)
-reg3 <- lm(y ~ x, data = mardata$amp)
-reg4 <- lm(y ~ x, data = mnardata$amp)
+reg2 <- lm(y ~ x, data = mcardata_cc)
+reg3 <- lm(y ~ x, data = mardata_cc)
+reg4 <- lm(y ~ x, data = mnardata_cc)
 regs <- list(reg1, reg2, reg3, reg4)
 round2 <- function(x) format(round(x, 2), nsmall = 2)
 labels <- c("Full data", "MCAR", "MAR", "MNAR")
-datas <- list(fulldata, mcardata$amp, mardata$amp, mnardata$amp)
+datas <- list(fulldata, mcardata, mardata, mnardata)
 for (i in 1:4) {
   reg <- regs[[i]]
   data <- datas[[i]]
-  if (i > 1) y_bar_mis <- mean(fulldata[which(is.na(datas[[i]][, 1])), "y"])
-  y_bar_obs <- mean(fulldata[which(!is.na(datas[[i]][, 1])), "y"])
+  if (i > 1) {
+    y_bar_mis <- mean(fulldata[which(datas[[i]][, 1] == 0), "y"])
+    y_bar_obs <- mean(fulldata[which(datas[[i]][, 1] == 1), "y"])
+  }
+  if (i == 1) y_bar_obs <- mean(fulldata[, "y"])
   slope <- summary(reg)$coef[2, 1]
   x <- seq(min(fulldata$x), max(fulldata$x), length.out = 1001)
   dat_curve <- data.frame(x = x,
@@ -335,6 +426,7 @@ for (i in 1:4) {
                              l = 0))
     }
     if (i > 1) {
+      data <- data[data$o == 1, ]
       p <- ggplot(fulldata, aes(x = x, y = y)) + 
         geom_point(color = "gray") + 
         geom_point(data = data, mapping = aes(x = x, y = y)) + 
@@ -381,7 +473,7 @@ Y_i &\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal 
 ## Missing pattern
 
 ```{r}
-md.pattern(mcardata$amp, rotate.names = TRUE)
+md.pattern(mcardata_cc, rotate.names = TRUE)
 ```
 
 ## Prepare for next class

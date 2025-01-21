@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -6089,14 +6089,14 @@
     "href": "slides/04-stan.html#review-of-last-lecture",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Review of last lecture",
-    "text": "Review of last lecture\nOn Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling\n\nWe obtained correlated samples from the posterior using MCMC\nGibbs required a lot math!\nMetropolis required tuning!\n\nToday we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference"
+    "text": "Review of last lecture\nOn Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling.\n\nWe obtained correlated samples from the posterior using MCMC.\nGibbs required a lot math!\nMetropolis required tuning!\n\nToday we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference."
   },
   {
     "objectID": "slides/04-stan.html#learning-objectives",
     "href": "slides/04-stan.html#learning-objectives",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of this lecture you should:\n\nKnow how to start coding up a model in Stan\nAppreciate how easy Stan makes things for us compared to coding up the algorithm ourselves\nKnow what to do when coding goes wrong\nKnow what to do when sampling goes wrong"
+    "text": "Learning objectives\nBy the end of this lecture you should:\n\nKnow how to start coding up a model in Stan.\nAppreciate how easy Stan makes things for us compared to coding up the algorithm ourselves.\nBe able to fit a basic linear regression in Stan."
   },
   {
     "objectID": "slides/04-stan.html#what-is-stan-and-how-do-we-use-it",
@@ -6110,7 +6110,7 @@
     "href": "slides/04-stan.html#why-should-we-use-stan",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Why should we use Stan?",
-    "text": "Why should we use Stan?\n\nStan is the brainchild of Andrew Gelman at Colombia.\nStan’s uses an extension of HMC called NUTS that automatically tunes. It is fast.\nStan is simple to learn.\nStan has excellent documentation (a manual full of extensive examples).\nMost important: Stan has a very active and helpful user forum and development team; for example, typical question answered in less than a couple of hours."
+    "text": "Why should we use Stan?\n\nStan is the brainchild of Andrew Gelman at Colombia.\nStan uses an extension of HMC called NUTS that automatically tunes. It is fast.\nStan is simple to learn.\nStan has excellent documentation (a manual full of extensive examples).\nMost important: Stan has a very active and helpful user forum and development team; for example, typical question answered in less than a couple of hours."
   },
   {
     "objectID": "slides/04-stan.html#how-do-we-use-it",
@@ -6215,7 +6215,7 @@
     "href": "slides/04-stan.html#running-stan",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Running Stan",
-    "text": "Running Stan\nWrite model in a text editing program and save as a .stan file.\n\nTo create a .stan file from RStudio, File -&gt; New File -&gt; Stan File.\n\n\n###Load packages\nlibrary(rstan)\n\n###Generate fake data\nY &lt;- rnorm(10, mean = 0, sd = 1)\n\n###Compile and run model, and save in fit\nfit &lt;- stan(file = 'straightforward.stan', data = list(Y= Y), \n            iter = 1000, chains = 4, seed = 1)"
+    "text": "Running Stan\nWrite model in a text editing program and save as a .stan file.\n\nTo create a .stan file from RStudio, File -&gt; New File -&gt; Stan File.\n\n\n###Load packages\nlibrary(rstan)\n\n###Generate fake data\nY &lt;- rnorm(10, mean = 0, sd = 1)\n\n###Compile and run model, and save in fit\nfit &lt;- stan(file = 'straightforward.stan', data = list(Y = Y), \n            iter = 1000, chains = 4, seed = 1)"
   },
   {
     "objectID": "slides/04-stan.html#running-stan-on-example-model",
@@ -6257,7 +6257,7 @@
     "href": "slides/04-stan.html#quick-note-what-does-sim-mean",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Quick note: what does \\(\\sim\\) mean?",
-    "text": "Quick note: what does \\(\\sim\\) mean?\n\nmodel {\n  Y ~ normal(mu, sigma); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma ~ inv_gamma(1, 1); // prior for sigma\n}\n\n\n\\(\\sim\\) doesn’t mean sampling, although often times it can be thought of as sampling\nMCMC/HMC makes use of the log-posterior\n\n\\[\\log f(\\boldsymbol{\\theta} | \\mathbf{Y}) \\propto \\log f(\\boldsymbol{\\theta}) + \\sum_{i=1}^n \\log f(\\mathbf{Y} | \\boldsymbol{\\theta})\\]\n\nAs such \\(\\sim\\) really means increment log probability\nAll we have to do in Stan is specify the log-posterior!"
+    "text": "Quick note: what does \\(\\sim\\) mean?\n\nmodel {\n  Y ~ normal(mu, sigma); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma ~ inv_gamma(1, 1); // prior for sigma\n}\n\n\n\\(\\sim\\) doesn’t mean sampling, although often times it can be thought of as sampling\nMCMC/HMC makes use of the log-posterior\n\n\\[\\log f(\\boldsymbol{\\theta} | \\mathbf{Y}) \\propto \\log f(\\boldsymbol{\\theta}) + \\sum_{i=1}^n \\log f({Y}_i | \\boldsymbol{\\theta})\\]\n\nAs such \\(\\sim\\) really means increment log probability\nAll we have to do in Stan is specify the log-posterior!"
   },
   {
     "objectID": "slides/04-stan.html#alternate-way-of-specifying-stan-models",
@@ -6362,7 +6362,7 @@
     "href": "slides/04-stan.html#stan-speed-concerns",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Stan speed concerns",
-    "text": "Stan speed concerns\nWhilst Stan is fast it pays to know the importance of each code block for efficiency.\n\ndata: called once at beginning of execution.\ntransformed data: called once at beginning of execution.\nparameters: every log probability evaluation!\ntransformed parameters: every log probability evaluation!\nmodel: every log probability evaluation!\ngenerated quantities: once per sample.\nfunctions: how many times it is called depends on the function’s nature."
+    "text": "Stan speed concerns\nWhile Stan is fast it pays to know the importance of each code block for efficiency.\n\ndata: called once at beginning of execution.\ntransformed data: called once at beginning of execution.\nparameters: every log probability evaluation!\ntransformed parameters: every log probability evaluation!\nmodel: every log probability evaluation!\ngenerated quantities: once per sample.\nfunctions: how many times it is called depends on the function’s nature."
   },
   {
     "objectID": "slides/04-stan.html#stan-in-parallel",
@@ -11415,21 +11415,21 @@
   {
     "objectID": "slides/14-missing.html#review-of-last-lecture",
     "href": "slides/14-missing.html#review-of-last-lecture",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Review of last lecture",
     "text": "Review of last lecture\n\nLast, we learned about classification for binary and multiclass problems."
   },
   {
     "objectID": "slides/14-missing.html#missing-data-framework",
     "href": "slides/14-missing.html#missing-data-framework",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Missing data framework",
     "text": "Missing data framework\n\nWe are interested in modeling a random variable \\(Y_{i}\\), for \\(i \\in \\{1,\\ldots,n\\}\\).\nIn a missing data setting, we only observe the outcome in subset of observations, \\(\\mathbf{Y}_{obs} = \\{Y_{i}:i \\in \\mathcal N_{obs}\\}\\).\n\n\\(\\mathcal N_{obs}\\) is the set of indeces in the observed set, such that \\(|\\mathcal N_{obs}|= n_{obs}\\) is the number of observed data points.\n\nThe remaining observations are assumed to be missing and are contained in \\(\\mathbf{Y}_{mis} = \\{Y_{i}:i \\in \\mathcal N_{mis}\\}\\).\n\n\\(\\mathcal N_{mis}\\) is the set of indeces of the missing data and \\(|\\mathcal N_{mis}|= n_{mis}\\) is the number of missing data points.\n\nThe full set of data is given by \\(\\mathbf{Y}=(\\mathbf{Y}_{obs},\\mathbf{Y}_{mis})\\)."
   },
   {
     "objectID": "slides/14-missing.html#prepare-for-next-class",
     "href": "slides/14-missing.html#prepare-for-next-class",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Prepare for next class",
     "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
@@ -11443,58 +11443,58 @@
   {
     "objectID": "slides/14-missing.html#missing-data",
     "href": "slides/14-missing.html#missing-data",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Missing data",
-    "text": "Missing data\n\nMissing data can appear in the outcome and/or predictors.\nWe will write down some math for the missingness occuring in the outcome space."
+    "text": "Missing data\n\nMissing data can appear in the outcome and/or predictors.\nToday, we will write down some math for missing data occuring in the outcome space, however this is generalizable to missingness in the predictor space."
   },
   {
     "objectID": "slides/14-missing.html#missing-data-notation",
     "href": "slides/14-missing.html#missing-data-notation",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Missing data notation",
     "text": "Missing data notation\n\nDefine \\(O_{i}\\) as a binary indicator of observation \\(Y_{i}\\) being present, where \\(O_{i} = 1\\) indicates that \\(Y_{i}\\) was observed.\nThe collection of missingness indicators is given by \\(\\mathbf{O} = \\{O_{i}:i = 1,\\ldots,n\\}\\).\nOur observed data then consists of \\((\\mathbf{Y}_{obs}, \\mathbf{O})\\)."
   },
   {
     "objectID": "slides/14-missing.html#observed-data-likelihood",
     "href": "slides/14-missing.html#observed-data-likelihood",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Observed data likelihood",
-    "text": "Observed data likelihood\n\nThe likelihood for the observed data must be written by marginalizing over the unobserved outcome variables.\n\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y}_{obs}, \\mathbf{Y}_{mis}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int \\underbrace{f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi})}_{\\text{complete data likelihood}} d\\mathbf{Y}_{mis}\n\\end{aligned}\\]"
+    "text": "Observed data likelihood\n\nThe likelihood for the observed data must be written by marginalizing over the unobserved outcome variables.\n\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y}_{obs}, \\mathbf{Y}_{mis}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y}, \\mathbf{O} |\\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int \\underbrace{f(\\mathbf{Y} |\\mathbf{X}, \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{X},\\mathbf{Y}, \\boldsymbol{\\phi})}_{\\text{complete data likelihood}} d\\mathbf{Y}_{mis}\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/14-missing.html#next",
     "href": "slides/14-missing.html#next",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Next",
     "text": "Next\nThere are many ways to handle missing data. The simplest approach is to perform a complete case analysis, where we delete entries with a missing value for at least one variable. If the data are missing completely at random (MCAR), then we get unbiased parameter estimate. However:\nCredible intervals will usually be too wide, since the sample size has effectively been reduced (drastically). If missing values occur for other reasons, this yields biased estimates. The next step up is instead of dropping all the missing entries, we replace missing values of a feature with the mean or median of available values for the feature. This is called single mean/median imputation, and is often recommended in many machine learning tasks if the data are MCAR as it can still lead to unbiased parameter estimates.\nThere are also some drawbacks with this method, especially if you’re interested in studying the variability. Single mean/median imputation artificially reduces the variance of features, which results in credible intervals which are too narrow. As shown in Figure 2, the peak at the mean is much higher relative to the surrounding values. The mean of the distribution can still be estimated appropriately, but the amount of spread is reduced.\nAnother drawback is it doesn’t account for relationship between variables, thus reduces correlation. For example, the correlation between the two variables is 0.665 if we only look at the complete cases. If we use single mean imputation, the correlation decreases to 0.589.\nNote that if you don’t care about assessing variability in your estimates, which is often the case for classification tasks, then mean imputation can work quite well."
   },
   {
     "objectID": "slides/14-missing.html#complete-data-likelihood",
     "href": "slides/14-missing.html#complete-data-likelihood",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Complete data likelihood",
-    "text": "Complete data likelihood\n\nThe joint distribution of \\((\\mathbf{Y}, \\mathbf{O})\\) can be written as,\n\n\\[f(\\mathbf{Y}, \\mathbf{O} |  \\boldsymbol{\\theta},\\boldsymbol{\\phi}) = \\underbrace{f(\\mathbf{Y} | \\boldsymbol{\\theta})}_{\\text{likelihood}} \\times  \\underbrace{f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi})}_{\\text{missing model}}.\\]\n\nThe parameter block, \\((\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\), consists of:\n\n\\(\\boldsymbol{\\theta}\\), the target parameters of interest (e.g., feature effects on outcome), and\n\\(\\boldsymbol{\\phi}\\), the nuisance parameters.\n\n\n\nCan we perform inference using this likelihood?"
+    "text": "Complete data likelihood\n\nThe joint distribution of \\((\\mathbf{Y}, \\mathbf{O})\\) can be written as,\n\n\\[f(\\mathbf{Y}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) = \\underbrace{f(\\mathbf{Y} | \\mathbf{X}, \\boldsymbol{\\theta})}_{\\text{likelihood}} \\times  \\underbrace{f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X}, \\boldsymbol{\\phi})}_{\\text{missing model}}.\\]\n\nThe parameter block, \\((\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\), consists of:\n\n\\(\\boldsymbol{\\theta}\\), the target parameters of interest (e.g., feature effects on outcome), and\n\\(\\boldsymbol{\\phi}\\), the nuisance parameters.\n\n\n\nCan we perform inference using this likelihood?"
   },
   {
     "objectID": "slides/14-missing.html#missing-data-models-mcar",
     "href": "slides/14-missing.html#missing-data-models-mcar",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Missing data models: MCAR",
-    "text": "Missing data models: MCAR\nThe data are missing completely at random (MCAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\boldsymbol{\\phi})\\\\\n&= f(\\mathbf{O} | \\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness does not depend on any data."
+    "text": "Missing data models: MCAR\nThe data are missing completely at random (MCAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\mathbf{X},\\boldsymbol{\\phi})\\\\\n&= f(\\mathbf{O} | \\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness does not depend on any data."
   },
   {
     "objectID": "slides/14-missing.html#missing-data-models-mar",
     "href": "slides/14-missing.html#missing-data-models-mar",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Missing data models: MAR",
-    "text": "Missing data models: MAR\nThe data are missing at random (MAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\boldsymbol{\\phi})\\\\\n&= f(\\mathbf{O} | \\mathbf{Y}_{obs},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness depends on the observed data only."
+    "text": "Missing data models: MAR\nThe data are missing at random (MAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\mathbf{X},\\boldsymbol{\\phi})\\\\\n&= f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{X},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness depends on the observed data only."
   },
   {
     "objectID": "slides/14-missing.html#missing-data-models-mnar",
     "href": "slides/14-missing.html#missing-data-models-mnar",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Missing data models: MNAR",
-    "text": "Missing data models: MNAR\nThe data are missing not at random (MNAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness depends on the observed and missing data."
+    "text": "Missing data models: MNAR\nThe data are missing not at random (MNAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\mathbf{X},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness depends on the observed and missing data."
   },
   {
     "objectID": "slides/14-missing.html#implications-of-the-missing-model",
@@ -11506,42 +11506,42 @@
   {
     "objectID": "slides/14-missing.html#implications-of-the-missing-model-mcar",
     "href": "slides/14-missing.html#implications-of-the-missing-model-mcar",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Implications of the missing model: MCAR",
-    "text": "Implications of the missing model: MCAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{O} | \\boldsymbol{\\phi}) \\int f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta})d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi})\\int  f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nUnder the MCAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model."
+    "text": "Implications of the missing model: MCAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} |\\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{O} | \\boldsymbol{\\phi}) \\int f(\\mathbf{Y}_{obs} |\\mathbf{X}_{obs}, \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} |\\mathbf{X}_{mis}, \\boldsymbol{\\theta})d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi})\\int  f(\\mathbf{Y}_{mis} |\\mathbf{X}_{mis}, \\boldsymbol{\\theta}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi}).\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/14-missing.html#implications-of-the-missing-model-mar",
     "href": "slides/14-missing.html#implications-of-the-missing-model-mar",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Implications of the missing model: MAR",
-    "text": "Implications of the missing model: MAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{O} | \\mathbf{Y}_{obs},\\boldsymbol{\\phi}) \\int f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta})d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} |\\mathbf{Y}_{obs}, \\boldsymbol{\\phi})\\int  f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta})f(\\mathbf{O} |\\mathbf{Y}_{obs}, \\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nUnder the MAR assumption, we are allowed to fit the complete case analysis. We can ignore the missing data model."
+    "text": "Implications of the missing model: MAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} |\\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} |\\mathbf{X}, \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y},\\mathbf{X}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{X}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}=  f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{X},\\boldsymbol{\\phi}) \\int f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis},\\boldsymbol{\\theta})d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}=  f(\\mathbf{Y}_{obs} |\\mathbf{X}_{obs}, \\boldsymbol{\\theta})f(\\mathbf{O} |\\mathbf{Y}_{obs},\\mathbf{X}, \\boldsymbol{\\phi})\\int  f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis},\\boldsymbol{\\theta}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}=  f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta})f(\\mathbf{O} |\\mathbf{Y}_{obs}, \\mathbf{X},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nUnbiased Parameter Estimates: Similar to MCAR, we can perform a complete case analysis and can ignore the missing data model! This is never done, however, because it leads to incorrect inference."
   },
   {
     "objectID": "slides/14-missing.html#implications-of-the-missing-model-mnar",
     "href": "slides/14-missing.html#implications-of-the-missing-model-mnar",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Implications of the missing model: MNAR",
-    "text": "Implications of the missing model: MNAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{Y}_{mis}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi})d\\mathbf{Y}_{mis}\\\\\n&= f(\\mathbf{Y}_{obs} | \\boldsymbol{\\theta}) \\int f(\\mathbf{Y}_{mis} | \\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y},\\boldsymbol{\\phi})d\\mathbf{Y}_{mis}\\\\\n\\end{aligned}\\]\n\nUnder the MNAR assumption, we are NOT allowed to ignore the missing data. We must specify a model for the missing data."
+    "text": "Implications of the missing model: MNAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\mathbf{X},\\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y},\\mathbf{X}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{Y}_{mis}, \\mathbf{X},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}= \\int f(\\mathbf{Y}_{obs} |\\mathbf{X}_{obs}, \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis},\\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi})d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}= f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta}) \\int f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis},\\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi})d\\mathbf{Y}_{mis}\n\\end{aligned}\\]\n\nUnder the MNAR assumption, we are NOT allowed to ignore the missing data. We must specify a model for the missing data.\nThis is really hard! We can ignore this in our class."
   },
   {
     "objectID": "slides/14-missing.html#summary-of-missing-mechanisms",
     "href": "slides/14-missing.html#summary-of-missing-mechanisms",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Summary of missing mechanisms",
-    "text": "Summary of missing mechanisms\n\nUnder MAR and MCAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered ignorable.\nUnder MNAR, we must model the missing data mechanism. This data is considered non-ignorable."
+    "text": "Summary of missing mechanisms\n\nUnder MCAR and MAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered ignorable.\nUnder MAR, fitting the complete case analysis is not efficient and advanced techniques are needed to guarentee proper statistical inference.\nUnder MNAR, we must model the missing data mechanism. This data is considered non-ignorable."
   },
   {
     "objectID": "slides/14-missing.html#generating-data",
     "href": "slides/14-missing.html#generating-data",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Generating data",
     "text": "Generating data\n\nWe want to have data under the following criteria:\n\nFull data\nMCAR data\nMAR data\nMNAR data\n\nWe then want to fit the following models: Complete case analysis, full Bayesian model, mice version."
   },
   {
     "objectID": "slides/14-missing.html#lets-look-at-some-data",
     "href": "slides/14-missing.html#lets-look-at-some-data",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Let’s look at some data",
     "text": "Let’s look at some data\n\nlibrary(openintro)\nfulldata &lt;- data.frame(y = bdims$wgt,\n                       x = bdims$hgt)"
   },
@@ -11555,30 +11555,30 @@
   {
     "objectID": "slides/14-missing.html#visualize-data",
     "href": "slides/14-missing.html#visualize-data",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Visualize data",
     "text": "Visualize data"
   },
   {
     "objectID": "slides/14-missing.html#model-fits",
     "href": "slides/14-missing.html#model-fits",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Model fits",
     "text": "Model fits"
   },
   {
     "objectID": "slides/14-missing.html#simulate-missing-data",
     "href": "slides/14-missing.html#simulate-missing-data",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Simulate missing data",
-    "text": "Simulate missing data\n\nlibrary(mice)\nset.seed(54)\nmissing_prop &lt;- 0.5\npattern &lt;- data.frame(y = c(0), x = c(1))\nmcardata &lt;- ampute(fulldata, \n                   prop = missing_prop, \n                   patterns = pattern,\n                   mech = \"MCAR\")\nmardata &lt;- ampute(fulldata, \n                   prop = missing_prop, \n                   patterns = pattern,\n                   mech = \"MAR\")\nmnardata &lt;- ampute(fulldata, \n                  prop = missing_prop, \n                  patterns = pattern,\n                  mech = \"MNAR\")"
+    "text": "Simulate missing data\n\nlibrary(mice)\nset.seed(54)\nn &lt;- nrow(fulldata)\n\n###Simulate MCAR data\nO &lt;- rbinom(n, 1, prob = 0.40)\nmcardata &lt;- data.frame(\n  o = O,\n  x = fulldata$x,\n  y = fulldata$y\n)\nmcardata_cc &lt;- mcardata[mcardata$o == 1, ]\n\n###Simulate MAR data\nO &lt;- rbinom(n, 1, prob = pnorm(scale(fulldata$x)))\nmardata &lt;- data.frame(\n  o = O,\n  x = fulldata$x,\n  y = fulldata$y\n)\nmardata_cc &lt;- mardata[mardata$o == 1, ]\n\n###Simulate MNAR data\nO &lt;- rbinom(n, 1, prob = pnorm(scale(fulldata$y)))\nmnardata &lt;- data.frame(\n  o = O,\n  x = fulldata$x,\n  y = fulldata$y\n)\nmnardata_cc &lt;- mnardata[mnardata$o == 1, ]"
   },
   {
     "objectID": "slides/14-missing.html#missing-pattern",
     "href": "slides/14-missing.html#missing-pattern",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Missing pattern",
-    "text": "Missing pattern\n\nmd.pattern(mcardata$amp, rotate.names = TRUE)\n\n\n    x   y    \n256 1   1   0\n251 1   0   1\n    0 251 251"
+    "text": "Missing pattern\n\nmd.pattern(mcardata_cc, rotate.names = TRUE)\n\n /\\     /\\\n{  `---'  }\n{  O   O  }\n==&gt;  V &lt;==  No need for mice. This data set is completely observed.\n \\  \\|/  /\n  `-----'\n\n\n\n    o x y  \n199 1 1 1 0\n    0 0 0 0"
   },
   {
     "objectID": "slides/14-missing.html#model",
@@ -11590,7 +11590,7 @@
   {
     "objectID": "slides/14-missing.html#complete-case-model",
     "href": "slides/14-missing.html#complete-case-model",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Complete-case model",
     "text": "Complete-case model\n\\[\\begin{aligned}\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{obs}\\\\\n\\alpha &\\sim N(0,10)\\\\\n\\beta &\\sim N(0,10)\\\\\n\\sigma &\\sim \\text{Half-Normal}(0, 10)\n\\end{aligned}\\]"
   },
@@ -11604,7 +11604,7 @@
   {
     "objectID": "slides/14-missing.html#full-bayesian-model",
     "href": "slides/14-missing.html#full-bayesian-model",
-    "title": "Multiclass Classification",
+    "title": "Missing Data",
     "section": "Full Bayesian model",
     "text": "Full Bayesian model\n\\[\\begin{aligned}\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{obs}\\\\\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{mis}\\\\\n\\alpha &\\sim N(0,10)\\\\\n\\beta &\\sim N(0,10)\\\\\n\\sigma &\\sim \\text{Half-Normal}(0, 10)\n\\end{aligned}\\]"
   },
@@ -11621,5 +11621,96 @@
     "title": "Prepare for January 23 lecture",
     "section": "",
     "text": "📖 Read about the posterior predictive distribution in Hoff Chapter 4, Section 4.3\n📖 Review prior choice recommendations\n✅ Work on HW 01"
+  },
+  {
+    "objectID": "slides/14-missing.html#missing-data-in-research",
+    "href": "slides/14-missing.html#missing-data-in-research",
+    "title": "Missing Data",
+    "section": "Missing data in research",
+    "text": "Missing data in research\n\nIn any real-world dataset, missing values are nearly always going to be present.\n\nMissing data can be a source of bias.\nMissing data be totally innocuous.\n\nCannot determine which because there are no values to inspect.\nHandling missing data is extremely difficult!"
+  },
+  {
+    "objectID": "slides/14-missing.html#examples",
+    "href": "slides/14-missing.html#examples",
+    "title": "Missing Data",
+    "section": "Examples",
+    "text": "Examples\n\nSuppose an individual’s depression scores are missing in dataset of patients with colon cancer.\nIt could be missing because:\n\nA data entry error where some values did not make it into the dataset.\nThe patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the depression itself).\nThe patient has depression, leading to them not completing the depression survey."
+  },
+  {
+    "objectID": "slides/14-missing.html#classifactions-of-missing-data",
+    "href": "slides/14-missing.html#classifactions-of-missing-data",
+    "title": "Missing Data",
+    "section": "Classifactions of missing data",
+    "text": "Classifactions of missing data\n\nMissing completely at random (MCAR)\n\nThis is the ideal case but rarely seen in practice. Usually a data entry problem.\n\nMissing at random (MAR)\n\nThe missing value is related to some other variable that has been collected.\n\nMissing not at random (MNAR)\n\nThe missing value is related to a variable that was not collected or not observed."
+  },
+  {
+    "objectID": "slides/14-missing.html#key-points-about-mcar-assumption",
+    "href": "slides/14-missing.html#key-points-about-mcar-assumption",
+    "title": "Missing Data",
+    "section": "Key points about MCAR assumption",
+    "text": "Key points about MCAR assumption\n\nNo bias: The analysis based on the observed data will not be biased, as the missingness does not systematically favor any particular pattern in the data.\nReduced power: While unbiased, MCAR still reduces the statistical power of the analysis due to the smaller sample size resulting from missing data.\nSimple handling methods: Because of its random nature, MCAR allows for straightforward handling methods like listwise deletion (i.e., complete-case analysis) or simple imputation techniques (e.g., mean imputation) without introducing bias."
+  },
+  {
+    "objectID": "slides/14-missing.html#key-points-about-mar-assumption",
+    "href": "slides/14-missing.html#key-points-about-mar-assumption",
+    "title": "Missing Data",
+    "section": "Key points about MAR assumption",
+    "text": "Key points about MAR assumption\n\nComplete-case analysis is not acceptable: \n\nParameter estimation remains unbiased, but estimation of variances and intervals does not.\nAlso, smaller sample size leads to less power and worse prediction.\nUnder certain missingness settings, parameter estimation may not be unbiased.\n\nSimple handling approaches fail: Methods like mean imputation will also result in small estimated standard errors.\nMore advanced methods are needed: Multiple imputation, Bayes."
+  },
+  {
+    "objectID": "slides/14-missing.html#why-bayesian-missing-data",
+    "href": "slides/14-missing.html#why-bayesian-missing-data",
+    "title": "Missing Data",
+    "section": "Why Bayesian missing data",
+    "text": "Why Bayesian missing data\nUnbiased Parameter Estimates: Multiple imputation helps to ensure that the parameter estimates (e.g., regression coefficients, group means) are unbiased. By creating multiple imputed datasets and combining the results, we can obtain more accurate estimates that reflect the uncertainty due to missing data1.\nAccurate Standard Errors: Multiple imputation provides accurate standard errors, which leads to reliable p-values and appropriate statistical inferences. This is crucial for making valid conclusions from the data1.\nFlexibility: Multiple imputation is flexible and can handle various types of missing data patterns. It allows for the inclusion of covariates that explain the missingness, which is important for MAR data2.\nHandling Complex Data Structures: Multiple imputation can be used with complex data structures, such as hierarchical or longitudinal data, where the missingness mechanism may vary across different levels or time points2.\nRobustness to Model Misspecification: Multiple imputation is robust to certain types of model misspecification. For example, even if the imputation model is not perfectly specified, the combined results from multiple imputed datasets can still provide valid inferences3."
+  },
+  {
+    "objectID": "ae/ae-03-stan.html",
+    "href": "ae/ae-03-stan.html",
+    "title": "AE 03: Introduction to Stan",
+    "section": "",
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#learning-goals",
+    "href": "ae/ae-03-stan.html#learning-goals",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the AE, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nPerform Bayesian linear regression using HMC\nPrepare data for a regression task in Stan\nPrint posterior results from Stan"
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-03-stan.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-03-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick AE 03.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#exercise-1",
+    "href": "ae/ae-03-stan.html#exercise-1",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit the following model in Stan and present posterior summaries.\n\\[\nY_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i, \\hspace{5mm} \\epsilon \\sim N(0, \\sigma^2),\n\\] where \\(\\mathbf{x}_i = (Age_i, 1(Sex_i = Male), BMI_i, BP_i)\\) and flat priors for all parameters: \\(f(\\alpha,\\boldsymbol{\\beta},\\sigma) \\propto c.\\) Flat priors are specified by default, so we can omit any prior specification.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#exercise-2",
+    "href": "ae/ae-03-stan.html#exercise-2",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nFit the same model using the lm function in R. Compare the Bayesian and OLS/MLE results.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#exercise-3",
+    "href": "ae/ae-03-stan.html#exercise-3",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit the same regression model as in Exercise 1, but with the following priors:\n\\[\\begin{align*}\n\\alpha &\\sim N(0,10)\\\\\n\\beta_j &\\sim N(0,10),\\quad j=1,\\ldots,p\\\\\n\\sigma^2 &\\sim \\text{Inv-Gamma}(3,1).\n\\end{align*}\\]\nCompare the results from this model to the previous two models.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "prepare/prepare-jan28.html",
+    "href": "prepare/prepare-jan28.html",
+    "title": "Prepare for January 23 lecture",
+    "section": "",
+    "text": "Occasionally during the semester we will reference material from the text book Bayesian Data Analysis Third Edition by Andrew Gelman et al. A PDF of the textbook is available for download at Andrew Gelman’s website. We will refer to this textbook as BDA3.\n📖 Read BDA3 Chapter 6, Sections 6.1-6.5 to learn about Gibbs sampling\n📖 Read about the posterior predictive distribution in Hoff Chapter 4, Section 4.3\n📖 Review prior choice recommendations\n✅ Work on HW 01"
   }
 ]

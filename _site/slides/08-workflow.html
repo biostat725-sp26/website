@@ -886,7 +886,7 @@ convergence, Rhat=1).</code></pre>
 <h2>7.<strong>Check predictions:</strong></h2>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>y_pred <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="st">"in_sample"</span>)<span class="sc">$</span>in_sample</span>
 <span id="cb15-2"><a></a><span class="fu">ppc_dens_overlay</span>(dat<span class="sc">$</span>weight, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -906,7 +906,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb16-4"><a></a>q975 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.975</span>)</span>
 <span id="cb16-5"><a></a><span class="fu">ppc_stat</span>(dat<span class="sc">$</span>weight, y_pred, <span class="at">stat =</span> <span class="st">"q025"</span>)</span>
 <span id="cb16-6"><a></a><span class="fu">ppc_stat</span>(dat<span class="sc">$</span>weight, y_pred, <span class="at">stat =</span> <span class="st">"q975"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
