@@ -11712,5 +11712,47 @@
     "title": "Prepare for January 23 lecture",
     "section": "",
     "text": "Occasionally during the semester we will reference material from the text book Bayesian Data Analysis Third Edition by Andrew Gelman et al. A PDF of the textbook is available for download at Andrew Gelman’s website. We will refer to this textbook as BDA3.\n📖 Read BDA3 Chapter 6, Sections 6.1-6.5 to learn about Gibbs sampling\n📖 Read about the posterior predictive distribution in Hoff Chapter 4, Section 4.3\n📖 Review prior choice recommendations\n✅ Work on HW 01"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html",
+    "href": "ae/ae-04-priors-ppd.html",
+    "title": "AE 04: Priors in Stan",
+    "section": "",
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#learning-goals",
+    "href": "ae/ae-04-priors-ppd.html#learning-goals",
+    "title": "AE 04: Priors in Stan",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the AE, you will…\n\nUnderstand the idea of centering data for stabilizing inference\nGain knowledge on prior specification and its sometimes unintended impact\nBe able to compute and interpret a posterior predictive distribution"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-04-priors-ppd.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 04: Priors in Stan",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-04-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick AE 04.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#exercise-1",
+    "href": "ae/ae-04-priors-ppd.html#exercise-1",
+    "title": "AE 04: Priors in Stan",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit the centered regression model detailed above with the following priors: \\(\\alpha \\sim N(0,10)\\), \\(\\beta_j \\sim N(0,10)\\), and \\(\\sigma^2 \\sim \\text{Inv-Gamma}(3,1).\\) Obtain posterior samples for this model using Stan. Be sure to present posterior samples for \\(\\alpha^*\\).\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#exercise-2",
+    "href": "ae/ae-04-priors-ppd.html#exercise-2",
+    "title": "AE 04: Priors in Stan",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nStan is extremely flexible in terms of the priors that can be used for parameters. Using the centered data specification, change the priors for all three parameters. Report how sensitive the results are.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#exercise-3",
+    "href": "ae/ae-04-priors-ppd.html#exercise-3",
+    "title": "AE 04: Priors in Stan",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCompute a one-sided Bayesian p-value for the regression slope: \\(P(\\beta_1 &lt; 0)\\). Interpret the results in plain English. Is intraocular pressure associated with disease progression?\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
   }
 ]

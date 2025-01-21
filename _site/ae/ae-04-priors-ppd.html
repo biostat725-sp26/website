@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-01-21">
+<meta name="dcterms.date" content="2025-01-23">
 
-<title>AE 03: Introduction to Stan – BIOSTAT 725 - Spring 2025</title>
+<title>AE 04: Priors in Stan – BIOSTAT 725 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -143,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 03: Introduction to Stan</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AE 04: Priors in Stan</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -314,7 +314,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R packages</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory data analysis</a></li>
+  <li><a href="#review-of-last-ae" id="toc-review-of-last-ae" class="nav-link" data-scroll-target="#review-of-last-ae">Review of last AE</a></li>
+  <li><a href="#centering-data-for-stable-inference" id="toc-centering-data-for-stable-inference" class="nav-link" data-scroll-target="#centering-data-for-stable-inference">Centering Data for Stable Inference</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -329,7 +330,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">AE 03: Introduction to Stan</h1>
+<h1 class="title">AE 04: Priors in Stan</h1>
 <p class="subtitle lead">Modeling diabetes disease progression</p>
 </div>
 
@@ -341,7 +342,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 21, 2025</p>
+      <p class="date">January 23, 2025</p>
     </div>
   </div>
   
@@ -372,15 +373,14 @@ Due date
 </div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>This AE will be an introduction to Stan using an example data set on diabetes disease progression. We will walk through a linear regression task using Stan and code up our first Stan model.</p>
+<p>This AE will take another look at the diabetes regression problem from Tuesday. At the end of the AE, we realized that placing priors on the parameters yields incorrect posterior inference. During this AE we will explore data centering approaches to stabilize our Bayesian model and explore the implications of prior specification.</p>
 <section id="learning-goals" class="level2">
 <h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
 <p>By the end of the AE, you will…</p>
 <ul>
-<li>Be familiar with the workflow using RStudio and GitHub</li>
-<li>Perform Bayesian linear regression using HMC</li>
-<li>Prepare data for a regression task in Stan</li>
-<li>Print posterior results from Stan</li>
+<li>Understand the idea of centering data for stabilizing inference</li>
+<li>Gain knowledge on prior specification and its sometimes unintended impact</li>
+<li>Be able to compute and interpret a posterior predictive distribution</li>
 </ul>
 </section>
 </section>
@@ -390,7 +390,7 @@ Due date
 <h2 class="anchored" data-anchor-id="clone-the-repo-start-new-rstudio-project">Clone the repo &amp; start new RStudio project</h2>
 <ul>
 <li>Go to the course organization at <a href="https://github.com/biostat725-sp25">github.com/biostat725-sp25</a> organization on GitHub.</li>
-<li>Click on the repo with the prefix <strong>ae-03-</strong>. It contains the starter documents you need to complete the AE.</li>
+<li>Click on the repo with the prefix <strong>ae-04-</strong>. It contains the starter documents you need to complete the AE.</li>
 <li>Click on the green <strong>CODE</strong> button, select <strong>Use SSH</strong> (this might already be selected by default, and if it is, you’ll see the text <strong>Clone with SSH</strong>). Click on the clipboard icon to copy the repo URL.
 <ul>
 <li>See the <a href="https://biostat725-sp25.netlify.app/hw/hw-00#connect-rstudio-and-github">HW 00 instructions</a> if you have not set up the SSH key or configured git.</li>
@@ -398,7 +398,7 @@ Due date
 <li>In RStudio, go to <em>File</em> <span class="math inline">\(\rightarrow\)</span> <em>New Project</em> <span class="math inline">\(\rightarrow\)</span> <em>Version Control</em> <span class="math inline">\(\rightarrow\)</span> <em>Git</em>.</li>
 <li>Copy and paste the URL of your assignment repo into the dialog box <em>Repository URL</em>. Again, please make sure to have <em>SSH</em> highlighted under <em>Clone</em> when you copy the address.</li>
 <li>Click <em>Create Project</em>, and the files from your GitHub repo will be displayed in the <em>Files</em> pane in RStudio.</li>
-<li>Click <code>AE 03.qmd</code> to open the template Quarto file. This is where you will write up your code and narrative for the AE.</li>
+<li>Click <code>AE 04.qmd</code> to open the template Quarto file. This is where you will write up your code and narrative for the AE.</li>
 </ul>
 </section>
 </section>
@@ -408,7 +408,8 @@ Due date
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)    <span class="co"># data wrangling and visualization</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)        <span class="co"># format output</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)        <span class="co"># Stan</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)        <span class="co"># Stan</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot)    <span class="co"># figures for post Stan inference</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level1">
@@ -422,7 +423,7 @@ Due date
 <li><p><code>BMI</code>: body mass index (<span class="math inline">\(kg/m^2\)</span>)</p></li>
 <li><p><code>BP</code>: average blood pressure (mm Hg)</p></li>
 </ul>
-<p>The goal of this analysis is to learn the associations between age, sex, BMI, and blood pressure on diabetic disease progression one year after baseline. The data is available in the <code>ae-03-</code> repo and is called <code>diabetes.txt</code>.</p>
+<p>The goal of this analysis is to learn the associations between age, sex, BMI, and blood pressure on diabetic disease progression one year after baseline. The data is available in the <code>ae-04-</code> repo and is called <code>diabetes.txt</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="st">"diabetes.txt"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(diabetes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -445,90 +446,123 @@ $ Y   &lt;dbl&gt; 151, 75, 141, 206, 135, 97, 138, 63, 110, 310, 101, 69, 179, 1
 </div>
 </div>
 </section>
-<section id="exploratory-data-analysis" class="level1">
-<h1>Exploratory data analysis</h1>
-<p>Let’s begin by examining the univariate distributions of the diabetes disease progression. The code to visualize and calculate summary statistics for <code>Y</code> is below.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diabetes, <span class="fu">aes</span>(<span class="at">x =</span> Y)) <span class="sc">+</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Disease progression at one year from baseline"</span>, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Disease progression in diabetes patients"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ae-03-stan_files/figure-html/progression-viz-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(Y), <span class="at">q1 =</span> <span class="fu">quantile</span>(Y, <span class="fl">0.25</span>), </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(Y), <span class="at">q3 =</span> <span class="fu">quantile</span>(Y, <span class="fl">0.75</span>), </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(Y), <span class="at">mean =</span> <span class="fu">mean</span>(Y), <span class="at">sd =</span> <span class="fu">sd</span>(Y)) <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">min</th>
-<th style="text-align: right;">q1</th>
-<th style="text-align: right;">median</th>
-<th style="text-align: right;">q3</th>
-<th style="text-align: right;">max</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">sd</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: right;">140.5</td>
-<td style="text-align: right;">211.5</td>
-<td style="text-align: right;">346</td>
-<td style="text-align: right;">152.133</td>
-<td style="text-align: right;">77.093</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Fit the following model in Stan and present posterior summaries.</p>
+<section id="review-of-last-ae" class="level1">
+<h1>Review of last AE</h1>
+<p>Last AE we fit the following model in Stan and presented posterior summaries.</p>
 <p><span class="math display">\[
 Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2),
 \]</span> where <span class="math inline">\(\mathbf{x}_i = (Age_i, 1(Sex_i = Male), BMI_i, BP_i)\)</span> and flat priors for all parameters: <span class="math inline">\(f(\alpha,\boldsymbol{\beta},\sigma) \propto c.\)</span> Flat priors are specified by default, so we can omit any prior specification.</p>
-<p><strong>Answer:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+            mean se_mean    sd     2.5%    97.5% n_eff Rhat
+alpha    -209.90    0.40 22.78  -254.86  -164.14  3269    1
+beta[1]     0.14    0.00  0.24    -0.34     0.62  3596    1
+beta[2]   -10.20    0.10  6.04   -21.85     1.62  3559    1
+beta[3]     8.49    0.01  0.71     7.10     9.86  3515    1
+beta[4]     1.44    0.00  0.24     0.97     1.90  3286    1
+sigma      60.18    0.03  2.05    56.26    64.51  3572    1
+lp__    -2433.14    0.04  1.82 -2437.76 -2430.69  1686    1
+
+Samples were drawn using NUTS(diag_e) at Tue Jan 21 09:52:22 2025.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
 </div>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Fit the same model using the <code>lm</code> function in R. Compare the Bayesian and OLS/MLE results.</p>
-<p><strong>Answer:</strong></p>
+</div>
+<p>The Bayesian regression results nicely matched the OLS/MLE results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Y <span class="sc">~</span> AGE <span class="sc">+</span> <span class="fu">as.factor</span>(SEX) <span class="sc">+</span> BMI <span class="sc">+</span> BP, <span class="at">data =</span> diabetes))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Y ~ AGE + as.factor(SEX) + BMI + BP, data = diabetes)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-152.417  -43.576   -3.757   42.938  150.054 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)     -209.2284    22.6318  -9.245  &lt; 2e-16 ***
+AGE                0.1353     0.2329   0.581    0.562    
+as.factor(SEX)2  -10.1590     5.9219  -1.716    0.087 .  
+BMI                8.4843     0.7051  12.032  &lt; 2e-16 ***
+BP                 1.4345     0.2393   5.996 4.25e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 59.98 on 437 degrees of freedom
+Multiple R-squared:  0.4003,    Adjusted R-squared:  0.3948 
+F-statistic: 72.91 on 4 and 437 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Fit the same regression model as in <strong>Exercise 1</strong>, but with the following priors:</p>
+</div>
+<p>However, when we changed the priors to the following, our regression results become extremely different from the OLS/MLE.</p>
 <p><span class="math display">\[\begin{align*}
 \alpha &amp;\sim N(0,10)\\
 \beta_j &amp;\sim N(0,10),\quad j=1,\ldots,p\\
 \sigma^2 &amp;\sim \text{Inv-Gamma}(3,1).
 \end{align*}\]</span></p>
-<p>Compare the results from this model to the previous two models.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+            mean se_mean     sd     2.5%    97.5% n_eff Rhat
+alpha     -30.80    0.16   9.36   -49.31   -12.71  3334    1
+beta[1]    -0.19    0.00   0.25    -0.67     0.28  2799    1
+beta[2]    -3.80    0.09   5.26   -13.90     7.03  3495    1
+beta[3]     6.02    0.01   0.69     4.69     7.42  2137    1
+beta[4]     0.40    0.00   0.22    -0.03     0.81  1994    1
+sigma2   4059.46    5.06 285.52  3519.71  4638.19  3186    1
+lp__    -2513.32    0.04   1.71 -2517.44 -2510.95  1764    1
+
+Samples were drawn using NUTS(diag_e) at Tue Jan 21 09:53:05 2025.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+</div>
+</div>
+</section>
+<section id="centering-data-for-stable-inference" class="level1">
+<h1>Centering Data for Stable Inference</h1>
+<p>Before fitting our regression model, we will center the data. Define, <span class="math inline">\(\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i\)</span> and <span class="math inline">\(\bar{\mathbf{x}}_i = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\)</span>. Then the centered data are <span class="math inline">\(Y_i^* = Y_i - \bar{Y}\)</span> and <span class="math inline">\(\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}_i\)</span>. We will then perform regression using the centered data, such that <span class="math display">\[Y^*_i = \alpha + \mathbf{x}_i^*\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2).\]</span> Centering our data can stabilize the posterior inference, because the data will be closer to zero. In particular, consider the scenario above where we placed a prior on <span class="math inline">\(\alpha \sim N(0,10)\)</span>. We know that the true value of <span class="math inline">\(\alpha\)</span> (according to OLS/MLE) is close to -200, so our prior, which was intended to be weakly-informative, is actually very strongly pulling the posterior towards zero. This then leads to a domino-effect, where the incorrect inference for <span class="math inline">\(\alpha\)</span> will actually lead to unstable inference for the other parameters. Thus, centering our data means that <span class="math inline">\(\alpha\)</span> should be close to 0, leading to stable inference for all of our parameters.</p>
+<p>Even though we fit the model on centered data, we are still able to recover the parameters on the scale of our original data.</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E}[Y_i^* | \alpha, \boldsymbol{\beta}] &amp;= \alpha + \mathbf{x}_i^*\boldsymbol{\beta}\\
+\mathbb{E}[Y_i - \bar{Y} | \alpha, \boldsymbol{\beta}] &amp;= \alpha + (\mathbf{x}_i - \bar{\mathbf{x}}_i)\boldsymbol{\beta}\\
+\mathbb{E}[Y_i | \alpha, \boldsymbol{\beta}] &amp;= \bar{Y} + \alpha - \bar{\mathbf{x}}_i\boldsymbol{\beta} + \mathbf{x}_i\boldsymbol{\beta}\\
+\mathbb{E}[Y_i | \alpha, \boldsymbol{\beta}] &amp;= \alpha^* + \mathbf{x}_i\boldsymbol{\beta},
+\end{align*}\]</span> where <span class="math inline">\(\alpha^* = \bar{Y} + \alpha - \bar{\mathbf{x}}_i\boldsymbol{\beta}\)</span>. Thus, on the original scale of the data the intercept would be equivalent to <span class="math inline">\(\alpha^*\)</span>. The regression slopes <span class="math inline">\(\boldsymbol{\beta}\)</span> do not need any transformation and can be interpreted on the original scale. The error term, <span class="math inline">\(\sigma^2\)</span>, can also be interpreted on the original scale, because <span class="math inline">\(\mathbb{V}(Y_i^* | \alpha, \boldsymbol{\beta}) = \sigma^2\)</span>.</p>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Fit the centered regression model detailed above with the following priors: <span class="math inline">\(\alpha \sim N(0,10)\)</span>, <span class="math inline">\(\beta_j \sim N(0,10)\)</span>, and <span class="math inline">\(\sigma^2 \sim \text{Inv-Gamma}(3,1).\)</span> Obtain posterior samples for this model using Stan. Be sure to present posterior samples for <span class="math inline">\(\alpha^*\)</span>.</p>
 <p><strong>Answer:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Stan is extremely flexible in terms of the priors that can be used for parameters. Using the centered data specification, change the priors for all three parameters. Report how sensitive the results are.</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Compute a one-sided Bayesian p-value for the regression slope: <span class="math inline">\(P(\beta_1 &lt; 0)\)</span>. Interpret the results in plain English. Is intraocular pressure associated with disease progression?</p>
+<p><strong>Answer:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">

@@ -76,7 +76,7 @@ diabetes <- read_table("diabetes.txt")
 glimpse(diabetes)
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE}
 diabetes <- read_table("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/AE 03/diabetes.txt")
 glimpse(diabetes)
 ```
@@ -113,8 +113,7 @@ Fit the following model in Stan and present posterior summaries.
 
 $$
 Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2),
-$$
-where $\mathbf{x}_i = (Age_i, 1(Sex_i = Male), BMI_i, BP_i)$ and flat priors for all parameters: $f(\alpha,\boldsymbol{\beta},\sigma) \propto c.$ Flat priors are specified by default, so we can omit any prior specification.
+$$ where $\mathbf{x}_i = (Age_i, 1(Sex_i = Male), BMI_i, BP_i)$ and flat priors for all parameters: $f(\alpha,\boldsymbol{\beta},\sigma) \propto c.$ Flat priors are specified by default, so we can omit any prior specification.
 
 **Answer:**
 
