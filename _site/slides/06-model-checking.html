@@ -731,7 +731,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb12-4"><a></a>q75 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.75</span>)</span>
 <span id="cb12-5"><a></a><span class="fu">ppc_stat</span>(Y, Y_in_sample, <span class="at">stat =</span> <span class="st">"q25"</span>)</span>
 <span id="cb12-6"><a></a><span class="fu">ppc_stat</span>(Y, Y_in_sample, <span class="at">stat =</span> <span class="st">"q75"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -772,7 +772,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb13-2"><a></a>pvalue <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">apply</span>(Y_in_sample, <span class="dv">1</span>, median) <span class="sc">&gt;</span> <span class="fu">median</span>(Y))</span>
 <span id="cb13-3"><a></a>plot <span class="sc">+</span> <span class="fu">yaxis_text</span>() <span class="sc">+</span> <span class="co"># just so I can see y-axis values for specifying them in annotate() below, but can remove this if you don't want the useless y-axis values displayed </span></span>
 <span id="cb13-4"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.75</span>, <span class="at">y =</span> <span class="dv">150</span>, <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"p ="</span>, pvalue))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center" data-layout-nrow="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -799,7 +799,7 @@ convergence, Rhat=1).</code></pre>
 <ul>
 <li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-01">HW 01</a> which is due before next class</p></li>
 <li><p>Complete reading to prepare for next Thursday’s lecture</p></li>
-<li><p>Thursday’s lecture: Bayesian Workflow</p></li>
+<li><p>Thursday’s lecture: Model Comparison</p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">

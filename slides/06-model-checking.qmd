@@ -395,4 +395,4 @@ my_sso <- launch_shinystan(fit)
 
 -   Complete reading to prepare for next Thursday's lecture
 
--   Thursday's lecture: Bayesian Workflow
+-   Thursday's lecture: Model Comparison
