@@ -6131,7 +6131,7 @@
     "href": "slides/04-stan.html#an-example-stan-program",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "An example Stan program",
-    "text": "An example Stan program\n\ndata {\n  real Y[10]; // height for 10 people\n}\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  Y ~ normal(mu, sigma); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma ~ inv_gamma(1, 1); // prior for sigma\n}"
+    "text": "An example Stan program\n\ndata {\n  real Y[10]; // height for 10 people\n}\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\nmodel {\n  Y ~ normal(mu, sqrt(sigma2)); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma2 ~ inv_gamma(1, 1); // prior for sigma\n}"
   },
   {
     "objectID": "slides/04-stan.html#a-straightforward-example",
@@ -6166,21 +6166,21 @@
     "href": "slides/04-stan.html#an-example-stan-program-parameter-block",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "An example Stan program: parameter block",
-    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma;\n}\n\n\nDeclare all parameters that you use in your model.\nPlace limits on variables, for example:\n\nreal&lt;lower = 0&gt; sigma\n\n\nA multitude of parameter types including some of the aforementioned:\n\nreal for continuous parameters.\nArrays of types, for example real beta[10]"
+    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\n\nDeclare all parameters that you use in your model.\nPlace limits on variables, for example:\n\nreal&lt;lower = 0&gt; sigma2\n\n\nA multitude of parameter types including some of the aforementioned:\n\nreal for continuous parameters.\nArrays of types, for example real beta[10]"
   },
   {
     "objectID": "slides/04-stan.html#an-example-stan-program-parameter-block-1",
     "href": "slides/04-stan.html#an-example-stan-program-parameter-block-1",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "An example Stan program: parameter block",
-    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma;\n}\n\n\nvector or matrix, specified by:\n\nvector[5] beta\nmatrix[5, 3] gamma\n\nsimplex for a parameter vector that must sum to 1.\nMore exotic types like corr_matrix, or ordered."
+    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\n\nvector or matrix, specified by:\n\nvector[5] beta\nmatrix[5, 3] gamma\n\nsimplex for a parameter vector that must sum to 1.\nMore exotic types like corr_matrix, or ordered."
   },
   {
     "objectID": "slides/04-stan.html#an-example-stan-program-parameter-block-2",
     "href": "slides/04-stan.html#an-example-stan-program-parameter-block-2",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "An example Stan program: parameter block",
-    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma;\n}\n\nImportant: Stan is not developed yet to work with discrete parameters. Options for discrete parameters in Stan:\n\nMarginalize out the parameter. For example, suppose we have \\(f(\\boldsymbol{\\beta}, \\theta)\\), where \\(\\boldsymbol{\\beta}\\) is continuous and \\(\\theta\\) is discrete:\n\n\n\\(f(\\boldsymbol{\\beta}) = \\sum_{i = 1}^K f(\\boldsymbol{\\beta}, \\theta_i)\\)\n\n\nSome models can be reformulated without discrete parameters."
+    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\nImportant: Stan is not developed yet to work with discrete parameters. Options for discrete parameters in Stan:\n\nMarginalize out the parameter. For example, suppose we have \\(f(\\boldsymbol{\\beta}, \\theta)\\), where \\(\\boldsymbol{\\beta}\\) is continuous and \\(\\theta\\) is discrete:\n\n\n\\(f(\\boldsymbol{\\beta}) = \\sum_{i = 1}^K f(\\boldsymbol{\\beta}, \\theta_i)\\)\n\n\nSome models can be reformulated without discrete parameters."
   },
   {
     "objectID": "slides/04-stan.html#r-packages-that-interface-with-stan",
@@ -6194,21 +6194,21 @@
     "href": "slides/04-stan.html#an-example-stan-program-model-block",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "An example Stan program: model block",
-    "text": "An example Stan program: model block\n\nmodel {\n  Y ~ normal(mu, sigma); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma ~ inv_gamma(1, 1); // prior for sigma\n}\n\n\nUsed to define:\n\nLikelihood.\nPriors on parameters.\n\n\nIf don’t specify priors on parameters Stan assumes you are using flat priors (which can be improper)."
+    "text": "An example Stan program: model block\n\nmodel {\n  Y ~ normal(mu, sqrt(sigma2)); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma2 ~ inv_gamma(1, 1); // prior for sigma2\n}\n\n\nUsed to define:\n\nLikelihood.\nPriors on parameters.\n\n\nIf don’t specify priors on parameters Stan assumes you are using flat priors (which can be improper)."
   },
   {
     "objectID": "slides/04-stan.html#an-example-stan-program-model-block-1",
     "href": "slides/04-stan.html#an-example-stan-program-model-block-1",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "An example Stan program: model block",
-    "text": "An example Stan program: model block\n\nmodel {\n  Y ~ normal(mu, sigma); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma ~ inv_gamma(1, 1); // prior for sigma\n}\n\nHuge range of probability distributions covered, across a range of parameterizations. For example:\n\nDiscrete: Bernoulli, binomial, normal, Poisson, beta-binomial, negative-binomial, categorical, multinomial.\nContinuous unbounded: normal, skew-normal, student-t, Cauchy, logistic."
+    "text": "An example Stan program: model block\n\nmodel {\n  Y ~ normal(mu, sqrt(sigma2)); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma2 ~ inv_gamma(1, 1); // prior for sigma2\n}\n\nHuge range of probability distributions covered, across a range of parameterizations. For example:\n\nDiscrete: Bernoulli, binomial, Poisson, beta-binomial, negative-binomial, categorical, multinomial.\nContinuous unbounded: normal, skew-normal, student-t, Cauchy, logistic."
   },
   {
     "objectID": "slides/04-stan.html#an-example-stan-program-model-block-2",
     "href": "slides/04-stan.html#an-example-stan-program-model-block-2",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "An example Stan program: model block",
-    "text": "An example Stan program: model block\n\nmodel {\n  Y ~ normal(mu, sigma); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma ~ inv_gamma(1, 1); // prior for sigma\n}\n\n\nContinuous bounded: uniform, beta, log-normal, exponential, gamma, chi-squared, inverse-chi-squared, Weibull, Wiener diffusion, Pareto.\nMultivariate continuous: normal, student-t, Gaussian process.\nExotics: Dirichlet, LKJ correlation distribution, Wishart and its inverse, Von-Mises."
+    "text": "An example Stan program: model block\n\nmodel {\n  Y ~ normal(mu, sqrt(sigma2)); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma2 ~ inv_gamma(1, 1); // prior for sigma2\n}\n\n\nContinuous bounded: uniform, beta, log-normal, exponential, gamma, chi-squared, inverse-chi-squared, Weibull, Wiener diffusion, Pareto.\nMultivariate continuous: normal, student-t, Gaussian process.\nExotics: Dirichlet, LKJ correlation distribution, Wishart and its inverse, Von-Mises."
   },
   {
     "objectID": "slides/04-stan.html#running-stan",
@@ -6229,14 +6229,14 @@
     "href": "slides/04-stan.html#example-model-results",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Example model: results",
-    "text": "Example model: results\n\n###Print summary statistics\nprint(fit, probs = c(0.25, 0.5, 0.75))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=1000; warmup=500; thin=1; \npost-warmup draws per chain=500, total post-warmup draws=2000.\n\n       mean se_mean   sd   25%   50%   75% n_eff Rhat\nmu     0.37    0.01 0.31  0.17  0.38  0.55   875 1.00\nsigma  0.94    0.01 0.26  0.76  0.89  1.06   785 1.00\nlp__  -5.08    0.05 1.20 -5.53 -4.70 -4.23   565 1.01\n\nSamples were drawn using NUTS(diag_e) at Thu Nov 21 06:59:52 2024.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+    "text": "Example model: results\n\n###Print summary statistics\nprint(fit, probs = c(0.25, 0.5, 0.75))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=1000; warmup=500; thin=1; \npost-warmup draws per chain=500, total post-warmup draws=2000.\n\n        mean se_mean   sd   25%   50%   75% n_eff Rhat\nmu     -0.45    0.01 0.32 -0.66 -0.46 -0.26  1361    1\nsigma2  1.23    0.02 0.62  0.81  1.09  1.48   865    1\nlp__   -6.80    0.04 1.03 -7.21 -6.49 -6.06   808    1\n\nSamples were drawn using NUTS(diag_e) at Tue Jan 21 14:36:33 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
   },
   {
     "objectID": "slides/04-stan.html#example-model-results-1",
     "href": "slides/04-stan.html#example-model-results-1",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Example model: results",
-    "text": "Example model: results\n\n###Extract posterior samples\npars &lt;- extract(fit)\nclass(pars)\n\n[1] \"list\"\n\nnames(pars)\n\n[1] \"mu\"    \"sigma\" \"lp__\" \n\n###Extract samples for particular parameters\npars &lt;- extract(fit, pars = \"mu\")\nclass(pars$mu)\n\n[1] \"array\"\n\ndim(pars$mu)\n\n[1] 2000"
+    "text": "Example model: results\n\n###Extract posterior samples\npars &lt;- extract(fit)\nclass(pars)\n\n[1] \"list\"\n\nnames(pars)\n\n[1] \"mu\"     \"sigma2\" \"lp__\"  \n\n###Extract samples for particular parameters\npars &lt;- extract(fit, pars = \"mu\")\nclass(pars$mu)\n\n[1] \"array\"\n\ndim(pars$mu)\n\n[1] 2000"
   },
   {
     "objectID": "slides/04-stan.html#visualize-posterior",
@@ -6264,14 +6264,14 @@
     "href": "slides/04-stan.html#alternate-way-of-specifying-stan-models",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Alternate way of specifying Stan models",
-    "text": "Alternate way of specifying Stan models\n\nmodel {\n  target += normal_lpdf(Y | mu, sigma); // likelihood\n  target += normal_lpdf(mu | 0, 1); // prior for mu\n  target += inv_gamma_lpdf(sigma | 1, 1); // prior for sigma\n}\n\n\ntarget is a not a variable, but a special object that represents incremental log probability.\ntarget is initialized to zero.\nnormal_lpdf is the log of the normal density of y given location mu and scale sigma:\nStan documentation for normal distribution\n\n\ntarget += std_normal_lpdf(mu) // prior for mu using standard normal"
+    "text": "Alternate way of specifying Stan models\n\nmodel {\n  target += normal_lpdf(Y | mu, sqrt(sigma2)); // likelihood\n  target += normal_lpdf(mu | 0, 1); // prior for mu\n  target += inv_gamma_lpdf(sigma2 | 1, 1); // prior for sigma\n}\n\n\ntarget is a not a variable, but a special object that represents incremental log probability.\ntarget is initialized to zero.\nnormal_lpdf is the log of the normal density of y given location mu and scale sigma:\nStan documentation for normal distribution\n\n\ntarget += std_normal_lpdf(mu) // prior for mu using standard normal"
   },
   {
     "objectID": "slides/04-stan.html#linear-regression-using-stan",
     "href": "slides/04-stan.html#linear-regression-using-stan",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Linear regression using Stan",
-    "text": "Linear regression using Stan\n\n// saved in linear_regression.stan\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p + 1] X; // covariate vector\n  real beta0; // location hyperparameter for beta\n  real&lt;lower = 0&gt; sigma_beta; // scale hyperparameter for beta\n  real&lt;lower = 0&gt; a; // shape hyperparameter for sigma\n  real&lt;lower = 0&gt; b; // scale hyperparameter for sigma\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y | X * beta, sigma); // likelihood\n  target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta\n  target += inv_gamma_lpdf(sigma | a, b); // prior for sigma\n}"
+    "text": "Linear regression using Stan\n\n// saved in linear_regression.stan\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p + 1] X; // covariate vector\n  real beta0; // location hyperparameter for beta\n  real&lt;lower = 0&gt; sigma_beta; // scale hyperparameter for beta\n  real&lt;lower = 0&gt; a; // shape hyperparameter for sigma2\n  real&lt;lower = 0&gt; b; // scale hyperparameter for sigma2\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma2;\n}\nmodel {\n  target += normal_lpdf(Y | X * beta, sqrt(sigma2)); // likelihood\n  target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta\n  target += inv_gamma_lpdf(sigma2 | a, b); // prior for sigma2\n}"
   },
   {
     "objectID": "slides/04-stan.html#fit-model",
@@ -6306,14 +6306,14 @@
     "href": "slides/04-stan.html#example-model-results-2",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Example model: results",
-    "text": "Example model: results\n\n###Print summary statistics\nprint(fit, probs = c(0.25, 0.5, 0.75))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=1000; warmup=500; thin=1; \npost-warmup draws per chain=500, total post-warmup draws=2000.\n\n           mean se_mean   sd     25%     50%     75% n_eff Rhat\nbeta[1]   -1.47    0.00 0.15   -1.57   -1.47   -1.37  1840    1\nbeta[2]    3.30    0.00 0.15    3.20    3.30    3.40  1897    1\nsigma      1.55    0.00 0.11    1.47    1.55    1.62  1748    1\nlp__    -195.93    0.04 1.30 -196.50 -195.60 -194.95   969    1\n\nSamples were drawn using NUTS(diag_e) at Thu Nov 21 08:51:41 2024.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+    "text": "Example model: results\n\n###Print summary statistics\nprint(fit, probs = c(0.25, 0.5, 0.75))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=1000; warmup=500; thin=1; \npost-warmup draws per chain=500, total post-warmup draws=2000.\n\n           mean se_mean   sd     25%     50%     75% n_eff Rhat\nbeta[1]   -1.48    0.00 0.15   -1.58   -1.48   -1.37  1951    1\nbeta[2]    3.30    0.00 0.15    3.20    3.30    3.40  1674    1\nsigma2     2.35    0.01 0.33    2.12    2.32    2.55  1679    1\nlp__    -196.98    0.04 1.29 -197.58 -196.63 -196.04   899    1\n\nSamples were drawn using NUTS(diag_e) at Tue Jan 21 14:38:36 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
   },
   {
     "objectID": "slides/04-stan.html#stan-plots-point-estimate-and-intervals",
     "href": "slides/04-stan.html#stan-plots-point-estimate-and-intervals",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Stan plots: point estimate and intervals",
-    "text": "Stan plots: point estimate and intervals\n\nstan_plot(fit, pars = c(\"beta\", \"sigma\"), include_warmup = FALSE,\n          point_est = \"median\", ci_level = 0.8, outer_level = 0.95)"
+    "text": "Stan plots: point estimate and intervals\n\nstan_plot(fit, pars = c(\"beta\", \"sigma2\"), include_warmup = FALSE,\n          point_est = \"median\", ci_level = 0.8, outer_level = 0.95)"
   },
   {
     "objectID": "slides/04-stan.html#stan-plots-histogram",
@@ -6334,21 +6334,21 @@
     "href": "slides/04-stan.html#linear-regression-using-stan-data-and-parameter-chunks",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Linear regression using Stan: data and parameter chunks",
-    "text": "Linear regression using Stan: data and parameter chunks\n\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p + 1] X; // covariate vector\n  real beta0; // location hyperparameter for beta\n  real&lt;lower = 0&gt; sigma_beta; // scale hyperparameter for beta\n  real&lt;lower = 0&gt; a; // shape hyperparameter for sigma\n  real&lt;lower = 0&gt; b; // scale hyperparameter for sigma\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma;\n}"
+    "text": "Linear regression using Stan: data and parameter chunks\n\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p + 1] X; // covariate vector\n  real beta0; // location hyperparameter for beta\n  real&lt;lower = 0&gt; sigma_beta; // scale hyperparameter for beta\n  real&lt;lower = 0&gt; a; // shape hyperparameter for sigma2\n  real&lt;lower = 0&gt; b; // scale hyperparameter for sigma2\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma2;\n}"
   },
   {
     "objectID": "slides/04-stan.html#linear-regression-using-stan-model-chunk",
     "href": "slides/04-stan.html#linear-regression-using-stan-model-chunk",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Linear regression using Stan: model chunk",
-    "text": "Linear regression using Stan: model chunk\n\nmodel {\n  for (i in 1:n) {\n    target += normal_lpdf(Y[i] | X[i, ] * beta, sigma); // likelihood\n  }\n  target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta\n  target += inv_gamma_lpdf(sigma | a, b); // prior for sigma\n}"
+    "text": "Linear regression using Stan: model chunk\n\nmodel {\n  for (i in 1:n) {\n    target += normal_lpdf(Y[i] | X[i, ] * beta, sqrt(sigma2)); // likelihood\n  }\n  target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta\n  target += inv_gamma_lpdf(sigma2 | a, b); // prior for sigma2\n}"
   },
   {
     "objectID": "slides/04-stan.html#linear-regression-using-stan-vectorization",
     "href": "slides/04-stan.html#linear-regression-using-stan-vectorization",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Linear regression using Stan: vectorization",
-    "text": "Linear regression using Stan: vectorization\nIt is always a good idea to vectorize Stan code for faster and more efficient inference\n\nmodel {\n  target += normal_lpdf(Y | X * beta, sigma); // likelihood\n  target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta\n  target += inv_gamma_lpdf(sigma | a, b); // prior for sigma\n}"
+    "text": "Linear regression using Stan: vectorization\nIt is always a good idea to vectorize Stan code for faster and more efficient inference\n\nmodel {\n  target += normal_lpdf(Y | X * beta, sqrt(sigma2)); // likelihood\n  target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta\n  target += inv_gamma_lpdf(sigma2 | a, b); // prior for sigma2\n}"
   },
   {
     "objectID": "slides/04-stan.html#stan-a-few-of-the-loops-and-conditions",
@@ -11571,14 +11571,14 @@
     "href": "slides/14-missing.html#simulate-missing-data",
     "title": "Missing Data",
     "section": "Simulate missing data",
-    "text": "Simulate missing data\n\nlibrary(mice)\nset.seed(54)\nn &lt;- nrow(fulldata)\n\n###Simulate MCAR data\nO &lt;- rbinom(n, 1, prob = 0.40)\nmcardata &lt;- data.frame(\n  o = O,\n  x = fulldata$x,\n  y = fulldata$y\n)\nmcardata_cc &lt;- mcardata[mcardata$o == 1, ]\n\n###Simulate MAR data\nO &lt;- rbinom(n, 1, prob = pnorm(scale(fulldata$x)))\nmardata &lt;- data.frame(\n  o = O,\n  x = fulldata$x,\n  y = fulldata$y\n)\nmardata_cc &lt;- mardata[mardata$o == 1, ]\n\n###Simulate MNAR data\nO &lt;- rbinom(n, 1, prob = pnorm(scale(fulldata$y)))\nmnardata &lt;- data.frame(\n  o = O,\n  x = fulldata$x,\n  y = fulldata$y\n)\nmnardata_cc &lt;- mnardata[mnardata$o == 1, ]"
+    "text": "Simulate missing data\n\nset.seed(54)\nn &lt;- nrow(fulldata)\nexpit &lt;- function(x) exp(x) / (1 + exp(x))\nfulldata$o &lt;- rbinom(n, 1, expit(1.5 * scale(fulldata$x1) - 3 * fulldata$x2))\nhead(fulldata)\n\n     y    x1 x2  Sex o\n1 65.6 174.0  1 Male 1\n2 71.8 175.3  1 Male 0\n3 80.7 193.5  1 Male 0\n4 72.6 186.5  1 Male 0\n5 78.8 187.2  1 Male 0\n6 74.8 181.5  1 Male 0"
   },
   {
     "objectID": "slides/14-missing.html#missing-pattern",
     "href": "slides/14-missing.html#missing-pattern",
     "title": "Missing Data",
     "section": "Missing pattern",
-    "text": "Missing pattern\n\nmd.pattern(mcardata_cc, rotate.names = TRUE)\n\n /\\     /\\\n{  `---'  }\n{  O   O  }\n==&gt;  V &lt;==  No need for mice. This data set is completely observed.\n \\  \\|/  /\n  `-----'\n\n\n\n    o x y  \n199 1 1 1 0\n    0 0 0 0"
+    "text": "Missing pattern\n\n# md.pattern(mardata, rotate.names = TRUE)"
   },
   {
     "objectID": "slides/14-missing.html#model",
@@ -11606,7 +11606,7 @@
     "href": "slides/14-missing.html#full-bayesian-model",
     "title": "Missing Data",
     "section": "Full Bayesian model",
-    "text": "Full Bayesian model\n\\[\\begin{aligned}\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{obs}\\\\\nY_i &\\stackrel{ind}{\\sim} N(\\alpha + X_i \\beta, \\sigma^2), \\quad i \\in \\mathcal N_{mis}\\\\\n\\alpha &\\sim N(0,10)\\\\\n\\beta &\\sim N(0,10)\\\\\n\\sigma &\\sim \\text{Half-Normal}(0, 10)\n\\end{aligned}\\]"
+    "text": "Full Bayesian model\n\nSince we are Bayesians, we can treat the unobserved \\(\\mathbf{Y}_{mis}\\) as parameters and work with the complete data likelihood.\n\n\\[\\begin{aligned}\nf(\\boldsymbol{\\theta}, \\boldsymbol{\\phi}, \\mathbf{Y}_{mis} | \\mathbf{Y}_{obs},\\mathbf{O},\\mathbf{X}) &\\propto f(\\mathbf{Y}, \\mathbf{O}, \\boldsymbol{\\theta}, \\boldsymbol{\\phi} | \\mathbf{X})\\\\\n&\\hspace{-4in}=f(\\mathbf{Y}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi})f(\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\\\\n&\\hspace{-4in}= f(\\mathbf{Y} | \\mathbf{X}, \\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X}, \\boldsymbol{\\phi})f(\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\\\\n&\\hspace{-4in}=f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs}, \\boldsymbol{\\theta})f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis}, \\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X}, \\boldsymbol{\\phi})f(\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\\\\n\\end{aligned}\\]\n\nWe can simplify this posterior by dropping the missing data mechanism."
   },
   {
     "objectID": "prepare/prepare-jan21.html",
@@ -11627,7 +11627,7 @@
     "href": "slides/14-missing.html#missing-data-in-research",
     "title": "Missing Data",
     "section": "Missing data in research",
-    "text": "Missing data in research\n\nIn any real-world dataset, missing values are nearly always going to be present.\n\nMissing data can be a source of bias.\nMissing data be totally innocuous.\n\nCannot determine which because there are no values to inspect.\nHandling missing data is extremely difficult!"
+    "text": "Missing data in research\n\nIn any real-world dataset, missing values are nearly always going to be present.\n\nMissing data can be totally innocuous or a source of bias.\n\nCannot determine which because there are no values to inspect.\nHandling missing data is extremely difficult!"
   },
   {
     "objectID": "slides/14-missing.html#examples",
@@ -11655,7 +11655,7 @@
     "href": "slides/14-missing.html#key-points-about-mar-assumption",
     "title": "Missing Data",
     "section": "Key points about MAR assumption",
-    "text": "Key points about MAR assumption\n\nComplete-case analysis is not acceptable: \n\nParameter estimation remains unbiased, but estimation of variances and intervals does not.\nAlso, smaller sample size leads to less power and worse prediction.\nUnder certain missingness settings, parameter estimation may not be unbiased.\n\nSimple handling approaches fail: Methods like mean imputation will also result in small estimated standard errors.\nMore advanced methods are needed: Multiple imputation, Bayes."
+    "text": "Key points about MAR assumption\n\nComplete-case analysis is not acceptable: \n\nParameter estimation remains unbiased, but, in general, estimation of variances and intervals is biased.\nAlso, smaller sample size leads to less power and worse prediction.\nUnder certain missingness settings, parameter estimation may not be unbiased.\n\nSimple handling approaches fail: Methods like mean imputation will also result in small estimated standard errors.\nMore advanced methods are needed: Multiple imputation, Bayes."
   },
   {
     "objectID": "slides/14-missing.html#why-bayesian-missing-data",
@@ -11739,7 +11739,7 @@
     "href": "ae/ae-04-priors-ppd.html#exercise-1",
     "title": "AE 04: Priors in Stan",
     "section": "Exercise 1",
-    "text": "Exercise 1\nFit the centered regression model detailed above with the following priors: \\(\\alpha \\sim N(0,10)\\), \\(\\beta_j \\sim N(0,10)\\), and \\(\\sigma^2 \\sim \\text{Inv-Gamma}(3,1).\\) Obtain posterior samples for this model using Stan. Be sure to present posterior samples for \\(\\alpha^*\\).\nAnswer:\n\n# add code here"
+    "text": "Exercise 1\nFit the centered regression model detailed above with the following priors: \\(\\alpha \\sim N(0,10^2)\\), \\(\\beta_j \\sim N(0,10^2)\\), and \\(\\sigma^2 \\sim \\text{Inv-Gamma}(3,1).\\) Obtain posterior samples for this model using Stan. Be sure to present posterior samples for \\(\\alpha^*\\).\nAnswer:\n\n# add code here"
   },
   {
     "objectID": "ae/ae-04-priors-ppd.html#exercise-2",
@@ -11753,6 +11753,209 @@
     "href": "ae/ae-04-priors-ppd.html#exercise-3",
     "title": "AE 04: Priors in Stan",
     "section": "Exercise 3",
-    "text": "Exercise 3\nCompute a one-sided Bayesian p-value for the regression slope: \\(P(\\beta_1 &lt; 0)\\). Interpret the results in plain English. Is intraocular pressure associated with disease progression?\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+    "text": "Exercise 3\nCompute the posterior predictive distribution for a 60 year old male with a BMI of 25 and average blood pressure of 85.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "slides/14-missing.html#example",
+    "href": "slides/14-missing.html#example",
+    "title": "Missing Data",
+    "section": "Example",
+    "text": "Example\n\nSuppose an individual’s depression scores are missing in dataset of patients with colon cancer.\nIt could be missing because:\n\nA data entry error where some values did not make it into the dataset.\nThe patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the unobserved depression).\nThe patient has depression and as a result did not complete the depression survey."
+  },
+  {
+    "objectID": "slides/14-missing.html#full-bayesian-model-1",
+    "href": "slides/14-missing.html#full-bayesian-model-1",
+    "title": "Missing Data",
+    "section": "Full Bayesian model",
+    "text": "Full Bayesian model\n\nAssuming that \\(f(\\boldsymbol{\\theta},\\boldsymbol{\\phi}) = f(\\boldsymbol{\\theta})f(\\boldsymbol{\\phi})\\), the missingness process does not need to be explicitly modeled when we are interested in inference for \\(\\boldsymbol{\\theta}\\).\n\n\\[\\begin{aligned}\n&f(\\boldsymbol{\\theta}, \\mathbf{Y}_{mis} | \\mathbf{Y}_{obs},\\mathbf{O},\\mathbf{X})\\\\ &\\hspace{2in}\\propto f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs}, \\boldsymbol{\\theta})f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis}, \\boldsymbol{\\theta})f(\\boldsymbol{\\theta})\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/14-missing.html#full-bayesian-model-2",
+    "href": "slides/14-missing.html#full-bayesian-model-2",
+    "title": "Missing Data",
+    "section": "Full Bayesian model",
+    "text": "Full Bayesian model"
+  },
+  {
+    "objectID": "slides/14-missing.html#full-bayesian-model-for-linear-regression",
+    "href": "slides/14-missing.html#full-bayesian-model-for-linear-regression",
+    "title": "Missing Data",
+    "section": "Full Bayesian model for linear regression",
+    "text": "Full Bayesian model for linear regression\n\\[\\begin{aligned}\nY_i | \\alpha, \\beta, \\sigma^2 &\\stackrel{ind}{\\sim} N(\\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}, \\sigma^2), \\quad i \\in \\mathcal N_{obs}\\\\\nY_i | \\alpha, \\beta, \\sigma^2&\\stackrel{ind}{\\sim} N(\\alpha + \\mathbf{x}_i \\boldsymbol{\\beta}, \\sigma^2), \\quad i \\in \\mathcal N_{mis}\\\\\n\\alpha &\\sim f(\\alpha)\\\\\n\\beta &\\sim f(\\boldsymbol{\\beta})\\\\\n\\sigma &\\sim f(\\sigma),\n\\end{aligned}\\]\n\n\\(\\mathbf{x}_i = (height_i, 1(sex_i = male), height_i \\times 1(sex_i = male))\\)."
+  },
+  {
+    "objectID": "slides/14-missing.html#lets-motivate-with-some-data",
+    "href": "slides/14-missing.html#lets-motivate-with-some-data",
+    "title": "Missing Data",
+    "section": "Let’s motivate with some data",
+    "text": "Let’s motivate with some data"
+  },
+  {
+    "objectID": "slides/14-missing.html#full-bayesian-missing-data-model-in-stan",
+    "href": "slides/14-missing.html#full-bayesian-missing-data-model-in-stan",
+    "title": "Missing Data",
+    "section": "Full Bayesian missing data model in Stan",
+    "text": "Full Bayesian missing data model in Stan\n\n// saved in missing-full-bayes.stan\ndata {\n  int&lt;lower = 1&gt; n_obs;\n  int&lt;lower = 1&gt; n_mis;\n  int&lt;lower = 1&gt; p;\n  vector[n_obs] Y_obs;\n  matrix[n_obs, p] X_obs;\n  matrix[n_mis, p] X_mis;\n}\ntransformed data {\n  vector[n_obs] Y_obs_centered;\n  real Y_bar;\n  matrix[n_obs, p] X_obs_centered;\n  matrix[n_mis, p] X_mis_centered;\n  row_vector[p] X_bar;\n  Y_bar = mean(Y_obs);\n  Y_obs_centered = Y_obs - Y_bar;\n  matrix[n_obs + n_mis, p] X = append_row(X_obs, X_mis);\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_obs_centered[, i] = X_obs[, i] - X_bar[i];\n    X_mis_centered[, i] = X_mis[, i] - X_bar[i];\n  }\n}\nparameters {\n  real alpha_centered;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n_mis] Y_mis_centered;\n}\nmodel {\n  target += normal_lpdf(Y_obs_centered | alpha_centered + X_obs_centered * beta, sigma);\n  target += normal_lpdf(Y_mis_centered | alpha_centered + X_mis_centered * beta, sigma);\n  target += normal_lpdf(alpha_centered | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}\ngenerated quantities {\n  real alpha;\n  vector[n_mis] Y_mis;\n  alpha = Y_bar + alpha_centered - X_bar * beta;\n  Y_mis = Y_mis_centered + Y_bar;\n}"
+  },
+  {
+    "objectID": "slides/14-missing.html#fit-missing-data-model",
+    "href": "slides/14-missing.html#fit-missing-data-model",
+    "title": "Missing Data",
+    "section": "Fit missing data model",
+    "text": "Fit missing data model\n\nstan_missing_data_model &lt;- stan_model(file = \"missing-full-bayes.stan\")\nX &lt;- model.matrix(~ x1 * x2, data = fulldata)[, -1]\nstan_data_missing_data &lt;- list(\n  n_obs = sum(fulldata$o == 1),\n  n_mis = sum(fulldata$o == 0),\n  p = ncol(X),\n  Y_obs = array(fulldata$y[fulldata$o == 1]),\n  X_obs = X[fulldata$o == 1, ],\n  X_mis = X[fulldata$o == 0, ]\n)\nfit_full_bayes_joint &lt;- sampling(stan_missing_data_model, stan_data_missing_data)\nprint(fit_full_bayes_joint, pars = c(\"alpha\", \"beta\", \"sigma\"), probs = c(0.025, 0.975))"
+  },
+  {
+    "objectID": "slides/14-missing.html#explore-latent-missing-variable",
+    "href": "slides/14-missing.html#explore-latent-missing-variable",
+    "title": "Missing Data",
+    "section": "Explore latent missing variable",
+    "text": "Explore latent missing variable\n\nlibrary(bayesplot)\nY_mis &lt;- rstan::extract(fit_full_bayes_joint, pars = \"Y_mis\")$Y_mis\ncolnames(Y_mis) &lt;- paste0(\"Y_mis[\", 1:ncol(Y_mis), \"]\")\nmcmc_areas_ridges(Y_mis[, 1:10])"
+  },
+  {
+    "objectID": "slides/14-missing.html#explore-model-fit",
+    "href": "slides/14-missing.html#explore-model-fit",
+    "title": "Missing Data",
+    "section": "Explore model fit",
+    "text": "Explore model fit\n\nprint(fit_full_bayes_joint, pars = c(\"alpha\", \"beta\", \"sigma\"), probs = c(0.025, 0.975))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n          mean se_mean    sd   2.5% 97.5% n_eff Rhat\nalpha   -48.38    0.83 21.10 -90.15 -7.03   653 1.00\nbeta[1]   0.65    0.00  0.12   0.41  0.90   673 1.00\nbeta[2]  -3.19    0.22  9.75 -22.23 16.56  2047 1.00\nbeta[3]   0.08    0.00  0.06  -0.03  0.19  2487 1.00\nsigma     8.21    0.02  0.58   7.17  9.45   600 1.01\n\nSamples were drawn using NUTS(diag_e) at Wed Jan 22 19:43:45 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/14-missing.html#bayesian-multiple-imputation",
+    "href": "slides/14-missing.html#bayesian-multiple-imputation",
+    "title": "Missing Data",
+    "section": "Bayesian multiple imputation",
+    "text": "Bayesian multiple imputation"
+  },
+  {
+    "objectID": "slides/14-missing.html#fit-a-complete-case-analysis",
+    "href": "slides/14-missing.html#fit-a-complete-case-analysis",
+    "title": "Missing Data",
+    "section": "Fit a complete case analysis",
+    "text": "Fit a complete case analysis\n\n// missing-complete-case.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[n] Y_centered;\n  real Y_bar;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n}\nparameters {\n  real alpha_centered;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y_centered | alpha_centered + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_centered | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}\ngenerated quantities {\n  real alpha;\n  alpha = Y_bar + alpha_centered - X_bar * beta;\n}"
+  },
+  {
+    "objectID": "slides/14-missing.html#create-m-imputed-datasets",
+    "href": "slides/14-missing.html#create-m-imputed-datasets",
+    "title": "Missing Data",
+    "section": "Create \\(m\\) imputed datasets",
+    "text": "Create \\(m\\) imputed datasets\n\nm &lt;- 100\nn_chains &lt;- 2\nmardata &lt;- data.frame(\n  y = fulldata$y,\n  x1 = fulldata$x1,\n  x2 = fulldata$x2\n)\nmardata$y[fulldata$o == 0] &lt;- NA\nimp &lt;- mice(mardata, m = m, print = FALSE)"
+  },
+  {
+    "objectID": "slides/14-missing.html#fit-the-model-to-the-imputed-data",
+    "href": "slides/14-missing.html#fit-the-model-to-the-imputed-data",
+    "title": "Missing Data",
+    "section": "Fit the model to the imputed data",
+    "text": "Fit the model to the imputed data\n\nstan_bayesian_mi &lt;- stan_model(file = \"bayesian-mi.stan\")\nalpha &lt;- beta &lt;- sigma &lt;- r_hat &lt;- n_eff &lt;- NULL\nn_chains &lt;- 2\nfor (i in 1:m) {\n  \n  ###Load each imputed dataset and fit the Stan complete case model\n  data &lt;- complete(imp, i)\n  X &lt;- model.matrix(~ x1 * x2, data = data)[, -1, drop = FALSE]\n  stan_data_bayesian_mi &lt;- list(\n    n = nrow(data),\n    p = ncol(X),\n    Y = data$y,\n    X = X\n  )\n  fit_mi &lt;- sampling(stan_bayesian_mi, stan_data_bayesian_mi, chains = n_chains)\n  \n  ###Save convergence diagnostics from each imputed dataset\n  r_hat &lt;- cbind(r_hat, summary(fit_mi)$summary[, \"Rhat\"])\n  n_eff &lt;- cbind(n_eff, summary(fit_mi)$summary[, \"n_eff\"])\n  pars &lt;- rstan::extract(fit_mi, pars = c(\"alpha\", \"beta\", \"sigma\"))\n  \n  ### Save the parameters from each imputed dataset\n  n_sims_chain &lt;- length(pars$alpha) / n_chains\n  alpha &lt;- rbind(alpha, cbind(i, rep(1:n_chains, each = n_sims_chain), pars$alpha))\n  beta &lt;- rbind(beta, cbind(i, rep(1:n_chains, each = n_sims_chain), pars$beta))\n  sigma &lt;- rbind(sigma, cbind(i, rep(1:n_chains, each = n_sims_chain), pars$sigma))\n}"
+  },
+  {
+    "objectID": "slides/14-missing.html#inspect-traceplots",
+    "href": "slides/14-missing.html#inspect-traceplots",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/14-missing.html#inspect-traceplots-1",
+    "href": "slides/14-missing.html#inspect-traceplots-1",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/14-missing.html#inspect-traceplots-2",
+    "href": "slides/14-missing.html#inspect-traceplots-2",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/14-missing.html#inspect-traceplots-3",
+    "href": "slides/14-missing.html#inspect-traceplots-3",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/14-missing.html#inspect-traceplots-4",
+    "href": "slides/14-missing.html#inspect-traceplots-4",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/14-missing.html#comparison-of-methods",
+    "href": "slides/14-missing.html#comparison-of-methods",
+    "title": "Missing Data",
+    "section": "Comparison of methods",
+    "text": "Comparison of methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\nSetting\n\n\n\n\nFull\nOLS\n-43.82\n13.78\n-70.89\n-16.75\nNA\nNA\n5\n\n\nMAR\nBayes Joint\n-48.38\n21.10\n-90.15\n-7.03\n652.73\n1\n3\n\n\nMAR\nBaye MI\n-43.45\n23.72\n-85.03\n3.97\n119974.91\n1\n4\n\n\nMAR\nOLS\n-30.56\n23.70\n-77.55\n16.43\nNA\nNA\n6"
+  },
+  {
+    "objectID": "slides/14-missing.html#comparison-of-methods-alpha",
+    "href": "slides/14-missing.html#comparison-of-methods-alpha",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\alpha\\)",
+    "text": "Comparison of methods: \\(\\alpha\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n-43.82\n13.78\n-70.89\n-16.75\nNA\nNA\n\n\nMAR\nBayes Joint\n-48.38\n21.10\n-90.15\n-7.03\n652.73\n1\n\n\nMAR\nBayes MI\n-43.45\n23.72\n-85.03\n3.97\n119974.91\n1\n\n\nMAR\nOLS\n-30.56\n23.70\n-77.55\n16.43\nNA\nNA"
+  },
+  {
+    "objectID": "slides/14-missing.html#comparison-of-methods-beta_1",
+    "href": "slides/14-missing.html#comparison-of-methods-beta_1",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\beta_1\\)",
+    "text": "Comparison of methods: \\(\\beta_1\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n0.63\n0.08\n0.47\n0.80\nNA\nNA\n\n\nMAR\nBayes Joint\n0.65\n0.12\n0.41\n0.90\n672.77\n1\n\n\nMAR\nBayes MI\n0.63\n0.14\n0.35\n0.87\n119778.47\n1\n\n\nMAR\nOLS\n0.55\n0.14\n0.27\n0.83\nNA\nNA"
+  },
+  {
+    "objectID": "slides/14-missing.html#comparison-of-methods-beta_2",
+    "href": "slides/14-missing.html#comparison-of-methods-beta_2",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\beta_2\\)",
+    "text": "Comparison of methods: \\(\\beta_2\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n-17.13\n19.56\n-55.57\n21.30\nNA\nNA\n\n\nMAR\nBayes Joint\n-3.19\n9.75\n-22.23\n16.56\n2047.43\n1\n\n\nMAR\nBayes MI\n-5.52\n10.24\n-25.29\n14.89\n85499.19\n1\n\n\nMAR\nOLS\n-82.60\n49.54\n-180.82\n15.62\nNA\nNA"
+  },
+  {
+    "objectID": "slides/14-missing.html#comparison-of-methods-beta_3",
+    "href": "slides/14-missing.html#comparison-of-methods-beta_3",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\beta_3\\)",
+    "text": "Comparison of methods: \\(\\beta_3\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n0.15\n0.11\n-0.08\n0.37\nNA\nNA\n\n\nMAR\nBayes Joint\n0.08\n0.06\n-0.03\n0.19\n2487.34\n1\n\n\nMAR\nBayes MI\n0.09\n0.06\n-0.03\n0.20\n83444.33\n1\n\n\nMAR\nOLS\n0.52\n0.27\n-0.02\n1.06\nNA\nNA"
+  },
+  {
+    "objectID": "slides/14-missing.html#comparison-of-methods-sigma",
+    "href": "slides/14-missing.html#comparison-of-methods-sigma",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\sigma\\)",
+    "text": "Comparison of methods: \\(\\sigma\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n8.73\n0.39\n8.07\n9.49\nNA\nNA\n\n\nMAR\nBayes Joint\n8.21\n0.58\n7.17\n9.45\n599.95\n1.01\n\n\nMAR\nBayes MI\n8.36\n0.35\n7.71\n9.09\n151152.94\n1.00\n\n\nMAR\nOLS\n7.87\n0.52\n6.84\n8.90\nNA\nNA"
+  },
+  {
+    "objectID": "slides/14-missing.html#summary-of-bayesian-joint-model",
+    "href": "slides/14-missing.html#summary-of-bayesian-joint-model",
+    "title": "Missing Data",
+    "section": "Summary of Bayesian joint model",
+    "text": "Summary of Bayesian joint model\n\nThe joint model treats the missing data as parameters (i.e., latent variables in the model).\nPlacing a prior on the missing data allows us to jointly learn the model parameters and the missing data.\nEquivalent to multiple imputation at every step of the HMC. Can be slow!\nIn Stan, we can only treat continuous missing data as parameters, so this method is somewhat limited (what do we do if the missing data is a binary outcome?)"
+  },
+  {
+    "objectID": "slides/14-missing.html#multiple-imputation",
+    "href": "slides/14-missing.html#multiple-imputation",
+    "title": "Missing Data",
+    "section": "Multiple imputation",
+    "text": "Multiple imputation\n\nAs an alternative to fitting a joint model, there are many approaches that allow us to impute missing data before the actual model fitting takes place.\nFrom a statistical perspective, multiple imputation is one of the best solutions.\nEach missing value is not imputed once but \\(m\\) times leading to a total of \\(m\\) fully imputed data sets.\nThe model can then be fitted to each of those data sets separately and results are pooled across models, afterwards.\nOne widely applied package for multiple imputation is mice (Buuren & Groothuis-Oudshoorn, 2010) and we will use it in the following in combination with Stan."
+  },
+  {
+    "objectID": "slides/14-missing.html#mice",
+    "href": "slides/14-missing.html#mice",
+    "title": "Missing Data",
+    "section": "Mice",
+    "text": "Mice\n\nHere, we apply the default settings of mice, which means that all variables will be used to impute missing values in all other variables and imputation functions automatically chosen based on the variables’ characteristics.\n\n\nlibrary(mice)\nm &lt;- 100\nmardata &lt;- data.frame(\n  y = fulldata$y,\n  x1 = fulldata$x1,\n  x2 = fulldata$x2\n)\nmardata$y[fulldata$o == 0] &lt;- NA\nimp &lt;- mice(mardata, m = m, print = FALSE)"
+  },
+  {
+    "objectID": "slides/14-missing.html#mice-1",
+    "href": "slides/14-missing.html#mice-1",
+    "title": "Missing Data",
+    "section": "Mice",
+    "text": "Mice\nNow, we have m = 5 imputed data sets stored within the imp object. In practice, we will likely need more than 5 of those to accurately account for the uncertainty induced by the missingness, perhaps even in the area of 100 imputed data sets (Zhou & Reiter, 2010).\nWe can extract the first imputed dataset.\n\ndata &lt;- complete(imp, 1)\nhead(data)\n\n     y    x1 x2\n1 65.6 174.0  1\n2 77.7 175.3  1\n3 98.2 193.5  1\n4 84.8 186.5  1\n5 85.9 187.2  1\n6 75.0 181.5  1\n\n\n\nWe can now fit our model \\(m\\) times for each imputed data sets and combine the posterior samples from all chains for inference."
+  },
+  {
+    "objectID": "slides/14-missing.html#model-for-the-imputed-datasets",
+    "href": "slides/14-missing.html#model-for-the-imputed-datasets",
+    "title": "Missing Data",
+    "section": "Model for the imputed datasets",
+    "text": "Model for the imputed datasets\n\n// bayesian-mi.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[n] Y_centered;\n  real Y_bar;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n}\nparameters {\n  real alpha_centered;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y_centered | alpha_centered + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_centered | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}\ngenerated quantities {\n  real alpha;\n  alpha = Y_bar + alpha_centered - X_bar * beta;\n}"
   }
 ]

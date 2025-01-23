@@ -15,7 +15,7 @@ Application exercises (AEs) are submitted by pushing your work to the relevant G
 
 # Introduction
 
-This AE will take another look at the diabetes regression problem from Tuesday. At the end of the AE, we realized that placing priors on the parameters yields incorrect posterior inference. During this AE we will explore data centering approaches to stabilize our Bayesian model and explore the implications of prior specification.  
+This AE will take another look at the diabetes regression problem from Tuesday. At the end of the AE, we realized that placing priors on the parameters yields incorrect posterior inference. During this AE we will explore data centering approaches to stabilize our Bayesian model and explore the implications of prior specification.
 
 ## Learning goals
 
@@ -103,8 +103,8 @@ summary(lm(Y ~ AGE + as.factor(SEX) + BMI + BP, data = diabetes))
 However, when we changed the priors to the following, our regression results become extremely different from the OLS/MLE.
 
 \begin{align*}
-\alpha &\sim N(0,10)\\
-\beta_j &\sim N(0,10),\quad j=1,\ldots,p\\
+\alpha &\sim N(0,10^2)\\
+\beta_j &\sim N(0,10^2),\quad j=1,\ldots,p\\
 \sigma^2 &\sim \text{Inv-Gamma}(3,1).
 \end{align*}
 
@@ -115,9 +115,7 @@ print(fit2, probs = c(0.025, 0.975))
 
 # Centering Data for Stable Inference
 
-Before fitting our regression model, we will center the data. Define, $\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i$ and $\bar{\mathbf{x}}_i = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i$. Then the centered data are $Y_i^* = Y_i - \bar{Y}$ and $\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}_i$. We will then perform regression using the centered data, such that 
-$$Y^*_i = \alpha + \mathbf{x}_i^*\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2).$$
-Centering our data can stabilize the posterior inference, because the data will be closer to zero. In particular, consider the scenario above where we placed a prior on $\alpha \sim N(0,10)$. We know that the true value of $\alpha$ (according to OLS/MLE) is close to -200, so our prior, which was intended to be weakly-informative, is actually very strongly pulling the posterior towards zero. This then leads to a domino-effect, where the incorrect inference for $\alpha$ will actually lead to unstable inference for the other parameters. Thus, centering our data means that $\alpha$ should be close to 0, leading to stable inference for all of our parameters.
+Before fitting our regression model, we will center the data. Define, $\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i$ and $\bar{\mathbf{x}}_i = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i$. Then the centered data are $Y_i^* = Y_i - \bar{Y}$ and $\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}_i$. We will then perform regression using the centered data, such that $$Y^*_i = \alpha + \mathbf{x}_i^*\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2).$$ Centering our data can stabilize the posterior inference, because the data will be closer to zero. In particular, consider the scenario above where we placed a prior on $\alpha \sim N(0,10^2)$. We know that the true value of $\alpha$ (according to OLS/MLE) is close to -200, so our prior, which was intended to be weakly-informative, is actually pulling the posterior towards zero. This then leads to a domino-effect, where the incorrect inference for $\alpha$ will actually lead to unstable inference for the other parameters. Thus, centering our data means that $\alpha$ should be closer to 0, leading to stable inference for all of our parameters.
 
 Even though we fit the model on centered data, we are still able to recover the parameters on the scale of our original data.
 
@@ -126,14 +124,13 @@ Even though we fit the model on centered data, we are still able to recover the 
 \mathbb{E}[Y_i - \bar{Y} | \alpha, \boldsymbol{\beta}] &= \alpha + (\mathbf{x}_i - \bar{\mathbf{x}}_i)\boldsymbol{\beta}\\
 \mathbb{E}[Y_i | \alpha, \boldsymbol{\beta}] &= \bar{Y} + \alpha - \bar{\mathbf{x}}_i\boldsymbol{\beta} + \mathbf{x}_i\boldsymbol{\beta}\\
 \mathbb{E}[Y_i | \alpha, \boldsymbol{\beta}] &= \alpha^* + \mathbf{x}_i\boldsymbol{\beta},
-\end{align*}
-where $\alpha^* = \bar{Y} + \alpha - \bar{\mathbf{x}}_i\boldsymbol{\beta}$. Thus, on the original scale of the data the intercept would be equivalent to $\alpha^*$. The regression slopes $\boldsymbol{\beta}$ do not need any transformation and can be interpreted on the original scale. The error term, $\sigma^2$, can also be interpreted on the original scale, because $\mathbb{V}(Y_i^* | \alpha, \boldsymbol{\beta}) = \sigma^2$.
+\end{align*} where $\alpha^* = \bar{Y} + \alpha - \bar{\mathbf{x}}_i\boldsymbol{\beta}$. Thus, on the original scale of the data the intercept would be equivalent to $\alpha^*$. The regression slopes $\boldsymbol{\beta}$ do not need any transformation and can be interpreted on the original scale. The error term, $\sigma^2$, can also be interpreted on the original scale, because $\mathbb{V}(Y_i^* | \alpha, \boldsymbol{\beta}) = \sigma^2$.
 
 # Exercises
 
 ## Exercise 1
 
-Fit the centered regression model detailed above with the following priors: $\alpha \sim N(0,10)$, $\beta_j \sim N(0,10)$, and $\sigma^2 \sim \text{Inv-Gamma}(3,1).$ Obtain posterior samples for this model using Stan. Be sure to present posterior samples for $\alpha^*$.
+Fit the centered regression model detailed above with the following priors: $\alpha \sim N(0,10^2)$, $\beta_j \sim N(0,10^2)$, and $\sigma^2 \sim \text{Inv-Gamma}(3,1).$ Obtain posterior samples for this model using Stan. Be sure to present posterior samples for $\alpha^*$.
 
 **Answer:**
 
@@ -146,7 +143,7 @@ Fit the centered regression model detailed above with the following priors: $\al
 
 ## Exercise 2
 
-Stan is extremely flexible in terms of the priors that can be used for parameters. Using the centered data specification, change the priors for all three parameters. Report how sensitive the results are. 
+Stan is extremely flexible in terms of the priors that can be used for parameters. Using the centered data specification, change the priors for all three parameters. Report how sensitive the results are.
 
 **Answer:**
 
@@ -159,7 +156,7 @@ Stan is extremely flexible in terms of the priors that can be used for parameter
 
 ## Exercise 3
 
-Compute a one-sided Bayesian p-value for the regression slope: $P(\beta_1 < 0)$. Interpret the results in plain English. Is intraocular pressure associated with disease progression?
+Compute the posterior predictive distribution for a 60 year old male with a BMI of 25 and average blood pressure of 85.
 
 **Answer:**
 

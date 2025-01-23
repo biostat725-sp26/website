@@ -416,22 +416,21 @@ Prof.&nbsp;Sam Berchuck
 <ul>
 <li><p>In any real-world dataset, missing values are nearly always going to be present.</p>
 <ul>
-<li><p>Missing data can be a source of bias.</p></li>
-<li><p>Missing data be totally innocuous.</p></li>
+<li>Missing data can be totally innocuous or a source of bias.</li>
 </ul></li>
 <li><p>Cannot determine which because there are no values to inspect.</p></li>
 <li><p>Handling missing data is extremely difficult!</p></li>
 </ul>
 </section>
-<section id="examples" class="slide level2">
-<h2>Examples</h2>
+<section id="example" class="slide level2">
+<h2>Example</h2>
 <ul>
 <li><p>Suppose an individual’s depression scores are missing in dataset of patients with colon cancer.</p></li>
 <li><p>It could be missing because:</p>
 <ul>
 <li><p>A data entry error where some values did not make it into the dataset.</p></li>
-<li><p>The patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the depression itself).</p></li>
-<li><p>The patient has depression, leading to them not completing the depression survey.</p></li>
+<li><p>The patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the unobserved depression).</p></li>
+<li><p>The patient has depression and as a result did not complete the depression survey.</p></li>
 </ul></li>
 </ul>
 </section>
@@ -566,7 +565,7 @@ f(\mathbf{Y}_{obs}, \mathbf{O} |\mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi
 <ul>
 <li><p><strong>Complete-case analysis is not acceptable: </strong></p>
 <ul>
-<li><p>Parameter estimation remains unbiased, but estimation of variances and intervals does not.</p></li>
+<li><p>Parameter estimation remains unbiased, but, in general, estimation of variances and intervals is biased.</p></li>
 <li><p>Also, smaller sample size leads to less power and worse prediction.</p></li>
 <li><p>Under certain missingness settings, parameter estimation may not be unbiased.</p></li>
 </ul></li>
@@ -604,51 +603,25 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi
 <li><p>Under MNAR, we must model the missing data mechanism. This data is considered <strong>non-ignorable</strong>.</p></li>
 </ul>
 </section>
-<section id="why-bayesian-missing-data" class="slide level2">
-<h2>Why Bayesian missing data</h2>
-<p>Unbiased Parameter Estimates: Multiple imputation helps to ensure that the parameter estimates (e.g., regression coefficients, group means) are unbiased. By creating multiple imputed datasets and combining the results, we can obtain more accurate estimates that reflect the uncertainty due to missing data1.</p>
-<p>Accurate Standard Errors: Multiple imputation provides accurate standard errors, which leads to reliable p-values and appropriate statistical inferences. This is crucial for making valid conclusions from the data1.</p>
-<p>Flexibility: Multiple imputation is flexible and can handle various types of missing data patterns. It allows for the inclusion of covariates that explain the missingness, which is important for MAR data2.</p>
-<p>Handling Complex Data Structures: Multiple imputation can be used with complex data structures, such as hierarchical or longitudinal data, where the missingness mechanism may vary across different levels or time points2.</p>
-<p>Robustness to Model Misspecification: Multiple imputation is robust to certain types of model misspecification. For example, even if the imputation model is not perfectly specified, the combined results from multiple imputed datasets can still provide valid inferences3.</p>
-</section>
-<section id="generating-data" class="slide level2">
-<h2>Generating data</h2>
+<section>
+<section id="bayesian-approches-to-missing-data" class="title-slide slide level1 center">
+<h1>Bayesian approches to missing data</h1>
 <ul>
-<li><p>We want to have data under the following criteria:</p>
-<ol type="1">
-<li><p>Full data</p></li>
-<li><p>MCAR data</p></li>
-<li><p>MAR data</p></li>
-<li><p>MNAR data</p></li>
-</ol></li>
-<li><p>We then want to fit the following models: Complete case analysis, full Bayesian model, mice version.</p></li>
+<li>Full Bayesian joint model</li>
+<li>Multiple imputation</li>
 </ul>
 </section>
-<section id="next" class="slide level2">
-<h2>Next</h2>
-<p>There are many ways to handle missing data. The simplest approach is to perform a complete case analysis, where we delete entries with a missing value for at least one variable. If the data are missing completely at random (MCAR), then we get unbiased parameter estimate. However:</p>
-<p>Credible intervals will usually be too wide, since the sample size has effectively been reduced (drastically). If missing values occur for other reasons, this yields biased estimates. The next step up is instead of dropping all the missing entries, we replace missing values of a feature with the mean or median of available values for the feature. This is called single mean/median imputation, and is often recommended in many machine learning tasks if the data are MCAR as it can still lead to unbiased parameter estimates.</p>
-<p>There are also some drawbacks with this method, especially if you’re interested in studying the variability. Single mean/median imputation artificially reduces the variance of features, which results in credible intervals which are too narrow. As shown in Figure 2, the peak at the mean is much higher relative to the surrounding values. The mean of the distribution can still be estimated appropriately, but the amount of spread is reduced.</p>
-<p>Another drawback is it doesn’t account for relationship between variables, thus reduces correlation. For example, the correlation between the two variables is 0.665 if we only look at the complete cases. If we use single mean imputation, the correlation decreases to 0.589.</p>
-<p>Note that if you don’t care about assessing variability in your estimates, which is often the case for classification tasks, then mean imputation can work quite well.</p>
-</section>
-<section id="lets-look-at-some-data" class="slide level2">
-<h2>Let’s look at some data</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(openintro)</span>
-<span id="cb1-2"><a></a>fulldata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">y =</span> bdims<span class="sc">$</span>wgt,</span>
-<span id="cb1-3"><a></a>                       <span class="at">x =</span> bdims<span class="sc">$</span>hgt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="lets-motivate-with-some-data" class="slide level2">
+<h2>Let’s motivate with some data</h2>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -658,36 +631,20 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi
 <section id="simulate-missing-data" class="slide level2">
 <h2>Simulate missing data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(mice)</span>
-<span id="cb2-2"><a></a><span class="fu">set.seed</span>(<span class="dv">54</span>)</span>
-<span id="cb2-3"><a></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(fulldata)</span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="do">###Simulate MCAR data</span></span>
-<span id="cb2-6"><a></a>O <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.40</span>)</span>
-<span id="cb2-7"><a></a>mcardata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-8"><a></a>  <span class="at">o =</span> O,</span>
-<span id="cb2-9"><a></a>  <span class="at">x =</span> fulldata<span class="sc">$</span>x,</span>
-<span id="cb2-10"><a></a>  <span class="at">y =</span> fulldata<span class="sc">$</span>y</span>
-<span id="cb2-11"><a></a>)</span>
-<span id="cb2-12"><a></a>mcardata_cc <span class="ot">&lt;-</span> mcardata[mcardata<span class="sc">$</span>o <span class="sc">==</span> <span class="dv">1</span>, ]</span>
-<span id="cb2-13"><a></a></span>
-<span id="cb2-14"><a></a><span class="do">###Simulate MAR data</span></span>
-<span id="cb2-15"><a></a>O <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">pnorm</span>(<span class="fu">scale</span>(fulldata<span class="sc">$</span>x)))</span>
-<span id="cb2-16"><a></a>mardata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-17"><a></a>  <span class="at">o =</span> O,</span>
-<span id="cb2-18"><a></a>  <span class="at">x =</span> fulldata<span class="sc">$</span>x,</span>
-<span id="cb2-19"><a></a>  <span class="at">y =</span> fulldata<span class="sc">$</span>y</span>
-<span id="cb2-20"><a></a>)</span>
-<span id="cb2-21"><a></a>mardata_cc <span class="ot">&lt;-</span> mardata[mardata<span class="sc">$</span>o <span class="sc">==</span> <span class="dv">1</span>, ]</span>
-<span id="cb2-22"><a></a></span>
-<span id="cb2-23"><a></a><span class="do">###Simulate MNAR data</span></span>
-<span id="cb2-24"><a></a>O <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">pnorm</span>(<span class="fu">scale</span>(fulldata<span class="sc">$</span>y)))</span>
-<span id="cb2-25"><a></a>mnardata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-26"><a></a>  <span class="at">o =</span> O,</span>
-<span id="cb2-27"><a></a>  <span class="at">x =</span> fulldata<span class="sc">$</span>x,</span>
-<span id="cb2-28"><a></a>  <span class="at">y =</span> fulldata<span class="sc">$</span>y</span>
-<span id="cb2-29"><a></a>)</span>
-<span id="cb2-30"><a></a>mnardata_cc <span class="ot">&lt;-</span> mnardata[mnardata<span class="sc">$</span>o <span class="sc">==</span> <span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">set.seed</span>(<span class="dv">54</span>)</span>
+<span id="cb1-2"><a></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(fulldata)</span>
+<span id="cb1-3"><a></a>expit <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">exp</span>(x) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(x))</span>
+<span id="cb1-4"><a></a>fulldata<span class="sc">$</span>o <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, <span class="fu">expit</span>(<span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">scale</span>(fulldata<span class="sc">$</span>x1) <span class="sc">-</span> <span class="dv">3</span> <span class="sc">*</span> fulldata<span class="sc">$</span>x2))</span>
+<span id="cb1-5"><a></a><span class="fu">head</span>(fulldata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     y    x1 x2  Sex o
+1 65.6 174.0  1 Male 1
+2 71.8 175.3  1 Male 0
+3 80.7 193.5  1 Male 0
+4 72.6 186.5  1 Male 0
+5 78.8 187.2  1 Male 0
+6 74.8 181.5  1 Male 0</code></pre>
+</div>
 </div>
 </section>
 <section id="visualize-data" class="slide level2">
@@ -695,7 +652,31 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-5-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-fits" class="slide level2">
+<h2>Model fits</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -712,103 +693,626 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi
 </div>
 </div>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-6-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
 </div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-6-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="model-fits" class="slide level2">
-<h2>Model fits</h2>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-7-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-7-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="14-missing_files/figure-revealjs/unnamed-chunk-7-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="complete-case-model" class="slide level2">
-<h2>Complete-case model</h2>
-<p><span class="math display">\[\begin{aligned}
-Y_i &amp;\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{obs}\\
-\alpha &amp;\sim N(0,10)\\
-\beta &amp;\sim N(0,10)\\
-\sigma &amp;\sim \text{Half-Normal}(0, 10)
-\end{aligned}\]</span></p>
 </section>
 <section id="full-bayesian-model" class="slide level2">
 <h2>Full Bayesian model</h2>
+<ul>
+<li>Since we are Bayesians, we can treat the unobserved <span class="math inline">\(\mathbf{Y}_{mis}\)</span> as parameters and work with the complete data likelihood.</li>
+</ul>
 <p><span class="math display">\[\begin{aligned}
-Y_i &amp;\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{obs}\\
-Y_i &amp;\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{mis}\\
-\alpha &amp;\sim N(0,10)\\
-\beta &amp;\sim N(0,10)\\
-\sigma &amp;\sim \text{Half-Normal}(0, 10)
+f(\boldsymbol{\theta}, \boldsymbol{\phi}, \mathbf{Y}_{mis} | \mathbf{Y}_{obs},\mathbf{O},\mathbf{X}) &amp;\propto f(\mathbf{Y}, \mathbf{O}, \boldsymbol{\theta}, \boldsymbol{\phi} | \mathbf{X})\\
+&amp;\hspace{-4in}=f(\mathbf{Y}, \mathbf{O} | \mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi})f(\boldsymbol{\theta},\boldsymbol{\phi})\\
+&amp;\hspace{-4in}= f(\mathbf{Y} | \mathbf{X}, \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y}, \mathbf{X}, \boldsymbol{\phi})f(\boldsymbol{\theta},\boldsymbol{\phi})\\
+&amp;\hspace{-4in}=f(\mathbf{Y}_{obs} | \mathbf{X}_{obs}, \boldsymbol{\theta})f(\mathbf{Y}_{mis} | \mathbf{X}_{mis}, \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y}, \mathbf{X}, \boldsymbol{\phi})f(\boldsymbol{\theta},\boldsymbol{\phi})\\
+\end{aligned}\]</span></p>
+<ul>
+<li>We can simplify this posterior by dropping the missing data mechanism.</li>
+</ul>
+</section>
+<section id="full-bayesian-model-1" class="slide level2">
+<h2>Full Bayesian model</h2>
+<ul>
+<li>Assuming that <span class="math inline">\(f(\boldsymbol{\theta},\boldsymbol{\phi}) = f(\boldsymbol{\theta})f(\boldsymbol{\phi})\)</span>, the missingness process does not need to be explicitly modeled when we are interested in inference for <span class="math inline">\(\boldsymbol{\theta}\)</span>.</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+&amp;f(\boldsymbol{\theta}, \mathbf{Y}_{mis} | \mathbf{Y}_{obs},\mathbf{O},\mathbf{X})\\ &amp;\hspace{2in}\propto f(\mathbf{Y}_{obs} | \mathbf{X}_{obs}, \boldsymbol{\theta})f(\mathbf{Y}_{mis} | \mathbf{X}_{mis}, \boldsymbol{\theta})f(\boldsymbol{\theta})
 \end{aligned}\]</span></p>
 </section>
-<section id="missing-pattern" class="slide level2">
-<h2>Missing pattern</h2>
+<section id="full-bayesian-model-for-linear-regression" class="slide level2">
+<h2>Full Bayesian model for linear regression</h2>
+<p><span class="math display">\[\begin{aligned}
+Y_i | \alpha, \beta, \sigma^2 &amp;\stackrel{ind}{\sim} N(\alpha + \mathbf{x}_i\boldsymbol{\beta}, \sigma^2), \quad i \in \mathcal N_{obs}\\
+Y_i | \alpha, \beta, \sigma^2&amp;\stackrel{ind}{\sim} N(\alpha + \mathbf{x}_i \boldsymbol{\beta}, \sigma^2), \quad i \in \mathcal N_{mis}\\
+\alpha &amp;\sim f(\alpha)\\
+\beta &amp;\sim f(\boldsymbol{\beta})\\
+\sigma &amp;\sim f(\sigma),
+\end{aligned}\]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbf{x}_i = (height_i, 1(sex_i = male), height_i \times 1(sex_i = male))\)</span>.</li>
+</ul>
+</section>
+<section id="full-bayesian-missing-data-model-in-stan" class="slide level2">
+<h2>Full Bayesian missing data model in Stan</h2>
+<div class="cell" data-output.var="missing">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb3-1"><a></a><span class="co">// saved in missing-full-bayes.stan</span></span>
+<span id="cb3-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb3-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n_obs;</span>
+<span id="cb3-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n_mis;</span>
+<span id="cb3-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb3-6"><a></a>  <span class="dt">vector</span>[n_obs] Y_obs;</span>
+<span id="cb3-7"><a></a>  <span class="dt">matrix</span>[n_obs, p] X_obs;</span>
+<span id="cb3-8"><a></a>  <span class="dt">matrix</span>[n_mis, p] X_mis;</span>
+<span id="cb3-9"><a></a>}</span>
+<span id="cb3-10"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb3-11"><a></a>  <span class="dt">vector</span>[n_obs] Y_obs_centered;</span>
+<span id="cb3-12"><a></a>  <span class="dt">real</span> Y_bar;</span>
+<span id="cb3-13"><a></a>  <span class="dt">matrix</span>[n_obs, p] X_obs_centered;</span>
+<span id="cb3-14"><a></a>  <span class="dt">matrix</span>[n_mis, p] X_mis_centered;</span>
+<span id="cb3-15"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb3-16"><a></a>  Y_bar = mean(Y_obs);</span>
+<span id="cb3-17"><a></a>  Y_obs_centered = Y_obs - Y_bar;</span>
+<span id="cb3-18"><a></a>  <span class="dt">matrix</span>[n_obs + n_mis, p] X = append_row(X_obs, X_mis);</span>
+<span id="cb3-19"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
+<span id="cb3-20"><a></a>    X_bar[i] = mean(X[, i]);</span>
+<span id="cb3-21"><a></a>    X_obs_centered[, i] = X_obs[, i] - X_bar[i];</span>
+<span id="cb3-22"><a></a>    X_mis_centered[, i] = X_mis[, i] - X_bar[i];</span>
+<span id="cb3-23"><a></a>  }</span>
+<span id="cb3-24"><a></a>}</span>
+<span id="cb3-25"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb3-26"><a></a>  <span class="dt">real</span> alpha_centered;</span>
+<span id="cb3-27"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb3-28"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb3-29"><a></a>  <span class="dt">vector</span>[n_mis] Y_mis_centered;</span>
+<span id="cb3-30"><a></a>}</span>
+<span id="cb3-31"><a></a><span class="kw">model</span> {</span>
+<span id="cb3-32"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y_obs_centered | alpha_centered + X_obs_centered * beta, sigma);</span>
+<span id="cb3-33"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y_mis_centered | alpha_centered + X_mis_centered * beta, sigma);</span>
+<span id="cb3-34"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha_centered | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb3-35"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb3-36"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb3-37"><a></a>}</span>
+<span id="cb3-38"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb3-39"><a></a>  <span class="dt">real</span> alpha;</span>
+<span id="cb3-40"><a></a>  <span class="dt">vector</span>[n_mis] Y_mis;</span>
+<span id="cb3-41"><a></a>  alpha = Y_bar + alpha_centered - X_bar * beta;</span>
+<span id="cb3-42"><a></a>  Y_mis = Y_mis_centered + Y_bar;</span>
+<span id="cb3-43"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fit-missing-data-model" class="slide level2">
+<h2>Fit missing data model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">md.pattern</span>(mcardata_cc, <span class="at">rotate.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> /\     /\
-{  `---'  }
-{  O   O  }
-==&gt;  V &lt;==  No need for mice. This data set is completely observed.
- \  \|/  /
-  `-----'</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>stan_missing_data_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"missing-full-bayes.stan"</span>)</span>
+<span id="cb4-2"><a></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> x1 <span class="sc">*</span> x2, <span class="at">data =</span> fulldata)[, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb4-3"><a></a>stan_data_missing_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb4-4"><a></a>  <span class="at">n_obs =</span> <span class="fu">sum</span>(fulldata<span class="sc">$</span>o <span class="sc">==</span> <span class="dv">1</span>),</span>
+<span id="cb4-5"><a></a>  <span class="at">n_mis =</span> <span class="fu">sum</span>(fulldata<span class="sc">$</span>o <span class="sc">==</span> <span class="dv">0</span>),</span>
+<span id="cb4-6"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb4-7"><a></a>  <span class="at">Y_obs =</span> <span class="fu">array</span>(fulldata<span class="sc">$</span>y[fulldata<span class="sc">$</span>o <span class="sc">==</span> <span class="dv">1</span>]),</span>
+<span id="cb4-8"><a></a>  <span class="at">X_obs =</span> X[fulldata<span class="sc">$</span>o <span class="sc">==</span> <span class="dv">1</span>, ],</span>
+<span id="cb4-9"><a></a>  <span class="at">X_mis =</span> X[fulldata<span class="sc">$</span>o <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb4-10"><a></a>)</span>
+<span id="cb4-11"><a></a>fit_full_bayes_joint <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_missing_data_model, stan_data_missing_data)</span>
+<span id="cb4-12"><a></a><span class="fu">print</span>(fit_full_bayes_joint, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="explore-model-fit" class="slide level2">
+<h2>Explore model fit</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">print</span>(fit_full_bayes_joint, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
 
+          mean se_mean    sd   2.5% 97.5% n_eff Rhat
+alpha   -48.38    0.83 21.10 -90.15 -7.03   653 1.00
+beta[1]   0.65    0.00  0.12   0.41  0.90   673 1.00
+beta[2]  -3.19    0.22  9.75 -22.23 16.56  2047 1.00
+beta[3]   0.08    0.00  0.06  -0.03  0.19  2487 1.00
+sigma     8.21    0.02  0.58   7.17  9.45   600 1.01
+
+Samples were drawn using NUTS(diag_e) at Wed Jan 22 19:43:45 2025.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+</div>
+</div>
+</section>
+<section id="explore-latent-missing-variable" class="slide level2">
+<h2>Explore latent missing variable</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(bayesplot)</span>
+<span id="cb7-2"><a></a>Y_mis <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit_full_bayes_joint, <span class="at">pars =</span> <span class="st">"Y_mis"</span>)<span class="sc">$</span>Y_mis</span>
+<span id="cb7-3"><a></a><span class="fu">colnames</span>(Y_mis) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Y_mis["</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(Y_mis), <span class="st">"]"</span>)</span>
+<span id="cb7-4"><a></a><span class="fu">mcmc_areas_ridges</span>(Y_mis[, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="14-missing_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
+<section id="summary-of-bayesian-joint-model" class="slide level2">
+<h2>Summary of Bayesian joint model</h2>
+<ul>
+<li><p>The joint model treats the missing data as parameters (i.e., latent variables in the model).</p></li>
+<li><p>Placing a prior on the missing data allows us to jointly learn the model parameters and the missing data.</p></li>
+<li><p>Equivalent to multiple imputation at every step of the HMC. Can be slow!</p></li>
+<li><p>In Stan, we can only treat continuous missing data as parameters, so this method is somewhat limited (what do we do if the missing data is a binary outcome?)</p></li>
+</ul>
+</section>
+<section id="multiple-imputation" class="slide level2">
+<h2>Multiple imputation</h2>
+<ul>
+<li><p>As an alternative to fitting a joint model, there are many approaches that allow us to impute missing data before the actual model fitting takes place.</p></li>
+<li><p>From a statistical perspective, multiple imputation is one of the best solutions.</p></li>
+<li><p>Each missing value is not imputed once but <span class="math inline">\(m\)</span> times leading to a total of <span class="math inline">\(m\)</span> fully imputed data sets.</p></li>
+<li><p>The model can then be fitted to each of those data sets separately and results are pooled across models, afterwards.</p></li>
+<li><p>One widely applied package for multiple imputation is <code>mice</code> (Buuren &amp; Groothuis-Oudshoorn, 2010) and we will use it in the following in combination with Stan.</p></li>
+</ul>
+</section>
+<section id="mice" class="slide level2">
+<h2>Mice</h2>
+<ul>
+<li>Here, we apply the default settings of mice, which means that all variables will be used to impute missing values in all other variables and imputation functions automatically chosen based on the variables’ characteristics.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(mice)</span>
+<span id="cb8-2"><a></a>m <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb8-3"><a></a>mardata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-4"><a></a>  <span class="at">y =</span> fulldata<span class="sc">$</span>y,</span>
+<span id="cb8-5"><a></a>  <span class="at">x1 =</span> fulldata<span class="sc">$</span>x1,</span>
+<span id="cb8-6"><a></a>  <span class="at">x2 =</span> fulldata<span class="sc">$</span>x2</span>
+<span id="cb8-7"><a></a>)</span>
+<span id="cb8-8"><a></a>mardata<span class="sc">$</span>y[fulldata<span class="sc">$</span>o <span class="sc">==</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb8-9"><a></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(mardata, <span class="at">m =</span> m, <span class="at">print =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mice-1" class="slide level2">
+<h2>Mice</h2>
+<p>Now, we have m = 5 imputed data sets stored within the imp object. In practice, we will likely need more than 5 of those to accurately account for the uncertainty induced by the missingness, perhaps even in the area of 100 imputed data sets (Zhou &amp; Reiter, 2010).</p>
+<p>We can extract the first imputed dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>data <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp, <span class="dv">1</span>)</span>
+<span id="cb9-2"><a></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    o x y  
-199 1 1 1 0
-    0 0 0 0</code></pre>
+<pre><code>     y    x1 x2
+1 65.6 174.0  1
+2 77.7 175.3  1
+3 98.2 193.5  1
+4 84.8 186.5  1
+5 85.9 187.2  1
+6 75.0 181.5  1</code></pre>
 </div>
 </div>
-<img data-src="14-missing_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<ul>
+<li>We can now fit our model <span class="math inline">\(m\)</span> times for each imputed data sets and combine the posterior samples from all chains for inference.</li>
+</ul>
+</section>
+<section id="model-for-the-imputed-datasets" class="slide level2">
+<h2>Model for the imputed datasets</h2>
+<div class="cell" data-output.var="cc">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb11-1"><a></a><span class="co">// bayesian-mi.stan</span></span>
+<span id="cb11-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb11-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb11-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb11-5"><a></a>  <span class="dt">vector</span>[n] Y;</span>
+<span id="cb11-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb11-7"><a></a>}</span>
+<span id="cb11-8"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb11-9"><a></a>  <span class="dt">vector</span>[n] Y_centered;</span>
+<span id="cb11-10"><a></a>  <span class="dt">real</span> Y_bar;</span>
+<span id="cb11-11"><a></a>  <span class="dt">matrix</span>[n, p] X_centered;</span>
+<span id="cb11-12"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb11-13"><a></a>  Y_bar = mean(Y);</span>
+<span id="cb11-14"><a></a>  Y_centered = Y - Y_bar;</span>
+<span id="cb11-15"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
+<span id="cb11-16"><a></a>    X_bar[i] = mean(X[, i]);</span>
+<span id="cb11-17"><a></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
+<span id="cb11-18"><a></a>  }</span>
+<span id="cb11-19"><a></a>}</span>
+<span id="cb11-20"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb11-21"><a></a>  <span class="dt">real</span> alpha_centered;</span>
+<span id="cb11-22"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb11-23"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb11-24"><a></a>}</span>
+<span id="cb11-25"><a></a><span class="kw">model</span> {</span>
+<span id="cb11-26"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y_centered | alpha_centered + X_centered * beta, sigma);</span>
+<span id="cb11-27"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha_centered | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb11-28"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb11-29"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb11-30"><a></a>}</span>
+<span id="cb11-31"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb11-32"><a></a>  <span class="dt">real</span> alpha;</span>
+<span id="cb11-33"><a></a>  alpha = Y_bar + alpha_centered - X_bar * beta;</span>
+<span id="cb11-34"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fit-the-model-to-the-imputed-data" class="slide level2">
+<h2>Fit the model to the imputed data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>stan_bayesian_mi <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"bayesian-mi.stan"</span>)</span>
+<span id="cb12-2"><a></a>alpha <span class="ot">&lt;-</span> beta <span class="ot">&lt;-</span> sigma <span class="ot">&lt;-</span> r_hat <span class="ot">&lt;-</span> n_eff <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb12-3"><a></a>n_chains <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb12-4"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>m) {</span>
+<span id="cb12-5"><a></a>  </span>
+<span id="cb12-6"><a></a>  <span class="do">###Load each imputed dataset and fit the Stan complete case model</span></span>
+<span id="cb12-7"><a></a>  data <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp, i)</span>
+<span id="cb12-8"><a></a>  X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> x1 <span class="sc">*</span> x2, <span class="at">data =</span> data)[, <span class="sc">-</span><span class="dv">1</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb12-9"><a></a>  stan_data_bayesian_mi <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb12-10"><a></a>    <span class="at">n =</span> <span class="fu">nrow</span>(data),</span>
+<span id="cb12-11"><a></a>    <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb12-12"><a></a>    <span class="at">Y =</span> data<span class="sc">$</span>y,</span>
+<span id="cb12-13"><a></a>    <span class="at">X =</span> X</span>
+<span id="cb12-14"><a></a>  )</span>
+<span id="cb12-15"><a></a>  fit_mi <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_bayesian_mi, stan_data_bayesian_mi, <span class="at">chains =</span> n_chains)</span>
+<span id="cb12-16"><a></a>  </span>
+<span id="cb12-17"><a></a>  <span class="do">###Save convergence diagnostics from each imputed dataset</span></span>
+<span id="cb12-18"><a></a>  r_hat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(r_hat, <span class="fu">summary</span>(fit_mi)<span class="sc">$</span>summary[, <span class="st">"Rhat"</span>])</span>
+<span id="cb12-19"><a></a>  n_eff <span class="ot">&lt;-</span> <span class="fu">cbind</span>(n_eff, <span class="fu">summary</span>(fit_mi)<span class="sc">$</span>summary[, <span class="st">"n_eff"</span>])</span>
+<span id="cb12-20"><a></a>  pars <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit_mi, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>))</span>
+<span id="cb12-21"><a></a>  </span>
+<span id="cb12-22"><a></a>  <span class="do">### Save the parameters from each imputed dataset</span></span>
+<span id="cb12-23"><a></a>  n_sims_chain <span class="ot">&lt;-</span> <span class="fu">length</span>(pars<span class="sc">$</span>alpha) <span class="sc">/</span> n_chains</span>
+<span id="cb12-24"><a></a>  alpha <span class="ot">&lt;-</span> <span class="fu">rbind</span>(alpha, <span class="fu">cbind</span>(i, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_chains, <span class="at">each =</span> n_sims_chain), pars<span class="sc">$</span>alpha))</span>
+<span id="cb12-25"><a></a>  beta <span class="ot">&lt;-</span> <span class="fu">rbind</span>(beta, <span class="fu">cbind</span>(i, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_chains, <span class="at">each =</span> n_sims_chain), pars<span class="sc">$</span>beta))</span>
+<span id="cb12-26"><a></a>  sigma <span class="ot">&lt;-</span> <span class="fu">rbind</span>(sigma, <span class="fu">cbind</span>(i, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_chains, <span class="at">each =</span> n_sims_chain), pars<span class="sc">$</span>sigma))</span>
+<span id="cb12-27"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="inspect-traceplots" class="slide level2">
+<h2>Inspect traceplots</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/14/alpha.png" class="quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+</section>
+<section id="inspect-traceplots-1" class="slide level2">
+<h2>Inspect traceplots</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/14/beta[1].png" class="quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+</section>
+<section id="inspect-traceplots-2" class="slide level2">
+<h2>Inspect traceplots</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/14/beta[2].png" class="quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+</section>
+<section id="inspect-traceplots-3" class="slide level2">
+<h2>Inspect traceplots</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/14/beta[3].png" class="quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+</section>
+<section id="inspect-traceplots-4" class="slide level2">
+<h2>Inspect traceplots</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/14/sigma.png" class="quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+</section>
+<section id="comparison-of-methods-alpha" class="slide level2 small">
+<h2>Comparison of methods: <span class="math inline">\(\alpha\)</span></h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">2.5%</th>
+<th style="text-align: right;">97.5%</th>
+<th style="text-align: right;">n_eff</th>
+<th style="text-align: right;">Rhat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Full</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">-43.82</td>
+<td style="text-align: right;">13.78</td>
+<td style="text-align: right;">-70.89</td>
+<td style="text-align: right;">-16.75</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes Joint</td>
+<td style="text-align: right;">-48.38</td>
+<td style="text-align: right;">21.10</td>
+<td style="text-align: right;">-90.15</td>
+<td style="text-align: right;">-7.03</td>
+<td style="text-align: right;">652.73</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes MI</td>
+<td style="text-align: right;">-43.45</td>
+<td style="text-align: right;">23.72</td>
+<td style="text-align: right;">-85.03</td>
+<td style="text-align: right;">3.97</td>
+<td style="text-align: right;">119974.91</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">-30.56</td>
+<td style="text-align: right;">23.70</td>
+<td style="text-align: right;">-77.55</td>
+<td style="text-align: right;">16.43</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="comparison-of-methods-beta_1" class="slide level2 small">
+<h2>Comparison of methods: <span class="math inline">\(\beta_1\)</span></h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">2.5%</th>
+<th style="text-align: right;">97.5%</th>
+<th style="text-align: right;">n_eff</th>
+<th style="text-align: right;">Rhat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Full</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes Joint</td>
+<td style="text-align: right;">0.65</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">672.77</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes MI</td>
+<td style="text-align: right;">0.63</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">119778.47</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.83</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="comparison-of-methods-beta_2" class="slide level2 small">
+<h2>Comparison of methods: <span class="math inline">\(\beta_2\)</span></h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">2.5%</th>
+<th style="text-align: right;">97.5%</th>
+<th style="text-align: right;">n_eff</th>
+<th style="text-align: right;">Rhat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Full</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">-17.13</td>
+<td style="text-align: right;">19.56</td>
+<td style="text-align: right;">-55.57</td>
+<td style="text-align: right;">21.30</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes Joint</td>
+<td style="text-align: right;">-3.19</td>
+<td style="text-align: right;">9.75</td>
+<td style="text-align: right;">-22.23</td>
+<td style="text-align: right;">16.56</td>
+<td style="text-align: right;">2047.43</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes MI</td>
+<td style="text-align: right;">-5.52</td>
+<td style="text-align: right;">10.24</td>
+<td style="text-align: right;">-25.29</td>
+<td style="text-align: right;">14.89</td>
+<td style="text-align: right;">85499.19</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">-82.60</td>
+<td style="text-align: right;">49.54</td>
+<td style="text-align: right;">-180.82</td>
+<td style="text-align: right;">15.62</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="comparison-of-methods-beta_3" class="slide level2 small">
+<h2>Comparison of methods: <span class="math inline">\(\beta_3\)</span></h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">2.5%</th>
+<th style="text-align: right;">97.5%</th>
+<th style="text-align: right;">n_eff</th>
+<th style="text-align: right;">Rhat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Full</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">-0.08</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes Joint</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">-0.03</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">2487.34</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes MI</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">-0.03</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">83444.33</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">-0.02</td>
+<td style="text-align: right;">1.06</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="comparison-of-methods-sigma" class="slide level2 small">
+<h2>Comparison of methods: <span class="math inline">\(\sigma\)</span></h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">2.5%</th>
+<th style="text-align: right;">97.5%</th>
+<th style="text-align: right;">n_eff</th>
+<th style="text-align: right;">Rhat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Full</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">8.73</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">8.07</td>
+<td style="text-align: right;">9.49</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes Joint</td>
+<td style="text-align: right;">8.21</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">7.17</td>
+<td style="text-align: right;">9.45</td>
+<td style="text-align: right;">599.95</td>
+<td style="text-align: right;">1.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">Bayes MI</td>
+<td style="text-align: right;">8.36</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">7.71</td>
+<td style="text-align: right;">9.09</td>
+<td style="text-align: right;">151152.94</td>
+<td style="text-align: right;">1.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAR</td>
+<td style="text-align: left;">OLS</td>
+<td style="text-align: right;">7.87</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">6.84</td>
+<td style="text-align: right;">8.90</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>
 <ul>
@@ -823,7 +1327,7 @@ Y_i &amp;\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \math
 <p><a href="https://biostat725-sp25.netlify.app/">🔗 BIOSTAT 725 - Spring 2025</a></p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

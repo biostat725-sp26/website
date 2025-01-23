@@ -111,12 +111,12 @@ data {
 }
 parameters {
   real mu;
-  real<lower = 0> sigma;
+  real<lower = 0> sigma2;
 }
 model {
-  Y ~ normal(mu, sigma); // likelihood
+  Y ~ normal(mu, sqrt(sigma2)); // likelihood
   mu ~ normal(0, 1); // prior for mu
-  sigma ~ inv_gamma(1, 1); // prior for sigma
+  sigma2 ~ inv_gamma(1, 1); // prior for sigma
 }
 ```
 
@@ -176,7 +176,7 @@ vector[10] Y; // vector representation
 ```{stan output.var = "straightforward", eval=FALSE}
 parameters {
   real mu;
-  real<lower = 0> sigma;
+  real<lower = 0> sigma2;
 }
 ```
 
@@ -184,7 +184,7 @@ parameters {
 
 -   Place limits on variables, for example:
 
-    -   `real<lower = 0> sigma`
+    -   `real<lower = 0> sigma2`
 
 A multitude of parameter types including some of the aforementioned:
 
@@ -197,7 +197,7 @@ A multitude of parameter types including some of the aforementioned:
 ```{stan output.var = "straightforward", eval=FALSE}
 parameters {
   real mu;
-  real<lower = 0> sigma;
+  real<lower = 0> sigma2;
 }
 ```
 
@@ -216,7 +216,7 @@ parameters {
 ```{stan output.var = "straightforward", eval=FALSE}
 parameters {
   real mu;
-  real<lower = 0> sigma;
+  real<lower = 0> sigma2;
 }
 ```
 
@@ -232,9 +232,9 @@ parameters {
 
 ```{stan output.var = "straightforward", eval=FALSE}
 model {
-  Y ~ normal(mu, sigma); // likelihood
+  Y ~ normal(mu, sqrt(sigma2)); // likelihood
   mu ~ normal(0, 1); // prior for mu
-  sigma ~ inv_gamma(1, 1); // prior for sigma
+  sigma2 ~ inv_gamma(1, 1); // prior for sigma2
 }
 ```
 
@@ -250,15 +250,15 @@ If don’t specify priors on parameters Stan assumes you are using flat priors (
 
 ```{stan output.var = "straightforward", eval=FALSE}
 model {
-  Y ~ normal(mu, sigma); // likelihood
+  Y ~ normal(mu, sqrt(sigma2)); // likelihood
   mu ~ normal(0, 1); // prior for mu
-  sigma ~ inv_gamma(1, 1); // prior for sigma
+  sigma2 ~ inv_gamma(1, 1); // prior for sigma2
 }
 ```
 
 Huge range of probability distributions covered, across a range of parameterizations. For example:
 
--   **Discrete:** Bernoulli, binomial, normal, Poisson, beta-binomial, negative-binomial, categorical, multinomial.
+-   **Discrete:** Bernoulli, binomial, Poisson, beta-binomial, negative-binomial, categorical, multinomial.
 
 -   **Continuous unbounded:** normal, skew-normal, student-t, Cauchy, logistic.
 
@@ -266,9 +266,9 @@ Huge range of probability distributions covered, across a range of parameterizat
 
 ```{stan output.var = "straightforward", eval=FALSE}
 model {
-  Y ~ normal(mu, sigma); // likelihood
+  Y ~ normal(mu, sqrt(sigma2)); // likelihood
   mu ~ normal(0, 1); // prior for mu
-  sigma ~ inv_gamma(1, 1); // prior for sigma
+  sigma2 ~ inv_gamma(1, 1); // prior for sigma2
 }
 ```
 
@@ -304,7 +304,7 @@ fit <- stan(file = 'straightforward.stan', data = list(Y = Y),
 # Y <- rnorm(10, mean = 0, sd = 1)
 # 
 # ## Compile and run model, and save in fit
-# fit <- stan(file = '/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/straightforward.stan', data = list(Y= Y), 
+# fit <- stan(file = '/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/straightforward.stan', data = list(Y= Y),
 #             iter = 1000, chains = 4)
 # saveRDS(fit, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/straightforward_fit.rds")
 library(rstan)
@@ -389,9 +389,9 @@ $$\log f(\boldsymbol{\theta} | \mathbf{Y}) \propto \log f(\boldsymbol{\theta}) +
 
 ```{stan output.var = "straightforward", eval=FALSE}
 model {
-  target += normal_lpdf(Y | mu, sigma); // likelihood
+  target += normal_lpdf(Y | mu, sqrt(sigma2)); // likelihood
   target += normal_lpdf(mu | 0, 1); // prior for mu
-  target += inv_gamma_lpdf(sigma | 1, 1); // prior for sigma
+  target += inv_gamma_lpdf(sigma2 | 1, 1); // prior for sigma
 }
 ```
 
@@ -417,12 +417,12 @@ data {
   matrix[n, p + 1] X; // covariate vector
   real beta0; // location hyperparameter for beta
   real<lower = 0> sigma_beta; // scale hyperparameter for beta
-  real<lower = 0> a; // shape hyperparameter for sigma
-  real<lower = 0> b; // scale hyperparameter for sigma
+  real<lower = 0> a; // shape hyperparameter for sigma2
+  real<lower = 0> b; // scale hyperparameter for sigma2
 }
 parameters {
   vector[p + 1] beta;
-  real<lower = 0> sigma;
+  real<lower = 0> sigma2;
 }
 ```
 
@@ -431,10 +431,10 @@ parameters {
 ```{stan output.var = "linear_regression", eval=FALSE}
 model {
   for (i in 1:n) {
-    target += normal_lpdf(Y[i] | X[i, ] * beta, sigma); // likelihood
+    target += normal_lpdf(Y[i] | X[i, ] * beta, sqrt(sigma2)); // likelihood
   }
   target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta
-  target += inv_gamma_lpdf(sigma | a, b); // prior for sigma
+  target += inv_gamma_lpdf(sigma2 | a, b); // prior for sigma2
 }
 ```
 
@@ -444,9 +444,9 @@ It is always a good idea to vectorize Stan code for faster and more efficient in
 
 ```{stan output.var = "linear_regression", eval=FALSE}
 model {
-  target += normal_lpdf(Y | X * beta, sigma); // likelihood
+  target += normal_lpdf(Y | X * beta, sqrt(sigma2)); // likelihood
   target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta
-  target += inv_gamma_lpdf(sigma | a, b); // prior for sigma
+  target += inv_gamma_lpdf(sigma2 | a, b); // prior for sigma2
 }
 ```
 
@@ -461,17 +461,17 @@ data {
   matrix[n, p + 1] X; // covariate vector
   real beta0; // location hyperparameter for beta
   real<lower = 0> sigma_beta; // scale hyperparameter for beta
-  real<lower = 0> a; // shape hyperparameter for sigma
-  real<lower = 0> b; // scale hyperparameter for sigma
+  real<lower = 0> a; // shape hyperparameter for sigma2
+  real<lower = 0> b; // scale hyperparameter for sigma2
 }
 parameters {
   vector[p + 1] beta;
-  real<lower = 0> sigma;
+  real<lower = 0> sigma2;
 }
 model {
-  target += normal_lpdf(Y | X * beta, sigma); // likelihood
+  target += normal_lpdf(Y | X * beta, sqrt(sigma2)); // likelihood
   target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta
-  target += inv_gamma_lpdf(sigma | a, b); // prior for sigma
+  target += inv_gamma_lpdf(sigma2 | a, b); // prior for sigma2
 }
 ```
 
@@ -525,11 +525,11 @@ saveRDS(fit, file = "linear_regression_fit.rds")
 #                   X = X,
 #                   beta0 = 0,
 #                   sigma_beta = 10,
-#                   a = 3, 
+#                   a = 3,
 #                   b = 1)
-#   
+# 
 # ###Compile model separately
-# stan_model <- stan_model(file = "robjects/linear_regression.stan")
+# stan_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression.stan")
 # 
 # ###Run model and save
 # fit <- sampling(stan_model, data = stan_data, chains = 4, iter = 1000)
@@ -547,7 +547,7 @@ print(fit, probs = c(0.25, 0.5, 0.75))
 ## Stan plots: point estimate and intervals
 
 ```{r}
-stan_plot(fit, pars = c("beta", "sigma"), include_warmup = FALSE,
+stan_plot(fit, pars = c("beta", "sigma2"), include_warmup = FALSE,
           point_est = "median", ci_level = 0.8, outer_level = 0.95)
 ```
 

@@ -459,15 +459,15 @@ Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilo
 post-warmup draws per chain=1000, total post-warmup draws=4000.
 
             mean se_mean    sd     2.5%    97.5% n_eff Rhat
-alpha    -209.90    0.40 22.78  -254.86  -164.14  3269    1
-beta[1]     0.14    0.00  0.24    -0.34     0.62  3596    1
-beta[2]   -10.20    0.10  6.04   -21.85     1.62  3559    1
-beta[3]     8.49    0.01  0.71     7.10     9.86  3515    1
-beta[4]     1.44    0.00  0.24     0.97     1.90  3286    1
-sigma      60.18    0.03  2.05    56.26    64.51  3572    1
-lp__    -2433.14    0.04  1.82 -2437.76 -2430.69  1686    1
+alpha    -209.76    0.39 22.80  -254.10  -165.14  3400    1
+beta[1]     0.14    0.00  0.24    -0.35     0.60  3630    1
+beta[2]   -10.20    0.10  6.11   -22.54     1.44  3940    1
+beta[3]     8.50    0.01  0.71     7.13     9.84  3201    1
+beta[4]     1.44    0.00  0.24     0.97     1.91  3077    1
+sigma      60.12    0.03  2.01    56.20    64.30  3376    1
+lp__    -2433.16    0.05  1.79 -2437.62 -2430.72  1456    1
 
-Samples were drawn using NUTS(diag_e) at Tue Jan 21 09:52:22 2025.
+Samples were drawn using NUTS(diag_e) at Tue Jan 21 21:06:52 2025.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).</code></pre>
@@ -502,8 +502,8 @@ F-statistic: 72.91 on 4 and 437 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>However, when we changed the priors to the following, our regression results become extremely different from the OLS/MLE.</p>
 <p><span class="math display">\[\begin{align*}
-\alpha &amp;\sim N(0,10)\\
-\beta_j &amp;\sim N(0,10),\quad j=1,\ldots,p\\
+\alpha &amp;\sim N(0,10^2)\\
+\beta_j &amp;\sim N(0,10^2),\quad j=1,\ldots,p\\
 \sigma^2 &amp;\sim \text{Inv-Gamma}(3,1).
 \end{align*}\]</span></p>
 <div class="cell">
@@ -513,15 +513,15 @@ F-statistic: 72.91 on 4 and 437 DF,  p-value: &lt; 2.2e-16</code></pre>
 post-warmup draws per chain=1000, total post-warmup draws=4000.
 
             mean se_mean     sd     2.5%    97.5% n_eff Rhat
-alpha     -30.80    0.16   9.36   -49.31   -12.71  3334    1
-beta[1]    -0.19    0.00   0.25    -0.67     0.28  2799    1
-beta[2]    -3.80    0.09   5.26   -13.90     7.03  3495    1
-beta[3]     6.02    0.01   0.69     4.69     7.42  2137    1
-beta[4]     0.40    0.00   0.22    -0.03     0.81  1994    1
-sigma2   4059.46    5.06 285.52  3519.71  4638.19  3186    1
-lp__    -2513.32    0.04   1.71 -2517.44 -2510.95  1764    1
+alpha     -31.02    0.17   9.48   -48.88   -12.42  3072    1
+beta[1]    -0.18    0.00   0.24    -0.66     0.29  2956    1
+beta[2]    -3.70    0.09   5.39   -14.16     6.80  3853    1
+beta[3]     6.05    0.01   0.69     4.69     7.39  2313    1
+beta[4]     0.39    0.00   0.22    -0.05     0.82  2049    1
+sigma2   4059.02    4.65 273.67  3555.48  4618.54  3464    1
+lp__    -2513.33    0.04   1.70 -2517.48 -2510.89  1948    1
 
-Samples were drawn using NUTS(diag_e) at Tue Jan 21 09:53:05 2025.
+Samples were drawn using NUTS(diag_e) at Tue Jan 21 21:07:20 2025.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).</code></pre>
@@ -530,7 +530,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="centering-data-for-stable-inference" class="level1">
 <h1>Centering Data for Stable Inference</h1>
-<p>Before fitting our regression model, we will center the data. Define, <span class="math inline">\(\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i\)</span> and <span class="math inline">\(\bar{\mathbf{x}}_i = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\)</span>. Then the centered data are <span class="math inline">\(Y_i^* = Y_i - \bar{Y}\)</span> and <span class="math inline">\(\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}_i\)</span>. We will then perform regression using the centered data, such that <span class="math display">\[Y^*_i = \alpha + \mathbf{x}_i^*\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2).\]</span> Centering our data can stabilize the posterior inference, because the data will be closer to zero. In particular, consider the scenario above where we placed a prior on <span class="math inline">\(\alpha \sim N(0,10)\)</span>. We know that the true value of <span class="math inline">\(\alpha\)</span> (according to OLS/MLE) is close to -200, so our prior, which was intended to be weakly-informative, is actually very strongly pulling the posterior towards zero. This then leads to a domino-effect, where the incorrect inference for <span class="math inline">\(\alpha\)</span> will actually lead to unstable inference for the other parameters. Thus, centering our data means that <span class="math inline">\(\alpha\)</span> should be close to 0, leading to stable inference for all of our parameters.</p>
+<p>Before fitting our regression model, we will center the data. Define, <span class="math inline">\(\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i\)</span> and <span class="math inline">\(\bar{\mathbf{x}}_i = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\)</span>. Then the centered data are <span class="math inline">\(Y_i^* = Y_i - \bar{Y}\)</span> and <span class="math inline">\(\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}_i\)</span>. We will then perform regression using the centered data, such that <span class="math display">\[Y^*_i = \alpha + \mathbf{x}_i^*\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2).\]</span> Centering our data can stabilize the posterior inference, because the data will be closer to zero. In particular, consider the scenario above where we placed a prior on <span class="math inline">\(\alpha \sim N(0,10^2)\)</span>. We know that the true value of <span class="math inline">\(\alpha\)</span> (according to OLS/MLE) is close to -200, so our prior, which was intended to be weakly-informative, is actually pulling the posterior towards zero. This then leads to a domino-effect, where the incorrect inference for <span class="math inline">\(\alpha\)</span> will actually lead to unstable inference for the other parameters. Thus, centering our data means that <span class="math inline">\(\alpha\)</span> should be closer to 0, leading to stable inference for all of our parameters.</p>
 <p>Even though we fit the model on centered data, we are still able to recover the parameters on the scale of our original data.</p>
 <p><span class="math display">\[\begin{align*}
 \mathbb{E}[Y_i^* | \alpha, \boldsymbol{\beta}] &amp;= \alpha + \mathbf{x}_i^*\boldsymbol{\beta}\\
@@ -543,7 +543,7 @@ convergence, Rhat=1).</code></pre>
 <h1>Exercises</h1>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Fit the centered regression model detailed above with the following priors: <span class="math inline">\(\alpha \sim N(0,10)\)</span>, <span class="math inline">\(\beta_j \sim N(0,10)\)</span>, and <span class="math inline">\(\sigma^2 \sim \text{Inv-Gamma}(3,1).\)</span> Obtain posterior samples for this model using Stan. Be sure to present posterior samples for <span class="math inline">\(\alpha^*\)</span>.</p>
+<p>Fit the centered regression model detailed above with the following priors: <span class="math inline">\(\alpha \sim N(0,10^2)\)</span>, <span class="math inline">\(\beta_j \sim N(0,10^2)\)</span>, and <span class="math inline">\(\sigma^2 \sim \text{Inv-Gamma}(3,1).\)</span> Obtain posterior samples for this model using Stan. Be sure to present posterior samples for <span class="math inline">\(\alpha^*\)</span>.</p>
 <p><strong>Answer:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -559,7 +559,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Compute a one-sided Bayesian p-value for the regression slope: <span class="math inline">\(P(\beta_1 &lt; 0)\)</span>. Interpret the results in plain English. Is intraocular pressure associated with disease progression?</p>
+<p>Compute the posterior predictive distribution for a 60 year old male with a BMI of 25 and average blood pressure of 85.</p>
 <p><strong>Answer:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

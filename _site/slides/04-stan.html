@@ -476,12 +476,12 @@ Prof.&nbsp;Sam Berchuck
 <span id="cb1-3"><a></a>}</span>
 <span id="cb1-4"><a></a><span class="kw">parameters</span> {</span>
 <span id="cb1-5"><a></a>  <span class="dt">real</span> mu;</span>
-<span id="cb1-6"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb1-6"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma2;</span>
 <span id="cb1-7"><a></a>}</span>
 <span id="cb1-8"><a></a><span class="kw">model</span> {</span>
-<span id="cb1-9"><a></a>  Y ~ normal(mu, sigma); <span class="co">// likelihood</span></span>
+<span id="cb1-9"><a></a>  Y ~ normal(mu, sqrt(sigma2)); <span class="co">// likelihood</span></span>
 <span id="cb1-10"><a></a>  mu ~ normal(<span class="dv">0</span>, <span class="dv">1</span>); <span class="co">// prior for mu</span></span>
-<span id="cb1-11"><a></a>  sigma ~ inv_gamma(<span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma</span></span>
+<span id="cb1-11"><a></a>  sigma2 ~ inv_gamma(<span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma</span></span>
 <span id="cb1-12"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -537,14 +537,14 @@ Prof.&nbsp;Sam Berchuck
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a></a><span class="kw">parameters</span> {</span>
 <span id="cb6-2"><a></a>  <span class="dt">real</span> mu;</span>
-<span id="cb6-3"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb6-3"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma2;</span>
 <span id="cb6-4"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>Declare all parameters that you use in your model.</p></li>
 <li><p>Place limits on variables, for example:</p>
 <ul>
-<li><code>real&lt;lower = 0&gt; sigma</code></li>
+<li><code>real&lt;lower = 0&gt; sigma2</code></li>
 </ul></li>
 </ul>
 <p>A multitude of parameter types including some of the aforementioned:</p>
@@ -558,7 +558,7 @@ Prof.&nbsp;Sam Berchuck
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a></a><span class="kw">parameters</span> {</span>
 <span id="cb7-2"><a></a>  <span class="dt">real</span> mu;</span>
-<span id="cb7-3"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb7-3"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma2;</span>
 <span id="cb7-4"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -576,7 +576,7 @@ Prof.&nbsp;Sam Berchuck
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb8-1"><a></a><span class="kw">parameters</span> {</span>
 <span id="cb8-2"><a></a>  <span class="dt">real</span> mu;</span>
-<span id="cb8-3"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb8-3"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma2;</span>
 <span id="cb8-4"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Important:</strong> Stan is not developed yet to work with discrete parameters. Options for discrete parameters in Stan:</p>
@@ -594,9 +594,9 @@ Prof.&nbsp;Sam Berchuck
 <h2>An example Stan program: model block</h2>
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb9-1"><a></a><span class="kw">model</span> {</span>
-<span id="cb9-2"><a></a>  Y ~ normal(mu, sigma); <span class="co">// likelihood</span></span>
+<span id="cb9-2"><a></a>  Y ~ normal(mu, sqrt(sigma2)); <span class="co">// likelihood</span></span>
 <span id="cb9-3"><a></a>  mu ~ normal(<span class="dv">0</span>, <span class="dv">1</span>); <span class="co">// prior for mu</span></span>
-<span id="cb9-4"><a></a>  sigma ~ inv_gamma(<span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma</span></span>
+<span id="cb9-4"><a></a>  sigma2 ~ inv_gamma(<span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma2</span></span>
 <span id="cb9-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -612,14 +612,14 @@ Prof.&nbsp;Sam Berchuck
 <h2>An example Stan program: model block</h2>
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb10-1"><a></a><span class="kw">model</span> {</span>
-<span id="cb10-2"><a></a>  Y ~ normal(mu, sigma); <span class="co">// likelihood</span></span>
+<span id="cb10-2"><a></a>  Y ~ normal(mu, sqrt(sigma2)); <span class="co">// likelihood</span></span>
 <span id="cb10-3"><a></a>  mu ~ normal(<span class="dv">0</span>, <span class="dv">1</span>); <span class="co">// prior for mu</span></span>
-<span id="cb10-4"><a></a>  sigma ~ inv_gamma(<span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma</span></span>
+<span id="cb10-4"><a></a>  sigma2 ~ inv_gamma(<span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma2</span></span>
 <span id="cb10-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Huge range of probability distributions covered, across a range of parameterizations. For example:</p>
 <ul>
-<li><p><strong>Discrete:</strong> Bernoulli, binomial, normal, Poisson, beta-binomial, negative-binomial, categorical, multinomial.</p></li>
+<li><p><strong>Discrete:</strong> Bernoulli, binomial, Poisson, beta-binomial, negative-binomial, categorical, multinomial.</p></li>
 <li><p><strong>Continuous unbounded:</strong> normal, skew-normal, student-t, Cauchy, logistic.</p></li>
 </ul>
 </section>
@@ -627,9 +627,9 @@ Prof.&nbsp;Sam Berchuck
 <h2>An example Stan program: model block</h2>
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb11-1"><a></a><span class="kw">model</span> {</span>
-<span id="cb11-2"><a></a>  Y ~ normal(mu, sigma); <span class="co">// likelihood</span></span>
+<span id="cb11-2"><a></a>  Y ~ normal(mu, sqrt(sigma2)); <span class="co">// likelihood</span></span>
 <span id="cb11-3"><a></a>  mu ~ normal(<span class="dv">0</span>, <span class="dv">1</span>); <span class="co">// prior for mu</span></span>
-<span id="cb11-4"><a></a>  sigma ~ inv_gamma(<span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma</span></span>
+<span id="cb11-4"><a></a>  sigma2 ~ inv_gamma(<span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma2</span></span>
 <span id="cb11-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -680,12 +680,12 @@ Prof.&nbsp;Sam Berchuck
 4 chains, each with iter=1000; warmup=500; thin=1; 
 post-warmup draws per chain=500, total post-warmup draws=2000.
 
-       mean se_mean   sd   25%   50%   75% n_eff Rhat
-mu     0.37    0.01 0.31  0.17  0.38  0.55   875 1.00
-sigma  0.94    0.01 0.26  0.76  0.89  1.06   785 1.00
-lp__  -5.08    0.05 1.20 -5.53 -4.70 -4.23   565 1.01
+        mean se_mean   sd   25%   50%   75% n_eff Rhat
+mu     -0.45    0.01 0.32 -0.66 -0.46 -0.26  1361    1
+sigma2  1.23    0.02 0.62  0.81  1.09  1.48   865    1
+lp__   -6.80    0.04 1.03 -7.21 -6.49 -6.06   808    1
 
-Samples were drawn using NUTS(diag_e) at Thu Nov 21 06:59:52 2024.
+Samples were drawn using NUTS(diag_e) at Tue Jan 21 14:36:33 2025.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).</code></pre>
@@ -703,7 +703,7 @@ convergence, Rhat=1).</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">names</span>(pars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "mu"    "sigma" "lp__" </code></pre>
+<pre><code>[1] "mu"     "sigma2" "lp__"  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="do">###Extract samples for particular parameters</span></span>
 <span id="cb20-2"><a></a>pars <span class="ot">&lt;-</span> <span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="st">"mu"</span>)</span>
@@ -761,9 +761,9 @@ convergence, Rhat=1).</code></pre>
 <h2>Alternate way of specifying Stan models</h2>
 <div class="cell" data-output.var="straightforward">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb26-1"><a></a><span class="kw">model</span> {</span>
-<span id="cb26-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | mu, sigma); <span class="co">// likelihood</span></span>
+<span id="cb26-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | mu, sqrt(sigma2)); <span class="co">// likelihood</span></span>
 <span id="cb26-3"><a></a>  <span class="kw">target +=</span> normal_lpdf(mu | <span class="dv">0</span>, <span class="dv">1</span>); <span class="co">// prior for mu</span></span>
-<span id="cb26-4"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(sigma | <span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma</span></span>
+<span id="cb26-4"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(sigma2 | <span class="dv">1</span>, <span class="dv">1</span>); <span class="co">// prior for sigma</span></span>
 <span id="cb26-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -786,12 +786,12 @@ convergence, Rhat=1).</code></pre>
 <span id="cb28-5"><a></a>  <span class="dt">matrix</span>[n, p + <span class="dv">1</span>] X; <span class="co">// covariate vector</span></span>
 <span id="cb28-6"><a></a>  <span class="dt">real</span> beta0; <span class="co">// location hyperparameter for beta</span></span>
 <span id="cb28-7"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma_beta; <span class="co">// scale hyperparameter for beta</span></span>
-<span id="cb28-8"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a; <span class="co">// shape hyperparameter for sigma</span></span>
-<span id="cb28-9"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; b; <span class="co">// scale hyperparameter for sigma</span></span>
+<span id="cb28-8"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a; <span class="co">// shape hyperparameter for sigma2</span></span>
+<span id="cb28-9"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; b; <span class="co">// scale hyperparameter for sigma2</span></span>
 <span id="cb28-10"><a></a>}</span>
 <span id="cb28-11"><a></a><span class="kw">parameters</span> {</span>
 <span id="cb28-12"><a></a>  <span class="dt">vector</span>[p + <span class="dv">1</span>] beta;</span>
-<span id="cb28-13"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb28-13"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma2;</span>
 <span id="cb28-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -800,10 +800,10 @@ convergence, Rhat=1).</code></pre>
 <div class="cell" data-output.var="linear_regression">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb29-1"><a></a><span class="kw">model</span> {</span>
 <span id="cb29-2"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb29-3"><a></a>    <span class="kw">target +=</span> normal_lpdf(Y[i] | X[i, ] * beta, sigma); <span class="co">// likelihood</span></span>
+<span id="cb29-3"><a></a>    <span class="kw">target +=</span> normal_lpdf(Y[i] | X[i, ] * beta, sqrt(sigma2)); <span class="co">// likelihood</span></span>
 <span id="cb29-4"><a></a>  }</span>
 <span id="cb29-5"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | beta0, sigma_beta); <span class="co">// prior for beta</span></span>
-<span id="cb29-6"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(sigma | a, b); <span class="co">// prior for sigma</span></span>
+<span id="cb29-6"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(sigma2 | a, b); <span class="co">// prior for sigma2</span></span>
 <span id="cb29-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -812,9 +812,9 @@ convergence, Rhat=1).</code></pre>
 <p>It is always a good idea to vectorize Stan code for faster and more efficient inference</p>
 <div class="cell" data-output.var="linear_regression">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb30-1"><a></a><span class="kw">model</span> {</span>
-<span id="cb30-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | X * beta, sigma); <span class="co">// likelihood</span></span>
+<span id="cb30-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | X * beta, sqrt(sigma2)); <span class="co">// likelihood</span></span>
 <span id="cb30-3"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | beta0, sigma_beta); <span class="co">// prior for beta</span></span>
-<span id="cb30-4"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(sigma | a, b); <span class="co">// prior for sigma</span></span>
+<span id="cb30-4"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(sigma2 | a, b); <span class="co">// prior for sigma2</span></span>
 <span id="cb30-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -829,17 +829,17 @@ convergence, Rhat=1).</code></pre>
 <span id="cb31-6"><a></a>  <span class="dt">matrix</span>[n, p + <span class="dv">1</span>] X; <span class="co">// covariate vector</span></span>
 <span id="cb31-7"><a></a>  <span class="dt">real</span> beta0; <span class="co">// location hyperparameter for beta</span></span>
 <span id="cb31-8"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma_beta; <span class="co">// scale hyperparameter for beta</span></span>
-<span id="cb31-9"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a; <span class="co">// shape hyperparameter for sigma</span></span>
-<span id="cb31-10"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; b; <span class="co">// scale hyperparameter for sigma</span></span>
+<span id="cb31-9"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a; <span class="co">// shape hyperparameter for sigma2</span></span>
+<span id="cb31-10"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; b; <span class="co">// scale hyperparameter for sigma2</span></span>
 <span id="cb31-11"><a></a>}</span>
 <span id="cb31-12"><a></a><span class="kw">parameters</span> {</span>
 <span id="cb31-13"><a></a>  <span class="dt">vector</span>[p + <span class="dv">1</span>] beta;</span>
-<span id="cb31-14"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb31-14"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma2;</span>
 <span id="cb31-15"><a></a>}</span>
 <span id="cb31-16"><a></a><span class="kw">model</span> {</span>
-<span id="cb31-17"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | X * beta, sigma); <span class="co">// likelihood</span></span>
+<span id="cb31-17"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | X * beta, sqrt(sigma2)); <span class="co">// likelihood</span></span>
 <span id="cb31-18"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | beta0, sigma_beta); <span class="co">// prior for beta</span></span>
-<span id="cb31-19"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(sigma | a, b); <span class="co">// prior for sigma</span></span>
+<span id="cb31-19"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(sigma2 | a, b); <span class="co">// prior for sigma2</span></span>
 <span id="cb31-20"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -896,12 +896,12 @@ convergence, Rhat=1).</code></pre>
 post-warmup draws per chain=500, total post-warmup draws=2000.
 
            mean se_mean   sd     25%     50%     75% n_eff Rhat
-beta[1]   -1.47    0.00 0.15   -1.57   -1.47   -1.37  1840    1
-beta[2]    3.30    0.00 0.15    3.20    3.30    3.40  1897    1
-sigma      1.55    0.00 0.11    1.47    1.55    1.62  1748    1
-lp__    -195.93    0.04 1.30 -196.50 -195.60 -194.95   969    1
+beta[1]   -1.48    0.00 0.15   -1.58   -1.48   -1.37  1951    1
+beta[2]    3.30    0.00 0.15    3.20    3.30    3.40  1674    1
+sigma2     2.35    0.01 0.33    2.12    2.32    2.55  1679    1
+lp__    -196.98    0.04 1.29 -197.58 -196.63 -196.04   899    1
 
-Samples were drawn using NUTS(diag_e) at Thu Nov 21 08:51:41 2024.
+Samples were drawn using NUTS(diag_e) at Tue Jan 21 14:38:36 2025.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).</code></pre>
@@ -911,7 +911,7 @@ convergence, Rhat=1).</code></pre>
 <section id="stan-plots-point-estimate-and-intervals" class="slide level2">
 <h2>Stan plots: point estimate and intervals</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">stan_plot</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"sigma"</span>), <span class="at">include_warmup =</span> <span class="cn">FALSE</span>,</span>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">stan_plot</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"sigma2"</span>), <span class="at">include_warmup =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb36-2"><a></a>          <span class="at">point_est =</span> <span class="st">"median"</span>, <span class="at">ci_level =</span> <span class="fl">0.8</span>, <span class="at">outer_level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>

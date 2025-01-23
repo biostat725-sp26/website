@@ -47,15 +47,13 @@ library(mice)
 
 - In any real-world dataset, missing values are nearly always going to be present.
 
-  - Missing data can be a source of bias.
-
-  - Missing data be totally innocuous. 
+  - Missing data can be totally innocuous or a source of bias.
 
 - Cannot determine which because there are no values to inspect.
 
 - Handling missing data is extremely difficult!
 
-## Examples
+## Example
 
 - Suppose an individual's depression scores are missing in dataset of patients with colon cancer.
 
@@ -63,9 +61,9 @@ library(mice)
 
   -   A data entry error where some values did not make it into the dataset.
 
-  -   The patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the depression itself).
+  -   The patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the unobserved depression).
 
-  -   The patient has depression, leading to them not completing the depression survey. 
+  -   The patient has depression and as a result did not complete the depression survey. 
 
 ## Classifactions of missing data
 
@@ -190,7 +188,7 @@ f(\mathbf{Y}_{obs}, \mathbf{O} |\mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi
 
 - **Complete-case analysis is not acceptable: **
 
-  - Parameter estimation remains unbiased, but estimation of variances and intervals does not.
+  - Parameter estimation remains unbiased, but, in general, estimation of variances and intervals is biased.
   
   - Also, smaller sample size leads to less power and worse prediction.
   
@@ -230,104 +228,41 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi
 
 - Under MNAR, we must model the missing data mechanism. This data is considered **non-ignorable**.
 
-## Why Bayesian missing data
+# Bayesian approches to missing data
 
-Unbiased Parameter Estimates: Multiple imputation helps to ensure that the parameter estimates (e.g., regression coefficients, group means) are unbiased. By creating multiple imputed datasets and combining the results, we can obtain more accurate estimates that reflect the uncertainty due to missing data1.
+-   Full Bayesian joint model
+-   Multiple imputation
 
-Accurate Standard Errors: Multiple imputation provides accurate standard errors, which leads to reliable p-values and appropriate statistical inferences. This is crucial for making valid conclusions from the data1.
-
-Flexibility: Multiple imputation is flexible and can handle various types of missing data patterns. It allows for the inclusion of covariates that explain the missingness, which is important for MAR data2.
-
-Handling Complex Data Structures: Multiple imputation can be used with complex data structures, such as hierarchical or longitudinal data, where the missingness mechanism may vary across different levels or time points2.
-
-Robustness to Model Misspecification: Multiple imputation is robust to certain types of model misspecification. For example, even if the imputation model is not perfectly specified, the combined results from multiple imputed datasets can still provide valid inferences3.
-
-
-## Generating data
-
-- We want to have data under the following criteria:
-
-  1. Full data
-  
-  2. MCAR data
-  
-  3. MAR data
-  
-  4. MNAR data
-  
-- We then want to fit the following models: Complete case analysis, full Bayesian model, mice version. 
-
-## Next
-
-There are many ways to handle missing data. The simplest approach is to perform a complete case analysis, where we delete entries with a missing value for at least one variable. If the data are missing completely at random (MCAR), then we get unbiased parameter estimate. However:
-
-Credible intervals will usually be too wide, since the sample size has effectively been reduced (drastically).
-If missing values occur for other reasons, this yields biased estimates.
-The next step up is instead of dropping all the missing entries, we replace missing values of a feature with the mean or median of available values for the feature. This is called single mean/median imputation, and is often recommended in many machine learning tasks if the data are MCAR as it can still lead to unbiased parameter estimates.
-
-There are also some drawbacks with this method, especially if you’re interested in studying the variability. Single mean/median imputation artificially reduces the variance of features, which results in credible intervals which are too narrow. As shown in Figure 2, the peak at the mean is much higher relative to the surrounding values. The mean of the distribution can still be estimated appropriately, but the amount of spread is reduced.
-
-Another drawback is it doesn’t account for relationship between variables, thus reduces correlation. For example, the correlation between the two variables is 0.665 if we only look at the complete cases. If we use single mean imputation, the correlation decreases to 0.589.
-
-Note that if you don’t care about assessing variability in your estimates, which is often the case for classification tasks, then mean imputation can work quite well.
-
-
-## Let's look at some data
+## Let's motivate with some data
 
 ```{r, echo = FALSE}
 library(openintro)
 fulldata <- data.frame(y = bdims$wgt,
-                       x = bdims$hgt)
-```
-```{r, eval = FALSE}
-library(openintro)
-fulldata <- data.frame(y = bdims$wgt,
-                       x = bdims$hgt)
+                       x1 = bdims$hgt,
+                       x2 = bdims$sex)
 ```
 ```{r}
 #| echo: false
 #| fig-align: "center"
 #| fig-height: 4
 #| layout-ncol: 1
-ggplot(fulldata, aes(x = x, y = y)) +
+fulldata$Sex <- as.factor(fulldata$x2)
+levels(fulldata$Sex) <- c("Female", "Male")
+ggplot(fulldata, aes(x = x1, y = y, color = Sex)) +
   geom_point() + 
   labs(x = "Height (centimeters)", 
-       y = "Weight (kilograms)")
+       y = "Weight (kilograms)",
+       color = "Sex")
 ```
 
 ## Simulate missing data
 
 ```{r}
-library(mice)
 set.seed(54)
 n <- nrow(fulldata)
-
-###Simulate MCAR data
-O <- rbinom(n, 1, prob = 0.40)
-mcardata <- data.frame(
-  o = O,
-  x = fulldata$x,
-  y = fulldata$y
-)
-mcardata_cc <- mcardata[mcardata$o == 1, ]
-
-###Simulate MAR data
-O <- rbinom(n, 1, prob = pnorm(scale(fulldata$x)))
-mardata <- data.frame(
-  o = O,
-  x = fulldata$x,
-  y = fulldata$y
-)
-mardata_cc <- mardata[mardata$o == 1, ]
-
-###Simulate MNAR data
-O <- rbinom(n, 1, prob = pnorm(scale(fulldata$y)))
-mnardata <- data.frame(
-  o = O,
-  x = fulldata$x,
-  y = fulldata$y
-)
-mnardata_cc <- mnardata[mnardata$o == 1, ]
+expit <- function(x) exp(x) / (1 + exp(x))
+fulldata$o <- rbinom(n, 1, expit(1.5 * scale(fulldata$x1) - 3 * fulldata$x2))
+head(fulldata)
 ```
 
 ## Visualize data
@@ -336,47 +271,21 @@ mnardata_cc <- mnardata[mnardata$o == 1, ]
 #| echo: false
 #| fig-align: "center"
 #| fig-width: 4
-#| fig-height: 2.5
+#| fig-height: 4
 #| layout-ncol: 2
-ggplot(fulldata, aes(x = x, y = y)) +
+ggplot(fulldata, aes(x = x1, y = y, color = Sex)) +
   geom_point() + 
   labs(x = "Height (centimeters)", 
        y = "Weight (kilograms)",
        subtitle = "Full data") + 
-  theme(plot.margin = margin(t = 0,  # Top margin
-                             r = 0,  # Right margin
-                             b = 0,  # Bottom margin
-                             l = 0))
-ggplot(fulldata, aes(x = x, y = y)) +
+  theme(legend.position = "bottom")
+ggplot(fulldata, aes(x = x1, y = y)) +
   geom_point(color = "gray") +
-  geom_point(data = mcardata_cc, aes(x = x, y = y)) + 
-  labs(x = "Height (centimeters)", 
-       y = "Weight (kilograms)",
-       subtitle = "MCAR") + 
-    theme(plot.margin = margin(t = 0,  # Top margin
-                             r = 0,  # Right margin
-                             b = 0,  # Bottom margin
-                             l = 0))
-ggplot(fulldata, aes(x = x, y = y)) +
-  geom_point(color = "gray") +
-  geom_point(data = mardata_cc, aes(x = x, y = y)) + 
+  geom_point(data = fulldata[fulldata$o == 1, ], aes(x = x1, y = y, color = Sex)) + 
   labs(x = "Height (centimeters)", 
        y = "Weight (kilograms)",
        subtitle = "MAR") + 
-    theme(plot.margin = margin(t = 0,  # Top margin
-                             r = 0,  # Right margin
-                             b = 0,  # Bottom margin
-                             l = 0))
-ggplot(fulldata, aes(x = x, y = y)) +
-  geom_point(color = "gray") +
-  geom_point(data = mnardata_cc, aes(x = x, y = y)) + 
-  labs(x = "Height (centimeters)", 
-       y = "Weight (kilograms)",
-       subtitle = "MNAR") + 
-    theme(plot.margin = margin(t = 0,  # Top margin
-                             r = 0,  # Right margin
-                             b = 0,  # Bottom margin
-                             l = 0))
+  theme(legend.position = "bottom")
 ```
 
 ## Model fits
@@ -385,95 +294,358 @@ ggplot(fulldata, aes(x = x, y = y)) +
 #| echo: false
 #| fig-align: "center"
 #| fig-width: 4
-#| fig-height: 2.5
+#| fig-height: 4
 #| layout-ncol: 2
-reg1 <- lm(y ~ x, data = fulldata)
-reg2 <- lm(y ~ x, data = mcardata_cc)
-reg3 <- lm(y ~ x, data = mardata_cc)
-reg4 <- lm(y ~ x, data = mnardata_cc)
-regs <- list(reg1, reg2, reg3, reg4)
-round2 <- function(x) format(round(x, 2), nsmall = 2)
-labels <- c("Full data", "MCAR", "MAR", "MNAR")
-datas <- list(fulldata, mcardata, mardata, mnardata)
-for (i in 1:4) {
-  reg <- regs[[i]]
-  data <- datas[[i]]
-  if (i > 1) {
-    y_bar_mis <- mean(fulldata[which(datas[[i]][, 1] == 0), "y"])
-    y_bar_obs <- mean(fulldata[which(datas[[i]][, 1] == 1), "y"])
-  }
-  if (i == 1) y_bar_obs <- mean(fulldata[, "y"])
-  slope <- summary(reg)$coef[2, 1]
-  x <- seq(min(fulldata$x), max(fulldata$x), length.out = 1001)
-  dat_curve <- data.frame(x = x,
-                          y = predict(reg, newdata = data.frame(x = x)))
-    if (i == 1) {
-      p <- ggplot(fulldata, aes(x = x, y = y)) + 
-        geom_point(color = "gray") + 
-        geom_point(data = data, mapping = aes(x = x, y = y)) + 
-        # geom_line(data = dat_curve, aes(x = x, y = y), color = "blue", lwd = 1.5) + 
-        geom_smooth(method = "lm", formula = y ~ x, se = TRUE, fullrange = TRUE, lwd = 1.5) +
-        xlim(min(fulldata$x), max(fulldata$x)) + 
-        ylim(min(fulldata$y), max(fulldata$y)) + 
+ggplot(fulldata, aes(x = x1, y = y, color = Sex)) +
+  geom_point() + 
+  geom_smooth(method = lm) + 
   labs(x = "Height (centimeters)", 
        y = "Weight (kilograms)",
-             subtitle = labels[i]) + 
-        annotate("text", x = 148, y = 113, label = as.expression(bquote(bar(Y) == ~ .(round2(y_bar_obs)))), hjust = 0, vjust = 0) + 
-        annotate("text", x = 148, y = 103, label = as.expression(bquote("Slope" == ~ .(round2(slope)))), hjust = 0, vjust = 0) + 
-    theme(plot.margin = margin(t = 0,  # Top margin
-                             r = 0,  # Right margin
-                             b = 0,  # Bottom margin
-                             l = 0))
-    }
-    if (i > 1) {
-      data <- data[data$o == 1, ]
-      p <- ggplot(fulldata, aes(x = x, y = y)) + 
-        geom_point(color = "gray") + 
-        geom_point(data = data, mapping = aes(x = x, y = y)) + 
-        # geom_line(data = dat_curve, aes(x = x, y = y), color = "blue", lwd = 1.5) + 
-        geom_smooth(method = "lm", formula = y ~ x, se = TRUE, fullrange = TRUE, lwd = 1.5) +
-        xlim(min(fulldata$x), max(fulldata$x)) + 
-        ylim(min(fulldata$y), max(fulldata$y)) + 
+       subtitle = "Full data") + 
+  theme(legend.position = "bottom")
+ggplot(fulldata[fulldata$o == 1, ], aes(x = x1, y = y, color = Sex)) +
+  geom_point(data = fulldata, aes(x = x1, y = y), color = "gray") + 
+  geom_point() +
+  geom_smooth(method = lm) + 
   labs(x = "Height (centimeters)", 
        y = "Weight (kilograms)",
-             subtitle = labels[i]) + 
-        annotate("text", x = 148, y = 111, label = as.expression(bquote(bar(Y)[obs] == ~ .(round2(y_bar_obs)))), hjust = 0, vjust = 0) + 
-        annotate("text", x = 148, y = 101, label = as.expression(bquote(bar(Y)[mis] == ~ .(round2(y_bar_mis)))), hjust = 0, vjust = 0) + 
-        annotate("text", x = 148, y = 91, label = as.expression(bquote("Slope" == ~ .(round2(slope)))), hjust = 0, vjust = 0) + 
-    theme(plot.margin = margin(t = 0,  # Top margin
-                             r = 0,  # Right margin
-                             b = 0,  # Bottom margin
-                             l = 0))
-    }
-  print(p)
-}
-
+       subtitle = "MAR") + 
+  theme(legend.position = "bottom")
 ```
-
-## Complete-case model
-
-\begin{align*}
-Y_i &\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{obs}\\
-\alpha &\sim N(0,10)\\
-\beta &\sim N(0,10)\\
-\sigma &\sim \text{Half-Normal}(0, 10)
-\end{align*}
 
 ## Full Bayesian model
 
+- Since we are Bayesians, we can treat the unobserved $\mathbf{Y}_{mis}$ as parameters and work with the complete data likelihood.
+
 \begin{align*}
-Y_i &\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{obs}\\
-Y_i &\stackrel{ind}{\sim} N(\alpha + X_i \beta, \sigma^2), \quad i \in \mathcal N_{mis}\\
-\alpha &\sim N(0,10)\\
-\beta &\sim N(0,10)\\
-\sigma &\sim \text{Half-Normal}(0, 10)
+f(\boldsymbol{\theta}, \boldsymbol{\phi}, \mathbf{Y}_{mis} | \mathbf{Y}_{obs},\mathbf{O},\mathbf{X}) &\propto f(\mathbf{Y}, \mathbf{O}, \boldsymbol{\theta}, \boldsymbol{\phi} | \mathbf{X})\\
+&\hspace{-4in}=f(\mathbf{Y}, \mathbf{O} | \mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi})f(\boldsymbol{\theta},\boldsymbol{\phi})\\
+&\hspace{-4in}= f(\mathbf{Y} | \mathbf{X}, \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y}, \mathbf{X}, \boldsymbol{\phi})f(\boldsymbol{\theta},\boldsymbol{\phi})\\
+&\hspace{-4in}=f(\mathbf{Y}_{obs} | \mathbf{X}_{obs}, \boldsymbol{\theta})f(\mathbf{Y}_{mis} | \mathbf{X}_{mis}, \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y}, \mathbf{X}, \boldsymbol{\phi})f(\boldsymbol{\theta},\boldsymbol{\phi})\\
 \end{align*}
 
+- We can simplify this posterior by dropping the missing data mechanism.
 
-## Missing pattern
+## Full Bayesian model
+
+- Assuming that $f(\boldsymbol{\theta},\boldsymbol{\phi}) = f(\boldsymbol{\theta})f(\boldsymbol{\phi})$, the missingness process does not need to be explicitly modeled when we are interested in inference for $\boldsymbol{\theta}$.
+
+\begin{align*}
+&f(\boldsymbol{\theta}, \mathbf{Y}_{mis} | \mathbf{Y}_{obs},\mathbf{O},\mathbf{X})\\ &\hspace{2in}\propto f(\mathbf{Y}_{obs} | \mathbf{X}_{obs}, \boldsymbol{\theta})f(\mathbf{Y}_{mis} | \mathbf{X}_{mis}, \boldsymbol{\theta})f(\boldsymbol{\theta})
+\end{align*}
+
+## Full Bayesian model for linear regression
+
+\begin{align*}
+Y_i | \alpha, \beta, \sigma^2 &\stackrel{ind}{\sim} N(\alpha + \mathbf{x}_i\boldsymbol{\beta}, \sigma^2), \quad i \in \mathcal N_{obs}\\
+Y_i | \alpha, \beta, \sigma^2&\stackrel{ind}{\sim} N(\alpha + \mathbf{x}_i \boldsymbol{\beta}, \sigma^2), \quad i \in \mathcal N_{mis}\\
+\alpha &\sim f(\alpha)\\
+\beta &\sim f(\boldsymbol{\beta})\\
+\sigma &\sim f(\sigma),
+\end{align*}
+
+- $\mathbf{x}_i = (height_i, 1(sex_i = male), height_i \times 1(sex_i = male))$.
+
+## Full Bayesian missing data model in Stan
+
+```{stan output.var = "missing", eval = FALSE}
+// saved in missing-full-bayes.stan
+data {
+  int<lower = 1> n_obs;
+  int<lower = 1> n_mis;
+  int<lower = 1> p;
+  vector[n_obs] Y_obs;
+  matrix[n_obs, p] X_obs;
+  matrix[n_mis, p] X_mis;
+}
+transformed data {
+  vector[n_obs] Y_obs_centered;
+  real Y_bar;
+  matrix[n_obs, p] X_obs_centered;
+  matrix[n_mis, p] X_mis_centered;
+  row_vector[p] X_bar;
+  Y_bar = mean(Y_obs);
+  Y_obs_centered = Y_obs - Y_bar;
+  matrix[n_obs + n_mis, p] X = append_row(X_obs, X_mis);
+  for (i in 1:p) {
+    X_bar[i] = mean(X[, i]);
+    X_obs_centered[, i] = X_obs[, i] - X_bar[i];
+    X_mis_centered[, i] = X_mis[, i] - X_bar[i];
+  }
+}
+parameters {
+  real alpha_centered;
+  vector[p] beta;
+  real<lower = 0> sigma;
+  vector[n_mis] Y_mis_centered;
+}
+model {
+  target += normal_lpdf(Y_obs_centered | alpha_centered + X_obs_centered * beta, sigma);
+  target += normal_lpdf(Y_mis_centered | alpha_centered + X_mis_centered * beta, sigma);
+  target += normal_lpdf(alpha_centered | 0, 10);
+  target += normal_lpdf(beta | 0, 10);
+  target += normal_lpdf(sigma | 0, 10);
+}
+generated quantities {
+  real alpha;
+  vector[n_mis] Y_mis;
+  alpha = Y_bar + alpha_centered - X_bar * beta;
+  Y_mis = Y_mis_centered + Y_bar;
+}
+```
+
+## Fit missing data model
+
+```{r, eval = FALSE}
+stan_missing_data_model <- stan_model(file = "missing-full-bayes.stan")
+X <- model.matrix(~ x1 * x2, data = fulldata)[, -1]
+stan_data_missing_data <- list(
+  n_obs = sum(fulldata$o == 1),
+  n_mis = sum(fulldata$o == 0),
+  p = ncol(X),
+  Y_obs = array(fulldata$y[fulldata$o == 1]),
+  X_obs = X[fulldata$o == 1, ],
+  X_mis = X[fulldata$o == 0, ]
+)
+fit_full_bayes_joint <- sampling(stan_missing_data_model, stan_data_missing_data)
+print(fit_full_bayes_joint, pars = c("alpha", "beta", "sigma"), probs = c(0.025, 0.975))
+```
+
+```{r, echo = FALSE}
+X <- model.matrix(~ x1 * x2, data = fulldata)[, -1]
+stan_data_missing_data <- list(
+  n_obs = sum(fulldata$o == 1),
+  n_mis = sum(fulldata$o == 0),
+  p = ncol(X),
+  Y_obs = array(fulldata$y[fulldata$o == 1]),
+  X_obs = X[fulldata$o == 1, ],
+  X_mis = X[fulldata$o == 0, ]
+)
+fit_full_bayes_joint <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit-missing.rds")
+```
+
+## Explore model fit
 
 ```{r}
-md.pattern(mcardata_cc, rotate.names = TRUE)
+print(fit_full_bayes_joint, pars = c("alpha", "beta", "sigma"), probs = c(0.025, 0.975))
+```
+
+## Explore latent missing variable
+
+```{r}
+#| fig-width: 5
+#| fig-align: "center"
+library(bayesplot)
+Y_mis <- rstan::extract(fit_full_bayes_joint, pars = "Y_mis")$Y_mis
+colnames(Y_mis) <- paste0("Y_mis[", 1:ncol(Y_mis), "]")
+mcmc_areas_ridges(Y_mis[, 1:10])
+```
+
+## Summary of Bayesian joint model
+
+- The joint model treats the missing data as parameters (i.e., latent variables in the model).
+
+- Placing a prior on the missing data allows us to jointly learn the model parameters and the missing data. 
+
+- Equivalent to multiple imputation at every step of the HMC. Can be slow!
+
+- In Stan, we can only treat continuous missing data as parameters, so this method is somewhat limited (what do we do if the missing data is a binary outcome?)
+
+## Multiple imputation
+
+- As an alternative to fitting a joint model, there are many approaches that allow us to impute missing data before the actual model fitting takes place.
+
+- From a statistical perspective, multiple imputation is one of the best solutions. 
+
+- Each missing value is not imputed once but $m$ times leading to a total of $m$ fully imputed data sets. 
+
+- The model can then be fitted to each of those data sets separately and results are pooled across models, afterwards. 
+
+- One widely applied package for multiple imputation is `mice` (Buuren & Groothuis-Oudshoorn, 2010) and we will use it in the following in combination with Stan. 
+
+## Mice
+
+- Here, we apply the default settings of mice, which means that all variables will be used to impute missing values in all other variables and imputation functions automatically chosen based on the variables’ characteristics.
+
+```{r}
+library(mice)
+m <- 100
+mardata <- data.frame(
+  y = fulldata$y,
+  x1 = fulldata$x1,
+  x2 = fulldata$x2
+)
+mardata$y[fulldata$o == 0] <- NA
+imp <- mice(mardata, m = m, print = FALSE)
+```
+
+## Mice
+
+Now, we have m = 5 imputed data sets stored within the imp object. In practice, we will likely need more than 5 of those to accurately account for the uncertainty induced by the missingness, perhaps even in the area of 100 imputed data sets (Zhou & Reiter, 2010).
+
+We can extract the first imputed dataset.
+
+```{r}
+data <- complete(imp, 1)
+head(data)
+```
+
+- We can now fit our model $m$ times for each imputed data sets and combine the posterior samples from all chains for inference.
+
+## Model for the imputed datasets
+
+```{stan output.var = "cc", eval = FALSE}
+// bayesian-mi.stan
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+}
+transformed data {
+  vector[n] Y_centered;
+  real Y_bar;
+  matrix[n, p] X_centered;
+  row_vector[p] X_bar;
+  Y_bar = mean(Y);
+  Y_centered = Y - Y_bar;
+  for (i in 1:p) {
+    X_bar[i] = mean(X[, i]);
+    X_centered[, i] = X[, i] - X_bar[i];
+  }
+}
+parameters {
+  real alpha_centered;
+  vector[p] beta;
+  real<lower = 0> sigma;
+}
+model {
+  target += normal_lpdf(Y_centered | alpha_centered + X_centered * beta, sigma);
+  target += normal_lpdf(alpha_centered | 0, 10);
+  target += normal_lpdf(beta | 0, 10);
+  target += normal_lpdf(sigma | 0, 10);
+}
+generated quantities {
+  real alpha;
+  alpha = Y_bar + alpha_centered - X_bar * beta;
+}
+```
+
+## Fit the model to the imputed data
+
+```{r, eval = FALSE}
+stan_bayesian_mi <- stan_model(file = "bayesian-mi.stan")
+alpha <- beta <- sigma <- r_hat <- n_eff <- NULL
+n_chains <- 2
+for (i in 1:m) {
+  
+  ###Load each imputed dataset and fit the Stan complete case model
+  data <- complete(imp, i)
+  X <- model.matrix(~ x1 * x2, data = data)[, -1, drop = FALSE]
+  stan_data_bayesian_mi <- list(
+    n = nrow(data),
+    p = ncol(X),
+    Y = data$y,
+    X = X
+  )
+  fit_mi <- sampling(stan_bayesian_mi, stan_data_bayesian_mi, chains = n_chains)
+  
+  ###Save convergence diagnostics from each imputed dataset
+  r_hat <- cbind(r_hat, summary(fit_mi)$summary[, "Rhat"])
+  n_eff <- cbind(n_eff, summary(fit_mi)$summary[, "n_eff"])
+  pars <- rstan::extract(fit_mi, pars = c("alpha", "beta", "sigma"))
+  
+  ### Save the parameters from each imputed dataset
+  n_sims_chain <- length(pars$alpha) / n_chains
+  alpha <- rbind(alpha, cbind(i, rep(1:n_chains, each = n_sims_chain), pars$alpha))
+  beta <- rbind(beta, cbind(i, rep(1:n_chains, each = n_sims_chain), pars$beta))
+  sigma <- rbind(sigma, cbind(i, rep(1:n_chains, each = n_sims_chain), pars$sigma))
+}
+```
+
+## Inspect traceplots
+
+![](images/14/alpha.png){fig-align="center" height=300}
+
+## Inspect traceplots
+
+![](images/14/beta[1].png){fig-align="center" height=300}
+
+## Inspect traceplots
+
+![](images/14/beta[2].png){fig-align="center" height=300}
+
+## Inspect traceplots
+
+![](images/14/beta[3].png){fig-align="center" height=300}
+
+## Inspect traceplots
+
+![](images/14/sigma.png){fig-align="center" height=300}
+
+## Comparison of methods: $\alpha$ {.small}
+
+```{r, echo = FALSE}
+load(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/missing-overall-summary.RData")
+overall_summary$Setting <- rep(1:6, each = 5)
+overall_summary <- overall_summary[overall_summary$Setting %in% c(3:6), ]
+overall_summary <- overall_summary[overall_summary$Parameter == "alpha", ]
+overall_summary$Model <- c("Bayes Joint", "Bayes MI", "OLS", "OLS")
+overall_summary <- overall_summary[order(overall_summary$Data), ]
+overall_summary |> select(-c(Parameter, Setting)) |>
+  kable(digits = 2, row.names = FALSE)
+```
+
+## Comparison of methods: $\beta_1$ {.small}
+
+```{r, echo = FALSE}
+load(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/missing-overall-summary.RData")
+overall_summary$Setting <- rep(1:6, each = 5)
+overall_summary <- overall_summary[overall_summary$Setting %in% c(3:6), ]
+overall_summary <- overall_summary[overall_summary$Parameter == "beta[1]", ]
+overall_summary$Model <- c("Bayes Joint", "Bayes MI", "OLS", "OLS")
+overall_summary <- overall_summary[order(overall_summary$Data), ]
+overall_summary |> select(-c(Parameter, Setting)) |>
+  kable(digits = 2, row.names = FALSE)
+```
+
+## Comparison of methods: $\beta_2$ {.small}
+
+```{r, echo = FALSE}
+load(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/missing-overall-summary.RData")
+overall_summary$Setting <- rep(1:6, each = 5)
+overall_summary <- overall_summary[overall_summary$Setting %in% c(3:6), ]
+overall_summary <- overall_summary[overall_summary$Parameter == "beta[2]", ]
+overall_summary$Model <- c("Bayes Joint", "Bayes MI", "OLS", "OLS")
+overall_summary <- overall_summary[order(overall_summary$Data), ]
+overall_summary |> select(-c(Parameter, Setting)) |>
+  kable(digits = 2, row.names = FALSE)
+```
+
+## Comparison of methods: $\beta_3$ {.small}
+
+```{r, echo = FALSE}
+load(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/missing-overall-summary.RData")
+overall_summary$Setting <- rep(1:6, each = 5)
+overall_summary <- overall_summary[overall_summary$Setting %in% c(3:6), ]
+overall_summary <- overall_summary[overall_summary$Parameter == "beta[3]", ]
+overall_summary$Model <- c("Bayes Joint", "Bayes MI", "OLS", "OLS")
+overall_summary <- overall_summary[order(overall_summary$Data), ]
+overall_summary |> select(-c(Parameter, Setting)) |>
+  kable(digits = 2, row.names = FALSE)
+```
+
+## Comparison of methods: $\sigma$ {.small}
+
+```{r, echo = FALSE}
+load(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/missing-overall-summary.RData")
+overall_summary$Setting <- rep(1:6, each = 5)
+overall_summary <- overall_summary[overall_summary$Setting %in% c(3:6), ]
+overall_summary <- overall_summary[overall_summary$Parameter == "sigma", ]
+overall_summary$Model <- c("Bayes Joint", "Bayes MI", "OLS", "OLS")
+overall_summary <- overall_summary[order(overall_summary$Data), ]
+overall_summary |> select(-c(Parameter, Setting)) |>
+  kable(digits = 2, row.names = FALSE)
 ```
 
 ## Prepare for next class
