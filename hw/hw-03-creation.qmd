@@ -39,7 +39,7 @@ library(MLMusingR)
 
 # Introduction
 
-This homework will use data from the [Hospital, Doctor, Patient (HDP) dataset](https://stats.oarc.ucla.edu/r/codefragments/mesimulation/). The is a simulated study that is meant to be a large study of lung cancer outcomes across multiple doctors and sites. Assume that the variables were collected prior to a lung cancer surgery. Our primary outcome in this homework is the hospital length of stay (`LengthofStay`) following the surgery.  We will use the following variables from the dataset:
+This homework will use data from the [Hospital, Doctor, Patient (HDP) dataset](https://stats.oarc.ucla.edu/r/codefragments/mesimulation/). The is a simulated study that is meant to be a large study of lung cancer outcomes across multiple doctors and sites. Assume that the variables were collected prior to a lung cancer surgery. Our primary outcome in this homework is the hospital length of stay (`LengthofStay`) following the surgery. We will use the following variables from the dataset:
 
 -   `Age`: continuous, age in years.
 
@@ -92,14 +92,11 @@ ggplot(hdp, aes(x = BMI)) +
        subtitle = "Distribution of BMI prior to lung cancer surgery")
 ```
 
-Setup a multivariable median regression model to estimate the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. Define the random variable $Y_i$ as the BMI in $kg/m^2$ for patient $i$ and the median quantile of $Y_i$ given predictors $\mathbf{x}_i$ as $q({Y_i|\mathbf{x}_i})$. We will model the median quantile as a linear function of the predictors,
-$$q({Y_i|\mathbf{x}_i}) = \alpha + \mathbf{x}_i\boldsymbol{\beta},$$
-where $\mathbf{x}_i = (Male_i, Married_i, Current\_Smoker_i, Former\_Smoker_i).$ Each of these predictors is just a binary variable. 
+Setup a multivariable median regression model to estimate the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. Define the random variable $Y_i$ as the BMI in $kg/m^2$ for patient $i$ and the median quantile of $Y_i$ given predictors $\mathbf{x}_i$ as $q({Y_i|\mathbf{x}_i})$. We will model the median quantile as a linear function of the predictors, $$q({Y_i|\mathbf{x}_i}) = \alpha + \mathbf{x}_i\boldsymbol{\beta},$$ where $\mathbf{x}_i = (Male_i, Married_i, Current\_Smoker_i, Former\_Smoker_i).$ Each of these predictors is just a binary variable.
 
 ## Exercise 1
 
 Formulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate $(\alpha, \boldsymbol{\beta})$ and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence.
-
 
 ## Exercise 2
 
@@ -107,7 +104,7 @@ Perform a posterior predictive check using the median as a test statistic. Be su
 
 ## Exercise 3
 
-Present posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem. 
+Present posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem.
 
 # Exercises 4-8
 
@@ -121,19 +118,18 @@ Define a binary outcome variable $Y_i = 1(LengthofStay_i > 5)$ for $i = 1,\ldots
 &= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \mathbf{z}_i \boldsymbol{\gamma}.
 \end{align*}
 
-The population parameters are $(\alpha, \boldsymbol{\beta},\boldsymbol{\gamma})$, where $\boldsymbol{\beta} = (\beta_1, \ldots, \beta_9)$ and $\boldsymbol{\gamma} = (\gamma_1,\ldots,\gamma_5)$. Use the following priors for the centered intercept and regression parameters, $\alpha \sim N(0, 3^2)$ and $\beta_j \sim N(0, 3^2)$ for $j = 1,\ldots,p$ ($p=9$). The researchers would like to place a regularized horseshoe prior on each $\gamma_l$, $l=1,\ldots,q$ ($q = 5$). Be sure to standardize these predictors prior to assigning a horseshoe prior. 
+The population parameters are $(\alpha, \boldsymbol{\beta},\boldsymbol{\gamma})$, where $\boldsymbol{\beta} = (\beta_1, \ldots, \beta_9)$ and $\boldsymbol{\gamma} = (\gamma_1,\ldots,\gamma_5)$. Use the following priors for the centered intercept and regression parameters, $\alpha \sim N(0, 3^2)$ and $\beta_j \sim N(0, 3^2)$ for $j = 1,\ldots,p$ ($p=9$). The researchers would like to place a regularized horseshoe prior on each $\gamma_l$, $l=1,\ldots,q$ ($q = 5$). Be sure to standardize these predictors prior to assigning a horseshoe prior.
 
 ## Exercise 4
 
-The regularized horseshoe prior for $\gamma_l$ is given by,
-\begin{align*}
+The regularized horseshoe prior for $\gamma_l$ is given by, \begin{align*}
 \gamma_l | \lambda_l, \tau, c &\sim N\left(0, \tau^2 \tilde{\lambda}_l^2\right),\quad \tilde{\lambda}_l^2 = \frac{c^2 \lambda_l^2}{c^2 + \tau^2 \lambda_l^2},\\
 \lambda_l &\sim \mathcal C^+(0,1),\\
 c^2 &\sim \text{Inv-Gamma}(\nu/2, \nu s^2 / 2),\\
 \tau &\sim \mathcal C^+(0,\tau_0^2).
 \end{align*}
 
-Assuming the data has been standardized, $s^2 = 1$. The researchers specify $\nu = 3$. All that is left is to choose $\tau_0$. A useful method for choosing $\tau_0$ is relating it to the a-priori guess of the number of predictors that will be non-zero: $q_0$, $\tau_0 = \frac{q_0}{q - q_0} \frac{\sigma}{\sqrt{n}}$ ($\sigma = 1$ is assumed for the logistic regression setting). Use this approach to choose $\tau_0$, remembering that the researchers believe that some of these predictors will be zero. Present a histogram of the effective number of non-zero coefficients under this prior choice for $\tau_0$. 
+Assuming the data has been standardized, $s^2 = 1$. The researchers specify $\nu = 3$. All that is left is to choose $\tau_0$. A useful method for choosing $\tau_0$ is relating it to the a-priori guess of the number of predictors that will be non-zero: $q_0$, $\tau_0 = \frac{q_0}{q - q_0} \frac{\sigma}{\sqrt{n}}$ ($\sigma = 1$ is assumed for the logistic regression setting). Use this approach to choose $\tau_0$, remembering that the researchers believe that some of these predictors will be zero. Present a histogram of the effective number of non-zero coefficients under this prior choice for $\tau_0$.
 
 ## Exercise 5
 
@@ -161,16 +157,14 @@ Researchers are interested in the association between cancer stage and number of
 hdp <- hdp[hdp$LengthofStay > 2 & hdp$LengthofStay < 9, ]
 ```
 
-We would like to fit a proportional odds logistic regression model,
-$$\log \frac{P(Y_i\leq k)}{P(Y_i > k)} = \text{logit}P(Y_i\leq k) = \alpha_k - \mathbf{x}_i \boldsymbol{\beta}, \quad k = 1,\ldots, K-1$$
-where $\mathbf{x}_i = (Cancer\_Stage2_i, Cancer\_Stage3_i, Cancer\_Stage4_i)$. Place the following priors: $\alpha_k ~ N(0, 3^2)$ for $k=1,\ldots,K-1$ and $\beta_j \sim N(0, 3^2)$ for $j=1,2,3$. Be sure that $\alpha_k$ are ordered. Fit this regression model using Stan and provide evidence that the algorithm has converged. Present an appropriate posterior predictive check to demonstrate that the model is a good fit to the observed data.
+We would like to fit a proportional odds logistic regression model, $$\log \frac{P(Y_i\leq k)}{P(Y_i > k)} = \text{logit}P(Y_i\leq k) = \alpha_k - \mathbf{x}_i \boldsymbol{\beta}, \quad k = 1,\ldots, K-1$$ where $\mathbf{x}_i = (Cancer\_Stage2_i, Cancer\_Stage3_i, Cancer\_Stage4_i)$. Place the following priors: $\alpha_k ~ N(0, 3^2)$ for $k=1,\ldots,K-1$ and $\beta_j \sim N(0, 3^2)$ for $j=1,2,3$. Be sure that $\alpha_k$ are ordered. Fit this regression model using Stan and provide evidence that the algorithm has converged. Present an appropriate posterior predictive check to demonstrate that the model is a good fit to the observed data.
 
 ## Exercise 10
 
 Interpret the posterior mean and 95% credible interval for the regression parameter corresponding to a patient with stage 4 cancer.
 
 ::: render-commit-push
-You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.
+You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 3!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.
 :::
 
 # Submission

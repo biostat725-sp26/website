@@ -46,47 +46,47 @@ library(nimble)
 
 ## Multiclass regression
 
-- Often times one encounters an outcome variable that is nominal and has more than two categories.
+-   Often times one encounters an outcome variable that is nominal and has more than two categories.
 
-- If there is no inherent rank or order to the variable, we can use multinomial regression. Examples include: 
+-   If there is no inherent rank or order to the variable, we can use multinomial regression. Examples include:
 
-  - gender (male, female, non-binary), 
-  
-  - blood type (A, B, AB, O). 
+    -   gender (male, female, non-binary),
 
-- If there is an order to the variable, we can use ordinal regression. Examples include: 
+    -   blood type (A, B, AB, O).
 
-  - stages of cancer (stage I, II, III, IV), 
-  
-  - pain level (mild, moderate, severe).
+-   If there is an order to the variable, we can use ordinal regression. Examples include:
+
+    -   stages of cancer (stage I, II, III, IV),
+
+    -   pain level (mild, moderate, severe).
 
 ## Multinomial random variable
 
-- Assume an outcome $Y_i \in \{1,\ldots,K\}$ for $i = 1,\ldots,n$. 
+-   Assume an outcome $Y_i \in \{1,\ldots,K\}$ for $i = 1,\ldots,n$.
 
-- The likelihood in multinomial regression can be written as the following categorical likelihood, 
+-   The likelihood in multinomial regression can be written as the following categorical likelihood,
 
 $$f(\mathbf{Y} | \boldsymbol{\beta}) = \prod_{i=1}^n \prod_{j=1}^K P(Y_i = j)^{\delta_{ij}},$$
 
-- $\delta_{ij} = 1(Y_i = j)$ is the Kronecker delta.
+-   $\delta_{ij} = 1(Y_i = j)$ is the Kronecker delta.
 
-- Since $Y_i$ is discrete, we only need to specify $P(Y_i = j)$ for all $i$ and $j$. 
+-   Since $Y_i$ is discrete, we only need to specify $P(Y_i = j)$ for all $i$ and $j$.
 
 ## Log-linear regression
 
-- One way to motivate multinomial regression is through a log-linear specification:
+-   One way to motivate multinomial regression is through a log-linear specification:
 
 $$\log P(Y_i = j) = \mathbf{x}_i\boldsymbol{\beta}_j - \log Z.$$
 
-- $\boldsymbol{\beta}_j$ is a $j$ specific set of regression parameters.
+-   $\boldsymbol{\beta}_j$ is a $j$ specific set of regression parameters.
 
-- $P(Y_i = j) = \exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}/Z$.
+-   $P(Y_i = j) = \exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}/Z$.
 
-- $Z$ is a normalizing constant that guarentees that $\sum_{j=1}^K P(Y_i = j) = 1$.
+-   $Z$ is a normalizing constant that guarentees that $\sum_{j=1}^K P(Y_i = j) = 1$.
 
 ## Finding the normalizing constant
 
-- We know that,
+-   We know that,
 
 \begin{align*}
 1 &= \sum_{j=1}^K P(Y_i = j) = \frac{1}{Z}\sum_{j=1}^K \exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}\\
@@ -95,37 +95,36 @@ $$\log P(Y_i = j) = \mathbf{x}_i\boldsymbol{\beta}_j - \log Z.$$
 
 ## Multinomial probabilities
 
-- Thus, we have the following,
+-   Thus, we have the following,
 
 $$P(Y_i = k) = \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{\sum_{j = 1}^K\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.$$
 
-- This function is called the **softmax** function.
+-   This function is called the **softmax** function.
 
-- Unfortunately, this specification is not identifiable.
+-   Unfortunately, this specification is not identifiable.
 
 ## Identifiability issue
 
-- We can add a vector $\mathbf{c}$ to all parameters and get the same result,
+-   We can add a vector $\mathbf{c}$ to all parameters and get the same result,
 
 \begin{align*}
 \frac{\exp\{\mathbf{x}_i(\boldsymbol{\beta}_k + \mathbf{c})\}}{\sum_{j = 1}^K\exp\{\mathbf{x}_i(\boldsymbol{\beta}_j + \mathbf{c})\}} &= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{\sum_{j = 1}^K\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.
 \end{align*}
 
-- A common solution is to set: $\boldsymbol{\beta}_K = \mathbf{0}$.
+-   A common solution is to set: $\boldsymbol{\beta}_K = \mathbf{0}$.
 
 ## Updating the probabilities
 
-- Using the identifiability constraint of $\boldsymbol{\beta}_K = \mathbf{0}$, the probabilities become, 
-\begin{align*}
-P(Y_i = k) &= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\},\\
-P(Y_i = K) &= \frac{1}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.
-\end{align*}
+-   Using the identifiability constraint of $\boldsymbol{\beta}_K = \mathbf{0}$, the probabilities become, \begin{align*}
+    P(Y_i = k) &= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}, \quad k \in \{1,\ldots,K-1\},\\
+    P(Y_i = K) &= \frac{1}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}.
+    \end{align*}
 
-- How to interpret the $\boldsymbol{\beta}_k$?
+-   How to interpret the $\boldsymbol{\beta}_k$?
 
 ## Deriving the additive log ratio model
 
-- Using our specification of the probabilities, it can be seen that,
+-   Using our specification of the probabilities, it can be seen that,
 
 \begin{align*}
 P(Y_i = k) &= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 1}^{K-1}\exp\{\mathbf{x}_i\boldsymbol{\beta}_j\}}\\
@@ -137,27 +136,27 @@ $\implies \log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k
 
 ## Additive log ratio model
 
-- If outcome $K$ is chosen as reference, the $K − 1$ regression equations are:
+-   If outcome $K$ is chosen as reference, the $K − 1$ regression equations are:
 
 $$\log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots, K-1\}$$
 
-- This formulation is called **additive log ratio**.
+-   This formulation is called **additive log ratio**.
 
-- $\boldsymbol{\beta}_k$ has a nice interpretation as a **relative risk**.
+-   $\boldsymbol{\beta}_k$ has a nice interpretation as a **relative risk**.
 
 ## Getting back to the likelihood
 
-- The log-likelihood can be written as,
+-   The log-likelihood can be written as,
 
 $$\log f(\mathbf{Y} | \boldsymbol{\beta}) = \sum_{i=1}^n \sum_{j=1}^K \delta_{ij} \log P(Y_i = j).$$
 
-- The $P(Y_i = j)$ are given by the additive log ratio model.
+-   The $P(Y_i = j)$ are given by the additive log ratio model.
 
-- As Bayesians, we only need to specify priors for $\boldsymbol{\beta}_k, k \in \{1,\ldots,K-1\}$.
+-   As Bayesians, we only need to specify priors for $\boldsymbol{\beta}_k, k \in \{1,\ldots,K-1\}$.
 
 ## Multinomial regression in Stan
 
-- Hard coding the likelihood.
+-   Hard coding the likelihood.
 
 ```{stan output.var = "alr", eval = FALSE}
 // additive_log_ratio.stan
@@ -201,7 +200,7 @@ model {
 
 ## Multinomial regression in Stan
 
-- Non-identifiable version.
+-   Non-identifiable version.
 
 ```{stan output.var = "multi_bad", eval = FALSE}
 // multi_logit_bad.stan
@@ -228,7 +227,7 @@ model {
 
 ## Multinomial regression in Stan
 
-- Zero identifiability constraint.
+-   Zero identifiability constraint.
 
 ```{stan output.var = "multi", eval = FALSE}
 // multi_logit.stan
@@ -259,40 +258,39 @@ model {
 
 ## Ordinal regression
 
-Let $Y_i \in \{1,\ldots,K\}$ be an ordinal outcome with $K$ categories. 
+Let $Y_i \in \{1,\ldots,K\}$ be an ordinal outcome with $K$ categories.
 
-- The likelihood in ordinal regression is identical to the one from multinomial regression,
+-   The likelihood in ordinal regression is identical to the one from multinomial regression,
 
 $$f(\mathbf{Y} | \boldsymbol{\beta}) = \prod_{i=1}^n \prod_{j=1}^K P(Y_i = j)^{\delta_{ij}}.$$
 
-- We need to add additional constraints that guarentee ordinality. 
+-   We need to add additional constraints that guarentee ordinality.
 
 ## Proportional odds assumption
 
-- $P(Y_i \leq k)$ is the cumulative probability of $Y_i$ less than or equal to a specific category $k=1,\ldots,K-1$. 
+-   $P(Y_i \leq k)$ is the cumulative probability of $Y_i$ less than or equal to a specific category $k=1,\ldots,K-1$.
 
-- The odds of being less than or equal to a particular category can be defined as, $$\frac{P(Y\leq k)}{P(Y > k)} \text { for } k=1,\ldots,K-1.$$
+-   The odds of being less than or equal to a particular category can be defined as, $$\frac{P(Y\leq k)}{P(Y > k)} \text { for } k=1,\ldots,K-1.$$
 
-- Not defined for $k = K$, since division by zero is not defined.
+-   Not defined for $k = K$, since division by zero is not defined.
 
 ## Proportional odds regression
 
 The log odds can then be modeled as follows, $$\log \frac{P(Y_i\leq k)}{P(Y_i > k)} = \text{logit}P(Y_i\leq k) = \alpha_k - \mathbf{x}_i \boldsymbol{\beta}$$
 
-- Why $-\boldsymbol{\beta}$?
+-   Why $-\boldsymbol{\beta}$?
 
-- $\boldsymbol{\beta}$ is a common regression parameter. For a one-unit increase in $x_{ij}$, $\beta_j$ is the change in log odds of moving to a more severe level of the outcome $Y_i$.
+-   $\boldsymbol{\beta}$ is a common regression parameter. For a one-unit increase in $x_{ij}$, $\beta_j$ is the change in log odds of moving to a more severe level of the outcome $Y_i$.
 
-- $\alpha_k$ for $k = 1,\ldots,K-1$ are $k$-specific intercepts that corresponds to the log odds of moving from level $k$ to $k+1$. 
+-   $\alpha_k$ for $k = 1,\ldots,K-1$ are $k$-specific intercepts that corresponds to the log odds of moving from level $k$ to $k+1$.
 
 ## Understanding the probabilities
 
-- One can solve for $P(Y_i \leq k), \quad k = 1,\ldots,K-1$),
+-   One can solve for $P(Y_i \leq k), \quad k = 1,\ldots,K-1$),
 
 $$P(Y_i \leq k) = \frac{\exp\{\alpha_k - \mathbf{x}_i\boldsymbol{\beta}\}}{1 + \exp\{\alpha_k - \mathbf{x}_i\boldsymbol{\beta}\}} = \text{expit}(\alpha_k - \mathbf{x}_i\boldsymbol{\beta}).$$
 
-
-  -   $P(Y_i \leq K) = 1$.
+-   $P(Y_i \leq K) = 1$.
 
 The individual probabilities are then given by,
 
@@ -303,21 +301,21 @@ P(Y_i = k) &= P(Y_i \leq k) - P(Y_i \leq k-1)\\
 
 ## A latent variable representation
 
-- Define a latent variable,
+-   Define a latent variable,
 
 $$Y_i^* = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \sim \text{Logistic}(0, 1).$$
 
-  - $\mathbb{E}[\epsilon_i] = 0$.
+-   $\mathbb{E}[\epsilon_i] = 0$.
 
-  - $\mathbb{V}(\epsilon_i) = \pi^2/3$.
+-   $\mathbb{V}(\epsilon_i) = \pi^2/3$.
 
-  - CDF: $P(\epsilon_i \leq x) = \frac{1}{1 + \exp\{-x\}} = \frac{\exp\{x\}}{1 + \exp\{x\}} = \text{expit}(x).$
+-   CDF: $P(\epsilon_i \leq x) = \frac{1}{1 + \exp\{-x\}} = \frac{\exp\{x\}}{1 + \exp\{x\}} = \text{expit}(x).$
 
 ## A latent variable representation
 
-- Define a set of $K-1$ cut-points, $(c_1,\ldots,c_{K-1}) \in \mathbb{R}^{K-1}$. We also define $c_0 = -\infty, c_K = \infty$.  
+-   Define a set of $K-1$ cut-points, $(c_1,\ldots,c_{K-1}) \in \mathbb{R}^{K-1}$. We also define $c_0 = -\infty, c_K = \infty$.
 
-- Our ordinal random variable can be generated as,
+-   Our ordinal random variable can be generated as,
 
 $$Y_i = \left\{
 \begin{matrix*}[l]
@@ -330,19 +328,18 @@ K & c_{K-1} < Y_i^* \leq c_K\\
 
 ## Equivalence of the two specifications
 
-- Probabilities under the latent specification:
-\begin{align*}
-P(Y_i = k) &= P(c_{k-1} < Y_i^* \leq c_k)\\
-&= P(c_{k-1} < \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i \leq c_k)\\
-&= P(\mathbf{x}_i \boldsymbol{\beta} + \epsilon_i \leq c_k) - P(\mathbf{x}_i \boldsymbol{\beta} + \epsilon_i < c_{k-1})\\
-&= P(\epsilon_i \leq c_k - \mathbf{x}_i \boldsymbol{\beta}) - P(\epsilon_i < c_{k-1} - \mathbf{x}_i \boldsymbol{\beta})\\
-&= \text{expit}(c_k - \mathbf{x}_i\boldsymbol{\beta}) - \text{expit}(c_{k-1} - \mathbf{x}_i\boldsymbol{\beta}).
-\end{align*}
+-   Probabilities under the latent specification: \begin{align*}
+    P(Y_i = k) &= P(c_{k-1} < Y_i^* \leq c_k)\\
+    &= P(c_{k-1} < \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i \leq c_k)\\
+    &= P(\mathbf{x}_i \boldsymbol{\beta} + \epsilon_i \leq c_k) - P(\mathbf{x}_i \boldsymbol{\beta} + \epsilon_i < c_{k-1})\\
+    &= P(\epsilon_i \leq c_k - \mathbf{x}_i \boldsymbol{\beta}) - P(\epsilon_i < c_{k-1} - \mathbf{x}_i \boldsymbol{\beta})\\
+    &= \text{expit}(c_k - \mathbf{x}_i\boldsymbol{\beta}) - \text{expit}(c_{k-1} - \mathbf{x}_i\boldsymbol{\beta}).
+    \end{align*}
 
-- Equivalency:
+-   Equivalency:
 
-  - $\alpha_k = c_k, \quad k = 1,\ldots, K-1$, assuming that $\alpha_k < \alpha_{k+1}$.
-  
+    -   $\alpha_k = c_k, \quad k = 1,\ldots, K-1$, assuming that $\alpha_k < \alpha_{k+1}$.
+
 ## Ordinal regression using Stan
 
 ```{stan output.var = "ordinal", eval = FALSE}

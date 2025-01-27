@@ -10470,8 +10470,8 @@
     "objectID": "slides/11-regularization.html#review-of-last-lecture",
     "href": "slides/11-regularization.html#review-of-last-lecture",
     "title": "Regularization",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nOn Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nQuantile regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
+    "section": "",
+    "text": "On Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nQuantile regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
   },
   {
     "objectID": "slides/11-regularization.html#sparsity-in-regression-problems",
@@ -10632,7 +10632,7 @@
     "href": "slides/11-regularization.html#prepare-for-next-class",
     "title": "Regularization",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWe are going to jump into an AE on body fat, but first some reminders.\nWork on HW 03, which was just assigned.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Classification\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWe are going to jump into an AE on body fat, but first some reminders.\nWork on HW 03, which was just assigned.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Classification"
   },
   {
     "objectID": "slides/13-multiclass.html#review-of-last-lecture",
@@ -10884,7 +10884,7 @@
     "href": "slides/13-multiclass.html#prepare-for-next-class",
     "title": "Multiclass Classification",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data"
   },
   {
     "objectID": "slides/13-multiclass.html#multinomial-regression-2",
@@ -12075,6 +12075,20 @@
     "href": "hw/hw-03-creation.html#exercise-10",
     "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 10",
-    "text": "Exercise 10\nInterpret the posterior mean and 95% credible interval for the regression parameter corresponding to a patient with stage 4 cancer.\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
+    "text": "Exercise 10\nInterpret the posterior mean and 95% credible interval for the regression parameter corresponding to a patient with stage 4 cancer.\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 3!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
+  },
+  {
+    "objectID": "slides/11-regularization.html",
+    "href": "slides/11-regularization.html",
+    "title": "Regularization",
+    "section": "",
+    "text": "On Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nQuantile regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html",
+    "href": "slides/13-multiclass.html",
+    "title": "Multiclass Classification",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
   }
 ]
