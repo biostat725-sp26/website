@@ -434,7 +434,7 @@ Prof.&nbsp;Sam Berchuck
 <li><p>The first few MCMC samples are probably not draws from the posterior distribution.</p></li>
 <li><p>It can take hundreds or even thousands of iterations to move from the initial values to the posterior.</p></li>
 <li><p>When the sampler reaches the posterior this is called <strong>convergence</strong>.</p></li>
-<li><p>Samples before convergence are discard as <strong>burn-in</strong>.</p></li>
+<li><p>Samples before convergence are discarded as <strong>burn-in</strong>.</p></li>
 <li><p>After convergence the samples should not converge to a single point!</p></li>
 <li><p>They should be draws from the posterior, and ideally look like a caterpillar or bar code.</p></li>
 </ul>
@@ -467,7 +467,7 @@ Prof.&nbsp;Sam Berchuck
 <h2>Convergence is questionable</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/06/con2.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="con4"></p>
+<p><img data-src="images/06/con4.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="con4"></p>
 </figure>
 </div>
 </section>
@@ -560,7 +560,7 @@ W &amp;= \frac{1}{m}\sum_{j=1}^m s_j^2,\quad s_j^2=\frac{1}{n-1}\sum_{i=1}^n \le
 <h2>Convergence metric: <span class="math inline">\(\widehat{R}\)</span></h2>
 <p>Estimate a total variance <span class="math inline">\(\mathbb{V}(\theta | \mathbf{Y})\)</span> as a weighted mean of <span class="math inline">\(W\)</span>, <span class="math inline">\(B\)</span> <span class="math display">\[\widehat{\text{var}}^+(\theta | \mathbf{Y}) = \frac{n-1}{n}W + \frac{1}{n}B\]</span></p>
 <ul>
-<li><p>This overestiamtes marginal posterior variance if starting points are overdispersed.</p></li>
+<li><p>This overestimates marginal posterior variance if starting points are overdispersed.</p></li>
 <li><p>Given finite <span class="math inline">\(n\)</span>, <span class="math inline">\(W\)</span> underestimates marginal posterior variance.</p>
 <ul>
 <li><p>Single chains have not yet visited all points in the distribution.</p></li>
@@ -675,7 +675,7 @@ convergence, Rhat=1).</code></pre>
 <ul>
 <li><p>Problems with sampling are almost invariably problems with the underlying model not the sampling algorithm.</p></li>
 <li><p>Use fake data with all models to test for parameter identification (and that you’ve coded up correctly).</p></li>
-<li><p>To debug a model that fails read error messages carefully, then try <em>print</em> statements.</p></li>
+<li><p>To debug a model that fails read error messages carefully, then try <code>print</code> statements.</p></li>
 <li><p>Stan has an active developer and user forum, great documentation, and an extensive answer bank.</p></li>
 </ul>
 </section></section>
@@ -731,7 +731,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb12-4"><a></a>q75 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.75</span>)</span>
 <span id="cb12-5"><a></a><span class="fu">ppc_stat</span>(Y, Y_in_sample, <span class="at">stat =</span> <span class="st">"q25"</span>)</span>
 <span id="cb12-6"><a></a><span class="fu">ppc_stat</span>(Y, Y_in_sample, <span class="at">stat =</span> <span class="st">"q75"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -772,7 +772,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb13-2"><a></a>pvalue <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">apply</span>(Y_in_sample, <span class="dv">1</span>, median) <span class="sc">&gt;</span> <span class="fu">median</span>(Y))</span>
 <span id="cb13-3"><a></a>plot <span class="sc">+</span> <span class="fu">yaxis_text</span>() <span class="sc">+</span> <span class="co"># just so I can see y-axis values for specifying them in annotate() below, but can remove this if you don't want the useless y-axis values displayed </span></span>
 <span id="cb13-4"><a></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.75</span>, <span class="at">y =</span> <span class="dv">150</span>, <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"p ="</span>, pvalue))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-nrow="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">

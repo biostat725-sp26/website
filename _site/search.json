@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -6817,7 +6817,7 @@
     "href": "slides/06-model-checking.html#convergence-metric-widehatr",
     "title": "Model checking",
     "section": "Convergence metric: \\(\\widehat{R}\\)",
-    "text": "Convergence metric: \\(\\widehat{R}\\)\nEstimate a total variance \\(\\mathbb{V}(\\theta | \\mathbf{Y})\\) as a weighted mean of \\(W\\), \\(B\\) \\[\\widehat{\\text{var}}^+(\\theta | \\mathbf{Y}) = \\frac{n-1}{n}W + \\frac{1}{n}B\\]\n\nThis overestiamtes marginal posterior variance if starting points are overdispersed.\nGiven finite \\(n\\), \\(W\\) underestimates marginal posterior variance.\n\nSingle chains have not yet visited all points in the distribution.\nWhen \\(n \\rightarrow \\infty\\), \\(\\mathbb{E}[W] \\rightarrow \\mathbb{V}(\\theta | \\mathbf{Y})\\)\n\nAs \\(\\widehat{\\text{var}}^+(\\theta | \\mathbf{Y})\\) overestimates and \\(W\\) underestimates, we can compute\n\n\\[\\widehat{R} = \\sqrt{\\frac{\\widehat{\\text{var}}^+(\\theta | \\mathbf{Y})}{W}}, \\quad \\widehat{R} \\rightarrow 1 \\text{ as }n \\rightarrow \\infty.\\]"
+    "text": "Convergence metric: \\(\\widehat{R}\\)\nEstimate a total variance \\(\\mathbb{V}(\\theta | \\mathbf{Y})\\) as a weighted mean of \\(W\\), \\(B\\) \\[\\widehat{\\text{var}}^+(\\theta | \\mathbf{Y}) = \\frac{n-1}{n}W + \\frac{1}{n}B\\]\n\nThis overestimates marginal posterior variance if starting points are overdispersed.\nGiven finite \\(n\\), \\(W\\) underestimates marginal posterior variance.\n\nSingle chains have not yet visited all points in the distribution.\nWhen \\(n \\rightarrow \\infty\\), \\(\\mathbb{E}[W] \\rightarrow \\mathbb{V}(\\theta | \\mathbf{Y})\\)\n\nAs \\(\\widehat{\\text{var}}^+(\\theta | \\mathbf{Y})\\) overestimates and \\(W\\) underestimates, we can compute\n\n\\[\\widehat{R} = \\sqrt{\\frac{\\widehat{\\text{var}}^+(\\theta | \\mathbf{Y})}{W}}, \\quad \\widehat{R} \\rightarrow 1 \\text{ as }n \\rightarrow \\infty.\\]"
   },
   {
     "objectID": "slides/06-model-checking.html#widehatr-for-linear-regression",
@@ -8000,7 +8000,7 @@
     "href": "slides/07-model-comparison.html#watanabe-akaike-information-criteria-waic",
     "title": "Model Comparison",
     "section": "Watanabe-Akaike information criteria (WAIC)",
-    "text": "Watanabe-Akaike information criteria (WAIC)\nWatanabe-Akaike or widely available information criteria (WAIC) estimates the elpd as,\n\\[\\widehat{\\text{elpd}}_{\\text{WAIC}} = \\text{lppd} - p_{\\text{WAIC}}.\\]\n\nThe log pointwise predictive density (lppd) is given by, \\[\\text{lppd} = \\log \\prod_{i=1}^n f(Y_i | \\mathbf{Y}) =  \\sum_{i=1}^n \\log \\int f\\left(Y_i | \\boldsymbol{\\theta}\\right)f(\\boldsymbol{\\theta}) d\\boldsymbol{\\theta}.\\]\nlppd can be estimated as, \\(\\sum_{i=1}^n \\log \\left(\\frac{1}{S} \\sum_{s = 1}^S f\\left(Y_i | \\boldsymbol{\\theta}^{(s)}\\right)\\right)\\), where \\(\\boldsymbol{\\theta}^{(s)}\\) are drawn from the posterior."
+    "text": "Watanabe-Akaike information criteria (WAIC)\nWatanabe-Akaike or widely available information criteria (WAIC) estimates the elpd as,\n\\[\\widehat{\\text{elpd}}_{\\text{WAIC}} = \\text{lppd} - p_{\\text{WAIC}}.\\]\n\nThe log pointwise predictive density (lppd) is given by, \\[\\text{lppd} = \\log \\prod_{i=1}^n f(Y_i | \\mathbf{Y}) =  \\sum_{i=1}^n \\log \\int f\\left(Y_i | \\boldsymbol{\\theta}\\right)f(\\boldsymbol{\\theta}| \\mathbf{Y}) d\\boldsymbol{\\theta}.\\]\nlppd can be estimated as, \\(\\sum_{i=1}^n \\log \\left(\\frac{1}{S} \\sum_{s = 1}^S f\\left(Y_i | \\boldsymbol{\\theta}^{(s)}\\right)\\right)\\), where \\(\\boldsymbol{\\theta}^{(s)}\\) are drawn from the posterior."
   },
   {
     "objectID": "slides/07-model-comparison.html#watanabe-akaike-information-criteria-waic-1",
@@ -8651,7 +8651,7 @@
     "href": "slides/07-model-comparison.html#leave-one-out-cross-validation-loo-cv",
     "title": "Model Comparison",
     "section": "Leave-one-out cross-validation (LOO-CV)",
-    "text": "Leave-one-out cross-validation (LOO-CV)\n\nAssume the data are partitioned into a training set, \\(\\mathbf{Y}_{\\text{train}}\\) and a holdout set \\(\\mathbf{Y}_{\\text{test}}\\), thus yielding a posterior distribution \\(f(\\boldsymbol{\\theta} | \\mathbf{Y}_{\\text{train}})\\).\nIn the setting of LOO-CV, we have \\(n\\) different \\(f\\left(\\boldsymbol{\\theta} | \\mathbf{Y}_{-i}\\right)\\).\nThe Bayesian LOO-CV estimate of out-of-sample predictive fit is \\[\\text{lppd}_{\\text{LOO-CV}} = \\sum_{i=1}^n \\log f\\left(\\boldsymbol{\\theta} | \\mathbf{Y}_{-i}\\right),\\]\nThe estimated number of parameters can be computed as,\n\n\\[p_{\\text{LOO-CV}} = \\text{lppd} - \\text{lppd}_{\\text{LOO-CV}}.\\] - This also referred to as leave-one-out information criteria (LOO-IC)"
+    "text": "Leave-one-out cross-validation (LOO-CV)\n\nAssume the data are partitioned into a training set, \\(\\mathbf{Y}_{\\text{train}}\\) and a holdout set \\(\\mathbf{Y}_{\\text{test}}\\), thus yielding a posterior distribution \\(f(\\boldsymbol{\\theta} | \\mathbf{Y}_{\\text{train}})\\).\nIn the setting of LOO-CV, we have \\(n\\) different \\(f\\left(\\boldsymbol{\\theta} | \\mathbf{Y}_{-i}\\right)\\).\nThe Bayesian LOO-CV estimate of out-of-sample predictive fit is \\[\\text{lppd}_{\\text{LOO-CV}} = \\sum_{i=1}^n \\log f\\left(\\boldsymbol{\\theta} | \\mathbf{Y}_{-i}\\right),\\]\nThe estimated number of parameters can be computed as,\n\n\\[p_{\\text{LOO-CV}} = \\text{lppd} - \\text{lppd}_{\\text{LOO-CV}}.\\]\n\nThis also referred to as leave-one-out information criteria (LOO-IC)"
   },
   {
     "objectID": "slides/07-model-comparison.html#leave-one-out-cross-validation-loo-cv-1",
@@ -11213,21 +11213,21 @@
     "href": "hw/hw-02-creation.html#exercise-1",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nSetup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Assume that \\(exercise_i \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\) for \\(i = 1,\\ldots,n\\) where \\[\\begin{align*}\n\\mu_i &= \\alpha + recreation_i \\beta_1 + crime_i \\beta_2+(recreation_i \\times crime_i) \\beta_3\\\\\n&\\quad+ age_i \\beta_4 + black_i \\beta_5 + asian_i \\beta_6 + married_i \\beta_7\\\\\n&= \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\n\\end{align*}\\]\nFit this regression using a Bayesian framework in Stan to estimate \\((\\alpha, \\boldsymbol{\\beta},\\sigma)\\). For all model parameters, choose weakly-informative priors. For example, \\(\\alpha \\sim N(0,100)\\), \\(\\beta_j \\sim N(0,100)\\) for \\(j=1,\\ldots,p\\), and \\(\\sigma \\sim \\text{Half-Normal}(0,100)\\).\nEvaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well."
+    "text": "Exercise 1\nSetup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Define the random variable \\(Y_i\\) as the exercise in MET minutes per week for women \\(i\\) and assume that \\(Y_i \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\) for \\(i = 1,\\ldots,n\\) where \\[\\begin{align*}\n\\mu_i &= \\alpha + recreation_i \\beta_1 + crime_i \\beta_2+(recreation_i \\times crime_i) \\beta_3\\\\\n&\\quad+ age_i \\beta_4 + black_i \\beta_5 + asian_i \\beta_6 + married_i \\beta_7\\\\\n&= \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\n\\end{align*}\\]\nFit this regression using a Bayesian framework in Stan to estimate \\((\\alpha, \\boldsymbol{\\beta},\\sigma)\\). For all model parameters, choose weakly-informative priors, \\(\\alpha \\sim N(0,100)\\), \\(\\beta_j \\sim N(0,100)\\) for \\(j=1,\\ldots,p\\), and \\(\\sigma \\sim \\text{Half-Normal}(0,100)\\).\nEvaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well."
   },
   {
     "objectID": "hw/hw-02-creation.html#exercise-2",
     "href": "hw/hw-02-creation.html#exercise-2",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 2",
-    "text": "Exercise 2\nRefit the model in Exercise 1, this time using a centered outcome variable, \\(Y_i = exercise_i - \\overline{exercise}\\), where \\(\\overline{exercise} = \\frac{1}{n}\\sum_{i=1}^n exercise_i\\). Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from Exercise 1. Make an argument for why this model may have improved model fit."
+    "text": "Exercise 2\nRefit the model in Exercise 1, this time using centered outcome and predictor variables, \\(Y_i^* \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\), where \\(\\mu_i^* = \\alpha + \\mathbf{x}_i^*\\boldsymbol{\\beta}\\). The centered data are defined as, \\(Y_i^* = Y_i - \\overline{Y}\\), where \\(\\overline{Y} = \\frac{1}{n}\\sum_{i=1}^n Y_i\\) and \\(\\mathbf{x}_i^* = \\mathbf{x}_i-\\bar{\\mathbf{x}}\\), where \\(\\bar{\\mathbf{x}} = \\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\). Use the same priors as before. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from Exercise 1. Make an argument for why this model may have improved model fit."
   },
   {
     "objectID": "hw/hw-02-creation.html#exercise-3",
     "href": "hw/hw-02-creation.html#exercise-3",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\nFor the model from Exercise 2, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to recreation in your model? Is this interpretation appropriate?"
+    "text": "Exercise 3\nFor the model from Exercise 2, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to recreation in your model? Within the context of the association between access to recreational facilities and exercise, is this main effect parameter useful to interpret?"
   },
   {
     "objectID": "hw/hw-02-creation.html#exercise-4",
@@ -11381,7 +11381,7 @@
     "href": "hw/hw-02-creation.html#exercise-9",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 9",
-    "text": "Exercise 9\nPerform a sensitivity analysis to the choice of prior for \\((\\alpha,\\boldsymbol{\\beta},\\sigma)\\). Make sure to change the family of priors for each parameter. So, if you chose a Gaussian prior for \\(\\alpha\\) originally, choose another distribution, like a student-t. Are your results robust to the choice of prior?\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
+    "text": "Exercise 9\nPerform a sensitivity analysis to the choice of prior for \\((\\alpha,\\boldsymbol{\\beta},\\sigma)\\). Make sure to change the family of priors for each parameter. Are your results robust to the choice of prior?\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
   },
   {
     "objectID": "hw/hw-01-blank.html",
@@ -11709,9 +11709,9 @@
   {
     "objectID": "prepare/prepare-jan28.html",
     "href": "prepare/prepare-jan28.html",
-    "title": "Prepare for January 23 lecture",
+    "title": "Prepare for January 28 lecture",
     "section": "",
-    "text": "Occasionally during the semester we will reference material from the text book Bayesian Data Analysis Third Edition by Andrew Gelman et al. A PDF of the textbook is available for download at Andrew Gelman’s website. We will refer to this textbook as BDA3.\n📖 Read BDA3 Chapter 6, Sections 6.1-6.5 to learn about Gibbs sampling\n📖 Read about the posterior predictive distribution in Hoff Chapter 4, Section 4.3\n📖 Review prior choice recommendations\n✅ Work on HW 01"
+    "text": "Occasionally during the semester we will reference material from the text book Bayesian Data Analysis Third Edition by Andrew Gelman et al. A PDF of the textbook is available for download at Andrew Gelman’s website. We will refer to this textbook as BDA3.\n📖 Read BDA3 Chapter 6 to learn about posterior predictive checking\n📖 Read BDA3 Chapter 11.4 and 11.5 to learn about model convergence metrics\n✅ Work on HW 01 which is due Thursday before class"
   },
   {
     "objectID": "ae/ae-04-priors-ppd.html",
@@ -11957,5 +11957,103 @@
     "title": "Missing Data",
     "section": "Model for the imputed datasets",
     "text": "Model for the imputed datasets\n\n// bayesian-mi.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[n] Y_centered;\n  real Y_bar;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n}\nparameters {\n  real alpha_centered;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y_centered | alpha_centered + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_centered | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}\ngenerated quantities {\n  real alpha;\n  alpha = Y_bar + alpha_centered - X_bar * beta;\n}"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html",
+    "href": "hw/hw-03-creation.html",
+    "title": "HW 03:",
+    "section": "",
+    "text": "Due date\n\n\n\nThis assignment is due on Thursday, February 27 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-1",
+    "href": "hw/hw-03-creation.html#exercise-1",
+    "title": "HW 03:",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nResearchers are interested in the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. They start by visualizing the distribution of BMI and notice that it is a bit right-skewed; and thus they are worried about performing linear regression. Instead they would like to perform median regression.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSetup a multivariable median regression model to estimate the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. Define the random variable \\(Y_i\\) as the BMI in \\(kg/m^2\\) for patient \\(i\\) and the median quantile of \\(Y_i\\) given predictors \\(\\mathbf{x}_i\\) as \\(q({Y_i|\\mathbf{x}_i})\\). We will model the median quantile as a linear function of the predictors, \\[q({Y_i|\\mathbf{x}_i}) = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta},\\] where \\(\\mathbf{x}_i = (male_i, married_i, current\\_smoker_i, former\\_smoker_i).\\) Each of these predictors is just a binary variable.\nFormulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate \\((\\alpha, \\boldsymbol{\\beta})\\) and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#quantile-regression",
+    "href": "hw/hw-03-creation.html#quantile-regression",
+    "title": "HW 03:",
+    "section": "Quantile regression",
+    "text": "Quantile regression"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-2",
+    "href": "hw/hw-03-creation.html#exercise-2",
+    "title": "HW 03:",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nPerform a posterior predictive check using the median as a test statistic. Be sure to present a posterior predictive p-value and use it to describe the model fit."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-3",
+    "href": "hw/hw-03-creation.html#exercise-3",
+    "title": "HW 03:",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nPresent posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-4",
+    "href": "hw/hw-03-creation.html#exercise-4",
+    "title": "HW 03:",
+    "section": "Exercise 4",
+    "text": "Exercise 4"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-5",
+    "href": "hw/hw-03-creation.html#exercise-5",
+    "title": "HW 03:",
+    "section": "Exercise 5",
+    "text": "Exercise 5"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-6",
+    "href": "hw/hw-03-creation.html#exercise-6",
+    "title": "HW 03:",
+    "section": "Exercise 6",
+    "text": "Exercise 6"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-7",
+    "href": "hw/hw-03-creation.html#exercise-7",
+    "title": "HW 03:",
+    "section": "Exercise 7",
+    "text": "Exercise 7"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-8",
+    "href": "hw/hw-03-creation.html#exercise-8",
+    "title": "HW 03:",
+    "section": "Exercise 8",
+    "text": "Exercise 8"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-9",
+    "href": "hw/hw-03-creation.html#exercise-9",
+    "title": "HW 03:",
+    "section": "Exercise 9",
+    "text": "Exercise 9\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-2-1",
+    "href": "hw/hw-03-creation.html#exercise-2-1",
+    "title": "HW 03:",
+    "section": "Exercise 2",
+    "text": "Exercise 2"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-3-1",
+    "href": "hw/hw-03-creation.html#exercise-3-1",
+    "title": "HW 03:",
+    "section": "Exercise 3",
+    "text": "Exercise 3"
+  },
+  {
+    "objectID": "prepare/prepare-jan30.html",
+    "href": "prepare/prepare-jan30.html",
+    "title": "Prepare for January 30 lecture",
+    "section": "",
+    "text": "📖 Read sections 9.1-9.4 of Mark Lai’s course notes for an introduction to model comparison\n📖 Review BDA3 Chapter 7.1-7.3 to learn more about model comparison metrics\n✅ Work on HW 01 which is due Thursday before class"
   }
 ]

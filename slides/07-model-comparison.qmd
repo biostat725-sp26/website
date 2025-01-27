@@ -374,7 +374,7 @@ Watanabe-Akaike or widely available information criteria (WAIC) estimates the el
 
 $$\widehat{\text{elpd}}_{\text{WAIC}} = \text{lppd} - p_{\text{WAIC}}.$$
 
--   The log pointwise predictive density (lppd) is given by, $$\text{lppd} = \log \prod_{i=1}^n f(Y_i | \mathbf{Y}) =  \sum_{i=1}^n \log \int f\left(Y_i | \boldsymbol{\theta}\right)f(\boldsymbol{\theta}) d\boldsymbol{\theta}.$$
+-   The log pointwise predictive density (lppd) is given by, $$\text{lppd} = \log \prod_{i=1}^n f(Y_i | \mathbf{Y}) =  \sum_{i=1}^n \log \int f\left(Y_i | \boldsymbol{\theta}\right)f(\boldsymbol{\theta}| \mathbf{Y}) d\boldsymbol{\theta}.$$
 
 -   lppd can be estimated as, $\sum_{i=1}^n \log \left(\frac{1}{S} \sum_{s = 1}^S f\left(Y_i | \boldsymbol{\theta}^{(s)}\right)\right)$, where $\boldsymbol{\theta}^{(s)}$ are drawn from the posterior.
 
@@ -443,7 +443,9 @@ $$MAD = \frac{1}{n}\sum_{i=1}^n |Y_i - \widehat{Y}_i|.$$
 
 -   The estimated number of parameters can be computed as,
 
-$$p_{\text{LOO-CV}} = \text{lppd} - \text{lppd}_{\text{LOO-CV}}.$$ - This also referred to as leave-one-out information criteria (LOO-IC)
+$$p_{\text{LOO-CV}} = \text{lppd} - \text{lppd}_{\text{LOO-CV}}.$$ 
+
+- This also referred to as leave-one-out information criteria (LOO-IC)
 
 ## LOO-CV
 

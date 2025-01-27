@@ -354,7 +354,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/06-model-checking.html</loc>
-    <lastmod>2025-01-23T13:17:28.939Z</lastmod>
+    <lastmod>2025-01-27T13:22:13.308Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/05-priors-ppds.html</loc>
@@ -366,7 +366,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/07-model-comparison.html</loc>
-    <lastmod>2025-01-06T20:07:30.017Z</lastmod>
+    <lastmod>2025-01-27T13:46:35.359Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/08-workflow.html</loc>
@@ -390,7 +390,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/10-robust.html</loc>
-    <lastmod>2025-01-06T20:03:40.070Z</lastmod>
+    <lastmod>2025-01-23T15:42:21.889Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/12-classification.html</loc>
@@ -426,7 +426,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-02-creation.html</loc>
-    <lastmod>2025-01-16T15:53:05.549Z</lastmod>
+    <lastmod>2025-01-25T13:20:15.231Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-02-mcmc.html</loc>
@@ -454,10 +454,18 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/prepare/prepare-jan28.html</loc>
-    <lastmod>2025-01-20T14:22:09.689Z</lastmod>
+    <lastmod>2025-01-27T13:31:15.825Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/ae/ae-04-priors-ppd.html</loc>
     <lastmod>2025-01-23T13:12:18.229Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/hw/hw-03-creation.html</loc>
+    <lastmod>2025-01-26T21:19:41.309Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/prepare/prepare-jan30.html</loc>
+    <lastmod>2025-01-27T13:52:56.264Z</lastmod>
   </url>
 </urlset>

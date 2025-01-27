@@ -72,23 +72,23 @@ write.csv(exercise, file = "hw01/exercise.csv", row.names = FALSE)
 
 ## Exercise 1
 
-Setup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Assume that $exercise_i \stackrel{ind}{\sim} N(\mu_i, \sigma^2)$ for $i = 1,\ldots,n$ where \begin{align*}
+Setup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Define the random variable $Y_i$ as the exercise in MET minutes per week for women $i$ and assume that $Y_i \stackrel{ind}{\sim} N(\mu_i, \sigma^2)$ for $i = 1,\ldots,n$ where \begin{align*}
 \mu_i &= \alpha + recreation_i \beta_1 + crime_i \beta_2+(recreation_i \times crime_i) \beta_3\\
 &\quad+ age_i \beta_4 + black_i \beta_5 + asian_i \beta_6 + married_i \beta_7\\
 &= \alpha + \mathbf{x}_i\boldsymbol{\beta}.
 \end{align*}
 
-Fit this regression using a Bayesian framework in Stan to estimate $(\alpha, \boldsymbol{\beta},\sigma)$. For all model parameters, choose weakly-informative priors. For example, $\alpha \sim N(0,100)$, $\beta_j \sim N(0,100)$ for $j=1,\ldots,p$, and $\sigma \sim \text{Half-Normal}(0,100)$.
+Fit this regression using a Bayesian framework in Stan to estimate $(\alpha, \boldsymbol{\beta},\sigma)$. For all model parameters, choose weakly-informative priors, $\alpha \sim N(0,100)$, $\beta_j \sim N(0,100)$ for $j=1,\ldots,p$, and $\sigma \sim \text{Half-Normal}(0,100)$.
 
 Evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well.
 
 ## Exercise 2
 
-Refit the model in **Exercise 1**, this time using a centered outcome variable, $Y_i = exercise_i - \overline{exercise}$, where $\overline{exercise} = \frac{1}{n}\sum_{i=1}^n exercise_i$. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from **Exercise 1**. Make an argument for why this model may have improved model fit.
+Refit the model in **Exercise 1**, this time using centered outcome and predictor variables, $Y_i^* \stackrel{ind}{\sim} N(\mu_i, \sigma^2)$, where $\mu_i^* = \alpha + \mathbf{x}_i^*\boldsymbol{\beta}$. The centered data are defined as, $Y_i^* = Y_i - \overline{Y}$, where $\overline{Y} = \frac{1}{n}\sum_{i=1}^n Y_i$ and $\mathbf{x}_i^* = \mathbf{x}_i-\bar{\mathbf{x}}$, where $\bar{\mathbf{x}} = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i$. Use the same priors as before. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from **Exercise 1**. Make an argument for why this model may have improved model fit.
 
 ## Exercise 3
 
-For the model from **Exercise 2**, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to `recreation` in your model? Is this interpretation appropriate?
+For the model from **Exercise 2**, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to `recreation` in your model? Within the context of the association between access to recreational facilities and exercise, is this main effect parameter useful to interpret?
 
 ## Exercise 4
 
@@ -112,7 +112,7 @@ Researchers are interested in comparing their original model (i.e., the one from
 
 ## Exercise 9
 
-Perform a sensitivity analysis to the choice of prior for $(\alpha,\boldsymbol{\beta},\sigma)$. Make sure to change the family of priors for each parameter. So, if you chose a Gaussian prior for $\alpha$ originally, choose another distribution, like a student-t. Are your results robust to the choice of prior?
+Perform a sensitivity analysis to the choice of prior for $(\alpha,\boldsymbol{\beta},\sigma)$. Make sure to change the family of priors for each parameter. Are your results robust to the choice of prior?
 
 ::: render-commit-push
 You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.

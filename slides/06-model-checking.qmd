@@ -68,7 +68,7 @@ Today, we will dive into (1) methods for assessing MCMC convergence, and (2) mod
 
 -   When the sampler reaches the posterior this is called **convergence**.
 
--   Samples before convergence are discard as **burn-in**.
+-   Samples before convergence are discarded as **burn-in**.
 
 -   After convergence the samples should not converge to a single point!
 
@@ -88,7 +88,7 @@ Today, we will dive into (1) methods for assessing MCMC convergence, and (2) mod
 
 ## Convergence is questionable
 
-![](images/06/con2.png){fig-alt="con4" fig-align="center" height="5in"}
+![](images/06/con4.png){fig-alt="con4" fig-align="center" height="5in"}
 
 ## Traceplots for linear regression
 
@@ -190,7 +190,7 @@ The between-sequence variance, $B$ contains a factor of $n$ because it is based 
 
 Estimate a total variance $\mathbb{V}(\theta | \mathbf{Y})$ as a weighted mean of $W$, $B$ $$\widehat{\text{var}}^+(\theta | \mathbf{Y}) = \frac{n-1}{n}W + \frac{1}{n}B$$
 
--   This overestiamtes marginal posterior variance if starting points are overdispersed.
+-   This overestimates marginal posterior variance if starting points are overdispersed.
 
 -   Given finite $n$, $W$ underestimates marginal posterior variance.
 
@@ -303,7 +303,7 @@ Outside of this, you have an endless source of resources using Google/stackoverf
 
 -   Use fake data with all models to test for parameter identification (and that you’ve coded up correctly).
 
--   To debug a model that fails read error messages carefully, then try *print* statements.
+-   To debug a model that fails read error messages carefully, then try `print` statements.
 
 -   Stan has an active developer and user forum, great documentation, and an extensive answer bank.
 

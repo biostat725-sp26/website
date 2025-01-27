@@ -449,7 +449,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -482,7 +482,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -522,7 +522,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -624,7 +624,7 @@ D_{KL}\left(M_0 | M_1\right) &amp;= \int_{-\infty}^{\infty} f_{M_0}(\mathbf{Y}) 
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -749,7 +749,7 @@ D_{KL}\left(M_0 | M_1\right) &amp;= \int_{-\infty}^{\infty} f_{M_0}(\mathbf{Y}) 
 <p>Watanabe-Akaike or widely available information criteria (WAIC) estimates the elpd as,</p>
 <p><span class="math display">\[\widehat{\text{elpd}}_{\text{WAIC}} = \text{lppd} - p_{\text{WAIC}}.\]</span></p>
 <ul>
-<li><p>The log pointwise predictive density (lppd) is given by, <span class="math display">\[\text{lppd} = \log \prod_{i=1}^n f(Y_i | \mathbf{Y}) =  \sum_{i=1}^n \log \int f\left(Y_i | \boldsymbol{\theta}\right)f(\boldsymbol{\theta}) d\boldsymbol{\theta}.\]</span></p></li>
+<li><p>The log pointwise predictive density (lppd) is given by, <span class="math display">\[\text{lppd} = \log \prod_{i=1}^n f(Y_i | \mathbf{Y}) =  \sum_{i=1}^n \log \int f\left(Y_i | \boldsymbol{\theta}\right)f(\boldsymbol{\theta}| \mathbf{Y}) d\boldsymbol{\theta}.\]</span></p></li>
 <li><p>lppd can be estimated as, <span class="math inline">\(\sum_{i=1}^n \log \left(\frac{1}{S} \sum_{s = 1}^S f\left(Y_i | \boldsymbol{\theta}^{(s)}\right)\right)\)</span>, where <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> are drawn from the posterior.</p></li>
 </ul>
 </section>
@@ -810,7 +810,10 @@ p_{\text{WAIC}_2} &amp;= \sum_{i=1}^n \mathbb{V}_{\boldsymbol{\theta} | \mathbf{
 <li><p>The Bayesian LOO-CV estimate of out-of-sample predictive fit is <span class="math display">\[\text{lppd}_{\text{LOO-CV}} = \sum_{i=1}^n \log f\left(\boldsymbol{\theta} | \mathbf{Y}_{-i}\right),\]</span></p></li>
 <li><p>The estimated number of parameters can be computed as,</p></li>
 </ul>
-<p><span class="math display">\[p_{\text{LOO-CV}} = \text{lppd} - \text{lppd}_{\text{LOO-CV}}.\]</span> - This also referred to as leave-one-out information criteria (LOO-IC)</p>
+<p><span class="math display">\[p_{\text{LOO-CV}} = \text{lppd} - \text{lppd}_{\text{LOO-CV}}.\]</span></p>
+<ul>
+<li>This also referred to as leave-one-out information criteria (LOO-IC)</li>
+</ul>
 </section>
 <section id="loo-cv" class="slide level2">
 <h2>LOO-CV</h2>

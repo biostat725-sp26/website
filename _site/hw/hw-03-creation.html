@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 02: Bayesian linear regression – BIOSTAT 725 - Spring 2025</title>
+<title>HW 03: – BIOSTAT 725 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 02: Bayesian linear regression</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 03:</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -310,6 +310,8 @@ window.Quarto = {
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-2-1" id="toc-exercise-2-1" class="nav-link" data-scroll-target="#exercise-2-1">Exercise 2</a></li>
+  <li><a href="#exercise-3-1" id="toc-exercise-3-1" class="nav-link" data-scroll-target="#exercise-3-1">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
@@ -327,7 +329,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 02: Bayesian linear regression</h1>
+<h1 class="title">HW 03:</h1>
 <p class="subtitle lead">Physical activity and access to recreational facilities in Cook County, Chicago</p>
 </div>
 
@@ -355,7 +357,7 @@ Due date
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Thursday, February 13 at 11:45am.</strong> To be considered on time, the following must be done by the due date:</p>
+<p>This assignment is due on <strong>Thursday, February 27 at 11:45am.</strong> To be considered on time, the following must be done by the due date:</p>
 <ul>
 <li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</li>
 <li>Final <code>.pdf</code> file submitted on Gradescope</li>
@@ -365,7 +367,7 @@ Due date
 <section id="getting-started" class="level1">
 <h1><strong>Getting started</strong></h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>hw-02</strong>. It contains the starter documents you need to complete the homework.</p></li>
+<li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>hw-03</strong>. It contains the starter documents you need to complete the homework.</p></li>
 <li><p>Clone the repo and start a new project in RStudio. See the <a href="https://biostat725-sp25.netlify.app/ae/ae-01-mcmc#clone-the-repo-start-new-rstudio-project">AE 01 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
 </ul>
 </section>
@@ -384,58 +386,78 @@ Due date
 </section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>It is estimated that only 3.0% of Americans engage in a fully healthy lifestyle, which entails refraining from smoking, eating five or more fruits and vegetables daily, maintaining a healthy weight, and participating in regular exercise (a component of physical activity). Lack of physical activity is a leading risk factor for chronic disease and having access to recreational facilities has been associated with an individual’s level of physical activity and exercise. Researchers were interested in analyzing the association between access to recreational facilities and exercise, controlling for crime. It has been suggested that reductions of violence/crime and increased perceptions of neighborhood safety may contribute to higher population levels of physical activity.</p>
-<p>Researchers performed a cross-sectional observational study of Cook County, Chicago, randomly recruiting 87 pregnant women and obtained an estimate of weekly exercise as measured by metabolic equivalent (MET) minutes per week. Measures of neighborhood recreational facilities and crime were obtained based on geographical kernel estimates. The data they collected can be found in the dataset, <em>exercise.csv</em>, which is available in the homework repo.</p>
-<p>The following variables are in the dataset:</p>
+<p>This homework will use data from the <a href="https://stats.oarc.ucla.edu/r/codefragments/mesimulation/">Hospital, Doctor, Patient (HDP) dataset</a>. The is a simulated study that is meant to be a large study of lung cancer outcomes across multiple doctors and sites. Assume that the variables were collected prior to a lung cancer surgery. Our primary outcome in this homework is the hospital length of stay (<code>LengthofStay</code>) following the surgery. We will use the following variables from the dataset:</p>
 <ul>
-<li><p><code>exercise</code>: exercise measured in metabolic equivalent (MET) minutes per week.</p></li>
-<li><p><code>recreation</code>: number of recreational facilities within a one-mile radius of a participant’s home.</p></li>
-<li><p><code>crime</code>: total yearly average of all crimes in a one-mile buffer surrounding an individual’s residence per 1,000 persons.</p></li>
-<li><p><code>age</code>: age in years.</p></li>
-<li><p><code>married</code>: marriage status (1 = married; 0 = single)</p></li>
-<li><p><code>race</code>: race (0 = White ; 1 = African-American/black, 2 = Asian)</p></li>
+<li><p><code>Age</code>: continuous, age in years.</p></li>
+<li><p><code>Married</code>: binary, married/living with partner of single.</p></li>
+<li><p><code>FamilyHx</code>: binary (yes/no), does the patient have a family history (Hx) of cancer?</p></li>
+<li><p><code>SmokingHx</code>: categorical with three levels, current smoker, former smoker, never smoked.</p></li>
+<li><p><code>Sex</code>: binary (female/male).</p></li>
+<li><p><code>CancerStage</code>: categorical with four levels, stages 1-4.</p></li>
+<li><p><code>LengthofStay</code>: count number of days patients stayed in the hospital after surgery.</p></li>
+<li><p><code>WBC</code>: continuous, white blood count.</p></li>
+<li><p><code>RBC</code>: continuous, red blood count.</p></li>
+<li><p><code>BMI</code>: body mass index given by the formula (<span class="math inline">\(kg/m^2\)</span>).</p></li>
+<li><p><code>IL6</code>: continuous, interleukin 6, a proinflammatory cytokine commonly examined as an indicator of inflammation, cannot be lower than zero.</p></li>
+<li><p><code>CRP</code>: continuous, C-reactive protein, a protein in the blood also used as an indicator of inflammation.</p></li>
 </ul>
+<p>For our homework we will use the <code>hdp</code> dataset from the <code>MLMusingR</code> R package. The dataset can be loaded as follows. Note that we will work with a subsample of 1,000 patients.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MLMusingR)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">54</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hdp <span class="ot">&lt;-</span> hdp[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(hdp), <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Setup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Define the random variable <span class="math inline">\(Y_i\)</span> as the exercise in MET minutes per week for women <span class="math inline">\(i\)</span> and assume that <span class="math inline">\(Y_i \stackrel{ind}{\sim} N(\mu_i, \sigma^2)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span> where <span class="math display">\[\begin{align*}
-\mu_i &amp;= \alpha + recreation_i \beta_1 + crime_i \beta_2+(recreation_i \times crime_i) \beta_3\\
-&amp;\quad+ age_i \beta_4 + black_i \beta_5 + asian_i \beta_6 + married_i \beta_7\\
-&amp;= \alpha + \mathbf{x}_i\boldsymbol{\beta}.
-\end{align*}\]</span></p>
-<p>Fit this regression using a Bayesian framework in Stan to estimate <span class="math inline">\((\alpha, \boldsymbol{\beta},\sigma)\)</span>. For all model parameters, choose weakly-informative priors, <span class="math inline">\(\alpha \sim N(0,100)\)</span>, <span class="math inline">\(\beta_j \sim N(0,100)\)</span> for <span class="math inline">\(j=1,\ldots,p\)</span>, and <span class="math inline">\(\sigma \sim \text{Half-Normal}(0,100)\)</span>.</p>
-<p>Evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well.</p>
+<p>Researchers are interested in the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. They start by visualizing the distribution of BMI and notice that it is a bit right-skewed; and thus they are worried about performing linear regression. Instead they would like to perform median regression.</p>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hw-03-creation_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Setup a multivariable median regression model to estimate the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. Define the random variable <span class="math inline">\(Y_i\)</span> as the BMI in <span class="math inline">\(kg/m^2\)</span> for patient <span class="math inline">\(i\)</span> and the median quantile of <span class="math inline">\(Y_i\)</span> given predictors <span class="math inline">\(\mathbf{x}_i\)</span> as <span class="math inline">\(q({Y_i|\mathbf{x}_i})\)</span>. We will model the median quantile as a linear function of the predictors, <span class="math display">\[q({Y_i|\mathbf{x}_i}) = \alpha + \mathbf{x}_i\boldsymbol{\beta},\]</span> where <span class="math inline">\(\mathbf{x}_i = (male_i, married_i, current\_smoker_i, former\_smoker_i).\)</span> Each of these predictors is just a binary variable.</p>
+<p>Formulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate <span class="math inline">\((\alpha, \boldsymbol{\beta})\)</span> and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Refit the model in <strong>Exercise 1</strong>, this time using centered outcome and predictor variables, <span class="math inline">\(Y_i^* \stackrel{ind}{\sim} N(\mu_i, \sigma^2)\)</span>, where <span class="math inline">\(\mu_i^* = \alpha + \mathbf{x}_i^*\boldsymbol{\beta}\)</span>. The centered data are defined as, <span class="math inline">\(Y_i^* = Y_i - \overline{Y}\)</span>, where <span class="math inline">\(\overline{Y} = \frac{1}{n}\sum_{i=1}^n Y_i\)</span> and <span class="math inline">\(\mathbf{x}_i^* = \mathbf{x}_i-\bar{\mathbf{x}}\)</span>, where <span class="math inline">\(\bar{\mathbf{x}} = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\)</span>. Use the same priors as before. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from <strong>Exercise 1</strong>. Make an argument for why this model may have improved model fit.</p>
+<p>Perform a posterior predictive check using the median as a test statistic. Be sure to present a posterior predictive p-value and use it to describe the model fit.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>For the model from <strong>Exercise 2</strong>, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to <code>recreation</code> in your model? Within the context of the association between access to recreational facilities and exercise, is this main effect parameter useful to interpret?</p>
+<p>Present posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem.</p>
+</section>
+<section id="exercise-2-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-1">Exercise 2</h2>
+</section>
+<section id="exercise-3-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-1">Exercise 3</h2>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>What is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people? Provide posterior mean and standard deviations for both quantities.</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Interpret the posterior mean and standard deviations from <strong>Exercise 4</strong> and compare and contrast them. What do these posterior slopes say about the impact of crime on the relationship between access to recreational facilities and exercise.</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Researchers are interested in the level of crime where the association between recreational facilities and exercise disappears. Present the posterior median and interquartile range (i.e., 25% and 75% percentiles) for this quantity.</p>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Compute the posterior predictive distribution for a patient with 10 recreational facilities within a one-mile radius, 5 crimes within a one-mile buffer per 1,000 people, is 40 years old, married, and white race. Report the posterior mean and 95% credible intervals.</p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Researchers are interested in comparing their original model (i.e., the one from <strong>Exercise 2</strong>) with a model that does not contain an interaction term between recreational facility access and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?</p>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Perform a sensitivity analysis to the choice of prior for <span class="math inline">\((\alpha,\boldsymbol{\beta},\sigma)\)</span>. Make sure to change the family of priors for each parameter. Are your results robust to the choice of prior?</p>
 <div class="render-commit-push">
 <p>You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that <u>all</u> documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.</p>
 </div>
