@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 03: – BIOSTAT 725 - Spring 2025</title>
+<title>HW 03: Going beyond linear regression – BIOSTAT 725 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 03:</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 03: Going beyond linear regression</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -305,19 +305,25 @@ window.Quarto = {
   <ul>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><strong>Getting started</strong></a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#exercises-1-3" id="toc-exercises-1-3" class="nav-link" data-scroll-target="#exercises-1-3">Exercises 1-3</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-2-1" id="toc-exercise-2-1" class="nav-link" data-scroll-target="#exercise-2-1">Exercise 2</a></li>
-  <li><a href="#exercise-3-1" id="toc-exercise-3-1" class="nav-link" data-scroll-target="#exercise-3-1">Exercise 3</a></li>
+  </ul></li>
+  <li><a href="#exercises-4-8" id="toc-exercises-4-8" class="nav-link" data-scroll-target="#exercises-4-8">Exercises 4-8</a>
+  <ul class="collapse">
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  </ul></li>
+  <li><a href="#exercises-9-10" id="toc-exercises-9-10" class="nav-link" data-scroll-target="#exercises-9-10">Exercises 9-10</a>
+  <ul class="collapse">
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
@@ -329,8 +335,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 03:</h1>
-<p class="subtitle lead">Physical activity and access to recreational facilities in Cook County, Chicago</p>
+<h1 class="title">HW 03: Going beyond linear regression</h1>
+<p class="subtitle lead">Hospital length of stay post lung cancer surgery</p>
 </div>
 
 
@@ -380,8 +386,9 @@ Due date
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(loo)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MLMusingR)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="introduction" class="level1">
@@ -407,13 +414,14 @@ Due date
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">54</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hdp <span class="ot">&lt;-</span> hdp[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(hdp), <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+</section>
+<section id="exercises-1-3" class="level1">
+<h1>Exercises 1-3</h1>
 <p>Researchers are interested in the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. They start by visualizing the distribution of BMI and notice that it is a bit right-skewed; and thus they are worried about performing linear regression. Instead they would like to perform median regression.</p>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -424,7 +432,9 @@ Due date
 </div>
 </div>
 </div>
-<p>Setup a multivariable median regression model to estimate the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. Define the random variable <span class="math inline">\(Y_i\)</span> as the BMI in <span class="math inline">\(kg/m^2\)</span> for patient <span class="math inline">\(i\)</span> and the median quantile of <span class="math inline">\(Y_i\)</span> given predictors <span class="math inline">\(\mathbf{x}_i\)</span> as <span class="math inline">\(q({Y_i|\mathbf{x}_i})\)</span>. We will model the median quantile as a linear function of the predictors, <span class="math display">\[q({Y_i|\mathbf{x}_i}) = \alpha + \mathbf{x}_i\boldsymbol{\beta},\]</span> where <span class="math inline">\(\mathbf{x}_i = (male_i, married_i, current\_smoker_i, former\_smoker_i).\)</span> Each of these predictors is just a binary variable.</p>
+<p>Setup a multivariable median regression model to estimate the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. Define the random variable <span class="math inline">\(Y_i\)</span> as the BMI in <span class="math inline">\(kg/m^2\)</span> for patient <span class="math inline">\(i\)</span> and the median quantile of <span class="math inline">\(Y_i\)</span> given predictors <span class="math inline">\(\mathbf{x}_i\)</span> as <span class="math inline">\(q({Y_i|\mathbf{x}_i})\)</span>. We will model the median quantile as a linear function of the predictors, <span class="math display">\[q({Y_i|\mathbf{x}_i}) = \alpha + \mathbf{x}_i\boldsymbol{\beta},\]</span> where <span class="math inline">\(\mathbf{x}_i = (Male_i, Married_i, Current\_Smoker_i, Former\_Smoker_i).\)</span> Each of these predictors is just a binary variable.</p>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>Formulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate <span class="math inline">\((\alpha, \boldsymbol{\beta})\)</span> and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence.</p>
 </section>
 <section id="exercise-2" class="level2">
@@ -435,29 +445,58 @@ Due date
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <p>Present posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem.</p>
 </section>
-<section id="exercise-2-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2-1">Exercise 2</h2>
 </section>
-<section id="exercise-3-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-1">Exercise 3</h2>
-</section>
+<section id="exercises-4-8" class="level1">
+<h1>Exercises 4-8</h1>
+<p>Define a binary outcome variable <span class="math inline">\(Y_i = 1(LengthofStay_i &gt; 5)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>. We are interested in performing logistic regression such that <span class="math inline">\(Y_i \stackrel{ind}{\sim}\text{Bernoulli}(\pi_i)\)</span>, where</p>
+<p><span class="math display">\[\begin{align*}
+\text{logit} (\pi_i) &amp;= \alpha + \beta_1 Age_i + \beta_2 Married_i + \beta_3 Yes\_Family\_History_i\\
+&amp;\hspace{1cm}+ \beta_4 Current\_Smoker_i + \beta_5 Former\_Smoker_i + \beta_6 Male_i\\
+&amp;\hspace{1cm}+ \beta_7 Cancer\_Stage2_i + \beta_8 Cancer\_Stage3_i + \beta_9 Cancer\_Stage4_i\\
+&amp;\hspace{1cm}+ \gamma_1 WBC_i + \gamma_2 RBC_i + \gamma_3 BMI_i + \gamma_4 IL6_i + \gamma_5 CRP_i\\
+&amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \mathbf{z}_i \boldsymbol{\gamma}.
+\end{align*}\]</span></p>
+<p>The population parameters are <span class="math inline">\((\alpha, \boldsymbol{\beta},\boldsymbol{\gamma})\)</span>, where <span class="math inline">\(\boldsymbol{\beta} = (\beta_1, \ldots, \beta_9)\)</span> and <span class="math inline">\(\boldsymbol{\gamma} = (\gamma_1,\ldots,\gamma_5)\)</span>. Use the following priors for the centered intercept and regression parameters, <span class="math inline">\(\alpha \sim N(0, 3^2)\)</span> and <span class="math inline">\(\beta_j \sim N(0, 3^2)\)</span> for <span class="math inline">\(j = 1,\ldots,p\)</span> (<span class="math inline">\(p=9\)</span>). The researchers would like to place a regularized horseshoe prior on each <span class="math inline">\(\gamma_l\)</span>, <span class="math inline">\(l=1,\ldots,q\)</span> (<span class="math inline">\(q = 5\)</span>). Be sure to standardize these predictors prior to assigning a horseshoe prior.</p>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>The regularized horseshoe prior for <span class="math inline">\(\gamma_l\)</span> is given by, <span class="math display">\[\begin{align*}
+\gamma_l | \lambda_l, \tau, c &amp;\sim N\left(0, \tau^2 \tilde{\lambda}_l^2\right),\quad \tilde{\lambda}_l^2 = \frac{c^2 \lambda_l^2}{c^2 + \tau^2 \lambda_l^2},\\
+\lambda_l &amp;\sim \mathcal C^+(0,1),\\
+c^2 &amp;\sim \text{Inv-Gamma}(\nu/2, \nu s^2 / 2),\\
+\tau &amp;\sim \mathcal C^+(0,\tau_0^2).
+\end{align*}\]</span></p>
+<p>Assuming the data has been standardized, <span class="math inline">\(s^2 = 1\)</span>. The researchers specify <span class="math inline">\(\nu = 3\)</span>. All that is left is to choose <span class="math inline">\(\tau_0\)</span>. A useful method for choosing <span class="math inline">\(\tau_0\)</span> is relating it to the a-priori guess of the number of predictors that will be non-zero: <span class="math inline">\(q_0\)</span>, <span class="math inline">\(\tau_0 = \frac{q_0}{q - q_0} \frac{\sigma}{\sqrt{n}}\)</span> (<span class="math inline">\(\sigma = 1\)</span> is assumed for the logistic regression setting). Use this approach to choose <span class="math inline">\(\tau_0\)</span>, remembering that the researchers believe that some of these predictors will be zero. Present a histogram of the effective number of non-zero coefficients under this prior choice for <span class="math inline">\(\tau_0\)</span>.</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Fit the logistic regression model using the <span class="math inline">\(\tau_0\)</span> from <strong>Exercise 4</strong>. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged.</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Visualize the posterior distributions for <span class="math inline">\((\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})\)</span>. <span class="math inline">\(\alpha^*\)</span> is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for <span class="math inline">\(\boldsymbol{\gamma}\)</span>.</p>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Present posterior summaries for <span class="math inline">\((\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})\)</span>. Choose one predictor that is significant and provide an interpretation of the posterior mean.</p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>Visualize the posterior distribution of <span class="math inline">\(\pi_2\)</span> and <span class="math inline">\(\pi_4\)</span>, which are the probability of having a length of stay greater than 5 days for observation <span class="math inline">\(Y_2\)</span> and <span class="math inline">\(Y_4\)</span>, respectively (i.e., the second and fourth rows of the <code>hdp</code> dataset). Compute <span class="math inline">\(P(\pi_4 &gt; \pi_2 | \mathbf{Y})\)</span> and make a statement about which patient is more likely to have a longer length of stay.</p>
 </section>
+</section>
+<section id="exercises-9-10" class="level1">
+<h1>Exercises 9-10</h1>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>Researchers are interested in the association between cancer stage and number of days in the hospital post surgery. Define the outcome <span class="math inline">\(Y_i \in \{3, 4, 5, 6, 7, 8\}\)</span>, with <span class="math inline">\(K=6\)</span>, as the length of stay in days post lung cancer surgery. Note that we removed observations with lengths of stay equal to 2 and 9 due to sample size issues.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>hdp <span class="ot">&lt;-</span> hdp[hdp<span class="sc">$</span>LengthofStay <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> hdp<span class="sc">$</span>LengthofStay <span class="sc">&lt;</span> <span class="dv">9</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We would like to fit a proportional odds logistic regression model, <span class="math display">\[\log \frac{P(Y_i\leq k)}{P(Y_i &gt; k)} = \text{logit}P(Y_i\leq k) = \alpha_k - \mathbf{x}_i \boldsymbol{\beta}, \quad k = 1,\ldots, K-1\]</span> where <span class="math inline">\(\mathbf{x}_i = (Cancer\_Stage2_i, Cancer\_Stage3_i, Cancer\_Stage4_i)\)</span>. Place the following priors: <span class="math inline">\(\alpha_k ~ N(0, 3^2)\)</span> for <span class="math inline">\(k=1,\ldots,K-1\)</span> and <span class="math inline">\(\beta_j \sim N(0, 3^2)\)</span> for <span class="math inline">\(j=1,2,3\)</span>. Be sure that <span class="math inline">\(\alpha_k\)</span> are ordered. Fit this regression model using Stan and provide evidence that the algorithm has converged. Present an appropriate posterior predictive check to demonstrate that the model is a good fit to the observed data.</p>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<p>Interpret the posterior mean and 95% credible interval for the regression parameter corresponding to a patient with stage 4 cancer.</p>
 <div class="render-commit-push">
 <p>You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that <u>all</u> documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.</p>
 </div>
@@ -503,35 +542,39 @@ Warning
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 3</td>
-<td style="text-align: left;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 4</td>
-<td style="text-align: left;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 5</td>
 <td style="text-align: left;">3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Ex 6</td>
+<td style="text-align: left;">Ex 4</td>
 <td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 5</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 6</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 7</td>
-<td style="text-align: left;">6</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 8</td>
-<td style="text-align: left;">7</td>
+<td style="text-align: left;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 9</td>
-<td style="text-align: left;">5</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 10</td>
+<td style="text-align: left;">3</td>
 </tr>
 </tbody>
 </table>

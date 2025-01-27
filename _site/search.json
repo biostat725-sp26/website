@@ -9679,8 +9679,8 @@
     "objectID": "slides/10-robust.html#review-of-last-lecture",
     "href": "slides/10-robust.html#review-of-last-lecture",
     "title": "Robust Regression",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nOn Thursday, we learned about approaches for nonlinear regression."
+    "section": "",
+    "text": "On Thursday, we learned about approaches for nonlinear regression."
   },
   {
     "objectID": "slides/10-robust.html#a-motivating-research-question",
@@ -9925,7 +9925,7 @@
     "href": "slides/10-robust.html#prepare-for-next-class",
     "title": "Robust Regression",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization"
   },
   {
     "objectID": "slides/12-classification.html#review-of-last-lecture",
@@ -11961,16 +11961,16 @@
   {
     "objectID": "hw/hw-03-creation.html",
     "href": "hw/hw-03-creation.html",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "",
     "text": "Due date\n\n\n\nThis assignment is due on Thursday, February 27 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-1",
     "href": "hw/hw-03-creation.html#exercise-1",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nResearchers are interested in the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. They start by visualizing the distribution of BMI and notice that it is a bit right-skewed; and thus they are worried about performing linear regression. Instead they would like to perform median regression.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSetup a multivariable median regression model to estimate the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. Define the random variable \\(Y_i\\) as the BMI in \\(kg/m^2\\) for patient \\(i\\) and the median quantile of \\(Y_i\\) given predictors \\(\\mathbf{x}_i\\) as \\(q({Y_i|\\mathbf{x}_i})\\). We will model the median quantile as a linear function of the predictors, \\[q({Y_i|\\mathbf{x}_i}) = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta},\\] where \\(\\mathbf{x}_i = (male_i, married_i, current\\_smoker_i, former\\_smoker_i).\\) Each of these predictors is just a binary variable.\nFormulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate \\((\\alpha, \\boldsymbol{\\beta})\\) and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence."
+    "text": "Exercise 1\nFormulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate \\((\\alpha, \\boldsymbol{\\beta})\\) and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence."
   },
   {
     "objectID": "hw/hw-03-creation.html#quantile-regression",
@@ -11982,70 +11982,70 @@
   {
     "objectID": "hw/hw-03-creation.html#exercise-2",
     "href": "hw/hw-03-creation.html#exercise-2",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 2",
     "text": "Exercise 2\nPerform a posterior predictive check using the median as a test statistic. Be sure to present a posterior predictive p-value and use it to describe the model fit."
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-3",
     "href": "hw/hw-03-creation.html#exercise-3",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 3",
     "text": "Exercise 3\nPresent posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem."
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-4",
     "href": "hw/hw-03-creation.html#exercise-4",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 4",
-    "text": "Exercise 4"
+    "text": "Exercise 4\nThe regularized horseshoe prior for \\(\\gamma_l\\) is given by, \\[\\begin{align*}\n\\gamma_l | \\lambda_l, \\tau, c &\\sim N\\left(0, \\tau^2 \\tilde{\\lambda}_l^2\\right),\\quad \\tilde{\\lambda}_l^2 = \\frac{c^2 \\lambda_l^2}{c^2 + \\tau^2 \\lambda_l^2},\\\\\n\\lambda_l &\\sim \\mathcal C^+(0,1),\\\\\nc^2 &\\sim \\text{Inv-Gamma}(\\nu/2, \\nu s^2 / 2),\\\\\n\\tau &\\sim \\mathcal C^+(0,\\tau_0^2).\n\\end{align*}\\]\nAssuming the data has been standardized, \\(s^2 = 1\\). The researchers specify \\(\\nu = 3\\). All that is left is to choose \\(\\tau_0\\). A useful method for choosing \\(\\tau_0\\) is relating it to the a-priori guess of the number of predictors that will be non-zero: \\(q_0\\), \\(\\tau_0 = \\frac{q_0}{q - q_0} \\frac{\\sigma}{\\sqrt{n}}\\) (\\(\\sigma = 1\\) is assumed for the logistic regression setting). Use this approach to choose \\(\\tau_0\\), remembering that the researchers believe that some of these predictors will be zero. Present a histogram of the effective number of non-zero coefficients under this prior choice for \\(\\tau_0\\)."
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-5",
     "href": "hw/hw-03-creation.html#exercise-5",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 5",
-    "text": "Exercise 5"
+    "text": "Exercise 5\nFit the logistic regression model using the \\(\\tau_0\\) from Exercise 4. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged."
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-6",
     "href": "hw/hw-03-creation.html#exercise-6",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 6",
-    "text": "Exercise 6"
+    "text": "Exercise 6\nVisualize the posterior distributions for \\((\\alpha^*, \\boldsymbol{\\beta}, \\boldsymbol{\\gamma})\\). \\(\\alpha^*\\) is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for \\(\\boldsymbol{\\gamma}\\)."
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-7",
     "href": "hw/hw-03-creation.html#exercise-7",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 7",
-    "text": "Exercise 7"
+    "text": "Exercise 7\nPresent posterior summaries for \\((\\alpha^*, \\boldsymbol{\\beta}, \\boldsymbol{\\gamma})\\). Choose one predictor that is significant and provide an interpretation of the posterior mean."
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-8",
     "href": "hw/hw-03-creation.html#exercise-8",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 8",
-    "text": "Exercise 8"
+    "text": "Exercise 8\nVisualize the posterior distribution of \\(\\pi_2\\) and \\(\\pi_4\\), which are the probability of having a length of stay greater than 5 days for observation \\(Y_2\\) and \\(Y_4\\), respectively (i.e., the second and fourth rows of the hdp dataset). Compute \\(P(\\pi_4 &gt; \\pi_2 | \\mathbf{Y})\\) and make a statement about which patient is more likely to have a longer length of stay."
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-9",
     "href": "hw/hw-03-creation.html#exercise-9",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 9",
-    "text": "Exercise 9\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
+    "text": "Exercise 9\nResearchers are interested in the association between cancer stage and number of days in the hospital post surgery. Define the outcome \\(Y_i \\in \\{3, 4, 5, 6, 7, 8\\}\\), with \\(K=6\\), as the length of stay in days post lung cancer surgery. Note that we removed observations with lengths of stay equal to 2 and 9 due to sample size issues.\n\nhdp &lt;- hdp[hdp$LengthofStay &gt; 2 & hdp$LengthofStay &lt; 9, ]\n\nWe would like to fit a proportional odds logistic regression model, \\[\\log \\frac{P(Y_i\\leq k)}{P(Y_i &gt; k)} = \\text{logit}P(Y_i\\leq k) = \\alpha_k - \\mathbf{x}_i \\boldsymbol{\\beta}, \\quad k = 1,\\ldots, K-1\\] where \\(\\mathbf{x}_i = (Cancer\\_Stage2_i, Cancer\\_Stage3_i, Cancer\\_Stage4_i)\\). Place the following priors: \\(\\alpha_k ~ N(0, 3^2)\\) for \\(k=1,\\ldots,K-1\\) and \\(\\beta_j \\sim N(0, 3^2)\\) for \\(j=1,2,3\\). Be sure that \\(\\alpha_k\\) are ordered. Fit this regression model using Stan and provide evidence that the algorithm has converged. Present an appropriate posterior predictive check to demonstrate that the model is a good fit to the observed data."
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-2-1",
     "href": "hw/hw-03-creation.html#exercise-2-1",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 2",
     "text": "Exercise 2"
   },
   {
     "objectID": "hw/hw-03-creation.html#exercise-3-1",
     "href": "hw/hw-03-creation.html#exercise-3-1",
-    "title": "HW 03:",
+    "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 3",
     "text": "Exercise 3"
   },
@@ -12055,5 +12055,26 @@
     "title": "Prepare for January 30 lecture",
     "section": "",
     "text": "📖 Read sections 9.1-9.4 of Mark Lai’s course notes for an introduction to model comparison\n📖 Review BDA3 Chapter 7.1-7.3 to learn more about model comparison metrics\n✅ Work on HW 01 which is due Thursday before class"
+  },
+  {
+    "objectID": "slides/10-robust.html",
+    "href": "slides/10-robust.html",
+    "title": "Robust Regression",
+    "section": "",
+    "text": "On Thursday, we learned about approaches for nonlinear regression."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-4-1",
+    "href": "hw/hw-03-creation.html#exercise-4-1",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-10",
+    "href": "hw/hw-03-creation.html#exercise-10",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nInterpret the posterior mean and 95% credible interval for the regression parameter corresponding to a patient with stage 4 cancer.\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
   }
 ]
