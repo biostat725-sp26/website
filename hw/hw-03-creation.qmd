@@ -2,6 +2,7 @@
 title: "HW 03: Going beyond linear regression"
 subtitle: Hospital length of stay post lung cancer surgery 
 bibliography: references.bib
+search: false
 ---
 
 ::: callout-important

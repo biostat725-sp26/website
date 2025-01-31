@@ -136,10 +136,10 @@ stan_model <- stan_model(model_code = stan_code)
 fit <- sampling(stan_model, data = stan_data, refresh = 0)
 saveRDS(fit, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/hw00_fit.rds")
 ```
+
 ```{r, echo = FALSE}
 fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/hw00_fit.rds")
 ```
-
 
 ```{r,message=FALSE, error=FALSE, warning=FALSE, eval = FALSE}
 stan_model <- stan_model(file = "test.stan")
@@ -226,6 +226,10 @@ usethis::use_git_config(
 ```
 
 It may look like nothing happened but you are now ready interact between GitHub and RStudio! We will begin working with RStudio and GitHub in lecture this week.
+
+::: callout-note
+You should be using the email address you used to create your GitHub account, it’s ok if it isn’t your Duke email.
+:::
 
 # Submit GitHub username
 

@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -1583,9 +1583,9 @@
   {
     "objectID": "hw/hw-02.html",
     "href": "hw/hw-02.html",
-    "title": "HW 02",
+    "title": "HW 02: Bayesian linear regression",
     "section": "",
-    "text": "To be posted.",
+    "text": "Due date\n\n\n\nThis assignment is due on Thursday, February 13 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -1605,9 +1605,9 @@
   {
     "objectID": "hw/hw-02.html#exercise-1",
     "href": "hw/hw-02.html#exercise-1",
-    "title": "HW 02: Multiple linear regression",
+    "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nLet \\(Var(\\hat{\\mathbf{y}})\\) be the variance of the fitted (predicted) values of the response variable. Show that \\(Var(\\hat{\\mathbf{y}}) = \\sigma^2_\\epsilon \\mathbf{H}\\).",
+    "text": "Exercise 1\nSetup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Define the random variable \\(Y_i\\) as the exercise in MET minutes per week for women \\(i\\) and assume that \\(Y_i \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\) for \\(i = 1,\\ldots,n\\) where \\[\\begin{align*}\n\\mu_i &= \\alpha + recreation_i \\beta_1 + crime_i \\beta_2+(recreation_i \\times crime_i) \\beta_3\\\\\n&\\quad+ age_i \\beta_4 + black_i \\beta_5 + asian_i \\beta_6 + married_i \\beta_7\\\\\n&= \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\n\\end{align*}\\]\nFit this regression using a Bayesian framework in Stan to estimate \\((\\alpha, \\boldsymbol{\\beta},\\sigma)\\). For all model parameters, choose weakly-informative priors, \\(\\alpha \\sim N(0,100)\\), \\(\\beta_j \\sim N(0,100)\\) for \\(j=1,\\ldots,p\\), and \\(\\sigma \\sim \\text{Half-Normal}(0,100)\\).\nEvaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -1616,9 +1616,9 @@
   {
     "objectID": "hw/hw-02.html#exercise-2",
     "href": "hw/hw-02.html#exercise-2",
-    "title": "HW 02: Multiple linear regression",
+    "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 2",
-    "text": "Exercise 2\nSuppose we fit the model \\(\\mathbf{y} = \\mathbf{X}_1\\boldsymbol{\\beta}_1 + \\boldsymbol{\\epsilon}\\) when the true model is actually given by \\(\\mathbf{y} = \\mathbf{X}_1\\boldsymbol{\\beta}_1 + \\mathbf{X}_2\\boldsymbol{\\beta}_2 + \\boldsymbol{\\epsilon}\\). Assume \\(E(\\boldsymbol{\\epsilon}) = \\mathbf{0}\\) for both models.\n\nFind the expected value of the least-squares estimate \\(\\hat{\\boldsymbol{\\beta}}_1\\).\nUnder what conditions is the estimate \\(\\hat{\\boldsymbol{\\beta}}_1\\) unbiased?",
+    "text": "Exercise 2\nRefit the model in Exercise 1, this time using centered outcome and predictor variables, \\(Y_i^* \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\), where \\(\\mu_i^* = \\alpha + \\mathbf{x}_i^*\\boldsymbol{\\beta}\\). The centered data are defined as, \\(Y_i^* = Y_i - \\overline{Y}\\), where \\(\\overline{Y} = \\frac{1}{n}\\sum_{i=1}^n Y_i\\) and \\(\\mathbf{x}_i^* = \\mathbf{x}_i-\\bar{\\mathbf{x}}\\), where \\(\\bar{\\mathbf{x}} = \\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\). Use the same priors as before. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from Exercise 1. Make an argument for why this model may have improved model fit.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -1649,9 +1649,9 @@
   {
     "objectID": "hw/hw-02.html#exercise-3",
     "href": "hw/hw-02.html#exercise-3",
-    "title": "HW 02: Multiple linear regression",
+    "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\n\nIn this analysis, we dropped observations that have missing values for some of the relevant variables.\n\nWhat is a disadvantage of dropping observations that have missing values, instead of using a method to impute (fill in) the missing data?\nHow might dropping these observations impact the generalizability of conclusions?\n\nFit the regression model and neatly display the results using three digits.",
+    "text": "Exercise 3\nFor the model from Exercise 2, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to recreation in your model? Within the context of the association between access to recreational facilities and exercise, is this main effect parameter useful to interpret?",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -1660,9 +1660,9 @@
   {
     "objectID": "hw/hw-02.html#exercise-4",
     "href": "hw/hw-02.html#exercise-4",
-    "title": "HW 02: Multiple linear regression",
+    "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 4",
-    "text": "Exercise 4\nWe want to understand the relationship between Pieces and Amazon_Price based on this model that also takes into the size of the blocks and number of minifigures.\nYou are convinced from the model output that there is evidence of a linear relationship between the two variables. Now you want to be more specific and test whether the slope is actually different from 0.1 ($10 increase in the price for every 100 additional pieces).\n\nWrite the null and alternative hypotheses for this test in using words and mathematical notation.\nCalculate the test statistic for this test. You may use any relevant output from the model in the previous exercise.\nWhat is the distribution of the test statistic under the null hypothesis for this problem?\nCalculate the p-value and state your conclusion in the context of the data using a threshold of \\(\\alpha = 0.05\\).\nCalculate the 95% confidence interval. Is the confidence interval consistent with your conclusion from the hypothesis test? Briefly explain.",
+    "text": "Exercise 4\nWhat is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people? Provide posterior mean and standard deviations for both quantities.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -1671,9 +1671,9 @@
   {
     "objectID": "hw/hw-02.html#exercise-5",
     "href": "hw/hw-02.html#exercise-5",
-    "title": "HW 02: Multiple linear regression",
+    "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 5",
-    "text": "Exercise 5\nInstead of using the number of minifigures in the model, you decide to create an indicator variable for whether or not there are any minifigures in the set.\n\nCreate an indicator variable that takes the value “No” if there are zero minifigures in the LEGO® set, and “Yes” if there is at least one minifigure.\nYou hypothesize that the relationship between the price and number of pieces may differ based on whether or not there are minifigures in the set.\nMake a plot to visualize this potential effect. Does the relationship between price and number of pieces seem to differ based on the inclusion of minifigures? Briefly explain.\nFit a model using the number pieces, size of the blocks, the indicator for minifigures, and the interaction between pieces and the presence of minifigures to predict the price on Amazon.com.\nBased on this model, is there evidence that the effect of pieces on the price differs based on the inclusion of minifigures? Briefly explain your response, referencing any statistics used to make your determination.",
+    "text": "Exercise 5\nInterpret the posterior mean and standard deviations from Exercise 4 and compare and contrast them. What do these posterior slopes say about the impact of crime on the relationship between access to recreational facilities and exercise.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -1693,9 +1693,9 @@
   {
     "objectID": "hw/hw-02.html#exercise-6",
     "href": "hw/hw-02.html#exercise-6",
-    "title": "HW 02: Multiple linear regression",
+    "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 6",
-    "text": "Exercise 6\nYou fit a model using sanitation access, education expenditures, and life expectancy to understand variability in GDP. The model takes the form\n\\[\n\\begin{aligned}\\widehat{\\log(GDP)} = \\hat{\\beta}_0 &+ \\hat{\\beta}_1 ~ sanit.access.factor + \\hat{\\beta}_2 ~ edu.expend + \\hat{\\beta}_3 ~life.expect \\\\ &+ \\hat{\\beta}_4 ~ sanit.access.factor \\times life.expect\\end{aligned}\n\\]\nwhere \\(\\log(GDP)\\) is the natural log of gdp.per.capita.\nThe F output for this model is shown below.\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n4.491\n1.638\n2.742\n0.007\n\n\nsanit.access.factorhigh\n-6.993\n1.971\n-3.548\n0.001\n\n\nedu.expend\n0.097\n0.038\n2.550\n0.012\n\n\nlife.expect\n0.030\n0.029\n1.061\n0.291\n\n\nsanit.access.factorhigh:life.expect\n0.122\n0.032\n3.853\n0.000\n\n\n\n\n\n\nInterpret the coefficient of edu.expend in the context of the data. You can interpret the coefficient in terms of \\(log(GDP)\\) .\nInterpret the coefficient of sanit.access.factorhigh in the context of the data.You can interpret the coefficient in terms of \\(log(GDP)\\) .",
+    "text": "Exercise 6\nResearchers are interested in the level of crime where the association between recreational facilities and exercise disappears. Present the posterior median and interquartile range (i.e., 25% and 75% percentiles) for this quantity.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -1704,9 +1704,9 @@
   {
     "objectID": "hw/hw-02.html#exercise-7",
     "href": "hw/hw-02.html#exercise-7",
-    "title": "HW 02: Multiple linear regression",
+    "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 7",
-    "text": "Exercise 7\n\nWrite the estimated regression equation for countries with high sanitation access.\nInterpret the effect of life.expect for countries with high sanitation access in the context of the data. You can interpret the coefficient in terms of \\(log(GDP)\\) .",
+    "text": "Exercise 7\nCompute the posterior predictive distribution for a patient with 10 recreational facilities within a one-mile radius, 5 crimes within a one-mile buffer per 1,000 people, is 40 years old, married, and white race. Report the posterior mean and 95% credible intervals.",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -1715,9 +1715,9 @@
   {
     "objectID": "hw/hw-02.html#exercise-8",
     "href": "hw/hw-02.html#exercise-8",
-    "title": "HW 02: Multiple linear regression",
+    "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 8",
-    "text": "Exercise 8\nBelow are plots from the exploratory data analysis of the relationships between the predictor variables. Based on these plots, what appears to be a potential issue with the model from Exercise 6? Briefly explain your response.",
+    "text": "Exercise 8\nResearchers are interested in comparing their original model (i.e., the one from Exercise 2) with a model that does not contain an interaction term between recreational facility access and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?",
     "crumbs": [
       "Homework",
       "HW 02"
@@ -4153,7 +4153,7 @@
     "href": "hw/hw-00.html#connect-rstudio-and-github",
     "title": "HW 00",
     "section": "Connect RStudio and GitHub",
-    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. Below are an outline of the authentication steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system. So, if you are using both your laptop and the container, you will need to do this process twice.\n\n\n\nStep 0: Open your RStudio (either the STA725 RStudio container or your laptop).\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used (e.g., biostat725).\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"berchuck\",\n  user.email = \"sib2@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio! We will begin working with RStudio and GitHub in lecture this week.",
+    "text": "Connect RStudio and GitHub\nNow that you have RStudio and a GitHub account, we will configure git so that RStudio and GitHub communicate with one another.\n\nSet up your SSH Key\nYou will authenticate GitHub using SSH. Below are an outline of the authentication steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system. So, if you are using both your laptop and the container, you will need to do this process twice.\n\n\n\nStep 0: Open your RStudio (either the STA725 RStudio container or your laptop).\nStep 1: Type credentials::ssh_setup_github() into the console on the bottom left of the RStudio environment.\nStep 2: R will ask “No SSH key found. Generate one now?” Click 1 for yes.\nStep 3: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” Click 1 for yes.\nStep 4: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, paste the key in and give it a name. You might name it in a way that indicates where the key will be used (e.g., biostat725).\n\n\n\nConfigure git\nThe last thing we need to do is configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\")\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"berchuck\",\n  user.email = \"sib2@duke.edu\")\n\nIt may look like nothing happened but you are now ready interact between GitHub and RStudio! We will begin working with RStudio and GitHub in lecture this week.\n\n\n\n\n\n\nNote\n\n\n\nYou should be using the email address you used to create your GitHub account, it’s ok if it isn’t your Duke email.",
     "crumbs": [
       "Homework",
       "HW 00"
@@ -9679,8 +9679,8 @@
     "objectID": "slides/10-robust.html#review-of-last-lecture",
     "href": "slides/10-robust.html#review-of-last-lecture",
     "title": "Robust Regression",
-    "section": "",
-    "text": "On Thursday, we learned about approaches for nonlinear regression."
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nOn Thursday, we learned about approaches for nonlinear regression."
   },
   {
     "objectID": "slides/10-robust.html#a-motivating-research-question",
@@ -9925,7 +9925,7 @@
     "href": "slides/10-robust.html#prepare-for-next-class",
     "title": "Robust Regression",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization"
+    "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/12-classification.html#review-of-last-lecture",
@@ -10470,8 +10470,8 @@
     "objectID": "slides/11-regularization.html#review-of-last-lecture",
     "href": "slides/11-regularization.html#review-of-last-lecture",
     "title": "Regularization",
-    "section": "",
-    "text": "On Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nQuantile regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nOn Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nQuantile regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
   },
   {
     "objectID": "slides/11-regularization.html#sparsity-in-regression-problems",
@@ -10632,7 +10632,7 @@
     "href": "slides/11-regularization.html#prepare-for-next-class",
     "title": "Regularization",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWe are going to jump into an AE on body fat, but first some reminders.\nWork on HW 03, which was just assigned.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Classification"
+    "text": "Prepare for next class\n\nWe are going to jump into an AE on body fat, but first some reminders.\nWork on HW 03, which was just assigned.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Classification\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/13-multiclass.html#review-of-last-lecture",
@@ -11959,97 +11959,6 @@
     "text": "Model for the imputed datasets\n\n// bayesian-mi.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[n] Y_centered;\n  real Y_bar;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n}\nparameters {\n  real alpha_centered;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y_centered | alpha_centered + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_centered | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}\ngenerated quantities {\n  real alpha;\n  alpha = Y_bar + alpha_centered - X_bar * beta;\n}"
   },
   {
-    "objectID": "hw/hw-03-creation.html",
-    "href": "hw/hw-03-creation.html",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "",
-    "text": "Due date\n\n\n\nThis assignment is due on Thursday, February 27 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-1",
-    "href": "hw/hw-03-creation.html#exercise-1",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nFormulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate \\((\\alpha, \\boldsymbol{\\beta})\\) and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence."
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#quantile-regression",
-    "href": "hw/hw-03-creation.html#quantile-regression",
-    "title": "HW 03:",
-    "section": "Quantile regression",
-    "text": "Quantile regression"
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-2",
-    "href": "hw/hw-03-creation.html#exercise-2",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nPerform a posterior predictive check using the median as a test statistic. Be sure to present a posterior predictive p-value and use it to describe the model fit."
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-3",
-    "href": "hw/hw-03-creation.html#exercise-3",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nPresent posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem."
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-4",
-    "href": "hw/hw-03-creation.html#exercise-4",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nThe regularized horseshoe prior for \\(\\gamma_l\\) is given by, \\[\\begin{align*}\n\\gamma_l | \\lambda_l, \\tau, c &\\sim N\\left(0, \\tau^2 \\tilde{\\lambda}_l^2\\right),\\quad \\tilde{\\lambda}_l^2 = \\frac{c^2 \\lambda_l^2}{c^2 + \\tau^2 \\lambda_l^2},\\\\\n\\lambda_l &\\sim \\mathcal C^+(0,1),\\\\\nc^2 &\\sim \\text{Inv-Gamma}(\\nu/2, \\nu s^2 / 2),\\\\\n\\tau &\\sim \\mathcal C^+(0,\\tau_0^2).\n\\end{align*}\\]\nAssuming the data has been standardized, \\(s^2 = 1\\). The researchers specify \\(\\nu = 3\\). All that is left is to choose \\(\\tau_0\\). A useful method for choosing \\(\\tau_0\\) is relating it to the a-priori guess of the number of predictors that will be non-zero: \\(q_0\\), \\(\\tau_0 = \\frac{q_0}{q - q_0} \\frac{\\sigma}{\\sqrt{n}}\\) (\\(\\sigma = 1\\) is assumed for the logistic regression setting). Use this approach to choose \\(\\tau_0\\), remembering that the researchers believe that some of these predictors will be zero. Present a histogram of the effective number of non-zero coefficients under this prior choice for \\(\\tau_0\\)."
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-5",
-    "href": "hw/hw-03-creation.html#exercise-5",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nFit the logistic regression model using the \\(\\tau_0\\) from Exercise 4. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged."
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-6",
-    "href": "hw/hw-03-creation.html#exercise-6",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nVisualize the posterior distributions for \\((\\alpha^*, \\boldsymbol{\\beta}, \\boldsymbol{\\gamma})\\). \\(\\alpha^*\\) is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for \\(\\boldsymbol{\\gamma}\\)."
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-7",
-    "href": "hw/hw-03-creation.html#exercise-7",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nPresent posterior summaries for \\((\\alpha^*, \\boldsymbol{\\beta}, \\boldsymbol{\\gamma})\\). Choose one predictor that is significant and provide an interpretation of the posterior mean."
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-8",
-    "href": "hw/hw-03-creation.html#exercise-8",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 8",
-    "text": "Exercise 8\nVisualize the posterior distribution of \\(\\pi_2\\) and \\(\\pi_4\\), which are the probability of having a length of stay greater than 5 days for observation \\(Y_2\\) and \\(Y_4\\), respectively (i.e., the second and fourth rows of the hdp dataset). Compute \\(P(\\pi_4 &gt; \\pi_2 | \\mathbf{Y})\\) and make a statement about which patient is more likely to have a longer length of stay."
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-9",
-    "href": "hw/hw-03-creation.html#exercise-9",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 9",
-    "text": "Exercise 9\nResearchers are interested in the association between cancer stage and number of days in the hospital post surgery. Define the outcome \\(Y_i \\in \\{3, 4, 5, 6, 7, 8\\}\\), with \\(K=6\\), as the length of stay in days post lung cancer surgery. Note that we removed observations with lengths of stay equal to 2 and 9 due to sample size issues.\n\nhdp &lt;- hdp[hdp$LengthofStay &gt; 2 & hdp$LengthofStay &lt; 9, ]\n\nWe would like to fit a proportional odds logistic regression model, \\[\\log \\frac{P(Y_i\\leq k)}{P(Y_i &gt; k)} = \\text{logit}P(Y_i\\leq k) = \\alpha_k - \\mathbf{x}_i \\boldsymbol{\\beta}, \\quad k = 1,\\ldots, K-1\\] where \\(\\mathbf{x}_i = (Cancer\\_Stage2_i, Cancer\\_Stage3_i, Cancer\\_Stage4_i)\\). Place the following priors: \\(\\alpha_k ~ N(0, 3^2)\\) for \\(k=1,\\ldots,K-1\\) and \\(\\beta_j \\sim N(0, 3^2)\\) for \\(j=1,2,3\\). Be sure that \\(\\alpha_k\\) are ordered. Fit this regression model using Stan and provide evidence that the algorithm has converged. Present an appropriate posterior predictive check to demonstrate that the model is a good fit to the observed data."
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-2-1",
-    "href": "hw/hw-03-creation.html#exercise-2-1",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 2",
-    "text": "Exercise 2"
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-3-1",
-    "href": "hw/hw-03-creation.html#exercise-3-1",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 3",
-    "text": "Exercise 3"
-  },
-  {
     "objectID": "prepare/prepare-jan30.html",
     "href": "prepare/prepare-jan30.html",
     "title": "Prepare for January 30 lecture",
@@ -12064,20 +11973,6 @@
     "text": "On Thursday, we learned about approaches for nonlinear regression."
   },
   {
-    "objectID": "hw/hw-03-creation.html#exercise-4-1",
-    "href": "hw/hw-03-creation.html#exercise-4-1",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 4",
-    "text": "Exercise 4"
-  },
-  {
-    "objectID": "hw/hw-03-creation.html#exercise-10",
-    "href": "hw/hw-03-creation.html#exercise-10",
-    "title": "HW 03: Going beyond linear regression",
-    "section": "Exercise 10",
-    "text": "Exercise 10\nInterpret the posterior mean and 95% credible interval for the regression parameter corresponding to a patient with stage 4 cancer.\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 3!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
-  },
-  {
     "objectID": "slides/11-regularization.html",
     "href": "slides/11-regularization.html",
     "title": "Regularization",
@@ -12090,5 +11985,16 @@
     "title": "Multiclass Classification",
     "section": "",
     "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-9",
+    "href": "hw/hw-02.html#exercise-9",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nPerform a sensitivity analysis to the choice of prior for \\((\\alpha,\\boldsymbol{\\beta},\\sigma)\\). Make sure to change the family of priors for each parameter. Are your results robust to the choice of prior?\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   }
 ]
