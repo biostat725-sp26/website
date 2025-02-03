@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -8091,7 +8091,7 @@
     "href": "slides/08-workflow.html#a-simplified-workflow",
     "title": "Bayesian Workflow",
     "section": "A simplified workflow",
-    "text": "A simplified workflow\n\nSetting up a full probability model: a joint probability distribution for all observable and unobservable quantities in a problem. The model should be consistent with knowledge about the underlying scientific problem and the data collection process.\nConditioning on observed data: calculating and interpreting the appropriate posterior distribution — the conditional probability distribution of the unobserved quantities of ultimate interest, given the observed data.\nEvaluating the fit of the model and the implications of the resulting posterior distribution: how well does the model fit the data, are the substantive conclusions reasonable, and how sensitive are the results to the modeling assumptions in step 1? In response, one can alter or expand the model and repeat the three steps.\n\n\nFrom BDA3."
+    "text": "A simplified workflow\n\nSetting up a full probability model: a joint probability distribution for all observable and unobservable quantities in a problem. The model should be consistent with knowledge about the underlying scientific problem and the data collection process.\nConditioning on observed data: calculating and interpreting the appropriate posterior distribution — the conditional probability distribution of the unobserved quantities of ultimate interest, given the observed data.\nEvaluating the fit of the model and the implications of the resulting posterior distribution: how well does the model fit the data, are the substantive conclusions reasonable, and how sensitive are the results to the modeling assumptions in step 1? In response, one can alter or expand the model and repeat the three steps.\n\nFrom BDA3."
   },
   {
     "objectID": "slides/08-workflow.html#bayesian-workflow-2",
@@ -8147,42 +8147,42 @@
     "href": "slides/08-workflow.html#specify-likelihood-priors",
     "title": "Bayesian Workflow",
     "section": "2. Specify likelihood & priors:",
-    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\n\n\\[weight_i = \\alpha + \\beta \\times height_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\ndata {\n  int&lt;lower = 1&gt; n;\n  vector[n] height;\n  vector[n] weight;\n}"
+    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\nDefine, \\(Y_i\\) as the weight of observation \\(i\\) and \\(\\mathbf{x}_i\\) as a vector of covariates (here only height).\n\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates (excluding intercept)\n  vector[n] Y;      // outcome variable\n  matrix[n, p] X;   // covariate matrix\n}"
   },
   {
     "objectID": "slides/08-workflow.html#specify-likelihood-priors-1",
     "href": "slides/08-workflow.html#specify-likelihood-priors-1",
     "title": "Bayesian Workflow",
     "section": "2. Specify likelihood & priors:",
-    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\n\n\\[weight_i = \\alpha + \\beta \\times height_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\nparameter {\n  real alpha;\n  real beta;\n  real&lt;lower = 0&gt; sigma;\n}"
+    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\n\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\nparameter {\n  real alpha;            // intercept on the original scale\n  real beta;             // regression parameters\n  real&lt;lower = 0&gt; sigma; // measurement error\n}"
   },
   {
     "objectID": "slides/08-workflow.html#specify-likelihood-priors-2",
     "href": "slides/08-workflow.html#specify-likelihood-priors-2",
     "title": "Bayesian Workflow",
     "section": "2. Specify likelihood & priors:",
-    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\n\n\\[weight_i = \\alpha + \\beta \\times height_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\nmodel {\n  target += normal_lpdf(weight | alpha + beta * height, sigma);\n}"
+    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\n\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, sigma);\n}"
   },
   {
     "objectID": "slides/08-workflow.html#specify-likelihood-priors-3",
     "href": "slides/08-workflow.html#specify-likelihood-priors-3",
     "title": "Bayesian Workflow",
     "section": "2. Specify likelihood & priors:",
-    "text": "2. Specify likelihood & priors:\n\\[weight_i = \\alpha + \\beta \\times height_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha\\) is the intercept, or average weight for someone who is zero inches (not a particularly useful number on its own)\n\\(\\beta\\) measures the association between weight and height, in pounds/inch\n\\(\\sigma\\) is the measurement error for the population\n\n\nmodel {\n  target += normal_lpdf(weight | alpha + beta * height, sigma);\n  target += normal_lpdf(alpha | 0, 100);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 5);\n}"
+    "text": "2. Specify likelihood & priors:\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha\\) is the intercept, or average weight for someone who is zero inches (not a particularly useful number on its own)\n\\(\\beta\\) measures the association between weight and height, in pounds/inch\n\\(\\sigma\\) is the measurement error for the population\n\n\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, sigma);\n  target += normal_lpdf(alpha | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}"
   },
   {
     "objectID": "slides/08-workflow.html#specify-likelihood-priors-4",
     "href": "slides/08-workflow.html#specify-likelihood-priors-4",
     "title": "Bayesian Workflow",
     "section": "2. Specify likelihood & priors:",
-    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[weight_i] = \\alpha + \\beta \\times (height_i - \\bar{x)},\\quad\\bar{x}=\\frac{1}{n}\\sum_{i=1}^n height_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha\\) is the intercept, or average weight for someone who is an average height\n\n\nmodel {\n  target += normal_lpdf(weight | alpha + beta * height_c, sigma);\n  target += normal_lpdf(alpha | 150, 5);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 5);\n}"
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i] = \\alpha^+ + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{\\mathbf{x}}=\\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^+\\) is the intercept, or average weight for someone who is an average height\n\n\ntransformed data {\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n}"
   },
   {
     "objectID": "slides/08-workflow.html#quick-aside",
     "href": "slides/08-workflow.html#quick-aside",
     "title": "Bayesian Workflow",
     "section": "Quick aside",
-    "text": "Quick aside\nWhat does it mean to use the prior sigma ~ normal(0, 5)?\n\nWhen a parameter is truncated, for example real&lt;lower = 0&gt; sigma, priors can still be placed across the real line, \\(\\mathbb{R}\\).\n\n\nparameters {\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(sigma | 0, 5);\n}\n\n\nThis specification induces a prior on the truncated space \\(\\mathbb{R}^+\\).\nThe induced prior for sigma is a half-normal distribution."
+    "text": "Quick aside\nWhat does it mean to use the prior sigma ~ normal(0, 5)?\n\nWhen a parameter is truncated, for example real&lt;lower = 0&gt; sigma, priors can still be placed across the real line, \\(\\mathbb{R}\\).\n\n\nparameters {\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(sigma | 0, 10);\n}\n\n\nThis specification induces a prior on the truncated space \\(\\mathbb{R}^+\\).\nThe induced prior for sigma is a half-normal distribution."
   },
   {
     "objectID": "slides/08-workflow.html#quick-aside-1",
@@ -8196,42 +8196,42 @@
     "href": "slides/08-workflow.html#check-the-model-with-simulated-data",
     "title": "Bayesian Workflow",
     "section": "3. Check the model with simulated data:",
-    "text": "3. Check the model with simulated data:\n\nDraw parameter values from priors.\nGenerate data based on those parameter values.\nFit model to generated data.\nCheck fit is reasonable.\n\n\ndata {\n  int&lt;lower=0&gt; n;\n  vector[n] height_c;\n}\ngenerated quantities {\n  vector[n] weight;\n  real alpha = normal_rng(150, 5);\n  real beta = normal_rng(0, 10);\n  real sigma = fabs(normal_rng(0, 5));\n  for (i in 1:n) {\n    weight[i] = normal_rng(alpha + beta * height_c[i], sigma);\n  }\n}\n\n\nNeed algorithm = \"Fixed_param\"."
+    "text": "3. Check the model with simulated data:\n\nDraw parameter values from priors.\nGenerate data based on those parameter values.\nCheck simulated data summaries and compare to observed data."
   },
   {
     "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-1",
     "href": "slides/08-workflow.html#check-the-model-with-simulated-data-1",
     "title": "Bayesian Workflow",
     "section": "3. Check the model with simulated data:",
-    "text": "3. Check the model with simulated data:"
+    "text": "3. Check the model with simulated data:\n\n// stored in workflow_prior_pred_check.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  real Y_bar;\n  matrix[n, p] X;\n  real&lt;lower = 0&gt; sigma_alpha;\n  real&lt;lower = 0&gt; sigma_beta;\n  real&lt;lower = 0&gt; sigma_sigma;\n}\ntransformed data {\n  row_vector[p] X_bar;\n  for (i in 1:p) X_bar[i] = mean(X[, i]);\n}\ngenerated quantities {\n  // Sample from the priors\n  real alpha_star = normal_rng(0, sigma_alpha);\n  real alpha_plus = alpha_star + Y_bar;\n  real alpha = alpha_plus - X_bar * beta;\n  vector[p] beta;\n  for (i in 1:p) beta[i] = normal_rng(0, sigma_beta);\n  real sigma = fabs(normal_rng(0, sigma_sigma));\n  // Simulate data from the prior\n  vector[n] Y;\n  for (i in 1:n) {\n    Y[i] = normal_rng(alpha + X[i, ] * beta, sigma);\n  }\n  // Compute summaries from the prior\n  real Y_min = min(Y);\n  real Y_max = max(Y);\n  real Y_mean = mean(Y);\n}"
   },
   {
     "objectID": "slides/08-workflow.html#fit-the-model-to-real-data",
     "href": "slides/08-workflow.html#fit-the-model-to-real-data",
     "title": "Bayesian Workflow",
     "section": "4. Fit the model to real data:",
-    "text": "4. Fit the model to real data:\n\n// saved in linear_regression_workflow.stan\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  vector[n] weight; // outcome vector\n  vector[n] height_c; // covariate vector\n  int&lt;lower = 1&gt; n_pred; // number of new observations\n  vector[n_pred] height_c_pred; // vector for new observations\n}\nparameters {\n  real alpha;\n  real beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(weight | alpha + height_c * beta, sigma); // likelihood\n  target += normal_lpdf(alpha | 150, 5);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 5);\n}\ngenerated quantities {\n  vector[n] in_sample;\n  vector[n_pred] out_sample;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    in_sample[i] = normal_rng(alpha + height_c[i] * beta, sigma);\n    log_lik[i] = normal_lpdf(weight[i] | alpha + height_c[i] * beta, sigma);\n  }\n  for (i in 1:n_pred) {\n    out_sample[i] = normal_rng(alpha + height_c_pred[i] * beta, sigma);\n  }\n}"
+    "text": "4. Fit the model to real data:\n\n// saved in linear_regression_workflow.stan\ndata {\n  int&lt;lower = 1&gt; n;        // number of observations\n  int&lt;lower = 1&gt; p;        // number of covariates (excluding intercept)\n  vector[n] Y;             // outcome vector\n  matrix[n, p] X;          // covariate matrix\n  int&lt;lower = 1&gt; n_pred;   // number of new observations to predict\n  matrix[n_pred, p] X_new; // covariate matrix for new observations\n}\ntransformed data {\n  vector[n] Y_centered;\n  real Y_bar;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n}\nparameters {\n  real alpha_star;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y_centered | alpha_star + X_centered * beta, sigma); // likelihood\n  target += normal_lpdf(alpha_star | 0, 10);\n  target += normal_lpdf(beta | 0, 5);\n  target += normal_lpdf(sigma | 0, 4);\n}\ngenerated quantities {\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  vector[n_pred] Y_new;\n  real alpha = Y_bar + alpha_star - X_bar * beta;\n  for (i in 1:n) {\n    Y_pred[i] = normal_rng(alpha + X[i, ] * beta, sigma);\n    log_lik[i] = normal_lpdf(Y_centered[i] | alpha_star + X_centered[i, ] * beta, sigma);\n  }\n  for (i in 1:n_pred) Y_new[i] = normal_rng(alpha + X_new[i, ] * beta, sigma);\n}"
   },
   {
     "objectID": "slides/08-workflow.html#fit-the-model-to-real-data-1",
     "href": "slides/08-workflow.html#fit-the-model-to-real-data-1",
     "title": "Bayesian Workflow",
     "section": "4. Fit the model to real data:",
-    "text": "4. Fit the model to real data:\n\nstan_data &lt;- list(n = nrow(dat), \n                  height_c = (dat$height - mean(dat$height)), \n                  weight = dat$weight)\nregression_model &lt;- stan_model(file = \"linear_regression_workflow.stan\")\nfit &lt;- sampling(regression_model, data = stan_data)\nprint(fit)\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n        mean se_mean   sd   2.5%    50%  97.5% n_eff Rhat\nalpha 152.35    0.01 0.88 150.63 152.35 154.08  3773    1\nbeta    5.69    0.00 0.25   5.21   5.69   6.18  4215    1\nsigma  20.25    0.01 0.60  19.13  20.23  21.50  3571    1\n\nSamples were drawn using NUTS(diag_e) at Wed Nov 27 14:08:19 2024.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+    "text": "4. Fit the model to real data:\n\n###Compile model\nregression_model &lt;- stan_model(file = \"linear_regression_workflow.stan\")\n\n###Create data\nY &lt;- dat$weight\nX &lt;- matrix(dat$height)\nn_new &lt;- 1000\nX_new &lt;- matrix(seq(min(dat$height), max(dat$height), length.out = n_new))\nstan_data &lt;- list(\n  n = nrow(dat), \n  p = ncol(X),\n  Y = Y,\n  X = X,\n  n_new = n_new,\n  X_new = X_new\n)"
   },
   {
     "objectID": "slides/08-workflow.html#check-diagnostics",
     "href": "slides/08-workflow.html#check-diagnostics",
     "title": "Bayesian Workflow",
     "section": "5. Check diagnostics:",
-    "text": "5. Check diagnostics:\n\nrstan::traceplot(fit, pars = c(\"alpha\", \"beta\", \"sigma\"))"
+    "text": "5. Check diagnostics:\n\nrstan::traceplot(fit_workflow, pars = c(\"alpha\", \"beta\", \"sigma\"))"
   },
   {
     "objectID": "slides/08-workflow.html#check-diagnostics-1",
     "href": "slides/08-workflow.html#check-diagnostics-1",
     "title": "Bayesian Workflow",
     "section": "5. Check diagnostics:",
-    "text": "5. Check diagnostics:\n\nlibrary(bayesplot)\nmcmc_acf(fit, regex_pars = c(\"alpha\", \"beta\", \"sigma\"))"
+    "text": "5. Check diagnostics:\n\nlibrary(bayesplot)\nmcmc_acf(fit_workflow, regex_pars = c(\"alpha\", \"beta\", \"sigma\"))"
   },
   {
     "objectID": "slides/08-workflow.html#examine-posterior-fit",
@@ -8245,35 +8245,35 @@
     "href": "slides/08-workflow.html#examine-posterior-fit-1",
     "title": "Bayesian Workflow",
     "section": "6. Examine posterior fit:",
-    "text": "6. Examine posterior fit:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegression line corresponds to posterior mean and 95% credible interval for \\(\\mu = \\alpha + \\beta \\times height_i\\)."
+    "text": "6. Examine posterior fit:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegression line corresponds to posterior mean and 95% credible interval for \\(\\mu = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta}\\)."
   },
   {
     "objectID": "slides/08-workflow.html#check-predictions",
     "href": "slides/08-workflow.html#check-predictions",
     "title": "Bayesian Workflow",
     "section": "7.Check predictions:",
-    "text": "7.Check predictions:\ny_pred &lt;- rstan::extract(fit, pars = \"in_sample\")$in_sample\nppc_dens_overlay(dat$weight, y_pred[1:100, ])"
+    "text": "7.Check predictions:\nY_pred &lt;- rstan::extract(fit_workflow, pars = \"Y_pred\")$Y_pred\nppc_dens_overlay(Y, Y_pred[1:100, ])"
   },
   {
     "objectID": "slides/08-workflow.html#check-predictions-1",
     "href": "slides/08-workflow.html#check-predictions-1",
     "title": "Bayesian Workflow",
     "section": "7. Check predictions:",
-    "text": "7. Check predictions:\nppc_stat(dat$weight, y_pred, stat = \"mean\") # from bayesplot\nppc_stat(dat$weight, y_pred, stat = \"sd\")\nq025 &lt;- function(y) quantile(y, 0.025)\nq975 &lt;- function(y) quantile(y, 0.975)\nppc_stat(dat$weight, y_pred, stat = \"q025\")\nppc_stat(dat$weight, y_pred, stat = \"q975\")"
+    "text": "7. Check predictions:\nppc_stat(Y, Y_pred, stat = \"mean\") # from bayesplot\nppc_stat(Y, Y_pred, stat = \"sd\")\nq025 &lt;- function(y) quantile(y, 0.025)\nq975 &lt;- function(y) quantile(y, 0.975)\nppc_stat(Y, Y_pred, stat = \"q025\")\nppc_stat(Y, Y_pred, stat = \"q975\")"
   },
   {
     "objectID": "slides/08-workflow.html#check-predictions-2",
     "href": "slides/08-workflow.html#check-predictions-2",
     "title": "Bayesian Workflow",
     "section": "7. Check predictions:",
-    "text": "7. Check predictions:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegression line corresponds to posterior predictive distribution mean and 95% credible interval, \\(f(weight_{i'} | weight_{1:n})\\)."
+    "text": "7. Check predictions:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegression line corresponds to posterior predictive distribution mean and 95% credible interval, \\(f(Y_{i'} | Y_1,\\ldots,Y_n)\\)."
   },
   {
     "objectID": "slides/08-workflow.html#shinystan",
     "href": "slides/08-workflow.html#shinystan",
     "title": "Bayesian Workflow",
     "section": "shinystan",
-    "text": "shinystan\n\nlibrary(shinystan)\ny &lt;- dat$weight # need to define outcome as a global variable to be accessible\nsso &lt;- shinystan::launch_shinystan(fit)"
+    "text": "shinystan\n\nlibrary(shinystan)\nY &lt;- dat$weight # need to define outcome as a global variable to be accessible\nsso &lt;- shinystan::launch_shinystan(fit_workflow)"
   },
   {
     "objectID": "slides/08-workflow.html#compare-models",
@@ -8385,7 +8385,7 @@
     "href": "slides/08-workflow.html#compare-models-1",
     "title": "Bayesian Workflow",
     "section": "8. Compare models",
-    "text": "8. Compare models\n\n###Compute individual WAIC\nlibrary(loo)\nlog_lik_model1 &lt;- loo::extract_log_lik(fit_model1, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_model2 &lt;- loo::extract_log_lik(fit_model2, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_model3 &lt;- loo::extract_log_lik(fit_model3, parameter_name = \"log_lik\", merge_chains = TRUE)\nwaic_model1 &lt;- loo::waic(log_lik_model1)\nwaic_model2 &lt;- loo::waic(log_lik_model2)\nwaic_model3 &lt;- loo::waic(log_lik_model3)\n\n###Make a comparison\ncomp_waic &lt;- loo::loo_compare(list(\"height_only\" = waic_model1, \"height_sex\" = waic_model2, \"interaction\" = waic_model3))\nprint(comp_waic, digits = 2, simplify = FALSE)\n\n            elpd_diff se_diff  elpd_waic se_elpd_waic p_waic   se_p_waic\nheight_sex      0.00      0.00 -2229.19     23.36         4.84     0.88 \ninteraction    -0.82      2.41 -2230.02     23.44         5.70     0.97 \nheight_only   -25.33      5.80 -2254.52     21.32         3.54     0.62 \n            waic     se_waic \nheight_sex   4458.39    46.73\ninteraction  4460.04    46.88\nheight_only  4509.04    42.64"
+    "text": "8. Compare models\n\n###Compute individual WAIC\nlibrary(loo)\nlog_lik_model1 &lt;- loo::extract_log_lik(fit_model1, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_model2 &lt;- loo::extract_log_lik(fit_model2, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_model3 &lt;- loo::extract_log_lik(fit_model3, parameter_name = \"log_lik\", merge_chains = TRUE)\nwaic_model1 &lt;- loo::waic(log_lik_model1)\nwaic_model2 &lt;- loo::waic(log_lik_model2)\nwaic_model3 &lt;- loo::waic(log_lik_model3)\n\n###Make a comparison\ncomp_waic &lt;- loo::loo_compare(list(\"height_only\" = waic_model1, \"height_sex\" = waic_model2, \"interaction\" = waic_model3))\nprint(comp_waic, digits = 2, simplify = FALSE)\n\n            elpd_diff se_diff  elpd_waic se_elpd_waic p_waic   se_p_waic\ninteraction     0.00      0.00 -2225.62     24.22         5.08     0.96 \nheight_sex     -1.19      1.66 -2226.81     23.78         4.80     0.87 \nheight_only   -28.15      8.43 -2253.77     21.55         3.57     0.63 \n            waic     se_waic \ninteraction  4451.23    48.44\nheight_sex   4453.62    47.55\nheight_only  4507.53    43.10"
   },
   {
     "objectID": "slides/08-workflow.html#prepare-for-next-class",
@@ -8714,7 +8714,7 @@
     "href": "slides/08-workflow.html#compare-models-2",
     "title": "Bayesian Workflow",
     "section": "8. Compare models",
-    "text": "8. Compare models\n\n###Compute individual LOO-CV/LOO-IC\nloo_model1 &lt;- loo::loo(log_lik_model1)\nloo_model2 &lt;- loo::loo(log_lik_model2)\nloo_model3 &lt;- loo::loo(log_lik_model3)\n\n###Make a comparison\ncomp_loo &lt;- loo::loo_compare(list(\"height_only\" = loo_model1, \"height_sex\" = loo_model2, \"interaction\" = loo_model3))\nprint(comp_loo, digits = 2, simplify = FALSE)\n\n            elpd_diff se_diff  elpd_loo se_elpd_loo p_loo    se_p_loo looic   \nheight_sex      0.00      0.00 -2229.21    23.37        4.85     0.89  4458.41\ninteraction    -0.83      2.41 -2230.03    23.44        5.72     0.97  4460.06\nheight_only   -25.32      5.80 -2254.52    21.32        3.55     0.62  4509.05\n            se_looic\nheight_sex     46.74\ninteraction    46.89\nheight_only    42.64"
+    "text": "8. Compare models\n\n###Compute individual LOO-CV/LOO-IC\nloo_model1 &lt;- loo::loo(log_lik_model1)\nloo_model2 &lt;- loo::loo(log_lik_model2)\nloo_model3 &lt;- loo::loo(log_lik_model3)\n\n###Make a comparison\ncomp_loo &lt;- loo::loo_compare(list(\"height_only\" = loo_model1, \"height_sex\" = loo_model2, \"interaction\" = loo_model3))\nprint(comp_loo, digits = 2, simplify = FALSE)\n\n            elpd_diff se_diff  elpd_loo se_elpd_loo p_loo    se_p_loo looic   \ninteraction     0.00      0.00 -2225.63    24.23        5.10     0.96  4451.27\nheight_sex     -1.18      1.66 -2226.81    23.78        4.80     0.87  4453.63\nheight_only   -28.13      8.43 -2253.77    21.55        3.57     0.63  4507.54\n            se_looic\ninteraction    48.46\nheight_sex     47.56\nheight_only    43.10"
   },
   {
     "objectID": "slides/08-workflow.html#the-plan-moving-forward",
@@ -11996,5 +11996,82 @@
       "Homework",
       "HW 02"
     ]
+  },
+  {
+    "objectID": "hw/hw-02-blank.html",
+    "href": "hw/hw-02-blank.html",
+    "title": "HW 02",
+    "section": "",
+    "text": "To be posted."
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-5",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-5",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i] = \\alpha^+ + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{\\mathbf{x}}=\\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^+\\) is the intercept, or average weight for someone who is an average height\n\n\nmodel {\n  target += normal_lpdf(Y | alpha_pus + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_pus | 150, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}\n\n\nHard to put a weakly informative prior on \\(\\alpha^+\\)."
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-6",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-6",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i - \\bar{Y}] = \\alpha^* + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{Y}=\\frac{1}{n}\\sum_{i=1}^n Y_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^*\\) is the intercept for the centered data, should be zero.\n\n\ntransformed data {\n  vector[n] Y_centered;\n  real Y_bar;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-7",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-7",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i - \\bar{Y}] = \\alpha^* + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{Y}=\\frac{1}{n}\\sum_{i=1}^n Y_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^*\\) is the intercept for the centered data, should be zero.\n\n\nmodel {\n  target += normal_lpdf(Y_centered | alpha + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_star | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-2",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-2",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:\n\n###Compile the Stan code\nprior_check &lt;- stan_model(file = \"workflow_prior_pred_check.stan\")\n\n###Define the Stan data object\nY &lt;- dat$weight\nX &lt;- matrix(dat$height)\nstan_data &lt;- list(\n  n = nrow(dat), \n  p = ncol(X),\n  Y_bar = mean(Y),\n  X = X,\n  sigma_alpha = 10,\n  sigma_beta = 10,\n  sigma_sigma = 10)\n\n###Simulate data from the prior\nprior_check1 &lt;- sampling(prior_check, data = stan_data, \n                         algorithm = \"Fixed_param\", chains = 1, iter = 1000)"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-3",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-3",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-4",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-4",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:\n\n###Compile the Stan code\nprior_check &lt;- stan_model(file = \"workflow_prior_pred_check.stan\")\n\n###Define the Stan data object\nY &lt;- dat$weight\nX &lt;- matrix(dat$height)\nstan_data &lt;- list(\n  n = nrow(dat), \n  p = ncol(X),\n  Y_bar = mean(Y),\n  X = X,\n  sigma_alpha = 10,\n  sigma_beta = 5,\n  sigma_sigma = 4)\n\n###Simulate data from the prior\nprior_check2 &lt;- sampling(prior_check, data = stan_data, \n                         algorithm = \"Fixed_param\", chains = 1, iter = 1000)"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-5",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-5",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-6",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-6",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:"
+  },
+  {
+    "objectID": "slides/08-workflow.html#fit-the-model-to-real-data-2",
+    "href": "slides/08-workflow.html#fit-the-model-to-real-data-2",
+    "title": "Bayesian Workflow",
+    "section": "4. Fit the model to real data:",
+    "text": "4. Fit the model to real data:\n\n###Fit the model\nfit_workflow &lt;- sampling(regression_model, data = stan_data)\nprint(fit_workflow)\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n           mean se_mean    sd    2.5%     50%   97.5% n_eff Rhat\nalpha   -230.32    0.25 16.71 -263.60 -230.48 -198.47  4349    1\nbeta[1]    5.68    0.00  0.25    5.20    5.68    6.17  4367    1\nsigma     20.09    0.01  0.61   18.93   20.07   21.32  4148    1\n\nSamples were drawn using NUTS(diag_e) at Mon Feb  3 13:39:30 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "prepare/prepare-feb04.html",
+    "href": "prepare/prepare-feb04.html",
+    "title": "Prepare for February 4 lecture",
+    "section": "",
+    "text": "📖 Review Bayesian Workflow by Gelman et al.\n✅ Work on HW 02"
   }
 ]

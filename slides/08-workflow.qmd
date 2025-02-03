@@ -99,7 +99,7 @@ $$\log f(\mathbf{Y} | \boldsymbol{\theta}) + \log f(\boldsymbol{\theta})$$
 
 3.  *Evaluating the fit of the model and the implications of the resulting posterior distribution:* how well does the model fit the data, are the substantive conclusions reasonable, and how sensitive are the results to the modeling assumptions in step 1? In response, one can alter or expand the model and repeat the three steps.
 
--   From BDA3.
+From [BDA3](http://www.stat.columbia.edu/~gelman/book/).
 
 ## Bayesian workflow
 
@@ -200,19 +200,22 @@ dat |> ggplot(aes(y = weight, x = height, col = sex)) +
   labs(x = "Height (inches)", y = "Weight (pounds)", y = "Count")
 ```
 
-## 2. **Specify likelihood & priors:**
+## 2. **Specify likelihood & priors:** {.midi}
 
 -   Construct a data generating process.
 
 -   We would like to model weight as a function of height using a linear regression model.
 
-$$weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
+-   Define, $Y_i$ as the weight of observation $i$ and $\mathbf{x}_i$ as a vector of covariates (here only height).
+
+$$Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
 
 ```{stan output.var = "workflow", eval = FALSE}
 data {
-  int<lower = 1> n;
-  vector[n] height;
-  vector[n] weight;
+  int<lower = 1> n; // number of observations
+  int<lower = 1> p; // number of covariates (excluding intercept)
+  vector[n] Y;      // outcome variable
+  matrix[n, p] X;   // covariate matrix
 }
 ```
 
@@ -222,13 +225,13 @@ data {
 
 -   We would like to model weight as a function of height using a linear regression model.
 
-$$weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
+$$Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
 
 ```{stan output.var = "workflow", eval = FALSE}
 parameter {
-  real alpha;
-  real beta;
-  real<lower = 0> sigma;
+  real alpha;            // intercept on the original scale
+  real beta;             // regression parameters
+  real<lower = 0> sigma; // measurement error
 }
 ```
 
@@ -238,17 +241,17 @@ parameter {
 
 -   We would like to model weight as a function of height using a linear regression model.
 
-$$weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
+$$Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
 
 ```{stan output.var = "workflow", eval = FALSE}
 model {
-  target += normal_lpdf(weight | alpha + beta * height, sigma);
+  target += normal_lpdf(Y | alpha + X * beta, sigma);
 }
 ```
 
 ## 2. **Specify likelihood & priors:** {.midi}
 
-$$weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
+$$Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)$$
 
 Think about reasonable priors for your parameters:
 
@@ -260,27 +263,88 @@ Think about reasonable priors for your parameters:
 
 ```{stan output.var = "workflow", eval = FALSE}
 model {
-  target += normal_lpdf(weight | alpha + beta * height, sigma);
-  target += normal_lpdf(alpha | 0, 100);
+  target += normal_lpdf(Y | alpha + X * beta, sigma);
+  target += normal_lpdf(alpha | 0, 10);
   target += normal_lpdf(beta | 0, 10);
-  target += normal_lpdf(sigma | 0, 5);
+  target += normal_lpdf(sigma | 0, 10);
 }
 ```
 
 ## 2. **Specify likelihood & priors:** {.midi}
 
-$$\mathbb{E}[weight_i] = \alpha + \beta \times (height_i - \bar{x)},\quad\bar{x}=\frac{1}{n}\sum_{i=1}^n height_i$$
+$$\mathbb{E}[Y_i] = \alpha^+ + (\mathbf{x}_i - \bar{\mathbf{x}}) \boldsymbol{\beta},\quad\bar{\mathbf{x}}=\frac{1}{n}\sum_{i=1}^n \mathbf{x}_i$$
 
 Think about reasonable priors for your parameters:
 
--   $\alpha$ is the intercept, or average weight for someone who is an average height
+-   $\alpha^+$ is the intercept, or average weight for someone who is an average height
+
+```{stan output.var = "workflow", eval = FALSE}
+transformed data {
+  matrix[n, p] X_centered;
+  row_vector[p] X_bar;
+  for (i in 1:p) {
+    X_bar[i] = mean(X[, i]);
+    X_centered[, i] = X[, i] - X_bar[i];
+  }
+}
+```
+
+## 2. **Specify likelihood & priors:** {.midi}
+
+$$\mathbb{E}[Y_i] = \alpha^+ + (\mathbf{x}_i - \bar{\mathbf{x}}) \boldsymbol{\beta},\quad\bar{\mathbf{x}}=\frac{1}{n}\sum_{i=1}^n \mathbf{x}_i$$
+
+Think about reasonable priors for your parameters:
+
+-   $\alpha^+$ is the intercept, or average weight for someone who is an average height
 
 ```{stan output.var = "workflow", eval = FALSE}
 model {
-  target += normal_lpdf(weight | alpha + beta * height_c, sigma);
-  target += normal_lpdf(alpha | 150, 5);
+  target += normal_lpdf(Y | alpha_pus + X_centered * beta, sigma);
+  target += normal_lpdf(alpha_pus | 150, 10);
   target += normal_lpdf(beta | 0, 10);
-  target += normal_lpdf(sigma | 0, 5);
+  target += normal_lpdf(sigma | 0, 10);
+}
+```
+
+- Hard to put a weakly informative prior on $\alpha^+$. 
+
+## 2. **Specify likelihood & priors:** {.small}
+
+$$\mathbb{E}[Y_i - \bar{Y}] = \alpha^* + (\mathbf{x}_i - \bar{\mathbf{x}}) \boldsymbol{\beta},\quad\bar{Y}=\frac{1}{n}\sum_{i=1}^n Y_i$$
+
+Think about reasonable priors for your parameters:
+
+-   $\alpha^*$ is the intercept for the centered data, should be zero.
+
+```{stan output.var = "workflow", eval = FALSE}
+transformed data {
+  vector[n] Y_centered;
+  real Y_bar;
+  matrix[n, p] X_centered;
+  row_vector[p] X_bar;
+  for (i in 1:p) {
+    X_bar[i] = mean(X[, i]);
+    X_centered[, i] = X[, i] - X_bar[i];
+  }
+  Y_bar = mean(Y);
+  Y_centered = Y - Y_bar;
+}
+```
+
+## 2. **Specify likelihood & priors:** {.small}
+
+$$\mathbb{E}[Y_i - \bar{Y}] = \alpha^* + (\mathbf{x}_i - \bar{\mathbf{x}}) \boldsymbol{\beta},\quad\bar{Y}=\frac{1}{n}\sum_{i=1}^n Y_i$$
+
+Think about reasonable priors for your parameters:
+
+-   $\alpha^*$ is the intercept for the centered data, should be zero.
+
+```{stan output.var = "workflow", eval = FALSE}
+model {
+  target += normal_lpdf(Y_centered | alpha + X_centered * beta, sigma);
+  target += normal_lpdf(alpha_star | 0, 10);
+  target += normal_lpdf(beta | 0, 10);
+  target += normal_lpdf(sigma | 0, 10);
 }
 ```
 
@@ -295,7 +359,7 @@ parameters {
   real<lower = 0> sigma;
 }
 model {
-  target += normal_lpdf(sigma | 0, 5);
+  target += normal_lpdf(sigma | 0, 10);
 }
 ```
 
@@ -328,47 +392,156 @@ dat.fig |> ggplot(aes(x = x, y = value, color = distribution)) +
   labs(x = expression(sigma), y = "Density", color = "Distribution")
 ```
 
-## 3. **Check the model with simulated data:** {.small}
+## 3. **Check the model with simulated data:**
 
 1.  Draw parameter values from priors.
 
 2.  Generate data based on those parameter values.
 
-3.  Fit model to generated data.
+3.  Check simulated data summaries and compare to observed data.
 
-4.  Check fit is reasonable.
+## 3. **Check the model with simulated data:** {.small}
 
 ```{stan output.var = "workflow", eval = FALSE}
+// stored in workflow_prior_pred_check.stan
 data {
-  int<lower=0> n;
-  vector[n] height_c;
+  int<lower = 1> n;
+  int<lower = 1> p;
+  real Y_bar;
+  matrix[n, p] X;
+  real<lower = 0> sigma_alpha;
+  real<lower = 0> sigma_beta;
+  real<lower = 0> sigma_sigma;
+}
+transformed data {
+  row_vector[p] X_bar;
+  for (i in 1:p) X_bar[i] = mean(X[, i]);
 }
 generated quantities {
-  vector[n] weight;
-  real alpha = normal_rng(150, 5);
-  real beta = normal_rng(0, 10);
-  real sigma = fabs(normal_rng(0, 5));
+  // Sample from the priors
+  real alpha_star = normal_rng(0, sigma_alpha);
+  real alpha_plus = alpha_star + Y_bar;
+  real alpha = alpha_plus - X_bar * beta;
+  vector[p] beta;
+  for (i in 1:p) beta[i] = normal_rng(0, sigma_beta);
+  real sigma = fabs(normal_rng(0, sigma_sigma));
+  // Simulate data from the prior
+  vector[n] Y;
   for (i in 1:n) {
-    weight[i] = normal_rng(alpha + beta * height_c[i], sigma);
+    Y[i] = normal_rng(alpha + X[i, ] * beta, sigma);
   }
+  // Compute summaries from the prior
+  real Y_min = min(Y);
+  real Y_max = max(Y);
+  real Y_mean = mean(Y);
 }
 ```
 
--   Need `algorithm = "Fixed_param"`.
+## 3. **Check the model with simulated data:** {.small}
+
+```{r, eval = FALSE}
+###Compile the Stan code
+prior_check <- stan_model(file = "workflow_prior_pred_check.stan")
+
+###Define the Stan data object
+Y <- dat$weight
+X <- matrix(dat$height)
+stan_data <- list(
+  n = nrow(dat), 
+  p = ncol(X),
+  Y_bar = mean(Y),
+  X = X,
+  sigma_alpha = 10,
+  sigma_beta = 10,
+  sigma_sigma = 10)
+
+###Simulate data from the prior
+prior_check1 <- sampling(prior_check, data = stan_data, 
+                         algorithm = "Fixed_param", chains = 1, iter = 1000)
+```
+
+## 3. **Check the model with simulated data:**
+
+```{r, eval = FALSE, echo = FALSE}
+Y_sums <- rstan::extract(prior_pc_bad, pars = c("Y_mean", "Y_min", "Y_max"))
+dat_fig <- data.frame(
+  value = unlist(Y_sums),
+  type = rep(c("Mean", "Min", "Max"), each = 500)
+)
+ggplot(dat_fig, aes(x = value)) + 
+  geom_histogram() + 
+  facet_grid(. ~ type, scales = "free_x") + 
+  labs(x = "Value of each summary",
+       y = "Count",
+       title = "Prior Predictive Checks",
+       subtitle = "Summaries computed in data simulated from the prior")
+```
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 8
+#| fig-height: 4
+#| layout-ncol: 1
+prior_pc_bad <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/workflow_prior_pc_bad.RDS")
+Y_sums <- rstan::extract(prior_pc_bad, pars = c("Y_mean", "Y_min", "Y_max"))
+dat_fig <- data.frame(
+  value = unlist(Y_sums),
+  type = rep(c("Mean", "Min", "Max"), each = 500)
+)
+ggplot(dat_fig, aes(x = value)) + 
+  geom_histogram() + 
+  facet_grid(. ~ type, scales = "free_x") + 
+  labs(x = "Value of each summary",
+       y = "Count",
+       title = "Prior Predictive Checks",
+       subtitle = "Summaries computed in data simulated from the prior")
+```
+
+## 3. **Check the model with simulated data:** {.small}
+
+```{r, eval = FALSE}
+###Compile the Stan code
+prior_check <- stan_model(file = "workflow_prior_pred_check.stan")
+
+###Define the Stan data object
+Y <- dat$weight
+X <- matrix(dat$height)
+stan_data <- list(
+  n = nrow(dat), 
+  p = ncol(X),
+  Y_bar = mean(Y),
+  X = X,
+  sigma_alpha = 10,
+  sigma_beta = 5,
+  sigma_sigma = 4)
+
+###Simulate data from the prior
+prior_check2 <- sampling(prior_check, data = stan_data, 
+                         algorithm = "Fixed_param", chains = 1, iter = 1000)
+```
 
 ## 3. **Check the model with simulated data:**
 
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| fig-width: 12
+#| fig-width: 8
 #| fig-height: 4
 #| layout-ncol: 1
-load(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/07_fake_data.RData")
-dat.fig |> ggplot(aes(x = value)) + 
-  geom_histogram() +
-  facet_grid(. ~ variable, scales = "free_x", labeller = label_parsed) + 
-  labs(x = "Parameter Value", y = "Count", subtitle = "Posterior mean estimates across various simulated datasets")
+prior_pc_better <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/workflow_prior_pc_better.rds")
+Y_sums <- rstan::extract(prior_pc_better, pars = c("Y_mean", "Y_min", "Y_max"))
+dat_fig <- data.frame(
+  value = unlist(Y_sums),
+  type = rep(c("Mean", "Min", "Max"), each = 500)
+)
+ggplot(dat_fig, aes(x = value)) + 
+  geom_histogram() + 
+  facet_grid(. ~ type, scales = "free_x") + 
+  labs(x = "Value of each summary",
+       y = "Count",
+       title = "Prior Predictive Checks: Update scales",
+       subtitle = "Summaries computed in data simulated from the prior")
 ```
 
 ## 4. **Fit the model to real data:** {.midi}
@@ -376,64 +549,127 @@ dat.fig |> ggplot(aes(x = value)) +
 ```{stan output.var = "workflow", eval = FALSE}
 // saved in linear_regression_workflow.stan
 data {
-  int<lower = 1> n; // number of observations
-  vector[n] weight; // outcome vector
-  vector[n] height_c; // covariate vector
-  int<lower = 1> n_pred; // number of new observations
-  vector[n_pred] height_c_pred; // vector for new observations
+  int<lower = 1> n;        // number of observations
+  int<lower = 1> p;        // number of covariates (excluding intercept)
+  vector[n] Y;             // outcome vector
+  matrix[n, p] X;          // covariate matrix
+  int<lower = 1> n_pred;   // number of new observations to predict
+  matrix[n_pred, p] X_new; // covariate matrix for new observations
+}
+transformed data {
+  vector[n] Y_centered;
+  real Y_bar;
+  matrix[n, p] X_centered;
+  row_vector[p] X_bar;
+  for (i in 1:p) {
+    X_bar[i] = mean(X[, i]);
+    X_centered[, i] = X[, i] - X_bar[i];
+  }
+  Y_bar = mean(Y);
+  Y_centered = Y - Y_bar;
 }
 parameters {
-  real alpha;
-  real beta;
+  real alpha_star;
+  vector[p] beta;
   real<lower = 0> sigma;
 }
 model {
-  target += normal_lpdf(weight | alpha + height_c * beta, sigma); // likelihood
-  target += normal_lpdf(alpha | 150, 5);
-  target += normal_lpdf(beta | 0, 10);
-  target += normal_lpdf(sigma | 0, 5);
+  target += normal_lpdf(Y_centered | alpha_star + X_centered * beta, sigma); // likelihood
+  target += normal_lpdf(alpha_star | 0, 10);
+  target += normal_lpdf(beta | 0, 5);
+  target += normal_lpdf(sigma | 0, 4);
 }
 generated quantities {
-  vector[n] in_sample;
-  vector[n_pred] out_sample;
+  vector[n] Y_pred;
   vector[n] log_lik;
+  vector[n_pred] Y_new;
+  real alpha = Y_bar + alpha_star - X_bar * beta;
   for (i in 1:n) {
-    in_sample[i] = normal_rng(alpha + height_c[i] * beta, sigma);
-    log_lik[i] = normal_lpdf(weight[i] | alpha + height_c[i] * beta, sigma);
+    Y_pred[i] = normal_rng(alpha + X[i, ] * beta, sigma);
+    log_lik[i] = normal_lpdf(Y_centered[i] | alpha_star + X_centered[i, ] * beta, sigma);
   }
-  for (i in 1:n_pred) {
-    out_sample[i] = normal_rng(alpha + height_c_pred[i] * beta, sigma);
-  }
+  for (i in 1:n_pred) Y_new[i] = normal_rng(alpha + X_new[i, ] * beta, sigma);
 }
 ```
 
 ## 4. **Fit the model to real data:** {.midi}
 
-```{r, eval = FALSE}
-stan_data <- list(n = nrow(dat), 
-                  height_c = (dat$height - mean(dat$height)), 
-                  weight = dat$weight)
-regression_model <- stan_model(file = "linear_regression_workflow.stan")
-fit <- sampling(regression_model, data = stan_data)
-print(fit)
+```{r, eval = FALSE, echo = FALSE}
+dat <- data.frame(weight = bdims$wgt * 2.20462,
+                  height = bdims$hgt * 0.393701,
+                  sex = bdims$sex)
+X <- matrix(dat$height)
+n_new <- 1000
+X_new <- matrix(seq(min(dat$height), max(dat$height), length.out = n_new))
+stan_data <- list(
+  n = nrow(dat), 
+  p = ncol(X),
+  Y = dat$weight,
+  X = X,
+  n_new = n_new,
+  X_new = X_new
+)
+compiled_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow.stan")
+fit_workflow <- sampling(compiled_model, data = stan_data)
+saveRDS(fit_workflow, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_workflow.RDS")
 ```
 
+
+```{r, eval = FALSE}
+###Compile model
+regression_model <- stan_model(file = "linear_regression_workflow.stan")
+
+###Create data
+Y <- dat$weight
+X <- matrix(dat$height)
+n_new <- 1000
+X_new <- matrix(seq(min(dat$height), max(dat$height), length.out = n_new))
+stan_data <- list(
+  n = nrow(dat), 
+  p = ncol(X),
+  Y = Y,
+  X = X,
+  n_new = n_new,
+  X_new = X_new
+)
+```
+
+## 4. **Fit the model to real data:** {.midi}
+
+```{r, eval = FALSE}
+###Fit the model
+fit_workflow <- sampling(regression_model, data = stan_data)
+print(fit_workflow)
+```
 ```{r, echo = FALSE}
-fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow.rds")
-print(fit, pars = c("alpha", "beta", "sigma"), probs = c(0.025, 0.5, 0.975))
+###Create data
+Y <- dat$weight
+X <- matrix(dat$height)
+n_new <- 1000
+X_new <- matrix(seq(min(dat$height), max(dat$height), length.out = n_new))
+stan_data <- list(
+  n = nrow(dat), 
+  p = ncol(X),
+  Y = dat$weight,
+  X = X,
+  n_new = n_new,
+  X_new = X_new
+)
+fit_workflow <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_workflow.RDS")
+print(fit_workflow, pars = c("alpha", "beta", "sigma"), probs = c(0.025, 0.5, 0.975))
 ```
 
 ## 5. **Check diagnostics:**
 
 ```{r}
-rstan::traceplot(fit, pars = c("alpha", "beta", "sigma"))
+rstan::traceplot(fit_workflow, pars = c("alpha", "beta", "sigma"))
 ```
 
 ## 5. **Check diagnostics:**
 
 ```{r}
 library(bayesplot)
-mcmc_acf(fit, regex_pars = c("alpha", "beta", "sigma"))
+mcmc_acf(fit_workflow, regex_pars = c("alpha", "beta", "sigma"))
 ```
 
 ## 6. **Examine posterior fit:**
@@ -444,8 +680,8 @@ mcmc_acf(fit, regex_pars = c("alpha", "beta", "sigma"))
 #| fig-width: 12
 #| fig-height: 4
 #| layout-ncol: 1
-pars <- rstan::extract(fit, pars = c("alpha", "beta", "sigma"))
-dat.fig <- data.frame(alpha = pars$alpha, beta = pars$beta, sigma = pars$sigma, Intercept = pars$alpha - mean(dat$height) * pars$beta)
+pars <- rstan::extract(fit_workflow, pars = c("alpha", "beta", "sigma"))
+dat.fig <- data.frame(alpha = pars$alpha, beta = pars$beta, sigma = pars$sigma)
 dat.fig <- reshape2::melt(dat.fig)
 dat.fig |> ggplot(aes(x = value)) + 
   geom_histogram() + 
@@ -465,7 +701,7 @@ alpha <- pars$alpha
 beta <- pars$beta
 x <- seq(min(dat$height), max(dat$height), length.out = 501)
 out <- matrix(nrow = length(x), ncol = length(alpha))
-for (i in 1:length(alpha)) out[, i] <- (alpha[i] - mean(dat$height) * beta[i]) + beta[i] * x
+for (i in 1:length(alpha)) out[, i] <- alpha[i] + beta[i] * x
 mean <- apply(out, 1, mean)
 lower <- apply(out, 1, function(x) quantile(x, probs = 0.025))
 upper <- apply(out, 1, function(x) quantile(x, probs = 0.975))
@@ -477,7 +713,7 @@ dat.fig |> ggplot(aes(x = x, y = mean)) +
   labs(x = "Height (inches)", y = "Weight (pounds)", subtitle = "Posterior regression line with 95% credible interval")
 ```
 
-Regression line corresponds to posterior mean and 95% credible interval for $\mu = \alpha + \beta \times height_i$.
+Regression line corresponds to posterior mean and 95% credible interval for $\mu = \alpha + \mathbf{x}_i \boldsymbol{\beta}$.
 
 ## 7.**Check predictions:**
 
@@ -486,8 +722,8 @@ Regression line corresponds to posterior mean and 95% credible interval for $\mu
 #| fig-align: "center"
 #| fig-height: 4
 #| layout-nrow: 1
-y_pred <- rstan::extract(fit, pars = "in_sample")$in_sample
-ppc_dens_overlay(dat$weight, y_pred[1:100, ])
+Y_pred <- rstan::extract(fit_workflow, pars = "Y_pred")$Y_pred
+ppc_dens_overlay(Y, Y_pred[1:100, ])
 ```
 
 ## 7. **Check predictions:** {.midi}
@@ -499,12 +735,12 @@ ppc_dens_overlay(dat$weight, y_pred[1:100, ])
 #| fig-width: 4
 #| layout-nrow: 2
 #| layout-ncol: 2
-ppc_stat(dat$weight, y_pred, stat = "mean") # from bayesplot
-ppc_stat(dat$weight, y_pred, stat = "sd")
+ppc_stat(Y, Y_pred, stat = "mean") # from bayesplot
+ppc_stat(Y, Y_pred, stat = "sd")
 q025 <- function(y) quantile(y, 0.025)
 q975 <- function(y) quantile(y, 0.975)
-ppc_stat(dat$weight, y_pred, stat = "q025")
-ppc_stat(dat$weight, y_pred, stat = "q975")
+ppc_stat(Y, Y_pred, stat = "q025")
+ppc_stat(Y, Y_pred, stat = "q975")
 ```
 
 ## 7. **Check predictions:** {.midi}
@@ -515,26 +751,26 @@ ppc_stat(dat$weight, y_pred, stat = "q975")
 #| fig-width: 6
 #| fig-height: 4
 #| layout-ncol: 1
-in_sample <- rstan::extract(fit, pars = "in_sample")$in_sample
-mean <- apply(in_sample, 2, mean)
-lower <- apply(in_sample, 2, function(x) quantile(x, probs = 0.025))
-upper <- apply(in_sample, 2, function(x) quantile(x, probs = 0.975))
-dat.fig <- data.frame(x = dat$height, y = dat$weight, mean, lower, upper)
-dat.fig |> ggplot(aes(x = x, y = y)) + 
-  geom_point() + 
-  geom_line(aes(x = x, y = mean)) + 
-  geom_ribbon(data = dat.fig, aes(ymin = lower, ymax = upper), alpha = 0.3) + 
+Y_new <- rstan::extract(fit_workflow, pars = "Y_new")$Y_new
+mean <- apply(Y_new, 2, mean)
+lower <- apply(Y_new, 2, function(x) quantile(x, probs = 0.025))
+upper <- apply(Y_new, 2, function(x) quantile(x, probs = 0.975))
+dat.fig <- data.frame(x = X_new[, 1], mean, lower, upper)
+dat.fig |> ggplot(aes(x = x, y = mean)) + 
+  geom_line() + 
+  geom_ribbon(aes(ymin = lower, ymax = upper), alpha = 0.3) + 
+  geom_point(data = dat, mapping = aes(x = height, y = weight)) + 
   labs(x = "Height (inches)", y = "Weight (pounds)", subtitle = "Posterior regression line with 95% predictive interval")
 ```
 
-Regression line corresponds to posterior predictive distribution mean and 95% credible interval, $f(weight_{i'} | weight_{1:n})$.
+Regression line corresponds to posterior predictive distribution mean and 95% credible interval, $f(Y_{i'} | Y_1,\ldots,Y_n)$.
 
 ## `shinystan`
 
 ```{r, eval = FALSE}
 library(shinystan)
-y <- dat$weight # need to define outcome as a global variable to be accessible
-sso <- shinystan::launch_shinystan(fit)
+Y <- dat$weight # need to define outcome as a global variable to be accessible
+sso <- shinystan::launch_shinystan(fit_workflow)
 ```
 
 ## 8. Compare models
@@ -550,49 +786,46 @@ sso <- shinystan::launch_shinystan(fit)
 ## 8. Compare models {.midi}
 
 ```{r, echo = FALSE, eval = FALSE}
-regression_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_ppd_log_lik.stan")
-data_model1 <- list(n = nrow(dat),
-                    p = 1,
-                    Y = dat$weight,
-                    X = cbind(1, dat$height - mean(dat$height)),
-                    beta0 = 0,
-                    sigma_beta = 10,
-                    a = 3,
-                    b = 1,
-                    n_pred = 10,
-                    X_pred = cbind(1, rnorm(10)))
-fit_model1 <- sampling(regression_model, data = data_model1)
-data_model2 <- list(n = nrow(dat),
-                    p = 2,
-                    Y = dat$weight,
-                    X = cbind(1, dat$height - mean(dat$height), 1 * (dat$sex == "Female")),
-                    beta0 = 0,
-                    sigma_beta = 10,
-                    a = 3,
-                    b = 1,
-                    n_pred = 10,
-                    X_pred = cbind(1, rnorm(10), rbinom(10, 1, 0.5)))
-fit_model2 <- sampling(regression_model, data = data_model2)
-data_model3 <- list(n = nrow(dat),
-                    p = 3,
-                    Y = dat$weight,
-                    X = cbind(1, dat$height - mean(dat$height), 1 * (dat$sex == "Female"), (dat$height - mean(dat$height)) * (1 * (dat$sex == "Female"))),
-                    beta0 = 0,
-                    sigma_beta = 10,
-                    a = 3,
-                    b = 1,
-                    n_pred = 10,
-                    X_pred = cbind(1, rnorm(10), rbinom(10, 1, 0.5), rnorm(10)))
-fit_model3 <- sampling(regression_model, data = data_model3)
-saveRDS(fit_model1, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model1.rds")
-saveRDS(fit_model2, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model2.rds")
-saveRDS(fit_model3, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model3.rds")
+compiled_model <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow.stan")
+X <- matrix(dat$height)
+data_model1 <- list(
+  n = nrow(dat), 
+  p = ncol(X),
+  Y = Y,
+  X = X,
+  n_new = n_new,
+  X_new = X_new
+)
+fit_model1 <- sampling(compiled_model, data = data_model1)
+saveRDS(fit_model1, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_workflow_model1.RDS")
+X_model2 <- cbind(dat$height, dat$sex)
+data_model2 <- list(
+  n = nrow(dat), 
+  p = ncol(X_model2),
+  Y = Y,
+  X = X_model2,
+  n_new = nrow(X_model2),
+  X_new = X_model2
+)
+fit_model2 <- sampling(compiled_model, data = data_model2)
+saveRDS(fit_model2, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_workflow_model2.RDS")
+X_model3 <- cbind(dat$height, dat$sex, dat$height * dat$sex)
+data_model3 <- list(
+  n = nrow(dat), 
+  p = ncol(X_model3),
+  Y = Y,
+  X = X_model3,
+  n_new = nrow(X_model3),
+  X_new = X_model3
+)
+fit_model3 <- sampling(compiled_model, data = data_model3)
+saveRDS(fit_model3, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_workflow_model3.RDS")
 ```
 
 ```{r, echo=FALSE}
-fit_model1 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model1.rds")
-fit_model2 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model2.rds")
-fit_model3 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_workflow_model3.rds")
+fit_model1 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_workflow_model1.RDS")
+fit_model2 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_workflow_model2.RDS")
+fit_model3 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_workflow_model3.RDS")
 ```
 
 ```{r}

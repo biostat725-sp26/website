@@ -467,9 +467,7 @@ Prof.&nbsp;Sam Berchuck
 <li><p><em>Conditioning on observed data:</em> calculating and interpreting the appropriate posterior distribution — the conditional probability distribution of the unobserved quantities of ultimate interest, given the observed data.</p></li>
 <li><p><em>Evaluating the fit of the model and the implications of the resulting posterior distribution:</em> how well does the model fit the data, are the substantive conclusions reasonable, and how sensitive are the results to the modeling assumptions in step 1? In response, one can alter or expand the model and repeat the three steps.</p></li>
 </ol>
-<ul>
-<li>From BDA3.</li>
-</ul>
+<p>From <a href="http://www.stat.columbia.edu/~gelman/book/">BDA3</a>.</p>
 </section>
 <section id="bayesian-workflow-2" class="slide level2">
 <h2>Bayesian workflow</h2>
@@ -547,7 +545,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -571,7 +569,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -595,7 +593,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -607,19 +605,21 @@ Prof.&nbsp;Sam Berchuck
 </div>
 </div>
 </section>
-<section id="specify-likelihood-priors" class="slide level2">
+<section id="specify-likelihood-priors" class="slide level2 midi">
 <h2>2. <strong>Specify likelihood &amp; priors:</strong></h2>
 <ul>
 <li><p>Construct a data generating process.</p></li>
 <li><p>We would like to model weight as a function of height using a linear regression model.</p></li>
+<li><p>Define, <span class="math inline">\(Y_i\)</span> as the weight of observation <span class="math inline">\(i\)</span> and <span class="math inline">\(\mathbf{x}_i\)</span> as a vector of covariates (here only height).</p></li>
 </ul>
-<p><span class="math display">\[weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\]</span></p>
+<p><span class="math display">\[Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\]</span></p>
 <div class="cell" data-output.var="workflow">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb3-1"><a></a><span class="kw">data</span> {</span>
-<span id="cb3-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
-<span id="cb3-3"><a></a>  <span class="dt">vector</span>[n] height;</span>
-<span id="cb3-4"><a></a>  <span class="dt">vector</span>[n] weight;</span>
-<span id="cb3-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n; <span class="co">// number of observations</span></span>
+<span id="cb3-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p; <span class="co">// number of covariates (excluding intercept)</span></span>
+<span id="cb3-4"><a></a>  <span class="dt">vector</span>[n] Y;      <span class="co">// outcome variable</span></span>
+<span id="cb3-5"><a></a>  <span class="dt">matrix</span>[n, p] X;   <span class="co">// covariate matrix</span></span>
+<span id="cb3-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="specify-likelihood-priors-1" class="slide level2">
@@ -628,12 +628,12 @@ Prof.&nbsp;Sam Berchuck
 <li><p>Construct a data generating process.</p></li>
 <li><p>We would like to model weight as a function of height using a linear regression model.</p></li>
 </ul>
-<p><span class="math display">\[weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\]</span></p>
+<p><span class="math display">\[Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\]</span></p>
 <div class="cell" data-output.var="workflow">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb4-1"><a></a>parameter {</span>
-<span id="cb4-2"><a></a>  <span class="dt">real</span> alpha;</span>
-<span id="cb4-3"><a></a>  <span class="dt">real</span> beta;</span>
-<span id="cb4-4"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb4-2"><a></a>  <span class="dt">real</span> alpha;            <span class="co">// intercept on the original scale</span></span>
+<span id="cb4-3"><a></a>  <span class="dt">real</span> beta;             <span class="co">// regression parameters</span></span>
+<span id="cb4-4"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma; <span class="co">// measurement error</span></span>
 <span id="cb4-5"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -643,16 +643,16 @@ Prof.&nbsp;Sam Berchuck
 <li><p>Construct a data generating process.</p></li>
 <li><p>We would like to model weight as a function of height using a linear regression model.</p></li>
 </ul>
-<p><span class="math display">\[weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\]</span></p>
+<p><span class="math display">\[Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\]</span></p>
 <div class="cell" data-output.var="workflow">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb5-1"><a></a><span class="kw">model</span> {</span>
-<span id="cb5-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(weight | alpha + beta * height, sigma);</span>
+<span id="cb5-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | alpha + X * beta, sigma);</span>
 <span id="cb5-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="specify-likelihood-priors-3" class="slide level2 midi">
 <h2>2. <strong>Specify likelihood &amp; priors:</strong></h2>
-<p><span class="math display">\[weight_i = \alpha + \beta \times height_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\]</span></p>
+<p><span class="math display">\[Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\]</span></p>
 <p>Think about reasonable priors for your parameters:</p>
 <ul>
 <li><p><span class="math inline">\(\alpha\)</span> is the intercept, or average weight for someone who is zero inches (not a particularly useful number on its own)</p></li>
@@ -661,27 +661,86 @@ Prof.&nbsp;Sam Berchuck
 </ul>
 <div class="cell" data-output.var="workflow">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a></a><span class="kw">model</span> {</span>
-<span id="cb6-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(weight | alpha + beta * height, sigma);</span>
-<span id="cb6-3"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">100</span>);</span>
+<span id="cb6-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | alpha + X * beta, sigma);</span>
+<span id="cb6-3"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
 <span id="cb6-4"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb6-5"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">5</span>);</span>
+<span id="cb6-5"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">10</span>);</span>
 <span id="cb6-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="specify-likelihood-priors-4" class="slide level2 midi">
 <h2>2. <strong>Specify likelihood &amp; priors:</strong></h2>
-<p><span class="math display">\[\mathbb{E}[weight_i] = \alpha + \beta \times (height_i - \bar{x)},\quad\bar{x}=\frac{1}{n}\sum_{i=1}^n height_i\]</span></p>
+<p><span class="math display">\[\mathbb{E}[Y_i] = \alpha^+ + (\mathbf{x}_i - \bar{\mathbf{x}}) \boldsymbol{\beta},\quad\bar{\mathbf{x}}=\frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\]</span></p>
 <p>Think about reasonable priors for your parameters:</p>
 <ul>
-<li><span class="math inline">\(\alpha\)</span> is the intercept, or average weight for someone who is an average height</li>
+<li><span class="math inline">\(\alpha^+\)</span> is the intercept, or average weight for someone who is an average height</li>
 </ul>
 <div class="cell" data-output.var="workflow">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a></a><span class="kw">model</span> {</span>
-<span id="cb7-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(weight | alpha + beta * height_c, sigma);</span>
-<span id="cb7-3"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">150</span>, <span class="dv">5</span>);</span>
-<span id="cb7-4"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb7-5"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">5</span>);</span>
-<span id="cb7-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb7-2"><a></a>  <span class="dt">matrix</span>[n, p] X_centered;</span>
+<span id="cb7-3"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb7-4"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
+<span id="cb7-5"><a></a>    X_bar[i] = mean(X[, i]);</span>
+<span id="cb7-6"><a></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
+<span id="cb7-7"><a></a>  }</span>
+<span id="cb7-8"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="specify-likelihood-priors-5" class="slide level2 midi">
+<h2>2. <strong>Specify likelihood &amp; priors:</strong></h2>
+<p><span class="math display">\[\mathbb{E}[Y_i] = \alpha^+ + (\mathbf{x}_i - \bar{\mathbf{x}}) \boldsymbol{\beta},\quad\bar{\mathbf{x}}=\frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\]</span></p>
+<p>Think about reasonable priors for your parameters:</p>
+<ul>
+<li><span class="math inline">\(\alpha^+\)</span> is the intercept, or average weight for someone who is an average height</li>
+</ul>
+<div class="cell" data-output.var="workflow">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb8-1"><a></a><span class="kw">model</span> {</span>
+<span id="cb8-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | alpha_pus + X_centered * beta, sigma);</span>
+<span id="cb8-3"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha_pus | <span class="dv">150</span>, <span class="dv">10</span>);</span>
+<span id="cb8-4"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb8-5"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb8-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Hard to put a weakly informative prior on <span class="math inline">\(\alpha^+\)</span>.</li>
+</ul>
+</section>
+<section id="specify-likelihood-priors-6" class="slide level2 small">
+<h2>2. <strong>Specify likelihood &amp; priors:</strong></h2>
+<p><span class="math display">\[\mathbb{E}[Y_i - \bar{Y}] = \alpha^* + (\mathbf{x}_i - \bar{\mathbf{x}}) \boldsymbol{\beta},\quad\bar{Y}=\frac{1}{n}\sum_{i=1}^n Y_i\]</span></p>
+<p>Think about reasonable priors for your parameters:</p>
+<ul>
+<li><span class="math inline">\(\alpha^*\)</span> is the intercept for the centered data, should be zero.</li>
+</ul>
+<div class="cell" data-output.var="workflow">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb9-1"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb9-2"><a></a>  <span class="dt">vector</span>[n] Y_centered;</span>
+<span id="cb9-3"><a></a>  <span class="dt">real</span> Y_bar;</span>
+<span id="cb9-4"><a></a>  <span class="dt">matrix</span>[n, p] X_centered;</span>
+<span id="cb9-5"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb9-6"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
+<span id="cb9-7"><a></a>    X_bar[i] = mean(X[, i]);</span>
+<span id="cb9-8"><a></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
+<span id="cb9-9"><a></a>  }</span>
+<span id="cb9-10"><a></a>  Y_bar = mean(Y);</span>
+<span id="cb9-11"><a></a>  Y_centered = Y - Y_bar;</span>
+<span id="cb9-12"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="specify-likelihood-priors-7" class="slide level2 small">
+<h2>2. <strong>Specify likelihood &amp; priors:</strong></h2>
+<p><span class="math display">\[\mathbb{E}[Y_i - \bar{Y}] = \alpha^* + (\mathbf{x}_i - \bar{\mathbf{x}}) \boldsymbol{\beta},\quad\bar{Y}=\frac{1}{n}\sum_{i=1}^n Y_i\]</span></p>
+<p>Think about reasonable priors for your parameters:</p>
+<ul>
+<li><span class="math inline">\(\alpha^*\)</span> is the intercept for the centered data, should be zero.</li>
+</ul>
+<div class="cell" data-output.var="workflow">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb10-1"><a></a><span class="kw">model</span> {</span>
+<span id="cb10-2"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y_centered | alpha + X_centered * beta, sigma);</span>
+<span id="cb10-3"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha_star | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb10-4"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb10-5"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb10-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="quick-aside" class="slide level2">
@@ -691,12 +750,12 @@ Prof.&nbsp;Sam Berchuck
 <li>When a parameter is truncated, for example <code>real&lt;lower = 0&gt; sigma</code>, priors can still be placed across the real line, <span class="math inline">\(\mathbb{R}\)</span>.</li>
 </ul>
 <div class="cell" data-output.var="workflow">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb8-1"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb8-2"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
-<span id="cb8-3"><a></a>}</span>
-<span id="cb8-4"><a></a><span class="kw">model</span> {</span>
-<span id="cb8-5"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">5</span>);</span>
-<span id="cb8-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb11-1"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb11-2"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb11-3"><a></a>}</span>
+<span id="cb11-4"><a></a><span class="kw">model</span> {</span>
+<span id="cb11-5"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb11-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>This specification induces a prior on the truncated space <span class="math inline">\(\mathbb{R}^+\)</span>.</p></li>
@@ -712,56 +771,137 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="check-the-model-with-simulated-data" class="slide level2 small">
+<section id="check-the-model-with-simulated-data" class="slide level2">
 <h2>3. <strong>Check the model with simulated data:</strong></h2>
 <ol type="1">
 <li><p>Draw parameter values from priors.</p></li>
 <li><p>Generate data based on those parameter values.</p></li>
-<li><p>Fit model to generated data.</p></li>
-<li><p>Check fit is reasonable.</p></li>
+<li><p>Check simulated data summaries and compare to observed data.</p></li>
 </ol>
-<div class="cell" data-output.var="workflow">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb9-1"><a></a><span class="kw">data</span> {</span>
-<span id="cb9-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; n;</span>
-<span id="cb9-3"><a></a>  <span class="dt">vector</span>[n] height_c;</span>
-<span id="cb9-4"><a></a>}</span>
-<span id="cb9-5"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb9-6"><a></a>  <span class="dt">vector</span>[n] weight;</span>
-<span id="cb9-7"><a></a>  <span class="dt">real</span> alpha = normal_rng(<span class="dv">150</span>, <span class="dv">5</span>);</span>
-<span id="cb9-8"><a></a>  <span class="dt">real</span> beta = normal_rng(<span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb9-9"><a></a>  <span class="dt">real</span> sigma = fabs(normal_rng(<span class="dv">0</span>, <span class="dv">5</span>));</span>
-<span id="cb9-10"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb9-11"><a></a>    weight[i] = normal_rng(alpha + beta * height_c[i], sigma);</span>
-<span id="cb9-12"><a></a>  }</span>
-<span id="cb9-13"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Need <code>algorithm = "Fixed_param"</code>.</li>
-</ul>
 </section>
-<section id="check-the-model-with-simulated-data-1" class="slide level2">
+<section id="check-the-model-with-simulated-data-1" class="slide level2 small">
+<h2>3. <strong>Check the model with simulated data:</strong></h2>
+<div class="cell" data-output.var="workflow">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb12-1"><a></a><span class="co">// stored in workflow_prior_pred_check.stan</span></span>
+<span id="cb12-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb12-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb12-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb12-5"><a></a>  <span class="dt">real</span> Y_bar;</span>
+<span id="cb12-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb12-7"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma_alpha;</span>
+<span id="cb12-8"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma_beta;</span>
+<span id="cb12-9"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma_sigma;</span>
+<span id="cb12-10"><a></a>}</span>
+<span id="cb12-11"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb12-12"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb12-13"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) X_bar[i] = mean(X[, i]);</span>
+<span id="cb12-14"><a></a>}</span>
+<span id="cb12-15"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb12-16"><a></a>  <span class="co">// Sample from the priors</span></span>
+<span id="cb12-17"><a></a>  <span class="dt">real</span> alpha_star = normal_rng(<span class="dv">0</span>, sigma_alpha);</span>
+<span id="cb12-18"><a></a>  <span class="dt">real</span> alpha_plus = alpha_star + Y_bar;</span>
+<span id="cb12-19"><a></a>  <span class="dt">real</span> alpha = alpha_plus - X_bar * beta;</span>
+<span id="cb12-20"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb12-21"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) beta[i] = normal_rng(<span class="dv">0</span>, sigma_beta);</span>
+<span id="cb12-22"><a></a>  <span class="dt">real</span> sigma = fabs(normal_rng(<span class="dv">0</span>, sigma_sigma));</span>
+<span id="cb12-23"><a></a>  <span class="co">// Simulate data from the prior</span></span>
+<span id="cb12-24"><a></a>  <span class="dt">vector</span>[n] Y;</span>
+<span id="cb12-25"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb12-26"><a></a>    Y[i] = normal_rng(alpha + X[i, ] * beta, sigma);</span>
+<span id="cb12-27"><a></a>  }</span>
+<span id="cb12-28"><a></a>  <span class="co">// Compute summaries from the prior</span></span>
+<span id="cb12-29"><a></a>  <span class="dt">real</span> Y_min = min(Y);</span>
+<span id="cb12-30"><a></a>  <span class="dt">real</span> Y_max = max(Y);</span>
+<span id="cb12-31"><a></a>  <span class="dt">real</span> Y_mean = mean(Y);</span>
+<span id="cb12-32"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-the-model-with-simulated-data-2" class="slide level2 small">
+<h2>3. <strong>Check the model with simulated data:</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="do">###Compile the Stan code</span></span>
+<span id="cb13-2"><a></a>prior_check <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"workflow_prior_pred_check.stan"</span>)</span>
+<span id="cb13-3"><a></a></span>
+<span id="cb13-4"><a></a><span class="do">###Define the Stan data object</span></span>
+<span id="cb13-5"><a></a>Y <span class="ot">&lt;-</span> dat<span class="sc">$</span>weight</span>
+<span id="cb13-6"><a></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(dat<span class="sc">$</span>height)</span>
+<span id="cb13-7"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb13-8"><a></a>  <span class="at">n =</span> <span class="fu">nrow</span>(dat), </span>
+<span id="cb13-9"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb13-10"><a></a>  <span class="at">Y_bar =</span> <span class="fu">mean</span>(Y),</span>
+<span id="cb13-11"><a></a>  <span class="at">X =</span> X,</span>
+<span id="cb13-12"><a></a>  <span class="at">sigma_alpha =</span> <span class="dv">10</span>,</span>
+<span id="cb13-13"><a></a>  <span class="at">sigma_beta =</span> <span class="dv">10</span>,</span>
+<span id="cb13-14"><a></a>  <span class="at">sigma_sigma =</span> <span class="dv">10</span>)</span>
+<span id="cb13-15"><a></a></span>
+<span id="cb13-16"><a></a><span class="do">###Simulate data from the prior</span></span>
+<span id="cb13-17"><a></a>prior_check1 <span class="ot">&lt;-</span> <span class="fu">sampling</span>(prior_check, <span class="at">data =</span> stan_data, </span>
+<span id="cb13-18"><a></a>                         <span class="at">algorithm =</span> <span class="st">"Fixed_param"</span>, <span class="at">chains =</span> <span class="dv">1</span>, <span class="at">iter =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-the-model-with-simulated-data-3" class="slide level2">
 <h2>3. <strong>Check the model with simulated data:</strong></h2>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="1152"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="check-the-model-with-simulated-data-4" class="slide level2 small">
+<h2>3. <strong>Check the model with simulated data:</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="do">###Compile the Stan code</span></span>
+<span id="cb14-2"><a></a>prior_check <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"workflow_prior_pred_check.stan"</span>)</span>
+<span id="cb14-3"><a></a></span>
+<span id="cb14-4"><a></a><span class="do">###Define the Stan data object</span></span>
+<span id="cb14-5"><a></a>Y <span class="ot">&lt;-</span> dat<span class="sc">$</span>weight</span>
+<span id="cb14-6"><a></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(dat<span class="sc">$</span>height)</span>
+<span id="cb14-7"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb14-8"><a></a>  <span class="at">n =</span> <span class="fu">nrow</span>(dat), </span>
+<span id="cb14-9"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb14-10"><a></a>  <span class="at">Y_bar =</span> <span class="fu">mean</span>(Y),</span>
+<span id="cb14-11"><a></a>  <span class="at">X =</span> X,</span>
+<span id="cb14-12"><a></a>  <span class="at">sigma_alpha =</span> <span class="dv">10</span>,</span>
+<span id="cb14-13"><a></a>  <span class="at">sigma_beta =</span> <span class="dv">5</span>,</span>
+<span id="cb14-14"><a></a>  <span class="at">sigma_sigma =</span> <span class="dv">4</span>)</span>
+<span id="cb14-15"><a></a></span>
+<span id="cb14-16"><a></a><span class="do">###Simulate data from the prior</span></span>
+<span id="cb14-17"><a></a>prior_check2 <span class="ot">&lt;-</span> <span class="fu">sampling</span>(prior_check, <span class="at">data =</span> stan_data, </span>
+<span id="cb14-18"><a></a>                         <span class="at">algorithm =</span> <span class="st">"Fixed_param"</span>, <span class="at">chains =</span> <span class="dv">1</span>, <span class="at">iter =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-the-model-with-simulated-data-5" class="slide level2">
+<h2>3. <strong>Check the model with simulated data:</strong></h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
 </figure>
 </div>
 </div>
@@ -771,48 +911,78 @@ Prof.&nbsp;Sam Berchuck
 <section id="fit-the-model-to-real-data" class="slide level2 midi">
 <h2>4. <strong>Fit the model to real data:</strong></h2>
 <div class="cell" data-output.var="workflow">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb10-1"><a></a><span class="co">// saved in linear_regression_workflow.stan</span></span>
-<span id="cb10-2"><a></a><span class="kw">data</span> {</span>
-<span id="cb10-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n; <span class="co">// number of observations</span></span>
-<span id="cb10-4"><a></a>  <span class="dt">vector</span>[n] weight; <span class="co">// outcome vector</span></span>
-<span id="cb10-5"><a></a>  <span class="dt">vector</span>[n] height_c; <span class="co">// covariate vector</span></span>
-<span id="cb10-6"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n_pred; <span class="co">// number of new observations</span></span>
-<span id="cb10-7"><a></a>  <span class="dt">vector</span>[n_pred] height_c_pred; <span class="co">// vector for new observations</span></span>
-<span id="cb10-8"><a></a>}</span>
-<span id="cb10-9"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb10-10"><a></a>  <span class="dt">real</span> alpha;</span>
-<span id="cb10-11"><a></a>  <span class="dt">real</span> beta;</span>
-<span id="cb10-12"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
-<span id="cb10-13"><a></a>}</span>
-<span id="cb10-14"><a></a><span class="kw">model</span> {</span>
-<span id="cb10-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(weight | alpha + height_c * beta, sigma); <span class="co">// likelihood</span></span>
-<span id="cb10-16"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">150</span>, <span class="dv">5</span>);</span>
-<span id="cb10-17"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb10-18"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">5</span>);</span>
-<span id="cb10-19"><a></a>}</span>
-<span id="cb10-20"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb10-21"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
-<span id="cb10-22"><a></a>  <span class="dt">vector</span>[n_pred] out_sample;</span>
-<span id="cb10-23"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
-<span id="cb10-24"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb10-25"><a></a>    in_sample[i] = normal_rng(alpha + height_c[i] * beta, sigma);</span>
-<span id="cb10-26"><a></a>    log_lik[i] = normal_lpdf(weight[i] | alpha + height_c[i] * beta, sigma);</span>
-<span id="cb10-27"><a></a>  }</span>
-<span id="cb10-28"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n_pred) {</span>
-<span id="cb10-29"><a></a>    out_sample[i] = normal_rng(alpha + height_c_pred[i] * beta, sigma);</span>
-<span id="cb10-30"><a></a>  }</span>
-<span id="cb10-31"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb15-1"><a></a><span class="co">// saved in linear_regression_workflow.stan</span></span>
+<span id="cb15-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb15-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;        <span class="co">// number of observations</span></span>
+<span id="cb15-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;        <span class="co">// number of covariates (excluding intercept)</span></span>
+<span id="cb15-5"><a></a>  <span class="dt">vector</span>[n] Y;             <span class="co">// outcome vector</span></span>
+<span id="cb15-6"><a></a>  <span class="dt">matrix</span>[n, p] X;          <span class="co">// covariate matrix</span></span>
+<span id="cb15-7"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n_pred;   <span class="co">// number of new observations to predict</span></span>
+<span id="cb15-8"><a></a>  <span class="dt">matrix</span>[n_pred, p] X_new; <span class="co">// covariate matrix for new observations</span></span>
+<span id="cb15-9"><a></a>}</span>
+<span id="cb15-10"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb15-11"><a></a>  <span class="dt">vector</span>[n] Y_centered;</span>
+<span id="cb15-12"><a></a>  <span class="dt">real</span> Y_bar;</span>
+<span id="cb15-13"><a></a>  <span class="dt">matrix</span>[n, p] X_centered;</span>
+<span id="cb15-14"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb15-15"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
+<span id="cb15-16"><a></a>    X_bar[i] = mean(X[, i]);</span>
+<span id="cb15-17"><a></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
+<span id="cb15-18"><a></a>  }</span>
+<span id="cb15-19"><a></a>  Y_bar = mean(Y);</span>
+<span id="cb15-20"><a></a>  Y_centered = Y - Y_bar;</span>
+<span id="cb15-21"><a></a>}</span>
+<span id="cb15-22"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb15-23"><a></a>  <span class="dt">real</span> alpha_star;</span>
+<span id="cb15-24"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb15-25"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb15-26"><a></a>}</span>
+<span id="cb15-27"><a></a><span class="kw">model</span> {</span>
+<span id="cb15-28"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y_centered | alpha_star + X_centered * beta, sigma); <span class="co">// likelihood</span></span>
+<span id="cb15-29"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha_star | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb15-30"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">5</span>);</span>
+<span id="cb15-31"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">4</span>);</span>
+<span id="cb15-32"><a></a>}</span>
+<span id="cb15-33"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb15-34"><a></a>  <span class="dt">vector</span>[n] Y_pred;</span>
+<span id="cb15-35"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
+<span id="cb15-36"><a></a>  <span class="dt">vector</span>[n_pred] Y_new;</span>
+<span id="cb15-37"><a></a>  <span class="dt">real</span> alpha = Y_bar + alpha_star - X_bar * beta;</span>
+<span id="cb15-38"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb15-39"><a></a>    Y_pred[i] = normal_rng(alpha + X[i, ] * beta, sigma);</span>
+<span id="cb15-40"><a></a>    log_lik[i] = normal_lpdf(Y_centered[i] | alpha_star + X_centered[i, ] * beta, sigma);</span>
+<span id="cb15-41"><a></a>  }</span>
+<span id="cb15-42"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n_pred) Y_new[i] = normal_rng(alpha + X_new[i, ] * beta, sigma);</span>
+<span id="cb15-43"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fit-the-model-to-real-data-1" class="slide level2 midi">
 <h2>4. <strong>Fit the model to real data:</strong></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="fu">nrow</span>(dat), </span>
-<span id="cb11-2"><a></a>                  <span class="at">height_c =</span> (dat<span class="sc">$</span>height <span class="sc">-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>height)), </span>
-<span id="cb11-3"><a></a>                  <span class="at">weight =</span> dat<span class="sc">$</span>weight)</span>
-<span id="cb11-4"><a></a>regression_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"linear_regression_workflow.stan"</span>)</span>
-<span id="cb11-5"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">sampling</span>(regression_model, <span class="at">data =</span> stan_data)</span>
-<span id="cb11-6"><a></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="do">###Compile model</span></span>
+<span id="cb16-2"><a></a>regression_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"linear_regression_workflow.stan"</span>)</span>
+<span id="cb16-3"><a></a></span>
+<span id="cb16-4"><a></a><span class="do">###Create data</span></span>
+<span id="cb16-5"><a></a>Y <span class="ot">&lt;-</span> dat<span class="sc">$</span>weight</span>
+<span id="cb16-6"><a></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(dat<span class="sc">$</span>height)</span>
+<span id="cb16-7"><a></a>n_new <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb16-8"><a></a>X_new <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="fu">min</span>(dat<span class="sc">$</span>height), <span class="fu">max</span>(dat<span class="sc">$</span>height), <span class="at">length.out =</span> n_new))</span>
+<span id="cb16-9"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb16-10"><a></a>  <span class="at">n =</span> <span class="fu">nrow</span>(dat), </span>
+<span id="cb16-11"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb16-12"><a></a>  <span class="at">Y =</span> Y,</span>
+<span id="cb16-13"><a></a>  <span class="at">X =</span> X,</span>
+<span id="cb16-14"><a></a>  <span class="at">n_new =</span> n_new,</span>
+<span id="cb16-15"><a></a>  <span class="at">X_new =</span> X_new</span>
+<span id="cb16-16"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fit-the-model-to-real-data-2" class="slide level2 midi">
+<h2>4. <strong>Fit the model to real data:</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="do">###Fit the model</span></span>
+<span id="cb17-2"><a></a>fit_workflow <span class="ot">&lt;-</span> <span class="fu">sampling</span>(regression_model, <span class="at">data =</span> stan_data)</span>
+<span id="cb17-3"><a></a><span class="fu">print</span>(fit_workflow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -820,12 +990,12 @@ Prof.&nbsp;Sam Berchuck
 4 chains, each with iter=2000; warmup=1000; thin=1; 
 post-warmup draws per chain=1000, total post-warmup draws=4000.
 
-        mean se_mean   sd   2.5%    50%  97.5% n_eff Rhat
-alpha 152.35    0.01 0.88 150.63 152.35 154.08  3773    1
-beta    5.69    0.00 0.25   5.21   5.69   6.18  4215    1
-sigma  20.25    0.01 0.60  19.13  20.23  21.50  3571    1
+           mean se_mean    sd    2.5%     50%   97.5% n_eff Rhat
+alpha   -230.32    0.25 16.71 -263.60 -230.48 -198.47  4349    1
+beta[1]    5.68    0.00  0.25    5.20    5.68    6.17  4367    1
+sigma     20.09    0.01  0.61   18.93   20.07   21.32  4148    1
 
-Samples were drawn using NUTS(diag_e) at Wed Nov 27 14:08:19 2024.
+Samples were drawn using NUTS(diag_e) at Mon Feb  3 13:39:30 2025.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).</code></pre>
@@ -835,29 +1005,29 @@ convergence, Rhat=1).</code></pre>
 <section id="check-diagnostics" class="slide level2">
 <h2>5. <strong>Check diagnostics:</strong></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>rstan<span class="sc">::</span><span class="fu">traceplot</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>rstan<span class="sc">::</span><span class="fu">traceplot</span>(fit_workflow, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch"></section>
 <section id="check-diagnostics-1" class="slide level2">
 <h2>5. <strong>Check diagnostics:</strong></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">library</span>(bayesplot)</span>
-<span id="cb14-2"><a></a><span class="fu">mcmc_acf</span>(fit, <span class="at">regex_pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">library</span>(bayesplot)</span>
+<span id="cb20-2"><a></a><span class="fu">mcmc_acf</span>(fit_workflow, <span class="at">regex_pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch"></section>
 <section id="examine-posterior-fit" class="slide level2">
 <h2>6. <strong>Examine posterior fit:</strong></h2>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="1152"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -869,29 +1039,29 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p>Regression line corresponds to posterior mean and 95% credible interval for <span class="math inline">\(\mu = \alpha + \beta \times height_i\)</span>.</p>
+<p>Regression line corresponds to posterior mean and 95% credible interval for <span class="math inline">\(\mu = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>.</p>
 </section>
 <section id="check-predictions" class="slide level2">
 <h2>7.<strong>Check predictions:</strong></h2>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>y_pred <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="st">"in_sample"</span>)<span class="sc">$</span>in_sample</span>
-<span id="cb15-2"><a></a><span class="fu">ppc_dens_overlay</span>(dat<span class="sc">$</span>weight, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>Y_pred <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit_workflow, <span class="at">pars =</span> <span class="st">"Y_pred"</span>)<span class="sc">$</span>Y_pred</span>
+<span id="cb21-2"><a></a><span class="fu">ppc_dens_overlay</span>(Y, Y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -900,25 +1070,25 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="check-predictions-1" class="slide level2 midi">
 <h2>7. <strong>Check predictions:</strong></h2>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ppc_stat</span>(dat<span class="sc">$</span>weight, y_pred, <span class="at">stat =</span> <span class="st">"mean"</span>) <span class="co"># from bayesplot</span></span>
-<span id="cb16-2"><a></a><span class="fu">ppc_stat</span>(dat<span class="sc">$</span>weight, y_pred, <span class="at">stat =</span> <span class="st">"sd"</span>)</span>
-<span id="cb16-3"><a></a>q025 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.025</span>)</span>
-<span id="cb16-4"><a></a>q975 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.975</span>)</span>
-<span id="cb16-5"><a></a><span class="fu">ppc_stat</span>(dat<span class="sc">$</span>weight, y_pred, <span class="at">stat =</span> <span class="st">"q025"</span>)</span>
-<span id="cb16-6"><a></a><span class="fu">ppc_stat</span>(dat<span class="sc">$</span>weight, y_pred, <span class="at">stat =</span> <span class="st">"q975"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-align="center" data-layout-ncol="2">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ppc_stat</span>(Y, Y_pred, <span class="at">stat =</span> <span class="st">"mean"</span>) <span class="co"># from bayesplot</span></span>
+<span id="cb22-2"><a></a><span class="fu">ppc_stat</span>(Y, Y_pred, <span class="at">stat =</span> <span class="st">"sd"</span>)</span>
+<span id="cb22-3"><a></a>q025 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.025</span>)</span>
+<span id="cb22-4"><a></a>q975 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.975</span>)</span>
+<span id="cb22-5"><a></a><span class="fu">ppc_stat</span>(Y, Y_pred, <span class="at">stat =</span> <span class="st">"q025"</span>)</span>
+<span id="cb22-6"><a></a><span class="fu">ppc_stat</span>(Y, Y_pred, <span class="at">stat =</span> <span class="st">"q975"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-23-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-32-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -927,14 +1097,14 @@ convergence, Rhat=1).</code></pre>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-23-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-32-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-23-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-32-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -946,25 +1116,25 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="08-workflow_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p>Regression line corresponds to posterior predictive distribution mean and 95% credible interval, <span class="math inline">\(f(weight_{i'} | weight_{1:n})\)</span>.</p>
+<p>Regression line corresponds to posterior predictive distribution mean and 95% credible interval, <span class="math inline">\(f(Y_{i'} | Y_1,\ldots,Y_n)\)</span>.</p>
 </section>
 <section id="shinystan" class="slide level2">
 <h2><code>shinystan</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">library</span>(shinystan)</span>
-<span id="cb17-2"><a></a>y <span class="ot">&lt;-</span> dat<span class="sc">$</span>weight <span class="co"># need to define outcome as a global variable to be accessible</span></span>
-<span id="cb17-3"><a></a>sso <span class="ot">&lt;-</span> shinystan<span class="sc">::</span><span class="fu">launch_shinystan</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">library</span>(shinystan)</span>
+<span id="cb23-2"><a></a>Y <span class="ot">&lt;-</span> dat<span class="sc">$</span>weight <span class="co"># need to define outcome as a global variable to be accessible</span></span>
+<span id="cb23-3"><a></a>sso <span class="ot">&lt;-</span> shinystan<span class="sc">::</span><span class="fu">launch_shinystan</span>(fit_workflow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="compare-models" class="slide level2">
@@ -981,50 +1151,50 @@ convergence, Rhat=1).</code></pre>
 <section id="compare-models-1" class="slide level2 midi">
 <h2>8. Compare models</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="do">###Compute individual WAIC</span></span>
-<span id="cb18-2"><a></a><span class="fu">library</span>(loo)</span>
-<span id="cb18-3"><a></a>log_lik_model1 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_model1, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb18-4"><a></a>log_lik_model2 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_model2, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb18-5"><a></a>log_lik_model3 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_model3, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb18-6"><a></a>waic_model1 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_model1)</span>
-<span id="cb18-7"><a></a>waic_model2 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_model2)</span>
-<span id="cb18-8"><a></a>waic_model3 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_model3)</span>
-<span id="cb18-9"><a></a></span>
-<span id="cb18-10"><a></a><span class="do">###Make a comparison</span></span>
-<span id="cb18-11"><a></a>comp_waic <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo_compare</span>(<span class="fu">list</span>(<span class="st">"height_only"</span> <span class="ot">=</span> waic_model1, <span class="st">"height_sex"</span> <span class="ot">=</span> waic_model2, <span class="st">"interaction"</span> <span class="ot">=</span> waic_model3))</span>
-<span id="cb18-12"><a></a><span class="fu">print</span>(comp_waic, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="do">###Compute individual WAIC</span></span>
+<span id="cb24-2"><a></a><span class="fu">library</span>(loo)</span>
+<span id="cb24-3"><a></a>log_lik_model1 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_model1, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-4"><a></a>log_lik_model2 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_model2, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-5"><a></a>log_lik_model3 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_model3, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-6"><a></a>waic_model1 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_model1)</span>
+<span id="cb24-7"><a></a>waic_model2 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_model2)</span>
+<span id="cb24-8"><a></a>waic_model3 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_model3)</span>
+<span id="cb24-9"><a></a></span>
+<span id="cb24-10"><a></a><span class="do">###Make a comparison</span></span>
+<span id="cb24-11"><a></a>comp_waic <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo_compare</span>(<span class="fu">list</span>(<span class="st">"height_only"</span> <span class="ot">=</span> waic_model1, <span class="st">"height_sex"</span> <span class="ot">=</span> waic_model2, <span class="st">"interaction"</span> <span class="ot">=</span> waic_model3))</span>
+<span id="cb24-12"><a></a><span class="fu">print</span>(comp_waic, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            elpd_diff se_diff  elpd_waic se_elpd_waic p_waic   se_p_waic
-height_sex      0.00      0.00 -2229.19     23.36         4.84     0.88 
-interaction    -0.82      2.41 -2230.02     23.44         5.70     0.97 
-height_only   -25.33      5.80 -2254.52     21.32         3.54     0.62 
+interaction     0.00      0.00 -2225.62     24.22         5.08     0.96 
+height_sex     -1.19      1.66 -2226.81     23.78         4.80     0.87 
+height_only   -28.15      8.43 -2253.77     21.55         3.57     0.63 
             waic     se_waic 
-height_sex   4458.39    46.73
-interaction  4460.04    46.88
-height_only  4509.04    42.64</code></pre>
+interaction  4451.23    48.44
+height_sex   4453.62    47.55
+height_only  4507.53    43.10</code></pre>
 </div>
 </div>
 </section>
 <section id="compare-models-2" class="slide level2 midi">
 <h2>8. Compare models</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="do">###Compute individual LOO-CV/LOO-IC</span></span>
-<span id="cb20-2"><a></a>loo_model1 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo</span>(log_lik_model1)</span>
-<span id="cb20-3"><a></a>loo_model2 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo</span>(log_lik_model2)</span>
-<span id="cb20-4"><a></a>loo_model3 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo</span>(log_lik_model3)</span>
-<span id="cb20-5"><a></a></span>
-<span id="cb20-6"><a></a><span class="do">###Make a comparison</span></span>
-<span id="cb20-7"><a></a>comp_loo <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo_compare</span>(<span class="fu">list</span>(<span class="st">"height_only"</span> <span class="ot">=</span> loo_model1, <span class="st">"height_sex"</span> <span class="ot">=</span> loo_model2, <span class="st">"interaction"</span> <span class="ot">=</span> loo_model3))</span>
-<span id="cb20-8"><a></a><span class="fu">print</span>(comp_loo, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="do">###Compute individual LOO-CV/LOO-IC</span></span>
+<span id="cb26-2"><a></a>loo_model1 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo</span>(log_lik_model1)</span>
+<span id="cb26-3"><a></a>loo_model2 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo</span>(log_lik_model2)</span>
+<span id="cb26-4"><a></a>loo_model3 <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo</span>(log_lik_model3)</span>
+<span id="cb26-5"><a></a></span>
+<span id="cb26-6"><a></a><span class="do">###Make a comparison</span></span>
+<span id="cb26-7"><a></a>comp_loo <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo_compare</span>(<span class="fu">list</span>(<span class="st">"height_only"</span> <span class="ot">=</span> loo_model1, <span class="st">"height_sex"</span> <span class="ot">=</span> loo_model2, <span class="st">"interaction"</span> <span class="ot">=</span> loo_model3))</span>
+<span id="cb26-8"><a></a><span class="fu">print</span>(comp_loo, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            elpd_diff se_diff  elpd_loo se_elpd_loo p_loo    se_p_loo looic   
-height_sex      0.00      0.00 -2229.21    23.37        4.85     0.89  4458.41
-interaction    -0.83      2.41 -2230.03    23.44        5.72     0.97  4460.06
-height_only   -25.32      5.80 -2254.52    21.32        3.55     0.62  4509.05
+interaction     0.00      0.00 -2225.63    24.23        5.10     0.96  4451.27
+height_sex     -1.18      1.66 -2226.81    23.78        4.80     0.87  4453.63
+height_only   -28.13      8.43 -2253.77    21.55        3.57     0.63  4507.54
             se_looic
-height_sex     46.74
-interaction    46.89
-height_only    42.64</code></pre>
+interaction    48.46
+height_sex     47.56
+height_only    43.10</code></pre>
 </div>
 </div>
 </section>

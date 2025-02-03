@@ -1,0 +1,9 @@
+---
+title: Prepare for February 4 lecture
+---
+
+<br>
+
+📖 Review [Bayesian Workflow](https://arxiv.org/abs/2011.01808) by Gelman et al.
+
+✅ Work on [HW 02](https://biostat725-sp25.netlify.app/hw/hw-02)

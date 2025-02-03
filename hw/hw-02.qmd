@@ -2,6 +2,7 @@
 title: "HW 02: Bayesian linear regression"
 subtitle: Physical activity and access to recreational facilities in Cook County, Chicago
 bibliography: references.bib
+format: html
 ---
 
 ::: callout-important
