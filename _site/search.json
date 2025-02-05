@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -8154,7 +8154,7 @@
     "href": "slides/08-workflow.html#specify-likelihood-priors-1",
     "title": "Bayesian Workflow",
     "section": "2. Specify likelihood & priors:",
-    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\n\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\nparameter {\n  real alpha;            // intercept on the original scale\n  real beta;             // regression parameters\n  real&lt;lower = 0&gt; sigma; // measurement error\n}"
+    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\n\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\nparameter {\n  real alpha;            // intercept on the original scale\n  vector[p] beta;             // regression parameters\n  real&lt;lower = 0&gt; sigma; // measurement error\n}"
   },
   {
     "objectID": "slides/08-workflow.html#specify-likelihood-priors-2",
@@ -10310,7 +10310,7 @@
     "href": "slides/09-nonlinear.html#nonlinear-regression",
     "title": "Nonlinear Regression",
     "section": "Nonlinear regression",
-    "text": "Nonlinear regression\n\nDefine: \\(\\mu_i = \\mathbb{E}[Y_i] = \\alpha + x_i\\beta.\\)\nThe mean process can modeled flexibly, \\(\\mu_i = g(X_i)\\), where \\(g\\) is some function that relates \\(X_i\\) to \\(\\mathbb{E}[Y_i | X_i].\\)\nA form of nonlinear regression approximates the function \\(g\\) using a finite basis expansion, \\[g(X_i) = \\alpha + \\sum_{j=1}^J B_j(X_i)\\beta_j,\\] where \\(B_j(X)\\) are known basis functions and \\(\\beta_j\\) are unknown parameters that determine the shape of \\(g\\)."
+    "text": "Nonlinear regression\n\nDefine: \\(\\mu_i = \\mathbb{E}[Y_i] = \\alpha + x_i\\beta.\\)\nThe mean process can be modeled flexibly, \\(\\mu_i = g(X_i)\\), where \\(g\\) is some function that relates \\(X_i\\) to \\(\\mathbb{E}[Y_i].\\)\nA form of nonlinear regression approximates the function \\(g\\) using a finite basis expansion, \\[g(X_i) = \\alpha + \\sum_{j=1}^J B_j(X_i)\\beta_j,\\] where \\(B_j(X)\\) are known basis functions and \\(\\beta_j\\) are unknown parameters that determine the shape of \\(g\\)."
   },
   {
     "objectID": "slides/09-nonlinear.html#linear-regression-2",
@@ -10345,7 +10345,7 @@
     "href": "slides/09-nonlinear.html#nonlinear-regression-3",
     "title": "Nonlinear Regression",
     "section": "Nonlinear regression",
-    "text": "Nonlinear regression\n\nConditionally on the selected baseis \\(B\\), the model is linear in the parameters. Hence we can write, \\[Y_i = \\mu(X_i) + \\epsilon_i = \\mathbf{w}_i \\boldsymbol{\\beta} + \\epsilon_i,\\] with \\(\\mathbf{w}_i = (B_1(X_i),\\ldots,B_J(X_i))\\).\nModel fitting can proceed as in linear regression models, since the resulting model is linear in \\(\\boldsymbol{\\beta}\\).\nIt is often useful to center the basis function model around the linear model, \\(\\mu(X_i) = \\alpha + X_i \\beta + \\mathbf{w}_i\\boldsymbol{\\beta}\\)."
+    "text": "Nonlinear regression\n\nConditionally on the selected bases \\(B\\), the model is linear in the parameters. Hence we can write, \\[Y_i = \\mu(X_i) + \\epsilon_i = \\mathbf{w}_i \\boldsymbol{\\beta} + \\epsilon_i,\\] with \\(\\mathbf{w}_i = (B_1(X_i),\\ldots,B_J(X_i))\\).\nModel fitting can proceed as in linear regression models, since the resulting model is linear in \\(\\boldsymbol{\\beta}\\).\nIt is often useful to center the basis function model around the linear model, \\(\\mu(X_i) = \\alpha + X_i \\beta + \\mathbf{w}_i\\boldsymbol{\\beta}\\)."
   },
   {
     "objectID": "slides/09-nonlinear.html#glaucoma-data",
@@ -10422,7 +10422,7 @@
     "href": "slides/09-nonlinear.html#writing-down-a-model",
     "title": "Nonlinear Regression",
     "section": "Writing down a model",
-    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu(X_i) + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\nModel for the mean process:\n\n\\[\\mu(X_i) =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2\\{X_i - \\theta\\}& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
+    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu(X_i) + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\nModel for the mean process:\n\n\\[\\mu(X_i) =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
   },
   {
     "objectID": "slides/09-nonlinear.html#change-point-model-in-stan",
@@ -12009,7 +12009,7 @@
     "href": "slides/08-workflow.html#specify-likelihood-priors-5",
     "title": "Bayesian Workflow",
     "section": "2. Specify likelihood & priors:",
-    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i] = \\alpha^+ + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{\\mathbf{x}}=\\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^+\\) is the intercept, or average weight for someone who is an average height\n\n\nmodel {\n  target += normal_lpdf(Y | alpha_pus + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_pus | 150, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}\n\n\nHard to put a weakly informative prior on \\(\\alpha^+\\)."
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i] = \\alpha^+ + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{\\mathbf{x}}=\\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^+\\) is the intercept, or average weight for someone who is an average height\n\n\nmodel {\n  target += normal_lpdf(Y | alpha_plus + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_plus | 150, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}\n\n\nHard to put a weakly informative prior on \\(\\alpha^+\\)."
   },
   {
     "objectID": "slides/08-workflow.html#specify-likelihood-priors-6",
@@ -12023,7 +12023,7 @@
     "href": "slides/08-workflow.html#specify-likelihood-priors-7",
     "title": "Bayesian Workflow",
     "section": "2. Specify likelihood & priors:",
-    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i - \\bar{Y}] = \\alpha^* + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{Y}=\\frac{1}{n}\\sum_{i=1}^n Y_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^*\\) is the intercept for the centered data, should be zero.\n\n\nmodel {\n  target += normal_lpdf(Y_centered | alpha + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_star | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}"
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i - \\bar{Y}] = \\alpha^* + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{Y}=\\frac{1}{n}\\sum_{i=1}^n Y_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^*\\) is the intercept for the centered data, should be zero.\n\n\nmodel {\n  target += normal_lpdf(Y_centered | alpha_star + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_star | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(sigma | 0, 10);\n}"
   },
   {
     "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-2",
@@ -12073,5 +12073,12 @@
     "title": "Prepare for February 4 lecture",
     "section": "",
     "text": "📖 Review Bayesian Workflow by Gelman et al.\n✅ Work on HW 02"
+  },
+  {
+    "objectID": "prepare/prepare-feb06.html",
+    "href": "prepare/prepare-feb06.html",
+    "title": "Prepare for February 6 lecture",
+    "section": "",
+    "text": "📖 Review Curve fitting with B-splines\n✅ Work on HW 02"
   }
 ]

@@ -230,7 +230,7 @@ $$Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \s
 ```{stan output.var = "workflow", eval = FALSE}
 parameter {
   real alpha;            // intercept on the original scale
-  real beta;             // regression parameters
+  vector[p] beta;             // regression parameters
   real<lower = 0> sigma; // measurement error
 }
 ```
@@ -299,14 +299,14 @@ Think about reasonable priors for your parameters:
 
 ```{stan output.var = "workflow", eval = FALSE}
 model {
-  target += normal_lpdf(Y | alpha_pus + X_centered * beta, sigma);
-  target += normal_lpdf(alpha_pus | 150, 10);
+  target += normal_lpdf(Y | alpha_plus + X_centered * beta, sigma);
+  target += normal_lpdf(alpha_plus | 150, 10);
   target += normal_lpdf(beta | 0, 10);
   target += normal_lpdf(sigma | 0, 10);
 }
 ```
 
-- Hard to put a weakly informative prior on $\alpha^+$. 
+-   Hard to put a weakly informative prior on $\alpha^+$.
 
 ## 2. **Specify likelihood & priors:** {.small}
 
@@ -341,7 +341,7 @@ Think about reasonable priors for your parameters:
 
 ```{stan output.var = "workflow", eval = FALSE}
 model {
-  target += normal_lpdf(Y_centered | alpha + X_centered * beta, sigma);
+  target += normal_lpdf(Y_centered | alpha_star + X_centered * beta, sigma);
   target += normal_lpdf(alpha_star | 0, 10);
   target += normal_lpdf(beta | 0, 10);
   target += normal_lpdf(sigma | 0, 10);
@@ -614,7 +614,6 @@ fit_workflow <- sampling(compiled_model, data = stan_data)
 saveRDS(fit_workflow, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_workflow.RDS")
 ```
 
-
 ```{r, eval = FALSE}
 ###Compile model
 regression_model <- stan_model(file = "linear_regression_workflow.stan")
@@ -641,6 +640,7 @@ stan_data <- list(
 fit_workflow <- sampling(regression_model, data = stan_data)
 print(fit_workflow)
 ```
+
 ```{r, echo = FALSE}
 ###Create data
 Y <- dat$weight

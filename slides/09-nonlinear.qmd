@@ -79,7 +79,7 @@ $$Y_i = \alpha + X_i \beta + \epsilon_i, \quad \epsilon_i \sim N(0, \sigma^2).$$
 
 -   Define: $\mu_i = \mathbb{E}[Y_i] = \alpha + x_i\beta.$
 
--   The mean process can modeled flexibly, $\mu_i = g(X_i)$, where $g$ is some function that relates $X_i$ to $\mathbb{E}[Y_i | X_i].$
+-   The mean process can be modeled flexibly, $\mu_i = g(X_i)$, where $g$ is some function that relates $X_i$ to $\mathbb{E}[Y_i].$
 
 -   A form of nonlinear regression approximates the function $g$ using a finite basis expansion, $$g(X_i) = \alpha + \sum_{j=1}^J B_j(X_i)\beta_j,$$ where $B_j(X)$ are known basis functions and $\beta_j$ are unknown parameters that determine the shape of $g$.
 
@@ -89,7 +89,7 @@ $$Y_i = \alpha + X_i \beta + \epsilon_i, \quad \epsilon_i \sim N(0, \sigma^2).$$
 
 -   Example: Gaussian radial basis functions: $$B_j(X_i) = \exp\left\{-\frac{|X_i - \nu_j|^2}{l^2}\right\},$$ where $\nu_j$ are centers of the basis functions and $l$ is a common width parameter.
 
--   The number of of basis functions and the width parameter $l$ controls the scale at which the model can vary as a function of $X_i$.
+  -   The number of of basis functions and the width parameter $l$ controls the scale at which the model can vary as a function of $X_i$.
 
 ## Nonlinear regression {.smaller}
 
@@ -113,7 +113,7 @@ $$B_j(X_i) = \left\{
 
 ## Nonlinear regression
 
--   Conditionally on the selected baseis $B$, the model is linear in the parameters. Hence we can write, $$Y_i = \mu(X_i) + \epsilon_i = \mathbf{w}_i \boldsymbol{\beta} + \epsilon_i,$$ with $\mathbf{w}_i = (B_1(X_i),\ldots,B_J(X_i))$.
+-   Conditionally on the selected bases $B$, the model is linear in the parameters. Hence we can write, $$Y_i = \mu(X_i) + \epsilon_i = \mathbf{w}_i \boldsymbol{\beta} + \epsilon_i,$$ with $\mathbf{w}_i = (B_1(X_i),\ldots,B_J(X_i))$.
 
 -   Model fitting can proceed as in linear regression models, since the resulting model is linear in $\boldsymbol{\beta}$.
 
@@ -559,7 +559,7 @@ $$Y_i = \mu(X_i) + \epsilon_i, \quad \epsilon_i \sim N(0,\sigma^2).$$
 
 $$\mu(X_i) =\left\{ \begin{array}{ll}
         {\beta}_0 + \beta_1 X_i & \text{ } \mbox{$X_i \leq \theta$},\\
-        {\beta}_0 + \beta_1 \theta + {\beta}_2\{X_i - \theta\}& \text{ } \mbox{$X_i > \theta.$}\end{array} \right.$$
+        {\beta}_0 + \beta_1 \theta + {\beta}_2(X_i - \theta)& \text{ } \mbox{$X_i > \theta.$}\end{array} \right.$$
 
 -   $\theta \in (\min X_i, \max X_i)$ represents a change point.
 

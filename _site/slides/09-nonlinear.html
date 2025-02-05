@@ -443,7 +443,7 @@ Prof.&nbsp;Sam Berchuck
 <h2>Nonlinear regression</h2>
 <ul>
 <li><p>Define: <span class="math inline">\(\mu_i = \mathbb{E}[Y_i] = \alpha + x_i\beta.\)</span></p></li>
-<li><p>The mean process can modeled flexibly, <span class="math inline">\(\mu_i = g(X_i)\)</span>, where <span class="math inline">\(g\)</span> is some function that relates <span class="math inline">\(X_i\)</span> to <span class="math inline">\(\mathbb{E}[Y_i | X_i].\)</span></p></li>
+<li><p>The mean process can be modeled flexibly, <span class="math inline">\(\mu_i = g(X_i)\)</span>, where <span class="math inline">\(g\)</span> is some function that relates <span class="math inline">\(X_i\)</span> to <span class="math inline">\(\mathbb{E}[Y_i].\)</span></p></li>
 <li><p>A form of nonlinear regression approximates the function <span class="math inline">\(g\)</span> using a finite basis expansion, <span class="math display">\[g(X_i) = \alpha + \sum_{j=1}^J B_j(X_i)\beta_j,\]</span> where <span class="math inline">\(B_j(X)\)</span> are known basis functions and <span class="math inline">\(\beta_j\)</span> are unknown parameters that determine the shape of <span class="math inline">\(g\)</span>.</p></li>
 </ul>
 </section>
@@ -478,7 +478,7 @@ Prof.&nbsp;Sam Berchuck
 <section id="nonlinear-regression-3" class="slide level2">
 <h2>Nonlinear regression</h2>
 <ul>
-<li><p>Conditionally on the selected baseis <span class="math inline">\(B\)</span>, the model is linear in the parameters. Hence we can write, <span class="math display">\[Y_i = \mu(X_i) + \epsilon_i = \mathbf{w}_i \boldsymbol{\beta} + \epsilon_i,\]</span> with <span class="math inline">\(\mathbf{w}_i = (B_1(X_i),\ldots,B_J(X_i))\)</span>.</p></li>
+<li><p>Conditionally on the selected bases <span class="math inline">\(B\)</span>, the model is linear in the parameters. Hence we can write, <span class="math display">\[Y_i = \mu(X_i) + \epsilon_i = \mathbf{w}_i \boldsymbol{\beta} + \epsilon_i,\]</span> with <span class="math inline">\(\mathbf{w}_i = (B_1(X_i),\ldots,B_J(X_i))\)</span>.</p></li>
 <li><p>Model fitting can proceed as in linear regression models, since the resulting model is linear in <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p></li>
 <li><p>It is often useful to center the basis function model around the linear model, <span class="math inline">\(\mu(X_i) = \alpha + X_i \beta + \mathbf{w}_i\boldsymbol{\beta}\)</span>.</p></li>
 </ul>
@@ -520,7 +520,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -537,7 +537,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -628,7 +628,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -652,7 +652,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -669,7 +669,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -686,7 +686,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -710,7 +710,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -807,7 +807,7 @@ attr(,"class")
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -824,7 +824,7 @@ attr(,"class")
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -874,7 +874,7 @@ attr(,"class")
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -906,7 +906,7 @@ attr(,"class")
 </ul>
 <p><span class="math display">\[\mu(X_i) =\left\{ \begin{array}{ll}
         {\beta}_0 + \beta_1 X_i &amp; \text{ } \mbox{$X_i \leq \theta$},\\
-        {\beta}_0 + \beta_1 \theta + {\beta}_2\{X_i - \theta\}&amp; \text{ } \mbox{$X_i &gt; \theta.$}\end{array} \right.\]</span></p>
+        {\beta}_0 + \beta_1 \theta + {\beta}_2(X_i - \theta)&amp; \text{ } \mbox{$X_i &gt; \theta.$}\end{array} \right.\]</span></p>
 <ul>
 <li><span class="math inline">\(\theta \in (\min X_i, \max X_i)\)</span> represents a change point.</li>
 </ul>
@@ -999,7 +999,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -1016,7 +1016,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -1033,7 +1033,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -1050,7 +1050,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
