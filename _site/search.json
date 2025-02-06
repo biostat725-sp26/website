@@ -8756,7 +8756,7 @@
     "href": "slides/09-nonlinear.html#prepare-for-next-class",
     "title": "Nonlinear Regression",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Robust regression"
+    "text": "Prepare for next class\n\nWork on HW 02.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Robust regression\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/09-robust.html#review-of-last-lecture",
@@ -10422,7 +10422,7 @@
     "href": "slides/09-nonlinear.html#writing-down-a-model",
     "title": "Nonlinear Regression",
     "section": "Writing down a model",
-    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu(X_i) + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n. . .\n\nModel for the mean process:\n\n\\[\\mu(X_i) =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
+    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu(X_i) + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\nModel for the mean process:\n\n\\[\\mu(X_i) =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
   },
   {
     "objectID": "slides/09-nonlinear.html#change-point-model-in-stan",
@@ -10450,7 +10450,7 @@
     "href": "slides/09-nonlinear.html#posterior-fit",
     "title": "Nonlinear Regression",
     "section": "Posterior fit",
-    "text": "Posterior fit\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead."
+    "text": "Posterior fit"
   },
   {
     "objectID": "slides/09-nonlinear.html#posterior-fit-1",
@@ -10464,7 +10464,7 @@
     "href": "slides/09-nonlinear.html#prediction",
     "title": "Nonlinear Regression",
     "section": "Prediction",
-    "text": "Prediction\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_vline()`).\nRemoved 1 row containing missing values or values outside the scale range\n(`geom_vline()`)."
+    "text": "Prediction"
   },
   {
     "objectID": "slides/11-regularization.html#review-of-last-lecture",
