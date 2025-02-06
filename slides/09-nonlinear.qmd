@@ -89,7 +89,7 @@ $$Y_i = \alpha + X_i \beta + \epsilon_i, \quad \epsilon_i \sim N(0, \sigma^2).$$
 
 -   Example: Gaussian radial basis functions: $$B_j(X_i) = \exp\left\{-\frac{|X_i - \nu_j|^2}{l^2}\right\},$$ where $\nu_j$ are centers of the basis functions and $l$ is a common width parameter.
 
-  -   The number of of basis functions and the width parameter $l$ controls the scale at which the model can vary as a function of $X_i$.
+-   The number of of basis functions and the width parameter $l$ controls the scale at which the model can vary as a function of $X_i$.
 
 ## Nonlinear regression {.smaller}
 

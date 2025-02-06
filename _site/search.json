@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -8756,7 +8756,7 @@
     "href": "slides/09-nonlinear.html#prepare-for-next-class",
     "title": "Nonlinear Regression",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Robust regression\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 02.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Robust regression"
   },
   {
     "objectID": "slides/09-robust.html#review-of-last-lecture",
@@ -10422,7 +10422,7 @@
     "href": "slides/09-nonlinear.html#writing-down-a-model",
     "title": "Nonlinear Regression",
     "section": "Writing down a model",
-    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu(X_i) + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\nModel for the mean process:\n\n\\[\\mu(X_i) =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
+    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu(X_i) + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n. . .\n\nModel for the mean process:\n\n\\[\\mu(X_i) =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
   },
   {
     "objectID": "slides/09-nonlinear.html#change-point-model-in-stan",
@@ -10450,7 +10450,7 @@
     "href": "slides/09-nonlinear.html#posterior-fit",
     "title": "Nonlinear Regression",
     "section": "Posterior fit",
-    "text": "Posterior fit"
+    "text": "Posterior fit\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead."
   },
   {
     "objectID": "slides/09-nonlinear.html#posterior-fit-1",
@@ -10464,7 +10464,7 @@
     "href": "slides/09-nonlinear.html#prediction",
     "title": "Nonlinear Regression",
     "section": "Prediction",
-    "text": "Prediction"
+    "text": "Prediction\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_vline()`).\nRemoved 1 row containing missing values or values outside the scale range\n(`geom_vline()`)."
   },
   {
     "objectID": "slides/11-regularization.html#review-of-last-lecture",
@@ -12080,5 +12080,68 @@
     "title": "Prepare for February 6 lecture",
     "section": "",
     "text": "📖 Review Curve fitting with B-splines\n✅ Work on HW 02"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html",
+    "href": "ae/ae-05-nonlinear.html",
+    "title": "AE 05: Change point regression",
+    "section": "",
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#learning-goals",
+    "href": "ae/ae-05-nonlinear.html#learning-goals",
+    "title": "AE 05: Change point regression",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the AE, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nGain practice writing a reproducible report using Quarto\nPractice version control using GitHub\nPerform Gibbs sampling for Bayesian linear regression and compute some basic summaries"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-05-nonlinear.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 05: Change point regression",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-05-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-05.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#exercise-1",
+    "href": "ae/ae-05-nonlinear.html#exercise-1",
+    "title": "AE 05: Change point regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFor eye 4, fit a change point regression model. Present MCMC convergence diagnostics. Did the model converge?\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#exercise-2",
+    "href": "ae/ae-05-nonlinear.html#exercise-2",
+    "title": "AE 05: Change point regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nUsing the model from Exercise 1, present posterior estimates for model parameters. Provide an point and interval estimate for when this eye progressed.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#exercise-3",
+    "href": "ae/ae-05-nonlinear.html#exercise-3",
+    "title": "AE 05: Change point regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCreate a figure that plots the time since first visual field visit versus the mean deviation. Overlay the posterior mean process with a 95% credible band (similar to the figure on slide 32 from today). Also include a vertical line for the posterior mean estimate of the change point.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html",
+    "href": "slides/09-nonlinear.html",
+    "title": "Nonlinear Regression",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#exercise-4",
+    "href": "ae/ae-05-nonlinear.html#exercise-4",
+    "title": "AE 05: Change point regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nNow fit the change point model to eye 30. Did the MCMC sampler converge? To help answer this question, visualize the observed data for eye 30.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#optional-exercise-5",
+    "href": "ae/ae-05-nonlinear.html#optional-exercise-5",
+    "title": "AE 05: Change point regression",
+    "section": "(Optional) Exercise 5",
+    "text": "(Optional) Exercise 5\nGoing back to eye 4, fit a new change point model where both the mean and variance process are modeled as having a change point, so that \\(Y_i \\stackrel{ind}{\\sim} N(\\mu(X_i),\\sigma(X_i)^2)\\), where\n\\[\\log \\sigma (X_i) =\\left\\{ \\begin{array}{ll}\n        {\\gamma}_0 + \\gamma_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\gamma}_0 + \\gamma_1 \\theta + {\\gamma}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\nPresent posterior summaries for each parameter and create a visualization of the posterior standard deviations across time.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
   }
 ]
