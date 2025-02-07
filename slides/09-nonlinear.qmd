@@ -51,9 +51,9 @@ library(splines)
 
 -   Thus far, we have focused on linear regression models.
 
--   Today we will focus on two common approaches that use linear regression to build nonlinear associations: polynomial regression and b-splines.
+-   Today we will focus on approaches that use linear regression to build nonlinear associations. For example: polynomial regression and b-splines.
 
--   Both approaches work by transforming a single predictor variable into several synthetic variables.
+-   These approaches work by transforming a single predictor variable into several synthetic variables.
 
 -   We will also look at a change point model, that encodes clinical context into a nonlinear framework.
 
@@ -77,7 +77,7 @@ $$Y_i = \alpha + X_i \beta + \epsilon_i, \quad \epsilon_i \sim N(0, \sigma^2).$$
 
 ## Nonlinear regression
 
--   Define: $\mu_i = \mathbb{E}[Y_i] = \alpha + x_i\beta.$
+-   Define: $\mu_i = \mathbb{E}[Y_i] = \alpha + X_i\beta.$
 
 -   The mean process can be modeled flexibly, $\mu_i = g(X_i)$, where $g$ is some function that relates $X_i$ to $\mathbb{E}[Y_i].$
 
@@ -113,11 +113,11 @@ $$B_j(X_i) = \left\{
 
 ## Nonlinear regression
 
--   Conditionally on the selected bases $B$, the model is linear in the parameters. Hence we can write, $$Y_i = \mu(X_i) + \epsilon_i = \mathbf{w}_i \boldsymbol{\beta} + \epsilon_i,$$ with $\mathbf{w}_i = (B_1(X_i),\ldots,B_J(X_i))$.
+-   Conditionally on the selected bases $B$, the model is linear in the parameters. Hence we can write, $$Y_i = \mu_i + \epsilon_i = \mathbf{w}_i \boldsymbol{\beta} + \epsilon_i,$$ with $\mathbf{w}_i = (B_1(X_i),\ldots,B_J(X_i))$.
 
 -   Model fitting can proceed as in linear regression models, since the resulting model is linear in $\boldsymbol{\beta}$.
 
--   It is often useful to center the basis function model around the linear model, $\mu(X_i) = \alpha + X_i \beta + \mathbf{w}_i\boldsymbol{\beta}$.
+-   It is often useful to center the basis function model around the linear model, $\mu_i = \alpha + X_i \beta + \mathbf{w}_i\boldsymbol{\beta}$.
 
 ## Glaucoma disease progression {.midi}
 
@@ -219,9 +219,11 @@ dat_fig_linear |> ggplot(aes(x = x, y = mean)) +
 
 -   Model for the mean process becomes nonlinear:
 
-$$\mathbb{E}[MD_i] = \alpha + \beta_1 Time_i + \cdots + \beta_p Time_i^p$$
+$$\mu_i = \alpha + \beta_1 X_i + \cdots + \beta_J X_i^J$$
 
--   $p$ is chosen depending on the degree of non-linearity.
+-   $X_i$ is years from baseline visit.
+
+-   $J$ is chosen depending on the degree of non-linearity.
 
 -   When fitting non-linear regression in Bayesian context it is useful to standardize the data.
 
@@ -259,8 +261,8 @@ parameters {
   real<lower = 0> sigma;
 }
 model {
-  target += normal_lpdf(Y | X * beta, sigma); // likelihood
-  target += normal_lpdf(alpha | 0, 1); // prior for beta
+  target += normal_lpdf(Y | alpha + X * beta, sigma); // likelihood
+  target += normal_lpdf(alpha | 0, 1); // prior for alpha
   target += normal_lpdf(beta | 0, 1); // prior for beta
   target += inv_gamma_lpdf(sigma | 3, 1); // prior for sigma
 }
@@ -281,8 +283,8 @@ generated quantities {
 ```{r}
 #| echo: false
 #| fig-align: "center"
-#| fig-width: 8
-#| fig-height: 6
+#| fig-width: 10
+#| fig-height: 4
 #| layout-ncol: 1
 fit_quadratic <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_quadratic.rds")
 rstan::traceplot(fit_quadratic, pars = c("alpha", "beta"))
@@ -551,13 +553,13 @@ ggplot(dat_pat, aes(x = X, y = Y)) +
 
 -   Model for the observed data:
 
-$$Y_i = \mu(X_i) + \epsilon_i, \quad \epsilon_i \sim N(0,\sigma^2).$$
+$$Y_i = \mu_i + \epsilon_i, \quad \epsilon_i \sim N(0,\sigma^2).$$
 
 . . .
 
 -   Model for the mean process:
 
-$$\mu(X_i) =\left\{ \begin{array}{ll}
+$$\mu_i =\left\{ \begin{array}{ll}
         {\beta}_0 + \beta_1 X_i & \text{ } \mbox{$X_i \leq \theta$},\\
         {\beta}_0 + \beta_1 \theta + {\beta}_2(X_i - \theta)& \text{ } \mbox{$X_i > \theta.$}\end{array} \right.$$
 
@@ -658,6 +660,17 @@ print(fit_cp, probs = c(0.25, 0.5, 0.75), pars = c("beta0", "beta1", "beta2", "s
 #| fig-height: 4
 #| layout-ncol: 1
 rstan::traceplot(fit_cp, pars = c("beta0", "beta1", "beta2", "sigma", "theta"))
+```
+
+## Posterior histograms
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 8
+#| fig-height: 6
+#| layout-ncol: 1
+bayesplot::mcmc_hist(fit_cp, pars = c("beta0", "beta1", "beta2", "sigma", "theta"))
 ```
 
 ## Posterior fit

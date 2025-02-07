@@ -3651,7 +3651,7 @@
     "href": "syllabus.html",
     "title": "BIOSTAT 725 Syllabus",
     "section": "",
-    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTBD\nor by appointment\nTBD\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\n\nMon 9 – 10am\nWed 2 – 3pm\nOld Chemistry 203A/B",
+    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTue 2 - 4pm\nor by appointment\nHock 10092\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\n\nMon 9 – 10am\nWed 2 – 3pm\nOld Chemistry 203A/B",
     "crumbs": [
       "Syllabus"
     ]
@@ -3661,7 +3661,7 @@
     "href": "syllabus.html#course-info",
     "title": "BIOSTAT 725 Syllabus",
     "section": "",
-    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTBD\nor by appointment\nTBD\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\n\nMon 9 – 10am\nWed 2 – 3pm\nOld Chemistry 203A/B",
+    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTue 2 - 4pm\nor by appointment\nHock 10092\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\n\nMon 9 – 10am\nWed 2 – 3pm\nOld Chemistry 203A/B",
     "crumbs": [
       "Syllabus"
     ]
@@ -9680,7 +9680,7 @@
     "href": "slides/10-robust.html#review-of-last-lecture",
     "title": "Robust Regression",
     "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nOn Thursday, we learned about approaches for nonlinear regression."
+    "text": "Review of last lecture\n\nOn Thursday, we started to branch out from linear regression.\nWe learned about approaches for nonlinear regression.\nToday we will address approaches for robust regression, which will generalize the assumption of homoskedasticity (and also the normality assumption)."
   },
   {
     "objectID": "slides/10-robust.html#a-motivating-research-question",
@@ -9750,21 +9750,21 @@
     "href": "slides/10-robust.html#modeling-the-scale-with-covariates",
     "title": "Robust Regression",
     "section": "Modeling the scale with covariates",
-    "text": "Modeling the scale with covariates\n\nThe scale can also be modeled with covariates.\nIt is common to model the log-transformation of the scale or variance to transform it to \\(\\mathbb{R}\\),\n\n\\[\\log \\tau_i^2 = \\mathbf{z}_i \\boldsymbol{\\gamma},\\]\nwhere \\(\\mathbf{z}_i = (z_{i1},\\ldots,z_{ip})\\) are a \\(p\\)-dimensional vector of covariates and \\(\\boldsymbol{\\gamma}\\) are parameters that regress the covariates onto the log variance.\n\nOther options include: \\(\\log \\tau_i^2 = \\mathbf{z}_i \\boldsymbol{\\gamma} + \\nu_i,\\quad \\nu_i \\sim N(0, \\sigma^2)\\)\nOther options include: \\(\\log \\tau_i^2 = f(\\mu_i)\\)\nAny plausible generative model can be specified!"
+    "text": "Modeling the scale with covariates\n\nThe scale can also be modeled with covariates.\nIt is common to model the log-transformation of the scale or variance to transform it to \\(\\mathbb{R}\\),\n\n\\[\\log \\tau_i = \\mathbf{z}_i \\boldsymbol{\\gamma},\\]\nwhere \\(\\mathbf{z}_i = (z_{i1},\\ldots,z_{ip})\\) are a \\(p\\)-dimensional vector of covariates and \\(\\boldsymbol{\\gamma}\\) are parameters that regress the covariates onto the log standard deviation.\n\nOther options include: \\(\\log \\tau_i = \\mathbf{z}_i \\boldsymbol{\\gamma} + \\nu_i,\\quad \\nu_i \\sim N(0, \\sigma^2)\\)\nOther options include: \\(\\log \\tau_i = f(\\mu_i)\\)\nAny plausible generative model can be specified!"
   },
   {
     "objectID": "slides/10-robust.html#modeling-the-scale-with-covariates-1",
     "href": "slides/10-robust.html#modeling-the-scale-with-covariates-1",
     "title": "Robust Regression",
     "section": "Modeling the scale with covariates",
-    "text": "Modeling the scale with covariates\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1&gt; q;\n  vector[n] Y;\n  matrix[n, p] X;\n  matrix[n, q] Z;\n}\nparameters {\n  vector[p] beta;\n  vector[q] gamma;\n}\ntransformed parameters {\n  vector[n] tau = exp(Z * gamma);\n}\nmodel {\n  target += normal_lpdf(Y | X * beta, tau);\n}"
+    "text": "Modeling the scale with covariates\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1&gt; q;\n  vector[n] Y;\n  matrix[n, p] X;\n  matrix[n, q] Z;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  vector[q] gamma;\n}\ntransformed parameters {\n  vector[n] tau = exp(Z * gamma);\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, tau);\n}"
   },
   {
     "objectID": "slides/10-robust.html#heteroskedastic-variance",
     "href": "slides/10-robust.html#heteroskedastic-variance",
     "title": "Robust Regression",
     "section": "Heteroskedastic variance",
-    "text": "Heteroskedastic variance\n\nWe can write the regression model using a observation specific variance, \\[Y_i = \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\tau_i^2).\\]\nOne way of writing the variance is: \\(\\tau_i^2 = \\sigma^2 \\lambda_i\\).\n\n\\(\\sigma^2\\) is a global scale parameter.\n\\(\\lambda_i\\) is an observation specific scale parameter.\n\nIn the Bayesian framework, we must place a prior on \\(\\lambda_i\\)."
+    "text": "Heteroskedastic variance\n\nWe can write the regression model using a observation specific variance, \\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\tau_i^2).\\]\nOne way of writing the variance is: \\(\\tau_i^2 = \\sigma^2 \\lambda_i\\).\n\n\\(\\sigma^2\\) is a global scale parameter.\n\\(\\lambda_i\\) is an observation specific scale parameter.\n\nIn the Bayesian framework, we must place a prior on \\(\\lambda_i\\)."
   },
   {
     "objectID": "slides/10-robust.html#bayesian-prior-to-induce-structure",
@@ -9785,14 +9785,14 @@
     "href": "slides/10-robust.html#a-prior-to-induce-a-heavy-tail",
     "title": "Robust Regression",
     "section": "A prior to induce a heavy-tail",
-    "text": "A prior to induce a heavy-tail\n\nA common prior for \\(\\lambda_i\\) is as follows:\n\n\\[\\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\\]\n\nUnder this prior, the marginal likelihood for \\(Y_i\\) is equivalent to a Student-t distribution,\n\n\\[Y_i = \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\sim t_{\\nu}\\left(0, \\sigma\\right).\\]"
+    "text": "A prior to induce a heavy-tail\n\nA common prior for \\(\\lambda_i\\) is as follows:\n\n\\[\\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\\]\n\nUnder this prior, the marginal likelihood for \\(Y_i\\) is equivalent to a Student-t distribution,\n\n\\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\sim t_{\\nu}\\left(0, \\sigma\\right).\\]"
   },
   {
     "objectID": "slides/10-robust.html#understanding-the-equivalence",
     "href": "slides/10-robust.html#understanding-the-equivalence",
     "title": "Robust Regression",
     "section": "Understanding the equivalence",
-    "text": "Understanding the equivalence\n\nHeteroskedastic variances assumption is equivalent to assuming a heavy-tailed distribution.\n\n\\[Y_i = \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\sim t_{\\nu}\\left(0, \\sigma\\right).\\]\n\\[\\iff\\]\n\\[\\begin{aligned}\nY_i &= \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N\\left(0,\\sigma^2 \\lambda_i\\right)\\\\\n\\lambda_i &\\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right)\n\\end{aligned}\\]\n\nNote that since the number of \\(\\lambda_i\\) parameters is equal to the number of observations, this model will not have a proper posterior distribution without a proper prior distribution."
+    "text": "Understanding the equivalence\n\nHeteroskedastic variances assumption is equivalent to assuming a heavy-tailed distribution.\n\n\\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{iid}{\\sim} t_{\\nu}\\left(0, \\sigma\\right).\\]\n\\[\\iff\\]\n\\[\\begin{aligned}\nY_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N\\left(0,\\sigma^2 \\lambda_i\\right)\\\\\n\\lambda_i &\\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right)\n\\end{aligned}\\]\n\nNote that since the number of \\(\\lambda_i\\) parameters is equal to the number of observations, this model will not have a proper posterior distribution without a proper prior distribution."
   },
   {
     "objectID": "slides/10-robust.html#understanding-the-equivalence-1",
@@ -9813,14 +9813,14 @@
     "href": "slides/10-robust.html#student-t-in-stan",
     "title": "Robust Regression",
     "section": "Student-t in Stan",
-    "text": "Student-t in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = 0&gt; nu;\n}\nmodel {\n  target += student_t_lpdf(Y | nu, X * beta, sigma);\n}"
+    "text": "Student-t in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = 0&gt; nu;\n}\nmodel {\n  target += student_t_lpdf(Y | nu, alpha + X * beta, sigma);\n}"
   },
   {
     "objectID": "slides/10-robust.html#student-t-in-stan-mixture",
     "href": "slides/10-robust.html#student-t-in-stan-mixture",
     "title": "Robust Regression",
     "section": "Student-t in Stan: mixture",
-    "text": "Student-t in Stan: mixture\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n] lambda;\n}\ntransformed parameters {\n  vector[n] tau = sigma * sqrt(lambda);\n}\nmodel {\n  target += normal_lpdf(Y | X * beta, tau);\n  target += inv_gamma_lpdf(lambda | 0.5 * nu, 0.5 * nu);\n}"
+    "text": "Student-t in Stan: mixture\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n] lambda;\n}\ntransformed parameters {\n  vector[n] tau = sigma * sqrt(lambda);\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, tau);\n  target += inv_gamma_lpdf(lambda | 0.5 * nu, 0.5 * nu);\n}"
   },
   {
     "objectID": "slides/10-robust.html#why-heavy-tailed-distributions",
@@ -9848,7 +9848,7 @@
     "href": "slides/10-robust.html#another-example-of-robust-regression",
     "title": "Robust Regression",
     "section": "Another example of robust regression",
-    "text": "Another example of robust regression\n\nLet’s revisit our general heteroskedastic regression, \\[Y_i = \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\sigma^2 \\lambda_i).\\]\nWe can induce another form of robust regression using the following prior for \\(\\lambda_i\\), \\(\\lambda_i \\sim \\text{Exponential}(1/2)\\).\nUnder this prior, the induced marginal model is, \\[Y_i = \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\stackrel{ind}{\\sim} \\text{Laplace}(\\mu, \\sigma).\\]\n\\(f(\\epsilon_i | \\mu, \\sigma) = \\frac{1}{2\\sigma} \\exp\\left\\{-\\frac{|\\epsilon_i - \\mu|}{\\sigma}\\right\\}\\)"
+    "text": "Another example of robust regression\n\nLet’s revisit our general heteroskedastic regression, \\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\sigma^2 \\lambda_i).\\]\nWe can induce another form of robust regression using the following prior for \\(\\lambda_i\\), \\(\\lambda_i \\sim \\text{Exponential}(1/2)\\).\nUnder this prior, the induced marginal model is, \\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} \\text{Laplace}(\\mu = 0, \\sigma).\\]\n\\(f(\\epsilon_i | \\mu, \\sigma) = \\frac{1}{2\\sigma} \\exp\\left\\{-\\frac{|\\epsilon_i - \\mu|}{\\sigma}\\right\\}\\)"
   },
   {
     "objectID": "slides/10-robust.html#median-regression-using-laplace",
@@ -9869,14 +9869,14 @@
     "href": "slides/10-robust.html#laplace-regression-in-stan",
     "title": "Robust Regression",
     "section": "Laplace regression in Stan",
-    "text": "Laplace regression in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += double_exponential_lpdf(Y | X * beta, sigma);\n}"
+    "text": "Laplace regression in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += double_exponential_lpdf(Y | alpha + X * beta, sigma);\n}"
   },
   {
     "objectID": "slides/10-robust.html#laplace-regression-in-stan-mixture",
     "href": "slides/10-robust.html#laplace-regression-in-stan-mixture",
     "title": "Robust Regression",
     "section": "Laplace regression in Stan: mixture",
-    "text": "Laplace regression in Stan: mixture\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n] lambda;\n}\ntransformed parameters {\n  vector[n] tau = sigma * sqrt(lambda);\n}\nmodel {\n  target += normal_lpdf(Y | X * beta, tau);\n  target += exponential_lpdf(lambda | 0.5);\n}"
+    "text": "Laplace regression in Stan: mixture\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n] lambda;\n}\ntransformed parameters {\n  vector[n] tau = sigma * sqrt(lambda);\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, tau);\n  target += exponential_lpdf(lambda | 0.5);\n}"
   },
   {
     "objectID": "slides/10-robust.html#asymmetric-laplace-distribution",
@@ -9890,7 +9890,7 @@
     "href": "slides/10-robust.html#general-quantile-regression",
     "title": "Robust Regression",
     "section": "General quantile regression",
-    "text": "General quantile regression\n\nfunctions {\n  real asym_laplace_lpdf(real y, real mu, real sigma, real tau) {\n    return log(tau) + log1m(tau)\n      - log(sigma)\n      - 2 * ((y &lt; mu) ? (1 - tau) * (mu - y) : tau * (y - mu)) / sigma;\n  }\n}\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n  real&lt;lower = 0, upper = 1&gt; tau;\n}\nparameters {\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  for (i in 1:n) target += asym_laplace_lpdf(Y[i] | X[i, ] * beta, sigma, tau);\n}"
+    "text": "General quantile regression\n\nfunctions {\n  real asym_laplace_lpdf(real y, real mu, real sigma, real tau) {\n    return log(tau) + log1m(tau)\n      - log(sigma)\n      - 2 * ((y &lt; mu) ? (1 - tau) * (mu - y) : tau * (y - mu)) / sigma;\n  }\n}\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n  real&lt;lower = 0, upper = 1&gt; tau;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  for (i in 1:n) target += asym_laplace_lpdf(Y[i] | alpha + X[i, ] * beta, sigma, tau);\n}"
   },
   {
     "objectID": "slides/10-robust.html#quantile-regression",
@@ -9911,14 +9911,14 @@
     "href": "slides/10-robust.html#scale-mixture-representation",
     "title": "Robust Regression",
     "section": "Scale-mixture representation",
-    "text": "Scale-mixture representation\nThe above may also be written as a mixture of exponential and normal distributions. Letting, \\(Z_i \\sim Exponential(1)\\) and \\(\\sigma \\sim Exponential(1)\\).\n\\[Y_i = \\mathbf{x}_i \\boldsymbol{\\beta} + \\sigma \\theta Z_i + \\epsilon_i,\\quad \\epsilon_i \\sim N\\left(0, \\tau^2 \\sigma^2 Z_i\\right),\\]\nwhere \\[\\theta = \\frac{1-2p}{p(1-p)}\\] and \\[\\tau \\sqrt{\\frac{2}{p(1-p)}}.\\]"
+    "text": "Scale-mixture representation\nThe above may also be written as a mixture of exponential and normal distributions. Letting, \\(Z_i \\sim Exponential(1)\\) and \\(\\sigma \\sim Exponential(1)\\).\n\\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\sigma \\theta Z_i + \\epsilon_i,\\quad \\epsilon_i \\sim N\\left(0, \\tau^2 \\sigma^2 Z_i\\right),\\]\nwhere \\[\\theta = \\frac{1-2p}{p(1-p)},\\quad\\tau = \\sqrt{\\frac{2}{p(1-p)}}.\\]"
   },
   {
     "objectID": "slides/10-robust.html#scale-mixture-in-stan",
     "href": "slides/10-robust.html#scale-mixture-in-stan",
     "title": "Robust Regression",
     "section": "Scale-mixture in Stan",
-    "text": "Scale-mixture in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n  real&lt;lower = 0, upper = 1&gt; q;\n}\ntransformed data {\n  real theta = (1 - 2 * q) / (q * (1 - q));\n  real tau = sqrt(2 / (q * (1 - q)));\n}\nparameters {\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector&lt;lower=0&gt;[n] z;\n}\nmodel {\n  target += normal_lpdf(Y | X * beta + sigma * theta * z, tau * sqrt(z) * sigma);\n  target += exponential_lpdf(sigma | 1);\n  target += exponential_lpdf(z | 1);\n}"
+    "text": "Scale-mixture in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n  real&lt;lower = 0, upper = 1&gt; q;\n}\ntransformed data {\n  real theta = (1 - 2 * q) / (q * (1 - q));\n  real tau = sqrt(2 / (q * (1 - q)));\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector&lt;lower=0&gt;[n] z;\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta + sigma * theta * z, tau * sqrt(z) * sigma);\n  target += exponential_lpdf(sigma | 1);\n  target += exponential_lpdf(z | 1);\n}"
   },
   {
     "objectID": "slides/10-robust.html#prepare-for-next-class",
@@ -10205,7 +10205,7 @@
     "href": "slides/09-nonlinear.html#polynomials",
     "title": "Nonlinear Regression",
     "section": "Polynomials",
-    "text": "Polynomials\n\nModel for the mean process becomes nonlinear:\n\n\\[\\mathbb{E}[MD_i] = \\alpha + \\beta_1 Time_i + \\cdots + \\beta_p Time_i^p\\]\n\n\\(p\\) is chosen depending on the degree of non-linearity.\nWhen fitting non-linear regression in Bayesian context it is useful to standardize the data."
+    "text": "Polynomials\n\nModel for the mean process becomes nonlinear:\n\n\\[\\mu_i = \\alpha + \\beta_1 X_i + \\cdots + \\beta_J X_i^J\\]\n\n\\(X_i\\) is years from baseline visit.\n\\(J\\) is chosen depending on the degree of non-linearity.\nWhen fitting non-linear regression in Bayesian context it is useful to standardize the data."
   },
   {
     "objectID": "slides/09-nonlinear.html#splines",
@@ -10289,7 +10289,7 @@
     "href": "slides/09-nonlinear.html#learning-objectives-today",
     "title": "Nonlinear Regression",
     "section": "Learning objectives today",
-    "text": "Learning objectives today\n\nThus far, we have focused on linear regression models.\nToday we will focus on two common approaches that use linear regression to build nonlinear associations: polynomial regression and b-splines.\nBoth approaches work by transforming a single predictor variable into several synthetic variables.\nWe will also look at a change point model, that encodes clinical context into a nonlinear framework."
+    "text": "Learning objectives today\n\nThus far, we have focused on linear regression models.\nToday we will focus on approaches that use linear regression to build nonlinear associations. For example: polynomial regression and b-splines.\nThese approaches work by transforming a single predictor variable into several synthetic variables.\nWe will also look at a change point model, that encodes clinical context into a nonlinear framework."
   },
   {
     "objectID": "slides/09-nonlinear.html#splines-1",
@@ -10310,7 +10310,7 @@
     "href": "slides/09-nonlinear.html#nonlinear-regression",
     "title": "Nonlinear Regression",
     "section": "Nonlinear regression",
-    "text": "Nonlinear regression\n\nDefine: \\(\\mu_i = \\mathbb{E}[Y_i] = \\alpha + x_i\\beta.\\)\nThe mean process can be modeled flexibly, \\(\\mu_i = g(X_i)\\), where \\(g\\) is some function that relates \\(X_i\\) to \\(\\mathbb{E}[Y_i].\\)\nA form of nonlinear regression approximates the function \\(g\\) using a finite basis expansion, \\[g(X_i) = \\alpha + \\sum_{j=1}^J B_j(X_i)\\beta_j,\\] where \\(B_j(X)\\) are known basis functions and \\(\\beta_j\\) are unknown parameters that determine the shape of \\(g\\)."
+    "text": "Nonlinear regression\n\nDefine: \\(\\mu_i = \\mathbb{E}[Y_i] = \\alpha + X_i\\beta.\\)\nThe mean process can be modeled flexibly, \\(\\mu_i = g(X_i)\\), where \\(g\\) is some function that relates \\(X_i\\) to \\(\\mathbb{E}[Y_i].\\)\nA form of nonlinear regression approximates the function \\(g\\) using a finite basis expansion, \\[g(X_i) = \\alpha + \\sum_{j=1}^J B_j(X_i)\\beta_j,\\] where \\(B_j(X)\\) are known basis functions and \\(\\beta_j\\) are unknown parameters that determine the shape of \\(g\\)."
   },
   {
     "objectID": "slides/09-nonlinear.html#linear-regression-2",
@@ -10345,7 +10345,7 @@
     "href": "slides/09-nonlinear.html#nonlinear-regression-3",
     "title": "Nonlinear Regression",
     "section": "Nonlinear regression",
-    "text": "Nonlinear regression\n\nConditionally on the selected bases \\(B\\), the model is linear in the parameters. Hence we can write, \\[Y_i = \\mu(X_i) + \\epsilon_i = \\mathbf{w}_i \\boldsymbol{\\beta} + \\epsilon_i,\\] with \\(\\mathbf{w}_i = (B_1(X_i),\\ldots,B_J(X_i))\\).\nModel fitting can proceed as in linear regression models, since the resulting model is linear in \\(\\boldsymbol{\\beta}\\).\nIt is often useful to center the basis function model around the linear model, \\(\\mu(X_i) = \\alpha + X_i \\beta + \\mathbf{w}_i\\boldsymbol{\\beta}\\)."
+    "text": "Nonlinear regression\n\nConditionally on the selected bases \\(B\\), the model is linear in the parameters. Hence we can write, \\[Y_i = \\mu_i + \\epsilon_i = \\mathbf{w}_i \\boldsymbol{\\beta} + \\epsilon_i,\\] with \\(\\mathbf{w}_i = (B_1(X_i),\\ldots,B_J(X_i))\\).\nModel fitting can proceed as in linear regression models, since the resulting model is linear in \\(\\boldsymbol{\\beta}\\).\nIt is often useful to center the basis function model around the linear model, \\(\\mu_i = \\alpha + X_i \\beta + \\mathbf{w}_i\\boldsymbol{\\beta}\\)."
   },
   {
     "objectID": "slides/09-nonlinear.html#glaucoma-data",
@@ -10366,7 +10366,7 @@
     "href": "slides/09-nonlinear.html#polynomial-regression-in-stan-1",
     "title": "Nonlinear Regression",
     "section": "Polynomial regression in Stan",
-    "text": "Polynomial regression in Stan\n\n// saved in nonlinear_linear.stan\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p] X; // covariate vector\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y | X * beta, sigma); // likelihood\n  target += normal_lpdf(alpha | 0, 1); // prior for beta\n  target += normal_lpdf(beta | 0, 1); // prior for beta\n  target += inv_gamma_lpdf(sigma | 3, 1); // prior for sigma\n}\ngenerated quantities {\n  vector[n] in_sample;\n  vector[n] log_lik;\n  vector[n] mu;\n  for (i in 1:n) {\n    mu[i] = alpha + X[i, ] * beta;\n    in_sample[i] = normal_rng(mu[i], sigma);\n    log_lik[i] = normal_lpdf(Y[i] |  mu[i], sigma);\n  }\n}"
+    "text": "Polynomial regression in Stan\n\n// saved in nonlinear_linear.stan\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p] X; // covariate vector\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, sigma); // likelihood\n  target += normal_lpdf(alpha | 0, 1); // prior for alpha\n  target += normal_lpdf(beta | 0, 1); // prior for beta\n  target += inv_gamma_lpdf(sigma | 3, 1); // prior for sigma\n}\ngenerated quantities {\n  vector[n] in_sample;\n  vector[n] log_lik;\n  vector[n] mu;\n  for (i in 1:n) {\n    mu[i] = alpha + X[i, ] * beta;\n    in_sample[i] = normal_rng(mu[i], sigma);\n    log_lik[i] = normal_lpdf(Y[i] |  mu[i], sigma);\n  }\n}"
   },
   {
     "objectID": "slides/09-nonlinear.html#extract-posterior-mean-for-mu",
@@ -10422,7 +10422,7 @@
     "href": "slides/09-nonlinear.html#writing-down-a-model",
     "title": "Nonlinear Regression",
     "section": "Writing down a model",
-    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu(X_i) + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\nModel for the mean process:\n\n\\[\\mu(X_i) =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
+    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu_i + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\nModel for the mean process:\n\n\\[\\mu_i =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
   },
   {
     "objectID": "slides/09-nonlinear.html#change-point-model-in-stan",
@@ -12143,5 +12143,40 @@
     "title": "AE 05: Change point regression",
     "section": "(Optional) Exercise 5",
     "text": "(Optional) Exercise 5\nGoing back to eye 4, fit a new change point model where both the mean and variance process are modeled as having a change point, so that \\(Y_i \\stackrel{ind}{\\sim} N(\\mu(X_i),\\sigma(X_i)^2)\\), where\n\\[\\log \\sigma (X_i) =\\left\\{ \\begin{array}{ll}\n        {\\gamma}_0 + \\gamma_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\gamma}_0 + \\gamma_1 \\theta + {\\gamma}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\nPresent posterior summaries for each parameter and create a visualization of the posterior standard deviations across time.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "slides/10-robust.html#modeling-the-association-between-age-and-igg",
+    "href": "slides/10-robust.html#modeling-the-association-between-age-and-igg",
+    "title": "Robust Regression",
+    "section": "Modeling the association between age and IgG",
+    "text": "Modeling the association between age and IgG\n\nLinear regression can be written as follows for \\(i = 1,\\ldots,n\\),\n\n\\[Y_i = \\alpha + \\beta X_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\\(\\beta\\) represent the the change in IgG serum concentration with a one year increase in age."
+  },
+  {
+    "objectID": "slides/10-robust.html#linear-regression-assumptions",
+    "href": "slides/10-robust.html#linear-regression-assumptions",
+    "title": "Robust Regression",
+    "section": "Linear regression assumptions",
+    "text": "Linear regression assumptions\n\\[\\begin{aligned}\nY_i &= \\alpha + \\beta X_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\\\\n&= \\mu_i + \\epsilon_i.\n\\end{aligned}\\]\nAssumptions:\n\n\\(Y_i\\) are independent observations (independence).\n\\(Y_i\\) is linearly related to \\(X_i\\) (linearity).\n\\(\\epsilon_i = Y_i - \\mu_i\\) is normally distributed (normality).\n\\(\\epsilon_i\\) has constant variance across \\(X_i\\) (homoskedasticity)."
+  },
+  {
+    "objectID": "slides/10-robust.html#weighted-regression-1",
+    "href": "slides/10-robust.html#weighted-regression-1",
+    "title": "Robust Regression",
+    "section": "Weighted regression",
+    "text": "Weighted regression\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n  int&lt;lower = 1&gt; n_i[n];\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma2;\n}\ntransformed parameters {\n  vector[n] tau2 = sigma2 / n_i;\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, sqrt(tau2));\n}"
+  },
+  {
+    "objectID": "slides/10-robust.html#returning-to-igg",
+    "href": "slides/10-robust.html#returning-to-igg",
+    "title": "Robust Regression",
+    "section": "Returning to IgG",
+    "text": "Returning to IgG"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#posterior-histograms",
+    "href": "slides/09-nonlinear.html#posterior-histograms",
+    "title": "Nonlinear Regression",
+    "section": "Posterior histograms",
+    "text": "Posterior histograms"
   }
 ]

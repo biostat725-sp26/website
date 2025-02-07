@@ -37,7 +37,11 @@ library(coda)
 
 ## Review of last lecture
 
--   On Thursday, we learned about approaches for nonlinear regression.
+-   On Thursday, we started to branch out from linear regression.
+
+-   We learned about approaches for nonlinear regression.
+
+-   Today we will address approaches for robust regression, which will generalize the assumption of homoskedasticity (and also the normality assumption).
 
 ## A motivating research question
 
@@ -78,20 +82,18 @@ ggplot(dat_fig, aes(x = Y)) +
   labs(y = "Density")
 ```
 
-## Disease progression
+## Modeling the association between age and IgG
 
--   OLS can be written as follows for $i = 1,\ldots,n$,
+-   Linear regression can be written as follows for $i = 1,\ldots,n$,
 
-$$Y_i = \beta_0 + \beta_1 X_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2).$$
+$$Y_i = \alpha + \beta X_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2).$$
 
--   $\beta_1$ represent the the change in IgG serum concentration a one year increase in age.
+-   $\beta$ represent the the change in IgG serum concentration with a one year increase in age.
 
--   Often the following hypothesis is tested: $$H_0: \beta_1=0,H_1: \beta_1 < 0.$$
-
-## OLS regression assumptions
+## Linear regression assumptions
 
 \begin{align*}
-Y_i &= \beta_0 + \beta_1 X_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\\
+Y_i &= \alpha + \beta X_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\\
 &= \mu_i + \epsilon_i.
 \end{align*}
 
@@ -153,19 +155,42 @@ ggplot(dat.fig, aes(x = x, y = residuals)) +
 
 -   Alternatively, suppose each observation represents the sum of each $n_i$ observations. Then the scale of each observation is, $$\tau_i^2 = n_i \sigma^2.$$
 
+## Weighted regression {.midi}
+
+```{stan output.var = "covariates", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+  int<lower = 1> n_i[n];
+}
+parameters {
+  real alpha;
+  vector[p] beta;
+  real<lower = 0> sigma2;
+}
+transformed parameters {
+  vector[n] tau2 = sigma2 / n_i;
+}
+model {
+  target += normal_lpdf(Y | alpha + X * beta, sqrt(tau2));
+}
+```
+
 ## Modeling the scale with covariates {.midi}
 
 -   The scale can also be modeled with covariates.
 
 -   It is common to model the log-transformation of the scale or variance to transform it to $\mathbb{R}$,
 
-$$\log \tau_i^2 = \mathbf{z}_i \boldsymbol{\gamma},$$
+$$\log \tau_i = \mathbf{z}_i \boldsymbol{\gamma},$$
 
-where $\mathbf{z}_i = (z_{i1},\ldots,z_{ip})$ are a $p$-dimensional vector of covariates and $\boldsymbol{\gamma}$ are parameters that regress the covariates onto the log variance.
+where $\mathbf{z}_i = (z_{i1},\ldots,z_{ip})$ are a $p$-dimensional vector of covariates and $\boldsymbol{\gamma}$ are parameters that regress the covariates onto the log standard deviation.
 
--   Other options include: $\log \tau_i^2 = \mathbf{z}_i \boldsymbol{\gamma} + \nu_i,\quad \nu_i \sim N(0, \sigma^2)$
+-   Other options include: $\log \tau_i = \mathbf{z}_i \boldsymbol{\gamma} + \nu_i,\quad \nu_i \sim N(0, \sigma^2)$
 
--   Other options include: $\log \tau_i^2 = f(\mu_i)$
+-   Other options include: $\log \tau_i = f(\mu_i)$
 
 -   Any plausible generative model can be specified!
 
@@ -181,6 +206,7 @@ data {
   matrix[n, q] Z;
 }
 parameters {
+  real alpha;
   vector[p] beta;
   vector[q] gamma;
 }
@@ -188,13 +214,13 @@ transformed parameters {
   vector[n] tau = exp(Z * gamma);
 }
 model {
-  target += normal_lpdf(Y | X * beta, tau);
+  target += normal_lpdf(Y | alpha + X * beta, tau);
 }
 ```
 
 ## Heteroskedastic variance
 
--   We can write the regression model using a observation specific variance, $$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{ind}{\sim} N(0,\tau_i^2).$$
+-   We can write the regression model using a observation specific variance, $$Y_i = \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{ind}{\sim} N(0,\tau_i^2).$$
 
 -   One way of writing the variance is: $\tau_i^2 = \sigma^2 \lambda_i$.
 
@@ -204,43 +230,43 @@ model {
 
 -   In the Bayesian framework, we must place a prior on $\lambda_i$.
 
-## Bayesian prior to induce structure
+<!-- ## Bayesian prior to induce structure -->
 
--   Suppse we would like $\sum_{i=1}^n \lambda_i = 1$, $\lambda_i >0$.
+<!-- -   Suppse we would like $\sum_{i=1}^n \lambda_i = 1$, $\lambda_i >0$. -->
 
--   We could specify the following,
+<!-- -   We could specify the following, -->
 
-$$\boldsymbol{\lambda} \sim \text{Dirichlet}(\boldsymbol{\alpha}),$$
+<!-- $$\boldsymbol{\lambda} \sim \text{Dirichlet}(\boldsymbol{\alpha}),$$ -->
 
-where $\boldsymbol{\lambda} = (\lambda_1,\ldots,\lambda_n)$ and $\boldsymbol{\alpha} = (\alpha_1,\ldots,\alpha_n)$.
+<!-- where $\boldsymbol{\lambda} = (\lambda_1,\ldots,\lambda_n)$ and $\boldsymbol{\alpha} = (\alpha_1,\ldots,\alpha_n)$. -->
 
--   The prior mean is $\mathbb{E}[\lambda_i] = \alpha_i / \alpha_0$, where $\alpha_0 = \sum_{i=1}^n \alpha_i.$
+<!-- -   The prior mean is $\mathbb{E}[\lambda_i] = \alpha_i / \alpha_0$, where $\alpha_0 = \sum_{i=1}^n \alpha_i.$ -->
 
--   Typically, $\alpha_i = 1 \forall i$.
+<!-- -   Typically, $\alpha_i = 1 \forall i$. -->
 
-## Dirchlet prior in Stan {.midi}
+<!-- ## Dirchlet prior in Stan {.midi} -->
 
-```{stan output.var = "covariates", eval = FALSE}
-data {
-  int<lower = 1> n;
-  int<lower = 1> p;
-  vector[n] Y;
-  matrix[n, p] X;
-  vector<lower = 0>[n] alpha;
-}
-parameters {
-  vector[p] beta;
-  real<lower = 0> sigma;
-  simplex[n] lambda;
-}
-transformed parameters {
-  vector[n] tau = sigma * sqrt(lambda);
-}
-model {
-  target += normal_lpdf(Y | X * beta, tau);
-  target += dirichlet_lpdf(lambda | alpha);
-}
-```
+<!-- ```{stan output.var = "covariates", eval = FALSE} -->
+<!-- data { -->
+<!--   int<lower = 1> n; -->
+<!--   int<lower = 1> p; -->
+<!--   vector[n] Y; -->
+<!--   matrix[n, p] X; -->
+<!--   vector<lower = 0>[n] alpha; -->
+<!-- } -->
+<!-- parameters { -->
+<!--   vector[p] beta; -->
+<!--   real<lower = 0> sigma; -->
+<!--   simplex[n] lambda; -->
+<!-- } -->
+<!-- transformed parameters { -->
+<!--   vector[n] tau = sigma * sqrt(lambda); -->
+<!-- } -->
+<!-- model { -->
+<!--   target += normal_lpdf(Y | X * beta, tau); -->
+<!--   target += dirichlet_lpdf(lambda | alpha); -->
+<!-- } -->
+<!-- ``` -->
 
 ## A prior to induce a heavy-tail
 
@@ -250,18 +276,18 @@ $$\lambda_i \stackrel{iid}{\sim} \text{Inverse-Gamma}\left(\frac{\nu}{2},\frac{\
 
 -   Under this prior, the marginal likelihood for $Y_i$ is equivalent to a Student-t distribution,
 
-$$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \sim t_{\nu}\left(0, \sigma\right).$$
+$$Y_i = \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \sim t_{\nu}\left(0, \sigma\right).$$
 
 ## Understanding the equivalence {.midi}
 
 -   Heteroskedastic variances assumption is equivalent to assuming a heavy-tailed distribution.
 
-$$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \sim t_{\nu}\left(0, \sigma\right).$$
+$$Y_i = \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{iid}{\sim} t_{\nu}\left(0, \sigma\right).$$
 
 $$\iff$$
 
 \begin{align*}
-Y_i &= \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{ind}{\sim} N\left(0,\sigma^2 \lambda_i\right)\\
+Y_i &= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{ind}{\sim} N\left(0,\sigma^2 \lambda_i\right)\\
 \lambda_i &\stackrel{iid}{\sim} \text{Inverse-Gamma}\left(\frac{\nu}{2},\frac{\nu}{2}\right)
 \end{align*}
 
@@ -300,12 +326,13 @@ data {
   matrix[n, p] X;
 }
 parameters {
+  real alpha;
   vector[p] beta;
   real<lower = 0> sigma;
   real<lower = 0> nu;
 }
 model {
-  target += student_t_lpdf(Y | nu, X * beta, sigma);
+  target += student_t_lpdf(Y | nu, alpha + X * beta, sigma);
 }
 ```
 
@@ -319,6 +346,7 @@ data {
   matrix[n, p] X;
 }
 parameters {
+  real alpha;
   vector[p] beta;
   real<lower = 0> sigma;
   vector[n] lambda;
@@ -327,7 +355,7 @@ transformed parameters {
   vector[n] tau = sigma * sqrt(lambda);
 }
 model {
-  target += normal_lpdf(Y | X * beta, tau);
+  target += normal_lpdf(Y | alpha + X * beta, tau);
   target += inv_gamma_lpdf(lambda | 0.5 * nu, 0.5 * nu);
 }
 ```
@@ -394,11 +422,11 @@ ggplot(dat.fig, aes(x = x, y = y, color = as.factor(sigma))) +
 
 ## Another example of robust regression
 
--   Let's revisit our general heteroskedastic regression, $$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{ind}{\sim} N(0,\sigma^2 \lambda_i).$$
+-   Let's revisit our general heteroskedastic regression, $$Y_i = \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \stackrel{ind}{\sim} N(0,\sigma^2 \lambda_i).$$
 
 -   We can induce another form of robust regression using the following prior for $\lambda_i$, $\lambda_i \sim \text{Exponential}(1/2)$.
 
--   Under this prior, the induced marginal model is, $$Y_i = \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \stackrel{ind}{\sim} \text{Laplace}(\mu, \sigma).$$
+-   Under this prior, the induced marginal model is, $$Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \stackrel{iid}{\sim} \text{Laplace}(\mu = 0, \sigma).$$
 
 -   $f(\epsilon_i | \mu, \sigma) = \frac{1}{2\sigma} \exp\left\{-\frac{|\epsilon_i - \mu|}{\sigma}\right\}$
 
@@ -432,11 +460,12 @@ data {
   matrix[n, p] X;
 }
 parameters {
+  real alpha;
   vector[p] beta;
   real<lower = 0> sigma;
 }
 model {
-  target += double_exponential_lpdf(Y | X * beta, sigma);
+  target += double_exponential_lpdf(Y | alpha + X * beta, sigma);
 }
 ```
 
@@ -450,6 +479,7 @@ data {
   matrix[n, p] X;
 }
 parameters {
+  real alpha;
   vector[p] beta;
   real<lower = 0> sigma;
   vector[n] lambda;
@@ -458,9 +488,137 @@ transformed parameters {
   vector[n] tau = sigma * sqrt(lambda);
 }
 model {
-  target += normal_lpdf(Y | X * beta, tau);
+  target += normal_lpdf(Y | alpha + X * beta, tau);
   target += exponential_lpdf(lambda | 0.5);
 }
+```
+
+## Returning to IgG
+
+```{r, echo = FALSE, eval = FALSE}
+library(rstan)
+laplace_code <- "
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+}
+parameters {
+  real alpha;
+  vector[p] beta;
+  real<lower = 0> sigma;
+}
+model {
+  target += double_exponential_lpdf(Y | alpha + X * beta, sigma);
+}
+generated quantities {
+  vector[n] mu = alpha + X * beta;
+}
+"
+t_code <- "
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+}
+parameters {
+  real alpha;
+  vector[p] beta;
+  real<lower = 0> sigma;
+  real<lower = 0> nu;
+}
+model {
+  target += student_t_lpdf(Y | nu, alpha + X * beta, sigma);
+  target += exponential_lpdf(nu | 0.5);
+}
+generated quantities {
+  vector[n] mu = alpha + X * beta;
+}
+"
+normal_code <- "
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+}
+parameters {
+  real alpha;
+  vector[p] beta;
+  real<lower = 0> sigma;
+}
+model {
+  target += normal_lpdf(Y | alpha + X * beta, sigma);
+}
+generated quantities {
+  vector[n] mu = alpha + X * beta;
+}
+"
+
+X <- cbind(ImmunogG$Age)
+stan_data <- list(
+  n = nrow(ImmunogG),
+  p = ncol(X),
+  Y = ImmunogG$IgG,
+  X = X
+)
+laplace_reg <- stan_model(model_code = laplace_code)
+fit_laplace <- sampling(laplace_reg, stan_data)
+t_reg <- stan_model(model_code = t_code)
+fit_t <- sampling(t_reg, stan_data)
+normal_reg <- stan_model(model_code = normal_code)
+fit_normal <- sampling(normal_reg, stan_data)
+saveRDS(fit_laplace, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_laplace.rds")
+saveRDS(fit_t, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_t.rds")
+saveRDS(fit_normal, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_normal.rds")
+```
+
+```{r, echo = FALSE}
+fit_laplace <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_laplace.rds")
+fit_t <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_t.rds")
+fit_normal <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/fit_normal.rds")
+laplace_mu <- rstan::extract(fit_laplace, pars = "mu")$mu
+t_mu <- rstan::extract(fit_t, pars = "mu")$mu
+normal_mu <- rstan::extract(fit_normal, pars = "mu")$mu
+
+post_mean_laplace <- apply(laplace_mu, 2, mean)
+post_lower_laplace <- apply(laplace_mu, 2, function(x) quantile(x, probs = c(0.025)))
+post_upper_laplace <- apply(laplace_mu, 2, function(x) quantile(x, probs = c(0.975)))
+post_mean_t <- apply(t_mu, 2, mean)
+post_lower_t <- apply(t_mu, 2, function(x) quantile(x, probs = c(0.025)))
+post_upper_t <- apply(t_mu, 2, function(x) quantile(x, probs = c(0.975)))
+post_mean_normal <- apply(normal_mu, 2, mean)
+post_lower_normal <- apply(normal_mu, 2, function(x) quantile(x, probs = c(0.025)))
+post_upper_normal <- apply(normal_mu, 2, function(x) quantile(x, probs = c(0.975)))
+
+```
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 8
+#| fig-height: 5
+#| layout-ncol: 1
+dat_fig <- data.frame(X = ImmunogG$Age, Y = ImmunogG$IgG)
+dat_lines <- data.frame(
+  Model = rep(c("Laplace", "Student-t", "Gaussiain"), each = nrow(ImmunogG)),
+  X = rep(ImmunogG$Age, 3),
+  Y = rep(ImmunogG$IgG, 3),
+  Mean = c(post_mean_laplace, post_mean_t, post_mean_normal),
+  Lower = c(post_lower_laplace, post_lower_t, post_lower_normal),
+  Upper = c(post_upper_laplace, post_upper_t, post_upper_normal)
+)
+dat_lines$Model <- as.factor(dat_lines$Model)
+
+ggplot(dat_lines, aes(x = X, y = Mean, color = Model)) + 
+  geom_point(aes(x = X, y = Y), color = "black") + 
+  geom_line() + 
+  scale_x_continuous(name = "Age of children in years") + 
+  scale_y_continuous(name = "Immunoglobulin G (g/liter)") + 
+  geom_ribbon(aes(ymin = Lower, ymax = Upper, fill = Model), alpha = 0.3, color = NA) + 
+  labs(subtitle = "Posterior mean (95% credible interval) estimate for each model")
 ```
 
 ## Asymmetric Laplace distribution
@@ -491,11 +649,12 @@ data {
   real<lower = 0, upper = 1> tau;
 }
 parameters {
+  real alpha;
   vector[p] beta;
   real<lower = 0> sigma;
 }
 model {
-  for (i in 1:n) target += asym_laplace_lpdf(Y[i] | X[i, ] * beta, sigma, tau);
+  for (i in 1:n) target += asym_laplace_lpdf(Y[i] | alpha + X[i, ] * beta, sigma, tau);
 }
 ```
 
@@ -616,9 +775,9 @@ kable(betas)
 
 The above may also be written as a mixture of exponential and normal distributions. Letting, $Z_i \sim Exponential(1)$ and $\sigma \sim Exponential(1)$.
 
-$$Y_i = \mathbf{x}_i \boldsymbol{\beta} + \sigma \theta Z_i + \epsilon_i,\quad \epsilon_i \sim N\left(0, \tau^2 \sigma^2 Z_i\right),$$
+$$Y_i = \alpha + \mathbf{x}_i \boldsymbol{\beta} + \sigma \theta Z_i + \epsilon_i,\quad \epsilon_i \sim N\left(0, \tau^2 \sigma^2 Z_i\right),$$
 
-where $$\theta = \frac{1-2p}{p(1-p)}$$ and $$\tau \sqrt{\frac{2}{p(1-p)}}.$$
+where $$\theta = \frac{1-2p}{p(1-p)},\quad\tau = \sqrt{\frac{2}{p(1-p)}}.$$
 
 ## Scale-mixture in Stan
 
@@ -635,12 +794,13 @@ transformed data {
   real tau = sqrt(2 / (q * (1 - q)));
 }
 parameters {
+  real alpha;
   vector[p] beta;
   real<lower = 0> sigma;
   vector<lower=0>[n] z;
 }
 model {
-  target += normal_lpdf(Y | X * beta + sigma * theta * z, tau * sqrt(z) * sigma);
+  target += normal_lpdf(Y | alpha + X * beta + sigma * theta * z, tau * sqrt(z) * sigma);
   target += exponential_lpdf(sigma | 1);
   target += exponential_lpdf(z | 1);
 }
