@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -9750,7 +9750,7 @@
     "href": "slides/10-robust.html#modeling-the-scale-with-covariates",
     "title": "Robust Regression",
     "section": "Modeling the scale with covariates",
-    "text": "Modeling the scale with covariates\n\nThe scale can also be modeled with covariates.\nIt is common to model the log-transformation of the scale or variance to transform it to \\(\\mathbb{R}\\),\n\n\\[\\log \\tau_i = \\mathbf{z}_i \\boldsymbol{\\gamma},\\]\nwhere \\(\\mathbf{z}_i = (z_{i1},\\ldots,z_{ip})\\) are a \\(p\\)-dimensional vector of covariates and \\(\\boldsymbol{\\gamma}\\) are parameters that regress the covariates onto the log standard deviation.\n\nOther options include: \\(\\log \\tau_i = \\mathbf{z}_i \\boldsymbol{\\gamma} + \\nu_i,\\quad \\nu_i \\sim N(0, \\sigma^2)\\)\nOther options include: \\(\\log \\tau_i = f(\\mu_i)\\)\nAny plausible generative model can be specified!"
+    "text": "Modeling the scale with covariates\n\nOne option is to allow the sale to be modeled as a function of covariates.\nIt is common to model the log-transformation of the scale or variance to transform it to \\(\\mathbb{R}\\),\n\n\\[\\log \\tau_i = \\mathbf{z}_i \\boldsymbol{\\gamma},\\]\nwhere \\(\\mathbf{z}_i = (z_{i1},\\ldots,z_{ip})\\) are a \\(p\\)-dimensional vector of covariates and \\(\\boldsymbol{\\gamma}\\) are parameters that regress the covariates onto the log standard deviation.\n\nOther options include: \\(\\log \\tau_i = \\mathbf{z}_i \\boldsymbol{\\gamma} + \\nu_i,\\quad \\nu_i \\sim N(0, \\sigma^2)\\)\nOther options include: \\(\\log \\tau_i = f(\\mu_i)\\)\nAny plausible generative model can be specified!"
   },
   {
     "objectID": "slides/10-robust.html#modeling-the-scale-with-covariates-1",
@@ -9785,7 +9785,7 @@
     "href": "slides/10-robust.html#a-prior-to-induce-a-heavy-tail",
     "title": "Robust Regression",
     "section": "A prior to induce a heavy-tail",
-    "text": "A prior to induce a heavy-tail\n\nA common prior for \\(\\lambda_i\\) is as follows:\n\n\\[\\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\\]\n\nUnder this prior, the marginal likelihood for \\(Y_i\\) is equivalent to a Student-t distribution,\n\n\\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\sim t_{\\nu}\\left(0, \\sigma\\right).\\]"
+    "text": "A prior to induce a heavy-tail\n\nA common prior for \\(\\lambda_i\\) is as follows:\n\n\\[\\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\\]"
   },
   {
     "objectID": "slides/10-robust.html#understanding-the-equivalence",
@@ -9806,7 +9806,7 @@
     "href": "slides/10-robust.html#understanding-the-equivalence-2",
     "title": "Robust Regression",
     "section": "Understanding the equivalence",
-    "text": "Understanding the equivalence\n\\[\\begin{aligned}\nT_i &= \\frac{Z_i}{\\sqrt{\\frac{W_i}{\\nu}}},\\quad Z_i \\stackrel{iid}{\\sim} N(0,1), W_i \\stackrel{iid}{\\sim}\\chi^2_{\\nu}\\\\\n&= \\frac{Z_i}{\\sqrt{\\frac{1}{\\nu V_i}}},\\quad V_i \\stackrel{iid}{\\sim} \\text{Inv-}\\chi^2_{\\nu}\\\\\n&= \\sqrt{\\nu V_i} Z_i,\\quad \\lambda_i = \\nu V_i\\\\\n&= \\sqrt{\\lambda_i} Z_i, \\quad \\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right)\\\\\n&\\sim t_{\\nu}\n\\end{aligned}\\]\n\nWe then have: \\(Y_i = \\mu_i + \\sigma T_i \\sim t_{\\nu}(\\mu_i, \\sigma).\\)"
+    "text": "Understanding the equivalence\nA random variable \\(T_i \\stackrel{iid}{\\sim} t_{\\nu}\\) can be written as a function of Gaussian and \\(\\chi^2\\) random variables, \\[\\begin{aligned}\nT_i &= \\frac{Z_i}{\\sqrt{\\frac{W_i}{\\nu}}},\\quad Z_i \\stackrel{iid}{\\sim} N(0,1), \\quad W_i \\stackrel{iid}{\\sim}\\chi^2_{\\nu}\\\\\n&= \\frac{Z_i}{\\sqrt{\\frac{1}{\\nu V_i}}},\\quad V_i \\stackrel{iid}{\\sim} \\text{Inv-}\\chi^2_{\\nu},\\quad V_i=W_i^{-1}\\\\\n&= \\sqrt{\\nu V_i} Z_i,\\quad \\lambda_i = \\nu V_i\\\\\n&= \\sqrt{\\lambda_i} Z_i, \\quad \\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\n\\end{aligned}\\]\n\nWe then have: \\(Y_i = \\mu_i + \\sigma T_i \\sim t_{\\nu}(\\mu_i, \\sigma).\\)"
   },
   {
     "objectID": "slides/10-robust.html#student-t-in-stan",
@@ -9848,14 +9848,14 @@
     "href": "slides/10-robust.html#another-example-of-robust-regression",
     "title": "Robust Regression",
     "section": "Another example of robust regression",
-    "text": "Another example of robust regression\n\nLet’s revisit our general heteroskedastic regression, \\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\sigma^2 \\lambda_i).\\]\nWe can induce another form of robust regression using the following prior for \\(\\lambda_i\\), \\(\\lambda_i \\sim \\text{Exponential}(1/2)\\).\nUnder this prior, the induced marginal model is, \\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} \\text{Laplace}(\\mu = 0, \\sigma).\\]\n\\(f(\\epsilon_i | \\mu, \\sigma) = \\frac{1}{2\\sigma} \\exp\\left\\{-\\frac{|\\epsilon_i - \\mu|}{\\sigma}\\right\\}\\)"
+    "text": "Another example of robust regression\n\nLet’s revisit our general heteroskedastic regression, \\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\sigma^2 \\lambda_i).\\]\nWe can induce another form of robust regression using the following prior for \\(\\lambda_i\\), \\(\\lambda_i \\sim \\text{Exponential}(1/2)\\)."
   },
   {
     "objectID": "slides/10-robust.html#median-regression-using-laplace",
     "href": "slides/10-robust.html#median-regression-using-laplace",
     "title": "Robust Regression",
     "section": "Median regression using Laplace",
-    "text": "Median regression using Laplace\nLeast absolute deviation (LAD) regression minimizes the following objective function,\n\\[\\hat{\\boldsymbol{\\beta}}_{\\text{LAD}} = \\arg \\min_{\\boldsymbol{\\beta}} \\sum_{i=1}^n |Y_i - \\mathbf{x}_i\\boldsymbol{\\beta}|.\\]\nThe Bayesian analog is the Laplace distribution,\n\\(f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma) = \\left(\\frac{1}{2\\sigma}\\right)^n \\exp\\left\\{-\\sum_{i=1}^n\\frac{|Y_i - \\mathbf{x}_i \\boldsymbol{\\beta}|}{\\sigma}\\right\\}.\\)"
+    "text": "Median regression using Laplace\nLeast absolute deviation (LAD) regression minimizes the following objective function,\n\\[\\hat{{\\alpha}}_{\\text{LAD}},\\hat{\\boldsymbol{\\beta}}_{\\text{LAD}} = \\arg \\min_{\\alpha,\\boldsymbol{\\beta}} \\sum_{i=1}^n |Y_i - \\mu_i|, \\quad \\mu_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\\]\nThe Bayesian analog is the Laplace distribution,\n\\[f(\\mathbf{Y} | \\alpha, \\boldsymbol{\\beta}, \\sigma) = \\left(\\frac{1}{2\\sigma}\\right)^n \\exp\\left\\{-\\sum_{i=1}^n\\frac{|Y_i - \\mu_i|}{\\sigma}\\right\\}.\\]"
   },
   {
     "objectID": "slides/10-robust.html#median-regression-using-laplace-1",
@@ -12178,5 +12178,96 @@
     "title": "Nonlinear Regression",
     "section": "Posterior histograms",
     "text": "Posterior histograms"
+  },
+  {
+    "objectID": "slides/10-robust.html#a-prior-to-induce-a-heavy-tail-1",
+    "href": "slides/10-robust.html#a-prior-to-induce-a-heavy-tail-1",
+    "title": "Robust Regression",
+    "section": "A prior to induce a heavy-tail",
+    "text": "A prior to induce a heavy-tail\n\nA common prior for \\(\\lambda_i\\) is as follows:\n\n\\[\\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\\]\n\nUnder this prior, the marginal likelihood for \\(Y_i\\) is equivalent to a Student-t distribution,\n\n\\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{iid}{\\sim} t_{\\nu}\\left(0, \\sigma\\right).\\]"
+  },
+  {
+    "objectID": "slides/10-robust.html#vizualizing-heavy-tail-distributions-2",
+    "href": "slides/10-robust.html#vizualizing-heavy-tail-distributions-2",
+    "title": "Robust Regression",
+    "section": "Vizualizing heavy tail distributions",
+    "text": "Vizualizing heavy tail distributions"
+  },
+  {
+    "objectID": "slides/10-robust.html#another-example-of-robust-regression-1",
+    "href": "slides/10-robust.html#another-example-of-robust-regression-1",
+    "title": "Robust Regression",
+    "section": "Another example of robust regression",
+    "text": "Another example of robust regression\n\nLet’s revisit our general heteroskedastic regression, \\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\sigma^2 \\lambda_i).\\]\nWe can induce another form of robust regression using the following prior for \\(\\lambda_i\\), \\(\\lambda_i \\sim \\text{Exponential}(1/2)\\).\nUnder this prior, the induced marginal model is, \\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} \\text{Laplace}(\\mu = 0, \\sigma).\\]\nThis has a really nice interpretation!"
+  },
+  {
+    "objectID": "slides/10-robust.html#laplace-distribution",
+    "href": "slides/10-robust.html#laplace-distribution",
+    "title": "Robust Regression",
+    "section": "Laplace distribution",
+    "text": "Laplace distribution\nSuppse a variable \\(Y_i\\) follows a Laplace (or double exponential) distribution, then the pdf is given by,\n\\[f(Y_i | \\mu, \\sigma) = \\frac{1}{2\\sigma} \\exp\\left\\{-\\frac{|Y_i - \\mu|}{\\sigma}\\right\\}\\]\n\n\\(\\mathbb{E}[Y_i] = \\mu\\)\n\\(\\mathbb{V}(Y_i) = 2 \\sigma^2\\)\nUnder the Laplace likelihood, estimation of \\(\\mu\\) is equivalent to estimating the population median of \\(Y_i\\)."
+  },
+  {
+    "objectID": "slides/10-robust.html#posterior-of-beta",
+    "href": "slides/10-robust.html#posterior-of-beta",
+    "title": "Robust Regression",
+    "section": "Posterior of \\(\\beta\\)",
+    "text": "Posterior of \\(\\beta\\)\n\n\n\n\n\nModel\nMean\nLower\nUpper\n\n\n\n\nLaplace\n0.73\n0.56\n0.89\n\n\nStudent-t\n0.69\n0.55\n0.82\n\n\nGaussian\n0.69\n0.56\n0.83\n\n\nGaussian with Covariates in Variance\n0.76\n0.62\n0.89"
+  },
+  {
+    "objectID": "slides/10-robust.html#model-comparison",
+    "href": "slides/10-robust.html#model-comparison",
+    "title": "Robust Regression",
+    "section": "Model Comparison",
+    "text": "Model Comparison\n\n\n\n\n\n\nelpd_diff\nelpd_loo\nlooic\n\n\n\n\nStudent-t\n0.00\n-624.42\n1248.84\n\n\nGaussian\n-2.01\n-626.43\n1252.86\n\n\nGaussian with Covariates in Variance\n-6.09\n-630.51\n1261.02\n\n\nLaplace\n-13.10\n-637.52\n1275.05"
+  },
+  {
+    "objectID": "slides/10-robust.html#examining-the-student-t-model-fit",
+    "href": "slides/10-robust.html#examining-the-student-t-model-fit",
+    "title": "Robust Regression",
+    "section": "Examining the Student-t model fit",
+    "text": "Examining the Student-t model fit\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n        mean se_mean   sd 2.5% 97.5% n_eff Rhat\nalpha   3.32    0.00 0.21 2.91  3.74  2084    1\nbeta[1] 0.69    0.00 0.07 0.55  0.82  2122    1\nsigma   1.72    0.00 0.10 1.53  1.91  2744    1\nnu      7.80    0.05 2.35 4.40 13.29  2617    1\n\nSamples were drawn using NUTS(diag_e) at Sun Feb  9 14:54:53 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/10-robust.html#examining-the-student-t-model-fit-1",
+    "href": "slides/10-robust.html#examining-the-student-t-model-fit-1",
+    "title": "Robust Regression",
+    "section": "Examining the Student-t model fit",
+    "text": "Examining the Student-t model fit"
+  },
+  {
+    "objectID": "slides/10-robust.html#local-variance-parameter",
+    "href": "slides/10-robust.html#local-variance-parameter",
+    "title": "Robust Regression",
+    "section": "Local variance parameter",
+    "text": "Local variance parameter"
+  },
+  {
+    "objectID": "slides/10-robust.html#examining-the-student-t-model-fit-2",
+    "href": "slides/10-robust.html#examining-the-student-t-model-fit-2",
+    "title": "Robust Regression",
+    "section": "Examining the Student-t model fit",
+    "text": "Examining the Student-t model fit"
+  },
+  {
+    "objectID": "slides/10-robust.html#summary-of-robust-regression",
+    "href": "slides/10-robust.html#summary-of-robust-regression",
+    "title": "Robust Regression",
+    "section": "Summary of robust regression",
+    "text": "Summary of robust regression\n\nRobust regression techniques can be used when the assumptions of constant variance and/or normality of the residuals do not hold.\nHeteroskedastic variance can viewed as inducing extreme value distributions.\nExtreme value regression using Student-t and Laplace distributions are robust to outliers.\nLaplace regression is equivalent to median regression."
+  },
+  {
+    "objectID": "slides/10-robust.html#why-is-robust-regression-not-more-comomon",
+    "href": "slides/10-robust.html#why-is-robust-regression-not-more-comomon",
+    "title": "Robust Regression",
+    "section": "Why is robust regression not more comomon?",
+    "text": "Why is robust regression not more comomon?\n\nDespite their desirable properties, robust methods are not widely used. Why?\n\nHistorically computationally complex.\nNot available in statistical software packages.\n\nBayesian modeling using Stan alleviates these bottlenecks!"
+  },
+  {
+    "objectID": "prepare/prepare-feb11.html",
+    "href": "prepare/prepare-feb11.html",
+    "title": "Prepare for February 6 lecture",
+    "section": "",
+    "text": "📖 Read BDA3 Chapter 17.1-17.2 to be introduced to robust regression\n📖 Review Robust regression\n✅ Work on HW 02"
   }
 ]
