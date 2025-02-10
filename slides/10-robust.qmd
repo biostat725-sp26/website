@@ -141,13 +141,13 @@ ggplot(dat.fig, aes(x = x, y = residuals)) +
 
 ## Why is robust regression not more comomon?
 
-- Despite their desirable properties, robust methods are not widely used. **Why?**
+-   Despite their desirable properties, robust methods are not widely used. **Why?**
 
-  - Historically computationally complex. 
-  
-  - Not available in statistical software packages.
-  
-- Bayesian modeling using Stan alleviates these bottlenecks!
+    -   Historically computationally complex.
+
+    -   Not available in statistical software packages.
+
+-   Bayesian modeling using Stan alleviates these bottlenecks!
 
 ## Heteroskedasticity
 
@@ -168,24 +168,43 @@ ggplot(dat.fig, aes(x = x, y = residuals)) +
 <!-- ## Weighted regression {.midi} -->
 
 <!-- ```{stan output.var = "covariates", eval = FALSE} -->
+
 <!-- data { -->
+
 <!--   int<lower = 1> n; -->
+
 <!--   int<lower = 1> p; -->
+
 <!--   vector[n] Y; -->
+
 <!--   matrix[n, p] X; -->
+
 <!--   int<lower = 1> n_i[n]; -->
+
 <!-- } -->
+
 <!-- parameters { -->
+
 <!--   real alpha; -->
+
 <!--   vector[p] beta; -->
+
 <!--   real<lower = 0> sigma2; -->
+
 <!-- } -->
+
 <!-- transformed parameters { -->
+
 <!--   vector[n] tau2 = sigma2 / n_i; -->
+
 <!-- } -->
+
 <!-- model { -->
+
 <!--   target += normal_lpdf(Y | alpha + X * beta, sqrt(tau2)); -->
+
 <!-- } -->
+
 <!-- ``` -->
 
 ## Modeling the scale with covariates {.midi}
@@ -365,8 +384,7 @@ f(Y_i) &= \int_0^{\infty} f(Y_i , \lambda_i) d\lambda_i\\
 
 ## Understanding the equivalence {.midi}
 
-A random variable $T_i \stackrel{iid}{\sim} t_{\nu}$ can be written as a function of Gaussian and $\chi^2$ random variables,
-\begin{align*}
+A random variable $T_i \stackrel{iid}{\sim} t_{\nu}$ can be written as a function of Gaussian and $\chi^2$ random variables, \begin{align*}
 T_i &= \frac{Z_i}{\sqrt{\frac{W_i}{\nu}}},\quad Z_i \stackrel{iid}{\sim} N(0,1), \quad W_i \stackrel{iid}{\sim}\chi^2_{\nu}\\
 &= \frac{Z_i}{\sqrt{\frac{1}{\nu V_i}}},\quad V_i \stackrel{iid}{\sim} \text{Inv-}\chi^2_{\nu},\quad V_i=W_i^{-1}\\
 &= \sqrt{\nu V_i} Z_i,\quad \lambda_i = \nu V_i\\
@@ -802,20 +820,32 @@ ggplot(dat_lines, aes(x = X, y = Mean)) +
 <!-- ## Scale of the residuals -->
 
 <!-- ```{r} -->
-<!-- pred_laplace <- apply(rstan::extract(fit_laplace, pars = "Y_pred")$Y_pred, 2, mean) -->
-<!-- pred_t <- apply(rstan::extract(fit_t, pars = "Y_pred")$Y_pred, 2, mean) -->
-<!-- pred_normal <- apply(rstan::extract(fit_normal, pars = "Y_pred")$Y_pred, 2, mean) -->
-<!-- pred_normal_var <- apply(rstan::extract(fit_normal_var, pars = "Y_pred")$Y_pred, 2, mean) -->
-<!-- mean((ImmunogG$IgG - pred_laplace)^2) -->
-<!-- mean((ImmunogG$IgG - pred_t)^2) -->
-<!-- mean((ImmunogG$IgG - pred_normal)^2) -->
-<!-- mean((ImmunogG$IgG - pred_normal_var)^2) -->
-<!-- median(abs(ImmunogG$IgG - pred_laplace)) -->
-<!-- median(abs(ImmunogG$IgG - pred_t)) -->
-<!-- median(abs(ImmunogG$IgG - pred_normal)) -->
-<!-- median(abs(ImmunogG$IgG - pred_normal_var)) -->
-<!-- ``` -->
 
+<!-- pred_laplace <- apply(rstan::extract(fit_laplace, pars = "Y_pred")$Y_pred, 2, mean) -->
+
+<!-- pred_t <- apply(rstan::extract(fit_t, pars = "Y_pred")$Y_pred, 2, mean) -->
+
+<!-- pred_normal <- apply(rstan::extract(fit_normal, pars = "Y_pred")$Y_pred, 2, mean) -->
+
+<!-- pred_normal_var <- apply(rstan::extract(fit_normal_var, pars = "Y_pred")$Y_pred, 2, mean) -->
+
+<!-- mean((ImmunogG$IgG - pred_laplace)^2) -->
+
+<!-- mean((ImmunogG$IgG - pred_t)^2) -->
+
+<!-- mean((ImmunogG$IgG - pred_normal)^2) -->
+
+<!-- mean((ImmunogG$IgG - pred_normal_var)^2) -->
+
+<!-- median(abs(ImmunogG$IgG - pred_laplace)) -->
+
+<!-- median(abs(ImmunogG$IgG - pred_t)) -->
+
+<!-- median(abs(ImmunogG$IgG - pred_normal)) -->
+
+<!-- median(abs(ImmunogG$IgG - pred_normal_var)) -->
+
+<!-- ``` -->
 
 ## Posterior of $\beta$
 
@@ -896,9 +926,9 @@ ggplot(dat.fig, aes(x = x, y = y, color = Model)) +
 
 ## Summary of robust regression
 
--   Robust regression techniques can be used when the assumptions of constant variance and/or normality of the residuals do not hold. 
+-   Robust regression techniques can be used when the assumptions of constant variance and/or normality of the residuals do not hold.
 
--   Heteroskedastic variance can viewed as inducing extreme value distributions. 
+-   Heteroskedastic variance can viewed as inducing extreme value distributions.
 
 -   Extreme value regression using Student-t and Laplace distributions are robust to outliers.
 

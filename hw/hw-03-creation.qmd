@@ -34,6 +34,7 @@ library(bayesplot)
 library(knitr)
 library(loo)
 library(MLMusingR)
+library(kableExtra)
 
 # load other packages as needed
 ```
@@ -74,7 +75,7 @@ set.seed(54)
 hdp <- hdp[sample(1:nrow(hdp), size = 1000, replace = TRUE), ]
 ```
 
-# Exercises 1-3
+# Exercises 1-4
 
 Researchers are interested in the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. They start by visualizing the distribution of BMI and notice that it is a bit right-skewed; and thus they are worried about performing linear regression. Instead they would like to perform median regression.
 
@@ -105,9 +106,21 @@ Perform a posterior predictive check using the median as a test statistic. Be su
 
 ## Exercise 3
 
+Perform a posterior predictive check for a more the 2.5th and 97.5th quantiles. Comment on the difference between the result from **Exercise 2**.
+
+## Exercise 4
+
 Present posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem.
 
-# Exercises 4-8
+## Exercise 5
+
+Fit the same model as in **Exercise 1** using linear regression. Compare the posterior mean estimates of $\boldsymbol{\beta}$ between the two models. Do they correspond? 
+
+## Exercise 6
+
+Perform a model comparison between the models in **Exercise 1** and **Exercise 5**. Which model is preferred? Provide intuition for why one model may be preferred over the other.
+
+# Exercises 7-10
 
 Define a binary outcome variable $Y_i = 1(LengthofStay_i > 5)$ for $i = 1,\ldots,n$. We are interested in performing logistic regression such that $Y_i \stackrel{ind}{\sim}\text{Bernoulli}(\pi_i)$, where
 
@@ -121,52 +134,47 @@ Define a binary outcome variable $Y_i = 1(LengthofStay_i > 5)$ for $i = 1,\ldots
 
 The population parameters are $(\alpha, \boldsymbol{\beta},\boldsymbol{\gamma})$, where $\boldsymbol{\beta} = (\beta_1, \ldots, \beta_9)$ and $\boldsymbol{\gamma} = (\gamma_1,\ldots,\gamma_5)$. Use the following priors for the centered intercept and regression parameters, $\alpha \sim N(0, 3^2)$ and $\beta_j \sim N(0, 3^2)$ for $j = 1,\ldots,p$ ($p=9$). The researchers would like to place a regularized horseshoe prior on each $\gamma_l$, $l=1,\ldots,q$ ($q = 5$). Be sure to standardize these predictors prior to assigning a horseshoe prior.
 
-## Exercise 4
-
-The regularized horseshoe prior for $\gamma_l$ is given by, \begin{align*}
-\gamma_l | \lambda_l, \tau, c &\sim N\left(0, \tau^2 \tilde{\lambda}_l^2\right),\quad \tilde{\lambda}_l^2 = \frac{c^2 \lambda_l^2}{c^2 + \tau^2 \lambda_l^2},\\
-\lambda_l &\sim \mathcal C^+(0,1),\\
-c^2 &\sim \text{Inv-Gamma}(\nu/2, \nu s^2 / 2),\\
-\tau &\sim \mathcal C^+(0,\tau_0^2).
-\end{align*}
-
-Assuming the data has been standardized, $s^2 = 1$. The researchers specify $\nu = 3$. All that is left is to choose $\tau_0$. A useful method for choosing $\tau_0$ is relating it to the a-priori guess of the number of predictors that will be non-zero: $q_0$, $\tau_0 = \frac{q_0}{q - q_0} \frac{\sigma}{\sqrt{n}}$ ($\sigma = 1$ is assumed for the logistic regression setting). Use this approach to choose $\tau_0$, remembering that the researchers believe that some of these predictors will be zero. Present a histogram of the effective number of non-zero coefficients under this prior choice for $\tau_0$.
-
-## Exercise 5
-
-Fit the logistic regression model using the $\tau_0$ from **Exercise 4**. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged.
-
-## Exercise 6
-
-Visualize the posterior distributions for $(\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})$. $\alpha^*$ is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for $\boldsymbol{\gamma}$.
-
 ## Exercise 7
 
-Present posterior summaries for $(\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})$. Choose one predictor that is significant and provide an interpretation of the posterior mean.
+The horseshoe prior for $\gamma_l$ is given by, 
+\begin{align*}
+\gamma_l | \lambda_l, \tau, c &\sim N\left(0, \tau^2 \lambda_l^2\right),\\
+\lambda_l &\sim \mathcal C^+(0,1),\\
+\end{align*}
+
+Fit the logistic regression model using the horseshoe prior above. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged.
 
 ## Exercise 8
 
-Visualize the posterior distribution of $\pi_2$ and $\pi_4$, which are the probability of having a length of stay greater than 5 days for observation $Y_2$ and $Y_4$, respectively (i.e., the second and fourth rows of the `hdp` dataset). Compute $P(\pi_4 > \pi_2 | \mathbf{Y})$ and make a statement about which patient is more likely to have a longer length of stay.
-
-# Exercises 9-10
+Visualize the posterior distributions for $(\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})$. $\alpha^*$ is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for $\boldsymbol{\gamma}$.
 
 ## Exercise 9
 
-Researchers are interested in the association between cancer stage and number of days in the hospital post surgery. Define the outcome $Y_i \in \{3, 4, 5, 6, 7, 8\}$, with $K=6$, as the length of stay in days post lung cancer surgery. Note that we removed observations with lengths of stay equal to 2 and 9 due to sample size issues.
-
-```{r, eval = FALSE}
-hdp <- hdp[hdp$LengthofStay > 2 & hdp$LengthofStay < 9, ]
-```
-
-We would like to fit a proportional odds logistic regression model, $$\log \frac{P(Y_i\leq k)}{P(Y_i > k)} = \text{logit}P(Y_i\leq k) = \alpha_k - \mathbf{x}_i \boldsymbol{\beta}, \quad k = 1,\ldots, K-1$$ where $\mathbf{x}_i = (Cancer\_Stage2_i, Cancer\_Stage3_i, Cancer\_Stage4_i)$. Place the following priors: $\alpha_k ~ N(0, 3^2)$ for $k=1,\ldots,K-1$ and $\beta_j \sim N(0, 3^2)$ for $j=1,2,3$. Be sure that $\alpha_k$ are ordered. Fit this regression model using Stan and provide evidence that the algorithm has converged. Present an appropriate posterior predictive check to demonstrate that the model is a good fit to the observed data.
+Present posterior summaries for $(\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})$. Choose one predictor that is significant and provide an interpretation of the posterior mean.
 
 ## Exercise 10
 
-Interpret the posterior mean and 95% credible interval for the regression parameter corresponding to a patient with stage 4 cancer.
+Visualize the posterior distribution of $\pi_2$ and $\pi_4$, which are the probability of having a length of stay greater than 5 days for observation $Y_2$ and $Y_4$, respectively (i.e., the second and fourth rows of the `hdp` dataset). Compute $P(\pi_4 > \pi_2 | \mathbf{Y})$ and make a statement about which patient is more likely to have a longer length of stay.
 
-::: render-commit-push
-You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 3!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.
-:::
+<!-- # Exercises 9-10 -->
+
+<!-- ## Exercise 9 -->
+
+<!-- Researchers are interested in the association between cancer stage and number of days in the hospital post surgery. Define the outcome $Y_i \in \{3, 4, 5, 6, 7, 8\}$, with $K=6$, as the length of stay in days post lung cancer surgery. Note that we removed observations with lengths of stay equal to 2 and 9 due to sample size issues. -->
+
+<!-- ```{r, eval = FALSE} -->
+<!-- hdp <- hdp[hdp$LengthofStay > 2 & hdp$LengthofStay < 9, ] -->
+<!-- ``` -->
+
+<!-- We would like to fit a proportional odds logistic regression model, $$\log \frac{P(Y_i\leq k)}{P(Y_i > k)} = \text{logit}P(Y_i\leq k) = \alpha_k - \mathbf{x}_i \boldsymbol{\beta}, \quad k = 1,\ldots, K-1$$ where $\mathbf{x}_i = (Cancer\_Stage2_i, Cancer\_Stage3_i, Cancer\_Stage4_i)$. Place the following priors: $\alpha_k ~ N(0, 3^2)$ for $k=1,\ldots,K-1$ and $\beta_j \sim N(0, 3^2)$ for $j=1,2,3$. Be sure that $\alpha_k$ are ordered. Fit this regression model using Stan and provide evidence that the algorithm has converged. Present an appropriate posterior predictive check to demonstrate that the model is a good fit to the observed data. -->
+
+<!-- ## Exercise 10 -->
+
+<!-- Interpret the posterior mean and 95% credible interval for the regression parameter corresponding to a patient with stage 4 cancer. -->
+
+<!-- ::: render-commit-push -->
+<!-- You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 3!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo. -->
+<!-- ::: -->
 
 # Submission
 
@@ -190,13 +198,13 @@ To submit your assignment:
 
 | Component | Points |
 |:----------|:-------|
-| Ex 1      | 8      |
+| Ex 1      | 10     |
 | Ex 2      | 4      |
-| Ex 3      | 3      |
-| Ex 4      | 5      |
-| Ex 5      | 10     |
-| Ex 6      | 3      |
-| Ex 7      | 3      |
-| Ex 8      | 4      |
-| Ex 9      | 7      |
-| Ex 10     | 3      |
+| Ex 3      | 5      |
+| Ex 4      | 4      |
+| Ex 5      | 7      |
+| Ex 6      | 5      |
+| Ex 7      | 10     |
+| Ex 8      | 3      |
+| Ex 9      | 3      |
+| Ex 10     | 4      |
