@@ -1,0 +1,11 @@
+---
+title: Prepare for February 13 lecture
+---
+
+<br>
+
+📖 Read **BDA3** Chapter 14.6 about regularization in Bayesian models
+
+📖 Read [Handling Sparsity via the Horseshoe](https://proceedings.mlr.press/v5/carvalho09a/carvalho09a.pdf) by Carvalho, Polson, and Scott.
+
+✅ Work on [HW 02](https://biostat725-sp25.netlify.app/hw/hw-02)

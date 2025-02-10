@@ -412,7 +412,7 @@ Prof.&nbsp;Sam Berchuck
 <ul>
 <li><p>Heteroskedasticity</p></li>
 <li><p>Heavy-tailed distributions</p></li>
-<li><p>Quantile regression</p></li>
+<li><p>Median regression</p></li>
 </ul></li>
 <li><p>These were all models for the observed data <span class="math inline">\(Y_i\)</span>.</p></li>
 <li><p>Today, we will focus on prior specifications for <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p></li>
@@ -421,7 +421,7 @@ Prof.&nbsp;Sam Berchuck
 <section id="sparsity-in-regression-problems" class="slide level2">
 <h2>Sparsity in regression problems</h2>
 <ul>
-<li><p>Supervised learning can be cast as the problem of estimating a set of coefficients <span class="math inline">\(\boldsymbol{\beta} = \{\beta_j\}_{j=1}^{p}\)</span> that determines some functional relationship between a set of <span class="math inline">\(\{x_j\}_{j = 1}^p\)</span> and a target variable <span class="math inline">\(y\)</span>.</p></li>
+<li><p>Supervised learning can be cast as the problem of estimating a set of coefficients <span class="math inline">\(\boldsymbol{\beta} = \{\beta_j\}_{j=1}^{p}\)</span> that determines some functional relationship between a set of <span class="math inline">\(\{x_{ij}\}_{j = 1}^p\)</span> and a target variable <span class="math inline">\(Y_i\)</span>.</p></li>
 <li><p>This is a central focus of statistics and machine learning.</p></li>
 <li><p>Challenges arise in “large-<span class="math inline">\(p\)</span>” problems where, in order to avoid overly complex models that predict poorly, some form of dimension reduction is needed.</p></li>
 <li><p>Finding a sparse solution, where some <span class="math inline">\(\beta_j\)</span> are zero, is desirable.</p></li>
@@ -441,23 +441,178 @@ Prof.&nbsp;Sam Berchuck
 </ul></li>
 </ul>
 </section>
+<section id="global-local-shrinkage" class="slide level2">
+<h2>Global-local shrinkage</h2>
+<ul>
+<li><p>Let’s assume <span class="math inline">\(\mathbf{Y} \stackrel{}{\sim}N\left(\alpha + \mathbf{X}\boldsymbol{\beta},\sigma^2\mathbf{I}_n\right)\)</span>.</p></li>
+<li><p>Sparsity can be induced into <span class="math inline">\(\boldsymbol{\beta}\)</span> using a global-local prior,</p></li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau &amp;\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
+\lambda_j &amp;\stackrel{iid}{\sim} f(\lambda_j).
+\end{aligned}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\tau^2\)</span> is the global variance term.</p></li>
+<li><p><span class="math inline">\(\lambda_j\)</span> is the local term.</p></li>
+<li><p>The degree of sparsity depends on the choice of <span class="math inline">\(f(\lambda_j)\)</span>.</p></li>
+</ul>
+</section>
+<section id="spike-and-slab-prior" class="slide level2">
+<h2>Spike-and-slab prior</h2>
+<ul>
+<li>Discrete parameter specification,</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau &amp;\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
+\lambda_j &amp;\stackrel{iid}{\sim} \text{Bernoulli}(\pi).
+\end{aligned}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\lambda_j \in \{0,1\}\)</span>, thus this model permits exact zeros.</p></li>
+<li><p>The number of zeros is dictated by <span class="math inline">\(\pi\)</span>, which can either be pre-specified or given a prior.</p></li>
+<li><p><strong>Discrete parameters can not be specified in Stan!</strong></p></li>
+</ul>
+<!-- - Instead of giving continuous priors for $\lambda_j$'s as in the horseshoe, here only two values are allowed (0,1). -->
+<!-- -   The shrinkage factor $\kappa_j$ only has mass at $\kappa_j = \frac{1}{1 + n\sigma^{-2}\tau^{2}}$ and $\kappa_j = 1$ with probabilities $\pi$ and $1-\pi$, -->
+</section>
+<section id="spike-and-slab-prior-1" class="slide level2">
+<h2>Spike-and-slab prior</h2>
+<ul>
+<li>Spike-and-slab can be written generally as a two-component mixture of Gaussians,</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau, \omega &amp;\stackrel{ind}{\sim} \lambda_j N(0, \tau^2) + (1-\lambda_j) N(0,\omega^2)\\
+\lambda_j &amp;\stackrel{iid}{\sim} \text{Bernoulli}(\pi).
+\end{aligned}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\omega \ll \tau\)</span> and the indicator variable <span class="math inline">\(\lambda_j \in \{0, 1\}\)</span> denotes whether <span class="math inline">\(\beta_j\)</span> is close to zero (comes from the “spike”, <span class="math inline">\(\lambda_j = 0\)</span>) or non-zero (comes from the “slab”, <span class="math inline">\(\lambda_j = 1\)</span>).</p></li>
+<li><p>Often <span class="math inline">\(\omega = 0\)</span> (the spike is a true spike).</p></li>
+</ul>
+</section>
+<section id="ridge-regression" class="slide level2">
+<h2>Ridge regression</h2>
+<ul>
+<li><p>Ridge regression is motivated by extending linear regression to the setting where:</p>
+<ul>
+<li><p>there are too many predictors (sparsity is desired) and/or,</p></li>
+<li><p><span class="math inline">\(\mathbf{X}^\top \mathbf{X}\)</span> is ill-conditioned were singular or nearly singular (multicollinearity).</p></li>
+</ul></li>
+<li><p>The OLS estimate becomes unstable: <span class="math display">\[\hat{\boldsymbol{\beta}}_{\text{OLS}} = \left(\mathbf{X}^\top \mathbf{X}\right)^{-1}\mathbf{X}^\top \mathbf{Y}.\]</span></p></li>
+</ul>
+</section>
+<section id="ridge-regression-1" class="slide level2">
+<h2>Ridge regression</h2>
+<p>The ridge estimator minimizes the penalized sum of squares,</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}}_{\text{RIDGE}} = \arg \min_{\boldsymbol{\beta}}\left||\mathbf{Y} - \boldsymbol{\mu}\right||_2^2 + \lambda \sum_{j=1}^p \beta_j^2\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\boldsymbol{\mu} = \alpha + \mathbf{X}\boldsymbol{\beta}\)</span>.</p></li>
+<li><p><span class="math inline">\(||\mathbf{v}||_2 = \sqrt{\mathbf{v}^\top \mathbf{v}}\)</span> is the L2 norm.</p></li>
+<li><p><span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{RIDGE}} = \left(\mathbf{X}^\top\mathbf{X} + \lambda \mathbf{I}_p\right)^{-1}\mathbf{X}^\top\mathbf{Y}\)</span></p>
+<ul>
+<li>Adding the <span class="math inline">\(\lambda\)</span> to diagonals of <span class="math inline">\(\mathbf{X}^\top\mathbf{X}\)</span> stabilizes the inverse, which becomes unstable with multicollinearity.</li>
+</ul></li>
+</ul>
+</section>
+<section id="bayesian-ridge-prior" class="slide level2">
+<h2>Bayesian ridge prior</h2>
+<p>Ridge regression can be obtained using the following global-local shrinkage prior,</p>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau &amp;\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
+\lambda_j &amp;= 1 / \lambda\\
+\tau^2 &amp;= \sigma^2.
+\end{aligned}\]</span></p>
+<ul>
+<li><p>This is equivalent to: <span class="math inline">\(f(\beta_j | \lambda, \sigma) \stackrel{iid}{\sim} N\left(0,\frac{\sigma^2}{\lambda}\right)\)</span>.</p></li>
+<li><p><strong>How is this equivalent to ridge regression?</strong></p></li>
+</ul>
+</section>
+<section id="bayesian-ridge-prior-1" class="slide level2">
+<h2>Bayesian ridge prior</h2>
+<ul>
+<li>The negative log-posterior is proportional to,</li>
+</ul>
+<p><span class="math display">\[\frac{||\mathbf{Y} - \boldsymbol{\mu}||_2^2}{2\sigma^2} + \frac{\lambda \sum_{j=1}^p \beta_j^2}{2\sigma^2}.\]</span></p>
+<ul>
+<li><p>The posterior mean and mode are <span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{RIDGE}}\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(\lambda\)</span> is applied to the squared norm of the <span class="math inline">\(\boldsymbol{\beta}\)</span>, people often standardize all of the covariates to make them have a similar scale.</p></li>
+<li><p>Bayesian statistics is inherently performing regularization!</p></li>
+</ul>
+</section>
+<section id="lasso-regression" class="slide level2">
+<h2>Lasso regression</h2>
+<p>The least absolute shrinkage and selection operator (lasso) estimator minimizes the penalized sum of squares,</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}}_{\text{LASSO}} = \arg \min_{\boldsymbol{\beta}}\left||\mathbf{Y} - \boldsymbol{\mu}\right||_2^2 + \lambda \sum_{j=1}^p |\beta_j|\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\lambda = 0\)</span> reduces to OLS etimator.</p></li>
+<li><p><span class="math inline">\(\lambda = \infty\)</span> leads to <span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{LASSO}} = 0\)</span>.</p></li>
+<li><p>Lasso is desirable because it can set some <span class="math inline">\(\beta_j\)</span> exactly to zero.</p></li>
+</ul>
+</section>
+<section id="bayesian-lasso-prior" class="slide level2">
+<h2>Bayesian lasso prior</h2>
+<p>Lasso regression can be obtained using the following global-local shrinkage prior,</p>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau &amp;\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
+\lambda_j^2 &amp;\stackrel{iid}{\sim} \text{Exponential}(0.5).
+\end{aligned}\]</span></p>
+<ul>
+<li><p>This is equivalent to: <span class="math inline">\(f(\beta_j | \tau) \stackrel{iid}{\sim} \text{Laplace}\left(0,\tau\right)\)</span>.</p></li>
+<li><p><strong>How is this equivalent to lasso regression?</strong></p></li>
+</ul>
+</section>
+<section id="bayesian-lasso-prior-1" class="slide level2">
+<h2>Bayesian lasso prior</h2>
+<ul>
+<li>The negative log-posterior is proportional to,</li>
+</ul>
+<p><span class="math display">\[\frac{||\mathbf{Y} - \boldsymbol{\mu}||_2^2}{2\sigma^2} + \frac{\sum_{j=1}^p |\beta_j|}{\tau}.\]</span></p>
+<ul>
+<li><p>Lasso is recovered by specifying: <span class="math inline">\(\lambda = 1/\tau\)</span>.</p></li>
+<li><p>The posterior mode are <span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{LASSO}}\)</span>.</p></li>
+<li><p>As <span class="math inline">\(\lambda\)</span> increases, more coefficients are set to zero (less variables are selected), and among the non-zero coefficients, more shrinkage is employed.</p></li>
+</ul>
+</section>
+<section id="bayesian-lasso-does-not-work" class="slide level2">
+<h2>Bayesian lasso does not work</h2>
+<ul>
+<li><p>There is a consensus that the Bayesian lasso <a href="https://statmodeling.stat.columbia.edu/2017/11/02/king-must-die/">does not work well</a>.</p></li>
+<li><p>It does not yield <span class="math inline">\(\beta_j\)</span> that are exactly zero and it can overly shrink non-zero <span class="math inline">\(\beta_j\)</span>.</p></li>
+<li><p>The gold-standard sparsity-inducing prior in Bayesian statistics is the horseshoe prior.</p></li>
+</ul>
+</section>
+<section id="relevance-vector-machine" class="slide level2">
+<h2>Relevance vector machine</h2>
+<ul>
+<li><p>Before we get to the horseshoe, one more global-local prior, called the <a href="https://proceedings.neurips.cc/paper_files/paper/1999/file/f3144cefe89a60d6a1afaf7859c5076b-Paper.pdf">relevance vector machine</a>.</p></li>
+<li><p>This model can be obtained using the following prior,</p></li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau &amp;\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
+\lambda_j^2 &amp;\stackrel{iid}{\sim} \text{Inverse-Gamma}\left(\frac{\nu}{2},\frac{\nu}{2}\right).
+\end{aligned}\]</span></p>
+<ul>
+<li>This is equivalent to: <span class="math inline">\(f(\beta_j | \tau) \stackrel{iid}{\sim} {t}_{\nu}\left(0,\tau\right)\)</span>.</li>
+</ul>
+</section>
 <section id="horseshoe-prior" class="slide level2">
 <h2>Horseshoe prior</h2>
 <ul>
-<li><p>Let’s assume <span class="math inline">\(\mathbf{Y} \stackrel{}{\sim}N\left(\mathbf{X}\boldsymbol{\beta},\sigma^2\mathbf{I}_n\right)\)</span>, where <span class="math inline">\(\boldsymbol{\beta}\)</span> is assumed to be sparse.</p></li>
-<li><p>The horseshoe prior is specified as,</p></li>
-</ul>
+<li><p>The horseshoe prior is specified as,</p>
 <p><span class="math display">\[\begin{aligned}
-\beta_j | \lambda_j, \tau &amp;\sim N(0, \lambda_j^2 \tau^2)\\
-\lambda_j &amp;\sim \mathcal C^+(0, 1),
-\end{aligned}\]</span> where <span class="math inline">\(\mathcal C^+(0, 1)\)</span> is a half-Cauchy distribution for the standard deviation <span class="math inline">\(\lambda_j\)</span>.</p>
+\beta_j | \lambda_j, \tau &amp;\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
+\lambda_j &amp;\stackrel{iid}{\sim} \mathcal C^+(0, 1),
+\end{aligned}\]</span> where <span class="math inline">\(\mathcal C^+(0, 1)\)</span> is a half-Cauchy distribution for the local parameter <span class="math inline">\(\lambda_j\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\lambda_j\)</span>’s are the <em>local</em> shrinkage parameters.</p></li>
+<li><p><span class="math inline">\(\tau\)</span> is the <em>global</em> shrinkage parameter.</p></li>
+</ul></li>
+</ul>
 </section>
 <section id="half-cauchy-distribution" class="slide level2">
 <h2>Half-Cauchy distribution</h2>
 <p>A random variable <span class="math inline">\(X \sim \mathcal C^+(\mu,\sigma)\)</span> follows a half-Cauchy distribution with location <span class="math inline">\(\mu\)</span> and scale <span class="math inline">\(\sigma &gt; 0\)</span> and has the following density,</p>
 <p><span class="math display">\[f(X | \mu, \sigma) = \frac{2}{\pi \sigma}\frac{1}{1 + (X - \mu)^2 / \sigma^2},\quad X \geq \mu\]</span></p>
 <ul>
-<li>The Half-Cauchy distribution with <span class="math inline">\(\mu = 0\)</span> is a useful prior for non-negative parameters that may be very large, as allowed by the very heavy tails of the Half-Cauchy distribution.</li>
+<li>The Half-Cauchy distribution with <span class="math inline">\(\mu = 0\)</span> is a useful prior for non-negative parameters that may be very large, as allowed by the very heavy tails of the Cauchy distribution.</li>
 </ul>
 </section>
 <section id="half-cauchy-distribution-in-stan" class="slide level2">
@@ -472,21 +627,24 @@ Prof.&nbsp;Sam Berchuck
 <span id="cb1-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="horseshoe-prior-1" class="slide level2">
-<h2>Horseshoe prior</h2>
-<ul>
-<li>The horseshoe prior is specified as,</li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-\beta_j | \lambda_j, \tau &amp;\sim N(0, \lambda_j^2 \tau^2)\\
-\lambda_j &amp;\sim \mathcal C^+(0, 1),
-\end{aligned}\]</span> where <span class="math inline">\(\mathcal C^+(0, 1)\)</span> is a half-Cauchy distribution for the standard deviation <span class="math inline">\(\lambda_j\)</span>.</p>
-<ul>
-<li><p><span class="math inline">\(\lambda_j\)</span>’s are the <em>local</em> shrinkage parameters.</p></li>
-<li><p><span class="math inline">\(\tau\)</span> is the <em>global</em> shrinkage parameter.</p></li>
-</ul>
+<section id="half-cauchy-distribution-1" class="slide level2">
+<h2>Half-Cauchy distribution</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="11-regularization_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="horseshoe-prior-2" class="slide level2">
+<section id="horseshoe-prior-1" class="slide level2">
 <h2>Horseshoe prior</h2>
 <p>The horseshoe prior has two interesting features that make it particularly useful as a shrinkage prior for sparse problems.</p>
 <ol type="1">
@@ -502,9 +660,10 @@ Prof.&nbsp;Sam Berchuck
 \lambda_j^2 &amp;\sim f(\lambda_j)
 \end{aligned}\]</span></p>
 <ol type="1">
-<li><p><span class="math inline">\(\lambda_j = \lambda\)</span>, implies a Gaussian prior for <span class="math inline">\(\beta_j\)</span> (Ridge regression).</p></li>
-<li><p><span class="math inline">\(f(\lambda_j) = \text{Exponential}(2)\)</span>, implies independent Laplacian priors for <span class="math inline">\(\beta_j\)</span> (LASSO).</p></li>
-<li><p><span class="math inline">\(f(\lambda_j) = \text{Inverse-Gamma}(a,b)\)</span>, implies independent Student-t priors for <span class="math inline">\(\beta_j\)</span> (relevance vector machine).</p></li>
+<li><p><span class="math inline">\(\lambda_j = 1 / \lambda\)</span>, implies ridge regression.</p></li>
+<li><p><span class="math inline">\(f(\lambda_j) = \text{Exponential}(0.5)\)</span>, implies lasso.</p></li>
+<li><p><span class="math inline">\(f(\lambda_j) = \text{Inverse-Gamma}\left(\frac{\nu}{2},\frac{\nu}{2}\right)\)</span>, implies relevance vector machine.</p></li>
+<li><p><span class="math inline">\(f(\lambda_j) = \mathcal C^+(0,1)\)</span>, implies horseshoe.</p></li>
 </ol>
 </section>
 <section id="horsehoe-density" class="slide level2">
@@ -528,7 +687,7 @@ Prof.&nbsp;Sam Berchuck
 <li><p><span class="math inline">\(s_j^2 = \mathbb{V}(x_j)\)</span> is the variance for each predictor.</p></li>
 </ul>
 </section>
-<section id="standardization-of-predictors" class="slide level2">
+<section id="standardization-of-predictors" class="slide level2 midi">
 <h2>Standardization of predictors</h2>
 <ul>
 <li><p>In regularization problems, predictors are standardized (to mean zero and standard deviation one).</p></li>
@@ -561,115 +720,56 @@ Prof.&nbsp;Sam Berchuck
 </ol></li>
 </ul>
 </section>
-<section id="spike-and-slab-prior" class="slide level2">
-<h2>Spike-and-slab prior</h2>
+<section id="similarity-to-spike-and-slab" class="slide level2 small">
+<h2>Similarity to spike-and-slab</h2>
 <ul>
-<li>The prior is often written as a two-component mixture of Gaussians,</li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-\beta_j | \lambda_j, c^2, \epsilon &amp;\sim \lambda_j N(0, c^2) + (1-\lambda_j) N(0,\omega^2)\\
-\lambda_j &amp;\sim \text{Bernoulli}(\pi).
-\end{aligned}\]</span></p>
+<li><p>A horseshoe prior can be considered as a continuous approximation to the spike-and-slab prior.</p>
 <ul>
-<li><span class="math inline">\(\omega \ll c\)</span> and the indicator variable <span class="math inline">\(\lambda_j \in \{0, 1\}\)</span> denotes whether <span class="math inline">\(\beta_j\)</span> is close to zero (comes from the “spike”, <span class="math inline">\(\lambda_j = 0\)</span>) or nonzero (comes from the “slab”, <span class="math inline">\(\lambda_j = 1\)</span>).</li>
-</ul>
-</section>
-<section id="spike-and-slab-prior-1" class="slide level2">
-<h2>Spike-and-slab prior</h2>
-<ul>
-<li>Often <span class="math inline">\(\omega = 0\)</span> (the spike is a true spike), and the prior can be written as,</li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-\beta_j | \lambda_j, c^2 &amp;\sim N(0, \lambda_j^2 c^2)\\
-\lambda_j &amp;\sim \text{Bernoulli}(\pi).
-\end{aligned}\]</span></p>
-<ul>
-<li><p>Instead of giving continuous priors for <span class="math inline">\(\lambda_j\)</span>’s as in the horseshoe, here only two values are allowed (0,1).</p></li>
-<li><p>The shrinkage factor <span class="math inline">\(\kappa_j\)</span> only has mass at <span class="math inline">\(\kappa_j = \frac{1}{1 + n\sigma^{-2}\tau^{2}}\)</span> and <span class="math inline">\(\kappa_j = 1\)</span> with probabilities <span class="math inline">\(\pi\)</span> and <span class="math inline">\(1-\pi\)</span>,</p></li>
-</ul>
-</section>
-<section id="similarity-to-horseshoe" class="slide level2 midi">
-<h2>Similarity to horseshoe</h2>
-<ul>
-<li>Letting <span class="math inline">\(c \rightarrow \infty\)</span>, all the mass is concentrated at the extremes <span class="math inline">\(\kappa_j = 0\)</span> and <span class="math inline">\(\kappa_j = 1\)</span> (this resembles the horseshoe).</li>
+<li><p>The spike-and-slab places a discrete probability mass at exactly zero (the “spike”) and a separate distribution around non-zero values (the “slab”).</p></li>
+<li><p>The horseshoe prior smoothly approximates this behavior with a very concentrated distribution near zero.</p></li>
+</ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/10/aki1.png" class="quarto-figure quarto-figure-center" style="height:3in" alt="workflow"></p>
+<p><img data-src="images/10/aki1.png" class="quarto-figure quarto-figure-center" style="height:2.5in" alt="workflow"></p>
 </figure>
 </div>
 <p><a href="https://doi.org/10.1214/17-EJS1337SI">From Piironena and Vehtari 2017</a></p>
-<ul>
-<li>The horseshoe can be seen as a continuous approximation to the spike-and-slab prior as <span class="math inline">\(c \rightarrow \infty\)</span>.</li>
-</ul>
-</section>
-<section id="regularized-horseshoe-prior" class="slide level2">
-<h2>Regularized horseshoe prior</h2>
-<p><span class="math display">\[\begin{aligned}
-\beta_j | \lambda_j, \tau, c &amp;\sim N\left(0, \tau^2 \tilde{\lambda}_j^2\right),\quad \tilde{\lambda}_j^2 = \frac{c^2 \lambda_j^2}{c^2 + \tau^2 \lambda_j^2},\\
-\lambda_j &amp;\sim \mathcal C^+(0,1).
-\end{aligned}\]</span></p>
-<ul>
-<li><p>When <span class="math inline">\(\tau^2 \lambda_j^2 \ll c^2\)</span> (i.e., <span class="math inline">\(\beta_j\)</span> close to zero), <span class="math inline">\(\beta_j \sim  N\left(0, \tau^2\lambda_j^2\right)\)</span></p></li>
-<li><p>When <span class="math inline">\(\tau^2 \lambda_j^2 \gg c^2\)</span>, (i.e., <span class="math inline">\(\beta_j\)</span> far from zero), <span class="math inline">\(\beta_j \sim  N\left(0, c^2\right)\)</span></p></li>
-<li><p><span class="math inline">\(c \rightarrow \infty\)</span> recovers the original horseshoe.</p></li>
-</ul>
-<p><strong>Why is this an appealing extension?</strong></p>
-</section>
-<section id="regularized-horseshoe-compared-to-spike-and-slab" class="slide level2">
-<h2>Regularized horseshoe compared to spike-and-slab</h2>
-<ul>
-<li>The regularized horseshoe prior is comparable to the spike-and-slab with finite <span class="math inline">\(c\)</span>.</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/10/aki2.png" class="quarto-figure quarto-figure-center" style="height:3in" alt="workflow"></p>
-</figure>
-</div>
-<p><a href="https://doi.org/10.1214/17-EJS1337SI">From Piironena and Vehtari 2017</a></p>
-</section>
-<section id="choosing-a-prior-for-c2" class="slide level2">
-<h2>Choosing a prior for <span class="math inline">\(c^2\)</span></h2>
-<ul>
-<li><p>Unless substantial knowledge about the scale of the relevant coefficients exists, it is recommended to place a prior for <span class="math inline">\(c\)</span> instead of fixing it.</p></li>
-<li><p>Often a reasonable choice is, <span class="math display">\[c^2 \sim \text{Inv-Gamma}(\alpha, \beta), \quad \alpha = \nu/2, \beta = \nu s^2 / 2,\]</span></p></li>
-<li><p>This translates to a <span class="math inline">\(t_{\nu}(0,s^2)\)</span> slab for the coefficients far from 0.</p></li>
-<li><p>Another motivation for using inverse-Gamma is that it has a heavy right tail accompanied by a light left tail thereby preventing much mass from accumulating near zero.</p></li>
-</ul>
-</section>
-<section id="choosing-a-prior-for-tau" class="slide level2">
-<h2>Choosing a prior for <span class="math inline">\(\tau\)</span></h2>
-<ul>
-<li><p>Carvalho et al.&nbsp;2009 suggest <span class="math inline">\(\tau \sim \mathcal C^+(0,1)\)</span>.</p></li>
-<li><p>Polson and Scott 2011 recommend <span class="math inline">\(\tau | \sigma \sim \mathcal C^+(0, \sigma^2)\)</span>.</p></li>
-<li><p>Another prior comes from a quantity called the effective number of nonzero coefficients,<br>
-<span class="math display">\[m_{eff} = \sum_{j=1}^p (1 - \kappa_j).\]</span></p></li>
-</ul>
-</section>
-<section id="global-shrinkage-parameter-tau" class="slide level2">
-<h2>Global shrinkage parameter <span class="math inline">\(\tau\)</span></h2>
-<ul>
-<li>The prior mean can be shown to be,</li>
-</ul>
-<p><span class="math display">\[\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = \frac{\tau \sigma^{-1} \sqrt{n}}{1 + \tau \sigma^{-1} \sqrt{n}}p.\]</span></p>
-<ul>
-<li>Setting <span class="math inline">\(\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = p_0\)</span> (prior guess for the number of non-zero coefficients) yields for <span class="math inline">\(\tau\)</span>,</li>
-</ul>
-<p><span class="math display">\[\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}\]</span></p>
-</section>
-<section id="global-shrinkage-parameter-tau-1" class="slide level2">
-<h2>Global shrinkage parameter <span class="math inline">\(\tau\)</span></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/10/aki3.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="workflow"></p>
-</figure>
-</div>
-<p><a href="https://doi.org/10.1214/17-EJS1337SI">From Piironena and Vehtari 2017</a></p>
+<!-- ## Regularized horseshoe prior -->
+<!-- \begin{align*} -->
+<!-- \beta_j | \lambda_j, \tau, c &\sim N\left(0, \tau^2 \tilde{\lambda}_j^2\right),\quad \tilde{\lambda}_j^2 = \frac{c^2 \lambda_j^2}{c^2 + \tau^2 \lambda_j^2},\\ -->
+<!-- \lambda_j &\sim \mathcal C^+(0,1). -->
+<!-- \end{align*} -->
+<!-- -   When $\tau^2 \lambda_j^2 \ll c^2$ (i.e., $\beta_j$ close to zero), $\beta_j \sim  N\left(0, \tau^2\lambda_j^2\right)$ -->
+<!-- -   When $\tau^2 \lambda_j^2 \gg c^2$, (i.e., $\beta_j$ far from zero), $\beta_j \sim  N\left(0, c^2\right)$ -->
+<!-- -   $c \rightarrow \infty$ recovers the original horseshoe. -->
+<!-- **Why is this an appealing extension?** -->
+<!-- ## Regularized horseshoe compared to spike-and-slab -->
+<!-- -   The regularized horseshoe prior is comparable to the spike-and-slab with finite $c$. -->
+<!-- ![](images/10/aki2.png){fig-alt="workflow" fig-align="center" height="3in"} -->
+<!-- [From Piironena and Vehtari 2017](https://doi.org/10.1214/17-EJS1337SI) -->
+<!-- ## Choosing a prior for $c^2$ -->
+<!-- -   Unless substantial knowledge about the scale of the relevant coefficients exists, it is recommended to place a prior for $c$ instead of fixing it. -->
+<!-- -   Often a reasonable choice is, $$c^2 \sim \text{Inv-Gamma}(\alpha, \beta), \quad \alpha = \nu/2, \beta = \nu s^2 / 2,$$ -->
+<!-- -   This translates to a $t_{\nu}(0,s^2)$ slab for the coefficients far from 0. -->
+<!-- -   Another motivation for using inverse-Gamma is that it has a heavy right tail accompanied by a light left tail thereby preventing much mass from accumulating near zero. -->
+<!-- ## Choosing a prior for $\tau$ -->
+<!-- -   Carvalho et al. 2009 suggest $\tau \sim \mathcal C^+(0,1)$. -->
+<!-- -   Polson and Scott 2011 recommend $\tau | \sigma \sim \mathcal C^+(0, \sigma^2)$. -->
+<!-- -   Another prior comes from a quantity called the effective number of nonzero coefficients,\ -->
+<!--     $$m_{eff} = \sum_{j=1}^p (1 - \kappa_j).$$ -->
+<!-- ## Global shrinkage parameter $\tau$ -->
+<!-- -   The prior mean can be shown to be, -->
+<!-- $$\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = \frac{\tau \sigma^{-1} \sqrt{n}}{1 + \tau \sigma^{-1} \sqrt{n}}p.$$ -->
+<!-- -   Setting $\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = p_0$ (prior guess for the number of non-zero coefficients) yields for $\tau$, -->
+<!-- $$\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}$$ -->
+<!-- ## Global shrinkage parameter $\tau$ -->
+<!-- ![](images/10/aki3.png){fig-alt="workflow" fig-align="center" height="5in"} -->
+<!-- [From Piironena and Vehtari 2017](https://doi.org/10.1214/17-EJS1337SI) -->
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>
 <ul>
-<li><p>We are going to jump into an AE on body fat, but first some reminders.</p></li>
 <li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-03">HW 03</a>, which was just assigned.</p></li>
 <li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
 <li><p>Tuesday’s lecture: Classification</p></li>
