@@ -9785,7 +9785,7 @@
     "href": "slides/10-robust.html#a-prior-to-induce-a-heavy-tail",
     "title": "Robust Regression",
     "section": "A prior to induce a heavy-tail",
-    "text": "A prior to induce a heavy-tail\n\nA common prior for \\(\\lambda_i\\) is as follows:\n\n\\[\\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\\]\n\nClasses and Methods for R originally developed in the\nPolitical Science Computational Laboratory\nDepartment of Political Science\nStanford University (2002-2015),\nby and under the direction of Simon Jackman.\nhurdle and zeroinfl functions by Achim Zeileis."
+    "text": "A prior to induce a heavy-tail\n\nA common prior for \\(\\lambda_i\\) is as follows:\n\n\\[\\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\\]"
   },
   {
     "objectID": "slides/10-robust.html#understanding-the-equivalence",
@@ -9841,7 +9841,7 @@
     "href": "slides/10-robust.html#vizualizing-heavy-tail-distributions-1",
     "title": "Robust Regression",
     "section": "Vizualizing heavy tail distributions",
-    "text": "Vizualizing heavy tail distributions\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\n\nAttaching package: 'nimble'\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare\n\n\n\nAttaching package: 'extraDistr'\n\n\nThe following objects are masked from 'package:nimble':\n\n    dcat, dinvgamma, pinvgamma, qinvgamma, rcat, rinvgamma\n\n\nThe following object is masked from 'package:purrr':\n\n    rdunif"
+    "text": "Vizualizing heavy tail distributions"
   },
   {
     "objectID": "slides/10-robust.html#another-example-of-robust-regression",
@@ -9925,7 +9925,7 @@
     "href": "slides/10-robust.html#prepare-for-next-class",
     "title": "Robust Regression",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization"
+    "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/12-classification.html#review-of-last-lecture",
@@ -12191,7 +12191,7 @@
     "href": "slides/10-robust.html#vizualizing-heavy-tail-distributions-2",
     "title": "Robust Regression",
     "section": "Vizualizing heavy tail distributions",
-    "text": "Vizualizing heavy tail distributions\n\nWarning: Removed 1992 rows containing missing values or values outside the scale range\n(`geom_line()`)."
+    "text": "Vizualizing heavy tail distributions"
   },
   {
     "objectID": "slides/10-robust.html#another-example-of-robust-regression-1",
@@ -12219,7 +12219,7 @@
     "href": "slides/10-robust.html#model-comparison",
     "title": "Robust Regression",
     "section": "Model Comparison",
-    "text": "Model Comparison\n\n\nThis is loo version 2.8.0\n\n\n- Online documentation and vignettes at mc-stan.org/loo\n\n\n- As of v2.0.0 loo defaults to 1 core but we recommend using as many as possible. Use the 'cores' argument or set options(mc.cores = NUM_CORES) for an entire session. \n\n\n\n\n\n\nelpd_diff\nelpd_loo\nlooic\n\n\n\n\nStudent-t\n0.00\n-624.42\n1248.84\n\n\nGaussian\n-2.01\n-626.43\n1252.86\n\n\nGaussian with Covariates in Variance\n-6.09\n-630.51\n1261.02\n\n\nLaplace\n-13.10\n-637.52\n1275.05"
+    "text": "Model Comparison\n\n\n\n\n\n\nelpd_diff\nelpd_loo\nlooic\n\n\n\n\nStudent-t\n0.00\n-624.42\n1248.84\n\n\nGaussian\n-2.01\n-626.43\n1252.86\n\n\nGaussian with Covariates in Variance\n-6.09\n-630.51\n1261.02\n\n\nLaplace\n-13.10\n-637.52\n1275.05"
   },
   {
     "objectID": "slides/10-robust.html#examining-the-student-t-model-fit",
@@ -12233,7 +12233,7 @@
     "href": "slides/10-robust.html#examining-the-student-t-model-fit-1",
     "title": "Robust Regression",
     "section": "Examining the Student-t model fit",
-    "text": "Examining the Student-t model fit\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "Examining the Student-t model fit"
   },
   {
     "objectID": "slides/10-robust.html#local-variance-parameter",
