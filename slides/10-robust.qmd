@@ -88,7 +88,7 @@ ggplot(dat_fig, aes(x = Y)) +
 
 $$Y_i = \alpha + \beta X_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2).$$
 
--   $\beta$ represent the the change in IgG serum concentration with a one year increase in age.
+-   $\beta$ represent the change in IgG serum concentration with a one year increase in age.
 
 ## Linear regression assumptions
 
@@ -427,6 +427,7 @@ parameters {
   vector[p] beta;
   real<lower = 0> sigma;
   vector[n] lambda;
+  real<lower = 0> nu;
 }
 transformed parameters {
   vector[n] tau = sigma * sqrt(lambda);
@@ -921,7 +922,7 @@ dat.fig <- data.frame(
 )
 ggplot(dat.fig, aes(x = x, y = y, color = Model)) + 
   geom_line(lwd = 1.25) + 
-  labs(x = "X", y = "Density", subtitle = expression(paste("Distributions of ", lambda[i])))
+  labs(x = expression(lambda[i]), y = "Density", subtitle = expression(paste("Distributions of ", lambda[i])))
 ```
 
 ## Summary of robust regression

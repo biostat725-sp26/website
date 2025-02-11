@@ -9820,7 +9820,7 @@
     "href": "slides/10-robust.html#student-t-in-stan-mixture",
     "title": "Robust Regression",
     "section": "Student-t in Stan: mixture",
-    "text": "Student-t in Stan: mixture\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n] lambda;\n}\ntransformed parameters {\n  vector[n] tau = sigma * sqrt(lambda);\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, tau);\n  target += inv_gamma_lpdf(lambda | 0.5 * nu, 0.5 * nu);\n}"
+    "text": "Student-t in Stan: mixture\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n] lambda;\n  real&lt;lower = 0&gt; nu;\n}\ntransformed parameters {\n  vector[n] tau = sigma * sqrt(lambda);\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, tau);\n  target += inv_gamma_lpdf(lambda | 0.5 * nu, 0.5 * nu);\n}"
   },
   {
     "objectID": "slides/10-robust.html#why-heavy-tailed-distributions",
@@ -12149,7 +12149,7 @@
     "href": "slides/10-robust.html#modeling-the-association-between-age-and-igg",
     "title": "Robust Regression",
     "section": "Modeling the association between age and IgG",
-    "text": "Modeling the association between age and IgG\n\nLinear regression can be written as follows for \\(i = 1,\\ldots,n\\),\n\n\\[Y_i = \\alpha + \\beta X_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\\(\\beta\\) represent the the change in IgG serum concentration with a one year increase in age."
+    "text": "Modeling the association between age and IgG\n\nLinear regression can be written as follows for \\(i = 1,\\ldots,n\\),\n\n\\[Y_i = \\alpha + \\beta X_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\\(\\beta\\) represent the change in IgG serum concentration with a one year increase in age."
   },
   {
     "objectID": "slides/10-robust.html#linear-regression-assumptions",

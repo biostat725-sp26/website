@@ -478,7 +478,7 @@ Prof.&nbsp;Sam Berchuck
 </ul>
 <p><span class="math display">\[Y_i = \alpha + \beta X_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2).\]</span></p>
 <ul>
-<li><span class="math inline">\(\beta\)</span> represent the the change in IgG serum concentration with a one year increase in age.</li>
+<li><span class="math inline">\(\beta\)</span> represent the change in IgG serum concentration with a one year increase in age.</li>
 </ul>
 </section>
 <section id="linear-regression-assumptions" class="slide level2">
@@ -755,14 +755,15 @@ T_i &amp;= \frac{Z_i}{\sqrt{\frac{W_i}{\nu}}},\quad Z_i \stackrel{iid}{\sim} N(0
 <span id="cb5-9"><a></a>  <span class="dt">vector</span>[p] beta;</span>
 <span id="cb5-10"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
 <span id="cb5-11"><a></a>  <span class="dt">vector</span>[n] lambda;</span>
-<span id="cb5-12"><a></a>}</span>
-<span id="cb5-13"><a></a><span class="kw">transformed parameters</span> {</span>
-<span id="cb5-14"><a></a>  <span class="dt">vector</span>[n] tau = sigma * sqrt(lambda);</span>
-<span id="cb5-15"><a></a>}</span>
-<span id="cb5-16"><a></a><span class="kw">model</span> {</span>
-<span id="cb5-17"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | alpha + X * beta, tau);</span>
-<span id="cb5-18"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(lambda | <span class="fl">0.5</span> * nu, <span class="fl">0.5</span> * nu);</span>
-<span id="cb5-19"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-12"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; nu;</span>
+<span id="cb5-13"><a></a>}</span>
+<span id="cb5-14"><a></a><span class="kw">transformed parameters</span> {</span>
+<span id="cb5-15"><a></a>  <span class="dt">vector</span>[n] tau = sigma * sqrt(lambda);</span>
+<span id="cb5-16"><a></a>}</span>
+<span id="cb5-17"><a></a><span class="kw">model</span> {</span>
+<span id="cb5-18"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | alpha + X * beta, tau);</span>
+<span id="cb5-19"><a></a>  <span class="kw">target +=</span> inv_gamma_lpdf(lambda | <span class="fl">0.5</span> * nu, <span class="fl">0.5</span> * nu);</span>
+<span id="cb5-20"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="why-heavy-tailed-distributions" class="slide level2">
