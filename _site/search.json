@@ -1935,7 +1935,7 @@
     "href": "overview.html#teaching-assistants",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "Teaching assistants",
-    "text": "Teaching assistants\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\nDr. Youngsoo Baek\nTA\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\nMon 9 – 10am\nWed 2 – 3pm\nOld Chemistry 203A/B",
+    "text": "Teaching assistants\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\nDr. Youngsoo Baek\nTA\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\nMon 9 – 10am\nWed 1 – 2pm\nOld Chemistry 203A/B",
     "crumbs": [
       "Overview"
     ]
@@ -3651,7 +3651,7 @@
     "href": "syllabus.html",
     "title": "BIOSTAT 725 Syllabus",
     "section": "",
-    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTue 2 - 4pm\nor by appointment\nHock 10092\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\n\nMon 9 – 10am\nWed 2 – 3pm\nOld Chemistry 203A/B",
+    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTue 2 - 4pm\nor by appointment\nHock 10092\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\n\nMon 9 – 10am\nWed 1 – 2pm\nOld Chemistry 203A/B",
     "crumbs": [
       "Syllabus"
     ]
@@ -3661,7 +3661,7 @@
     "href": "syllabus.html#course-info",
     "title": "BIOSTAT 725 Syllabus",
     "section": "",
-    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTue 2 - 4pm\nor by appointment\nHock 10092\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\n\nMon 9 – 10am\nWed 2 – 3pm\nOld Chemistry 203A/B",
+    "text": "Lecture\nTue & Thu 11:45am - 1pm\nHock 10089\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nRole\nOffice Hours\nLocation\n\n\n\n\nProf. Sam Berchuck\nInstructor\nTue 2 - 4pm\nor by appointment\nHock 10092\n\n\nDr. Youngsoo Baek\nTA\n\nWed 2 - 4pm\nHock 10090\n\n\nBraden Scherting\nTA\n\nMon 9 – 10am\nWed 1 – 2pm\nOld Chemistry 203A/B",
     "crumbs": [
       "Syllabus"
     ]
@@ -10611,14 +10611,14 @@
     "href": "slides/11-regularization.html#choosing-a-prior-for-tau",
     "title": "Regularization",
     "section": "Choosing a prior for \\(\\tau\\)",
-    "text": "Choosing a prior for \\(\\tau\\)\n\nCarvalho et al. 2009 suggest \\(\\tau \\sim \\mathcal C^+(0,1)\\).\nPolson and Scott 2011 recommend \\(\\tau | \\sigma \\sim \\mathcal C^+(0, \\sigma^2)\\).\nAnother prior comes from a quantity called the effective number of nonzero coefficients,\n\\[m_{eff} = \\sum_{j=1}^p (1 - \\kappa_j).\\]"
+    "text": "Choosing a prior for \\(\\tau\\)\n\nCarvalho et al. 2009 suggest \\(\\tau \\sim \\mathcal C^+(0,1)\\).\nPolson and Scott 2011 recommend \\(\\tau | \\sigma \\sim \\mathcal C^+(0, \\sigma^2)\\).\nAnother prior comes from a quantity called the effective number of nonzero coefficients,\n\n\\[m_{eff} = \\sum_{j=1}^p (1 - \\kappa_j).\\]"
   },
   {
     "objectID": "slides/11-regularization.html#global-shrinkage-parameter-tau",
     "href": "slides/11-regularization.html#global-shrinkage-parameter-tau",
     "title": "Regularization",
     "section": "Global shrinkage parameter \\(\\tau\\)",
-    "text": "Global shrinkage parameter \\(\\tau\\)\n\nThe prior mean can be shown to be,\n\n\\[\\mathbb{E}\\left[m_{eff} | \\tau, \\sigma\\right] = \\frac{\\tau \\sigma^{-1} \\sqrt{n}}{1 + \\tau \\sigma^{-1} \\sqrt{n}}p.\\]\n\nSetting \\(\\mathbb{E}\\left[m_{eff} | \\tau, \\sigma\\right] = p_0\\) (prior guess for the number of non-zero coefficients) yields for \\(\\tau\\),\n\n\\[\\tau_0 = \\frac{p_0}{p - p_0} \\frac{\\sigma}{\\sqrt{n}}\\]"
+    "text": "Global shrinkage parameter \\(\\tau\\)\n\nThe prior mean can be shown to be,\n\n\\[\\mathbb{E}\\left[m_{eff} | \\tau, \\sigma\\right] = \\frac{\\tau \\sigma^{-1} \\sqrt{n}}{1 + \\tau \\sigma^{-1} \\sqrt{n}}p.\\]\n\nSetting \\(\\mathbb{E}\\left[m_{eff} | \\tau, \\sigma\\right] = p_0\\) (prior guess for the number of non-zero coefficients) yields for \\(\\tau\\),\n\n\\[\\tau_0 = \\frac{p_0}{p - p_0} \\frac{\\sigma}{\\sqrt{n}}.\\]"
   },
   {
     "objectID": "slides/11-regularization.html#global-shrinkage-parameter-tau-1",
@@ -11977,7 +11977,7 @@
     "href": "slides/11-regularization.html",
     "title": "Regularization",
     "section": "",
-    "text": "On Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nQuantile regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
   },
   {
     "objectID": "slides/13-multiclass.html",
@@ -12367,5 +12367,33 @@
     "title": "Prepare for February 13 lecture",
     "section": "",
     "text": "📖 Read BDA3 Chapter 14.6 about regularization in Bayesian models\n📖 Read Handling Sparsity via the Horseshoe by Carvalho, Polson, and Scott.\n✅ Work on HW 02"
+  },
+  {
+    "objectID": "slides/11-regularization.html#non-gaussian-observation-models",
+    "href": "slides/11-regularization.html#non-gaussian-observation-models",
+    "title": "Regularization",
+    "section": "Non-Gaussian observation models",
+    "text": "Non-Gaussian observation models\n\nThe reference value:\n\n\\[\\tau_0 = \\frac{p_0}{p - p_0} \\frac{\\sigma}{\\sqrt{n}}.\\]\n\nThis framework can be applied to non-Gaussian observation data models using plug-in estimates values for \\(\\sigma\\).\n\nGaussian approximations to the likelihood.\nFor example: For logistic regression \\(\\sigma = 2\\)."
+  },
+  {
+    "objectID": "slides/11-regularization.html#horseshoe-in-stan",
+    "href": "slides/11-regularization.html#horseshoe-in-stan",
+    "title": "Regularization",
+    "section": "Horseshoe in Stan",
+    "text": "Horseshoe in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n  real&lt;lower = 0&gt; tau0;\n}\nparameters {\n  real alpha;     \n  real&lt;lower = 0&gt; sigma;\n  vector[p] z;\n  vector&lt;lower = 0&gt;[p] lambda;\n  real&lt;lower = 0&gt; tau;\n}\ntransformed parameters {\n  vector[p] beta;\n  beta = tau * lambda .* z;\n}\nmodel {\n  // likelihood\n  target += normal_lpdf(Y | alpha + X * beta, sigma);\n  // population parameters\n  target += normal_lpdf(alpha | 0, 3);\n  target += normal_lpdf(sigma | 0, 3);\n  // horseshoe prior\n  target += std_normal_lpdf(z);\n  target += cauchy_lpdf(lambda | 0, 1);\n  target += cauchy_lpdf(tau | 0, tau0);\n}"
+  },
+  {
+    "objectID": "slides/11-regularization.html#coding-up-the-model-in-stan",
+    "href": "slides/11-regularization.html#coding-up-the-model-in-stan",
+    "title": "Regularization",
+    "section": "Coding up the model in Stan",
+    "text": "Coding up the model in Stan\nHorseshoe model has the following form,\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau &\\stackrel{ind}{\\sim} N(0, \\lambda_j^2 \\tau^2)\\\\\n\\lambda_j &\\stackrel{iid}{\\sim} \\mathcal C^+(0, 1),\\\\\n\\tau &\\sim \\mathcal C^+(0, \\tau_0^2).\n\\end{aligned}\\]\nEfficient parameter transformation, \\[\\beta_j = \\tau \\lambda_j z_j, \\quad z_j \\stackrel{iid}{\\sim} N(0,1).\\]"
+  },
+  {
+    "objectID": "slides/11-regularization.html#horseshoe-in-stan-1",
+    "href": "slides/11-regularization.html#horseshoe-in-stan-1",
+    "title": "Regularization",
+    "section": "Horseshoe in Stan",
+    "text": "Horseshoe in Stan\n\ndata {\n  int&lt;lower = 0&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n  real&lt;lower = 0&gt; tau0;\n}\ntransformed data {\n  real Y_bar;\n  vector[n] Y_centered;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n}\nparameters {\n  real alpha;     \n  real&lt;lower = 0&gt; sigma;\n  vector[p] z;                  // unscaled horseshoe regression pars\n  vector&lt;lower = 0&gt;[p] lambda;  // local shrinkage parameter\n  real&lt;lower = 0&gt; tau;          // global shrinkage parameter\n}\ntransformed parameters {\n  vector[p] beta;                                   // scaled coefficients\n  beta = tau * lambda .* z;                         // horseshoe pars\n}\nmodel {\n  // ordinal likelihood\n  target += normal_lpdf(Y_centered | alpha + X_centered * beta, sigma);\n    // horseshoe prior\n  target += std_normal_lpdf(z);\n  target += cauchy_lpdf(lambda | 0, 1);\n  target += cauchy_lpdf(tau | 0, tau0);\n  // population parameters\n  target += normal_lpdf(alpha | 0, 3);\n}\ngenerated quantities {\n  vector[n] Y_pred;\n  vector[n] mu;\n  vector[n] log_lik;\n  real alpha_star = Y_bar + alpha - X_bar * beta;\n  for (i in 1:n) {\n    mu[i] = alpha_star + X[i, ] * beta;\n    Y_pred[i] = normal_rng(mu[i], sigma);\n    log_lik[i] = normal_lpdf(Y_centered[i] | alpha + X_centered[i, ] * beta, sigma);\n  }\n}"
   }
 ]

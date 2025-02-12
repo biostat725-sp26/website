@@ -76,35 +76,35 @@ library(nimble)
 
 ## Global-local shrinkage
 
-- Let's assume $\mathbf{Y} \stackrel{}{\sim}N\left(\alpha + \mathbf{X}\boldsymbol{\beta},\sigma^2\mathbf{I}_n\right)$. 
+-   Let's assume $\mathbf{Y} \stackrel{}{\sim}N\left(\alpha + \mathbf{X}\boldsymbol{\beta},\sigma^2\mathbf{I}_n\right)$.
 
-- Sparsity can be induced into $\boldsymbol{\beta}$ using a global-local prior,
+-   Sparsity can be induced into $\boldsymbol{\beta}$ using a global-local prior,
 
 \begin{align*}
 \beta_j | \lambda_j, \tau &\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
 \lambda_j &\stackrel{iid}{\sim} f(\lambda_j).
-\end{align*} 
+\end{align*}
 
-  - $\tau^2$ is the global variance term.
-  
-  - $\lambda_j$ is the local term.
+-   $\tau^2$ is the global variance term.
 
-  - The degree of sparsity depends on the choice of $f(\lambda_j)$.
+-   $\lambda_j$ is the local term.
+
+-   The degree of sparsity depends on the choice of $f(\lambda_j)$.
 
 ## Spike-and-slab prior
 
-- Discrete parameter specification,  
+-   Discrete parameter specification,
 
 \begin{align*}
 \beta_j | \lambda_j, \tau &\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
 \lambda_j &\stackrel{iid}{\sim} \text{Bernoulli}(\pi).
 \end{align*}
 
-- $\lambda_j \in \{0,1\}$, thus this model permits exact zeros. 
+-   $\lambda_j \in \{0,1\}$, thus this model permits exact zeros.
 
-- The number of zeros is dictated by $\pi$, which can either be pre-specified or given a prior.
+-   The number of zeros is dictated by $\pi$, which can either be pre-specified or given a prior.
 
-- **Discrete parameters can not be specified in Stan!**
+-   **Discrete parameters can not be specified in Stan!**
 
 <!-- - Instead of giving continuous priors for $\lambda_j$'s as in the horseshoe, here only two values are allowed (0,1). -->
 
@@ -112,7 +112,7 @@ library(nimble)
 
 ## Spike-and-slab prior
 
-- Spike-and-slab can be written generally as a two-component mixture of Gaussians,
+-   Spike-and-slab can be written generally as a two-component mixture of Gaussians,
 
 \begin{align*}
 \beta_j | \lambda_j, \tau, \omega &\stackrel{ind}{\sim} \lambda_j N(0, \tau^2) + (1-\lambda_j) N(0,\omega^2)\\
@@ -125,13 +125,13 @@ library(nimble)
 
 ## Ridge regression
 
-- Ridge regression is motivated by extending linear regression to the setting where:
+-   Ridge regression is motivated by extending linear regression to the setting where:
 
-  - there are too many predictors (sparsity is desired) and/or,
-  
-  - $\mathbf{X}^\top \mathbf{X}$ is ill-conditioned were singular or nearly singular (multicollinearity).
+    -   there are too many predictors (sparsity is desired) and/or,
 
-- The OLS estimate becomes unstable: $$\hat{\boldsymbol{\beta}}_{\text{OLS}} = \left(\mathbf{X}^\top \mathbf{X}\right)^{-1}\mathbf{X}^\top \mathbf{Y}.$$
+    -   $\mathbf{X}^\top \mathbf{X}$ is ill-conditioned were singular or nearly singular (multicollinearity).
+
+-   The OLS estimate becomes unstable: $$\hat{\boldsymbol{\beta}}_{\text{OLS}} = \left(\mathbf{X}^\top \mathbf{X}\right)^{-1}\mathbf{X}^\top \mathbf{Y}.$$
 
 ## Ridge regression
 
@@ -139,13 +139,13 @@ The ridge estimator minimizes the penalized sum of squares,
 
 $$\hat{\boldsymbol{\beta}}_{\text{RIDGE}} = \arg \min_{\boldsymbol{\beta}}\left||\mathbf{Y} - \boldsymbol{\mu}\right||_2^2 + \lambda \sum_{j=1}^p \beta_j^2$$
 
-- $\boldsymbol{\mu} = \alpha + \mathbf{X}\boldsymbol{\beta}$.
+-   $\boldsymbol{\mu} = \alpha + \mathbf{X}\boldsymbol{\beta}$.
 
-- $||\mathbf{v}||_2 = \sqrt{\mathbf{v}^\top \mathbf{v}}$ is the L2 norm.
+-   $||\mathbf{v}||_2 = \sqrt{\mathbf{v}^\top \mathbf{v}}$ is the L2 norm.
 
-- $\hat{\boldsymbol{\beta}}_{\text{RIDGE}} = \left(\mathbf{X}^\top\mathbf{X} + \lambda \mathbf{I}_p\right)^{-1}\mathbf{X}^\top\mathbf{Y}$
+-   $\hat{\boldsymbol{\beta}}_{\text{RIDGE}} = \left(\mathbf{X}^\top\mathbf{X} + \lambda \mathbf{I}_p\right)^{-1}\mathbf{X}^\top\mathbf{Y}$
 
-  - Adding the $\lambda$ to diagonals of $\mathbf{X}^\top\mathbf{X}$ stabilizes the inverse, which becomes unstable with multicollinearity.
+    -   Adding the $\lambda$ to diagonals of $\mathbf{X}^\top\mathbf{X}$ stabilizes the inverse, which becomes unstable with multicollinearity.
 
 ## Bayesian ridge prior
 
@@ -157,21 +157,21 @@ Ridge regression can be obtained using the following global-local shrinkage prio
 \tau^2 &= \sigma^2. 
 \end{align*}
 
-- This is equivalent to: $f(\beta_j | \lambda, \sigma) \stackrel{iid}{\sim} N\left(0,\frac{\sigma^2}{\lambda}\right)$.
+-   This is equivalent to: $f(\beta_j | \lambda, \sigma) \stackrel{iid}{\sim} N\left(0,\frac{\sigma^2}{\lambda}\right)$.
 
-- **How is this equivalent to ridge regression?**
+-   **How is this equivalent to ridge regression?**
 
 ## Bayesian ridge prior
 
-- The negative log-posterior is proportional to, 
+-   The negative log-posterior is proportional to,
 
 $$\frac{||\mathbf{Y} - \boldsymbol{\mu}||_2^2}{2\sigma^2} + \frac{\lambda \sum_{j=1}^p \beta_j^2}{2\sigma^2}.$$
 
-- The posterior mean and mode are $\hat{\boldsymbol{\beta}}_{\text{RIDGE}}$.
+-   The posterior mean and mode are $\hat{\boldsymbol{\beta}}_{\text{RIDGE}}$.
 
-- Since $\lambda$ is applied to the squared norm of the $\boldsymbol{\beta}$, people often standardize all of the covariates to make them have a similar scale.
+-   Since $\lambda$ is applied to the squared norm of the $\boldsymbol{\beta}$, people often standardize all of the covariates to make them have a similar scale.
 
-- Bayesian statistics is inherently performing regularization!
+-   Bayesian statistics is inherently performing regularization!
 
 ## Lasso regression
 
@@ -179,11 +179,11 @@ The least absolute shrinkage and selection operator (lasso) estimator minimizes 
 
 $$\hat{\boldsymbol{\beta}}_{\text{LASSO}} = \arg \min_{\boldsymbol{\beta}}\left||\mathbf{Y} - \boldsymbol{\mu}\right||_2^2 + \lambda \sum_{j=1}^p |\beta_j|$$
 
-- $\lambda = 0$ reduces to OLS etimator.
+-   $\lambda = 0$ reduces to OLS etimator.
 
-- $\lambda = \infty$ leads to $\hat{\boldsymbol{\beta}}_{\text{LASSO}} = 0$.
+-   $\lambda = \infty$ leads to $\hat{\boldsymbol{\beta}}_{\text{LASSO}} = 0$.
 
-- Lasso is desirable because it can set some $\beta_j$ exactly to zero.
+-   Lasso is desirable because it can set some $\beta_j$ exactly to zero.
 
 ## Bayesian lasso prior
 
@@ -194,55 +194,55 @@ Lasso regression can be obtained using the following global-local shrinkage prio
 \lambda_j^2 &\stackrel{iid}{\sim} \text{Exponential}(0.5).
 \end{align*}
 
-- This is equivalent to: $f(\beta_j | \tau) \stackrel{iid}{\sim} \text{Laplace}\left(0,\tau\right)$.
+-   This is equivalent to: $f(\beta_j | \tau) \stackrel{iid}{\sim} \text{Laplace}\left(0,\tau\right)$.
 
-- **How is this equivalent to lasso regression?**
+-   **How is this equivalent to lasso regression?**
 
 ## Bayesian lasso prior
 
-- The negative log-posterior is proportional to, 
+-   The negative log-posterior is proportional to,
 
 $$\frac{||\mathbf{Y} - \boldsymbol{\mu}||_2^2}{2\sigma^2} + \frac{\sum_{j=1}^p |\beta_j|}{\tau}.$$
 
-- Lasso is recovered by specifying: $\lambda = 1/\tau$.
+-   Lasso is recovered by specifying: $\lambda = 1/\tau$.
 
-- The posterior mode are $\hat{\boldsymbol{\beta}}_{\text{LASSO}}$.
+-   The posterior mode are $\hat{\boldsymbol{\beta}}_{\text{LASSO}}$.
 
-- As $\lambda$ increases, more coefficients are set to zero (less variables are selected), and among the non-zero coefficients, more shrinkage is employed.
+-   As $\lambda$ increases, more coefficients are set to zero (less variables are selected), and among the non-zero coefficients, more shrinkage is employed.
 
 ## Bayesian lasso does not work
 
-- There is a consensus that the Bayesian lasso [does not work well](https://statmodeling.stat.columbia.edu/2017/11/02/king-must-die/).
+-   There is a consensus that the Bayesian lasso [does not work well](https://statmodeling.stat.columbia.edu/2017/11/02/king-must-die/).
 
-- It does not yield $\beta_j$ that are exactly zero and it can overly shrink non-zero $\beta_j$.
+-   It does not yield $\beta_j$ that are exactly zero and it can overly shrink non-zero $\beta_j$.
 
-- The gold-standard sparsity-inducing prior in Bayesian statistics is the horseshoe prior.
+-   The gold-standard sparsity-inducing prior in Bayesian statistics is the horseshoe prior.
 
 ## Relevance vector machine
 
-- Before we get to the horseshoe, one more global-local prior, called the [relevance vector machine](https://proceedings.neurips.cc/paper_files/paper/1999/file/f3144cefe89a60d6a1afaf7859c5076b-Paper.pdf).
+-   Before we get to the horseshoe, one more global-local prior, called the [relevance vector machine](https://proceedings.neurips.cc/paper_files/paper/1999/file/f3144cefe89a60d6a1afaf7859c5076b-Paper.pdf).
 
-- This model can be obtained using the following prior,
+-   This model can be obtained using the following prior,
 
 \begin{align*}
 \beta_j | \lambda_j, \tau &\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
 \lambda_j^2 &\stackrel{iid}{\sim} \text{Inverse-Gamma}\left(\frac{\nu}{2},\frac{\nu}{2}\right).
 \end{align*}
 
-- This is equivalent to: $f(\beta_j | \tau) \stackrel{iid}{\sim} {t}_{\nu}\left(0,\tau\right)$.
+-   This is equivalent to: $f(\beta_j | \tau) \stackrel{iid}{\sim} {t}_{\nu}\left(0,\tau\right)$.
 
 ## Horseshoe prior
 
-- The horseshoe prior is specified as,
+-   The horseshoe prior is specified as,
 
-  \begin{align*}
-\beta_j | \lambda_j, \tau &\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
-\lambda_j &\stackrel{iid}{\sim} \mathcal C^+(0, 1),
-\end{align*} where $\mathcal C^+(0, 1)$ is a half-Cauchy distribution for the local parameter $\lambda_j$.
+    \begin{align*}
+    \beta_j | \lambda_j, \tau &\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
+    \lambda_j &\stackrel{iid}{\sim} \mathcal C^+(0, 1),
+    \end{align*} where $\mathcal C^+(0, 1)$ is a half-Cauchy distribution for the local parameter $\lambda_j$.
 
-  - $\lambda_j$'s are the *local* shrinkage parameters.
+    -   $\lambda_j$'s are the *local* shrinkage parameters.
 
-  - $\tau$ is the *global* shrinkage parameter.
+    -   $\tau$ is the *global* shrinkage parameter.
 
 ## Half-Cauchy distribution
 
@@ -287,7 +287,6 @@ ggplot(dat.fig, aes(x = x, y = y, color = Model)) +
   geom_line(lwd = 1.25) + 
   labs(x = "X", y = "Density", subtitle = "Comparison of Half-Cauchy with other distributions")
 ```
-
 
 ## Horseshoe prior
 
@@ -364,11 +363,11 @@ $$\kappa_j = \frac{1}{1 + n\sigma^{-2}\tau^{2}\lambda_j^2}.$$
 
 ## Similarity to spike-and-slab {.small}
 
-- A horseshoe prior can be considered as a continuous approximation to the spike-and-slab prior.
+-   A horseshoe prior can be considered as a continuous approximation to the spike-and-slab prior.
 
-  - The spike-and-slab places a discrete probability mass at exactly zero (the "spike") and a separate distribution around non-zero values (the "slab").
-  
-  - The horseshoe prior smoothly approximates this behavior with a very concentrated distribution near zero.
+    -   The spike-and-slab places a discrete probability mass at exactly zero (the "spike") and a separate distribution around non-zero values (the "slab").
+
+    -   The horseshoe prior smoothly approximates this behavior with a very concentrated distribution near zero.
 
 ![](images/10/aki1.png){fig-alt="workflow" fig-align="center" height="2.5in"}
 
@@ -377,8 +376,11 @@ $$\kappa_j = \frac{1}{1 + n\sigma^{-2}\tau^{2}\lambda_j^2}.$$
 <!-- ## Regularized horseshoe prior -->
 
 <!-- \begin{align*} -->
+
 <!-- \beta_j | \lambda_j, \tau, c &\sim N\left(0, \tau^2 \tilde{\lambda}_j^2\right),\quad \tilde{\lambda}_j^2 = \frac{c^2 \lambda_j^2}{c^2 + \tau^2 \lambda_j^2},\\ -->
+
 <!-- \lambda_j &\sim \mathcal C^+(0,1). -->
+
 <!-- \end{align*} -->
 
 <!-- -   When $\tau^2 \lambda_j^2 \ll c^2$ (i.e., $\beta_j$ close to zero), $\beta_j \sim  N\left(0, \tau^2\lambda_j^2\right)$ -->
@@ -407,30 +409,90 @@ $$\kappa_j = \frac{1}{1 + n\sigma^{-2}\tau^{2}\lambda_j^2}.$$
 
 <!-- -   Another motivation for using inverse-Gamma is that it has a heavy right tail accompanied by a light left tail thereby preventing much mass from accumulating near zero. -->
 
-<!-- ## Choosing a prior for $\tau$ -->
+## Choosing a prior for $\tau$
 
-<!-- -   Carvalho et al. 2009 suggest $\tau \sim \mathcal C^+(0,1)$. -->
+-   Carvalho et al. 2009 suggest $\tau \sim \mathcal C^+(0,1)$.
 
-<!-- -   Polson and Scott 2011 recommend $\tau | \sigma \sim \mathcal C^+(0, \sigma^2)$. -->
+-   Polson and Scott 2011 recommend $\tau | \sigma \sim \mathcal C^+(0, \sigma^2)$.
 
-<!-- -   Another prior comes from a quantity called the effective number of nonzero coefficients,\ -->
-<!--     $$m_{eff} = \sum_{j=1}^p (1 - \kappa_j).$$ -->
+-   Another prior comes from a quantity called the effective number of nonzero coefficients,\
 
-<!-- ## Global shrinkage parameter $\tau$ -->
+    $$m_{eff} = \sum_{j=1}^p (1 - \kappa_j).$$
 
-<!-- -   The prior mean can be shown to be, -->
+## Global shrinkage parameter $\tau$
 
-<!-- $$\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = \frac{\tau \sigma^{-1} \sqrt{n}}{1 + \tau \sigma^{-1} \sqrt{n}}p.$$ -->
+-   The prior mean can be shown to be,
 
-<!-- -   Setting $\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = p_0$ (prior guess for the number of non-zero coefficients) yields for $\tau$, -->
+$$\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = \frac{\tau \sigma^{-1} \sqrt{n}}{1 + \tau \sigma^{-1} \sqrt{n}}p.$$
 
-<!-- $$\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}$$ -->
+-   Setting $\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = p_0$ (prior guess for the number of non-zero coefficients) yields for $\tau$,
 
-<!-- ## Global shrinkage parameter $\tau$ -->
+$$\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}.$$
 
-<!-- ![](images/10/aki3.png){fig-alt="workflow" fig-align="center" height="5in"} -->
+## Global shrinkage parameter $\tau$
 
-<!-- [From Piironena and Vehtari 2017](https://doi.org/10.1214/17-EJS1337SI) -->
+![](images/10/aki3.png){fig-alt="workflow" fig-align="center" height="5in"}
+
+[From Piironena and Vehtari 2017](https://doi.org/10.1214/17-EJS1337SI)
+
+## Non-Gaussian observation models
+
+- The reference value:
+
+$$\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}.$$
+
+- This framework can be applied to non-Gaussian observation data models using plug-in estimates values for $\sigma$. 
+
+  - Gaussian approximations to the likelihood.
+  
+  - For example: For logistic regression $\sigma = 2$.
+  
+## Coding up the model in Stan
+
+Horseshoe model has the following form,
+
+\begin{align*}
+\beta_j | \lambda_j, \tau &\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
+\lambda_j &\stackrel{iid}{\sim} \mathcal C^+(0, 1),\\
+\tau &\sim \mathcal C^+(0, \tau_0^2).
+\end{align*} 
+
+Efficient parameter transformation,
+$$\beta_j = \tau \lambda_j z_j, \quad z_j \stackrel{iid}{\sim} N(0,1).$$
+
+## Horseshoe in Stan
+
+```{stan output.var = "horseshoe", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> p;
+  vector[n] Y;
+  matrix[n, p] X;
+  real<lower = 0> tau0;
+}
+parameters {
+  real alpha;     
+  real<lower = 0> sigma;
+  vector[p] z;
+  vector<lower = 0>[p] lambda;
+  real<lower = 0> tau;
+}
+transformed parameters {
+  vector[p] beta;
+  beta = tau * lambda .* z;
+}
+model {
+  // likelihood
+  target += normal_lpdf(Y | alpha + X * beta, sigma);
+  // population parameters
+  target += normal_lpdf(alpha | 0, 3);
+  target += normal_lpdf(sigma | 0, 3);
+  // horseshoe prior
+  target += std_normal_lpdf(z);
+  target += cauchy_lpdf(lambda | 0, 1);
+  target += cauchy_lpdf(tau | 0, tau0);
+}
+```
 
 ## Prepare for next class
 

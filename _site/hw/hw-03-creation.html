@@ -306,7 +306,7 @@ window.Quarto = {
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><strong>Getting started</strong></a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#exercises-1-4" id="toc-exercises-1-4" class="nav-link" data-scroll-target="#exercises-1-4">Exercises 1-4</a>
+  <li><a href="#exercises-1-6" id="toc-exercises-1-6" class="nav-link" data-scroll-target="#exercises-1-6">Exercises 1-6</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
@@ -315,12 +315,13 @@ window.Quarto = {
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   </ul></li>
-  <li><a href="#exercises-7-10" id="toc-exercises-7-10" class="nav-link" data-scroll-target="#exercises-7-10">Exercises 7-10</a>
+  <li><a href="#exercises-7-11" id="toc-exercises-7-11" class="nav-link" data-scroll-target="#exercises-7-11">Exercises 7-11</a>
   <ul class="collapse">
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
@@ -385,8 +386,9 @@ Due date
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(loo)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MLMusingR)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(LaplacesDemon)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="introduction" class="level1">
@@ -413,13 +415,13 @@ Due date
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hdp <span class="ot">&lt;-</span> hdp[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(hdp), <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercises-1-4" class="level1">
-<h1>Exercises 1-4</h1>
+<section id="exercises-1-6" class="level1">
+<h1>Exercises 1-6</h1>
 <p>Researchers are interested in the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. They start by visualizing the distribution of BMI and notice that it is a bit right-skewed; and thus they are worried about performing linear regression. Instead they would like to perform median regression.</p>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -456,8 +458,8 @@ Due date
 <p>Perform a model comparison between the models in <strong>Exercise 1</strong> and <strong>Exercise 5</strong>. Which model is preferred? Provide intuition for why one model may be preferred over the other.</p>
 </section>
 </section>
-<section id="exercises-7-10" class="level1">
-<h1>Exercises 7-10</h1>
+<section id="exercises-7-11" class="level1">
+<h1>Exercises 7-11</h1>
 <p>Define a binary outcome variable <span class="math inline">\(Y_i = 1(LengthofStay_i &gt; 5)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>. We are interested in performing logistic regression such that <span class="math inline">\(Y_i \stackrel{ind}{\sim}\text{Bernoulli}(\pi_i)\)</span>, where</p>
 <p><span class="math display">\[\begin{align*}
 \text{logit} (\pi_i) &amp;= \alpha + \beta_1 Age_i + \beta_2 Married_i + \beta_3 Yes\_Family\_History_i\\
@@ -466,25 +468,31 @@ Due date
 &amp;\hspace{1cm}+ \gamma_1 WBC_i + \gamma_2 RBC_i + \gamma_3 BMI_i + \gamma_4 IL6_i + \gamma_5 CRP_i\\
 &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \mathbf{z}_i \boldsymbol{\gamma}.
 \end{align*}\]</span></p>
-<p>The population parameters are <span class="math inline">\((\alpha, \boldsymbol{\beta},\boldsymbol{\gamma})\)</span>, where <span class="math inline">\(\boldsymbol{\beta} = (\beta_1, \ldots, \beta_9)\)</span> and <span class="math inline">\(\boldsymbol{\gamma} = (\gamma_1,\ldots,\gamma_5)\)</span>. Use the following priors for the centered intercept and regression parameters, <span class="math inline">\(\alpha \sim N(0, 3^2)\)</span> and <span class="math inline">\(\beta_j \sim N(0, 3^2)\)</span> for <span class="math inline">\(j = 1,\ldots,p\)</span> (<span class="math inline">\(p=9\)</span>). The researchers would like to place a regularized horseshoe prior on each <span class="math inline">\(\gamma_l\)</span>, <span class="math inline">\(l=1,\ldots,q\)</span> (<span class="math inline">\(q = 5\)</span>). Be sure to standardize these predictors prior to assigning a horseshoe prior.</p>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>The population parameters are <span class="math inline">\((\alpha, \boldsymbol{\beta},\boldsymbol{\gamma})\)</span>, where <span class="math inline">\(\boldsymbol{\beta} = (\beta_1, \ldots, \beta_9)\)</span> and <span class="math inline">\(\boldsymbol{\gamma} = (\gamma_1,\ldots,\gamma_5)\)</span>. Use the following priors for the centered intercept and regression parameters, <span class="math inline">\(\alpha \sim N(0, 3^2)\)</span> and <span class="math inline">\(\beta_j \sim N(0, 3^2)\)</span> for <span class="math inline">\(j = 1,\ldots,p\)</span> (<span class="math inline">\(p=9\)</span>). The researchers would like to place a horseshoe prior on each <span class="math inline">\(\gamma_l\)</span>, <span class="math inline">\(l=1,\ldots,q\)</span> (<span class="math inline">\(q = 5\)</span>).</p>
 <p>The horseshoe prior for <span class="math inline">\(\gamma_l\)</span> is given by, <span class="math display">\[\begin{align*}
 \gamma_l | \lambda_l, \tau, c &amp;\sim N\left(0, \tau^2 \lambda_l^2\right),\\
 \lambda_l &amp;\sim \mathcal C^+(0,1),\\
+\tau &amp;\sim \mathcal C^+(0,\tau_0^2).
 \end{align*}\]</span></p>
-<p>Fit the logistic regression model using the horseshoe prior above. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged.</p>
+<p>Be sure to standardize these predictors prior to assigning a horseshoe prior.</p>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Before fitting the horseshoe regression, a realistic value of <span class="math inline">\(\tau_0\)</span> must be determined. Compute a realistic value for <span class="math inline">\(\tau_0\)</span> based on the effective number of non-zero coefficients. Researchers have a prior belief that the number of non-zero coefficients will be equal to 1 (i.e., <span class="math inline">\(q_0 = 5\)</span>). When computing <span class="math inline">\(\tau_0\)</span> be sure to provide a visual justification by plotting the effective number of non-zero coefficients for your choice of <span class="math inline">\(\tau_0\)</span>.</p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Visualize the posterior distributions for <span class="math inline">\((\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})\)</span>. <span class="math inline">\(\alpha^*\)</span> is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for <span class="math inline">\(\boldsymbol{\gamma}\)</span>.</p>
+<p>Fit the logistic regression model using the horseshoe prior above. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged.</p>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Present posterior summaries for <span class="math inline">\((\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})\)</span>. Choose one predictor that is significant and provide an interpretation of the posterior mean.</p>
+<p>Visualize the posterior distributions for <span class="math inline">\((\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})\)</span>. <span class="math inline">\(\alpha^*\)</span> is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for <span class="math inline">\(\boldsymbol{\gamma}\)</span>.</p>
 </section>
 <section id="exercise-10" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<p>Present posterior summaries for <span class="math inline">\((\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})\)</span>. Choose one predictor that is significant and provide an interpretation of the posterior mean.</p>
+</section>
+<section id="exercise-11" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
 <p>Visualize the posterior distribution of <span class="math inline">\(\pi_2\)</span> and <span class="math inline">\(\pi_4\)</span>, which are the probability of having a length of stay greater than 5 days for observation <span class="math inline">\(Y_2\)</span> and <span class="math inline">\(Y_4\)</span>, respectively (i.e., the second and fourth rows of the <code>hdp</code> dataset). Compute <span class="math inline">\(P(\pi_4 &gt; \pi_2 | \mathbf{Y})\)</span> and make a statement about which patient is more likely to have a longer length of stay.</p>
 <!-- # Exercises 9-10 -->
 <!-- ## Exercise 9 -->
@@ -536,7 +544,7 @@ Warning
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;">10</td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 2</td>
@@ -552,7 +560,7 @@ Warning
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 5</td>
-<td style="text-align: left;">7</td>
+<td style="text-align: left;">4</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 6</td>
@@ -560,11 +568,11 @@ Warning
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 7</td>
-<td style="text-align: left;">10</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 8</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 9</td>
@@ -572,7 +580,11 @@ Warning
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 10</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 11</td>
+<td style="text-align: left;">3</td>
 </tr>
 </tbody>
 </table>

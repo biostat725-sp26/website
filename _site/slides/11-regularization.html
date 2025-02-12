@@ -753,19 +753,94 @@ Prof.&nbsp;Sam Berchuck
 <!-- -   Often a reasonable choice is, $$c^2 \sim \text{Inv-Gamma}(\alpha, \beta), \quad \alpha = \nu/2, \beta = \nu s^2 / 2,$$ -->
 <!-- -   This translates to a $t_{\nu}(0,s^2)$ slab for the coefficients far from 0. -->
 <!-- -   Another motivation for using inverse-Gamma is that it has a heavy right tail accompanied by a light left tail thereby preventing much mass from accumulating near zero. -->
-<!-- ## Choosing a prior for $\tau$ -->
-<!-- -   Carvalho et al. 2009 suggest $\tau \sim \mathcal C^+(0,1)$. -->
-<!-- -   Polson and Scott 2011 recommend $\tau | \sigma \sim \mathcal C^+(0, \sigma^2)$. -->
-<!-- -   Another prior comes from a quantity called the effective number of nonzero coefficients,\ -->
-<!--     $$m_{eff} = \sum_{j=1}^p (1 - \kappa_j).$$ -->
-<!-- ## Global shrinkage parameter $\tau$ -->
-<!-- -   The prior mean can be shown to be, -->
-<!-- $$\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = \frac{\tau \sigma^{-1} \sqrt{n}}{1 + \tau \sigma^{-1} \sqrt{n}}p.$$ -->
-<!-- -   Setting $\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = p_0$ (prior guess for the number of non-zero coefficients) yields for $\tau$, -->
-<!-- $$\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}$$ -->
-<!-- ## Global shrinkage parameter $\tau$ -->
-<!-- ![](images/10/aki3.png){fig-alt="workflow" fig-align="center" height="5in"} -->
-<!-- [From Piironena and Vehtari 2017](https://doi.org/10.1214/17-EJS1337SI) -->
+</section>
+<section id="choosing-a-prior-for-tau" class="slide level2">
+<h2>Choosing a prior for <span class="math inline">\(\tau\)</span></h2>
+<ul>
+<li><p>Carvalho et al.&nbsp;2009 suggest <span class="math inline">\(\tau \sim \mathcal C^+(0,1)\)</span>.</p></li>
+<li><p>Polson and Scott 2011 recommend <span class="math inline">\(\tau | \sigma \sim \mathcal C^+(0, \sigma^2)\)</span>.</p></li>
+<li><p>Another prior comes from a quantity called the effective number of nonzero coefficients,<br>
+</p>
+<p><span class="math display">\[m_{eff} = \sum_{j=1}^p (1 - \kappa_j).\]</span></p></li>
+</ul>
+</section>
+<section id="global-shrinkage-parameter-tau" class="slide level2">
+<h2>Global shrinkage parameter <span class="math inline">\(\tau\)</span></h2>
+<ul>
+<li>The prior mean can be shown to be,</li>
+</ul>
+<p><span class="math display">\[\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = \frac{\tau \sigma^{-1} \sqrt{n}}{1 + \tau \sigma^{-1} \sqrt{n}}p.\]</span></p>
+<ul>
+<li>Setting <span class="math inline">\(\mathbb{E}\left[m_{eff} | \tau, \sigma\right] = p_0\)</span> (prior guess for the number of non-zero coefficients) yields for <span class="math inline">\(\tau\)</span>,</li>
+</ul>
+<p><span class="math display">\[\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}.\]</span></p>
+</section>
+<section id="global-shrinkage-parameter-tau-1" class="slide level2">
+<h2>Global shrinkage parameter <span class="math inline">\(\tau\)</span></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/10/aki3.png" class="quarto-figure quarto-figure-center" style="height:5in" alt="workflow"></p>
+</figure>
+</div>
+<p><a href="https://doi.org/10.1214/17-EJS1337SI">From Piironena and Vehtari 2017</a></p>
+</section>
+<section id="non-gaussian-observation-models" class="slide level2">
+<h2>Non-Gaussian observation models</h2>
+<ul>
+<li>The reference value:</li>
+</ul>
+<p><span class="math display">\[\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}.\]</span></p>
+<ul>
+<li><p>This framework can be applied to non-Gaussian observation data models using plug-in estimates values for <span class="math inline">\(\sigma\)</span>.</p>
+<ul>
+<li><p>Gaussian approximations to the likelihood.</p></li>
+<li><p>For example: For logistic regression <span class="math inline">\(\sigma = 2\)</span>.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="coding-up-the-model-in-stan" class="slide level2">
+<h2>Coding up the model in Stan</h2>
+<p>Horseshoe model has the following form,</p>
+<p><span class="math display">\[\begin{aligned}
+\beta_j | \lambda_j, \tau &amp;\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
+\lambda_j &amp;\stackrel{iid}{\sim} \mathcal C^+(0, 1),\\
+\tau &amp;\sim \mathcal C^+(0, \tau_0^2).
+\end{aligned}\]</span></p>
+<p>Efficient parameter transformation, <span class="math display">\[\beta_j = \tau \lambda_j z_j, \quad z_j \stackrel{iid}{\sim} N(0,1).\]</span></p>
+</section>
+<section id="horseshoe-in-stan" class="slide level2">
+<h2>Horseshoe in Stan</h2>
+<div class="cell" data-output.var="horseshoe">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb2-1"><a></a><span class="kw">data</span> {</span>
+<span id="cb2-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb2-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb2-4"><a></a>  <span class="dt">vector</span>[n] Y;</span>
+<span id="cb2-5"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb2-6"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; tau0;</span>
+<span id="cb2-7"><a></a>}</span>
+<span id="cb2-8"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb2-9"><a></a>  <span class="dt">real</span> alpha;     </span>
+<span id="cb2-10"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb2-11"><a></a>  <span class="dt">vector</span>[p] z;</span>
+<span id="cb2-12"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt;[p] lambda;</span>
+<span id="cb2-13"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; tau;</span>
+<span id="cb2-14"><a></a>}</span>
+<span id="cb2-15"><a></a><span class="kw">transformed parameters</span> {</span>
+<span id="cb2-16"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb2-17"><a></a>  beta = tau * lambda .* z;</span>
+<span id="cb2-18"><a></a>}</span>
+<span id="cb2-19"><a></a><span class="kw">model</span> {</span>
+<span id="cb2-20"><a></a>  <span class="co">// likelihood</span></span>
+<span id="cb2-21"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | alpha + X * beta, sigma);</span>
+<span id="cb2-22"><a></a>  <span class="co">// population parameters</span></span>
+<span id="cb2-23"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb2-24"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb2-25"><a></a>  <span class="co">// horseshoe prior</span></span>
+<span id="cb2-26"><a></a>  <span class="kw">target +=</span> std_normal_lpdf(z);</span>
+<span id="cb2-27"><a></a>  <span class="kw">target +=</span> cauchy_lpdf(lambda | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb2-28"><a></a>  <span class="kw">target +=</span> cauchy_lpdf(tau | <span class="dv">0</span>, tau0);</span>
+<span id="cb2-29"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>
