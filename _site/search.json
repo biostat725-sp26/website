@@ -2276,9 +2276,9 @@
   {
     "objectID": "hw/hw-03.html",
     "href": "hw/hw-03.html",
-    "title": "HW 03",
+    "title": "HW 03: Going beyond linear regression",
     "section": "",
-    "text": "To be posted.",
+    "text": "Due date\n\n\n\nThis assignment is due on Thursday, February 27 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
     "crumbs": [
       "Homework",
       "HW 03"
@@ -12338,7 +12338,7 @@
     "href": "slides/11-regularization.html#bayesian-lasso-prior-1",
     "title": "Regularization",
     "section": "Bayesian lasso prior",
-    "text": "Bayesian lasso prior\n\nThe negative log-posterior is proportional to,\n\n\\[\\frac{||\\mathbf{Y} - \\boldsymbol{\\mu}||_2^2}{2\\sigma^2} + \\frac{\\sum_{j=1}^p |\\beta_j|}{\\tau}.\\]\n\nLasso is recovered by specifying: \\(\\lambda = 1/\\tau\\).\nThe posterior mode are \\(\\hat{\\boldsymbol{\\beta}}_{\\text{LASSO}}\\).\nAs \\(\\lambda\\) increases, more coefficients are set to zero (less variables are selected), and among the non-zero coefficients, more shrinkage is employed."
+    "text": "Bayesian lasso prior\n\nThe negative log-posterior is proportional to,\n\n\\[\\frac{||\\mathbf{Y} - \\boldsymbol{\\mu}||_2^2}{2\\sigma^2} + \\frac{\\sum_{j=1}^p |\\beta_j|}{\\tau}.\\]\n\nLasso is recovered by specifying: \\(\\lambda = 1/\\tau\\).\nThe posterior mode is \\(\\hat{\\boldsymbol{\\beta}}_{\\text{LASSO}}\\).\nAs \\(\\lambda\\) increases, more coefficients are set to zero (less variables are selected), and among the non-zero coefficients, more shrinkage is employed."
   },
   {
     "objectID": "slides/11-regularization.html#relevance-vector-machine",
@@ -12395,5 +12395,217 @@
     "title": "Regularization",
     "section": "Horseshoe in Stan",
     "text": "Horseshoe in Stan\n\ndata {\n  int&lt;lower = 0&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n  real&lt;lower = 0&gt; tau0;\n}\ntransformed data {\n  real Y_bar;\n  vector[n] Y_centered;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n}\nparameters {\n  real alpha;     \n  real&lt;lower = 0&gt; sigma;\n  vector[p] z;                  // unscaled horseshoe regression pars\n  vector&lt;lower = 0&gt;[p] lambda;  // local shrinkage parameter\n  real&lt;lower = 0&gt; tau;          // global shrinkage parameter\n}\ntransformed parameters {\n  vector[p] beta;                                   // scaled coefficients\n  beta = tau * lambda .* z;                         // horseshoe pars\n}\nmodel {\n  // ordinal likelihood\n  target += normal_lpdf(Y_centered | alpha + X_centered * beta, sigma);\n    // horseshoe prior\n  target += std_normal_lpdf(z);\n  target += cauchy_lpdf(lambda | 0, 1);\n  target += cauchy_lpdf(tau | 0, tau0);\n  // population parameters\n  target += normal_lpdf(alpha | 0, 3);\n}\ngenerated quantities {\n  vector[n] Y_pred;\n  vector[n] mu;\n  vector[n] log_lik;\n  real alpha_star = Y_bar + alpha - X_bar * beta;\n  for (i in 1:n) {\n    mu[i] = alpha_star + X[i, ] * beta;\n    Y_pred[i] = normal_rng(mu[i], sigma);\n    log_lik[i] = normal_lpdf(Y_centered[i] | alpha + X_centered[i, ] * beta, sigma);\n  }\n}"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html",
+    "href": "hw/hw-03-creation.html",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "",
+    "text": "Due date\n\n\n\nThis assignment is due on Thursday, February 27 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-1",
+    "href": "hw/hw-03-creation.html#exercise-1",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFormulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate \\((\\alpha, \\boldsymbol{\\beta})\\) and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-2",
+    "href": "hw/hw-03-creation.html#exercise-2",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nPerform a posterior predictive check using the median as a test statistic. Be sure to present a posterior predictive p-value and use it to describe the model fit."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-3",
+    "href": "hw/hw-03-creation.html#exercise-3",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nPerform a posterior predictive check for the 2.5th and 97.5th quantiles. Comment on the difference between the result from Exercise 2."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-4",
+    "href": "hw/hw-03-creation.html#exercise-4",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nPresent posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-5",
+    "href": "hw/hw-03-creation.html#exercise-5",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nFit the same model as in Exercise 1 using linear regression. Compare the posterior mean estimates of \\(\\boldsymbol{\\beta}\\) between the two models. Do they correspond?"
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-6",
+    "href": "hw/hw-03-creation.html#exercise-6",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nPerform a model comparison between the models in Exercise 1 and Exercise 5. Which model is preferred? Provide intuition for why one model may be preferred over the other."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-7",
+    "href": "hw/hw-03-creation.html#exercise-7",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nBefore fitting the horseshoe regression, a realistic value of \\(\\tau_0\\) must be determined. Compute a realistic value for \\(\\tau_0\\) based on the effective number of non-zero coefficients. Researchers have a prior belief that the number of non-zero coefficients will be equal to 1 (i.e., \\(q_0 = 1\\)). When computing \\(\\tau_0\\) be sure to provide a visual justification by plotting the effective number of non-zero coefficients for your choice of \\(\\tau_0\\)."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-8",
+    "href": "hw/hw-03-creation.html#exercise-8",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nFit the logistic regression model using the horseshoe prior above. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-9",
+    "href": "hw/hw-03-creation.html#exercise-9",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nVisualize the posterior distributions for the population parameters \\((\\alpha, \\boldsymbol{\\beta}, \\boldsymbol{\\gamma})\\). \\(\\alpha\\) is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for \\(\\boldsymbol{\\gamma}\\)."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-10",
+    "href": "hw/hw-03-creation.html#exercise-10",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nPresent posterior summaries for \\((\\alpha, \\boldsymbol{\\beta}, \\boldsymbol{\\gamma})\\). Choose one predictor that is significant and provide an interpretation of the posterior mean."
+  },
+  {
+    "objectID": "hw/hw-03-creation.html#exercise-11",
+    "href": "hw/hw-03-creation.html#exercise-11",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nVisualize the posterior distribution of \\(\\pi_2\\) and \\(\\pi_4\\), which are the probability of having a length of stay greater than 5 days for observation \\(Y_2\\) and \\(Y_4\\), respectively (i.e., the second and fourth rows of the hdp dataset). Compute \\(P(\\pi_4 &gt; \\pi_2 | \\mathbf{Y})\\) and make a statement about which patient is more likely to have a longer length of stay."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-1",
+    "href": "hw/hw-03.html#exercise-1",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFormulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate \\((\\alpha, \\boldsymbol{\\beta})\\) and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence.",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-2",
+    "href": "hw/hw-03.html#exercise-2",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nPerform a posterior predictive check using the median as a test statistic. Be sure to present a posterior predictive p-value and use it to describe the model fit.",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-3",
+    "href": "hw/hw-03.html#exercise-3",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nPerform a posterior predictive check for the 2.5th and 97.5th quantiles. Comment on the difference between the result from Exercise 2.",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-4",
+    "href": "hw/hw-03.html#exercise-4",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nPresent posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem.",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-5",
+    "href": "hw/hw-03.html#exercise-5",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nFit the same model as in Exercise 1 using linear regression. Compare the posterior mean estimates of \\(\\boldsymbol{\\beta}\\) between the two models. Do they correspond?",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-6",
+    "href": "hw/hw-03.html#exercise-6",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nPerform a model comparison between the models in Exercise 1 and Exercise 5. Which model is preferred? Provide intuition for why one model may be preferred over the other.",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-7",
+    "href": "hw/hw-03.html#exercise-7",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nBefore fitting the horseshoe regression, a realistic value of \\(\\tau_0\\) must be determined. Compute a realistic value for \\(\\tau_0\\) based on the effective number of non-zero coefficients. Researchers have a prior belief that the number of non-zero coefficients will be equal to 1 (i.e., \\(q_0 = 1\\)). When computing \\(\\tau_0\\) be sure to provide a visual justification by plotting the effective number of non-zero coefficients for your choice of \\(\\tau_0\\).",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-8",
+    "href": "hw/hw-03.html#exercise-8",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nFit the logistic regression model using the horseshoe prior above. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged.",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-9",
+    "href": "hw/hw-03.html#exercise-9",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nVisualize the posterior distributions for the population parameters \\((\\alpha, \\boldsymbol{\\beta}, \\boldsymbol{\\gamma})\\). \\(\\alpha\\) is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for \\(\\boldsymbol{\\gamma}\\).",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-10",
+    "href": "hw/hw-03.html#exercise-10",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nPresent posterior summaries for \\((\\alpha, \\boldsymbol{\\beta}, \\boldsymbol{\\gamma})\\). Choose one predictor that is significant and provide an interpretation of the posterior mean.",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-11",
+    "href": "hw/hw-03.html#exercise-11",
+    "title": "HW 03: Going beyond linear regression",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nVisualize the posterior distribution of \\(\\pi_2\\) and \\(\\pi_4\\), which are the probability of having a length of stay greater than 5 days for observation \\(Y_2\\) and \\(Y_4\\), respectively (i.e., the second and fourth rows of the hdp dataset). Compute \\(P(\\pi_4 &gt; \\pi_2 | \\mathbf{Y})\\) and make a statement about which patient is more likely to have a longer length of stay.",
+    "crumbs": [
+      "Homework",
+      "HW 03"
+    ]
+  },
+  {
+    "objectID": "hw/hw-03-blank.html",
+    "href": "hw/hw-03-blank.html",
+    "title": "HW 03",
+    "section": "",
+    "text": "To be posted."
   }
 ]

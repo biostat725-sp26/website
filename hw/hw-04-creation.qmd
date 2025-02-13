@@ -1,8 +1,9 @@
 ---
-title: "HW 03: Going beyond linear regression"
+title: "HW 04: Going beyond linear regression"
 subtitle: Hospital length of stay post lung cancer surgery 
 bibliography: references.bib
 search: false
+format: html
 ---
 
 ::: callout-important
@@ -107,7 +108,7 @@ Perform a posterior predictive check using the median as a test statistic. Be su
 
 ## Exercise 3
 
-Perform a posterior predictive check for a more the 2.5th and 97.5th quantiles. Comment on the difference between the result from **Exercise 2**.
+Perform a posterior predictive check for the 2.5th and 97.5th quantiles. Comment on the difference between the result from **Exercise 2**.
 
 ## Exercise 4
 
@@ -133,7 +134,7 @@ Define a binary outcome variable $Y_i = 1(LengthofStay_i > 5)$ for $i = 1,\ldots
 &= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \mathbf{z}_i \boldsymbol{\gamma}.
 \end{align*}
 
-The population parameters are $(\alpha, \boldsymbol{\beta},\boldsymbol{\gamma})$, where $\boldsymbol{\beta} = (\beta_1, \ldots, \beta_9)$ and $\boldsymbol{\gamma} = (\gamma_1,\ldots,\gamma_5)$. Use the following priors for the centered intercept and regression parameters, $\alpha \sim N(0, 3^2)$ and $\beta_j \sim N(0, 3^2)$ for $j = 1,\ldots,p$ ($p=9$). The researchers would like to place a horseshoe prior on each $\gamma_l$, $l=1,\ldots,q$ ($q = 5$). 
+The population parameters are $(\alpha, \boldsymbol{\beta},\boldsymbol{\gamma})$, where $\boldsymbol{\beta} = (\beta_1, \ldots, \beta_9)$ and $\boldsymbol{\gamma} = (\gamma_1,\ldots,\gamma_5)$. Use the following priors for the centered intercept and regression parameters, $\alpha \sim N(0, 3^2)$ and $\beta_j \sim N(0, 3^2)$ for $j = 1,\ldots,p$ ($p=9$). The researchers would like to place a horseshoe prior on each $\gamma_l$, $l=1,\ldots,q$ ($q = 5$).
 
 The horseshoe prior for $\gamma_l$ is given by, \begin{align*}
 \gamma_l | \lambda_l, \tau, c &\sim N\left(0, \tau^2 \lambda_l^2\right),\\
@@ -145,7 +146,7 @@ Be sure to standardize these predictors prior to assigning a horseshoe prior.
 
 ## Exercise 7
 
-Before fitting the horseshoe regression, a realistic value of $\tau_0$ must be determined. Compute a realistic value for $\tau_0$ based on the effective number of non-zero coefficients. Researchers have a prior belief that the number of non-zero coefficients will be equal to 1 (i.e., $q_0 = 5$). When computing $\tau_0$ be sure to provide a visual justification by plotting the effective number of non-zero coefficients for your choice of $\tau_0$.
+Before fitting the horseshoe regression, a realistic value of $\tau_0$ must be determined. Compute a realistic value for $\tau_0$ based on the effective number of non-zero coefficients. Researchers have a prior belief that the number of non-zero coefficients will be equal to 1 (i.e., $q_0 = 1$). When computing $\tau_0$ be sure to provide a visual justification by plotting the effective number of non-zero coefficients for your choice of $\tau_0$.
 
 ## Exercise 8
 
@@ -153,11 +154,11 @@ Fit the logistic regression model using the horseshoe prior above. Present model
 
 ## Exercise 9
 
-Visualize the posterior distributions for $(\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})$. $\alpha^*$ is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for $\boldsymbol{\gamma}$.
+Visualize the posterior distributions for the population parameters $(\alpha, \boldsymbol{\beta}, \boldsymbol{\gamma})$. $\alpha$ is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for $\boldsymbol{\gamma}$.
 
 ## Exercise 10
 
-Present posterior summaries for $(\alpha^*, \boldsymbol{\beta}, \boldsymbol{\gamma})$. Choose one predictor that is significant and provide an interpretation of the posterior mean.
+Present posterior summaries for $(\alpha, \boldsymbol{\beta}, \boldsymbol{\gamma})$. Choose one predictor that is significant and provide an interpretation of the posterior mean.
 
 ## Exercise 11
 

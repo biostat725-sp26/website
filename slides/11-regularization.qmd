@@ -206,7 +206,7 @@ $$\frac{||\mathbf{Y} - \boldsymbol{\mu}||_2^2}{2\sigma^2} + \frac{\sum_{j=1}^p |
 
 -   Lasso is recovered by specifying: $\lambda = 1/\tau$.
 
--   The posterior mode are $\hat{\boldsymbol{\beta}}_{\text{LASSO}}$.
+-   The posterior mode is $\hat{\boldsymbol{\beta}}_{\text{LASSO}}$.
 
 -   As $\lambda$ increases, more coefficients are set to zero (less variables are selected), and among the non-zero coefficients, more shrinkage is employed.
 
@@ -437,16 +437,16 @@ $$\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}.$$
 
 ## Non-Gaussian observation models
 
-- The reference value:
+-   The reference value:
 
 $$\tau_0 = \frac{p_0}{p - p_0} \frac{\sigma}{\sqrt{n}}.$$
 
-- This framework can be applied to non-Gaussian observation data models using plug-in estimates values for $\sigma$. 
+-   This framework can be applied to non-Gaussian observation data models using plug-in estimates values for $\sigma$.
 
-  - Gaussian approximations to the likelihood.
-  
-  - For example: For logistic regression $\sigma = 2$.
-  
+    -   Gaussian approximations to the likelihood.
+
+    -   For example: For logistic regression $\sigma = 2$.
+
 ## Coding up the model in Stan
 
 Horseshoe model has the following form,
@@ -455,10 +455,9 @@ Horseshoe model has the following form,
 \beta_j | \lambda_j, \tau &\stackrel{ind}{\sim} N(0, \lambda_j^2 \tau^2)\\
 \lambda_j &\stackrel{iid}{\sim} \mathcal C^+(0, 1),\\
 \tau &\sim \mathcal C^+(0, \tau_0^2).
-\end{align*} 
+\end{align*}
 
-Efficient parameter transformation,
-$$\beta_j = \tau \lambda_j z_j, \quad z_j \stackrel{iid}{\sim} N(0,1).$$
+Efficient parameter transformation, $$\beta_j = \tau \lambda_j z_j, \quad z_j \stackrel{iid}{\sim} N(0,1).$$
 
 ## Horseshoe in Stan
 

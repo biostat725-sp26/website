@@ -262,7 +262,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-03.html</loc>
-    <lastmod>2024-09-30T13:50:05.000Z</lastmod>
+    <lastmod>2025-02-12T18:53:28.964Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-04.html</loc>
@@ -398,7 +398,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/11-regularization.html</loc>
-    <lastmod>2025-02-12T14:07:45.424Z</lastmod>
+    <lastmod>2025-02-13T16:12:47.180Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/slides/13-multiclass.html</loc>
@@ -462,7 +462,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/hw/hw-03-creation.html</loc>
-    <lastmod>2025-02-11T21:01:55.823Z</lastmod>
+    <lastmod>2025-02-12T18:48:16.918Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp25.netlify.app/prepare/prepare-jan30.html</loc>
@@ -491,5 +491,9 @@
   <url>
     <loc>https://biostat725-sp25.netlify.app/prepare/prepare-feb13.html</loc>
     <lastmod>2025-02-10T15:38:17.479Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp25.netlify.app/hw/hw-03-blank.html</loc>
+    <lastmod>2024-09-30T13:50:05.000Z</lastmod>
   </url>
 </urlset>
