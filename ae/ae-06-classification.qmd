@@ -152,7 +152,7 @@ Each table is designed to capture different aspects of the patient’s visit to 
 In this course, we will work most with the `edstays` and `triage` datasets. The `edstays` dataset contains important information, including the start and end time of the ED encounter, demographics (including gender and race), the mode of arrival, and importantly the discharge disposition. Discharge disposition is a critical outcome for ED encounters that indicates how a patient left the encounter and can include, among others, going home, being admitted to the hospital.
 
 ```{r, message = FALSE, warning = FALSE, eval = FALSE}
-edstays <- read_csv("/mimic_ed/edstays.csv")
+edstays <- read_csv("mimic_ed/edstays.csv")
 ```
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE}
@@ -164,7 +164,7 @@ DT::datatable(edstays)
 When a patient enters the ED, they are triaged, meaning a medical professional will quickly assess their condition to determine the severity of their illness or injury and prioritize them in line for treatment based on how urgently they need care, essentially sorting patients based on their need for immediate attention; the most critical cases will be seen first. The data in the `triage` dataset comes from this process and includes vital measurements, including, among others, temperature, oxygen saturation, and pain; an assessment of acuity, and also a chief complaint variable. Vitals in the `triage` dataset are different from those in the `vitals` dataset, which are collected during the ED stay and are time stamped.
 
 ```{r, message = FALSE, warning = FALSE, eval = FALSE}
-triage <- read_csv("/mimic_ed/triage.csv")
+triage <- read_csv("mimic_ed/triage.csv")
 ```
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE}
@@ -275,7 +275,7 @@ edstays <- edstays %>%
 The complete code to obtain the analysis dataset for today's AE is as follows.
 
 ```{r, eval = FALSE}
-edstays <- read_csv("/mimic_ed/edstays.csv")
+edstays <- read_csv("mimic_ed/edstays.csv")
 edstays <- edstays %>%
   mutate(
     race2 = case_when(
