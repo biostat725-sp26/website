@@ -40,35 +40,60 @@ library(nimble)
 
 ## Review of last lecture
 
--   On Thursday, we learned about Bayesian approaches to regularization.
+-   Last week, we learned about Bayesian approaches to robust regression and regularization.
 
-    -   Global-local shrinage priors
+    -   Global-local shrinkage priors.
 
--   Today, we will focus on classification: logistic regression.
+-   This week, we will focus on classification models.
 
-## Generalized linear models
-
--   Previously, we have focused on linear regression. Other forms of regression follow naturally from linear regression.
-
-## Models for binary outcomes
-
--   Suppose we have a binary outcome (e.g., $Y = 1$ if a condition is satisfied and $Y = 0$ if not) and predictors on a variety of scales.
-
--   If the predictors are discrete and the binary outcomes are independent, we can use the Bernoulli distribution for individual 0-1 data or the binomial distribution for grouped data that are counts of successes in each group.
+    -   Today: Binary classification (logistic regression).
+    
+    -   Thursday: Multiclass classification (multinomial, ordinal regression).
 
 ## Models for binary outcomes
 
--   Let's suppose we want to model $P(Y = 1)$.
+- **Bernoulli** random variable: Used for binary outcomes (success/failure), e.g., whether a patient responds to a treatment (yes/no).
 
--   One strategy might be to simply fit a linear regression model to the probabilities.
+- **Binomial** random variable: Used when there are multiple trials (e.g., 10 patients), and you want to model the number of successes (e.g., how many out of 10 patients experience a treatment response).
 
--   For example,
+## Bernoulli random variable example
 
-\begin{align*}
-P(Y_i = 1) &= \alpha + \beta_1x_{i1} + \cdots + \beta_px_{ip} + \epsilon_i\\
-&= \alpha + \mathbf{x}_i \boldsymbol{\beta}.
-\end{align*}
+A **Bernoulli random variable** represents a random variable with two possible outcomes: 0 or 1. 
 
+**Scenario:**
+
+Imagine a medical study on a new drug for hypertension (high blood pressure). You want to model whether a patient responds positively to the treatment.
+
+- **Success (1)**: The patient’s blood pressure decreases significantly (e.g., more than 10% reduction).
+
+- **Failure (0)**: The patient does not experience a significant decrease in blood pressure.
+
+## Binomial random variable example
+
+A **Binomial random variable** represents the number of successes in a fixed number of independent Bernoulli trials.
+
+**Scenario:**
+
+A clinical trial is conducted where 10 patients are given a new drug for diabetes. You want to model how many of these 10 patients experience a significant reduction in their blood sugar levels (e.g., a decrease by at least 20%).
+
+- Each patient’s outcome is a Bernoulli random variable: success (1) if their blood sugar level decreases, failure (0) if it does not.
+
+- The total number of successes (patients who experience a reduction) is modeled as a **Binomial random variable**.
+
+## Models for binary outcomes
+
+-   Suppose $Y_i \stackrel{ind}{\sim} \text{Bernoulli}(\pi_i)$ for $i = 1,\ldots,n$. The pmf is,
+
+$$f(Y_i) = P(Y_i = y) = \pi_i^y (1 - \pi_i)^{1 - y}, \quad y \in\{0,1\}.$$
+
+-   We only need to specify $\pi_i = P(Y_i = 1)$.
+
+-   One strategy might be to simply fit a linear regression model,
+
+$$Y_i = \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i,\quad\epsilon_i \sim N(0, \sigma^2).$$
+
+  - We can set $P(Y_i = 1) = \hat{Y}_i$.
+    
 ## Primary biliary cirrhosis
 
 -   The Mayo Clinic conducted a trial for primary biliary cirrhosis, comparing the drug D-penicillamine vs. placebo. Patients were followed for a specified duration, and their status at the end of follow-up (whether they died) was recorded.
@@ -86,7 +111,7 @@ P(Y_i = 1) &= \alpha + \beta_1x_{i1} + \cdots + \beta_px_{ip} + \epsilon_i\\
 -   Suppose we fit the following model:
 
 \begin{align*}
-P(Y_i = 1) &= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
+Y_i &= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
 &\quad+\beta_3(stage = 2)_i + \beta_4(stage = 3)_i\\
 &\quad+\beta_5(stage = 4)_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)
 \end{align*}
@@ -117,31 +142,37 @@ $$\text{logit}(\pi) = \log\left(\frac{\pi}{1-\pi}\right).$$
 
 ## Logistic regression model
 
--   Let's create a model for the logit of $\pi$: $\text{logit}(\pi_i)= \alpha + \mathbf{x}_i \boldsymbol{\beta}.$
+-   Let's create a model for the logit of $\pi$: $\text{logit}(\pi_i)= \eta_i$, where $\eta_i = \alpha + \mathbf{x}_i \boldsymbol{\beta}.$
 
 -   This is a linear model for a transformation of the outcome of interest, and is also equivalent to,
 
-$$\pi_i = \frac{\exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})}{1 + \exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})} = \text{expit}(\alpha + \mathbf{x}_i \boldsymbol{\beta}).$$
+$$\pi_i = \frac{\exp(\eta_i)}{1 + \exp(\eta_i)} = \text{expit}(\eta_i).$$
 
 -   The expression on the right is called a **logistic function** and cannot yield a value that is negative or a value that is \>1. Fitting a model of this form is known as **logistic regression**.
 
 ## Logistic regression
 
-$$\text{logit}(\pi_i) = \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \mathbf{x}_i \boldsymbol{\beta}$$
+$$\text{logit}(\pi_i) = \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \eta_i$$
 
--   Negative logits represent probabilities less than one-half, and positive logits represent probabilities above one-half.
+-   Negative logits represent probabilities less than one-half.
+
+    -   $\eta_i < 0 \implies \pi_i < 0.5$.
+
+-   Positive logits represent probabilities greater than one-half. 
+
+    -   $\eta_i > 0 \implies \pi_i > 0.5$.
 
 ## Interpreting parameters in logistic regression
 
--   Typically we interpret functions of parameters in logistic regression rather than the parameters themselves.
+Typically we interpret functions of parameters in logistic regression rather than the parameters themselves.
 
-For the simple model: $\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \beta x_{i},$ we note that the probability that $Y_i = 1$ when $X_i = 0$ is
+For the simple model: $\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \beta X_{i},$ we note that the probability that $Y_i = 1$ when $X_i = 0$ is
 
 $$P(Y_i = 1 | X_{i} = 0) = \frac{\exp(\alpha)}{1 + \exp(\alpha)}.$$
 
 ## Interpreting parameters in logistic regression
 
--   Suppose that $X$ is a binary (0/1) variable (e.g., $X$ = 1 for males and 0 for non-males).
+-   Suppose that $X$ is a binary (0/1) variable (e.g., $X = 1$ for males and 0 for non-males).
 
     -   In this case, we interpret $\exp(\beta)$ as the **odds ratio** (OR) of the response for the two possible levels of $X$.
 
@@ -161,7 +192,7 @@ $$P(Y_i = 1 | X_{i} = 0) = \frac{\exp(\alpha)}{1 + \exp(\alpha)}.$$
 
 -   We start with observations $Y_i \in \{0,1\}$ for $i = 1,\ldots,n$, where $Y_i \stackrel{ind}{\sim} \text{Bernoulli}(\pi_i)$, $\pi_i = P(Y_i = 1)$.
 
--   The log-odds are modeled as $\text{logit}(\pi_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}$.
+-   The log-odds are modeled as $\text{logit}(\pi_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta} = \eta_i$.
 
 -   To complete the Bayesian model specification, we must place priors on $\alpha$ and $\boldsymbol{\beta}$.
 
@@ -176,27 +207,38 @@ $$P(Y_i = 1 | X_{i} = 0) = \frac{\exp(\alpha)}{1 + \exp(\alpha)}.$$
 data {
   int<lower = 1> n;
   int<lower = 1> p;
-  int Y[n];
+  int Y[n];                              // Y is now type int
   matrix[n, p] X;
+}
+transformed data {
+  matrix[n, p] X_centered;               // We are only centering X!
+  row_vector[p] X_bar;
+  for (i in 1:p) {
+    X_bar[i] = mean(X[, i]);
+    X_centered[, i] = X[, i] - X_bar[i];
+  }
 }
 parameters {
   real alpha;
   vector[p] beta;
 }
 model {
-  target += bernoulli_logit_lpmf(Y | alpha + X * beta);
+  target += bernoulli_logit_lpmf(Y | alpha + X_centered * beta); // bernoulli likelihood parameterized in logits
   target += normal_lpdf(alpha | 0, 10);
   target += normal_lpdf(beta | 0, 10);
 }
 generated quantities {
-  vector[n] in_sample;
+  real pi_average = exp(alpha) / (1 + exp(alpha));
+  vector[n] Y_pred;
   vector[n] log_lik;
   for (i in 1:n) {
-    in_sample[i] = bernoulli_logit_rng(alpha + height_c[i] * beta);
-    log_lik[i] = bernoulli_logit_lmpf(Y[i] | alpha + X[i, ] * beta);
+    Y_pred[i] = bernoulli_logit_rng(alpha + X_centered[i, ] * beta);
+    log_lik[i] = bernoulli_logit_lpmf(Y[i] | alpha + X_centered[i, ] * beta);
   }
 }
 ```
+
+[bernoulli_logit_lpmf](https://mc-stan.org/docs/functions-reference/binary_distributions.html#bernoulli-logit-distribution)
 
 ## Primary biliary cirrhosis
 
@@ -225,13 +267,14 @@ head(X)
 ```{r, eval = FALSE, echo = FALSE}
 library(rstan)
 compiled_model <- rstan::stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression.stan")
-pbc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/BIOSTAT725/Material/Data/pbc.csv")
+pbc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/pbc.csv")
 X <- model.matrix(object = ~ ascites + bili + as.factor(stage), data = pbc)[, -1]
 Y <- pbc$outcome
 stan_data <- list(n = nrow(pbc),
                   p = ncol(X),
                   Y = Y,
-                  X = X)
+                  X = X,
+                  X_new = c(0, 5, 1, 0, 0))
 fit <- sampling(compiled_model, data = stan_data)
 saveRDS(fit, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression.rds")
 print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
@@ -239,7 +282,8 @@ X <- model.matrix(object = ~ ascites + bili, data = pbc)[, -1]
 stan_data <- list(n = nrow(pbc),
                   p = ncol(X),
                   Y = Y,
-                  X = X)
+                  X = X,
+                  X_new = c(0, 5))
 fit_baseline <- sampling(compiled_model, data = stan_data)
 saveRDS(fit_baseline, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression_baseline.rds")
 ```
@@ -248,13 +292,13 @@ saveRDS(fit_baseline, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-
 library(rstan)
 compiled_model <- stan_model(file = "logistic_regression.stan")
 fit <- sampling(compiled_model, data = stan_data)
-print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
+print(fit, pars = c("alpha", "beta", "pi_average"), probs = c(0.025, 0.5, 0.975))
 ```
 
 ```{r, eval = TRUE, echo = FALSE}
 fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression.rds")
 fit_baseline <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/logistic_regression_baseline.rds")
-print(fit, pars = c("alpha", "beta"), probs = c(0.025, 0.5, 0.975))
+print(fit, pars = c("alpha", "beta", "pi_average"), probs = c(0.025, 0.5, 0.975))
 ```
 
 ## Convergence diagnostics
@@ -301,23 +345,48 @@ knitr::kable(out, digits = 2)
 
 -   Remember, we are interested in the probability that a patient died during follow-up (a "success"). We are predicting the log-odds of this event happening.
 
-    -   The posterior mean for ascites was 2.24. Thus, the odds ratio for dying is $\exp(2.24) \approx 9.4$. That is, patients with ascites have 9.4 times the odds of dying compared to patients that do not, holding all other variables constant.
+    -   The posterior mean for ascites was 2.24. Thus, the odds ratio for dying is $\exp(2.24) \approx 9.40$. That is, patients with ascites have 9 times the odds of dying compared to patients that do not, holding all other variables constant.
 
     -   The posterior mean for bilirubin was 0.38. Thus, the odds ratio for dying for a patient with 1 additional mg/dL serum bilirubin compared to another is $\exp(0.38) \approx 1.46$, holding all other variables constant.
 
-    -   The baseline stage was 1. The posterior mean for stage 3 was 2.19. Thus, patients in stage 3 have approximately 8.93 times the odds of dying compared to patients that do not, holding all other variables constant.
+    -   The baseline stage was 1. The posterior mean for stage 3 was 2.26. Thus, patients in stage 3 have approximately 9.58 times the odds of dying compared to patients that do not, holding all other variables constant.
 
 ## Predicted probabilities
 
 -   There is a one-to-one relationship between $\pi$ and $\text{logit}(\pi)$. So, if we predict $\text{logit}(\pi)$, we can "back-transform" to get back to a predicted probability.
 
+```{stan output.var = "pred", eval = FALSE}
+// stored in logistic_regression_new.stan
+data {
+  row_vector[p] X_new;
+}
+generated quantities {
+  real eta_new = (alpha + (X_new - X_bar) * beta);
+  real pi_new = inv_logit(eta_new); // expit function
+  real Y_new = bernoulli_logit_rng(eta_new); // posterior predictive distribution
+}
+```
+
+## Predicted probabilities
+
 -   For instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.
 
-```{r}
-x_i <- matrix(c(0, 5, 1, 0, 0), ncol = 1)
-pars <- rstan::extract(fit, pars = c("alpha", "beta"))
-log_odds <- pars$alpha + as.numeric(pars$beta %*% x_i)
-pi <- exp(log_odds) / (1 + exp(log_odds))
+```{r, eval = FALSE}
+compiled_model <- stan_model(file = "logistic_regression_new.stan")
+stan_data <- list(n = nrow(pbc),
+                  p = ncol(X),
+                  Y = Y,
+                  X = X,
+                  X_new = c(0, 5, 1, 0, 0))
+fit <- sampling(compiled_model, data = stan_data)
+```
+
+## Predicted probabilities
+
+-   For instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.
+
+```{r, echo = FALSE}
+print(fit, pars = c("eta_new", "pi_new", "Y_new"), probs = c(0.025, 0.5, 0.975))
 ```
 
 ## Predicted probabilities
@@ -329,6 +398,8 @@ pi <- exp(log_odds) / (1 + exp(log_odds))
 #| fig-height: 4
 #| layout-ncol: 1
 library(ggplot2)
+log_odds <- rstan::extract(fit, pars = "eta_new")$eta_new
+pi <- rstan::extract(fit, pars = "pi_new")$pi_new
 dat_fig <- data.frame(
   Value = c(log_odds, pi),
   Type = rep(c("Log-odds", "Predicted probability"), each = length(pi))
@@ -349,7 +420,7 @@ ggplot(dat_fig, aes(x = Value)) +
 #| fig-align: "center"
 #| fig-height: 4
 #| layout-nrow: 1
-y_pred <- rstan::extract(fit, pars = "in_sample")$in_sample
+y_pred <- rstan::extract(fit, pars = "Y_pred")$Y_pred
 ppc_dens_overlay(stan_data$Y, y_pred[1:100, ])
 ```
 
@@ -396,9 +467,29 @@ comp_waic <- loo::loo_compare(list("full" = waic_model, "baseline" = waic_model_
 print(comp_waic, digits = 2, simplify = FALSE)
 ```
 
-## Other models for binary data
+## Other models for binary data {.midi}
 
--   Other transformations (also called \emph{link functions}) can be used to ensure the probabilities lie in \[0, 1\], including the Probit (popular in Bayesian statistics).
+An alternative approach is **Probit regression**, where we use the CDF of the standard normal distribution instead of the logit link: $\Phi^{-1}(\pi) = \alpha + \beta X$
+
+Where $\Phi^{-1}$ is the inverse normal CDF (also called the **probit link function**).
+
+```{stan output.var = "probit", eval = FALSE}
+data {
+  int<lower = 1> n;               // number of observations
+  int<lower = 1> p;               // number of predictors
+  int<lower = 0, upper = 1> Y[n]; // binary outcome (0 or 1)
+  matrix[n, p] X;                 // design matrix (predictors)
+}
+parameters {
+  real alpha;               // intercept
+  vector[p] beta;           // coefficients
+}
+
+model {
+  target += bernoulli_lpmf(Phi(alpha + X * beta)); // Probit model
+}
+```
+
 
 ## Steps to selecting a Bayesian GLM
 

@@ -408,37 +408,58 @@ Prof.&nbsp;Sam Berchuck
 <section id="review-of-last-lecture" class="slide level2">
 <h2>Review of last lecture</h2>
 <ul>
-<li><p>On Thursday, we learned about Bayesian approaches to regularization.</p>
+<li><p>Last week, we learned about Bayesian approaches to robust regression and regularization.</p>
 <ul>
-<li>Global-local shrinage priors</li>
+<li>Global-local shrinkage priors.</li>
 </ul></li>
-<li><p>Today, we will focus on classification: logistic regression.</p></li>
-</ul>
-</section>
-<section id="generalized-linear-models" class="slide level2">
-<h2>Generalized linear models</h2>
+<li><p>This week, we will focus on classification models.</p>
 <ul>
-<li>Previously, we have focused on linear regression. Other forms of regression follow naturally from linear regression.</li>
+<li><p>Today: Binary classification (logistic regression).</p></li>
+<li><p>Thursday: Multiclass classification (multinomial, ordinal regression).</p></li>
+</ul></li>
 </ul>
 </section>
 <section id="models-for-binary-outcomes" class="slide level2">
 <h2>Models for binary outcomes</h2>
 <ul>
-<li><p>Suppose we have a binary outcome (e.g., <span class="math inline">\(Y = 1\)</span> if a condition is satisfied and <span class="math inline">\(Y = 0\)</span> if not) and predictors on a variety of scales.</p></li>
-<li><p>If the predictors are discrete and the binary outcomes are independent, we can use the Bernoulli distribution for individual 0-1 data or the binomial distribution for grouped data that are counts of successes in each group.</p></li>
+<li><p><strong>Bernoulli</strong> random variable: Used for binary outcomes (success/failure), e.g., whether a patient responds to a treatment (yes/no).</p></li>
+<li><p><strong>Binomial</strong> random variable: Used when there are multiple trials (e.g., 10 patients), and you want to model the number of successes (e.g., how many out of 10 patients experience a treatment response).</p></li>
+</ul>
+</section>
+<section id="bernoulli-random-variable-example" class="slide level2">
+<h2>Bernoulli random variable example</h2>
+<p>A <strong>Bernoulli random variable</strong> represents a random variable with two possible outcomes: 0 or 1.</p>
+<p><strong>Scenario:</strong></p>
+<p>Imagine a medical study on a new drug for hypertension (high blood pressure). You want to model whether a patient responds positively to the treatment.</p>
+<ul>
+<li><p><strong>Success (1)</strong>: The patient’s blood pressure decreases significantly (e.g., more than 10% reduction).</p></li>
+<li><p><strong>Failure (0)</strong>: The patient does not experience a significant decrease in blood pressure.</p></li>
+</ul>
+</section>
+<section id="binomial-random-variable-example" class="slide level2">
+<h2>Binomial random variable example</h2>
+<p>A <strong>Binomial random variable</strong> represents the number of successes in a fixed number of independent Bernoulli trials.</p>
+<p><strong>Scenario:</strong></p>
+<p>A clinical trial is conducted where 10 patients are given a new drug for diabetes. You want to model how many of these 10 patients experience a significant reduction in their blood sugar levels (e.g., a decrease by at least 20%).</p>
+<ul>
+<li><p>Each patient’s outcome is a Bernoulli random variable: success (1) if their blood sugar level decreases, failure (0) if it does not.</p></li>
+<li><p>The total number of successes (patients who experience a reduction) is modeled as a <strong>Binomial random variable</strong>.</p></li>
 </ul>
 </section>
 <section id="models-for-binary-outcomes-1" class="slide level2">
 <h2>Models for binary outcomes</h2>
 <ul>
-<li><p>Let’s suppose we want to model <span class="math inline">\(P(Y = 1)\)</span>.</p></li>
-<li><p>One strategy might be to simply fit a linear regression model to the probabilities.</p></li>
-<li><p>For example,</p></li>
+<li>Suppose <span class="math inline">\(Y_i \stackrel{ind}{\sim} \text{Bernoulli}(\pi_i)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>. The pmf is,</li>
 </ul>
-<p><span class="math display">\[\begin{aligned}
-P(Y_i = 1) &amp;= \alpha + \beta_1x_{i1} + \cdots + \beta_px_{ip} + \epsilon_i\\
-&amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta}.
-\end{aligned}\]</span></p>
+<p><span class="math display">\[f(Y_i) = P(Y_i = y) = \pi_i^y (1 - \pi_i)^{1 - y}, \quad y \in\{0,1\}.\]</span></p>
+<ul>
+<li><p>We only need to specify <span class="math inline">\(\pi_i = P(Y_i = 1)\)</span>.</p></li>
+<li><p>One strategy might be to simply fit a linear regression model,</p></li>
+</ul>
+<p><span class="math display">\[Y_i = \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i,\quad\epsilon_i \sim N(0, \sigma^2).\]</span></p>
+<ul>
+<li>We can set <span class="math inline">\(P(Y_i = 1) = \hat{Y}_i\)</span>.</li>
+</ul>
 </section>
 <section id="primary-biliary-cirrhosis" class="slide level2">
 <h2>Primary biliary cirrhosis</h2>
@@ -458,7 +479,7 @@ P(Y_i = 1) &amp;= \alpha + \beta_1x_{i1} + \cdots + \beta_px_{ip} + \epsilon_i\\
 <li>Suppose we fit the following model:</li>
 </ul>
 <p><span class="math display">\[\begin{aligned}
-P(Y_i = 1) &amp;= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
+Y_i &amp;= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
 &amp;\quad+\beta_3(stage = 2)_i + \beta_4(stage = 3)_i\\
 &amp;\quad+\beta_5(stage = 4)_i + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)
 \end{aligned}\]</span></p>
@@ -495,33 +516,38 @@ P(Y_i = 1) &amp;= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
 <section id="logistic-regression-model" class="slide level2">
 <h2>Logistic regression model</h2>
 <ul>
-<li><p>Let’s create a model for the logit of <span class="math inline">\(\pi\)</span>: <span class="math inline">\(\text{logit}(\pi_i)= \alpha + \mathbf{x}_i \boldsymbol{\beta}.\)</span></p></li>
+<li><p>Let’s create a model for the logit of <span class="math inline">\(\pi\)</span>: <span class="math inline">\(\text{logit}(\pi_i)= \eta_i\)</span>, where <span class="math inline">\(\eta_i = \alpha + \mathbf{x}_i \boldsymbol{\beta}.\)</span></p></li>
 <li><p>This is a linear model for a transformation of the outcome of interest, and is also equivalent to,</p></li>
 </ul>
-<p><span class="math display">\[\pi_i = \frac{\exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})}{1 + \exp(\alpha + \mathbf{x}_i \boldsymbol{\beta})} = \text{expit}(\alpha + \mathbf{x}_i \boldsymbol{\beta}).\]</span></p>
+<p><span class="math display">\[\pi_i = \frac{\exp(\eta_i)}{1 + \exp(\eta_i)} = \text{expit}(\eta_i).\]</span></p>
 <ul>
 <li>The expression on the right is called a <strong>logistic function</strong> and cannot yield a value that is negative or a value that is &gt;1. Fitting a model of this form is known as <strong>logistic regression</strong>.</li>
 </ul>
 </section>
 <section id="logistic-regression" class="slide level2">
 <h2>Logistic regression</h2>
-<p><span class="math display">\[\text{logit}(\pi_i) = \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\]</span></p>
+<p><span class="math display">\[\text{logit}(\pi_i) = \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \eta_i\]</span></p>
 <ul>
-<li>Negative logits represent probabilities less than one-half, and positive logits represent probabilities above one-half.</li>
+<li><p>Negative logits represent probabilities less than one-half.</p>
+<ul>
+<li><span class="math inline">\(\eta_i &lt; 0 \implies \pi_i &lt; 0.5\)</span>.</li>
+</ul></li>
+<li><p>Positive logits represent probabilities greater than one-half.</p>
+<ul>
+<li><span class="math inline">\(\eta_i &gt; 0 \implies \pi_i &gt; 0.5\)</span>.</li>
+</ul></li>
 </ul>
 </section>
 <section id="interpreting-parameters-in-logistic-regression" class="slide level2">
 <h2>Interpreting parameters in logistic regression</h2>
-<ul>
-<li>Typically we interpret functions of parameters in logistic regression rather than the parameters themselves.</li>
-</ul>
-<p>For the simple model: <span class="math inline">\(\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \beta x_{i},\)</span> we note that the probability that <span class="math inline">\(Y_i = 1\)</span> when <span class="math inline">\(X_i = 0\)</span> is</p>
+<p>Typically we interpret functions of parameters in logistic regression rather than the parameters themselves.</p>
+<p>For the simple model: <span class="math inline">\(\log\left(\frac{\pi_i}{1 - \pi_i}\right) = \alpha + \beta X_{i},\)</span> we note that the probability that <span class="math inline">\(Y_i = 1\)</span> when <span class="math inline">\(X_i = 0\)</span> is</p>
 <p><span class="math display">\[P(Y_i = 1 | X_{i} = 0) = \frac{\exp(\alpha)}{1 + \exp(\alpha)}.\]</span></p>
 </section>
 <section id="interpreting-parameters-in-logistic-regression-1" class="slide level2">
 <h2>Interpreting parameters in logistic regression</h2>
 <ul>
-<li><p>Suppose that <span class="math inline">\(X\)</span> is a binary (0/1) variable (e.g., <span class="math inline">\(X\)</span> = 1 for males and 0 for non-males).</p>
+<li><p>Suppose that <span class="math inline">\(X\)</span> is a binary (0/1) variable (e.g., <span class="math inline">\(X = 1\)</span> for males and 0 for non-males).</p>
 <ul>
 <li><p>In this case, we interpret <span class="math inline">\(\exp(\beta)\)</span> as the <strong>odds ratio</strong> (OR) of the response for the two possible levels of <span class="math inline">\(X\)</span>.</p></li>
 <li><p>For <span class="math inline">\(X\)</span> on other scales, <span class="math inline">\(\exp(\beta)\)</span> is interpreted as the odds ratio of the response comparing two values of <span class="math inline">\(X\)</span> one unit apart.</p></li>
@@ -541,7 +567,7 @@ P(Y_i = 1) &amp;= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
 <h2>Bayesian logistic regression</h2>
 <ul>
 <li><p>We start with observations <span class="math inline">\(Y_i \in \{0,1\}\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>, where <span class="math inline">\(Y_i \stackrel{ind}{\sim} \text{Bernoulli}(\pi_i)\)</span>, <span class="math inline">\(\pi_i = P(Y_i = 1)\)</span>.</p></li>
-<li><p>The log-odds are modeled as <span class="math inline">\(\text{logit}(\pi_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>.</p></li>
+<li><p>The log-odds are modeled as <span class="math inline">\(\text{logit}(\pi_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta} = \eta_i\)</span>.</p></li>
 <li><p>To complete the Bayesian model specification, we must place priors on <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\boldsymbol{\beta}\)</span>.</p>
 <ul>
 <li>All priors we have discussed up-to-this point apply!</li>
@@ -556,27 +582,37 @@ P(Y_i = 1) &amp;= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
 <span id="cb1-2"><a></a><span class="kw">data</span> {</span>
 <span id="cb1-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
 <span id="cb1-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
-<span id="cb1-5"><a></a>  <span class="dt">int</span> Y[n];</span>
+<span id="cb1-5"><a></a>  <span class="dt">int</span> Y[n];                              <span class="co">// Y is now type int</span></span>
 <span id="cb1-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
 <span id="cb1-7"><a></a>}</span>
-<span id="cb1-8"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb1-9"><a></a>  <span class="dt">real</span> alpha;</span>
-<span id="cb1-10"><a></a>  <span class="dt">vector</span>[p] beta;</span>
-<span id="cb1-11"><a></a>}</span>
-<span id="cb1-12"><a></a><span class="kw">model</span> {</span>
-<span id="cb1-13"><a></a>  <span class="kw">target +=</span> bernoulli_logit_lpmf(Y | alpha + X * beta);</span>
-<span id="cb1-14"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb1-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb1-16"><a></a>}</span>
-<span id="cb1-17"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb1-18"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
-<span id="cb1-19"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
-<span id="cb1-20"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb1-21"><a></a>    in_sample[i] = bernoulli_logit_rng(alpha + height_c[i] * beta);</span>
-<span id="cb1-22"><a></a>    log_lik[i] = bernoulli_logit_lmpf(Y[i] | alpha + X[i, ] * beta);</span>
-<span id="cb1-23"><a></a>  }</span>
-<span id="cb1-24"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb1-9"><a></a>  <span class="dt">matrix</span>[n, p] X_centered;               <span class="co">// We are only centering X!</span></span>
+<span id="cb1-10"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb1-11"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
+<span id="cb1-12"><a></a>    X_bar[i] = mean(X[, i]);</span>
+<span id="cb1-13"><a></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
+<span id="cb1-14"><a></a>  }</span>
+<span id="cb1-15"><a></a>}</span>
+<span id="cb1-16"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb1-17"><a></a>  <span class="dt">real</span> alpha;</span>
+<span id="cb1-18"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb1-19"><a></a>}</span>
+<span id="cb1-20"><a></a><span class="kw">model</span> {</span>
+<span id="cb1-21"><a></a>  <span class="kw">target +=</span> bernoulli_logit_lpmf(Y | alpha + X_centered * beta); <span class="co">// bernoulli likelihood parameterized in logits</span></span>
+<span id="cb1-22"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb1-23"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb1-24"><a></a>}</span>
+<span id="cb1-25"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb1-26"><a></a>  <span class="dt">real</span> pi_average = exp(alpha) / (<span class="dv">1</span> + exp(alpha));</span>
+<span id="cb1-27"><a></a>  <span class="dt">vector</span>[n] Y_pred;</span>
+<span id="cb1-28"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
+<span id="cb1-29"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb1-30"><a></a>    Y_pred[i] = bernoulli_logit_rng(alpha + X_centered[i, ] * beta);</span>
+<span id="cb1-31"><a></a>    log_lik[i] = bernoulli_logit_lpmf(Y[i] | alpha + X_centered[i, ] * beta);</span>
+<span id="cb1-32"><a></a>  }</span>
+<span id="cb1-33"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><a href="https://mc-stan.org/docs/functions-reference/binary_distributions.html#bernoulli-logit-distribution">bernoulli_logit_lpmf</a></p>
 </section>
 <section id="primary-biliary-cirrhosis-1" class="slide level2">
 <h2>Primary biliary cirrhosis</h2>
@@ -627,7 +663,7 @@ P(Y_i = 1) &amp;= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(rstan)</span>
 <span id="cb6-2"><a></a>compiled_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"logistic_regression.stan"</span>)</span>
 <span id="cb6-3"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">sampling</span>(compiled_model, <span class="at">data =</span> stan_data)</span>
-<span id="cb6-4"><a></a><span class="fu">print</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.5</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a></a><span class="fu">print</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"pi_average"</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.5</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -635,15 +671,16 @@ P(Y_i = 1) &amp;= \alpha + \beta_1(ascites)_i + \beta_2(bilirubin)_i\\
 4 chains, each with iter=2000; warmup=1000; thin=1; 
 post-warmup draws per chain=1000, total post-warmup draws=4000.
 
-         mean se_mean   sd  2.5%   50% 97.5% n_eff Rhat
-alpha   -3.35    0.04 1.21 -6.13 -3.24 -1.41   791    1
-beta[1]  2.24    0.04 1.32  0.18  2.05  5.48  1252    1
-beta[2]  0.38    0.00 0.08  0.24  0.38  0.54  2005    1
-beta[3]  1.71    0.04 1.25 -0.34  1.59  4.55   783    1
-beta[4]  2.19    0.04 1.22  0.20  2.07  4.96   806    1
-beta[5]  2.61    0.04 1.23  0.59  2.48  5.46   798    1
+           mean se_mean   sd  2.5%  50% 97.5% n_eff Rhat
+alpha      0.21    0.00 0.19 -0.14 0.20  0.60  1819 1.00
+beta[1]    2.24    0.03 1.32  0.12 2.12  5.30  2328 1.00
+beta[2]    0.38    0.00 0.08  0.24 0.38  0.55  2027 1.00
+beta[3]    1.79    0.04 1.31 -0.43 1.65  4.86  1097 1.01
+beta[4]    2.26    0.04 1.30  0.10 2.14  5.27  1073 1.01
+beta[5]    2.69    0.04 1.31  0.52 2.54  5.74  1069 1.01
+pi_average 0.55    0.00 0.05  0.47 0.55  0.65  1826 1.00
 
-Samples were drawn using NUTS(diag_e) at Mon Dec 30 14:36:11 2024.
+Samples were drawn using NUTS(diag_e) at Mon Feb 17 09:17:32 2025.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).</code></pre>
@@ -706,18 +743,18 @@ convergence, Rhat=1).</code></pre>
 <tr class="odd">
 <td style="text-align: left;">alpha</td>
 <td style="text-align: left;">intercept</td>
-<td style="text-align: right;">-3.35</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">-6.13</td>
-<td style="text-align: right;">-1.41</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-0.14</td>
+<td style="text-align: right;">0.60</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">beta[1]</td>
 <td style="text-align: left;">ascites</td>
 <td style="text-align: right;">2.24</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.18</td>
-<td style="text-align: right;">5.48</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">5.30</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">beta[2]</td>
@@ -725,31 +762,31 @@ convergence, Rhat=1).</code></pre>
 <td style="text-align: right;">0.38</td>
 <td style="text-align: right;">0.00</td>
 <td style="text-align: right;">0.24</td>
-<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.55</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">beta[3]</td>
 <td style="text-align: left;">stage == 2</td>
-<td style="text-align: right;">1.71</td>
+<td style="text-align: right;">1.79</td>
 <td style="text-align: right;">0.04</td>
-<td style="text-align: right;">-0.34</td>
-<td style="text-align: right;">4.55</td>
+<td style="text-align: right;">-0.43</td>
+<td style="text-align: right;">4.86</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">beta[4]</td>
 <td style="text-align: left;">stage == 3</td>
-<td style="text-align: right;">2.19</td>
+<td style="text-align: right;">2.26</td>
 <td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.20</td>
-<td style="text-align: right;">4.96</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">5.27</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">beta[5]</td>
 <td style="text-align: left;">stage == 4</td>
-<td style="text-align: right;">2.61</td>
+<td style="text-align: right;">2.69</td>
 <td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.59</td>
-<td style="text-align: right;">5.46</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">5.74</td>
 </tr>
 </tbody>
 </table>
@@ -764,26 +801,68 @@ convergence, Rhat=1).</code></pre>
 <ul>
 <li><p>Remember, we are interested in the probability that a patient died during follow-up (a “success”). We are predicting the log-odds of this event happening.</p>
 <ul>
-<li><p>The posterior mean for ascites was 2.24. Thus, the odds ratio for dying is <span class="math inline">\(\exp(2.24) \approx 9.4\)</span>. That is, patients with ascites have 9.4 times the odds of dying compared to patients that do not, holding all other variables constant.</p></li>
+<li><p>The posterior mean for ascites was 2.24. Thus, the odds ratio for dying is <span class="math inline">\(\exp(2.24) \approx 9.40\)</span>. That is, patients with ascites have 9 times the odds of dying compared to patients that do not, holding all other variables constant.</p></li>
 <li><p>The posterior mean for bilirubin was 0.38. Thus, the odds ratio for dying for a patient with 1 additional mg/dL serum bilirubin compared to another is <span class="math inline">\(\exp(0.38) \approx 1.46\)</span>, holding all other variables constant.</p></li>
-<li><p>The baseline stage was 1. The posterior mean for stage 3 was 2.19. Thus, patients in stage 3 have approximately 8.93 times the odds of dying compared to patients that do not, holding all other variables constant.</p></li>
+<li><p>The baseline stage was 1. The posterior mean for stage 3 was 2.26. Thus, patients in stage 3 have approximately 9.58 times the odds of dying compared to patients that do not, holding all other variables constant.</p></li>
 </ul></li>
 </ul>
 </section>
 <section id="predicted-probabilities" class="slide level2">
 <h2>Predicted probabilities</h2>
 <ul>
-<li><p>There is a one-to-one relationship between <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\text{logit}(\pi)\)</span>. So, if we predict <span class="math inline">\(\text{logit}(\pi)\)</span>, we can “back-transform” to get back to a predicted probability.</p></li>
-<li><p>For instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.</p></li>
+<li>There is a one-to-one relationship between <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\text{logit}(\pi)\)</span>. So, if we predict <span class="math inline">\(\text{logit}(\pi)\)</span>, we can “back-transform” to get back to a predicted probability.</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>x_i <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb8-2"><a></a>pars <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>))</span>
-<span id="cb8-3"><a></a>log_odds <span class="ot">&lt;-</span> pars<span class="sc">$</span>alpha <span class="sc">+</span> <span class="fu">as.numeric</span>(pars<span class="sc">$</span>beta <span class="sc">%*%</span> x_i)</span>
-<span id="cb8-4"><a></a>pi <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_odds) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(log_odds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-output.var="pred">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb8-1"><a></a><span class="co">// stored in logistic_regression_new.stan</span></span>
+<span id="cb8-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb8-3"><a></a>  <span class="dt">row_vector</span>[p] X_new;</span>
+<span id="cb8-4"><a></a>}</span>
+<span id="cb8-5"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb8-6"><a></a>  <span class="dt">real</span> eta_new = (alpha + (X_new - X_bar) * beta);</span>
+<span id="cb8-7"><a></a>  <span class="dt">real</span> pi_new = inv_logit(eta_new); <span class="co">// expit function</span></span>
+<span id="cb8-8"><a></a>  <span class="dt">real</span> Y_new = bernoulli_logit_rng(eta_new); <span class="co">// posterior predictive distribution</span></span>
+<span id="cb8-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="predicted-probabilities-1" class="slide level2">
+<h2>Predicted probabilities</h2>
+<ul>
+<li>For instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>compiled_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"logistic_regression_new.stan"</span>)</span>
+<span id="cb9-2"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="fu">nrow</span>(pbc),</span>
+<span id="cb9-3"><a></a>                  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb9-4"><a></a>                  <span class="at">Y =</span> Y,</span>
+<span id="cb9-5"><a></a>                  <span class="at">X =</span> X,</span>
+<span id="cb9-6"><a></a>                  <span class="at">X_new =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb9-7"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">sampling</span>(compiled_model, <span class="at">data =</span> stan_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="predicted-probabilities-2" class="slide level2">
+<h2>Predicted probabilities</h2>
+<ul>
+<li>For instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+        mean se_mean   sd  2.5%  50% 97.5% n_eff Rhat
+eta_new 0.28    0.01 0.40 -0.48 0.27  1.07  2754    1
+pi_new  0.57    0.00 0.09  0.38 0.57  0.75  2780    1
+Y_new   0.57    0.01 0.49  0.00 1.00  1.00  4013    1
+
+Samples were drawn using NUTS(diag_e) at Mon Feb 17 09:17:32 2025.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+</div>
+</div>
+</section>
+<section id="predicted-probabilities-3" class="slide level2">
 <h2>Predicted probabilities</h2>
 <div>
 
@@ -793,26 +872,26 @@ convergence, Rhat=1).</code></pre>
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <ul>
-<li>Posterior mean of the predicted probabilities is 0.56.</li>
+<li>Posterior mean of the predicted probabilities is 0.57.</li>
 </ul>
 </section>
 <section id="posterior-predictive-checks" class="slide level2">
 <h2>Posterior predictive checks</h2>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>y_pred <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="st">"in_sample"</span>)<span class="sc">$</span>in_sample</span>
-<span id="cb9-2"><a></a><span class="fu">ppc_dens_overlay</span>(stan_data<span class="sc">$</span>Y, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>y_pred <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="st">"Y_pred"</span>)<span class="sc">$</span>Y_pred</span>
+<span id="cb11-2"><a></a><span class="fu">ppc_dens_overlay</span>(stan_data<span class="sc">$</span>Y, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -821,13 +900,13 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="posterior-predictive-checks-1" class="slide level2">
 <h2>Posterior predictive checks</h2>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ppc_bars</span>(stan_data<span class="sc">$</span>Y, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ppc_bars</span>(stan_data<span class="sc">$</span>Y, y_pred[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -836,25 +915,25 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="posterior-predictive-checks-2" class="slide level2">
 <h2>Posterior predictive checks</h2>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"mean"</span>) <span class="co"># from bayesplot</span></span>
-<span id="cb11-2"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"sd"</span>)</span>
-<span id="cb11-3"><a></a>q025 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.025</span>)</span>
-<span id="cb11-4"><a></a>q975 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.975</span>)</span>
-<span id="cb11-5"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q025"</span>)</span>
-<span id="cb11-6"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q975"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"mean"</span>) <span class="co"># from bayesplot</span></span>
+<span id="cb13-2"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"sd"</span>)</span>
+<span id="cb13-3"><a></a>q025 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.025</span>)</span>
+<span id="cb13-4"><a></a>q975 <span class="ot">&lt;-</span> <span class="cf">function</span>(y) <span class="fu">quantile</span>(y, <span class="fl">0.975</span>)</span>
+<span id="cb13-5"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q025"</span>)</span>
+<span id="cb13-6"><a></a><span class="fu">ppc_stat</span>(stan_data<span class="sc">$</span>Y, y_pred, <span class="at">stat =</span> <span class="st">"q975"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-16-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-18-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -863,14 +942,14 @@ convergence, Rhat=1).</code></pre>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-16-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-18-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-16-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="12-classification_files/figure-revealjs/unnamed-chunk-18-4.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -883,30 +962,45 @@ convergence, Rhat=1).</code></pre>
 <li>Comparing our model to a baseline that removed stage.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(loo)</span>
-<span id="cb12-2"><a></a>log_lik <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb12-3"><a></a>log_lik_baseline <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_baseline, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb12-4"><a></a>waic_model <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik)</span>
-<span id="cb12-5"><a></a>waic_model_baseline <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_baseline)</span>
-<span id="cb12-6"><a></a></span>
-<span id="cb12-7"><a></a><span class="do">###Make a comparison</span></span>
-<span id="cb12-8"><a></a>comp_waic <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo_compare</span>(<span class="fu">list</span>(<span class="st">"full"</span> <span class="ot">=</span> waic_model, <span class="st">"baseline"</span> <span class="ot">=</span> waic_model_baseline))</span>
-<span id="cb12-9"><a></a><span class="fu">print</span>(comp_waic, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">library</span>(loo)</span>
+<span id="cb14-2"><a></a>log_lik <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-3"><a></a>log_lik_baseline <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">extract_log_lik</span>(fit_baseline, <span class="at">parameter_name =</span> <span class="st">"log_lik"</span>, <span class="at">merge_chains =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-4"><a></a>waic_model <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik)</span>
+<span id="cb14-5"><a></a>waic_model_baseline <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">waic</span>(log_lik_baseline)</span>
+<span id="cb14-6"><a></a></span>
+<span id="cb14-7"><a></a><span class="do">###Make a comparison</span></span>
+<span id="cb14-8"><a></a>comp_waic <span class="ot">&lt;-</span> loo<span class="sc">::</span><span class="fu">loo_compare</span>(<span class="fu">list</span>(<span class="st">"full"</span> <span class="ot">=</span> waic_model, <span class="st">"baseline"</span> <span class="ot">=</span> waic_model_baseline))</span>
+<span id="cb14-9"><a></a><span class="fu">print</span>(comp_waic, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic   
-full        0.00      0.00 -155.94      9.51         7.69    2.09    311.88
-baseline   -1.69      3.09 -157.63      9.36         4.86    1.98    315.25
+full        0.00      0.00 -156.08      9.60         7.83    2.20    312.17
+baseline   -1.38      3.15 -157.46      9.29         4.68    1.82    314.92
          se_waic
-full       19.01
-baseline   18.73</code></pre>
+full       19.21
+baseline   18.58</code></pre>
 </div>
 </div>
 </section>
-<section id="other-models-for-binary-data" class="slide level2">
+<section id="other-models-for-binary-data" class="slide level2 midi">
 <h2>Other models for binary data</h2>
-<ul>
-<li>Other transformations (also called <em>link functions</em>) can be used to ensure the probabilities lie in [0, 1], including the Probit (popular in Bayesian statistics).</li>
-</ul>
+<p>An alternative approach is <strong>Probit regression</strong>, where we use the CDF of the standard normal distribution instead of the logit link: <span class="math inline">\(\Phi^{-1}(\pi) = \alpha + \beta X\)</span></p>
+<p>Where <span class="math inline">\(\Phi^{-1}\)</span> is the inverse normal CDF (also called the <strong>probit link function</strong>).</p>
+<div class="cell" data-output.var="probit">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb16-1"><a></a><span class="kw">data</span> {</span>
+<span id="cb16-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;               <span class="co">// number of observations</span></span>
+<span id="cb16-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;               <span class="co">// number of predictors</span></span>
+<span id="cb16-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>, <span class="kw">upper</span> = <span class="dv">1</span>&gt; Y[n]; <span class="co">// binary outcome (0 or 1)</span></span>
+<span id="cb16-5"><a></a>  <span class="dt">matrix</span>[n, p] X;                 <span class="co">// design matrix (predictors)</span></span>
+<span id="cb16-6"><a></a>}</span>
+<span id="cb16-7"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb16-8"><a></a>  <span class="dt">real</span> alpha;               <span class="co">// intercept</span></span>
+<span id="cb16-9"><a></a>  <span class="dt">vector</span>[p] beta;           <span class="co">// coefficients</span></span>
+<span id="cb16-10"><a></a>}</span>
+<span id="cb16-11"><a></a></span>
+<span id="cb16-12"><a></a><span class="kw">model</span> {</span>
+<span id="cb16-13"><a></a>  <span class="kw">target +=</span> bernoulli_lpmf(Phi(alpha + X * beta)); <span class="co">// Probit model</span></span>
+<span id="cb16-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="steps-to-selecting-a-bayesian-glm" class="slide level2">
 <h2>Steps to selecting a Bayesian GLM</h2>
