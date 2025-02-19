@@ -1,0 +1,13 @@
+---
+title: Prepare for February 20 lecture
+---
+
+<br>
+
+📖 If you have not already, familizarize yourself with the data from [AE 06: Classification](https://biostat725-sp25.netlify.app/ae/ae-06-classification).
+
+📖 Read about [multinomial regression](https://stats.oarc.ucla.edu/r/dae/multinomial-logistic-regression/).
+
+📖 Read about [ordinal regression](https://stats.oarc.ucla.edu/r/dae/ordinal-logistic-regression/).
+
+✅ Work on [HW 03](https://biostat725-sp25.netlify.app/hw/hw-03)

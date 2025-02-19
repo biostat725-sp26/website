@@ -515,7 +515,10 @@ P(Y_i = k) &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 
 <p><span class="math display">\[\log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad k \in \{1,\ldots, K-1\}\]</span></p>
 <ul>
 <li><p>This formulation is called <strong>additive log ratio</strong>.</p></li>
-<li><p><span class="math inline">\(\boldsymbol{\beta}_k\)</span> has a nice interpretation as a <strong>relative risk</strong>.</p></li>
+<li><p><span class="math inline">\(\beta_{jk}\)</span> represent the <strong>log-odds</strong> of being in category <span class="math inline">\(k\)</span> relative to the baseline category <span class="math inline">\(K\)</span> with a one-unit change in <span class="math inline">\(X_{ij}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\exp (\beta_{jk})\)</span> is an <strong>odds ratio</strong>.</li>
+</ul></li>
 </ul>
 </section>
 <section id="getting-back-to-the-likelihood" class="slide level2">
@@ -529,7 +532,7 @@ P(Y_i = k) &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 
 <li><p>As Bayesians, we only need to specify priors for <span class="math inline">\(\boldsymbol{\beta}_k, k \in \{1,\ldots,K-1\}\)</span>.</p></li>
 </ul>
 </section>
-<section id="multinomial-regression-in-stan" class="slide level2">
+<section id="multinomial-regression-in-stan" class="slide level2 midi">
 <h2>Multinomial regression in Stan</h2>
 <ul>
 <li>Hard coding the likelihood.</li>
@@ -574,7 +577,7 @@ P(Y_i = k) &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 
 <span id="cb1-37"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="multinomial-regression-in-stan-1" class="slide level2">
+<section id="multinomial-regression-in-stan-1" class="slide level2 midi">
 <h2>Multinomial regression in Stan</h2>
 <ul>
 <li>Non-identifiable version.</li>
@@ -594,14 +597,14 @@ P(Y_i = k) &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 
 <span id="cb2-12"><a></a><span class="kw">model</span> {</span>
 <span id="cb2-13"><a></a>  <span class="dt">matrix</span>[n, K] Xbeta = X * beta;</span>
 <span id="cb2-14"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb2-15"><a></a>    Y[i] ~ categorical_logit(Xbeta[i]');</span>
+<span id="cb2-15"><a></a>    <span class="kw">target +=</span> categorical_logit_lpmf(Y[i] | Xbeta[i]')</span>
 <span id="cb2-16"><a></a>  }</span>
-<span id="cb2-17"><a></a>  to_vector(beta) ~ normal(<span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb2-17"><a></a>  <span class="kw">target +=</span> normal_lpdf(to_vector(beta) | <span class="dv">0</span>, <span class="dv">10</span>);</span>
 <span id="cb2-18"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="https://mc-stan.org/docs/functions-reference/bounded_discrete_distributions.html#categorical-logit-glm">categorical_logit</a></p>
 </section>
-<section id="multinomial-regression-in-stan-2" class="slide level2">
+<section id="multinomial-regression-in-stan-2" class="slide level2 midi">
 <h2>Multinomial regression in Stan</h2>
 <ul>
 <li>Zero identifiability constraint.</li>
@@ -627,10 +630,19 @@ P(Y_i = k) &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 
 <span id="cb3-18"><a></a><span class="kw">model</span> {</span>
 <span id="cb3-19"><a></a>  <span class="dt">matrix</span>[n, K] Xbeta = X * beta;</span>
 <span id="cb3-20"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb3-21"><a></a>    Y[i] ~ categorical_logit(Xbeta[i]');</span>
+<span id="cb3-21"><a></a>    <span class="kw">target +=</span> categorical_logit_lpmf(Y[i] | Xbeta[i]')</span>
 <span id="cb3-22"><a></a>  }</span>
-<span id="cb3-23"><a></a>  to_vector(beta) ~ normal(<span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb3-24"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-23"><a></a>  <span class="kw">target +=</span> normal_lpdf(to_vector(beta) | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb3-24"><a></a>}</span>
+<span id="cb3-25"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb3-26"><a></a>  <span class="dt">matrix</span>[p, K - <span class="dv">1</span>] ors = exp(beta_raw);</span>
+<span id="cb3-27"><a></a>  <span class="dt">vector</span>[n] Y_pred;</span>
+<span id="cb3-28"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
+<span id="cb3-29"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb3-30"><a></a>    Y_pred[i] = categorical_logit_rng(Xbeta[i]');</span>
+<span id="cb3-31"><a></a>    log_lik[i] = categorical_logit_lpmf(Y[i] | Xbeta[i]');</span>
+<span id="cb3-32"><a></a>  }</span>
+<span id="cb3-33"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="ordinal-regression" class="slide level2">
@@ -641,7 +653,7 @@ P(Y_i = k) &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 
 </ul>
 <p><span class="math display">\[f(\mathbf{Y} | \boldsymbol{\beta}) = \prod_{i=1}^n \prod_{j=1}^K P(Y_i = j)^{\delta_{ij}}.\]</span></p>
 <ul>
-<li>We need to add additional constraints that guarentee ordinality.</li>
+<li>We need to add additional constraints that guarantee ordinality.</li>
 </ul>
 </section>
 <section id="proportional-odds-assumption" class="slide level2">
@@ -687,6 +699,57 @@ P(Y_i = k) &amp;= P(Y_i \leq k) - P(Y_i \leq k-1)\\
 <li><p><span class="math inline">\(\mathbb{V}(\epsilon_i) = \pi^2/3\)</span>.</p></li>
 <li><p>CDF: <span class="math inline">\(P(\epsilon_i \leq x) = \frac{1}{1 + \exp\{-x\}} = \frac{\exp\{x\}}{1 + \exp\{x\}} = \text{expit}(x).\)</span></p></li>
 </ul>
+</section>
+<section id="visualizing-the-latent-process" class="slide level2">
+<h2>Visualizing the latent process</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-thresholds-c_k" class="slide level2">
+<h2>Adding thresholds (<span class="math inline">\(c_k\)</span>)</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-category-probabilities" class="slide level2">
+<h2>Getting category probabilities</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="13-multiclass_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="a-latent-variable-representation-1" class="slide level2">
 <h2>A latent variable representation</h2>
@@ -738,9 +801,45 @@ P(Y_i = k) &amp;= P(c_{k-1} &lt; Y_i^* \leq c_k)\\
 <span id="cb4-14"><a></a>  <span class="kw">target +=</span> ordered_logistic_glm_lpmf(Y | X, beta, alpha);</span>
 <span id="cb4-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
 <span id="cb4-16"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb4-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-17"><a></a>}</span>
+<span id="cb4-18"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb4-19"><a></a>  <span class="dt">vector</span>[p] ors = exp(beta);</span>
+<span id="cb4-20"><a></a>  <span class="dt">vector</span>[n] Y_pred;</span>
+<span id="cb4-21"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
+<span id="cb4-22"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb4-23"><a></a>    Y_pred[i] = ordered_logistic_rng(X[i, ] * beta, alpha);</span>
+<span id="cb4-24"><a></a>    log_lik[i] = ordered_logistic_glm_lpmf(Y[i] | X[i, ], beta, alpha);</span>
+<span id="cb4-25"><a></a>  }</span>
+<span id="cb4-26"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="https://mc-stan.org/docs/functions-reference/bounded_discrete_distributions.html#ordered-logistic-generalized-linear-model-ordinal-regression">ordered_logistic_glm_lpmf</a></p>
+</section>
+<section id="enforcing-order-in-the-cutoffs" class="slide level2">
+<h2>Enforcing order in the cutoffs</h2>
+<ul>
+<li><p>In Stan, when you define a parameter as <code>ordered[K-1] alpha;</code>, the values of <code>alpha</code> are automatically constrained to be strictly increasing.</p></li>
+<li><p>This transformation ensures that the <code>alpha</code> values follow the required order, i.e., <code>alpha[1] &lt; alpha[2] &lt; ... &lt; alpha[K-1]</code>.</p></li>
+<li><p>Stan doesn’t sample <code>alpha</code> directly but instead works with an <strong>unconstrained</strong> parameter vector, which we will call <code>gamma</code>.</p></li>
+</ul>
+</section>
+<section id="enforcing-order-in-the-cutoffs-1" class="slide level2">
+<h2>Enforcing order in the cutoffs</h2>
+<div class="cell" data-output.var="order">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb5-1"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb5-2"><a></a>  <span class="dt">vector</span>[K - <span class="dv">1</span>] gamma;</span>
+<span id="cb5-3"><a></a>}</span>
+<span id="cb5-4"><a></a><span class="kw">transformed parameters</span> {</span>
+<span id="cb5-5"><a></a>  <span class="dt">vector</span>[K - <span class="dv">1</span>] alpha;</span>
+<span id="cb5-6"><a></a>  alpha[<span class="dv">1</span>] = gamma[<span class="dv">1</span>];</span>
+<span id="cb5-7"><a></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">2</span>:K) {</span>
+<span id="cb5-8"><a></a>    alpha[j] = alpha[j - <span class="dv">1</span>] + exp(gamma[j]);</span>
+<span id="cb5-9"><a></a>  }</span>
+<span id="cb5-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Here, <code>gamma</code> represents a vector of independent, unconstrained variables, and the transformation ensures that <code>alpha</code> is strictly increasing by construction.</p></li>
+<li><p>Luckily we can use <a href="https://mc-stan.org/docs/reference-manual/transforms.html#ordered-vector">ordered</a>, since Stan takes care of this (including the Jacobian) in the background.</p></li>
+</ul>
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>

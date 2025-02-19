@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -9967,7 +9967,7 @@
     "href": "slides/12-classification.html#what-can-go-wrong",
     "title": "Classification",
     "section": "What can go wrong?",
-    "text": "What can go wrong?\n\nSuppose we fit the following model:\n\n\\[\\begin{aligned}\nY_i &= \\alpha + \\beta_1(ascites)_i + \\beta_2(bilirubin)_i\\\\\n&\\quad+\\beta_3(stage = 2)_i + \\beta_4(stage = 3)_i\\\\\n&\\quad+\\beta_5(stage = 4)_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\n\\end{aligned}\\]\n\nWhat can go wrong?"
+    "text": "What can go wrong?\n\nSuppose we fit the following model:\n\n\\[\\begin{aligned}\nY_i &= \\alpha + \\beta_1(ascites)_i + \\beta_2(bilirubin)_i\\\\\n&\\quad+\\beta_3(stage = 2)_i + \\beta_4(stage = 3)_i\\\\\n&\\quad+\\beta_5(stage = 4)_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\n\\end{aligned}\\]\n. . .\nWhat can go wrong?"
   },
   {
     "objectID": "slides/12-classification.html#what-can-go-wrong-1",
@@ -10072,7 +10072,7 @@
     "href": "slides/12-classification.html#convergence-diagnostics-1",
     "title": "Classification",
     "section": "Convergence diagnostics",
-    "text": "Convergence diagnostics"
+    "text": "Convergence diagnostics\n\nThis is bayesplot version 1.11.1\n\n\n- Online documentation and vignettes at mc-stan.org/bayesplot\n\n\n- bayesplot theme set to bayesplot::theme_default()\n\n\n   * Does _not_ affect other ggplot2 plots\n\n\n   * See ?bayesplot_theme_set for details on theme setting"
   },
   {
     "objectID": "slides/12-classification.html#back-to-the-pbc-data",
@@ -10121,14 +10121,14 @@
     "href": "slides/12-classification.html#posterior-predictive-checks-2",
     "title": "Classification",
     "section": "Posterior predictive checks",
-    "text": "Posterior predictive checks\nppc_stat(stan_data$Y, y_pred, stat = \"mean\") # from bayesplot\nppc_stat(stan_data$Y, y_pred, stat = \"sd\")\nq025 &lt;- function(y) quantile(y, 0.025)\nq975 &lt;- function(y) quantile(y, 0.975)\nppc_stat(stan_data$Y, y_pred, stat = \"q025\")\nppc_stat(stan_data$Y, y_pred, stat = \"q975\")"
+    "text": "Posterior predictive checks\nppc_stat(stan_data$Y, y_pred, stat = \"mean\") # from bayesplot\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\nppc_stat(stan_data$Y, y_pred, stat = \"sd\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\nq025 &lt;- function(y) quantile(y, 0.025)\nq975 &lt;- function(y) quantile(y, 0.975)\nppc_stat(stan_data$Y, y_pred, stat = \"q025\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\nppc_stat(stan_data$Y, y_pred, stat = \"q975\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
   },
   {
     "objectID": "slides/12-classification.html#model-comparison",
     "href": "slides/12-classification.html#model-comparison",
     "title": "Classification",
     "section": "Model comparison",
-    "text": "Model comparison\n\nComparing our model to a baseline that removed stage.\n\n\nlibrary(loo)\nlog_lik &lt;- loo::extract_log_lik(fit, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_baseline &lt;- loo::extract_log_lik(fit_baseline, parameter_name = \"log_lik\", merge_chains = TRUE)\nwaic_model &lt;- loo::waic(log_lik)\nwaic_model_baseline &lt;- loo::waic(log_lik_baseline)\n\n###Make a comparison\ncomp_waic &lt;- loo::loo_compare(list(\"full\" = waic_model, \"baseline\" = waic_model_baseline))\nprint(comp_waic, digits = 2, simplify = FALSE)\n\n         elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic   \nfull        0.00      0.00 -156.08      9.60         7.83    2.20    312.17\nbaseline   -1.38      3.15 -157.46      9.29         4.68    1.82    314.92\n         se_waic\nfull       19.21\nbaseline   18.58"
+    "text": "Model comparison\n\nComparing our model to a baseline that removed stage.\n\n\nlibrary(loo)\n\nThis is loo version 2.8.0\n\n\n- Online documentation and vignettes at mc-stan.org/loo\n\n\n- As of v2.0.0 loo defaults to 1 core but we recommend using as many as possible. Use the 'cores' argument or set options(mc.cores = NUM_CORES) for an entire session. \n\nlog_lik &lt;- loo::extract_log_lik(fit, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_baseline &lt;- loo::extract_log_lik(fit_baseline, parameter_name = \"log_lik\", merge_chains = TRUE)\nwaic_model &lt;- loo::waic(log_lik)\n\nWarning: \n3 (1.1%) p_waic estimates greater than 0.4. We recommend trying loo instead.\n\nwaic_model_baseline &lt;- loo::waic(log_lik_baseline)\n\nWarning: \n2 (0.7%) p_waic estimates greater than 0.4. We recommend trying loo instead.\n\n###Make a comparison\ncomp_waic &lt;- loo::loo_compare(list(\"full\" = waic_model, \"baseline\" = waic_model_baseline))\nprint(comp_waic, digits = 2, simplify = FALSE)\n\n         elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic   \nfull        0.00      0.00 -156.08      9.60         7.83    2.20    312.17\nbaseline   -1.38      3.15 -157.46      9.29         4.68    1.82    314.92\n         se_waic\nfull       19.21\nbaseline   18.58"
   },
   {
     "objectID": "slides/12-classification.html#other-models-for-binary-data",
@@ -10177,7 +10177,7 @@
     "href": "slides/12-classification.html#prepare-for-next-class",
     "title": "Classification",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Multiclass classification\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Multiclass classification"
   },
   {
     "objectID": "slides/09-nonlinear.html#a-motivating-example",
@@ -10877,7 +10877,7 @@
     "href": "slides/13-multiclass.html#ordinal-regression-using-stan",
     "title": "Multiclass Classification",
     "section": "Ordinal regression using Stan",
-    "text": "Ordinal regression using Stan\n\n// ordinal.stan\ndata {\n  int&lt;lower = 2&gt; K;\n  int&lt;lower = 0&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1, upper = K&gt; Y[n];\n  matrix[n, p] X;\n}\nparameters {\n  vector[p] beta;\n  ordered[K - 1] alpha;\n}\nmodel {\n  target += ordered_logistic_glm_lpmf(Y | X, beta, alpha);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(alpha | 0, 10);\n}\n\nordered_logistic_glm_lpmf"
+    "text": "Ordinal regression using Stan\n\n// ordinal.stan\ndata {\n  int&lt;lower = 2&gt; K;\n  int&lt;lower = 0&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1, upper = K&gt; Y[n];\n  matrix[n, p] X;\n}\nparameters {\n  vector[p] beta;\n  ordered[K - 1] alpha;\n}\nmodel {\n  target += ordered_logistic_glm_lpmf(Y | X, beta, alpha);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(alpha | 0, 10);\n}\ngenerated quantities {\n  vector[p] ors = exp(beta);\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    Y_pred[i] = ordered_logistic_rng(X[i, ] * beta, alpha);\n    log_lik[i] = ordered_logistic_glm_lpmf(Y[i] | X[i, ], beta, alpha);\n  }\n}\n\nordered_logistic_glm_lpmf"
   },
   {
     "objectID": "slides/13-multiclass.html#prepare-for-next-class",
@@ -10898,7 +10898,7 @@
     "href": "slides/13-multiclass.html#ordinal-regression",
     "title": "Multiclass Classification",
     "section": "Ordinal regression",
-    "text": "Ordinal regression\nLet \\(Y_i \\in \\{1,\\ldots,K\\}\\) be an ordinal outcome with \\(K\\) categories.\n\nThe likelihood in ordinal regression is identical to the one from multinomial regression,\n\n\\[f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\prod_{i=1}^n \\prod_{j=1}^K P(Y_i = j)^{\\delta_{ij}}.\\]\n\nWe need to add additional constraints that guarentee ordinality."
+    "text": "Ordinal regression\nLet \\(Y_i \\in \\{1,\\ldots,K\\}\\) be an ordinal outcome with \\(K\\) categories.\n\nThe likelihood in ordinal regression is identical to the one from multinomial regression,\n\n\\[f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\prod_{i=1}^n \\prod_{j=1}^K P(Y_i = j)^{\\delta_{ij}}.\\]\n\nWe need to add additional constraints that guarantee ordinality."
   },
   {
     "objectID": "slides/13-multiclass.html#multinomial-likelihood",
@@ -10919,7 +10919,7 @@
     "href": "slides/13-multiclass.html#multinomial-regression-in-stan-2",
     "title": "Multiclass Classification",
     "section": "Multinomial regression in Stan",
-    "text": "Multinomial regression in Stan\n\nZero identifiability constraint.\n\n\n// multi_logit.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[p] zeros = rep_vector(0, p);\n}\nparameters {\n  matrix[p, K - 1] beta_raw;\n}\ntransformed parameters {\n  matrix[p, K] beta = append_col(beta_raw, zeros);\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    Y[i] ~ categorical_logit(Xbeta[i]');\n  }\n  to_vector(beta) ~ normal(0, 10);\n}"
+    "text": "Multinomial regression in Stan\n\nZero identifiability constraint.\n\n\n// multi_logit.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[p] zeros = rep_vector(0, p);\n}\nparameters {\n  matrix[p, K - 1] beta_raw;\n}\ntransformed parameters {\n  matrix[p, K] beta = append_col(beta_raw, zeros);\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    target += categorical_logit_lpmf(Y[i] | Xbeta[i]')\n  }\n  target += normal_lpdf(to_vector(beta) | 0, 10);\n}\ngenerated quantities {\n  matrix[p, K - 1] ors = exp(beta_raw);\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    Y_pred[i] = categorical_logit_rng(Xbeta[i]');\n    log_lik[i] = categorical_logit_lpmf(Y[i] | Xbeta[i]');\n  }\n}"
   },
   {
     "objectID": "slides/13-multiclass.html#m",
@@ -11003,7 +11003,7 @@
     "href": "slides/13-multiclass.html#additive-log-ratio-model",
     "title": "Multiclass Classification",
     "section": "Additive log ratio model",
-    "text": "Additive log ratio model\n\nIf outcome \\(K\\) is chosen as reference, the \\(K − 1\\) regression equations are:\n\n\\[\\log \\frac{P(Y_i = k)}{P(Y_i = K)} = \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots, K-1\\}\\]\n\nThis formulation is called additive log ratio.\n\\(\\boldsymbol{\\beta}_k\\) has a nice interpretation as a relative risk."
+    "text": "Additive log ratio model\n\nIf outcome \\(K\\) is chosen as reference, the \\(K − 1\\) regression equations are:\n\n\\[\\log \\frac{P(Y_i = k)}{P(Y_i = K)} = \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots, K-1\\}\\]\n\nThis formulation is called additive log ratio.\n\\(\\beta_{jk}\\) represent the log-odds of being in category \\(k\\) relative to the baseline category \\(K\\) with a one-unit change in \\(X_{ij}\\).\n\n\\(\\exp (\\beta_{jk})\\) is an odds ratio."
   },
   {
     "objectID": "slides/13-multiclass.html#getting-back-to-the-likelihood",
@@ -11017,7 +11017,7 @@
     "href": "slides/13-multiclass.html#multinomial-regression-in-stan-1",
     "title": "Multiclass Classification",
     "section": "Multinomial regression in Stan",
-    "text": "Multinomial regression in Stan\n\nNon-identifiable version.\n\n\n// multi_logit_bad.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\nparameters {\n  matrix[p, K] beta;\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    Y[i] ~ categorical_logit(Xbeta[i]');\n  }\n  to_vector(beta) ~ normal(0, 10);\n}\n\ncategorical_logit"
+    "text": "Multinomial regression in Stan\n\nNon-identifiable version.\n\n\n// multi_logit_bad.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\nparameters {\n  matrix[p, K] beta;\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    target += categorical_logit_lpmf(Y[i] | Xbeta[i]')\n  }\n  target += normal_lpdf(to_vector(beta) | 0, 10);\n}\n\ncategorical_logit"
   },
   {
     "objectID": "slides/13-multiclass.html#multiclass-regression",
@@ -12634,7 +12634,7 @@
     "href": "slides/12-classification.html#predicted-probabilities-3",
     "title": "Classification",
     "section": "Predicted probabilities",
-    "text": "Predicted probabilities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosterior mean of the predicted probabilities is 0.57."
+    "text": "Predicted probabilities\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosterior mean of the predicted probabilities is 0.57."
   },
   {
     "objectID": "ae/ae-06-classification.html",
@@ -12740,5 +12740,68 @@
     "title": "Prepare for February 18 lecture",
     "section": "",
     "text": "📖 Read AE 06: Classification. This AE contains an introduction to an EHR dataset we will use for a few assignments in the course. Please read the introduction of the data through the exercises and be ready to work with the data on Tuesday.\n📖 Review Stan documentation on logistic and probit regression.\n✅ Work on HW 03"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#visualizing-the-latent-process",
+    "href": "slides/13-multiclass.html#visualizing-the-latent-process",
+    "title": "Multiclass Classification",
+    "section": "Visualizing the latent process",
+    "text": "Visualizing the latent process"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#adding-thresholds-alpha_k",
+    "href": "slides/13-multiclass.html#adding-thresholds-alpha_k",
+    "title": "Multiclass Classification",
+    "section": "Adding thresholds (\\(\\alpha_k\\))",
+    "text": "Adding thresholds (\\(\\alpha_k\\))"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#getting-category-probabilities",
+    "href": "slides/13-multiclass.html#getting-category-probabilities",
+    "title": "Multiclass Classification",
+    "section": "Getting category probabilities",
+    "text": "Getting category probabilities"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#adding-thresholds-c_k",
+    "href": "slides/13-multiclass.html#adding-thresholds-c_k",
+    "title": "Multiclass Classification",
+    "section": "Adding thresholds (\\(c_k\\))",
+    "text": "Adding thresholds (\\(c_k\\))"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#enforcing-order-in-the-cutoffs",
+    "href": "slides/13-multiclass.html#enforcing-order-in-the-cutoffs",
+    "title": "Multiclass Classification",
+    "section": "Enforcing order in the cutoffs",
+    "text": "Enforcing order in the cutoffs\n\nIn Stan, when you define a parameter as ordered[K-1] alpha;, the values of alpha are automatically constrained to be strictly increasing.\nThis transformation ensures that the alpha values follow the required order, i.e., alpha[1] &lt; alpha[2] &lt; ... &lt; alpha[K-1].\nStan doesn’t sample alpha directly but instead works with an unconstrained parameter vector, which we will call gamma."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#enforcing-order-in-the-cutoffs-1",
+    "href": "slides/13-multiclass.html#enforcing-order-in-the-cutoffs-1",
+    "title": "Multiclass Classification",
+    "section": "Enforcing order in the cutoffs",
+    "text": "Enforcing order in the cutoffs\n\nparameters {\n  vector[K - 1] gamma;\n}\ntransformed parameters {\n  vector[K - 1] alpha;\n  alpha[1] = gamma[1];\n  for (j in 2:K) {\n    alpha[j] = alpha[j - 1] + exp(gamma[j]);\n  }\n}\n\n\nHere, gamma represents a vector of independent, unconstrained variables, and the transformation ensures that alpha is strictly increasing by construction.\nLuckily we can use ordered, since Stan takes care of this (including the Jacobian) in the background."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#log-jacobian-adjustment",
+    "href": "slides/13-multiclass.html#log-jacobian-adjustment",
+    "title": "Multiclass Classification",
+    "section": "Log-Jacobian Adjustment",
+    "text": "Log-Jacobian Adjustment\nSince Stan samples from the unconstrained space (via gamma), it needs to account for the transformation when calculating the log-posterior. Specifically, the Jacobian of the transformation from the unconstrained space (gamma) to the ordered space (alpha) must be included in the log-posterior.\nThe Jacobian adjustment is computed as the log of the absolute determinant of the transformation matrix. In this case, the matrix represents the cumulative sum operation, and the adjustment ensures that the correct density is used for the reparameterized alpha values.\nThus, Stan adds the following adjustment to the log-posterior: target += log_jacobian_adjustment\nThis ensures that the log-posterior reflects the reparameterization and that the probability density for alpha is correctly adjusted for the ordering constraint."
+  },
+  {
+    "objectID": "slides/12-classification.html",
+    "href": "slides/12-classification.html",
+    "title": "Classification",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+  },
+  {
+    "objectID": "prepare/prepare-feb20.html",
+    "href": "prepare/prepare-feb20.html",
+    "title": "Prepare for February 20 lecture",
+    "section": "",
+    "text": "📖 If you have not already, familizarize yourself with the data from AE 06: Classification.\n📖 Read about multinomial regression.\n📖 Read about ordinal regression.\n✅ Work on HW 03"
   }
 ]

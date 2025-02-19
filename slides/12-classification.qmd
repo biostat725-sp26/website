@@ -47,26 +47,26 @@ library(nimble)
 -   This week, we will focus on classification models.
 
     -   Today: Binary classification (logistic regression).
-    
+
     -   Thursday: Multiclass classification (multinomial, ordinal regression).
 
 ## Models for binary outcomes
 
-- **Bernoulli** random variable: Used for binary outcomes (success/failure), e.g., whether a patient responds to a treatment (yes/no).
+-   **Bernoulli** random variable: Used for binary outcomes (success/failure), e.g., whether a patient responds to a treatment (yes/no).
 
-- **Binomial** random variable: Used when there are multiple trials (e.g., 10 patients), and you want to model the number of successes (e.g., how many out of 10 patients experience a treatment response).
+-   **Binomial** random variable: Used when there are multiple trials (e.g., 10 patients), and you want to model the number of successes (e.g., how many out of 10 patients experience a treatment response).
 
 ## Bernoulli random variable example
 
-A **Bernoulli random variable** represents a random variable with two possible outcomes: 0 or 1. 
+A **Bernoulli random variable** represents a random variable with two possible outcomes: 0 or 1.
 
 **Scenario:**
 
 Imagine a medical study on a new drug for hypertension (high blood pressure). You want to model whether a patient responds positively to the treatment.
 
-- **Success (1)**: The patient’s blood pressure decreases significantly (e.g., more than 10% reduction).
+-   **Success (1)**: The patient’s blood pressure decreases significantly (e.g., more than 10% reduction).
 
-- **Failure (0)**: The patient does not experience a significant decrease in blood pressure.
+-   **Failure (0)**: The patient does not experience a significant decrease in blood pressure.
 
 ## Binomial random variable example
 
@@ -76,9 +76,9 @@ A **Binomial random variable** represents the number of successes in a fixed num
 
 A clinical trial is conducted where 10 patients are given a new drug for diabetes. You want to model how many of these 10 patients experience a significant reduction in their blood sugar levels (e.g., a decrease by at least 20%).
 
-- Each patient’s outcome is a Bernoulli random variable: success (1) if their blood sugar level decreases, failure (0) if it does not.
+-   Each patient’s outcome is a Bernoulli random variable: success (1) if their blood sugar level decreases, failure (0) if it does not.
 
-- The total number of successes (patients who experience a reduction) is modeled as a **Binomial random variable**.
+-   The total number of successes (patients who experience a reduction) is modeled as a **Binomial random variable**.
 
 ## Models for binary outcomes
 
@@ -92,8 +92,8 @@ $$f(Y_i) = P(Y_i = y) = \pi_i^y (1 - \pi_i)^{1 - y}, \quad y \in\{0,1\}.$$
 
 $$Y_i = \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i,\quad\epsilon_i \sim N(0, \sigma^2).$$
 
-  - We can set $P(Y_i = 1) = \hat{Y}_i$.
-    
+-   We can set $P(Y_i = 1) = \hat{Y}_i$.
+
 ## Primary biliary cirrhosis
 
 -   The Mayo Clinic conducted a trial for primary biliary cirrhosis, comparing the drug D-penicillamine vs. placebo. Patients were followed for a specified duration, and their status at the end of follow-up (whether they died) was recorded.
@@ -158,7 +158,7 @@ $$\text{logit}(\pi_i) = \log\left(\frac{\pi_i}{1 - \pi_i}\right) = \eta_i$$
 
     -   $\eta_i < 0 \implies \pi_i < 0.5$.
 
--   Positive logits represent probabilities greater than one-half. 
+-   Positive logits represent probabilities greater than one-half.
 
     -   $\eta_i > 0 \implies \pi_i > 0.5$.
 
@@ -489,7 +489,6 @@ model {
   target += bernoulli_lpmf(Phi(alpha + X * beta)); // Probit model
 }
 ```
-
 
 ## Steps to selecting a Bayesian GLM
 

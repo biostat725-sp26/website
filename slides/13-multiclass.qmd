@@ -142,7 +142,9 @@ $$\log \frac{P(Y_i = k)}{P(Y_i = K)} = \mathbf{x}_i \boldsymbol{\beta}_k, \quad 
 
 -   This formulation is called **additive log ratio**.
 
--   $\boldsymbol{\beta}_k$ has a nice interpretation as a **relative risk**.
+-   $\beta_{jk}$ represent the **log-odds** of being in category $k$ relative to the baseline category $K$ with a one-unit change in $X_{ij}$.
+
+    -   $\exp (\beta_{jk})$ is an **odds ratio**.
 
 ## Getting back to the likelihood
 
@@ -154,7 +156,7 @@ $$\log f(\mathbf{Y} | \boldsymbol{\beta}) = \sum_{i=1}^n \sum_{j=1}^K \delta_{ij
 
 -   As Bayesians, we only need to specify priors for $\boldsymbol{\beta}_k, k \in \{1,\ldots,K-1\}$.
 
-## Multinomial regression in Stan
+## Multinomial regression in Stan {.midi}
 
 -   Hard coding the likelihood.
 
@@ -198,7 +200,7 @@ model {
 }
 ```
 
-## Multinomial regression in Stan
+## Multinomial regression in Stan {.midi}
 
 -   Non-identifiable version.
 
@@ -217,15 +219,15 @@ parameters {
 model {
   matrix[n, K] Xbeta = X * beta;
   for (i in 1:n) {
-    Y[i] ~ categorical_logit(Xbeta[i]');
+    target += categorical_logit_lpmf(Y[i] | Xbeta[i]')
   }
-  to_vector(beta) ~ normal(0, 10);
+  target += normal_lpdf(to_vector(beta) | 0, 10);
 }
 ```
 
 [categorical_logit](https://mc-stan.org/docs/functions-reference/bounded_discrete_distributions.html#categorical-logit-glm)
 
-## Multinomial regression in Stan
+## Multinomial regression in Stan {.midi}
 
 -   Zero identifiability constraint.
 
@@ -250,9 +252,18 @@ transformed parameters {
 model {
   matrix[n, K] Xbeta = X * beta;
   for (i in 1:n) {
-    Y[i] ~ categorical_logit(Xbeta[i]');
+    target += categorical_logit_lpmf(Y[i] | Xbeta[i]')
   }
-  to_vector(beta) ~ normal(0, 10);
+  target += normal_lpdf(to_vector(beta) | 0, 10);
+}
+generated quantities {
+  matrix[p, K - 1] ors = exp(beta_raw);
+  vector[n] Y_pred;
+  vector[n] log_lik;
+  for (i in 1:n) {
+    Y_pred[i] = categorical_logit_rng(Xbeta[i]');
+    log_lik[i] = categorical_logit_lpmf(Y[i] | Xbeta[i]');
+  }
 }
 ```
 
@@ -264,7 +275,7 @@ Let $Y_i \in \{1,\ldots,K\}$ be an ordinal outcome with $K$ categories.
 
 $$f(\mathbf{Y} | \boldsymbol{\beta}) = \prod_{i=1}^n \prod_{j=1}^K P(Y_i = j)^{\delta_{ij}}.$$
 
--   We need to add additional constraints that guarentee ordinality.
+-   We need to add additional constraints that guarantee ordinality.
 
 ## Proportional odds assumption
 
@@ -310,6 +321,99 @@ $$Y_i^* = \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i, \quad \epsilon_i \sim \t
 -   $\mathbb{V}(\epsilon_i) = \pi^2/3$.
 
 -   CDF: $P(\epsilon_i \leq x) = \frac{1}{1 + \exp\{-x\}} = \frac{\exp\{x\}}{1 + \exp\{x\}} = \text{expit}(x).$
+
+## Visualizing the latent process
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 5
+#| layout-ncol: 1
+# Parameters for logistic distribution
+location <- 0  # Mean of the logistic distribution
+scale <- 1  # Scale of the logistic distribution
+
+# Define the thresholds to create ordinal categories
+thresholds <- c(-1, 0.5, 1.5)  # These thresholds will create 4 ordinal categories
+
+# Create a sequence of x-values (latent variable values) for plotting
+x_vals <- seq(-4, 4, length.out = 1000)
+
+# Calculate the logistic density function (PDF) for the x-values
+logistic_density <- dlogis(x_vals, location = location, scale = scale)
+
+# Create a data frame for ggplot
+data <- data.frame(x = x_vals, density = logistic_density)
+
+# Create a data frame for shading regions based on thresholds
+# Use 'cut' to categorize x_vals into categories based on thresholds
+data$category <- cut(data$x, breaks = c(-Inf, thresholds, Inf), 
+                     labels = c("Category 1", "Category 2", "Category 3", "Category 4"))
+
+
+ggplot(data, aes(x = x, y = density)) +
+  # Plot the logistic density curve
+  geom_line(color = "black", size = 1) +
+  # Shade the areas under the curve corresponding to the ordinal categories
+  # geom_ribbon(aes(ymin = 0, ymax = density, fill = category), alpha = 0.6) +
+  # Customize plot appearance
+  scale_fill_manual(values = c("skyblue", "lightgreen", "orange", "salmon")) +
+  labs(title = "Logistic(0, 1) Density", 
+       x = "Latent Variable (Continuous)", 
+       y = "Density") +
+  theme_minimal() +
+  theme(legend.title = element_blank()) +
+  scale_x_continuous(breaks = seq(-4, 4, by = 1)) +
+  theme(legend.position = "top")
+```
+
+## Adding thresholds ($c_k$)
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 5
+#| layout-ncol: 1
+# Create the plot for the latent logistic curve with thresholds
+ggplot(data, aes(x = x, y = density)) +
+  # Plot the logistic density curve without shading
+  geom_line(color = "black", size = 1) +
+  # Add vertical dashed lines for the thresholds
+  geom_vline(xintercept = thresholds, linetype = "dashed", color = "red", size = 1) +
+  # Customize plot appearance
+  labs(title = "Latent Logistic Curve with Thresholds for K = 4", 
+       x = "Latent Variable (Continuous)", 
+       y = "Density") +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(-4, 4, by = 1)) 
+```
+
+## Getting category probabilities
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 5
+#| layout-ncol: 1
+# Create the plot
+ggplot(data, aes(x = x, y = density)) +
+  # Plot the logistic density curve
+  geom_line(color = "black", size = 1) +
+  # Shade the areas under the curve corresponding to the ordinal categories
+  geom_ribbon(aes(ymin = 0, ymax = density, fill = category), alpha = 0.6) +
+  # Customize plot appearance
+  scale_fill_manual(values = c("skyblue", "lightgreen", "orange", "salmon")) +
+  labs(title = "Ordinal Regression Visualization with Logistic Density", 
+       x = "Latent Variable (Continuous)", 
+       y = "Density") +
+  theme_minimal() +
+  theme(legend.title = element_blank()) +
+  scale_x_continuous(breaks = seq(-4, 4, by = 1)) +
+  theme(legend.position = "top")
+```
 
 ## A latent variable representation
 
@@ -360,9 +464,45 @@ model {
   target += normal_lpdf(beta | 0, 10);
   target += normal_lpdf(alpha | 0, 10);
 }
+generated quantities {
+  vector[p] ors = exp(beta);
+  vector[n] Y_pred;
+  vector[n] log_lik;
+  for (i in 1:n) {
+    Y_pred[i] = ordered_logistic_rng(X[i, ] * beta, alpha);
+    log_lik[i] = ordered_logistic_glm_lpmf(Y[i] | X[i, ], beta, alpha);
+  }
+}
 ```
 
 [ordered_logistic_glm_lpmf](https://mc-stan.org/docs/functions-reference/bounded_discrete_distributions.html#ordered-logistic-generalized-linear-model-ordinal-regression)
+
+## Enforcing order in the cutoffs
+
+- In Stan, when you define a parameter as `ordered[K-1] alpha;`, the values of `alpha` are automatically constrained to be strictly increasing. 
+
+- This transformation ensures that the `alpha` values follow the required order, i.e., `alpha[1] < alpha[2] < ... < alpha[K-1]`.
+
+- Stan doesn't sample `alpha` directly but instead works with an **unconstrained** parameter vector, which we will call `gamma`.
+
+## Enforcing order in the cutoffs
+
+```{stan output.var = "order", eval = FALSE}
+parameters {
+  vector[K - 1] gamma;
+}
+transformed parameters {
+  vector[K - 1] alpha;
+  alpha[1] = gamma[1];
+  for (j in 2:K) {
+    alpha[j] = alpha[j - 1] + exp(gamma[j]);
+  }
+}
+```
+
+- Here, `gamma` represents a vector of independent, unconstrained variables, and the transformation ensures that `alpha` is strictly increasing by construction.
+
+- Luckily we can use [ordered](https://mc-stan.org/docs/reference-manual/transforms.html#ordered-vector), since Stan takes care of this (including the Jacobian) in the background.
 
 ## Prepare for next class
 
