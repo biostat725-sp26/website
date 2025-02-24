@@ -1,0 +1,11 @@
+---
+title: Prepare for February 25 lecture
+---
+
+<br>
+
+📖 Read **BDA3** Chapter 18.1-18.2 about missing data.
+
+📖 Read [A Note on Bayesian Inference After Multiple Imputation](pdfs/zhou2020.pdf) by Zhou and Reiter 2010.
+
+✅ Finish [HW 03](https://biostat725-sp25.netlify.app/hw/hw-03), which is due before class on Thursday.

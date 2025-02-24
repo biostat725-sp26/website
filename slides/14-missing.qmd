@@ -45,88 +45,87 @@ library(mice)
 
 ## Missing data in research
 
-- In any real-world dataset, missing values are nearly always going to be present.
+-   In any real-world dataset, missing values are nearly always going to be present.
 
-  - Missing data can be totally innocuous or a source of bias.
+    -   Missing data can be totally innocuous or a source of bias.
 
-- Cannot determine which because there are no values to inspect.
+-   Cannot determine which because there are no values to inspect.
 
-- Handling missing data is extremely difficult!
+-   Handling missing data is extremely difficult!
 
 ## Example
 
-- Suppose an individual's depression scores are missing in dataset of patients with colon cancer.
+-   Suppose an individual's depression scores are missing in dataset of patients with colon cancer.
 
-- It could be missing because:
+-   It could be missing because:
 
-  -   A data entry error where some values did not make it into the dataset.
+    -   A data entry error where some values did not make it into the dataset.
 
-  -   The patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the unobserved depression).
+    -   The patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the unobserved depression).
 
-  -   The patient has depression and as a result did not complete the depression survey. 
+    -   The patient has depression and as a result did not complete the depression survey.
 
 ## Classifactions of missing data
 
-- Missing completely at random (MCAR)
+-   Missing completely at random (MCAR)
 
-  - This is the ideal case but rarely seen in practice. Usually a data entry problem.
+    -   This is the ideal case but rarely seen in practice. Usually a data entry problem.
 
-- Missing at random (MAR)
+-   Missing at random (MAR)
 
-  - The missing value is related to some other variable that has been collected.
+    -   The missing value is related to some other variable that has been collected.
 
-- Missing not at random (MNAR)
+-   Missing not at random (MNAR)
 
-  - The missing value is related to a variable that was
-not collected or not observed.
+    -   The missing value is related to a variable that was not collected or not observed.
 
 ## Missing data
 
-- Missing data can appear in the outcome and/or predictors.
+-   Missing data can appear in the outcome and/or predictors.
 
-- Today, we will write down some math for missing data occuring in the outcome space, however this is generalizable to missingness in the predictor space.
+-   Today, we will write down some math for missing data occuring in the outcome space, however this is generalizable to missingness in the predictor space.
 
 ## Missing data framework {.midi}
 
-- We are interested in modeling a random variable $Y_{i}$, for $i \in \{1,\ldots,n\}$.
+-   We are interested in modeling a random variable $Y_{i}$, for $i \in \{1,\ldots,n\}$.
 
-- In a missing data setting, we only observe the outcome in subset of observations, $\mathbf{Y}_{obs} = \{Y_{i}:i \in \mathcal N_{obs}\}$. 
+-   In a missing data setting, we only observe the outcome in subset of observations, $\mathbf{Y}_{obs} = \{Y_{i}:i \in \mathcal N_{obs}\}$.
 
-  - $\mathcal N_{obs}$ is the set of indeces in the observed set, such that $|\mathcal N_{obs}|= n_{obs}$ is the number of observed data points.
+    -   $\mathcal N_{obs}$ is the set of indeces in the observed set, such that $|\mathcal N_{obs}|= n_{obs}$ is the number of observed data points.
 
-- The remaining observations are assumed to be missing and are contained in $\mathbf{Y}_{mis} = \{Y_{i}:i \in \mathcal N_{mis}\}$. 
+-   The remaining observations are assumed to be missing and are contained in $\mathbf{Y}_{mis} = \{Y_{i}:i \in \mathcal N_{mis}\}$.
 
-  - $\mathcal N_{mis}$ is the set of indeces of the missing data and $|\mathcal N_{mis}|= n_{mis}$ is the number of missing data points. 
+    -   $\mathcal N_{mis}$ is the set of indeces of the missing data and $|\mathcal N_{mis}|= n_{mis}$ is the number of missing data points.
 
-- The full set of data is given by $\mathbf{Y}=(\mathbf{Y}_{obs},\mathbf{Y}_{mis})$.
+-   The full set of data is given by $\mathbf{Y}=(\mathbf{Y}_{obs},\mathbf{Y}_{mis})$.
 
 ## Missing data notation
 
-- Define $O_{i}$ as a binary indicator of observation $Y_{i}$ being present, where $O_{i} = 1$ indicates that $Y_{i}$ was observed. 
+-   Define $O_{i}$ as a binary indicator of observation $Y_{i}$ being present, where $O_{i} = 1$ indicates that $Y_{i}$ was observed.
 
-- The collection of missingness indicators is given by $\mathbf{O} = \{O_{i}:i = 1,\ldots,n\}$. 
+-   The collection of missingness indicators is given by $\mathbf{O} = \{O_{i}:i = 1,\ldots,n\}$.
 
-- Our observed data then consists of $(\mathbf{Y}_{obs}, \mathbf{O})$.
+-   Our observed data then consists of $(\mathbf{Y}_{obs}, \mathbf{O})$.
 
 ## Complete data likelihood
 
-- The joint distribution of $(\mathbf{Y}, \mathbf{O})$ can be written as,
+-   The joint distribution of $(\mathbf{Y}, \mathbf{O})$ can be written as,
 
 $$f(\mathbf{Y}, \mathbf{O} | \mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi}) = \underbrace{f(\mathbf{Y} | \mathbf{X}, \boldsymbol{\theta})}_{\text{likelihood}} \times  \underbrace{f(\mathbf{O} | \mathbf{Y}, \mathbf{X}, \boldsymbol{\phi})}_{\text{missing model}}.$$
 
-  - The parameter block, $(\boldsymbol{\theta},\boldsymbol{\phi})$, consists of: 
-  
-    - $\boldsymbol{\theta}$, the **target parameters** of interest (e.g., feature effects on outcome), and 
-    
-    - $\boldsymbol{\phi}$, the **nuisance parameters**.
-    
+-   The parameter block, $(\boldsymbol{\theta},\boldsymbol{\phi})$, consists of:
+
+    -   $\boldsymbol{\theta}$, the **target parameters** of interest (e.g., feature effects on outcome), and
+
+    -   $\boldsymbol{\phi}$, the **nuisance parameters**.
+
 . . .
 
 **Can we perform inference using this likelihood?**
 
-## Observed data likelihood 
+## Observed data likelihood
 
-- The likelihood for the observed data must be written by marginalizing over the unobserved outcome variables.
+-   The likelihood for the observed data must be written by marginalizing over the unobserved outcome variables.
 
 \begin{align*}
 f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi}) &= \int f(\mathbf{Y}_{obs}, \mathbf{Y}_{mis}, \mathbf{O} | \mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi}) d\mathbf{Y}_{mis}\\
@@ -136,13 +135,12 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X}, \boldsymbol{\theta},\boldsymbol{\ph
 
 ## Missing data models: MCAR
 
-The data are missing completely at random (MCAR) if the missing mechanism is defined as,
-\begin{align*}
+The data are missing completely at random (MCAR) if the missing mechanism is defined as, \begin{align*}
 f(\mathbf{O} | \mathbf{Y},\mathbf{X},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\mathbf{X},\boldsymbol{\phi})\\
 &= f(\mathbf{O} | \boldsymbol{\phi}).
 \end{align*}
 
-- The missingness does not depend on any data.
+-   The missingness does not depend on any data.
 
 ## Implications of the missing model: MCAR {.midi}
 
@@ -156,21 +154,20 @@ f(\mathbf{Y}_{obs}, \mathbf{O} |\mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi
 
 ## Key points about MCAR assumption
 
-- **No bias:** The analysis based on the observed data will not be biased, as the missingness does not systematically favor any particular pattern in the data. 
+-   **No bias:** The analysis based on the observed data will not be biased, as the missingness does not systematically favor any particular pattern in the data.
 
-- **Reduced power:** While unbiased, MCAR still reduces the statistical power of the analysis due to the smaller sample size resulting from missing data.
-  
-- **Simple handling methods:** Because of its random nature, MCAR allows for straightforward handling methods like ***listwise deletion*** (i.e., complete-case analysis) or simple imputation techniques (e.g., mean imputation) without introducing bias. 
+-   **Reduced power:** While unbiased, MCAR still reduces the statistical power of the analysis due to the smaller sample size resulting from missing data.
+
+-   **Simple handling methods:** Because of its random nature, MCAR allows for straightforward handling methods like ***listwise deletion*** (i.e., complete-case analysis) or simple imputation techniques (e.g., mean imputation) without introducing bias.
 
 ## Missing data models: MAR
 
-The data are missing at random (MAR) if the missing mechanism is defined as,
-\begin{align*}
+The data are missing at random (MAR) if the missing mechanism is defined as, \begin{align*}
 f(\mathbf{O} | \mathbf{Y},\mathbf{X},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\mathbf{X},\boldsymbol{\phi})\\
 &= f(\mathbf{O} | \mathbf{Y}_{obs},\mathbf{X},\boldsymbol{\phi}).
 \end{align*}
 
-- The missingness depends on the observed data only.
+-   The missingness depends on the observed data only.
 
 ## Implications of the missing model: MAR {.midi}
 
@@ -182,30 +179,29 @@ f(\mathbf{Y}_{obs}, \mathbf{O} |\mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi
 &\hspace{-2in}=  f(\mathbf{Y}_{obs} | \mathbf{X}_{obs},\boldsymbol{\theta})f(\mathbf{O} |\mathbf{Y}_{obs}, \mathbf{X},\boldsymbol{\phi}).
 \end{align*}
 
-- **Unbiased Parameter Estimates:** Similar to MCAR, we can perform a complete case analysis and can ignore the missing data model! This is never done, however, because it leads to incorrect inference.
+-   **Unbiased Parameter Estimates:** Similar to MCAR, we can perform a complete case analysis and can ignore the missing data model! This is never done, however, because it leads to incorrect inference.
 
 ## Key points about MAR assumption
 
-- **Complete-case analysis is not acceptable: **
+-   **Complete-case analysis is not acceptable:**
 
-  - Parameter estimation remains unbiased, but, in general, estimation of variances and intervals is biased.
-  
-  - Also, smaller sample size leads to less power and worse prediction.
-  
-  - Under certain missingness settings, parameter estimation may not be unbiased. 
+    -   Parameter estimation remains unbiased, but, in general, estimation of variances and intervals is biased.
 
-- **Simple handling approaches fail:** Methods like mean imputation will also result in small estimated standard errors.
+    -   Also, smaller sample size leads to less power and worse prediction.
 
-- **More advanced methods are needed:** Multiple imputation, Bayes.
+    -   Under certain missingness settings, parameter estimation may not be unbiased.
+
+-   **Simple handling approaches fail:** Methods like mean imputation will also result in small estimated standard errors.
+
+-   **More advanced methods are needed:** Multiple imputation, Bayes.
 
 ## Missing data models: MNAR
 
-The data are missing not at random (MNAR) if the missing mechanism is defined as,
-\begin{align*}
+The data are missing not at random (MNAR) if the missing mechanism is defined as, \begin{align*}
 f(\mathbf{O} | \mathbf{Y},\mathbf{X},\boldsymbol{\phi}) &= f(\mathbf{O} | \mathbf{Y}_{obs}, \mathbf{Y}_{mis},\mathbf{X},\boldsymbol{\phi}).
 \end{align*}
 
-- The missingness depends on the observed and missing data.
+-   The missingness depends on the observed and missing data.
 
 ## Implications of the missing model: MNAR {.midi}
 
@@ -216,17 +212,17 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi
 &\hspace{-2in}= f(\mathbf{Y}_{obs} | \mathbf{X}_{obs},\boldsymbol{\theta}) \int f(\mathbf{Y}_{mis} | \mathbf{X}_{mis},\boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y},\mathbf{X},\boldsymbol{\phi})d\mathbf{Y}_{mis}
 \end{align*}
 
-- Under the MNAR assumption, we are NOT allowed to ignore the missing data. We must specify a model for the missing data.
+-   Under the MNAR assumption, we are NOT allowed to ignore the missing data. We must specify a model for the missing data.
 
-- This is really hard! We can ignore this in our class.
+-   This is really hard! We can ignore this in our class.
 
 ## Summary of missing mechanisms
 
-- Under MCAR and MAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered **ignorable**.
+-   Under MCAR and MAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered **ignorable**.
 
-- Under MAR, fitting the complete case analysis is not efficient and advanced techniques are needed to guarentee proper statistical inference.
+-   Under MAR, fitting the complete case analysis is not efficient and advanced techniques are needed to guarentee proper statistical inference.
 
-- Under MNAR, we must model the missing data mechanism. This data is considered **non-ignorable**.
+-   Under MNAR, we must model the missing data mechanism. This data is considered **non-ignorable**.
 
 # Bayesian approches to missing data
 
@@ -241,6 +237,7 @@ fulldata <- data.frame(y = bdims$wgt,
                        x1 = bdims$hgt,
                        x2 = bdims$sex)
 ```
+
 ```{r}
 #| echo: false
 #| fig-align: "center"
@@ -315,7 +312,7 @@ ggplot(fulldata[fulldata$o == 1, ], aes(x = x1, y = y, color = Sex)) +
 
 ## Full Bayesian model
 
-- Since we are Bayesians, we can treat the unobserved $\mathbf{Y}_{mis}$ as parameters and work with the complete data likelihood.
+-   Since we are Bayesians, we can treat the unobserved $\mathbf{Y}_{mis}$ as parameters and work with the complete data likelihood.
 
 \begin{align*}
 f(\boldsymbol{\theta}, \boldsymbol{\phi}, \mathbf{Y}_{mis} | \mathbf{Y}_{obs},\mathbf{O},\mathbf{X}) &\propto f(\mathbf{Y}, \mathbf{O}, \boldsymbol{\theta}, \boldsymbol{\phi} | \mathbf{X})\\
@@ -324,11 +321,11 @@ f(\boldsymbol{\theta}, \boldsymbol{\phi}, \mathbf{Y}_{mis} | \mathbf{Y}_{obs},\m
 &\hspace{-4in}=f(\mathbf{Y}_{obs} | \mathbf{X}_{obs}, \boldsymbol{\theta})f(\mathbf{Y}_{mis} | \mathbf{X}_{mis}, \boldsymbol{\theta})f(\mathbf{O} | \mathbf{Y}, \mathbf{X}, \boldsymbol{\phi})f(\boldsymbol{\theta},\boldsymbol{\phi})\\
 \end{align*}
 
-- We can simplify this posterior by dropping the missing data mechanism.
+-   We can simplify this posterior by dropping the missing data mechanism.
 
 ## Full Bayesian model
 
-- Assuming that $f(\boldsymbol{\theta},\boldsymbol{\phi}) = f(\boldsymbol{\theta})f(\boldsymbol{\phi})$, the missingness process does not need to be explicitly modeled when we are interested in inference for $\boldsymbol{\theta}$.
+-   Assuming that $f(\boldsymbol{\theta},\boldsymbol{\phi}) = f(\boldsymbol{\theta})f(\boldsymbol{\phi})$, the missingness process does not need to be explicitly modeled when we are interested in inference for $\boldsymbol{\theta}$.
 
 \begin{align*}
 &f(\boldsymbol{\theta}, \mathbf{Y}_{mis} | \mathbf{Y}_{obs},\mathbf{O},\mathbf{X})\\ &\hspace{2in}\propto f(\mathbf{Y}_{obs} | \mathbf{X}_{obs}, \boldsymbol{\theta})f(\mathbf{Y}_{mis} | \mathbf{X}_{mis}, \boldsymbol{\theta})f(\boldsymbol{\theta})
@@ -344,7 +341,7 @@ Y_i | \alpha, \beta, \sigma^2&\stackrel{ind}{\sim} N(\alpha + \mathbf{x}_i \bold
 \sigma &\sim f(\sigma),
 \end{align*}
 
-- $\mathbf{x}_i = (height_i, 1(sex_i = male), height_i \times 1(sex_i = male))$.
+-   $\mathbf{x}_i = (height_i, 1(sex_i = male), height_i \times 1(sex_i = male))$.
 
 ## Full Bayesian missing data model in Stan
 
@@ -443,29 +440,27 @@ mcmc_areas_ridges(Y_mis[, 1:10])
 
 ## Summary of Bayesian joint model
 
-- The joint model treats the missing data as parameters (i.e., latent variables in the model).
+-   The joint model treats the missing data as parameters (i.e., latent variables in the model).
 
-- Placing a prior on the missing data allows us to jointly learn the model parameters and the missing data. 
+-   Placing a prior on the missing data allows us to jointly learn the model parameters and the missing data.
 
-- Equivalent to multiple imputation at every step of the HMC. Can be slow!
+-   Equivalent to multiple imputation at every step of the HMC. Can be slow!
 
-- In Stan, we can only treat continuous missing data as parameters, so this method is somewhat limited (what do we do if the missing data is a binary outcome?)
+-   In Stan, we can only treat continuous missing data as parameters, so this method is somewhat limited (what do we do if the missing data is a binary outcome?)
 
 ## Multiple imputation
 
-- As an alternative to fitting a joint model, there are many approaches that allow us to impute missing data before the actual model fitting takes place.
+-   As an alternative to fitting a joint model, there are many approaches that allow us to impute missing data before the actual model fitting takes place.
 
-- From a statistical perspective, multiple imputation is one of the best solutions. 
+-   Each missing value is not imputed once but $m$ times leading to a total of $m$ fully imputed data sets.
 
-- Each missing value is not imputed once but $m$ times leading to a total of $m$ fully imputed data sets. 
+-   The model can then be fitted to each of those data sets separately and results are pooled across models, afterwards.
 
-- The model can then be fitted to each of those data sets separately and results are pooled across models, afterwards. 
-
-- One widely applied package for multiple imputation is `mice` (Buuren & Groothuis-Oudshoorn, 2010) and we will use it in the following in combination with Stan. 
+-   One widely applied package for multiple imputation is `mice` (Buuren & Groothuis-Oudshoorn, 2010) and we will use it in combination with Stan.
 
 ## Mice
 
-- Here, we apply the default settings of mice, which means that all variables will be used to impute missing values in all other variables and imputation functions automatically chosen based on the variables’ characteristics.
+-   Here, we apply the default settings of mice, which means that all variables will be used to impute missing values in all other variables and imputation functions automatically chosen based on the variables’ characteristics.
 
 ```{r}
 library(mice)
@@ -481,16 +476,17 @@ imp <- mice(mardata, m = m, print = FALSE)
 
 ## Mice
 
-Now, we have m = 5 imputed data sets stored within the imp object. In practice, we will likely need more than 5 of those to accurately account for the uncertainty induced by the missingness, perhaps even in the area of 100 imputed data sets (Zhou & Reiter, 2010).
+- Now, we have $m = 5$ imputed data sets stored within the `imp` object. 
 
-We can extract the first imputed dataset.
+  - In practice, we will likely need more than 5 of those to accurately account for the uncertainty induced by the missingness, perhaps even in the area of 100 imputed data sets (Zhou & Reiter, 2010).
+
+- We can extract the first imputed dataset.
 
 ```{r}
 data <- complete(imp, 1)
-head(data)
 ```
 
-- We can now fit our model $m$ times for each imputed data sets and combine the posterior samples from all chains for inference.
+-   We can now fit our model $m$ times for each imputed data sets and combine the posterior samples from all chains for inference.
 
 ## Model for the imputed datasets
 
@@ -565,23 +561,23 @@ for (i in 1:m) {
 
 ## Inspect traceplots
 
-![](images/14/alpha.png){fig-align="center" height=300}
+![](images/14/alpha.png){fig-align="center" height="300"}
 
 ## Inspect traceplots
 
-![](images/14/beta[1].png){fig-align="center" height=300}
+![](images/14/beta%5B1%5D.png){fig-align="center" height="300"}
 
 ## Inspect traceplots
 
-![](images/14/beta[2].png){fig-align="center" height=300}
+![](images/14/beta%5B2%5D.png){fig-align="center" height="300"}
 
 ## Inspect traceplots
 
-![](images/14/beta[3].png){fig-align="center" height=300}
+![](images/14/beta%5B3%5D.png){fig-align="center" height="300"}
 
 ## Inspect traceplots
 
-![](images/14/sigma.png){fig-align="center" height=300}
+![](images/14/sigma.png){fig-align="center" height="300"}
 
 ## Comparison of methods: $\alpha$ {.small}
 
@@ -652,6 +648,6 @@ overall_summary |> select(-c(Parameter, Setting)) |>
 
 -   Work on [HW 03](https://biostat725-sp25.netlify.app/hw/hw-03).
 
--   Complete reading to prepare for next Tuesday's lecture
+-   Complete reading to prepare for Thursday's lecture
 
--   Tuesday's lecture: Missing data
+-   Thursday's lecture: Hierarchical Models

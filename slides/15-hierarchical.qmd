@@ -1,0 +1,468 @@
+---
+title: "Hierarchical Models"
+author: "Prof. Sam Berchuck"
+date: "2025-02-27"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+filters:
+  - parse-latex
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(mvtnorm)
+library(coda)
+library(lars)
+library(LaplacesDemon)
+library(nimble)
+library(mice)
+library(bayesplot)
+```
+
+## Review of last lecture
+
+-   Last week, we learned about classification for binary and multiclass problems.
+
+-   Up until today, we have dealt with independent data. Today, we will look at our first example of dependent data!
+
+## Linear regression assumptions
+
+\begin{align*}
+Y_i &= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2)\\
+&= \mu_i + \epsilon_i.
+\end{align*}
+
+Assumptions:
+
+1.  $Y_i$ are independent observations (independence).
+
+2.  $Y_i$ is linearly related to $\mathbf{x}_i$ (linearity).
+
+3.  $\epsilon_i = Y_i - \mu_i$ is normally distributed (normality).
+
+4.  $\epsilon_i$ has constant variance across $\mathbf{x}_i$ (homoskedasticity).
+
+## Independence Assumption in Linear Regression
+
+We assume that the residuals $\epsilon_i$ are independent:
+
+$$\mathbb{C}(\epsilon_i, \epsilon_j) = 0, \quad \text{for} \quad i \neq j,$$
+where $\mathbb{C}(X, Y)$ is the covariance between two random variables $X$ and $Y$. As a note: $\mathbb{C}(X, X) = \mathbb{V}(X)$.
+
+- This implies that the observations $Y_i$ and $Y_j$ are independent, and their correlation is zero.
+
+  - Correlation: $\rho(X,Y) = \frac{\mathbb{C}(X, Y)}{\sqrt{\mathbb{V}(X)\mathbb{V}(Y)}}$.
+
+## Real-World: Dependent Observations
+
+However, in real-world data, the independence assumption often does not hold:
+
+- **Repeated measures data** (e.g., same individual over time).
+
+- **Clustered data** (e.g., patients within a hospital).
+
+- **Longitudinal data** (e.g., disease severity measures over time).
+
+- **Spatial data** (e.g., disease counts observed across zip codes).
+
+## The Challenge
+
+- If we assume independence in the presence of correlation:
+
+  1. **Biased parameter estimates**: Parameter estimation will be biased due to group-level dependencies that effect the outcome.
+  
+  2. **Underestimated uncertainty**: The model will not account for the true variability, leading to narrower confidence intervals.
+
+  3. **Inaccurate Predictions**: Predictions for new groups may be biased because the model doesn't properly account for group-level variability.
+
+- Thus, we need a way to account for dependencies between observations, especially when data are grouped or clustered.
+
+## Example of Hierarchical Data
+
+- Hierarchical data refers to data that is organized into groups or clusters, where each group contains multiple observations.
+
+- Consider data from patients within hospitals. Each patient is being treated in a hospital, with multiple patients belonging to each hospital.
+
+- In this case, the observation for a patient is indexed by two variables:
+
+    - $i$: hospital index.
+
+    - $j$: patient index, nested within hospital.
+
+- So, for patient $j$ within hospital $i$, we write the response as $Y_{ij}$.
+
+## Observations with Two Indices: $Y_{ij}$
+
+- $Y_{ij}$ represents the response for patient $j$ in hospital $i$.
+
+- The first index $i$ represents group-level effects (e.g., hospital-level).
+
+- The second index $j$ represents individual-level observations (e.g., patient).
+
+- We typically say that $i = 1,\ldots,n.$ and $j = 1,\ldots,n_i$.
+
+- The total number of observations is $N = \sum_{i = 1}^{n}n_i$.
+
+## Why Two Indices?
+
+Having two indices allows us to model both:
+
+- **Within-group variation** (differences between patients within the same hospital).
+
+- **Between-group variation** (differences between hospitals).
+
+The hierarchical structure captures both types of variation.
+
+## Conceptualizing Hierarchical Data
+
+Consider the example of patients within hospitals:
+
+- Each data point (i.e., observed data $Y_{ij}$) represents an outcome measured on a patient.
+
+- The data points are grouped by hospital, indicating that patients from the same hospital are likely to have similar outcomes due to shared hospital-level factors.
+
+This is a typical example of hierarchical data.
+
+## Hierarchical Model
+
+Now, we can see how hierarchical data appears in the model:
+
+$$Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij},\quad \epsilon_{ij} \stackrel{iid}{\sim}N(0,\sigma^2).$$
+
+- $Y_{ij}$: response for patient $j$ in hospital $i$.
+
+- $\mathbf{x}_{ij}$ are the predictors for patient $j$ in hospital $i$.
+
+- $\epsilon_{ij}$: residual error for patient $j$ in hospital $i$.
+
+This model allows us to account for the correlation within hospital.
+
+## Random Intercept Model
+
+$$Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij},\quad \epsilon_{ij} \stackrel{iid}{\sim}N(0,\sigma^2).$$
+
+- From a frequentist perspective, this model may be called a **random intercept** model, but in the Bayesian framework all parameters are random variables, so the terms fixed and random effects don't apply. 
+
+- $\theta_i$: hospital-specific parameter for hospital $i$, accounting for hospital-level variation (group-specific, random effect).
+
+- $\alpha, \boldsymbol{\beta}, \sigma$ are population parameters (common across all groups, $\boldsymbol{\beta}$ are the fixed effects).
+
+## Understanding the Random Intercept
+
+- $\theta_i$: hospital-specific parameter captures group-level differences.
+
+- The intercept $\theta_i$ allows for each group to have its own baseline value.
+
+- This model introduces **dependence** within groups because observations from the same group share the same intercept $\theta_i$.
+
+\begin{align*}
+\mathbb{E}[Y_{ij} | \alpha, \boldsymbol{\beta},\sigma,\theta_i] &= \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i\\
+&= \alpha_i^* + \mathbf{x}_{ij} \boldsymbol{\beta},
+\end{align*}
+
+where $\alpha_i^* = \alpha + \theta_i$.
+
+## Why Does This Model Work?
+
+1. **Within-group correlation**: Observations within the same hospital are more similar due to the shared intercept.
+
+2. **Between-group differences**: Groups have different intercepts $\alpha_i^*$, reflecting different baseline effects.
+
+## Identifiability Issues
+
+- **Population Intercept ($\alpha$)**: This is the average intercept for the entire population, i.e., the baseline outcome across all hospitals.
+
+- **Hospital-Specific Intercept ($\alpha + \theta_i$)**: The hospital-specific intercept, where $\theta_i$ represents the deviation from the population intercept for hospital $i$.
+
+We face an **identifiability issue** when estimating the population intercept and hospital-specific intercepts. We could add the same constant to all $\theta_i$'s and subtract that constant from $\alpha$.
+
+  - This is solved by setting $\theta_i$ to be mean zero. 
+
+## Hospital-Specific Parameters: $\theta_i$ {.midi}
+
+Each hospital $i$ has a **hospital-specific parameter** $\theta_i$, which represents how that hospital's baseline (e.g., health outcomes) deviates from the population average.
+
+We model $\theta_i$ as a parameter drawn from a **normal distribution** centered at zero, with some variance $\tau^2$:
+
+$$\theta_i \stackrel{iid}{\sim} N(0, \tau^2).$$
+
+- **Mean at zero**: This assumption reflects that, on average, hospitals don't deviate from the population mean (helps with identifiability).
+
+- **Variance $\tau^2$**: This represents the variability in hospital-level intercepts. A larger $\tau^2$ implies greater variability between hospitals.
+
+## Understanding the Correlation Structure {.midi}
+
+- The random intercept $\theta_i$ introduces correlation between observations within the same group.
+
+- For two observations $Y_{ij}$ and $Y_{ik}$ from the same group $i$, we have:
+
+\begin{align*}
+\mathbb{C}(Y_{ij}, Y_{ik} | \alpha,\boldsymbol{\beta},\sigma) &=  \mathbb{C}(\alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij}, \alpha + \mathbf{x}_{ik} \boldsymbol{\beta} + \theta_i + \epsilon_{ik})\\
+&= \mathbb{C}(\theta_i, \theta_i)\\
+&= \mathbb{V}(\theta_i).
+\end{align*}
+
+- This non-zero covariance reflects the correlation between observations in the same group.
+
+- Note: $\mathbb{C}(Y_{ij}, Y_{i'k}) = 0$ for $i \neq i'$.
+
+- To model the correlation, we need to specify the moments of $\theta_i$.
+
+<!-- ## Why Normal Distribution? -->
+
+<!-- - **Natural Assumption**: We assume that the hospital-specific parameters (e.g., hospital intercepts) are normally distributed with a mean of zero because there's no reason to expect systematic deviations from the population average. -->
+
+<!-- - **Flexibility**: The normal distribution allows us to model a wide range of variation in hospital effects, with the variance $\tau^2$ capturing how much hospitals differ from each other. -->
+
+## Group-Specific Intercept Model: Conditional Specification
+
+For $i = 1,\ldots,n$ and $j = 1,\ldots,n_i$,
+\begin{align*}
+Y_{ij} | \boldsymbol{\Omega},\theta_i &\stackrel{ind}{\sim} N(\alpha + \mathbf{x}_i\boldsymbol{\beta} + \theta_i,\sigma^2)\\
+\theta_i | \tau^2 &\stackrel{iid}{\sim} N(0,\tau^2)\\
+\boldsymbol{\Omega} &\sim f(\boldsymbol{\Omega}),
+\end{align*}
+where $\boldsymbol{\Omega} = (\alpha, \boldsymbol{\beta},\sigma,\tau)$ are the population parameters.
+
+## Group-Specific Intercept Model: Conditional Specification
+
+- Moments for the Conditional Model:
+
+\begin{align*}
+\mathbb{E}[Y_{ij} | \boldsymbol{\Omega},\theta_i] &= \alpha + \mathbf{x}_i\boldsymbol{\beta} + \theta_i\\
+\mathbb{V}(Y_{ij} | \boldsymbol{\Omega},\theta_i) &= \sigma^2\\
+\mathbb{C}(Y_{ij}, Y_{lk} | \boldsymbol{\Omega},\theta_i) &= 0,\quad \forall i,j,l,k.
+\end{align*}
+
+## Group-Specific Intercept Model: Conditional Specification
+
+- Define $\mathbf{Y}_i = (Y_{i1},\ldots,Y_{in_i})$ and $\mathbf{Y} = (\mathbf{Y}_1,\ldots,\mathbf{Y}_n)$.
+
+- The posterior for the conditional model can be written as:
+
+\begin{align*}
+f(\boldsymbol{\Omega}, \boldsymbol{\theta} | \mathbf{Y}) &\propto f(\mathbf{Y}, \boldsymbol{\Omega}, \boldsymbol{\theta})\\
+&= f(\mathbf{Y} | \boldsymbol{\Omega}, \boldsymbol{\theta}) f(\boldsymbol{\theta} | \boldsymbol{\Omega})f(\boldsymbol{\Omega})\\
+&=  \prod_{i=1}^n \prod_{j = 1}^{n_i} f(Y_{ij} | \boldsymbol{\Omega}, \boldsymbol{\theta})  \prod_{i=1}^n f(\theta_i | \tau^2) f(\boldsymbol{\Omega}),
+\end{align*}
+where $\boldsymbol{\theta} = (\theta_1,\ldots,\theta_n)$.
+
+## Group-Specific Intercept Model: Marginal Specification {.midi}
+
+To derive a marginal model it is useful to write the model at the level of the independent observations, $\mathbf{Y}_i$.
+
+$$\mathbf{Y}_i = \begin{bmatrix}
+    Y_{i1}\\
+    Y_{i2}\\
+    \vdots\\
+    Y_{in_i}
+  \end{bmatrix} = 
+  \begin{bmatrix}
+    \alpha + \mathbf{x}_{i1} \boldsymbol{\beta} + \theta_i + \epsilon_{i1}\\
+    \alpha + \mathbf{x}_{i2} \boldsymbol{\beta} + \theta_i + \epsilon_{i2}\\
+    \vdots \\
+    \alpha + \mathbf{x}_{in_i} \boldsymbol{\beta} + \theta_i + \epsilon_{in_i}
+  \end{bmatrix} = \alpha \mathbf{1}_{n_i} + \mathbf{X}_i \boldsymbol{\beta} + \theta_i \mathbf{1}_{n_i} + \boldsymbol{\epsilon}_i,$$
+where $\mathbf{1}_{n_i}$ is an $n_i \times 1$ dimensional vector of ones, $\mathbf{X}_i$ is an $n_i \times p$ dimensional matrix with rows $\mathbf{x}_{ij}$. 
+
+  - $\boldsymbol{\epsilon}_i = (\epsilon_{i1},\ldots,\epsilon_{in_i}) \stackrel{ind}{\sim} N(\mathbf{0}_{n_i}, \sigma^2 \mathbf{I}_{n_i})$, with $\mathbf{0}_{n_i}$ an $n_i \times 1$ dimensional vector of zeros.
+
+## Group-Specific Intercept Model: Marginal Specification {.midi}
+
+- Moments for the Marginal Model:
+
+\begin{align*}
+\mathbb{E}[\mathbf{Y}_{i} | \boldsymbol{\Omega}] &= \alpha \mathbf{1}_{n_i} + \mathbf{X}_i\boldsymbol{\beta}\\
+\mathbb{V}(\mathbf{Y}_{i} | \boldsymbol{\Omega}) &= \tau^2 \mathbf{1}_{n_i} \mathbf{1}_{n_i}^\top + \sigma^2 \mathbf{I}_{n_i} = \boldsymbol{\Upsilon}_i\\
+\mathbb{C}(\mathbf{Y}_{i}, \mathbf{Y}_{i'} | \boldsymbol{\Omega}) &= \mathbf{0}_{n_i \times n_i},\quad i \neq i'.
+\end{align*}
+
+$$\implies \boldsymbol{\Upsilon}_i = \mathbb{V}(\mathbf{Y}_{i} | \boldsymbol{\Omega}) = \begin{bmatrix}
+    \tau^2 + \sigma^2 & \tau^2 & \cdots & \tau^2\\
+    \tau^2 & \tau^2 + \sigma^2 & \cdots & \tau^2\\
+    \vdots & \vdots & \ddots & \vdots\\
+    \tau^2 & \tau^2 & \cdots &\tau^2 + \sigma^2
+  \end{bmatrix}.$$
+
+## Group-Specific Intercept Model: Marginal Specification
+
+For $i = 1,\ldots,n$, 
+\begin{align*}
+\mathbf{Y}_{i} | \boldsymbol{\Omega} &\stackrel{ind}{\sim} N(\alpha \mathbf{1}_{n_i}+ \mathbf{X}_i\boldsymbol{\beta} + \theta_i,\boldsymbol{\Upsilon}_i)\\
+\boldsymbol{\Omega} &\sim f(\boldsymbol{\Omega}),
+\end{align*}
+where $\boldsymbol{\Omega} = (\alpha, \boldsymbol{\beta},\sigma,\tau)$ are the population parameters.
+
+## Group-Specific Intercept Model: Marginal Specification
+
+- The posterior for the conditional model can be written as:
+
+\begin{align*}
+f(\boldsymbol{\Omega} | \mathbf{Y}) &\propto f(\mathbf{Y}, \boldsymbol{\Omega})\\
+&= f(\mathbf{Y} | \boldsymbol{\Omega})f(\boldsymbol{\Omega})\\
+&=  \prod_{i=1}^n f(\mathbf{Y}_{i} | \boldsymbol{\Omega}) f(\boldsymbol{\Omega}).
+\end{align*}
+
+**Why might we be interested in fitting the marginal model?**
+
+## Recovering the Group-Specific Parameters {.midi}
+
+- We can still recover the $\theta_i$ when we fit the marginal model, we only need to compute $f(\theta_i | \mathbf{Y}_i,\boldsymbol{\Omega})$ for all $i$.
+
+- We can obtain this full conditional by specifying the joint distribution,
+
+$$f\left(\begin{bmatrix}
+    \mathbf{Y}_i\\
+    \theta_i
+  \end{bmatrix} \Bigg| \boldsymbol{\Omega}\right) = N\left(\begin{bmatrix}
+    \alpha \mathbf{1}_{n_i} + \mathbf{X}_i \boldsymbol{\beta} + \theta_i \mathbf{1}_{n_i} + \boldsymbol{\epsilon}_i\\
+    \mathbf{0}_{n_i}
+  \end{bmatrix}, \begin{bmatrix}
+    \Upsilon_i & \tau^2 \mathbf{1}_{n_i}\\
+    \tau^2 \mathbf{1}_{n_i}^\top & \tau^2
+  \end{bmatrix}\right).$$
+
+We can then use the [conditional specification of a multivariate normal](https://en.wikipedia.org/wiki/Multivariate_normal_distribution#Conditional_distributions) to find, $f(\theta_i | \mathbf{Y_i}, \boldsymbol{\Omega}) = N(\mathbb{E}_{\theta_i},\mathbb{V}_{\theta_i})$, where 
+
+\begin{align*}
+\mathbb{E}_{\theta_i} &= \mathbf{0}_{n_i} + \tau^2 \mathbf{1}_{n_i}^\top \boldsymbol{\Upsilon}_i^{-1} (\mathbf{Y}_i - \alpha \mathbf{1}_{n_i} - \mathbf{X}_i \boldsymbol{\beta})\\
+\mathbb{V}_{\theta_i} &= \tau^2 - \tau^4 \mathbf{1}_{n_i}^\top \boldsymbol{\Upsilon}_i^{-1} \mathbf{1}_{n_i}.
+\end{align*}
+
+
+
+## Covariance Structure
+
+- The variance $\tau^2$ for $\theta_i$ can be interpreted as the **covariance** between two observations from the same hospital. 
+
+- This reflects how much two students from the same school are expected to be similar in terms of their outcomes.
+  
+\begin{align*}
+\mathbb{C}(Y_{ij}, Y_{ik} | \boldsymbol{\Omega}) &= \mathbb{V}(\theta_i)\\
+&= \tau^2.
+\end{align*}
+
+- Thus, $\tau^2$ dictates the **within-group correlation** in our model.
+
+## Induced Within Correlation
+
+\begin{align*}
+\rho (Y_{ij}, Y_{ik} | \boldsymbol{\Omega}) &= \frac{\mathbb{C}(Y_{ij}, Y_{ik} | \boldsymbol{\Omega})}{\sqrt{\mathbb{V}(Y_{ij} |  \boldsymbol{\Omega}) \mathbb{V}(Y_{ik} |  \boldsymbol{\Omega})}}\\
+&=\frac{\tau^2}{\tau^2 + \sigma^2}\\
+&= \frac{1}{1 + \frac{\sigma^2}{\tau^2}}.
+\end{align*}
+
+This model induces positive correlation within group observations.
+
+## Induced Within Correlation
+
+$$\rho (Y_{ij}, Y_{ik} | \alpha,\boldsymbol{\beta},\sigma) = \frac{1}{1 + \frac{\sigma^2}{\tau^2}}$$
+
+```{r, echo = FALSE}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+#| fig-align: "center"
+correlation <- function(tau2, sigma2 = 1) {
+  1 / (1 + (sigma2 / tau2))
+}
+tau2 <- seq(0.001, 10, length.out = 1000)
+dat_fig <- data.frame(
+  x = tau2,
+  y = correlation(tau2)
+)
+ggplot(dat_fig, aes(x = x, y = y)) + 
+  geom_line(lwd = 2) + 
+  geom_vline(aes(xintercept = 1)) + 
+  scale_x_continuous(breaks = 0:10) + 
+  labs(x = expression(tau^2),
+       y = "Correlation",
+       subtitle = expression(paste("Induced correlation in the group-intercept model with ", sigma^2, " = 1."))) +
+  theme_bw()
+```
+
+## Fitting the Conditional Model in Stan
+
+```{stan output.var = "intercept", eval = FALSE}
+data {
+  int<lower = 1> n;
+  int<lower = 1> N;
+  int<lower = 1> p;
+  matrix[N, p] X;
+  vector[N] Y;
+  int<lower = 1, upper = n> Ids[N];
+}
+parameters {
+  real alpha;
+  vector[p] beta;
+  real<lower = 0> sigma;
+  real<lower = 0> tau;
+  vector[n] theta;
+}
+model {
+  vector[N] mu = rep_vector(0.0, N);
+  mu += alpha;
+  for (i in 1:N) {
+    mu[i] += X[i, ] * beta + theta[Ids[i]];
+  }
+  target += normal_lpdf(Y | mu, sigma);
+  target += normal_lpdf(theta | 0, tau);
+  target += normal_lpdf(beta | 0, 3);
+  target += normal_lpdf(sigma | 0, 3);
+  target += normal_lpdf(tau | 0, 3);
+}
+generated quantities {
+  real rho = 1 / (1 + ((sigma * sigma) / (tau * tau)));
+  vector[N] Y_pred;
+  vector[N] log_lik;
+  vector[N] mu = rep_vector(0.0, N);
+  mu += alpha;
+  for (i in 1:N) {
+    mu[i] += X[i, ] * beta + theta[Ids[i]];
+    log_lik[i] = normal_lpdf(Y[i] | mu[i], sigma);
+    Y_pred[i] = normal_rng(mu[i], sigma);
+  }
+}
+```
+
+## Summary of Key Points
+
+- School-specific intercepts $u_j$ are modeled as random effects, assumed to come from a normal distribution centered at zero with variance $\sigma_u^2$.
+- The variance $\sigma_u^2$ captures the variability in school-level effects and the within-group correlation.
+- The identifiability issue arises from the redundancy between the population intercept and the school-specific intercepts.
+- **Centering** the school-specific intercepts ensures that the population intercept $\beta_0$ is well-defined and identifiable.
+
+## Conclusion
+
+By introducing a random intercept, we allow for dependencies between observations within groups, making the model more realistic for real-world clustered or repeated measures data.
+
+This is just one way to think about hierarchical models in Bayesian analysis, where we model not only fixed effects but also group-level variability.
+
+## Prepare for next class
+
+-   Work on [HW 03](https://biostat725-sp25.netlify.app/hw/hw-03).
+
+-   Complete reading to prepare for next Tuesday's lecture
+
+-   Tuesday's lecture: Missing data

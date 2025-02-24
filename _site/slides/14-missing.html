@@ -563,7 +563,7 @@ f(\mathbf{Y}_{obs}, \mathbf{O} |\mathbf{X}, \boldsymbol{\theta},\boldsymbol{\phi
 <section id="key-points-about-mar-assumption" class="slide level2">
 <h2>Key points about MAR assumption</h2>
 <ul>
-<li><p><strong>Complete-case analysis is not acceptable: </strong></p>
+<li><p><strong>Complete-case analysis is not acceptable:</strong></p>
 <ul>
 <li><p>Parameter estimation remains unbiased, but, in general, estimation of variances and intervals is biased.</p></li>
 <li><p>Also, smaller sample size leads to less power and worse prediction.</p></li>
@@ -616,7 +616,7 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -652,7 +652,7 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -676,7 +676,7 @@ f(\mathbf{Y}_{obs}, \mathbf{O} | \mathbf{X},\boldsymbol{\theta},\boldsymbol{\phi
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -843,10 +843,9 @@ convergence, Rhat=1).</code></pre>
 <h2>Multiple imputation</h2>
 <ul>
 <li><p>As an alternative to fitting a joint model, there are many approaches that allow us to impute missing data before the actual model fitting takes place.</p></li>
-<li><p>From a statistical perspective, multiple imputation is one of the best solutions.</p></li>
 <li><p>Each missing value is not imputed once but <span class="math inline">\(m\)</span> times leading to a total of <span class="math inline">\(m\)</span> fully imputed data sets.</p></li>
 <li><p>The model can then be fitted to each of those data sets separately and results are pooled across models, afterwards.</p></li>
-<li><p>One widely applied package for multiple imputation is <code>mice</code> (Buuren &amp; Groothuis-Oudshoorn, 2010) and we will use it in the following in combination with Stan.</p></li>
+<li><p>One widely applied package for multiple imputation is <code>mice</code> (Buuren &amp; Groothuis-Oudshoorn, 2010) and we will use it in combination with Stan.</p></li>
 </ul>
 </section>
 <section id="mice" class="slide level2">
@@ -868,20 +867,15 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="mice-1" class="slide level2">
 <h2>Mice</h2>
-<p>Now, we have m = 5 imputed data sets stored within the imp object. In practice, we will likely need more than 5 of those to accurately account for the uncertainty induced by the missingness, perhaps even in the area of 100 imputed data sets (Zhou &amp; Reiter, 2010).</p>
-<p>We can extract the first imputed dataset.</p>
+<ul>
+<li><p>Now, we have <span class="math inline">\(m = 5\)</span> imputed data sets stored within the <code>imp</code> object.</p>
+<ul>
+<li>In practice, we will likely need more than 5 of those to accurately account for the uncertainty induced by the missingness, perhaps even in the area of 100 imputed data sets (Zhou &amp; Reiter, 2010).</li>
+</ul></li>
+<li><p>We can extract the first imputed dataset.</p></li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>data <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp, <span class="dv">1</span>)</span>
-<span id="cb9-2"><a></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     y    x1 x2
-1 65.6 174.0  1
-2 77.7 175.3  1
-3 98.2 193.5  1
-4 84.8 186.5  1
-5 85.9 187.2  1
-6 75.0 181.5  1</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>data <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>We can now fit our model <span class="math inline">\(m\)</span> times for each imputed data sets and combine the posterior samples from all chains for inference.</li>
@@ -890,72 +884,72 @@ convergence, Rhat=1).</code></pre>
 <section id="model-for-the-imputed-datasets" class="slide level2">
 <h2>Model for the imputed datasets</h2>
 <div class="cell" data-output.var="cc">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb11-1"><a></a><span class="co">// bayesian-mi.stan</span></span>
-<span id="cb11-2"><a></a><span class="kw">data</span> {</span>
-<span id="cb11-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
-<span id="cb11-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
-<span id="cb11-5"><a></a>  <span class="dt">vector</span>[n] Y;</span>
-<span id="cb11-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
-<span id="cb11-7"><a></a>}</span>
-<span id="cb11-8"><a></a><span class="kw">transformed data</span> {</span>
-<span id="cb11-9"><a></a>  <span class="dt">vector</span>[n] Y_centered;</span>
-<span id="cb11-10"><a></a>  <span class="dt">real</span> Y_bar;</span>
-<span id="cb11-11"><a></a>  <span class="dt">matrix</span>[n, p] X_centered;</span>
-<span id="cb11-12"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
-<span id="cb11-13"><a></a>  Y_bar = mean(Y);</span>
-<span id="cb11-14"><a></a>  Y_centered = Y - Y_bar;</span>
-<span id="cb11-15"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
-<span id="cb11-16"><a></a>    X_bar[i] = mean(X[, i]);</span>
-<span id="cb11-17"><a></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
-<span id="cb11-18"><a></a>  }</span>
-<span id="cb11-19"><a></a>}</span>
-<span id="cb11-20"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb11-21"><a></a>  <span class="dt">real</span> alpha_centered;</span>
-<span id="cb11-22"><a></a>  <span class="dt">vector</span>[p] beta;</span>
-<span id="cb11-23"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
-<span id="cb11-24"><a></a>}</span>
-<span id="cb11-25"><a></a><span class="kw">model</span> {</span>
-<span id="cb11-26"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y_centered | alpha_centered + X_centered * beta, sigma);</span>
-<span id="cb11-27"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha_centered | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb11-28"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb11-29"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">10</span>);</span>
-<span id="cb11-30"><a></a>}</span>
-<span id="cb11-31"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb11-32"><a></a>  <span class="dt">real</span> alpha;</span>
-<span id="cb11-33"><a></a>  alpha = Y_bar + alpha_centered - X_bar * beta;</span>
-<span id="cb11-34"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb10-1"><a></a><span class="co">// bayesian-mi.stan</span></span>
+<span id="cb10-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb10-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb10-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb10-5"><a></a>  <span class="dt">vector</span>[n] Y;</span>
+<span id="cb10-6"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb10-7"><a></a>}</span>
+<span id="cb10-8"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb10-9"><a></a>  <span class="dt">vector</span>[n] Y_centered;</span>
+<span id="cb10-10"><a></a>  <span class="dt">real</span> Y_bar;</span>
+<span id="cb10-11"><a></a>  <span class="dt">matrix</span>[n, p] X_centered;</span>
+<span id="cb10-12"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb10-13"><a></a>  Y_bar = mean(Y);</span>
+<span id="cb10-14"><a></a>  Y_centered = Y - Y_bar;</span>
+<span id="cb10-15"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
+<span id="cb10-16"><a></a>    X_bar[i] = mean(X[, i]);</span>
+<span id="cb10-17"><a></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
+<span id="cb10-18"><a></a>  }</span>
+<span id="cb10-19"><a></a>}</span>
+<span id="cb10-20"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb10-21"><a></a>  <span class="dt">real</span> alpha_centered;</span>
+<span id="cb10-22"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb10-23"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb10-24"><a></a>}</span>
+<span id="cb10-25"><a></a><span class="kw">model</span> {</span>
+<span id="cb10-26"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y_centered | alpha_centered + X_centered * beta, sigma);</span>
+<span id="cb10-27"><a></a>  <span class="kw">target +=</span> normal_lpdf(alpha_centered | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb10-28"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb10-29"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb10-30"><a></a>}</span>
+<span id="cb10-31"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb10-32"><a></a>  <span class="dt">real</span> alpha;</span>
+<span id="cb10-33"><a></a>  alpha = Y_bar + alpha_centered - X_bar * beta;</span>
+<span id="cb10-34"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fit-the-model-to-the-imputed-data" class="slide level2">
 <h2>Fit the model to the imputed data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>stan_bayesian_mi <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"bayesian-mi.stan"</span>)</span>
-<span id="cb12-2"><a></a>alpha <span class="ot">&lt;-</span> beta <span class="ot">&lt;-</span> sigma <span class="ot">&lt;-</span> r_hat <span class="ot">&lt;-</span> n_eff <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb12-3"><a></a>n_chains <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb12-4"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>m) {</span>
-<span id="cb12-5"><a></a>  </span>
-<span id="cb12-6"><a></a>  <span class="do">###Load each imputed dataset and fit the Stan complete case model</span></span>
-<span id="cb12-7"><a></a>  data <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp, i)</span>
-<span id="cb12-8"><a></a>  X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> x1 <span class="sc">*</span> x2, <span class="at">data =</span> data)[, <span class="sc">-</span><span class="dv">1</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
-<span id="cb12-9"><a></a>  stan_data_bayesian_mi <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb12-10"><a></a>    <span class="at">n =</span> <span class="fu">nrow</span>(data),</span>
-<span id="cb12-11"><a></a>    <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
-<span id="cb12-12"><a></a>    <span class="at">Y =</span> data<span class="sc">$</span>y,</span>
-<span id="cb12-13"><a></a>    <span class="at">X =</span> X</span>
-<span id="cb12-14"><a></a>  )</span>
-<span id="cb12-15"><a></a>  fit_mi <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_bayesian_mi, stan_data_bayesian_mi, <span class="at">chains =</span> n_chains)</span>
-<span id="cb12-16"><a></a>  </span>
-<span id="cb12-17"><a></a>  <span class="do">###Save convergence diagnostics from each imputed dataset</span></span>
-<span id="cb12-18"><a></a>  r_hat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(r_hat, <span class="fu">summary</span>(fit_mi)<span class="sc">$</span>summary[, <span class="st">"Rhat"</span>])</span>
-<span id="cb12-19"><a></a>  n_eff <span class="ot">&lt;-</span> <span class="fu">cbind</span>(n_eff, <span class="fu">summary</span>(fit_mi)<span class="sc">$</span>summary[, <span class="st">"n_eff"</span>])</span>
-<span id="cb12-20"><a></a>  pars <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit_mi, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>))</span>
-<span id="cb12-21"><a></a>  </span>
-<span id="cb12-22"><a></a>  <span class="do">### Save the parameters from each imputed dataset</span></span>
-<span id="cb12-23"><a></a>  n_sims_chain <span class="ot">&lt;-</span> <span class="fu">length</span>(pars<span class="sc">$</span>alpha) <span class="sc">/</span> n_chains</span>
-<span id="cb12-24"><a></a>  alpha <span class="ot">&lt;-</span> <span class="fu">rbind</span>(alpha, <span class="fu">cbind</span>(i, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_chains, <span class="at">each =</span> n_sims_chain), pars<span class="sc">$</span>alpha))</span>
-<span id="cb12-25"><a></a>  beta <span class="ot">&lt;-</span> <span class="fu">rbind</span>(beta, <span class="fu">cbind</span>(i, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_chains, <span class="at">each =</span> n_sims_chain), pars<span class="sc">$</span>beta))</span>
-<span id="cb12-26"><a></a>  sigma <span class="ot">&lt;-</span> <span class="fu">rbind</span>(sigma, <span class="fu">cbind</span>(i, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_chains, <span class="at">each =</span> n_sims_chain), pars<span class="sc">$</span>sigma))</span>
-<span id="cb12-27"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>stan_bayesian_mi <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">file =</span> <span class="st">"bayesian-mi.stan"</span>)</span>
+<span id="cb11-2"><a></a>alpha <span class="ot">&lt;-</span> beta <span class="ot">&lt;-</span> sigma <span class="ot">&lt;-</span> r_hat <span class="ot">&lt;-</span> n_eff <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb11-3"><a></a>n_chains <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb11-4"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>m) {</span>
+<span id="cb11-5"><a></a>  </span>
+<span id="cb11-6"><a></a>  <span class="do">###Load each imputed dataset and fit the Stan complete case model</span></span>
+<span id="cb11-7"><a></a>  data <span class="ot">&lt;-</span> <span class="fu">complete</span>(imp, i)</span>
+<span id="cb11-8"><a></a>  X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> x1 <span class="sc">*</span> x2, <span class="at">data =</span> data)[, <span class="sc">-</span><span class="dv">1</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb11-9"><a></a>  stan_data_bayesian_mi <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb11-10"><a></a>    <span class="at">n =</span> <span class="fu">nrow</span>(data),</span>
+<span id="cb11-11"><a></a>    <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb11-12"><a></a>    <span class="at">Y =</span> data<span class="sc">$</span>y,</span>
+<span id="cb11-13"><a></a>    <span class="at">X =</span> X</span>
+<span id="cb11-14"><a></a>  )</span>
+<span id="cb11-15"><a></a>  fit_mi <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_bayesian_mi, stan_data_bayesian_mi, <span class="at">chains =</span> n_chains)</span>
+<span id="cb11-16"><a></a>  </span>
+<span id="cb11-17"><a></a>  <span class="do">###Save convergence diagnostics from each imputed dataset</span></span>
+<span id="cb11-18"><a></a>  r_hat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(r_hat, <span class="fu">summary</span>(fit_mi)<span class="sc">$</span>summary[, <span class="st">"Rhat"</span>])</span>
+<span id="cb11-19"><a></a>  n_eff <span class="ot">&lt;-</span> <span class="fu">cbind</span>(n_eff, <span class="fu">summary</span>(fit_mi)<span class="sc">$</span>summary[, <span class="st">"n_eff"</span>])</span>
+<span id="cb11-20"><a></a>  pars <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit_mi, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>))</span>
+<span id="cb11-21"><a></a>  </span>
+<span id="cb11-22"><a></a>  <span class="do">### Save the parameters from each imputed dataset</span></span>
+<span id="cb11-23"><a></a>  n_sims_chain <span class="ot">&lt;-</span> <span class="fu">length</span>(pars<span class="sc">$</span>alpha) <span class="sc">/</span> n_chains</span>
+<span id="cb11-24"><a></a>  alpha <span class="ot">&lt;-</span> <span class="fu">rbind</span>(alpha, <span class="fu">cbind</span>(i, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_chains, <span class="at">each =</span> n_sims_chain), pars<span class="sc">$</span>alpha))</span>
+<span id="cb11-25"><a></a>  beta <span class="ot">&lt;-</span> <span class="fu">rbind</span>(beta, <span class="fu">cbind</span>(i, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_chains, <span class="at">each =</span> n_sims_chain), pars<span class="sc">$</span>beta))</span>
+<span id="cb11-26"><a></a>  sigma <span class="ot">&lt;-</span> <span class="fu">rbind</span>(sigma, <span class="fu">cbind</span>(i, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_chains, <span class="at">each =</span> n_sims_chain), pars<span class="sc">$</span>sigma))</span>
+<span id="cb11-27"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="inspect-traceplots" class="slide level2">
@@ -1317,8 +1311,8 @@ convergence, Rhat=1).</code></pre>
 <h2>Prepare for next class</h2>
 <ul>
 <li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-03">HW 03</a>.</p></li>
-<li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
-<li><p>Tuesday’s lecture: Missing data</p></li>
+<li><p>Complete reading to prepare for Thursday’s lecture</p></li>
+<li><p>Thursday’s lecture: Hierarchical Models</p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
