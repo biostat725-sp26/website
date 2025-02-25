@@ -9967,7 +9967,7 @@
     "href": "slides/12-classification.html#what-can-go-wrong",
     "title": "Classification",
     "section": "What can go wrong?",
-    "text": "What can go wrong?\n\nSuppose we fit the following model:\n\n\\[\\begin{aligned}\nY_i &= \\alpha + \\beta_1(ascites)_i + \\beta_2(bilirubin)_i\\\\\n&\\quad+\\beta_3(stage = 2)_i + \\beta_4(stage = 3)_i\\\\\n&\\quad+\\beta_5(stage = 4)_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\n\\end{aligned}\\]\n. . .\nWhat can go wrong?"
+    "text": "What can go wrong?\n\nSuppose we fit the following model:\n\n\\[\\begin{aligned}\nY_i &= \\alpha + \\beta_1(ascites)_i + \\beta_2(bilirubin)_i\\\\\n&\\quad+\\beta_3(stage = 2)_i + \\beta_4(stage = 3)_i\\\\\n&\\quad+\\beta_5(stage = 4)_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\n\\end{aligned}\\]\n\nWhat can go wrong?"
   },
   {
     "objectID": "slides/12-classification.html#what-can-go-wrong-1",
@@ -10072,7 +10072,7 @@
     "href": "slides/12-classification.html#convergence-diagnostics-1",
     "title": "Classification",
     "section": "Convergence diagnostics",
-    "text": "Convergence diagnostics\n\nThis is bayesplot version 1.11.1\n\n\n- Online documentation and vignettes at mc-stan.org/bayesplot\n\n\n- bayesplot theme set to bayesplot::theme_default()\n\n\n   * Does _not_ affect other ggplot2 plots\n\n\n   * See ?bayesplot_theme_set for details on theme setting"
+    "text": "Convergence diagnostics"
   },
   {
     "objectID": "slides/12-classification.html#back-to-the-pbc-data",
@@ -10121,14 +10121,14 @@
     "href": "slides/12-classification.html#posterior-predictive-checks-2",
     "title": "Classification",
     "section": "Posterior predictive checks",
-    "text": "Posterior predictive checks\nppc_stat(stan_data$Y, y_pred, stat = \"mean\") # from bayesplot\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\nppc_stat(stan_data$Y, y_pred, stat = \"sd\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\nq025 &lt;- function(y) quantile(y, 0.025)\nq975 &lt;- function(y) quantile(y, 0.975)\nppc_stat(stan_data$Y, y_pred, stat = \"q025\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\nppc_stat(stan_data$Y, y_pred, stat = \"q975\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "Posterior predictive checks\nppc_stat(stan_data$Y, y_pred, stat = \"mean\") # from bayesplot\nppc_stat(stan_data$Y, y_pred, stat = \"sd\")\nq025 &lt;- function(y) quantile(y, 0.025)\nq975 &lt;- function(y) quantile(y, 0.975)\nppc_stat(stan_data$Y, y_pred, stat = \"q025\")\nppc_stat(stan_data$Y, y_pred, stat = \"q975\")"
   },
   {
     "objectID": "slides/12-classification.html#model-comparison",
     "href": "slides/12-classification.html#model-comparison",
     "title": "Classification",
     "section": "Model comparison",
-    "text": "Model comparison\n\nComparing our model to a baseline that removed stage.\n\n\nlibrary(loo)\n\nThis is loo version 2.8.0\n\n\n- Online documentation and vignettes at mc-stan.org/loo\n\n\n- As of v2.0.0 loo defaults to 1 core but we recommend using as many as possible. Use the 'cores' argument or set options(mc.cores = NUM_CORES) for an entire session. \n\nlog_lik &lt;- loo::extract_log_lik(fit, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_baseline &lt;- loo::extract_log_lik(fit_baseline, parameter_name = \"log_lik\", merge_chains = TRUE)\nwaic_model &lt;- loo::waic(log_lik)\n\nWarning: \n3 (1.1%) p_waic estimates greater than 0.4. We recommend trying loo instead.\n\nwaic_model_baseline &lt;- loo::waic(log_lik_baseline)\n\nWarning: \n2 (0.7%) p_waic estimates greater than 0.4. We recommend trying loo instead.\n\n###Make a comparison\ncomp_waic &lt;- loo::loo_compare(list(\"full\" = waic_model, \"baseline\" = waic_model_baseline))\nprint(comp_waic, digits = 2, simplify = FALSE)\n\n         elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic   \nfull        0.00      0.00 -156.08      9.60         7.83    2.20    312.17\nbaseline   -1.38      3.15 -157.46      9.29         4.68    1.82    314.92\n         se_waic\nfull       19.21\nbaseline   18.58"
+    "text": "Model comparison\n\nComparing our model to a baseline that removed stage.\n\n\nlibrary(loo)\nlog_lik &lt;- loo::extract_log_lik(fit, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_baseline &lt;- loo::extract_log_lik(fit_baseline, parameter_name = \"log_lik\", merge_chains = TRUE)\nwaic_model &lt;- loo::waic(log_lik)\nwaic_model_baseline &lt;- loo::waic(log_lik_baseline)\n\n###Make a comparison\ncomp_waic &lt;- loo::loo_compare(list(\"full\" = waic_model, \"baseline\" = waic_model_baseline))\nprint(comp_waic, digits = 2, simplify = FALSE)\n\n         elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic   \nfull        0.00      0.00 -156.08      9.60         7.83    2.20    312.17\nbaseline   -1.38      3.15 -157.46      9.29         4.68    1.82    314.92\n         se_waic\nfull       19.21\nbaseline   18.58"
   },
   {
     "objectID": "slides/12-classification.html#other-models-for-binary-data",
@@ -10177,7 +10177,7 @@
     "href": "slides/12-classification.html#prepare-for-next-class",
     "title": "Classification",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Multiclass classification"
+    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Multiclass classification\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/09-nonlinear.html#a-motivating-example",
@@ -12634,7 +12634,7 @@
     "href": "slides/12-classification.html#predicted-probabilities-3",
     "title": "Classification",
     "section": "Predicted probabilities",
-    "text": "Predicted probabilities\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosterior mean of the predicted probabilities is 0.57."
+    "text": "Predicted probabilities\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosterior mean of the predicted probabilities is 0.57."
   },
   {
     "objectID": "ae/ae-06-classification.html",
