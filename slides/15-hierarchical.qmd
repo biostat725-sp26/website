@@ -491,14 +491,6 @@ library(DT)
 DT::datatable(data)
 ```
 
-## Goals:
-
-- To explore the distribution of glucose levels in different hospital settings.
-- To compare glucose levels across the four hospitals.
-- To identify any potential patterns or variations in glucose levels by hospital.
-
-The simulation provides a basis for understanding potential differences in glucose values that might arise in different healthcare environments.
-
 ## Writing down a model
 
 We would like to fit the following model: 
