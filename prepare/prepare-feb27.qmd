@@ -4,8 +4,6 @@ title: Prepare for February 27 lecture
 
 <br>
 
-📖 Read **BDA3** Chapter 18.1-18.2 about missing data.
-
-📖 Read [A Note on Bayesian Inference After Multiple Imputation](pdfs/zhou2020.pdf) by Zhou and Reiter 2010.
+📖 Read pages 175-182 from [Bayesian linear mixed models using Stan: A tutorial for psychologists, linguists, and cognitive scientists](https://www.tqmp.org/RegularArticles/vol12-3/p175/p175.pdf).
 
 ✅ Finish [HW 03](https://biostat725-sp25.netlify.app/hw/hw-03), which is due before class on Thursday.

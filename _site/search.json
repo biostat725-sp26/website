@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -12809,7 +12809,7 @@
     "href": "slides/15-hierarchical.html#review-of-last-lecture",
     "title": "Hierarchical Models",
     "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nLast week, we learned about classification for binary and multiclass problems.\nUp until today, we have dealt with independent data. Today, we will look at our first example of dependent data!"
+    "text": "Review of last lecture\n\nOn Tuesday, we learned about missing data, including various types: MCAR, MAR, and MNAR.\nWe learned about two Bayesian approaches to missing data under the MAR assumption:\n\nJoint model that assumes the missing data are parameters.\nMultiple imputation.\n\nMoving forward: Up until today, we have dealt with independent data. Today, we will look at our first example of dependent data!"
   },
   {
     "objectID": "slides/15-hierarchical.html#linear-regression-assumptions",
@@ -12823,7 +12823,7 @@
     "href": "slides/15-hierarchical.html#prepare-for-next-class",
     "title": "Hierarchical Models",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on Exam 01, which is due before next Thursday’s class!\nNext Tuesday’s class will be office hours. I will be available in the lecture room during the meeting time.\nNext Thursday’s lecture: Longitudinal Data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/15-hierarchical.html#recap-linear-regression-assumptions",
@@ -12865,14 +12865,14 @@
     "href": "slides/15-hierarchical.html#random-intercept-model",
     "title": "Hierarchical Models",
     "section": "Random Intercept Model",
-    "text": "Random Intercept Model\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\n\nFrom a frequentist perspective, this model may be called a random intercept model, but in the Bayesian framework all parameters are random variables, so the terms fixed and random effects don’t apply.\n\\(\\theta_i\\): hospital-specific parameter for hospital \\(i\\), accounting for hospital-level variation (group-specific, random effect).\n\\(\\alpha, \\boldsymbol{\\beta}, \\sigma\\) are population parameters (common across all groups, \\(\\boldsymbol{\\beta}\\) are the fixed effects)."
+    "text": "Random Intercept Model\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\n\nFrom a frequentist perspective, this model may be called a random intercept model, but in the Bayesian framework all parameters are random variables, so the terms fixed and random effects don’t apply.\n\n\\(\\theta_i\\): group-specific parameters (random effect).\n\\(\\alpha, \\boldsymbol{\\beta}, \\sigma\\): population parameters (common across all groups, \\(\\boldsymbol{\\beta}\\) are the fixed effects)."
   },
   {
     "objectID": "slides/15-hierarchical.html#understanding-the-random-intercept",
     "href": "slides/15-hierarchical.html#understanding-the-random-intercept",
     "title": "Hierarchical Models",
     "section": "Understanding the Random Intercept",
-    "text": "Understanding the Random Intercept\n\n\\(\\theta_i\\): hospital-specific parameter captures group-level differences.\nThe intercept \\(\\theta_i\\) allows for each group to have its own baseline value.\nThis model introduces dependence within groups because observations from the same group share the same intercept \\(\\theta_i\\).\n\n\\[\\begin{aligned}\n\\mathbb{E}[Y_{ij} | \\alpha, \\boldsymbol{\\beta},\\sigma,\\theta_i] &= \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i\\\\\n&= \\alpha_i^* + \\mathbf{x}_{ij} \\boldsymbol{\\beta},\n\\end{aligned}\\]\nwhere \\(\\alpha_i^* = \\alpha + \\theta_i\\)."
+    "text": "Understanding the Random Intercept\n\n\\(\\theta_i\\): group-specific parameter captures group-level differences (e.g., hospital level).\nThe intercept \\(\\theta_i\\) allows for each group to have its own baseline value.\nThis model introduces dependence within groups because observations from the same group share the same intercept \\(\\theta_i\\).\n\n\\[\\begin{aligned}\n\\mathbb{E}[Y_{ij} | \\boldsymbol{\\Omega},\\theta_i] &= \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i\\\\\n&= (\\alpha + \\theta_i) + \\mathbf{x}_{ij} \\boldsymbol{\\beta}\\\\\n&= \\alpha_i + \\mathbf{x}_{ij} \\boldsymbol{\\beta}.\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/15-hierarchical.html#why-does-this-model-work",
@@ -12900,7 +12900,7 @@
     "href": "slides/15-hierarchical.html#conclusion",
     "title": "Hierarchical Models",
     "section": "Conclusion",
-    "text": "Conclusion\nBy introducing a random intercept, we allow for dependencies between observations within groups, making the model more realistic for real-world clustered or repeated measures data.\nThis is just one way to think about hierarchical models in Bayesian analysis, where we model not only fixed effects but also group-level variability."
+    "text": "Conclusion\n\nBy introducing a group-specific intercept, we allow for dependencies between observations within groups, making the model more realistic for real-world clustered or repeated measures data.\nFor the remainder of the class, we will expand upon this hierarchical modeling framework to account for complext data types that are frequently encountered in research, including longitudinal and spatial data."
   },
   {
     "objectID": "slides/15-hierarchical.html#what-is-hierarchical-data",
@@ -12963,7 +12963,7 @@
     "href": "slides/15-hierarchical.html#hierarchical-model",
     "title": "Hierarchical Models",
     "section": "Hierarchical Model",
-    "text": "Hierarchical Model\nNow, we can see how hierarchical data appears in the model:\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\n\n\\(Y_{ij}\\): response for patient \\(j\\) in hospital \\(i\\).\n\\(\\mathbf{x}_{ij}\\) are the predictors for patient \\(j\\) in hospital \\(i\\).\n\\(\\epsilon_{ij}\\): residual error for patient \\(j\\) in hospital \\(i\\).\n\nThis model allows us to account for the correlation within hospital."
+    "text": "Hierarchical Model\nNow, we can see how hierarchical data appears in the model:\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\nSubject-specific objects:\n\n\\(Y_{ij}\\): response for patient \\(j\\) in hospital \\(i\\).\n\\(\\mathbf{x}_{ij}\\) are the predictors for patient \\(j\\) in hospital \\(i\\).\n\\(\\epsilon_{ij}\\): residual error for patient \\(j\\) in hospital \\(i\\)."
   },
   {
     "objectID": "slides/15-hierarchical.html#understanding-the-correlation-structure",
@@ -12998,14 +12998,14 @@
     "href": "slides/15-hierarchical.html#covariance-structure",
     "title": "Hierarchical Models",
     "section": "Covariance Structure",
-    "text": "Covariance Structure\n\nThe variance \\(\\tau^2\\) for \\(\\theta_i\\) can be interpreted as the covariance between two observations from the same hospital.\nThis reflects how much two students from the same school are expected to be similar in terms of their outcomes.\n\n\\[\\begin{aligned}\n\\mathbb{C}(Y_{ij}, Y_{ik} | \\boldsymbol{\\Omega}) &= \\mathbb{V}(\\theta_i)\\\\\n&= \\tau^2.\n\\end{aligned}\\]\n\nThus, \\(\\tau^2\\) dictates the within-group correlation in our model."
+    "text": "Covariance Structure\n\nThe variance \\(\\tau^2\\) for \\(\\theta_i\\) can be interpreted as the covariance between two observations from the same hospital.\nThis reflects how much two observations from the same group are expected to be similar in terms of their outcomes.\n\n\\[\\begin{aligned}\n\\mathbb{C}(Y_{ij}, Y_{ik} | \\boldsymbol{\\Omega}) &= \\mathbb{V}(\\theta_i)\\\\\n&= \\tau^2.\n\\end{aligned}\\]\n\nThus, \\(\\tau^2\\) dictates the within-group correlation in our model.\nNote: \\(\\mathbb{C}(Y_{ij}, Y_{i'k} | \\boldsymbol{\\Omega}) = 0\\) for \\(i \\neq i'\\)."
   },
   {
     "objectID": "slides/15-hierarchical.html#identifiability-issues",
     "href": "slides/15-hierarchical.html#identifiability-issues",
     "title": "Hierarchical Models",
     "section": "Identifiability Issues",
-    "text": "Identifiability Issues\n\nPopulation Intercept (\\(\\alpha\\)): This is the average intercept for the entire population, i.e., the baseline outcome across all hospitals.\nHospital-Specific Intercept (\\(\\alpha + \\theta_i\\)): The hospital-specific intercept, where \\(\\theta_i\\) represents the deviation from the population intercept for hospital \\(i\\).\n\nWe face an identifiability issue when estimating the population intercept and hospital-specific intercepts. We could add the same constant to all \\(\\theta_i\\)’s and subtract that constant from \\(\\alpha\\).\n\nThis is solved by setting \\(\\theta_i\\) to be mean zero."
+    "text": "Identifiability Issues\n\nPopulation Intercept (\\(\\alpha\\)): This is the average intercept for the entire population, i.e., the baseline outcome across all hospitals.\nGroup-Specific Intercept (\\(\\alpha + \\theta_i\\)): The group-specific intercept, where \\(\\theta_i\\) represents the deviation from the population intercept for group \\(i\\).\n\nWe face an identifiability issue when estimating the population intercept and group-specific intercepts. We could add the same constant to all \\(\\theta_i\\)’s and subtract that constant from \\(\\alpha\\).\n\nThis is solved by setting \\(\\theta_i\\) to be mean zero apriori."
   },
   {
     "objectID": "slides/15-hierarchical.html#the-identifiability-problem",
@@ -13033,14 +13033,14 @@
     "href": "slides/15-hierarchical.html#fitting-the-marginal-model-in-stan",
     "title": "Hierarchical Models",
     "section": "Fitting the Marginal Model in Stan",
-    "text": "Fitting the Marginal Model in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1&gt; N;\n  vector[N] Y;\n  matrix[N, p] X;\n  int&lt;lower = 1, upper = n&gt; Ids[N]; \n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = 0&gt; tau;\n}\nmodel {\n  for (i in 1:N) {\n    target += normal_lpdf(Y[i] | alpha + X * beta + theta[Ids[i]], sigma + tau);\n  }\n}\ngenerated quantities {\n  \n}"
+    "text": "Fitting the Marginal Model in Stan\nNeed ragged data structure.\n\n// marginal-model.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; N;\n  int&lt;lower = 1&gt; p;\n  matrix[N, p] X;\n  vector[N] Y;\n  int n_is[n];\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = 0&gt; tau;\n}\ntransformed parameters {\n  real sigma2 = sigma * sigma;\n  real tau2 = tau * tau;\n}\nmodel {\n  // compute the mean process for the marginal model\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta;\n  }\n  // evaluate the likelihood for the marginal model using ragged data structure\n  int pos;\n  pos = 1;\n  for (i in 1:n) {\n    int n_i = n_is[i];\n    matrix[n_i, n_i] Upsilon_i = sigma2 * diag_matrix(rep_vector(1.0, n_i)) + tau2 * rep_matrix(1, n_i, n_i);\n    vector[n_i] Y_i = segment(Y, pos, n_i);\n    vector[n_i] mu_i = segment(mu, pos, n_i);\n    target += multi_normal_lpdf(Y_i | mu_i, Upsilon_i);\n    pos = pos + n_i;\n  }\n  // priors\n  target += normal_lpdf(beta | 0, 3);\n  target += normal_lpdf(sigma | 0, 3);\n  target += normal_lpdf(tau | 0, 3);\n}\ngenerated quantities {\n  // compute the mean process for the marginal model\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta;\n  }\n  // compute theta using the ragged data structure\n  int pos;\n  pos = 1;\n  vector[n] theta;\n  for (i in 1:n) {\n    int n_i = n_is[i];\n    vector[n_i] ones_i = rep_vector(1.0, n_i);\n    matrix[n_i, n_i] Upsilon_i = sigma2 * diag_matrix(ones_i) + tau2 * rep_matrix(1, n_i, n_i);\n    vector[n_i] Y_i = segment(Y, pos, n_i);\n    vector[n_i] mu_i = segment(mu, pos, n_i);\n    real mean_theta_i = tau2 * ones_i' * inverse_spd(Upsilon_i) * (Y_i - mu_i);\n    real var_theta_i = tau2 - tau2 * tau2 * ones_i' * inverse_spd(Upsilon_i) * ones_i;\n    theta[i] = normal_rng(mean_theta_i, sqrt(var_theta_i));\n    pos = pos + n_i;\n  }\n}"
   },
   {
     "objectID": "slides/15-hierarchical.html#fitting-the-conditional-model-in-stan",
     "href": "slides/15-hierarchical.html#fitting-the-conditional-model-in-stan",
     "title": "Hierarchical Models",
     "section": "Fitting the Conditional Model in Stan",
-    "text": "Fitting the Conditional Model in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; N;\n  int&lt;lower = 1&gt; p;\n  matrix[N, p] X;\n  vector[N] Y;\n  int&lt;lower = 1, upper = n&gt; Ids[N];\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = 0&gt; tau;\n  vector[n] theta;\n}\nmodel {\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta + theta[Ids[i]];\n  }\n  target += normal_lpdf(Y | mu, sigma);\n  target += normal_lpdf(theta | 0, tau);\n  target += normal_lpdf(beta | 0, 3);\n  target += normal_lpdf(sigma | 0, 3);\n  target += normal_lpdf(tau | 0, 3);\n}\ngenerated quantities {\n  real rho = 1 / (1 + ((sigma * sigma) / (tau * tau)));\n  vector[N] Y_pred;\n  vector[N] log_lik;\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta + theta[Ids[i]];\n    log_lik[i] = normal_lpdf(Y[i] | mu[i], sigma);\n    Y_pred[i] = normal_rng(mu[i], sigma);\n  }\n}"
+    "text": "Fitting the Conditional Model in Stan\n\n// conditional-model.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; N;\n  int&lt;lower = 1&gt; p;\n  matrix[N, p] X;\n  vector[N] Y;\n  int&lt;lower = 1, upper = n&gt; Ids[N];\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = 0&gt; tau;\n  vector[n] theta;\n}\nmodel {\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta + theta[Ids[i]];\n  }\n  target += normal_lpdf(Y | mu, sigma);\n  target += normal_lpdf(theta | 0, tau);\n  target += normal_lpdf(beta | 0, 3);\n  target += normal_lpdf(sigma | 0, 3);\n  target += normal_lpdf(tau | 0, 3);\n}\ngenerated quantities {\n  real Intercept_East = alpha + theta[1];\n  real Intercept_North = alpha + theta[2];\n  real Intercept_South = alpha + theta[3];\n  real Intercept_West = alpha + theta[4];\n  real rho = 1 / (1 + ((sigma * sigma) / (tau * tau)));\n  vector[N] Y_pred;\n  vector[N] log_lik;\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta + theta[Ids[i]];\n    log_lik[i] = normal_lpdf(Y[i] | mu[i], sigma);\n    Y_pred[i] = normal_rng(mu[i], sigma);\n  }\n}"
   },
   {
     "objectID": "slides/15-hierarchical.html#conceptualizing-hierarchical-data",
@@ -13166,7 +13166,7 @@
     "href": "slides/15-hierarchical.html#recovering-the-group-specific-parameters",
     "title": "Hierarchical Models",
     "section": "Recovering the Group-Specific Parameters",
-    "text": "Recovering the Group-Specific Parameters\n\nWe can still recover the \\(\\theta_i\\) when we fit the marginal model, we only need to compute \\(f(\\theta_i | \\mathbf{Y}_i,\\boldsymbol{\\Omega})\\) for all \\(i\\).\nWe can obtain this full conditional by specifying the joint distribution,\n\n\\[f\\left(\\begin{bmatrix}\n    \\mathbf{Y}_i\\\\\n    \\theta_i\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega}\\right) = N\\left(\\begin{bmatrix}\n    \\alpha \\mathbf{1}_{n_i} + \\mathbf{X}_i \\boldsymbol{\\beta} + \\theta_i \\mathbf{1}_{n_i} + \\boldsymbol{\\epsilon}_i\\\\\n    \\mathbf{0}_{n_i}\n  \\end{bmatrix}, \\begin{bmatrix}\n    \\Upsilon_i & \\tau^2 \\mathbf{1}_{n_i}\\\\\n    \\tau^2 \\mathbf{1}_{n_i}^\\top & \\tau^2\n  \\end{bmatrix}\\right).\\]\nWe can then use the conditional specification of a multivariate normal to find, \\(f(\\theta_i | \\mathbf{Y_i}, \\boldsymbol{\\Omega}) = N(\\mathbb{E}_{\\theta_i},\\mathbb{V}_{\\theta_i})\\), where\n\\[\\begin{aligned}\n\\mathbb{E}_{\\theta_i} &= \\mathbf{0}_{n_i} + \\tau^2 \\mathbf{1}_{n_i}^\\top \\boldsymbol{\\Upsilon}_i^{-1} (\\mathbf{Y}_i - \\alpha \\mathbf{1}_{n_i} - \\mathbf{X}_i \\boldsymbol{\\beta})\\\\\n\\mathbb{V}_{\\theta_i} &= \\tau^2 - \\tau^4 \\mathbf{1}_{n_i}^\\top \\boldsymbol{\\Upsilon}_i^{-1} \\mathbf{1}_{n_i}.\n\\end{aligned}\\]"
+    "text": "Recovering the Group-Specific Parameters\n\nWe can still recover the \\(\\theta_i\\) when we fit the marginal model, we only need to compute \\(f(\\theta_i | \\mathbf{Y}_i,\\boldsymbol{\\Omega})\\) for all \\(i\\).\nWe can obtain this full conditional by specifying the joint distribution,\n\n\\[f\\left(\\begin{bmatrix}\n    \\mathbf{Y}_i\\\\\n    \\theta_i\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega}\\right) = N\\left(\\begin{bmatrix}\n    \\alpha \\mathbf{1}_{n_i} + \\mathbf{X}_i \\boldsymbol{\\beta} + \\theta_i \\mathbf{1}_{n_i} + \\boldsymbol{\\epsilon}_i\\\\\n    \\mathbf{0}_{n_i}\n  \\end{bmatrix}, \\begin{bmatrix}\n    \\boldsymbol{\\Upsilon}_i & \\tau^2 \\mathbf{1}_{n_i}\\\\\n    \\tau^2 \\mathbf{1}_{n_i}^\\top & \\tau^2\n  \\end{bmatrix}\\right).\\]\nWe can then use the conditional specification of a multivariate normal to find, \\(f(\\theta_i | \\mathbf{Y_i}, \\boldsymbol{\\Omega}) = N(\\mathbb{E}_{\\theta_i},\\mathbb{V}_{\\theta_i})\\), where\n\\[\\begin{aligned}\n\\mathbb{E}_{\\theta_i} &= \\mathbf{0}_{n_i} + \\tau^2 \\mathbf{1}_{n_i}^\\top \\boldsymbol{\\Upsilon}_i^{-1} (\\mathbf{Y}_i - \\alpha \\mathbf{1}_{n_i} - \\mathbf{X}_i \\boldsymbol{\\beta})\\\\\n\\mathbb{V}_{\\theta_i} &= \\tau^2 - \\tau^4 \\mathbf{1}_{n_i}^\\top \\boldsymbol{\\Upsilon}_i^{-1} \\mathbf{1}_{n_i}.\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/15-hierarchical.html#resolution-centering-the-group-intercepts",
@@ -13181,5 +13181,166 @@
     "title": "Prepare for February 25 lecture",
     "section": "",
     "text": "📖 Read BDA3 Chapter 18.1-18.2 about missing data.\n📖 Read A Note on Bayesian Inference After Multiple Imputation by Zhou and Reiter 2010.\n✅ Finish HW 03, which is due before class on Thursday."
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#hierarchical-model-1",
+    "href": "slides/15-hierarchical.html#hierarchical-model-1",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical Model",
+    "text": "Hierarchical Model\nNow, we can see how hierarchical data appears in the model:\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\nGroup-specific objects:\n\n\\(\\theta_i\\): group-specific parameter for hospital \\(i\\), accounting for hospital-level variation (group-specific, random effect).\n\nThe group-specific parameters are responsible for inducing correlation into the model."
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#hierarchical-model-2",
+    "href": "slides/15-hierarchical.html#hierarchical-model-2",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical Model",
+    "text": "Hierarchical Model\nNow, we can see how hierarchical data appears in the model:\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\nPopulation parameters:\n\n\\(\\alpha\\): intercept for the entire population.\n\\(\\boldsymbol{\\beta}\\): regression parameters for the entire population.\n\\(\\sigma\\): residual error parameter for the entire population."
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#prior-for-theta_i",
+    "href": "slides/15-hierarchical.html#prior-for-theta_i",
+    "title": "Hierarchical Models",
+    "section": "Prior for \\(\\theta_i\\)",
+    "text": "Prior for \\(\\theta_i\\)\nWe model \\(\\theta_i\\) as a parameter drawn from a normal distribution centered at zero, with some variance \\(\\tau^2\\):\n\\[\\theta_i \\stackrel{iid}{\\sim} N(0, \\tau^2).\\]\n\nMean at zero: This assumption reflects that, on average, hospitals don’t deviate from the population mean (helps with identifiability).\nVariance \\(\\tau^2\\): This represents the variability in hospital-level intercepts. A larger \\(\\tau^2\\) implies greater variability between hospitals.\n\nEach hospital \\(i\\) has a hospital-specific parameter \\(\\theta_i\\), which represents how that hospital’s baseline (e.g., health outcomes) deviates from the population average."
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#lets-see-this-model-in-action",
+    "href": "slides/15-hierarchical.html#lets-see-this-model-in-action",
+    "title": "Hierarchical Models",
+    "section": "Lets see this model in action!",
+    "text": "Lets see this model in action!"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#example-data-glucose-measurement-in-4-primary-care-clinics",
+    "href": "slides/15-hierarchical.html#example-data-glucose-measurement-in-4-primary-care-clinics",
+    "title": "Hierarchical Models",
+    "section": "Example data: Glucose Measurement in 4 Primary Care Clinics",
+    "text": "Example data: Glucose Measurement in 4 Primary Care Clinics\n\nWe will study glucose values for patients being seen at 4 primary care clinics across the city. The clinics each represent a geographical region: east, west, north, and south.\nThe dataset consists of glucose measurements (mg/dl) from patients, and also risk factors:\n\nAge (years).\nBMI (\\(kg/m^2\\)).\nSedx (0 = male, 1 = female).\nSmoking status (0 = non-smoker, 1 = smoker).\nPhysical activity level (0 = low, 1 = moderate, 2 = high).\nGlucose lowering medication (0 = none, 1 = yes)."
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#goals",
+    "href": "slides/15-hierarchical.html#goals",
+    "title": "Hierarchical Models",
+    "section": "Goals:",
+    "text": "Goals:\n\nTo explore the distribution of glucose levels in different hospital settings.\nTo compare glucose levels across the four hospitals.\nTo identify any potential patterns or variations in glucose levels by hospital.\n\nThe simulation provides a basis for understanding potential differences in glucose values that might arise in different healthcare environments."
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#preview-the-data",
+    "href": "slides/15-hierarchical.html#preview-the-data",
+    "title": "Hierarchical Models",
+    "section": "Preview the Data",
+    "text": "Preview the Data"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#fitting-a-model",
+    "href": "slides/15-hierarchical.html#fitting-a-model",
+    "title": "Hierarchical Models",
+    "section": "Fitting a Model",
+    "text": "Fitting a Model\nWe would like to fit the following model: \\(Y_{ij} \\stackrel{ind}{\\sim}N(\\mu_{ij},\\sigma^2)\\), where \\(Y_{ij}\\) is the glucose value for patient \\(i\\) in clinic \\(j\\) and\n\\[\\begin{aligned}\n\\mu_{ij} &= \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i\\\\\n&= (\\alpha + \\theta_i) + \\beta_1 Age_{ij} + \\beta_2 BMI_i + \\beta_3 Female_i \\\\\n&\\quad + \\beta_4 Smoker_i + \\beta_5 Moderate\\_Activity_i\\\\\n&\\quad + \\beta_6 High\\_Activity_i + \\beta_7 On\\_Meds_i.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#writing-down-a-model",
+    "href": "slides/15-hierarchical.html#writing-down-a-model",
+    "title": "Hierarchical Models",
+    "section": "Writing down a model",
+    "text": "Writing down a model\nWe would like to fit the following model:\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\n\n\\(Y_{ij}\\) is the glucose value for patient \\(i\\) in clinic \\(j\\)\n\\(\\theta_i\\) for \\(i = 1,\\ldots,4\\) is the clinic-specific intercept deviation. \\[\\begin{aligned}\n\\mathbf{x}_{ij} &= (Age_{ij}, BMI_{ij}, Female_{ij},Smoker_{ij}, \\\\\n&\\quad Moderate\\_Activity_{ij}, High\\_Activity_{ij}, On\\_Meds_{ij}).\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#fitting-the-model-in-stan",
+    "href": "slides/15-hierarchical.html#fitting-the-model-in-stan",
+    "title": "Hierarchical Models",
+    "section": "Fitting the Model in Stan",
+    "text": "Fitting the Model in Stan\n\nX &lt;- model.matrix(~ age + bmi + gender + smoking + as.factor(activity) + medication, data = data)[, -1]\nstan_data &lt;- list(\n  N = nrow(data),\n  n = length(unique(data$region)),\n  p = ncol(X),\n  X = X,\n  Y = data$glucose,\n  Ids = as.numeric(as.factor(data$region))\n)\nconditional_model &lt;- stan_model(model_code = \"conditional-model.stan\")\nfit_conditional &lt;- sampling(conditional_model, stan_data)"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#assessing-convergence",
+    "href": "slides/15-hierarchical.html#assessing-convergence",
+    "title": "Hierarchical Models",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(fit_conditional, pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#posterior-summaries",
+    "href": "slides/15-hierarchical.html#posterior-summaries",
+    "title": "Hierarchical Models",
+    "section": "Posterior Summaries",
+    "text": "Posterior Summaries\n\nprint(fit_conditional, pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\", \"rho\"))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n          mean se_mean   sd   2.5%    25%    50%    75%  97.5% n_eff Rhat\nalpha    99.03    0.10 3.77  91.46  96.59  99.06 101.61 106.29  1533    1\nbeta[1]   0.26    0.00 0.03   0.20   0.23   0.26   0.28   0.32  4245    1\nbeta[2]   0.48    0.00 0.07   0.35   0.44   0.48   0.53   0.62  4989    1\nbeta[3]  10.50    0.01 0.65   9.18  10.06  10.51  10.93  11.75  5966    1\nbeta[4]  -4.75    0.01 0.66  -6.03  -5.20  -4.76  -4.30  -3.46  7324    1\nbeta[5]   0.28    0.01 0.78  -1.21  -0.26   0.29   0.80   1.82  4746    1\nbeta[6]  -4.53    0.01 0.77  -6.03  -5.06  -4.53  -4.00  -3.02  4869    1\nbeta[7] -17.89    0.01 0.64 -19.15 -18.31 -17.89 -17.47 -16.64  5387    1\nsigma     7.43    0.00 0.23   6.99   7.28   7.43   7.59   7.90  5900    1\ntau       4.58    0.02 1.33   2.59   3.60   4.35   5.34   7.65  2941    1\nrho       0.27    0.00 0.11   0.11   0.19   0.26   0.34   0.51  3136    1\n\nSamples were drawn using NUTS(diag_e) at Wed Feb 26 10:48:54 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#assessing-convergence-1",
+    "href": "slides/15-hierarchical.html#assessing-convergence-1",
+    "title": "Hierarchical Models",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nlibrary(bayesplot)\nbayesplot::mcmc_acf(fit_conditional, regex_pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#explore-the-clinic-specific-variation",
+    "href": "slides/15-hierarchical.html#explore-the-clinic-specific-variation",
+    "title": "Hierarchical Models",
+    "section": "Explore the Clinic-Specific Variation",
+    "text": "Explore the Clinic-Specific Variation\n\nprint(fit_conditional, pars = c(\"Intercept_East\", \"Intercept_South\", \"Intercept_North\", \"Intercept_West\"), probs = c(0.025, 0.975))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n                  mean se_mean   sd  2.5%  97.5% n_eff Rhat\nIntercept_East  102.08    0.05 2.88 96.55 107.62  3461    1\nIntercept_South  98.46    0.05 2.88 92.89 103.99  3498    1\nIntercept_North  92.35    0.05 2.87 86.78  97.90  3398    1\nIntercept_West  103.55    0.05 2.90 97.85 109.10  3502    1\n\nSamples were drawn using NUTS(diag_e) at Wed Feb 26 10:48:54 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#explore-the-clinic-specific-variation-1",
+    "href": "slides/15-hierarchical.html#explore-the-clinic-specific-variation-1",
+    "title": "Hierarchical Models",
+    "section": "Explore the Clinic-Specific Variation",
+    "text": "Explore the Clinic-Specific Variation"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#compare-to-linear-regression",
+    "href": "slides/15-hierarchical.html#compare-to-linear-regression",
+    "title": "Hierarchical Models",
+    "section": "Compare to Linear Regression",
+    "text": "Compare to Linear Regression"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#comparison-to-linear-regression-boldsymbolbeta",
+    "href": "slides/15-hierarchical.html#comparison-to-linear-regression-boldsymbolbeta",
+    "title": "Hierarchical Models",
+    "section": "Comparison to Linear Regression: \\(\\boldsymbol{\\beta}\\)",
+    "text": "Comparison to Linear Regression: \\(\\boldsymbol{\\beta}\\)"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#model-comparison",
+    "href": "slides/15-hierarchical.html#model-comparison",
+    "title": "Hierarchical Models",
+    "section": "Model Comparison",
+    "text": "Model Comparison\n\nlibrary(loo)\nwaic_conditional &lt;- waic(extract_log_lik(fit_conditional))\nwaic_lin_reg &lt;- waic(extract_log_lik(fit_lin_reg))\ncomparison &lt;- loo_compare(list(\"Hierarchical Model\" = waic_conditional, \"Linear Regression\" = waic_lin_reg))\nprint(comparison, simplify = FALSE)\n\n                   elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic\nHierarchical Model     0.0       0.0 -1720.6      15.2         11.5     0.7  \nLinear Regression    -71.6      10.7 -1792.2      15.6          8.6     0.6  \n                   waic    se_waic\nHierarchical Model  3441.2    30.4\nLinear Regression   3584.3    31.1"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#fitting-the-model-in-stan-1",
+    "href": "slides/15-hierarchical.html#fitting-the-model-in-stan-1",
+    "title": "Hierarchical Models",
+    "section": "Fitting the Model in Stan",
+    "text": "Fitting the Model in Stan\n\nstan_data &lt;- list(\n  N = nrow(data),\n  n = length(unique(data$region)),\n  p = ncol(X),\n  X = X,\n  Y = data$glucose,\n  n_is = as.numeric(table(data$region))\n)\nmarginal_model &lt;- stan_model(model_code = \"marginal-model.stan\")\nfit_marginal &lt;- sampling(marginal_model, stan_data)"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#assessing-convergence-2",
+    "href": "slides/15-hierarchical.html#assessing-convergence-2",
+    "title": "Hierarchical Models",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(fit_marginal, pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\"))"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#assessing-convergence-3",
+    "href": "slides/15-hierarchical.html#assessing-convergence-3",
+    "title": "Hierarchical Models",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nlibrary(bayesplot)\nbayesplot::mcmc_acf(fit_marginal, regex_pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\"))"
+  },
+  {
+    "objectID": "slides/15-hierarchical.html#posterior-summaries-1",
+    "href": "slides/15-hierarchical.html#posterior-summaries-1",
+    "title": "Hierarchical Models",
+    "section": "Posterior Summaries",
+    "text": "Posterior Summaries\n\nprint(fit_marginal, pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\"))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n          mean se_mean   sd   2.5%    25%    50%    75%  97.5% n_eff Rhat\nalpha    99.07    0.06 3.66  91.97  96.66  99.05 101.50 106.36  3285    1\nbeta[1]   0.26    0.00 0.03   0.20   0.24   0.26   0.28   0.32  3957    1\nbeta[2]   0.48    0.00 0.07   0.35   0.44   0.48   0.53   0.61  3389    1\nbeta[3]  10.48    0.01 0.67   9.18  10.01  10.49  10.95  11.76  4532    1\nbeta[4]  -4.75    0.01 0.65  -6.01  -5.18  -4.75  -4.34  -3.45  4611    1\nbeta[5]   0.29    0.01 0.77  -1.26  -0.23   0.28   0.79   1.77  3834    1\nbeta[6]  -4.51    0.01 0.79  -6.04  -5.04  -4.50  -4.00  -3.01  3855    1\nbeta[7] -17.88    0.01 0.66 -19.14 -18.33 -17.88 -17.44 -16.56  4370    1\nsigma     7.43    0.00 0.24   6.99   7.27   7.43   7.60   7.92  4223    1\ntau       4.55    0.02 1.27   2.61   3.62   4.38   5.27   7.48  3714    1\n\nSamples were drawn using NUTS(diag_e) at Wed Feb 26 11:25:39 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "prepare/prepare-feb27.html",
+    "href": "prepare/prepare-feb27.html",
+    "title": "Prepare for February 27 lecture",
+    "section": "",
+    "text": "📖 Read pages 175-182 from Bayesian linear mixed models using Stan: A tutorial for psychologists, linguists, and cognitive scientists.\n✅ Finish HW 03, which is due before class on Thursday."
   }
 ]

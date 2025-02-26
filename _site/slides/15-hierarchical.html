@@ -387,6 +387,16 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+  <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+  <script src="../site_libs/datatables-binding-0.33/datatables.js"></script>
+  <script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+  <script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+  <link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+  <script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -408,8 +418,13 @@ Prof.&nbsp;Sam Berchuck
 <section id="review-of-last-lecture" class="slide level2">
 <h2>Review of last lecture</h2>
 <ul>
-<li><p>Last week, we learned about classification for binary and multiclass problems.</p></li>
-<li><p>Up until today, we have dealt with independent data. Today, we will look at our first example of dependent data!</p></li>
+<li><p>On Tuesday, we learned about missing data, including various types: MCAR, MAR, and MNAR.</p></li>
+<li><p>We learned about two Bayesian approaches to missing data under the MAR assumption:</p>
+<ul>
+<li><p>Joint model that assumes the missing data are parameters.</p></li>
+<li><p>Multiple imputation.</p></li>
+</ul></li>
+<li><p><strong>Moving forward:</strong> Up until today, we have dealt with independent data. Today, we will look at our first example of dependent data!</p></li>
 </ul>
 </section>
 <section id="linear-regression-assumptions" class="slide level2">
@@ -504,82 +519,54 @@ Y_i &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i,\quad \epsilon_
 <h2>Hierarchical Model</h2>
 <p>Now, we can see how hierarchical data appears in the model:</p>
 <p><span class="math display">\[Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij},\quad \epsilon_{ij} \stackrel{iid}{\sim}N(0,\sigma^2).\]</span></p>
+<p><strong>Subject-specific objects:</strong></p>
 <ul>
 <li><p><span class="math inline">\(Y_{ij}\)</span>: response for patient <span class="math inline">\(j\)</span> in hospital <span class="math inline">\(i\)</span>.</p></li>
 <li><p><span class="math inline">\(\mathbf{x}_{ij}\)</span> are the predictors for patient <span class="math inline">\(j\)</span> in hospital <span class="math inline">\(i\)</span>.</p></li>
 <li><p><span class="math inline">\(\epsilon_{ij}\)</span>: residual error for patient <span class="math inline">\(j\)</span> in hospital <span class="math inline">\(i\)</span>.</p></li>
 </ul>
-<p>This model allows us to account for the correlation within hospital.</p>
+</section>
+<section id="hierarchical-model-1" class="slide level2">
+<h2>Hierarchical Model</h2>
+<p>Now, we can see how hierarchical data appears in the model:</p>
+<p><span class="math display">\[Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij},\quad \epsilon_{ij} \stackrel{iid}{\sim}N(0,\sigma^2).\]</span></p>
+<p><strong>Group-specific objects:</strong></p>
+<ul>
+<li><span class="math inline">\(\theta_i\)</span>: group-specific parameter for hospital <span class="math inline">\(i\)</span>, accounting for hospital-level variation (group-specific, random effect).</li>
+</ul>
+<p>The group-specific parameters are responsible for inducing correlation into the model.</p>
+</section>
+<section id="hierarchical-model-2" class="slide level2">
+<h2>Hierarchical Model</h2>
+<p>Now, we can see how hierarchical data appears in the model:</p>
+<p><span class="math display">\[Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij},\quad \epsilon_{ij} \stackrel{iid}{\sim}N(0,\sigma^2).\]</span></p>
+<p><strong>Population parameters:</strong></p>
+<ul>
+<li><p><span class="math inline">\(\alpha\)</span>: intercept for the entire population.</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\beta}\)</span>: regression parameters for the entire population.</p></li>
+<li><p><span class="math inline">\(\sigma\)</span>: residual error parameter for the entire population.</p></li>
+</ul>
 </section>
 <section id="random-intercept-model" class="slide level2">
 <h2>Random Intercept Model</h2>
 <p><span class="math display">\[Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij},\quad \epsilon_{ij} \stackrel{iid}{\sim}N(0,\sigma^2).\]</span></p>
 <ul>
-<li><p>From a frequentist perspective, this model may be called a <strong>random intercept</strong> model, but in the Bayesian framework all parameters are random variables, so the terms fixed and random effects don’t apply.</p></li>
-<li><p><span class="math inline">\(\theta_i\)</span>: hospital-specific parameter for hospital <span class="math inline">\(i\)</span>, accounting for hospital-level variation (group-specific, random effect).</p></li>
-<li><p><span class="math inline">\(\alpha, \boldsymbol{\beta}, \sigma\)</span> are population parameters (common across all groups, <span class="math inline">\(\boldsymbol{\beta}\)</span> are the fixed effects).</p></li>
-</ul>
-</section>
-<section id="understanding-the-random-intercept" class="slide level2">
-<h2>Understanding the Random Intercept</h2>
+<li><p>From a frequentist perspective, this model may be called a <strong>random intercept</strong> model, but in the Bayesian framework all parameters are random variables, so the terms fixed and random effects don’t apply.</p>
 <ul>
-<li><p><span class="math inline">\(\theta_i\)</span>: hospital-specific parameter captures group-level differences.</p></li>
-<li><p>The intercept <span class="math inline">\(\theta_i\)</span> allows for each group to have its own baseline value.</p></li>
-<li><p>This model introduces <strong>dependence</strong> within groups because observations from the same group share the same intercept <span class="math inline">\(\theta_i\)</span>.</p></li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-\mathbb{E}[Y_{ij} | \alpha, \boldsymbol{\beta},\sigma,\theta_i] &amp;= \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i\\
-&amp;= \alpha_i^* + \mathbf{x}_{ij} \boldsymbol{\beta},
-\end{aligned}\]</span></p>
-<p>where <span class="math inline">\(\alpha_i^* = \alpha + \theta_i\)</span>.</p>
-</section>
-<section id="why-does-this-model-work" class="slide level2">
-<h2>Why Does This Model Work?</h2>
-<ol type="1">
-<li><p><strong>Within-group correlation</strong>: Observations within the same hospital are more similar due to the shared intercept.</p></li>
-<li><p><strong>Between-group differences</strong>: Groups have different intercepts <span class="math inline">\(\alpha_i^*\)</span>, reflecting different baseline effects.</p></li>
-</ol>
-</section>
-<section id="identifiability-issues" class="slide level2">
-<h2>Identifiability Issues</h2>
-<ul>
-<li><p><strong>Population Intercept (<span class="math inline">\(\alpha\)</span>)</strong>: This is the average intercept for the entire population, i.e., the baseline outcome across all hospitals.</p></li>
-<li><p><strong>Hospital-Specific Intercept (<span class="math inline">\(\alpha + \theta_i\)</span>)</strong>: The hospital-specific intercept, where <span class="math inline">\(\theta_i\)</span> represents the deviation from the population intercept for hospital <span class="math inline">\(i\)</span>.</p></li>
-</ul>
-<p>We face an <strong>identifiability issue</strong> when estimating the population intercept and hospital-specific intercepts. We could add the same constant to all <span class="math inline">\(\theta_i\)</span>’s and subtract that constant from <span class="math inline">\(\alpha\)</span>.</p>
-<ul>
-<li>This is solved by setting <span class="math inline">\(\theta_i\)</span> to be mean zero.</li>
+<li><p><span class="math inline">\(\theta_i\)</span>: group-specific parameters (random effect).</p></li>
+<li><p><span class="math inline">\(\alpha, \boldsymbol{\beta}, \sigma\)</span>: population parameters (common across all groups, <span class="math inline">\(\boldsymbol{\beta}\)</span> are the fixed effects).</p></li>
+</ul></li>
 </ul>
 </section>
-<section id="hospital-specific-parameters-theta_i" class="slide level2 midi">
-<h2>Hospital-Specific Parameters: <span class="math inline">\(\theta_i\)</span></h2>
-<p>Each hospital <span class="math inline">\(i\)</span> has a <strong>hospital-specific parameter</strong> <span class="math inline">\(\theta_i\)</span>, which represents how that hospital’s baseline (e.g., health outcomes) deviates from the population average.</p>
+<section id="prior-for-theta_i" class="slide level2 midi">
+<h2>Prior for <span class="math inline">\(\theta_i\)</span></h2>
 <p>We model <span class="math inline">\(\theta_i\)</span> as a parameter drawn from a <strong>normal distribution</strong> centered at zero, with some variance <span class="math inline">\(\tau^2\)</span>:</p>
 <p><span class="math display">\[\theta_i \stackrel{iid}{\sim} N(0, \tau^2).\]</span></p>
 <ul>
 <li><p><strong>Mean at zero</strong>: This assumption reflects that, on average, hospitals don’t deviate from the population mean (helps with identifiability).</p></li>
 <li><p><strong>Variance <span class="math inline">\(\tau^2\)</span></strong>: This represents the variability in hospital-level intercepts. A larger <span class="math inline">\(\tau^2\)</span> implies greater variability between hospitals.</p></li>
 </ul>
-</section>
-<section id="understanding-the-correlation-structure" class="slide level2 midi">
-<h2>Understanding the Correlation Structure</h2>
-<ul>
-<li><p>The random intercept <span class="math inline">\(\theta_i\)</span> introduces correlation between observations within the same group.</p></li>
-<li><p>For two observations <span class="math inline">\(Y_{ij}\)</span> and <span class="math inline">\(Y_{ik}\)</span> from the same group <span class="math inline">\(i\)</span>, we have:</p></li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-\mathbb{C}(Y_{ij}, Y_{ik} | \alpha,\boldsymbol{\beta},\sigma) &amp;=  \mathbb{C}(\alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij}, \alpha + \mathbf{x}_{ik} \boldsymbol{\beta} + \theta_i + \epsilon_{ik})\\
-&amp;= \mathbb{C}(\theta_i, \theta_i)\\
-&amp;= \mathbb{V}(\theta_i).
-\end{aligned}\]</span></p>
-<ul>
-<li><p>This non-zero covariance reflects the correlation between observations in the same group.</p></li>
-<li><p>Note: <span class="math inline">\(\mathbb{C}(Y_{ij}, Y_{i'k}) = 0\)</span> for <span class="math inline">\(i \neq i'\)</span>.</p></li>
-<li><p>To model the correlation, we need to specify the moments of <span class="math inline">\(\theta_i\)</span>.</p></li>
-</ul>
-<!-- ## Why Normal Distribution? -->
-<!-- - **Natural Assumption**: We assume that the hospital-specific parameters (e.g., hospital intercepts) are normally distributed with a mean of zero because there's no reason to expect systematic deviations from the population average. -->
-<!-- - **Flexibility**: The normal distribution allows us to model a wide range of variation in hospital effects, with the variance $\tau^2$ capturing how much hospitals differ from each other. -->
+<p>Each hospital <span class="math inline">\(i\)</span> has a <strong>hospital-specific parameter</strong> <span class="math inline">\(\theta_i\)</span>, which represents how that hospital’s baseline (e.g., health outcomes) deviates from the population average.</p>
 </section>
 <section id="group-specific-intercept-model-conditional-specification" class="slide level2">
 <h2>Group-Specific Intercept Model: Conditional Specification</h2>
@@ -599,6 +586,30 @@ Y_{ij} | \boldsymbol{\Omega},\theta_i &amp;\stackrel{ind}{\sim} N(\alpha + \math
 \mathbb{V}(Y_{ij} | \boldsymbol{\Omega},\theta_i) &amp;= \sigma^2\\
 \mathbb{C}(Y_{ij}, Y_{lk} | \boldsymbol{\Omega},\theta_i) &amp;= 0,\quad \forall i,j,l,k.
 \end{aligned}\]</span></p>
+</section>
+<section id="understanding-the-random-intercept" class="slide level2">
+<h2>Understanding the Random Intercept</h2>
+<ul>
+<li><p><span class="math inline">\(\theta_i\)</span>: group-specific parameter captures group-level differences (e.g., hospital level).</p></li>
+<li><p>The intercept <span class="math inline">\(\theta_i\)</span> allows for each group to have its own baseline value.</p></li>
+<li><p>This model introduces <strong>dependence</strong> within groups because observations from the same group share the same intercept <span class="math inline">\(\theta_i\)</span>.</p></li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\mathbb{E}[Y_{ij} | \boldsymbol{\Omega},\theta_i] &amp;= \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i\\
+&amp;= (\alpha + \theta_i) + \mathbf{x}_{ij} \boldsymbol{\beta}\\
+&amp;= \alpha_i + \mathbf{x}_{ij} \boldsymbol{\beta}.
+\end{aligned}\]</span></p>
+</section>
+<section id="identifiability-issues" class="slide level2">
+<h2>Identifiability Issues</h2>
+<ul>
+<li><p><strong>Population Intercept (<span class="math inline">\(\alpha\)</span>)</strong>: This is the average intercept for the entire population, i.e., the baseline outcome across all hospitals.</p></li>
+<li><p><strong>Group-Specific Intercept (<span class="math inline">\(\alpha + \theta_i\)</span>)</strong>: The group-specific intercept, where <span class="math inline">\(\theta_i\)</span> represents the deviation from the population intercept for group <span class="math inline">\(i\)</span>.</p></li>
+</ul>
+<p>We face an <strong>identifiability issue</strong> when estimating the population intercept and group-specific intercepts. We could add the same constant to all <span class="math inline">\(\theta_i\)</span>’s and subtract that constant from <span class="math inline">\(\alpha\)</span>.</p>
+<ul>
+<li>This is solved by setting <span class="math inline">\(\theta_i\)</span> to be mean zero apriori.</li>
+</ul>
 </section>
 <section id="group-specific-intercept-model-conditional-specification-2" class="slide level2">
 <h2>Group-Specific Intercept Model: Conditional Specification</h2>
@@ -647,7 +658,45 @@ f(\boldsymbol{\Omega}, \boldsymbol{\theta} | \mathbf{Y}) &amp;\propto f(\mathbf{
     \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
     \tau^2 &amp; \tau^2 &amp; \cdots &amp;\tau^2 + \sigma^2
   \end{bmatrix}.\]</span></p>
+<!-- ## Understanding the Correlation Structure {.midi} -->
+<!-- - The random intercept $\theta_i$ introduces correlation between observations within the same group. -->
+<!-- - For two observations $Y_{ij}$ and $Y_{ik}$ from the same group $i$, we have: -->
+<!-- $$\mathbb{C}(Y_{ij}, Y_{ik} | \boldsymbol{\Omega}) = \tau^2.$$ -->
+<!-- - This non-zero covariance reflects the correlation between observations in the same group. -->
+<!-- - Note: $\mathbb{C}(Y_{ij}, Y_{i'k} | \boldsymbol{\Omega}) = 0$ for $i \neq i'$. -->
+<!-- ## Why Normal Distribution? -->
+<!-- - **Natural Assumption**: We assume that the hospital-specific parameters (e.g., hospital intercepts) are normally distributed with a mean of zero because there's no reason to expect systematic deviations from the population average. -->
+<!-- - **Flexibility**: The normal distribution allows us to model a wide range of variation in hospital effects, with the variance $\tau^2$ capturing how much hospitals differ from each other. -->
 </section>
+<section id="covariance-structure" class="slide level2">
+<h2>Covariance Structure</h2>
+<ul>
+<li><p>The variance <span class="math inline">\(\tau^2\)</span> for <span class="math inline">\(\theta_i\)</span> can be interpreted as the <strong>covariance</strong> between two observations from the same hospital.</p></li>
+<li><p>This reflects how much two observations from the same group are expected to be similar in terms of their outcomes.</p></li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\mathbb{C}(Y_{ij}, Y_{ik} | \boldsymbol{\Omega}) &amp;= \mathbb{V}(\theta_i)\\
+&amp;= \tau^2.
+\end{aligned}\]</span></p>
+<ul>
+<li><p>Thus, <span class="math inline">\(\tau^2\)</span> dictates the <strong>within-group correlation</strong> in our model.</p></li>
+<li><p>Note: <span class="math inline">\(\mathbb{C}(Y_{ij}, Y_{i'k} | \boldsymbol{\Omega}) = 0\)</span> for <span class="math inline">\(i \neq i'\)</span>.</p></li>
+</ul>
+</section>
+<section id="induced-within-correlation" class="slide level2">
+<h2>Induced Within Correlation</h2>
+<p><span class="math display">\[\begin{aligned}
+\rho (Y_{ij}, Y_{ik} | \boldsymbol{\Omega}) &amp;= \frac{\mathbb{C}(Y_{ij}, Y_{ik} | \boldsymbol{\Omega})}{\sqrt{\mathbb{V}(Y_{ij} |  \boldsymbol{\Omega}) \mathbb{V}(Y_{ik} |  \boldsymbol{\Omega})}}\\
+&amp;=\frac{\tau^2}{\tau^2 + \sigma^2}\\
+&amp;= \frac{1}{1 + \frac{\sigma^2}{\tau^2}}.
+\end{aligned}\]</span></p>
+<p>This model induces positive correlation within group observations.</p>
+</section>
+<section id="induced-within-correlation-1" class="slide level2">
+<h2>Induced Within Correlation</h2>
+<p><span class="math display">\[\rho (Y_{ij}, Y_{ik} | \alpha,\boldsymbol{\beta},\sigma) = \frac{1}{1 + \frac{\sigma^2}{\tau^2}}\]</span></p>
+
+<img data-src="15-hierarchical_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="group-specific-intercept-model-marginal-specification-2" class="slide level2">
 <h2>Group-Specific Intercept Model: Marginal Specification</h2>
 <p>For <span class="math inline">\(i = 1,\ldots,n\)</span>, <span class="math display">\[\begin{aligned}
@@ -680,7 +729,7 @@ f(\boldsymbol{\Omega} | \mathbf{Y}) &amp;\propto f(\mathbf{Y}, \boldsymbol{\Omeg
     \alpha \mathbf{1}_{n_i} + \mathbf{X}_i \boldsymbol{\beta} + \theta_i \mathbf{1}_{n_i} + \boldsymbol{\epsilon}_i\\
     \mathbf{0}_{n_i}
   \end{bmatrix}, \begin{bmatrix}
-    \Upsilon_i &amp; \tau^2 \mathbf{1}_{n_i}\\
+    \boldsymbol{\Upsilon}_i &amp; \tau^2 \mathbf{1}_{n_i}\\
     \tau^2 \mathbf{1}_{n_i}^\top &amp; \tau^2
   \end{bmatrix}\right).\]</span></p>
 <p>We can then use the <a href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution#Conditional_distributions">conditional specification of a multivariate normal</a> to find, <span class="math inline">\(f(\theta_i | \mathbf{Y_i}, \boldsymbol{\Omega}) = N(\mathbb{E}_{\theta_i},\mathbb{V}_{\theta_i})\)</span>, where</p>
@@ -688,99 +737,387 @@ f(\boldsymbol{\Omega} | \mathbf{Y}) &amp;\propto f(\mathbf{Y}, \boldsymbol{\Omeg
 \mathbb{E}_{\theta_i} &amp;= \mathbf{0}_{n_i} + \tau^2 \mathbf{1}_{n_i}^\top \boldsymbol{\Upsilon}_i^{-1} (\mathbf{Y}_i - \alpha \mathbf{1}_{n_i} - \mathbf{X}_i \boldsymbol{\beta})\\
 \mathbb{V}_{\theta_i} &amp;= \tau^2 - \tau^4 \mathbf{1}_{n_i}^\top \boldsymbol{\Upsilon}_i^{-1} \mathbf{1}_{n_i}.
 \end{aligned}\]</span></p>
+<!-- ## Why Does This Model Work? -->
+<!-- 1. **Within-group correlation**: Observations within the same hospital are more similar due to the shared intercept. -->
+<!-- 2. **Between-group differences**: Groups have different intercepts $\alpha_i^*$, reflecting different baseline effects. -->
 </section>
-<section id="covariance-structure" class="slide level2">
-<h2>Covariance Structure</h2>
+<section id="example-data-glucose-measurement-in-4-primary-care-clinics" class="slide level2 midi">
+<h2>Example data: Glucose Measurement in 4 Primary Care Clinics</h2>
 <ul>
-<li><p>The variance <span class="math inline">\(\tau^2\)</span> for <span class="math inline">\(\theta_i\)</span> can be interpreted as the <strong>covariance</strong> between two observations from the same hospital.</p></li>
-<li><p>This reflects how much two students from the same school are expected to be similar in terms of their outcomes.</p></li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-\mathbb{C}(Y_{ij}, Y_{ik} | \boldsymbol{\Omega}) &amp;= \mathbb{V}(\theta_i)\\
-&amp;= \tau^2.
-\end{aligned}\]</span></p>
+<li><p>We will study glucose values for patients being seen at 4 primary care clinics across the city. The clinics each represent a geographical region: east, west, north, and south.</p></li>
+<li><p>The dataset consists of glucose measurements (mg/dl) from patients, and also risk factors:</p>
 <ul>
-<li>Thus, <span class="math inline">\(\tau^2\)</span> dictates the <strong>within-group correlation</strong> in our model.</li>
+<li><p>Age (years).</p></li>
+<li><p>BMI (<span class="math inline">\(kg/m^2\)</span>).</p></li>
+<li><p>Sedx (0 = male, 1 = female).</p></li>
+<li><p>Smoking status (0 = non-smoker, 1 = smoker).</p></li>
+<li><p>Physical activity level (0 = low, 1 = moderate, 2 = high).</p></li>
+<li><p>Glucose lowering medication (0 = none, 1 = yes).</p></li>
+</ul></li>
 </ul>
 </section>
-<section id="induced-within-correlation" class="slide level2">
-<h2>Induced Within Correlation</h2>
-<p><span class="math display">\[\begin{aligned}
-\rho (Y_{ij}, Y_{ik} | \boldsymbol{\Omega}) &amp;= \frac{\mathbb{C}(Y_{ij}, Y_{ik} | \boldsymbol{\Omega})}{\sqrt{\mathbb{V}(Y_{ij} |  \boldsymbol{\Omega}) \mathbb{V}(Y_{ik} |  \boldsymbol{\Omega})}}\\
-&amp;=\frac{\tau^2}{\tau^2 + \sigma^2}\\
-&amp;= \frac{1}{1 + \frac{\sigma^2}{\tau^2}}.
-\end{aligned}\]</span></p>
-<p>This model induces positive correlation within group observations.</p>
-</section>
-<section id="induced-within-correlation-1" class="slide level2">
-<h2>Induced Within Correlation</h2>
-<p><span class="math display">\[\rho (Y_{ij}, Y_{ik} | \alpha,\boldsymbol{\beta},\sigma) = \frac{1}{1 + \frac{\sigma^2}{\tau^2}}\]</span></p>
-
-<img data-src="15-hierarchical_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="fitting-the-conditional-model-in-stan" class="slide level2">
-<h2>Fitting the Conditional Model in Stan</h2>
-<div class="cell" data-output.var="intercept">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a></a><span class="kw">data</span> {</span>
-<span id="cb1-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
-<span id="cb1-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; N;</span>
-<span id="cb1-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
-<span id="cb1-5"><a></a>  <span class="dt">matrix</span>[N, p] X;</span>
-<span id="cb1-6"><a></a>  <span class="dt">vector</span>[N] Y;</span>
-<span id="cb1-7"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; Ids[N];</span>
-<span id="cb1-8"><a></a>}</span>
-<span id="cb1-9"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb1-10"><a></a>  <span class="dt">real</span> alpha;</span>
-<span id="cb1-11"><a></a>  <span class="dt">vector</span>[p] beta;</span>
-<span id="cb1-12"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
-<span id="cb1-13"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; tau;</span>
-<span id="cb1-14"><a></a>  <span class="dt">vector</span>[n] theta;</span>
-<span id="cb1-15"><a></a>}</span>
-<span id="cb1-16"><a></a><span class="kw">model</span> {</span>
-<span id="cb1-17"><a></a>  <span class="dt">vector</span>[N] mu = rep_vector(<span class="fl">0.0</span>, N);</span>
-<span id="cb1-18"><a></a>  mu += alpha;</span>
-<span id="cb1-19"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:N) {</span>
-<span id="cb1-20"><a></a>    mu[i] += X[i, ] * beta + theta[Ids[i]];</span>
-<span id="cb1-21"><a></a>  }</span>
-<span id="cb1-22"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | mu, sigma);</span>
-<span id="cb1-23"><a></a>  <span class="kw">target +=</span> normal_lpdf(theta | <span class="dv">0</span>, tau);</span>
-<span id="cb1-24"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">3</span>);</span>
-<span id="cb1-25"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">3</span>);</span>
-<span id="cb1-26"><a></a>  <span class="kw">target +=</span> normal_lpdf(tau | <span class="dv">0</span>, <span class="dv">3</span>);</span>
-<span id="cb1-27"><a></a>}</span>
-<span id="cb1-28"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb1-29"><a></a>  <span class="dt">real</span> rho = <span class="dv">1</span> / (<span class="dv">1</span> + ((sigma * sigma) / (tau * tau)));</span>
-<span id="cb1-30"><a></a>  <span class="dt">vector</span>[N] Y_pred;</span>
-<span id="cb1-31"><a></a>  <span class="dt">vector</span>[N] log_lik;</span>
-<span id="cb1-32"><a></a>  <span class="dt">vector</span>[N] mu = rep_vector(<span class="fl">0.0</span>, N);</span>
-<span id="cb1-33"><a></a>  mu += alpha;</span>
-<span id="cb1-34"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:N) {</span>
-<span id="cb1-35"><a></a>    mu[i] += X[i, ] * beta + theta[Ids[i]];</span>
-<span id="cb1-36"><a></a>    log_lik[i] = normal_lpdf(Y[i] | mu[i], sigma);</span>
-<span id="cb1-37"><a></a>    Y_pred[i] = normal_rng(mu[i], sigma);</span>
-<span id="cb1-38"><a></a>  }</span>
-<span id="cb1-39"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="preview-the-data" class="slide level2 smallest">
+<h2>Preview the Data</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-7499443be033e7ed8429" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7499443be033e7ed8429">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257","258","259","260","261","262","263","264","265","266","267","268","269","270","271","272","273","274","275","276","277","278","279","280","281","282","283","284","285","286","287","288","289","290","291","292","293","294","295","296","297","298","299","300","301","302","303","304","305","306","307","308","309","310","311","312","313","314","315","316","317","318","319","320","321","322","323","324","325","326","327","328","329","330","331","332","333","334","335","336","337","338","339","340","341","342","343","344","345","346","347","348","349","350","351","352","353","354","355","356","357","358","359","360","361","362","363","364","365","366","367","368","369","370","371","372","373","374","375","376","377","378","379","380","381","382","383","384","385","386","387","388","389","390","391","392","393","394","395","396","397","398","399","400","401","402","403","404","405","406","407","408","409","410","411","412","413","414","415","416","417","418","419","420","421","422","423","424","425","426","427","428","429","430","431","432","433","434","435","436","437","438","439","440","441","442","443","444","445","446","447","448","449","450","451","452","453","454","455","456","457","458","459","460","461","462","463","464","465","466","467","468","469","470","471","472","473","474","475","476","477","478","479","480","481","482","483","484","485","486","487","488","489","490","491","492","493","494","495","496","497","498","499","500"],[130.1,108.6,136.6,128.6,112.3,112.8,122.1,130.9,111.8,108.8,131.2,104.3,151.8,120.2,140.1,109.4,107.3,129.4,120.7,112.5,120.9,134.7,114.7,101.2,152.7,116,99.59999999999999,139.1,104,143,136.5,136,125.1,112.6,125.7,112.2,118.3,128.3,137.7,122.5,102.5,126.6,133.6,122.7,118.9,143,139.7,127.8,127.4,118.5,116.9,120.4,131.1,144.6,111.1,110.8,142.2,137.6,136.1,111.3,111.2,110.6,124.8,101.6,117.6,140.9,133.9,132.8,126.8,137.9,155.3,141.8,97,120.8,122.1,131.8,123.4,105.4,144.9,111.4,128.8,147,130.9,110,114,111.5,93.5,129.7,113.4,137,107.2,122.1,159.5,142.7,110.4,136.6,94,132,97.5,140.8,116.7,137.2,135.1,140,142.6,110.2,111.1,121.4,108.7,147.3,148.7,132.4,126.2,125.5,137.3,133.8,111.2,117.6,109.4,121.6,115.8,135.5,150,119.3,135.9,146,122.8,120.9,145.9,105.1,122.6,129.5,117.9,113.5,130.8,104.9,99.40000000000001,117.7,102.5,127.6,124.2,99.7,104.1,124.9,115.6,89.09999999999999,97.2,97.09999999999999,105.9,90.09999999999999,149.1,78.5,108.4,89.90000000000001,136.6,139,128.4,110.2,99,116,105.1,121.4,120.4,123.9,103.1,108.3,135.7,114.5,134,117.4,101,98.90000000000001,116.5,115.4,119.5,116.8,123.3,96.5,129.3,100.5,119.6,120.8,121.1,108.8,90.90000000000001,103,93.7,114.5,92.3,119.3,109.1,84.40000000000001,139.7,121.2,122.1,132.5,124.8,96.2,104.7,101,113.4,107.1,112.1,103.3,111.2,118.7,120.7,104.4,110.6,109.2,101.1,111.1,109.5,128.4,120.6,122.2,140.1,137.2,111.7,115.2,114.7,108.8,107.5,95,146.9,114.2,117.2,95,138.6,98.2,131.2,120.1,104.4,129.7,87.40000000000001,122.5,115.3,117.1,88.09999999999999,96.7,115.4,129.5,116.8,96.8,117.2,109.5,98.2,112.8,106.9,110.8,113.7,103.4,114.5,114,102.8,113.7,120.9,110.4,119.5,127,123.2,100.8,109.9,122.2,126.7,120.7,130.5,105.3,112.2,113.9,109.6,108,151.8,131.4,101.5,126.3,134.3,108.4,138.3,131.6,136.7,122.8,118.2,102.7,127.2,108,121.8,105.9,112.2,131.9,91.8,99.7,119.2,124.4,149.4,134.4,133.4,106.1,145.7,114.1,103.9,100,102.9,129.7,138,108.1,134.2,124.4,110.3,113.6,127.1,131.7,117.9,115.1,115.7,121.7,104,114,122.2,133.1,122.1,107.2,123.9,114.9,130.5,94.3,112.6,150.7,114.7,112.1,106.6,120.8,115.1,127.9,123.3,134,123.2,148.8,138,135.5,118,128.3,120,151.4,113,125.7,110.7,129.5,135.4,114.7,102.3,127.6,133.9,91.7,119,130.8,138.3,124.5,135.4,134.1,103.3,140.7,120.8,139.5,110.3,117.2,121.9,120.6,105.7,97,143.9,96.3,140.1,92.59999999999999,123.4,131.2,148.6,120.8,122.8,121.1,110.7,124.1,117.3,135.3,134.9,117.2,100.1,135.1,139.8,122.7,99.90000000000001,117.5,158.8,133.4,137.8,137.3,108,122.8,119.1,139.4,138.3,99.3,105.5,121.8,119,110.8,151.6,131.3,129.2,117,135.5,124.5,124.6,136.2,127.1,108.9,138.3,145.7,151.3,118.8,100.2,135.9,117.2,155.8,113.7,116.5,144.4,126.9,124.7,132.2,133.4,115.7,133.9,117.3,136.2,149.2,118.4,122.1,131,134.4,118.9,113.4,125.3,117.5,120.6,116,133.8,127.9,145.8,121.4,121.9,132.9,153.7,125,136.6,150.5,118.8,113.3,138.1,130.4,112.3,128.2,120.1,122.2,119.6,137.8,113.5,131.2,97.5,127.3,143.4,117.1,114.4,129.2,125,144.3,115.7,109.2,139.2,128,113.5,114.9,139.1,121.1,146.1,141.7,96.90000000000001,122.8,115.8,118.6,114.4,112.2,139.7,113.6,136.5,136.9,121.6,110,129,122.6],[72,61,50,56,39,55,51,56,59,61,64,55,64,59,66,58,61,58,44,33,79,66,55,36,50,43,43,57,57,75,70,50,68,51,54,40,62,50,70,56,45,67,48,63,52,63,59,53,50,43,61,48,54,73,52,59,39,52,67,54,61,75,61,80,49,71,71,48,58,50,61,55,55,64,56,58,48,52,60,51,61,54,58,29,64,59,47,72,44,49,51,45,62,37,42,69,36,46,61,48,51,71,63,43,37,55,72,50,46,63,55,55,48,48,51,58,72,52,45,62,40,58,65,38,64,62,45,43,37,71,56,55,67,62,67,45,59,50,69,40,69,62,65,46,54,54,29,50,39,64,79,41,55,51,63,51,56,58,61,48,59,61,51,51,58,40,67,58,68,60,54,54,48,48,50,54,68,51,57,56,31,51,66,65,44,51,47,53,67,46,55,57,45,52,51,43,76,45,31,63,45,60,58,59,63,52,71,39,52,51,62,47,55,62,52,38,66,51,45,48,58,48,69,63,59,48,52,54,60,57,72,53,59,48,61,75,40,73,51,54,61,41,52,45,49,36,58,41,58,66,62,69,56,64,64,68,40,72,53,45,64,46,52,66,57,74,54,42,45,44,48,46,58,54,32,47,45,48,64,61,49,33,57,52,43,62,59,63,41,54,47,64,68,54,72,70,50,43,55,79,43,59,71,60,82,41,57,55,52,50,34,66,53,52,43,45,62,40,63,46,54,43,42,61,51,61,54,66,66,54,55,47,54,72,43,42,54,67,67,60,71,63,54,66,51,80,34,39,39,40,84,48,44,35,44,58,66,39,60,58,58,54,47,52,30,58,65,64,49,56,50,64,61,52,54,52,56,48,53,60,48,56,68,67,60,44,59,55,41,57,58,50,70,56,76,79,58,43,58,54,72,49,42,42,61,72,65,57,55,45,53,53,43,49,67,52,54,54,55,53,60,56,51,75,28,57,72,49,56,78,55,42,58,65,57,74,43,54,54,23,75,55,44,59,74,53,55,67,51,61,56,67,62,46,48,72,56,48,53,48,43,47,52,67,45,46,60,39,37,45,57,49,68,40,69,77,53,66,67,47,70,38,63,40,77,56,48,59,40,59,59,56,64,58,62,54,58,50,55,59],[34.2,29.8,28.8,32.6,29.6,30.2,30.2,33.9,28.8,30.3,34.6,27.3,30.2,33.2,31.2,37.7,35,24.1,32,27.7,27.3,37.1,27.7,37.8,31.3,25,35.2,36.8,18.7,30,28.8,32.9,29.4,32.5,27,30.2,28.1,29.5,30.3,25.2,30.9,26.1,28.6,28.6,25.2,27.8,31.5,25.7,11.4,23.8,27.2,25.4,31.4,40.5,30.2,30.6,41.7,36.9,33.8,25.7,27.7,32.7,21.3,24,31.8,26.1,27.3,26.1,32.6,36.3,29.9,23.9,36.1,25.6,29,33.3,37.5,37.8,32.5,27.9,32.3,36.1,28,27.8,31.9,26.7,33.3,32.6,33.1,46.4,31.5,34.9,27.7,27.6,33.7,27.5,26.6,37.9,27.9,30.4,31.8,31.6,21.1,35.9,32.5,28,26,45.4,33.4,32.2,30,26.5,30.4,35,24.1,31.4,25.6,32.7,26.8,24.5,25.4,29.9,39.2,36.6,25.2,21.3,26.6,33.8,25.3,31.6,30.2,35.7,19.7,32,35.1,31.1,32.3,30.3,28.6,30.7,28.6,25.7,38.4,36.6,34.4,28.6,24.5,42.8,23.3,27.1,23.7,28,27,33.9,30.7,33.5,31.5,30.5,23.7,35.4,32.8,31.6,29.9,27.7,19.3,31.4,26.2,33.9,33.7,26.5,31.8,27.3,39.8,29.1,29.9,36.8,33.6,27.5,28.1,44.9,25.6,29.9,35.1,28.8,23.4,24.2,25.2,29.5,30.6,30.2,34.4,29.8,35.4,35.9,25.8,27.7,28.5,32.2,31.3,27.2,27.4,21.7,30,25.9,25.1,21.6,31.8,32,29.1,31.5,30.6,32.2,30.8,23.9,32.9,23.9,37.2,33.2,27.7,28.1,24,27.2,33.1,21.3,36.4,18.6,32.9,34.7,29.9,28.1,30.8,19.9,32.1,32.9,28.2,33.1,31.2,34.2,30.5,32.7,27.2,23.6,27.1,31.9,32.3,30.8,43.6,30.7,29.7,30.4,23,25.4,30.5,26.2,34.8,28.6,35.5,21.5,38.3,29.5,31.6,24.3,26.2,25.6,37.4,34,35.1,35.5,34,32,30.7,28.1,38.9,33.1,18.8,24.8,27.1,28.3,23.4,33,32.8,34.6,23.1,24.2,27.7,33.7,29.4,36.6,32.6,36.2,34.8,21.6,32.9,28.8,29.4,37.8,34.9,32.3,39.1,37.8,30.9,20.9,34.7,24.9,25.9,30.5,31.6,30.9,21.8,30.4,36.1,37.3,35.3,26.5,36.3,34.5,32.5,29.1,27.2,31.7,22.2,33,34,35.4,25.7,27.1,32.2,32.5,28.8,27.9,31.8,31.5,29,28,33.5,25.4,28.4,29.2,33.4,33.1,37.3,31.9,25.2,27.1,31.6,32.1,38.2,26.3,35.1,25.6,22.4,32.5,29,24.7,34.7,28.1,31.3,21.3,24.7,30.1,23,35.1,17,30,34.1,36.7,27.8,28.6,29.3,23.4,33,38.8,28.7,28,35.4,31,19.6,23.3,27,33.7,25.6,22.7,35.1,29.9,31.5,29,19.2,37.6,30.5,25.5,30.4,25.5,35.5,31.7,23.6,28.4,28.2,28.9,29.7,27,32.2,41.9,25.5,26.2,29.8,30.3,37.1,31.3,28.3,33,42.7,37.6,29.9,35.2,31.9,32.2,27.2,31.2,30.7,23.3,25.4,31.4,34,30.6,27.2,28.7,33.1,18.9,35.7,28.7,36.6,28.5,30.2,26.7,29.5,30.3,30.5,30.8,33.1,40.9,19.7,27.8,25.5,30.6,23.5,23.4,43.6,27.1,23.1,30,32,32.7,35,32.3,32.3,37.7,31.9,37.3,32.8,25.1,30.9,35.9,26.6,25.5,35.5,30,32.6,28.7,25,21.6,37.7,32.5,18.5,30.7,34.5,34.3,27.5,26.4,26.3,40.4,31.9,31.7,29.8,30.3,33.9,28.7,26.8,26.8,30.3,32.8,28.8,30.5,26.7,22.9,32.1,35,18.6,29.6,31.8,21.9],[0,0,0,1,1,0,1,0,0,1,1,0,1,0,0,1,0,1,0,0,1,1,0,0,1,0,0,0,1,1,1,0,1,1,0,1,0,1,0,0,1,0,1,1,1,1,0,1,1,0,1,0,0,1,0,0,0,1,0,1,0,0,1,0,0,1,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,0,0,1,0,0,0,0,0,0,1,1,1,1,1,0,0,0,1,0,0,1,1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0,0,1,1,1,0,1,1,0,0,1,0,1,1,0,0,1,0,0,0,0,1,1,0,0,0,1,0,1,0,1,0,1,0,0,0,1,1,1,1,0,0,0,0,0,1,0,0,1,0,1,1,0,0,1,0,0,0,0,1,0,0,0,1,1,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,1,1,0,1,1,0,0,1,0,1,1,0,0,1,1,1,1,0,1,1,0,1,1,0,0,0,1,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,1,0,1,1,0,0,1,1,1,0,0,0,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,0,1,0,1,0,1,1,0,0,0,1,0,0,1,0,1,1,0,1,0,0,0,0,0,1,0,0,1,1,1,0,1,1,1,1,0,0,0,1,0,1,0,0,0,0,0,0,1,1,0,1,1,0,0,0,1,1,0,1,0,1,0,0,0,1,0,0,1,1,1,1,0,1,1,0,1,1,0,1,1,1,0,0,1,1,1,0,1,0,1,0,1,0,1,0,0,1,1,0,0,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1,0,1,1,0,0,0,1,1,0,1,0,0,1,0,0,1,0,0,0,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,0,0,1,1,0,1,1,1,0,0,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,0,1,1,1,0,0,1,0,0,0,1,1,1,1,1,0,0,1,0,0,1,1,0,0,1,0,1,0,0,1,1,0,1,0,1,0,0,1,0,0,1,1],[1,0,0,0,0,0,1,0,1,1,1,0,0,0,0,1,1,0,0,1,0,0,1,1,0,0,1,0,1,1,0,0,1,1,1,1,1,0,1,0,0,0,0,1,0,0,1,0,0,1,0,1,1,1,0,0,0,1,0,1,1,1,0,0,1,0,0,0,1,0,0,0,1,1,1,1,0,0,0,1,0,1,1,0,1,1,1,1,0,0,0,1,0,1,1,1,1,1,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,0,1,1,1,0,0,0,1,1,0,1,1,0,1,0,0,0,0,1,0,0,1,1,0,1,1,1,1,1,0,1,0,1,1,0,1,1,0,1,1,0,1,0,1,1,1,0,1,1,0,0,0,1,0,0,0,1,1,0,0,0,1,1,1,0,0,1,0,1,1,1,1,1,1,0,1,1,1,1,0,1,0,0,1,0,0,1,0,1,1,1,1,1,1,0,1,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,0,1,1,1,0,1,1,0,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1,1,0,0,1,0,0,1,1,1,1,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,1,1,0,0,1,1,1,0,1,1,1,1,1,0,0,0,0,0,1,1,0,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,0,0,1,0,1,1,1,0,0,0,0,0,0,1,1,0,1,1,1,0,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,1,1,1,1,0,1,1,0,1,0,0,0,0,1,0,0,1,0,1,1,0,1,0,1,0,1,1,1,0,0,0,0,0,0,1,1,0,1,1,0,0,1,0,1,0,0,1,1,1,0,1,0,0,1,1,0,1,0,0,1,1,1,1,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0,1,0,1,0,1,1,1,1,1,0,0,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,1,0,1,0,1,1,1,1,1,0,0,1,0,1,1,0,0,1],[0,0,1,2,2,0,0,1,1,2,1,1,1,0,2,2,1,1,2,0,0,0,1,0,1,2,0,1,1,1,2,0,0,2,0,1,2,0,0,1,2,1,0,1,0,1,0,0,0,2,1,1,2,1,1,0,1,2,1,0,0,1,2,2,0,0,2,1,2,1,1,1,2,0,2,0,2,1,2,1,2,1,1,1,2,1,0,2,0,2,0,0,1,1,1,2,1,1,0,0,2,2,2,1,0,0,2,2,0,1,2,2,2,1,2,0,1,1,0,1,1,0,1,1,2,0,2,2,2,2,1,0,2,1,0,0,0,0,0,0,2,0,2,1,1,2,2,2,2,0,1,1,0,2,2,2,0,2,2,0,0,0,0,1,1,0,0,2,1,1,0,0,2,2,0,2,2,2,0,0,1,1,1,1,1,2,0,1,2,0,2,2,0,2,2,0,1,2,1,0,2,0,0,0,2,0,2,0,2,0,1,2,1,0,2,1,0,0,0,2,0,2,0,1,1,2,2,0,1,1,0,0,1,0,0,2,2,1,0,2,0,1,2,1,2,1,2,2,1,2,0,0,0,0,2,1,1,1,2,0,0,1,0,1,0,2,0,2,2,0,1,2,0,2,2,1,2,0,2,1,1,1,0,2,2,0,2,1,1,0,2,0,0,2,0,2,1,2,0,2,1,0,1,0,1,0,2,2,0,2,0,1,1,0,1,2,0,0,1,0,1,2,1,0,1,2,0,0,1,0,0,1,1,1,1,1,1,0,0,0,2,0,2,1,1,2,0,0,1,1,2,2,1,2,0,1,2,1,1,2,0,0,0,2,2,0,2,0,2,2,0,2,0,2,1,2,0,0,1,1,0,0,2,2,0,1,0,1,1,0,2,0,0,2,0,0,2,1,2,1,0,2,2,1,1,1,0,0,0,1,1,1,2,1,0,1,1,2,2,2,2,0,0,0,1,0,1,0,0,1,1,2,0,0,2,0,2,1,0,1,0,2,1,1,1,1,1,1,1,0,2,1,1,0,1,1,2,1,2,1,1,1,0,1,0,0,1,0,2,2,2,2,0,2,2,2,0,1,1,2,1,0,2,2,1,1,1,2,0,1,2,0,1,1,0,0,0,0,2,0],[0,1,0,1,1,1,1,0,1,1,0,1,0,1,0,1,1,1,0,0,1,1,1,1,0,0,1,0,1,0,0,0,1,1,0,1,0,1,0,0,1,0,0,1,1,0,0,1,0,0,1,0,0,1,1,1,0,0,0,1,1,1,0,1,1,0,0,0,0,0,0,0,1,0,0,0,1,1,0,1,1,0,0,0,1,1,1,0,1,0,1,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,1,1,1,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,1,0,1,0,0,1,1,0,1,1,1,1,1,1,0,1,1,1,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,1,0,1,0,0,0,1,1,1,1,0,1,0,0,1,0,0,0,0,0,1,1,1,0,1,1,0,0,0,0,1,1,0,1,1,1,0,1,0,0,0,0,0,0,0,1,1,0,0,0,1,0,1,0,1,1,0,1,0,0,0,1,1,0,0,0,1,0,0,1,0,1,0,0,0,1,1,1,1,1,1,1,0,0,1,1,0,1,0,1,1,0,1,1,0,0,0,1,0,0,1,0,0,0,0,1,1,0,1,0,1,1,0,1,1,1,0,0,0,0,1,0,1,1,1,1,0,0,1,0,0,0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,1,0,1,1,0,1,1,1,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,1,1,0,0,1,1,0,0,0,0,0,1,0,1,0,1,1,1,1,1,1,0,1,0,1,1,0,0,0,0,1,1,1,1,0,0,1,1,1,0,1,1,1,0,0,0,1,1,0,1,1,0,1,1,1,1,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,1,1,1,0,1,1,0,0,1,1,0,1,0,1,0,0,0,0,0,0,0,1,1,1,0,1,0,1,0,1,1,0,0,1,0,0,1,1,0,0,1,1,0,0,1,0,1,0,1,0,0,1,1,0,1,0,1,1,0,1,1,0,0,0,0,0,1,0,1,0,0,1,1,1,0,1,0,1,1,1],["East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","East","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","North","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","South","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West","West"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>glucose<\/th>\n      <th>age<\/th>\n      <th>bmi<\/th>\n      <th>gender<\/th>\n      <th>smoking<\/th>\n      <th>activity<\/th>\n      <th>medication<\/th>\n      <th>region<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"glucose","targets":1},{"name":"age","targets":2},{"name":"bmi","targets":3},{"name":"gender","targets":4},{"name":"smoking","targets":5},{"name":"activity","targets":6},{"name":"medication","targets":7},{"name":"region","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </section>
-<section id="summary-of-key-points" class="slide level2">
-<h2>Summary of Key Points</h2>
+<section id="goals" class="slide level2">
+<h2>Goals:</h2>
 <ul>
-<li>School-specific intercepts <span class="math inline">\(u_j\)</span> are modeled as random effects, assumed to come from a normal distribution centered at zero with variance <span class="math inline">\(\sigma_u^2\)</span>.</li>
-<li>The variance <span class="math inline">\(\sigma_u^2\)</span> captures the variability in school-level effects and the within-group correlation.</li>
-<li>The identifiability issue arises from the redundancy between the population intercept and the school-specific intercepts.</li>
-<li><strong>Centering</strong> the school-specific intercepts ensures that the population intercept <span class="math inline">\(\beta_0\)</span> is well-defined and identifiable.</li>
+<li>To explore the distribution of glucose levels in different hospital settings.</li>
+<li>To compare glucose levels across the four hospitals.</li>
+<li>To identify any potential patterns or variations in glucose levels by hospital.</li>
 </ul>
+<p>The simulation provides a basis for understanding potential differences in glucose values that might arise in different healthcare environments.</p>
+</section>
+<section id="writing-down-a-model" class="slide level2">
+<h2>Writing down a model</h2>
+<p>We would like to fit the following model:</p>
+<p><span class="math display">\[Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij},\quad \epsilon_{ij} \stackrel{iid}{\sim}N(0,\sigma^2).\]</span></p>
+<ul>
+<li><p><span class="math inline">\(Y_{ij}\)</span> is the glucose value for patient <span class="math inline">\(i\)</span> in clinic <span class="math inline">\(j\)</span></p></li>
+<li><p><span class="math inline">\(\theta_i\)</span> for <span class="math inline">\(i = 1,\ldots,4\)</span> is the clinic-specific intercept deviation. <span class="math display">\[\begin{aligned}
+\mathbf{x}_{ij} &amp;= (Age_{ij}, BMI_{ij}, Female_{ij},Smoker_{ij}, \\
+&amp;\quad Moderate\_Activity_{ij}, High\_Activity_{ij}, On\_Meds_{ij}).
+\end{aligned}\]</span></p></li>
+</ul>
+</section>
+<section id="fitting-the-conditional-model-in-stan" class="slide level2">
+<h2>Fitting the Conditional Model in Stan</h2>
+<div class="cell" data-output.var="conditional">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a></a><span class="co">// conditional-model.stan</span></span>
+<span id="cb1-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb1-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb1-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; N;</span>
+<span id="cb1-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb1-6"><a></a>  <span class="dt">matrix</span>[N, p] X;</span>
+<span id="cb1-7"><a></a>  <span class="dt">vector</span>[N] Y;</span>
+<span id="cb1-8"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; Ids[N];</span>
+<span id="cb1-9"><a></a>}</span>
+<span id="cb1-10"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb1-11"><a></a>  <span class="dt">real</span> alpha;</span>
+<span id="cb1-12"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb1-13"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb1-14"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; tau;</span>
+<span id="cb1-15"><a></a>  <span class="dt">vector</span>[n] theta;</span>
+<span id="cb1-16"><a></a>}</span>
+<span id="cb1-17"><a></a><span class="kw">model</span> {</span>
+<span id="cb1-18"><a></a>  <span class="dt">vector</span>[N] mu = rep_vector(<span class="fl">0.0</span>, N);</span>
+<span id="cb1-19"><a></a>  mu += alpha;</span>
+<span id="cb1-20"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:N) {</span>
+<span id="cb1-21"><a></a>    mu[i] += X[i, ] * beta + theta[Ids[i]];</span>
+<span id="cb1-22"><a></a>  }</span>
+<span id="cb1-23"><a></a>  <span class="kw">target +=</span> normal_lpdf(Y | mu, sigma);</span>
+<span id="cb1-24"><a></a>  <span class="kw">target +=</span> normal_lpdf(theta | <span class="dv">0</span>, tau);</span>
+<span id="cb1-25"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb1-26"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb1-27"><a></a>  <span class="kw">target +=</span> normal_lpdf(tau | <span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb1-28"><a></a>}</span>
+<span id="cb1-29"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb1-30"><a></a>  <span class="dt">real</span> Intercept_East = alpha + theta[<span class="dv">1</span>];</span>
+<span id="cb1-31"><a></a>  <span class="dt">real</span> Intercept_North = alpha + theta[<span class="dv">2</span>];</span>
+<span id="cb1-32"><a></a>  <span class="dt">real</span> Intercept_South = alpha + theta[<span class="dv">3</span>];</span>
+<span id="cb1-33"><a></a>  <span class="dt">real</span> Intercept_West = alpha + theta[<span class="dv">4</span>];</span>
+<span id="cb1-34"><a></a>  <span class="dt">real</span> rho = <span class="dv">1</span> / (<span class="dv">1</span> + ((sigma * sigma) / (tau * tau)));</span>
+<span id="cb1-35"><a></a>  <span class="dt">vector</span>[N] Y_pred;</span>
+<span id="cb1-36"><a></a>  <span class="dt">vector</span>[N] log_lik;</span>
+<span id="cb1-37"><a></a>  <span class="dt">vector</span>[N] mu = rep_vector(<span class="fl">0.0</span>, N);</span>
+<span id="cb1-38"><a></a>  mu += alpha;</span>
+<span id="cb1-39"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:N) {</span>
+<span id="cb1-40"><a></a>    mu[i] += X[i, ] * beta + theta[Ids[i]];</span>
+<span id="cb1-41"><a></a>    log_lik[i] = normal_lpdf(Y[i] | mu[i], sigma);</span>
+<span id="cb1-42"><a></a>    Y_pred[i] = normal_rng(mu[i], sigma);</span>
+<span id="cb1-43"><a></a>  }</span>
+<span id="cb1-44"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fitting-the-model-in-stan" class="slide level2">
+<h2>Fitting the Model in Stan</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> age <span class="sc">+</span> bmi <span class="sc">+</span> gender <span class="sc">+</span> smoking <span class="sc">+</span> <span class="fu">as.factor</span>(activity) <span class="sc">+</span> medication, <span class="at">data =</span> data)[, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb2-2"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-3"><a></a>  <span class="at">N =</span> <span class="fu">nrow</span>(data),</span>
+<span id="cb2-4"><a></a>  <span class="at">n =</span> <span class="fu">length</span>(<span class="fu">unique</span>(data<span class="sc">$</span>region)),</span>
+<span id="cb2-5"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb2-6"><a></a>  <span class="at">X =</span> X,</span>
+<span id="cb2-7"><a></a>  <span class="at">Y =</span> data<span class="sc">$</span>glucose,</span>
+<span id="cb2-8"><a></a>  <span class="at">Ids =</span> <span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(data<span class="sc">$</span>region))</span>
+<span id="cb2-9"><a></a>)</span>
+<span id="cb2-10"><a></a>conditional_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">model_code =</span> <span class="st">"conditional-model.stan"</span>)</span>
+<span id="cb2-11"><a></a>fit_conditional <span class="ot">&lt;-</span> <span class="fu">sampling</span>(conditional_model, stan_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="assessing-convergence" class="slide level2">
+<h2>Assessing Convergence</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">traceplot</span>(fit_conditional, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>, <span class="st">"rho"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-hierarchical_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="assessing-convergence-1" class="slide level2">
+<h2>Assessing Convergence</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(bayesplot)</span>
+<span id="cb4-2"><a></a>bayesplot<span class="sc">::</span><span class="fu">mcmc_acf</span>(fit_conditional, <span class="at">regex_pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>, <span class="st">"rho"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-hierarchical_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<section id="posterior-summaries" class="slide level2">
+<h2>Posterior Summaries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">print</span>(fit_conditional, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>, <span class="st">"rho"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+          mean se_mean   sd   2.5%    25%    50%    75%  97.5% n_eff Rhat
+alpha    99.03    0.10 3.77  91.46  96.59  99.06 101.61 106.29  1533    1
+beta[1]   0.26    0.00 0.03   0.20   0.23   0.26   0.28   0.32  4245    1
+beta[2]   0.48    0.00 0.07   0.35   0.44   0.48   0.53   0.62  4989    1
+beta[3]  10.50    0.01 0.65   9.18  10.06  10.51  10.93  11.75  5966    1
+beta[4]  -4.75    0.01 0.66  -6.03  -5.20  -4.76  -4.30  -3.46  7324    1
+beta[5]   0.28    0.01 0.78  -1.21  -0.26   0.29   0.80   1.82  4746    1
+beta[6]  -4.53    0.01 0.77  -6.03  -5.06  -4.53  -4.00  -3.02  4869    1
+beta[7] -17.89    0.01 0.64 -19.15 -18.31 -17.89 -17.47 -16.64  5387    1
+sigma     7.43    0.00 0.23   6.99   7.28   7.43   7.59   7.90  5900    1
+tau       4.58    0.02 1.33   2.59   3.60   4.35   5.34   7.65  2941    1
+rho       0.27    0.00 0.11   0.11   0.19   0.26   0.34   0.51  3136    1
+
+Samples were drawn using NUTS(diag_e) at Wed Feb 26 10:48:54 2025.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+</div>
+</div>
+</section>
+<section id="comparison-to-linear-regression-boldsymbolbeta" class="slide level2">
+<h2>Comparison to Linear Regression: <span class="math inline">\(\boldsymbol{\beta}\)</span></h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="15-hierarchical_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="15-hierarchical_files/figure-revealjs/unnamed-chunk-11-2.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-comparison" class="slide level2">
+<h2>Model Comparison</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(loo)</span>
+<span id="cb7-2"><a></a>waic_conditional <span class="ot">&lt;-</span> <span class="fu">waic</span>(<span class="fu">extract_log_lik</span>(fit_conditional))</span>
+<span id="cb7-3"><a></a>waic_lin_reg <span class="ot">&lt;-</span> <span class="fu">waic</span>(<span class="fu">extract_log_lik</span>(fit_lin_reg))</span>
+<span id="cb7-4"><a></a>comparison <span class="ot">&lt;-</span> <span class="fu">loo_compare</span>(<span class="fu">list</span>(<span class="st">"Hierarchical Model"</span> <span class="ot">=</span> waic_conditional, <span class="st">"Linear Regression"</span> <span class="ot">=</span> waic_lin_reg))</span>
+<span id="cb7-5"><a></a><span class="fu">print</span>(comparison, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic
+Hierarchical Model     0.0       0.0 -1720.6      15.2         11.5     0.7  
+Linear Regression    -71.6      10.7 -1792.2      15.6          8.6     0.6  
+                   waic    se_waic
+Hierarchical Model  3441.2    30.4
+Linear Regression   3584.3    31.1</code></pre>
+</div>
+</div>
+</section>
+<section id="explore-the-clinic-specific-variation" class="slide level2">
+<h2>Explore the Clinic-Specific Variation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">print</span>(fit_conditional, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"Intercept_East"</span>, <span class="st">"Intercept_South"</span>, <span class="st">"Intercept_North"</span>, <span class="st">"Intercept_West"</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+                  mean se_mean   sd  2.5%  97.5% n_eff Rhat
+Intercept_East  102.08    0.05 2.88 96.55 107.62  3461    1
+Intercept_South  98.46    0.05 2.88 92.89 103.99  3498    1
+Intercept_North  92.35    0.05 2.87 86.78  97.90  3398    1
+Intercept_West  103.55    0.05 2.90 97.85 109.10  3502    1
+
+Samples were drawn using NUTS(diag_e) at Wed Feb 26 10:48:54 2025.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+</div>
+</div>
+</section>
+<section id="explore-the-clinic-specific-variation-1" class="slide level2">
+<h2>Explore the Clinic-Specific Variation</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="15-hierarchical_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-the-marginal-model-in-stan" class="slide level2">
+<h2>Fitting the Marginal Model in Stan</h2>
+<p>Need <a href="https://mc-stan.org/docs/stan-users-guide/sparse-ragged.html#ragged-data-structs.section">ragged data structure</a>.</p>
+<div class="cell" data-output.var="marginal">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb11-1"><a></a><span class="co">// marginal-model.stan</span></span>
+<span id="cb11-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb11-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb11-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; N;</span>
+<span id="cb11-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb11-6"><a></a>  <span class="dt">matrix</span>[N, p] X;</span>
+<span id="cb11-7"><a></a>  <span class="dt">vector</span>[N] Y;</span>
+<span id="cb11-8"><a></a>  <span class="dt">int</span> n_is[n];</span>
+<span id="cb11-9"><a></a>}</span>
+<span id="cb11-10"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb11-11"><a></a>  <span class="dt">real</span> alpha;</span>
+<span id="cb11-12"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb11-13"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
+<span id="cb11-14"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; tau;</span>
+<span id="cb11-15"><a></a>}</span>
+<span id="cb11-16"><a></a><span class="kw">transformed parameters</span> {</span>
+<span id="cb11-17"><a></a>  <span class="dt">real</span> sigma2 = sigma * sigma;</span>
+<span id="cb11-18"><a></a>  <span class="dt">real</span> tau2 = tau * tau;</span>
+<span id="cb11-19"><a></a>}</span>
+<span id="cb11-20"><a></a><span class="kw">model</span> {</span>
+<span id="cb11-21"><a></a>  <span class="co">// compute the mean process for the marginal model</span></span>
+<span id="cb11-22"><a></a>  <span class="dt">vector</span>[N] mu = rep_vector(<span class="fl">0.0</span>, N);</span>
+<span id="cb11-23"><a></a>  mu += alpha;</span>
+<span id="cb11-24"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:N) {</span>
+<span id="cb11-25"><a></a>    mu[i] += X[i, ] * beta;</span>
+<span id="cb11-26"><a></a>  }</span>
+<span id="cb11-27"><a></a>  <span class="co">// evaluate the likelihood for the marginal model using ragged data structure</span></span>
+<span id="cb11-28"><a></a>  <span class="dt">int</span> pos;</span>
+<span id="cb11-29"><a></a>  pos = <span class="dv">1</span>;</span>
+<span id="cb11-30"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb11-31"><a></a>    <span class="dt">int</span> n_i = n_is[i];</span>
+<span id="cb11-32"><a></a>    <span class="dt">matrix</span>[n_i, n_i] Upsilon_i = sigma2 * diag_matrix(rep_vector(<span class="fl">1.0</span>, n_i)) + tau2 * rep_matrix(<span class="dv">1</span>, n_i, n_i);</span>
+<span id="cb11-33"><a></a>    <span class="dt">vector</span>[n_i] Y_i = segment(Y, pos, n_i);</span>
+<span id="cb11-34"><a></a>    <span class="dt">vector</span>[n_i] mu_i = segment(mu, pos, n_i);</span>
+<span id="cb11-35"><a></a>    <span class="kw">target +=</span> multi_normal_lpdf(Y_i | mu_i, Upsilon_i);</span>
+<span id="cb11-36"><a></a>    pos = pos + n_i;</span>
+<span id="cb11-37"><a></a>  }</span>
+<span id="cb11-38"><a></a>  <span class="co">// priors</span></span>
+<span id="cb11-39"><a></a>  <span class="kw">target +=</span> normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb11-40"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb11-41"><a></a>  <span class="kw">target +=</span> normal_lpdf(tau | <span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb11-42"><a></a>}</span>
+<span id="cb11-43"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb11-44"><a></a>  <span class="co">// compute the mean process for the marginal model</span></span>
+<span id="cb11-45"><a></a>  <span class="dt">vector</span>[N] mu = rep_vector(<span class="fl">0.0</span>, N);</span>
+<span id="cb11-46"><a></a>  mu += alpha;</span>
+<span id="cb11-47"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:N) {</span>
+<span id="cb11-48"><a></a>    mu[i] += X[i, ] * beta;</span>
+<span id="cb11-49"><a></a>  }</span>
+<span id="cb11-50"><a></a>  <span class="co">// compute theta using the ragged data structure</span></span>
+<span id="cb11-51"><a></a>  <span class="dt">int</span> pos;</span>
+<span id="cb11-52"><a></a>  pos = <span class="dv">1</span>;</span>
+<span id="cb11-53"><a></a>  <span class="dt">vector</span>[n] theta;</span>
+<span id="cb11-54"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb11-55"><a></a>    <span class="dt">int</span> n_i = n_is[i];</span>
+<span id="cb11-56"><a></a>    <span class="dt">vector</span>[n_i] ones_i = rep_vector(<span class="fl">1.0</span>, n_i);</span>
+<span id="cb11-57"><a></a>    <span class="dt">matrix</span>[n_i, n_i] Upsilon_i = sigma2 * diag_matrix(ones_i) + tau2 * rep_matrix(<span class="dv">1</span>, n_i, n_i);</span>
+<span id="cb11-58"><a></a>    <span class="dt">vector</span>[n_i] Y_i = segment(Y, pos, n_i);</span>
+<span id="cb11-59"><a></a>    <span class="dt">vector</span>[n_i] mu_i = segment(mu, pos, n_i);</span>
+<span id="cb11-60"><a></a>    <span class="dt">real</span> mean_theta_i = tau2 * ones_i' * inverse_spd(Upsilon_i) * (Y_i - mu_i);</span>
+<span id="cb11-61"><a></a>    <span class="dt">real</span> var_theta_i = tau2 - tau2 * tau2 * ones_i' * inverse_spd(Upsilon_i) * ones_i;</span>
+<span id="cb11-62"><a></a>    theta[i] = normal_rng(mean_theta_i, sqrt(var_theta_i));</span>
+<span id="cb11-63"><a></a>    pos = pos + n_i;</span>
+<span id="cb11-64"><a></a>  }</span>
+<span id="cb11-65"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fitting-the-model-in-stan-1" class="slide level2">
+<h2>Fitting the Model in Stan</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb12-2"><a></a>  <span class="at">N =</span> <span class="fu">nrow</span>(data),</span>
+<span id="cb12-3"><a></a>  <span class="at">n =</span> <span class="fu">length</span>(<span class="fu">unique</span>(data<span class="sc">$</span>region)),</span>
+<span id="cb12-4"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb12-5"><a></a>  <span class="at">X =</span> X,</span>
+<span id="cb12-6"><a></a>  <span class="at">Y =</span> data<span class="sc">$</span>glucose,</span>
+<span id="cb12-7"><a></a>  <span class="at">n_is =</span> <span class="fu">as.numeric</span>(<span class="fu">table</span>(data<span class="sc">$</span>region))</span>
+<span id="cb12-8"><a></a>)</span>
+<span id="cb12-9"><a></a>marginal_model <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="at">model_code =</span> <span class="st">"marginal-model.stan"</span>)</span>
+<span id="cb12-10"><a></a>fit_marginal <span class="ot">&lt;-</span> <span class="fu">sampling</span>(marginal_model, stan_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="assessing-convergence-2" class="slide level2">
+<h2>Assessing Convergence</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">traceplot</span>(fit_marginal, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-hierarchical_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<section id="assessing-convergence-3" class="slide level2">
+<h2>Assessing Convergence</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">library</span>(bayesplot)</span>
+<span id="cb14-2"><a></a>bayesplot<span class="sc">::</span><span class="fu">mcmc_acf</span>(fit_marginal, <span class="at">regex_pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-hierarchical_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<section id="posterior-summaries-1" class="slide level2">
+<h2>Posterior Summaries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">print</span>(fit_marginal, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=2000; warmup=1000; thin=1; 
+post-warmup draws per chain=1000, total post-warmup draws=4000.
+
+          mean se_mean   sd   2.5%    25%    50%    75%  97.5% n_eff Rhat
+alpha    99.07    0.06 3.66  91.97  96.66  99.05 101.50 106.36  3285    1
+beta[1]   0.26    0.00 0.03   0.20   0.24   0.26   0.28   0.32  3957    1
+beta[2]   0.48    0.00 0.07   0.35   0.44   0.48   0.53   0.61  3389    1
+beta[3]  10.48    0.01 0.67   9.18  10.01  10.49  10.95  11.76  4532    1
+beta[4]  -4.75    0.01 0.65  -6.01  -5.18  -4.75  -4.34  -3.45  4611    1
+beta[5]   0.29    0.01 0.77  -1.26  -0.23   0.28   0.79   1.77  3834    1
+beta[6]  -4.51    0.01 0.79  -6.04  -5.04  -4.50  -4.00  -3.01  3855    1
+beta[7] -17.88    0.01 0.66 -19.14 -18.33 -17.88 -17.44 -16.56  4370    1
+sigma     7.43    0.00 0.24   6.99   7.27   7.43   7.60   7.92  4223    1
+tau       4.55    0.02 1.27   2.61   3.62   4.38   5.27   7.48  3714    1
+
+Samples were drawn using NUTS(diag_e) at Wed Feb 26 11:25:39 2025.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+</div>
+</div>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
-<p>By introducing a random intercept, we allow for dependencies between observations within groups, making the model more realistic for real-world clustered or repeated measures data.</p>
-<p>This is just one way to think about hierarchical models in Bayesian analysis, where we model not only fixed effects but also group-level variability.</p>
+<ul>
+<li><p>By introducing a group-specific intercept, we allow for dependencies between observations within groups, making the model more realistic for real-world clustered or repeated measures data.</p></li>
+<li><p>For the remainder of the class, we will expand upon this hierarchical modeling framework to account for complext data types that are frequently encountered in research, including longitudinal and spatial data.</p></li>
+</ul>
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>
 <ul>
-<li><p>Work on <a href="https://biostat725-sp25.netlify.app/hw/hw-03">HW 03</a>.</p></li>
-<li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
-<li><p>Tuesday’s lecture: Missing data</p></li>
+<li><p>Work on Exam 01, which is due before next Thursday’s class!</p></li>
+<li><p>Next Tuesday’s class will be office hours. I will be available in the lecture room during the meeting time.</p></li>
+<li><p>Next Thursday’s lecture: Longitudinal Data</p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
