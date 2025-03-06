@@ -669,7 +669,7 @@ Y_{it} &amp;= \mathbf{x}_{it} \boldsymbol{\beta} + \mathbf{z}_{it}\boldsymbol{\t
 <p>For the conditional specification, we can write the model at the observational level, <span class="math inline">\(Y_{it}\)</span>. This is because conditionally on the <span class="math inline">\(\boldsymbol{\theta}_i\)</span>, <span class="math inline">\(Y_{it}\)</span> and <span class="math inline">\(Y_{it'}\)</span> are independent.</p>
 <p>For <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1,\ldots,n\)</span>) and <span class="math inline">\(t\)</span> (<span class="math inline">\(t = 1,\ldots, n_i\)</span>), the model is:</p>
 <p><span class="math display">\[\begin{aligned}
-Y_{it} | \boldsymbol{\Omega}, \boldsymbol{\theta}_i &amp;= (\beta_{0} + \theta_{0i}) + (\beta_1 + \theta_{0i}) X_{it}+ \epsilon_{it}, \quad \epsilon_{it} \stackrel{iid}{\sim} N(0, \sigma^2),\\
+Y_{it} | \boldsymbol{\Omega}, \boldsymbol{\theta}_i &amp;\stackrel{iid}{\sim} N\left((\beta_{0} + \theta_{0i}) + (\beta_1 + \theta_{0i}) X_{it}, \sigma^2\right),\\
 \boldsymbol{\theta}_i | \boldsymbol{\Sigma} &amp;\stackrel{iid}{\sim} N_2(\mathbf{0}_2,\boldsymbol{\Sigma})\\
 \boldsymbol{\Omega} &amp;\sim f(\boldsymbol{\Omega}),
 \end{aligned}\]</span></p>

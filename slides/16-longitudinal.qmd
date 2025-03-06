@@ -369,7 +369,7 @@ For the conditional specification, we can write the model at the observational l
 For $i$ ($i = 1,\ldots,n$) and $t$ ($t = 1,\ldots, n_i$), the model is:
 
 \begin{align*}
-Y_{it} | \boldsymbol{\Omega}, \boldsymbol{\theta}_i &= (\beta_{0} + \theta_{0i}) + (\beta_1 + \theta_{0i}) X_{it}+ \epsilon_{it}, \quad \epsilon_{it} \stackrel{iid}{\sim} N(0, \sigma^2),\\
+Y_{it} | \boldsymbol{\Omega}, \boldsymbol{\theta}_i &\stackrel{iid}{\sim} N\left((\beta_{0} + \theta_{0i}) + (\beta_1 + \theta_{0i}) X_{it}, \sigma^2\right),\\
 \boldsymbol{\theta}_i | \boldsymbol{\Sigma} &\stackrel{iid}{\sim} N_2(\mathbf{0}_2,\boldsymbol{\Sigma})\\
 \boldsymbol{\Omega} &\sim f(\boldsymbol{\Omega}),
 \end{align*}
