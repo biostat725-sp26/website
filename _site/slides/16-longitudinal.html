@@ -907,7 +907,7 @@ f(\boldsymbol{\Omega} | \mathbf{Y}) &amp;\propto f(\mathbf{Y}, \boldsymbol{\Omeg
 <span id="cb7-15"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
 <span id="cb7-16"><a></a>  <span class="dt">matrix</span>[q, n] z;</span>
 <span id="cb7-17"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt;[q] tau;</span>
-<span id="cb7-18"><a></a>  <span class="dt">cholesky_factor_corr</span>[<span class="dv">2</span>] L;</span>
+<span id="cb7-18"><a></a>  <span class="dt">cholesky_factor_corr</span>[q] L;</span>
 <span id="cb7-19"><a></a>}</span>
 <span id="cb7-20"><a></a><span class="kw">transformed parameters</span> {</span>
 <span id="cb7-21"><a></a>  <span class="dt">matrix</span>[q, n] theta;</span>
@@ -964,7 +964,7 @@ f(\boldsymbol{\Omega} | \mathbf{Y}) &amp;\propto f(\mathbf{Y}, \boldsymbol{\Omeg
 <span id="cb8-14"><a></a>  <span class="dt">vector</span>[p] beta;</span>
 <span id="cb8-15"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma;</span>
 <span id="cb8-16"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt;[q] tau;</span>
-<span id="cb8-17"><a></a>  <span class="dt">cholesky_factor_corr</span>[<span class="dv">2</span>] L;</span>
+<span id="cb8-17"><a></a>  <span class="dt">cholesky_factor_corr</span>[q] L;</span>
 <span id="cb8-18"><a></a>}</span>
 <span id="cb8-19"><a></a><span class="kw">transformed parameters</span> {</span>
 <span id="cb8-20"><a></a>  <span class="dt">cov_matrix</span>[q] Sigma;</span>
