@@ -69,7 +69,7 @@ We will focus on the following variables:
 
 # Exploratory data analysis
 
-In this AE, we will extract a longitudinal series of visual fields for an example patient's eye. In order to do this, we must first create a ID variable that is eye-specific. This means accounting for both the patient ID and whether the MD value comes from the left or right eye. 
+In this AE, we will extract a longitudinal series of visual fields for an example patient's eye. In order to do this, we must first create a ID variable that is eye-specific. This means accounting for both the patient ID and whether the MD value comes from the left or right eye.
 
 ```{r}
 dat <- dat[order(dat$STUDY_ID, dat$SITE), ]
@@ -90,7 +90,7 @@ dat_pat <- dat_pat[, c("time", "MD")]
 colnames(dat_pat) <- c("X", "Y")
 ```
 
-We can then visualize the longitudinal series of mean deviation values for eye 4. 
+We can then visualize the longitudinal series of mean deviation values for eye 4.
 
 ```{r}
 ggplot(dat_pat, aes(x = X, y = Y)) + 
@@ -131,7 +131,7 @@ Using the model from **Exercise 1**, present posterior estimates for model param
 
 ## Exercise 3
 
-Create a figure that plots the time since first visual field visit versus the mean deviation. Overlay the posterior mean process with a 95% credible band (similar to the figure on slide 32 from today). Also include a vertical line for the posterior mean estimate of the change point. 
+Create a figure that plots the time since first visual field visit versus the mean deviation. Overlay the posterior mean process with a 95% credible band (similar to the figure on slide 32 from today). Also include a vertical line for the posterior mean estimate of the change point.
 
 **Answer:**
 
@@ -179,5 +179,4 @@ To submit the AE:
 
 -   Render the document to produce the PDF with all of your work from today's class.
 -   Push all your work to your AE repo on GitHub. You're done! 🎉
-
 :::

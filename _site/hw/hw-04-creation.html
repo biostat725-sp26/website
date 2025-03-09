@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 04: Going beyond linear regression – BIOSTAT 725 - Spring 2025</title>
+<title>HW 04: Hierarchical models – BIOSTAT 725 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 04: Going beyond linear regression</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 04: Hierarchical models</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -305,23 +305,19 @@ window.Quarto = {
   <ul>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><strong>Getting started</strong></a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#exercises-1-6" id="toc-exercises-1-6" class="nav-link" data-scroll-target="#exercises-1-6">Exercises 1-6</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
+  <li><a href="#exercises-1-6" id="toc-exercises-1-6" class="nav-link" data-scroll-target="#exercises-1-6">Exercises 1-6</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercsie-4" id="toc-exercsie-4" class="nav-link" data-scroll-target="#exercsie-4">Exercsie 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  </ul></li>
-  <li><a href="#exercises-7-11" id="toc-exercises-7-11" class="nav-link" data-scroll-target="#exercises-7-11">Exercises 7-11</a>
-  <ul class="collapse">
+  <li><a href="#exercises-7-9" id="toc-exercises-7-9" class="nav-link" data-scroll-target="#exercises-7-9">Exercises 7-9</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
-  <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11">Exercise 11</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
@@ -333,8 +329,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 04: Going beyond linear regression</h1>
-<p class="subtitle lead">Hospital length of stay post lung cancer surgery</p>
+<h1 class="title">HW 04: Hierarchical models</h1>
+<p class="subtitle lead">Modeling disease progression in glaucoma</p>
 </div>
 
 
@@ -361,7 +357,7 @@ Due date
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Thursday, February 27 at 11:45am.</strong> To be considered on time, the following must be done by the due date:</p>
+<p>This assignment is due on <strong>Thursday, March 25 at 11:45am.</strong> To be considered on time, the following must be done by the due date:</p>
 <ul>
 <li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</li>
 <li>Final <code>.pdf</code> file submitted on Gradescope</li>
@@ -371,7 +367,7 @@ Due date
 <section id="getting-started" class="level1">
 <h1><strong>Getting started</strong></h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>hw-03</strong>. It contains the starter documents you need to complete the homework.</p></li>
+<li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>hw-04</strong>. It contains the starter documents you need to complete the homework.</p></li>
 <li><p>Clone the repo and start a new project in RStudio. See the <a href="https://biostat725-sp25.netlify.app/ae/ae-01-mcmc#clone-the-repo-start-new-rstudio-project">AE 01 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
 </ul>
 </section>
@@ -384,128 +380,104 @@ Due date
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(loo)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MLMusingR)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(LaplacesDemon)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>This homework will use data from the <a href="https://stats.oarc.ucla.edu/r/codefragments/mesimulation/">Hospital, Doctor, Patient (HDP) dataset</a>. The is a simulated study that is meant to be a large study of lung cancer outcomes across multiple doctors and sites. Assume that the variables were collected prior to a lung cancer surgery. Our primary outcome in this homework is the hospital length of stay (<code>LengthofStay</code>) following the surgery. We will use the following variables from the dataset:</p>
-<ul>
-<li><p><code>Age</code>: continuous, age in years.</p></li>
-<li><p><code>Married</code>: binary, married/living with partner of single.</p></li>
-<li><p><code>FamilyHx</code>: binary (yes/no), does the patient have a family history (Hx) of cancer?</p></li>
-<li><p><code>SmokingHx</code>: categorical with three levels, current smoker, former smoker, never smoked.</p></li>
-<li><p><code>Sex</code>: binary (female/male).</p></li>
-<li><p><code>CancerStage</code>: categorical with four levels, stages 1-4.</p></li>
-<li><p><code>LengthofStay</code>: count number of days patients stayed in the hospital after surgery.</p></li>
-<li><p><code>WBC</code>: continuous, white blood count.</p></li>
-<li><p><code>RBC</code>: continuous, red blood count.</p></li>
-<li><p><code>BMI</code>: body mass index given by the formula (<span class="math inline">\(kg/m^2\)</span>).</p></li>
-<li><p><code>IL6</code>: continuous, interleukin 6, a proinflammatory cytokine commonly examined as an indicator of inflammation, cannot be lower than zero.</p></li>
-<li><p><code>CRP</code>: continuous, C-reactive protein, a protein in the blood also used as an indicator of inflammation.</p></li>
-</ul>
-<p>For our homework we will use the <code>hdp</code> dataset from the <code>MLMusingR</code> R package. The dataset can be loaded as follows. Note that we will work with a subsample of 1,000 patients.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MLMusingR)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">54</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hdp <span class="ot">&lt;-</span> hdp[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(hdp), <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercises-1-6" class="level1">
-<h1>Exercises 1-6</h1>
-<p>Researchers are interested in the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. They start by visualizing the distribution of BMI and notice that it is a bit right-skewed; and thus they are worried about performing linear regression. Instead they would like to perform median regression.</p>
-<div>
-
-</div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center" data-layout-nrow="1">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="hw-04-creation_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+<p><img src="images/Picture1.jpg" class="img-fluid figure-img" style="width:75.0%" alt="vf"></p>
+<figcaption>Visual Field Assessment</figcaption>
+</figure>
+</div>
+<p>This homework will use data from the <a href="http://www.rodrep.com/longitudinal-glaucomatous-vf-data---description.html">Rotterdam Ophthalmic Data Repository</a>. Glaucoma is the leading cause of irreversible blindness world wide with over 60 million glaucoma patients as of 2012. Since impairment caused by glaucoma is irreversible, early detection of disease progression is crucial for effective treatment. Patients with glaucoma are routinely followed up and administered visual fields, a functional assessment of their vision. After each visual field test their current disease status is reported as a mean deviation value, measured in decibels (dB). A lower mean deviation indicates worse vision. Data was collected for each eye longitudinally and disease progression is estimated as the slope across time (dB/year). The data is available in <code>dat_hw4.rds</code> and we will use the following variables.</p>
+<ul>
+<li><p><code>eye</code>: integer, indicating the unique eye-level study id number.</p></li>
+<li><p><code>mean_deviation</code>: continuous, MD value for each eye <span class="math inline">\(i\)</span> and time <span class="math inline">\(t\)</span>.</p></li>
+<li><p><code>time</code>: continuous, time from baseline visual field (years).</p></li>
+<li><p><code>age</code>: integer, age of the patient at baseline (years).</p></li>
+<li><p><code>iop</code>: continuous, intraocular pressure measured at baseline (mm Hg).</p></li>
+<li><p><code>baseline_md</code>: continuous, baseline MD value for eye <span class="math inline">\(i\)</span>.</p></li>
+</ul>
+<p>The dataset can be loaded as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat_hw4 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"hw4.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="exercises-1-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercises-1-6">Exercises 1-6</h2>
+<p>Define <span class="math inline">\(Y_{it}\)</span> as the MD value for eye <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1,\ldots,n\)</span>) and visit <span class="math inline">\(t\)</span> (<span class="math inline">\(t = 1,\ldots, n_i\)</span>), and <span class="math inline">\(X_{it}\)</span> is the follow-up time, such that <span class="math inline">\(X_{i0} = 0\)</span>. Researchers are interested in estimating the eye-specific slopes for our sample to identify which patients are progressing (i.e., slope less than 0). To estimate these eye-specific slopes, researchers would like to fit the following model:</p>
+<p><span class="math display">\[\begin{align*}
+Y_{it} | \boldsymbol{\Omega}, \boldsymbol{\theta}_i &amp;\stackrel{iid}{\sim} N\left(\beta_{0i} + \beta_{1i}X_{it}, \sigma^2\right),\\
+\beta_{0i} &amp;= \beta_{0} + \theta_{0i}\\
+\beta_{1i} &amp;= \beta_{1} + \theta_{1i}\\
+\boldsymbol{\theta}_i | \boldsymbol{\Sigma} &amp;\stackrel{iid}{\sim} N_2(\mathbf{0}_2,\boldsymbol{\Sigma}),\quad
+\boldsymbol{\Sigma} = \begin{bmatrix}
+    \tau_{0}^2 &amp; \rho \tau_0 \tau_1\\
+    \rho \tau_0 \tau_1 &amp; \tau_1^2\\
+  \end{bmatrix}\\
+\boldsymbol{\Omega} &amp;\sim f(\boldsymbol{\Omega}),
+\end{align*}\]</span> where <span class="math inline">\(\boldsymbol{\theta}_i = (\theta_{0i},\theta_{1i})\)</span> and <span class="math inline">\(\boldsymbol{\Omega} = (\beta_0, \beta_1, \sigma^2, \boldsymbol{\Sigma})\)</span>. For priors, the researchers want to decompose the covariance structure, such that <span class="math inline">\(\boldsymbol{\Sigma} = \mathbf{D}\mathbf{L}\mathbf{L}^\top\mathbf{D}\)</span>, where <span class="math inline">\(\mathbf{D}\)</span> is a diagonal matrix with the standard deviations <span class="math inline">\((\tau_0,\tau_1)\)</span> on the diagonals. and <span class="math inline">\(\mathbf{L}\)</span> is the lower triangular cholesky of the correlation matrix, <span class="math inline">\(\boldsymbol{\Phi} = \mathbf{L}\mathbf{L}^\top\)</span>.</p>
+</section>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Fit the eye-specific intercept and slope model to the glaucoma data using the conditional model given above. For priors use <span class="math inline">\({\beta}_j \sim N(0,3^2)\)</span> for <span class="math inline">\(j = 0,1\)</span>, <span class="math inline">\(\sigma \sim \text{Half-Normal}(0,3^2)\)</span>, <span class="math inline">\(\tau_{j} \sim \text{Half-Normal}(0, 3^2)\)</span> for <span class="math inline">\(j =0,1\)</span>, and <span class="math inline">\(\mathbf{L} \sim LKJ(\eta)\)</span>, with <span class="math inline">\(\eta = 1\)</span>. Assess model convergence and perform a posterior predictive check.</p>
+<p><strong>Notes:</strong> This model may take a bit longer to run, one way to speed this up is to run <code>options(mc.cores = 4)</code> to run the chains in parallel. You may also want to only save parameters that you will need in subsequent exercises, by specifying <code>sampling(..., pars = c("parameters you don't want to save"), include = FALSE)</code>. This will make the model fit object must smaller. Finally, it is possible that the model will need to be run a bit longer for convergence, so you may need to increase <code>iter</code>.</p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Explore the posterior mean estimates for the eye-specific slopes, <span class="math inline">\(\beta_{1i}\)</span>. Plot the posterior mean estimates of <span class="math inline">\(\beta_{1i}\)</span> against the eye-specific slopes obtained from ordinary least squares (OLS) regression. How do the slopes compare from the two models? <em>Hint:</em> It may be helpful to plot a line with zero intercept and slope one.</p>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Summarize the posterior distributions of the population parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. Interpret the posterior means for each paramter in the context of the scientific problem.</p>
+</section>
+<section id="exercsie-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercsie-4">Exercsie 4</h2>
+<p>Explore the correlation between eye-specific intercepts (<span class="math inline">\(\beta_{0i}\)</span>) and slopes (<span class="math inline">\(\beta_{1i}\)</span>). Create a scatter plot to examine their relationship. Does their appear to be a relationship? To help answer this question also create examine the posterior distribution for <span class="math inline">\(\rho\)</span> and comment on how it relates to the scatter plot.</p>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Compute the posterior probability of progression for each participant, <span class="math inline">\(p_i = P(\beta_{1i} &lt; 0 | \mathbf{Y})\)</span>. Define progression as <span class="math inline">\(prog_i = 1(p_i &gt; 0.95)\)</span> Plot the <span class="math inline">\(prog_i\)</span> versus eye-specific baseline variables, including age, IOP, and baseline MD. Are any baseline characteristics associated with progression?</p>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Suppose we have a new eye, <span class="math inline">\(\mathbf{Y}_{i^*} = \left(Y_{i^*1},\ldots,Y_{i^*n_{i^*}}\right)\)</span>, that was not used to train the original data. We are interested in predicting their next visual field at time <span class="math inline">\(X_{i^*t^*}\)</span>, where <span class="math inline">\(t^* = (n_{i^*} + 1)\)</span>. The posterior predictive distribution is given by:</p>
+<p><span class="math display">\[\begin{align*}
+f\left(Y_{i^*t^*} | \mathbf{Y}_{i^*}, \mathbf{Y}\right) &amp;= \int f\left(Y_{i^*t^*},\boldsymbol{\Omega},\boldsymbol{\theta}_{i^*} | \mathbf{Y}_{i^*}, \mathbf{Y}\right) d\boldsymbol{\Omega}d\boldsymbol{\theta}_{i^*}\\
+&amp;= \int f\left(Y_{i^*t^*} | \boldsymbol{\Omega},\boldsymbol{\theta}_{i^*} , \mathbf{Y}_{i^*}, \mathbf{Y}\right) f\left(\boldsymbol{\Omega},\boldsymbol{\theta}_{i^*} | \mathbf{Y}_{i^*}, \mathbf{Y}\right) d\boldsymbol{\Omega}d\boldsymbol{\theta}_{i^*}\\
+&amp;= \int \underbrace{f\left(Y_{i^*t^*} | \boldsymbol{\Omega},\boldsymbol{\theta}_{i^*}\right)}_{\text{Likelihood}} \underbrace{f\left(\boldsymbol{\theta}_{i^*} |\boldsymbol{\Omega}, \mathbf{Y}_{i^*}\right)}_{\text{Eye-Specific Posterior}}\underbrace{f\left(\boldsymbol{\Omega}|\mathbf{Y}\right)}_{\text{Posterior}} d\boldsymbol{\Omega}d\boldsymbol{\theta}_{i^*}\\
+\end{align*}\]</span></p>
+<p>Similar to the posterior predictive distributions we have worked with before, we can sample from all three of these distributions to obtain samples from the posterior predictive distribution for the the future observation <span class="math inline">\(Y_{i^*t^*}\)</span>. The first distribution is the conditional likelihood, the second distribution is the posterior distribution for a subject-specific parameter (which we derived for the marginal likelihood in the lecture slides), and the third distribution is the posterior.</p>
+<p>The new eye has five observation (<span class="math inline">\(n_{i^*} = 5\)</span>) with the following MD values: <span class="math inline">\(\mathbf{Y}_{i^*} = (-1.44, -2.01, -1.98, -2.67, -3.01)\)</span> that were observed at the following time points: <span class="math inline">\((0.00, 0.56, 1.20, 1.80, 2.40)\)</span>. Provide the posterior predictive distribution for <span class="math inline">\(Y_{i^*t^*}\)</span> at three years from baseline (i.e., <span class="math inline">\(X_{i^*t^*} = 3\)</span>).</p>
+</section>
+<section id="exercises-7-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercises-7-9">Exercises 7-9</h2>
+<p>When studying the eye-specific slopes from the OLS regressions (given in the figure below), the researchers are concerned that there are some outliers that may actually be clinically realistic. For example, a slope of -3 may be possible in certain types of glaucoma.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hw-04-creation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-<p>Setup a multivariable median regression model to estimate the association between the predictors: sex, marital status, and smoking history, and the outcome: BMI. Define the random variable <span class="math inline">\(Y_i\)</span> as the BMI in <span class="math inline">\(kg/m^2\)</span> for patient <span class="math inline">\(i\)</span> and the median quantile of <span class="math inline">\(Y_i\)</span> given predictors <span class="math inline">\(\mathbf{x}_i\)</span> as <span class="math inline">\(q({Y_i|\mathbf{x}_i})\)</span>. We will model the median quantile as a linear function of the predictors, <span class="math display">\[q({Y_i|\mathbf{x}_i}) = \alpha + \mathbf{x}_i\boldsymbol{\beta},\]</span> where <span class="math inline">\(\mathbf{x}_i = (Male_i, Married_i, Current\_Smoker_i, Former\_Smoker_i).\)</span> Each of these predictors is just a binary variable.</p>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Formulate this regression problem within the framework of a Bayesian model (hint: Laplace distribution!). Fit this regression using Stan to estimate <span class="math inline">\((\alpha, \boldsymbol{\beta})\)</span> and any other parameters that arise in the model. For all model parameters, choose weakly-informative priors. Evaluate model convergence.</p>
+<p>Based on this observation, the researchers would like a more robust model for the eye-specific parameters. They decide to specify a multivariate Student-t distribution: <span class="math inline">\(\boldsymbol{\theta}_i \stackrel{iid}{\sim} t_{\nu}(\mathbf{0}, \boldsymbol{\Sigma})\)</span>. To generate these parameters efficiently, the researchers use the following transformation of standard normal random variables and inverse-<span class="math inline">\(\chi^2\)</span> random variables, <span class="math display">\[\boldsymbol{\theta}_i = \sqrt{\nu v_i}\mathbf{D}\mathbf{L} \mathbf{z}_i,\]</span> where <span class="math inline">\(\mathbf{z}_i = (z_{i0}, z_{i1})\)</span> and <span class="math inline">\(z_{ij} \stackrel{iid}{\sim} N(0,1)\)</span>, and <span class="math inline">\(v_i \stackrel{iid}{\sim} \text{Inv-}\chi^2_{\nu}\)</span>. Place the following prior on <span class="math inline">\(\nu \sim \text{Gamma}(2,0.1)\)</span>.</p>
 </section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Perform a posterior predictive check using the median as a test statistic. Be sure to present a posterior predictive p-value and use it to describe the model fit.</p>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Perform a posterior predictive check for the 2.5th and 97.5th quantiles. Comment on the difference between the result from <strong>Exercise 2</strong>.</p>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Present posterior summaries for all population parameters. For all predictors with a significant association (i.e., 95% credible interval does not include zero), provide an interpretation within the context of the problem.</p>
-</section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Fit the same model as in <strong>Exercise 1</strong> using linear regression. Compare the posterior mean estimates of <span class="math inline">\(\boldsymbol{\beta}\)</span> between the two models. Do they correspond?</p>
-</section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Perform a model comparison between the models in <strong>Exercise 1</strong> and <strong>Exercise 5</strong>. Which model is preferred? Provide intuition for why one model may be preferred over the other.</p>
-</section>
-</section>
-<section id="exercises-7-11" class="level1">
-<h1>Exercises 7-11</h1>
-<p>Define a binary outcome variable <span class="math inline">\(Y_i = 1(LengthofStay_i &gt; 5)\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>. We are interested in performing logistic regression such that <span class="math inline">\(Y_i \stackrel{ind}{\sim}\text{Bernoulli}(\pi_i)\)</span>, where</p>
-<p><span class="math display">\[\begin{align*}
-\text{logit} (\pi_i) &amp;= \alpha + \beta_1 Age_i + \beta_2 Married_i + \beta_3 Yes\_Family\_History_i\\
-&amp;\hspace{1cm}+ \beta_4 Current\_Smoker_i + \beta_5 Former\_Smoker_i + \beta_6 Male_i\\
-&amp;\hspace{1cm}+ \beta_7 Cancer\_Stage2_i + \beta_8 Cancer\_Stage3_i + \beta_9 Cancer\_Stage4_i\\
-&amp;\hspace{1cm}+ \gamma_1 WBC_i + \gamma_2 RBC_i + \gamma_3 BMI_i + \gamma_4 IL6_i + \gamma_5 CRP_i\\
-&amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \mathbf{z}_i \boldsymbol{\gamma}.
-\end{align*}\]</span></p>
-<p>The population parameters are <span class="math inline">\((\alpha, \boldsymbol{\beta},\boldsymbol{\gamma})\)</span>, where <span class="math inline">\(\boldsymbol{\beta} = (\beta_1, \ldots, \beta_9)\)</span> and <span class="math inline">\(\boldsymbol{\gamma} = (\gamma_1,\ldots,\gamma_5)\)</span>. Use the following priors for the centered intercept and regression parameters, <span class="math inline">\(\alpha \sim N(0, 3^2)\)</span> and <span class="math inline">\(\beta_j \sim N(0, 3^2)\)</span> for <span class="math inline">\(j = 1,\ldots,p\)</span> (<span class="math inline">\(p=9\)</span>). The researchers would like to place a horseshoe prior on each <span class="math inline">\(\gamma_l\)</span>, <span class="math inline">\(l=1,\ldots,q\)</span> (<span class="math inline">\(q = 5\)</span>).</p>
-<p>The horseshoe prior for <span class="math inline">\(\gamma_l\)</span> is given by, <span class="math display">\[\begin{align*}
-\gamma_l | \lambda_l, \tau, c &amp;\sim N\left(0, \tau^2 \lambda_l^2\right),\\
-\lambda_l &amp;\sim \mathcal C^+(0,1),\\
-\tau &amp;\sim \mathcal C^+(0,\tau_0^2).
-\end{align*}\]</span></p>
-<p>Be sure to standardize these predictors prior to assigning a horseshoe prior.</p>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Before fitting the horseshoe regression, a realistic value of <span class="math inline">\(\tau_0\)</span> must be determined. Compute a realistic value for <span class="math inline">\(\tau_0\)</span> based on the effective number of non-zero coefficients. Researchers have a prior belief that the number of non-zero coefficients will be equal to 1 (i.e., <span class="math inline">\(q_0 = 1\)</span>). When computing <span class="math inline">\(\tau_0\)</span> be sure to provide a visual justification by plotting the effective number of non-zero coefficients for your choice of <span class="math inline">\(\tau_0\)</span>.</p>
+<p>Fit the same model as in <strong>Exercise 1</strong>, but replace the multivariate Gaussian prior with a multivariate Student-t prior. Assess model convergence and perform a posterior predictive check. Create a scatter plot of the posterior mean eye-specific slopes from the Gaussian and Student-t models. Describe the relationship?</p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Fit the logistic regression model using the horseshoe prior above. Present model convergence diagnostics and make a statement about whether the MCMC sampler has converged.</p>
+<p>Examine the posterior distribution of <span class="math inline">\(\nu\)</span>. What does the posterior distribution of <span class="math inline">\(\nu\)</span> tell us about the appropriateness of the Student-t model, as compared to the Gaussian model?</p>
 </section>
 <section id="exercise-9" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Visualize the posterior distributions for the population parameters <span class="math inline">\((\alpha, \boldsymbol{\beta}, \boldsymbol{\gamma})\)</span>. <span class="math inline">\(\alpha\)</span> is the intercept on the scale of the original data. Make a statement about the impact of the horseshoe prior on the posterior shape for <span class="math inline">\(\boldsymbol{\gamma}\)</span>.</p>
-</section>
-<section id="exercise-10" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
-<p>Present posterior summaries for <span class="math inline">\((\alpha, \boldsymbol{\beta}, \boldsymbol{\gamma})\)</span>. Choose one predictor that is significant and provide an interpretation of the posterior mean.</p>
-</section>
-<section id="exercise-11" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
-<p>Visualize the posterior distribution of <span class="math inline">\(\pi_2\)</span> and <span class="math inline">\(\pi_4\)</span>, which are the probability of having a length of stay greater than 5 days for observation <span class="math inline">\(Y_2\)</span> and <span class="math inline">\(Y_4\)</span>, respectively (i.e., the second and fourth rows of the <code>hdp</code> dataset). Compute <span class="math inline">\(P(\pi_4 &gt; \pi_2 | \mathbf{Y})\)</span> and make a statement about which patient is more likely to have a longer length of stay.</p>
-<!-- # Exercises 9-10 -->
-<!-- ## Exercise 9 -->
-<!-- Researchers are interested in the association between cancer stage and number of days in the hospital post surgery. Define the outcome $Y_i \in \{3, 4, 5, 6, 7, 8\}$, with $K=6$, as the length of stay in days post lung cancer surgery. Note that we removed observations with lengths of stay equal to 2 and 9 due to sample size issues. -->
-<!-- ```{r, eval = FALSE} -->
-<!-- hdp <- hdp[hdp$LengthofStay > 2 & hdp$LengthofStay < 9, ] -->
-<!-- ``` -->
-<!-- We would like to fit a proportional odds logistic regression model, $$\log \frac{P(Y_i\leq k)}{P(Y_i > k)} = \text{logit}P(Y_i\leq k) = \alpha_k - \mathbf{x}_i \boldsymbol{\beta}, \quad k = 1,\ldots, K-1$$ where $\mathbf{x}_i = (Cancer\_Stage2_i, Cancer\_Stage3_i, Cancer\_Stage4_i)$. Place the following priors: $\alpha_k ~ N(0, 3^2)$ for $k=1,\ldots,K-1$ and $\beta_j \sim N(0, 3^2)$ for $j=1,2,3$. Be sure that $\alpha_k$ are ordered. Fit this regression model using Stan and provide evidence that the algorithm has converged. Present an appropriate posterior predictive check to demonstrate that the model is a good fit to the observed data. -->
-<!-- ## Exercise 10 -->
-<!-- Interpret the posterior mean and 95% credible interval for the regression parameter corresponding to a patient with stage 4 cancer. -->
-<!-- ::: render-commit-push -->
-<!-- You’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 3!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that [all]{.underline} documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo. -->
-<!-- ::: -->
+<p>Compare the Gaussian and Student-t models using LOO-IC. Which model is preferred? Is this consistent with your answer from <strong>Exercise 8</strong>?</p>
 </section>
 </section>
 <section id="submission" class="level1">
@@ -544,11 +516,11 @@ Warning
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">10</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 3</td>
@@ -556,11 +528,11 @@ Warning
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 4</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 5</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 6</td>
@@ -568,22 +540,14 @@ Warning
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 7</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 8</td>
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 9</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 10</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 11</td>
 <td style="text-align: left;">3</td>
 </tr>
 </tbody>
