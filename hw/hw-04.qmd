@@ -81,7 +81,7 @@ Y_{it} | \boldsymbol{\Omega}, \boldsymbol{\theta}_i &\stackrel{iid}{\sim} N\left
     \rho \tau_0 \tau_1 & \tau_1^2\\
   \end{bmatrix}\\
 \boldsymbol{\Omega} &\sim f(\boldsymbol{\Omega}),
-\end{align*} where $\boldsymbol{\theta}_i = (\theta_{0i},\theta_{1i})$ and $\boldsymbol{\Omega} = (\beta_0, \beta_1, \sigma^2, \boldsymbol{\Sigma})$. For priors, the researchers want to decompose the covariance structure, such that $\boldsymbol{\Sigma} = \mathbf{D}\mathbf{L}\mathbf{L}^\top\mathbf{D}$, where $\mathbf{D}$ is a diagonal matrix with the standard deviations $(\tau_0,\tau_1)$ on the diagonals. and $\mathbf{L}$ is the lower triangular cholesky of the correlation matrix, $\boldsymbol{\Phi} = \mathbf{L}\mathbf{L}^\top$.
+\end{align*} where $\boldsymbol{\theta}_i = (\theta_{0i},\theta_{1i})$ and $\boldsymbol{\Omega} = (\beta_0, \beta_1, \sigma^2, \boldsymbol{\Sigma})$. For priors, the researchers want to decompose the covariance structure, such that $\boldsymbol{\Sigma} = \mathbf{D}\mathbf{L}\mathbf{L}^\top\mathbf{D}$, where $\mathbf{D}$ is a diagonal matrix with the standard deviations $(\tau_0,\tau_1)$ on the diagonals. and $\mathbf{L}$ is the lower triangular Cholesky of the correlation matrix, $\boldsymbol{\Phi} = \mathbf{L}\mathbf{L}^\top$.
 
 ## Exercise 1
 
@@ -95,9 +95,9 @@ Explore the posterior mean estimates for the eye-specific slopes, $\beta_{1i}$. 
 
 ## Exercise 3
 
-Summarize the posterior distributions of the population parameters $\beta_0$ and $\beta_1$. Interpret the posterior means for each paramter in the context of the scientific problem.
+Summarize the posterior distributions of the population parameters $\beta_0$ and $\beta_1$. Interpret the posterior means for each parameter in the context of the scientific problem.
 
-## Exercsie 4
+## Exercise 4
 
 Explore the correlation between eye-specific intercepts ($\beta_{0i}$) and slopes ($\beta_{1i}$). Create a scatter plot to examine their relationship. Does their appear to be a relationship? To help answer this question also create examine the posterior distribution for $\rho$ and comment on how it relates to the scatter plot.
 

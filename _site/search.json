@@ -14363,7 +14363,7 @@
     "href": "hw/hw-04.html#exercises-1-6",
     "title": "HW 04: Hierarchical models",
     "section": "Exercises 1-6",
-    "text": "Exercises 1-6\nDefine \\(Y_{it}\\) as the MD value for eye \\(i\\) (\\(i = 1,\\ldots,n\\)) and visit \\(t\\) (\\(t = 1,\\ldots, n_i\\)), and \\(X_{it}\\) is the follow-up time, such that \\(X_{i0} = 0\\). Researchers are interested in estimating the eye-specific slopes for our sample to identify which patients are progressing (i.e., slope less than 0). To estimate these eye-specific slopes, researchers would like to fit the following model:\n\\[\\begin{align*}\nY_{it} | \\boldsymbol{\\Omega}, \\boldsymbol{\\theta}_i &\\stackrel{iid}{\\sim} N\\left(\\beta_{0i} + \\beta_{1i}X_{it}, \\sigma^2\\right),\\\\\n\\beta_{0i} &= \\beta_{0} + \\theta_{0i}\\\\\n\\beta_{1i} &= \\beta_{1} + \\theta_{1i}\\\\\n\\boldsymbol{\\theta}_i | \\boldsymbol{\\Sigma} &\\stackrel{iid}{\\sim} N_2(\\mathbf{0}_2,\\boldsymbol{\\Sigma}),\\quad\n\\boldsymbol{\\Sigma} = \\begin{bmatrix}\n    \\tau_{0}^2 & \\rho \\tau_0 \\tau_1\\\\\n    \\rho \\tau_0 \\tau_1 & \\tau_1^2\\\\\n  \\end{bmatrix}\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\n\\end{align*}\\] where \\(\\boldsymbol{\\theta}_i = (\\theta_{0i},\\theta_{1i})\\) and \\(\\boldsymbol{\\Omega} = (\\beta_0, \\beta_1, \\sigma^2, \\boldsymbol{\\Sigma})\\). For priors, the researchers want to decompose the covariance structure, such that \\(\\boldsymbol{\\Sigma} = \\mathbf{D}\\mathbf{L}\\mathbf{L}^\\top\\mathbf{D}\\), where \\(\\mathbf{D}\\) is a diagonal matrix with the standard deviations \\((\\tau_0,\\tau_1)\\) on the diagonals. and \\(\\mathbf{L}\\) is the lower triangular cholesky of the correlation matrix, \\(\\boldsymbol{\\Phi} = \\mathbf{L}\\mathbf{L}^\\top\\).",
+    "text": "Exercises 1-6\nDefine \\(Y_{it}\\) as the MD value for eye \\(i\\) (\\(i = 1,\\ldots,n\\)) and visit \\(t\\) (\\(t = 1,\\ldots, n_i\\)), and \\(X_{it}\\) is the follow-up time, such that \\(X_{i0} = 0\\). Researchers are interested in estimating the eye-specific slopes for our sample to identify which patients are progressing (i.e., slope less than 0). To estimate these eye-specific slopes, researchers would like to fit the following model:\n\\[\\begin{align*}\nY_{it} | \\boldsymbol{\\Omega}, \\boldsymbol{\\theta}_i &\\stackrel{iid}{\\sim} N\\left(\\beta_{0i} + \\beta_{1i}X_{it}, \\sigma^2\\right),\\\\\n\\beta_{0i} &= \\beta_{0} + \\theta_{0i}\\\\\n\\beta_{1i} &= \\beta_{1} + \\theta_{1i}\\\\\n\\boldsymbol{\\theta}_i | \\boldsymbol{\\Sigma} &\\stackrel{iid}{\\sim} N_2(\\mathbf{0}_2,\\boldsymbol{\\Sigma}),\\quad\n\\boldsymbol{\\Sigma} = \\begin{bmatrix}\n    \\tau_{0}^2 & \\rho \\tau_0 \\tau_1\\\\\n    \\rho \\tau_0 \\tau_1 & \\tau_1^2\\\\\n  \\end{bmatrix}\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\n\\end{align*}\\] where \\(\\boldsymbol{\\theta}_i = (\\theta_{0i},\\theta_{1i})\\) and \\(\\boldsymbol{\\Omega} = (\\beta_0, \\beta_1, \\sigma^2, \\boldsymbol{\\Sigma})\\). For priors, the researchers want to decompose the covariance structure, such that \\(\\boldsymbol{\\Sigma} = \\mathbf{D}\\mathbf{L}\\mathbf{L}^\\top\\mathbf{D}\\), where \\(\\mathbf{D}\\) is a diagonal matrix with the standard deviations \\((\\tau_0,\\tau_1)\\) on the diagonals. and \\(\\mathbf{L}\\) is the lower triangular Cholesky of the correlation matrix, \\(\\boldsymbol{\\Phi} = \\mathbf{L}\\mathbf{L}^\\top\\).",
     "crumbs": [
       "Homework",
       "HW 04"
@@ -14396,7 +14396,7 @@
     "href": "hw/hw-04.html#exercise-3",
     "title": "HW 04: Hierarchical models",
     "section": "Exercise 3",
-    "text": "Exercise 3\nSummarize the posterior distributions of the population parameters \\(\\beta_0\\) and \\(\\beta_1\\). Interpret the posterior means for each paramter in the context of the scientific problem.",
+    "text": "Exercise 3\nSummarize the posterior distributions of the population parameters \\(\\beta_0\\) and \\(\\beta_1\\). Interpret the posterior means for each parameter in the context of the scientific problem.",
     "crumbs": [
       "Homework",
       "HW 04"
@@ -14474,6 +14474,17 @@
     "title": "HW 04: Hierarchical models",
     "section": "Exercise 9",
     "text": "Exercise 9\nCompare the Gaussian and Student-t models using LOO-IC. Which model is preferred? Is this consistent with your answer from Exercise 8?",
+    "crumbs": [
+      "Homework",
+      "HW 04"
+    ]
+  },
+  {
+    "objectID": "hw/hw-04.html#exercise-4",
+    "href": "hw/hw-04.html#exercise-4",
+    "title": "HW 04: Hierarchical models",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nExplore the correlation between eye-specific intercepts (\\(\\beta_{0i}\\)) and slopes (\\(\\beta_{1i}\\)). Create a scatter plot to examine their relationship. Does their appear to be a relationship? To help answer this question also create examine the posterior distribution for \\(\\rho\\) and comment on how it relates to the scatter plot.",
     "crumbs": [
       "Homework",
       "HW 04"
