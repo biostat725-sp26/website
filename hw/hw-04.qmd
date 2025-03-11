@@ -43,7 +43,7 @@ library(ggExtra)
 
 ![Visual Field Assessment](images/Picture1.jpg){fig-alt="vf" fig-align="center" width="75%"}
 
-This homework will use data from the [Rotterdam Ophthalmic Data Repository](http://www.rodrep.com/longitudinal-glaucomatous-vf-data---description.html). Glaucoma is the leading cause of irreversible blindness world wide with over 60 million glaucoma patients as of 2012. Since impairment caused by glaucoma is irreversible, early detection of disease progression is crucial for effective treatment. Patients with glaucoma are routinely followed up and administered visual fields, a functional assessment of their vision. After each visual field test their current disease status is reported as a mean deviation value, measured in decibels (dB). A lower mean deviation indicates worse vision. Data was collected for each eye longitudinally and disease progression is estimated as the slope across time (dB/year). The data is available in `dat_hw4.rds` and we will use the following variables.
+This homework will use data from the [Rotterdam Ophthalmic Data Repository](http://www.rodrep.com/longitudinal-glaucomatous-vf-data---description.html). Glaucoma is the leading cause of irreversible blindness world wide with over 60 million glaucoma patients as of 2012. Since impairment caused by glaucoma is irreversible, early detection of disease progression is crucial for effective treatment. Patients with glaucoma are routinely followed up and administered visual fields, a functional assessment of their vision. After each visual field test their current disease status is reported as a mean deviation value, measured in decibels (dB). A lower mean deviation indicates worse vision. Data was collected for each eye longitudinally and disease progression is estimated as the slope across time (dB/year). The data is available in `dat-hw4.rds` and we will use the following variables.
 
 -   `eye`: integer, indicating the unique eye-level study id number.
 
@@ -60,7 +60,7 @@ This homework will use data from the [Rotterdam Ophthalmic Data Repository](http
 The dataset can be loaded as follows.
 
 ```{r, eval = FALSE}
-dat_hw4 <- readRDS("hw4.rds")
+dat_hw4 <- readRDS("dat-hw4.rds")
 ```
 
 ```{r, echo = FALSE}

@@ -395,7 +395,7 @@ Due date
 <figcaption>Visual Field Assessment</figcaption>
 </figure>
 </div>
-<p>This homework will use data from the <a href="http://www.rodrep.com/longitudinal-glaucomatous-vf-data---description.html">Rotterdam Ophthalmic Data Repository</a>. Glaucoma is the leading cause of irreversible blindness world wide with over 60 million glaucoma patients as of 2012. Since impairment caused by glaucoma is irreversible, early detection of disease progression is crucial for effective treatment. Patients with glaucoma are routinely followed up and administered visual fields, a functional assessment of their vision. After each visual field test their current disease status is reported as a mean deviation value, measured in decibels (dB). A lower mean deviation indicates worse vision. Data was collected for each eye longitudinally and disease progression is estimated as the slope across time (dB/year). The data is available in <code>dat_hw4.rds</code> and we will use the following variables.</p>
+<p>This homework will use data from the <a href="http://www.rodrep.com/longitudinal-glaucomatous-vf-data---description.html">Rotterdam Ophthalmic Data Repository</a>. Glaucoma is the leading cause of irreversible blindness world wide with over 60 million glaucoma patients as of 2012. Since impairment caused by glaucoma is irreversible, early detection of disease progression is crucial for effective treatment. Patients with glaucoma are routinely followed up and administered visual fields, a functional assessment of their vision. After each visual field test their current disease status is reported as a mean deviation value, measured in decibels (dB). A lower mean deviation indicates worse vision. Data was collected for each eye longitudinally and disease progression is estimated as the slope across time (dB/year). The data is available in <code>dat-hw4.rds</code> and we will use the following variables.</p>
 <ul>
 <li><p><code>eye</code>: integer, indicating the unique eye-level study id number.</p></li>
 <li><p><code>mean_deviation</code>: continuous, MD value for each eye <span class="math inline">\(i\)</span> and time <span class="math inline">\(t\)</span>.</p></li>
@@ -406,7 +406,7 @@ Due date
 </ul>
 <p>The dataset can be loaded as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat_hw4 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"hw4.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat_hw4 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"dat-hw4.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="exercises-1-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercises-1-6">Exercises 1-6</h2>
