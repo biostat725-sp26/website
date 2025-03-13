@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -12797,8 +12797,8 @@
     "objectID": "slides/15-hierarchical.html#review-of-last-lecture",
     "href": "slides/15-hierarchical.html#review-of-last-lecture",
     "title": "Hierarchical Models",
-    "section": "",
-    "text": "On Tuesday, we learned about missing data, including various types: MCAR, MAR, and MNAR.\nWe learned about two Bayesian approaches to missing data under the MAR assumption:\n\nJoint model that assumes the missing data are parameters.\nMultiple imputation.\n\nMoving forward: Up until today, we have dealt with independent data. Today, we will look at our first example of dependent data!"
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nOn Tuesday, we learned about missing data, including various types: MCAR, MAR, and MNAR.\nWe learned about two Bayesian approaches to missing data under the MAR assumption:\n\nJoint model that assumes the missing data are parameters.\nMultiple imputation.\n\nMoving forward: Up until today, we have dealt with independent data. Today, we will look at our first example of dependent data!"
   },
   {
     "objectID": "slides/15-hierarchical.html#linear-regression-assumptions",
@@ -12812,7 +12812,7 @@
     "href": "slides/15-hierarchical.html#prepare-for-next-class",
     "title": "Hierarchical Models",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on Exam 01, which is due before next Thursday’s class!\nNext Tuesday’s class will be office hours. I will be available in the lecture room during the meeting time.\nNext Thursday’s lecture: Longitudinal Data"
+    "text": "Prepare for next class\n\nWork on Exam 01, which is due before next Thursday’s class!\nNext Tuesday’s class will be office hours. I will be available in the lecture room during the meeting time.\nNext Thursday’s lecture: Longitudinal Data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/15-hierarchical.html#recap-linear-regression-assumptions",
@@ -14489,5 +14489,355 @@
       "Homework",
       "HW 04"
     ]
+  },
+  {
+    "objectID": "slides/17-gp.html#recalling-what-went-before-the-break",
+    "href": "slides/17-gp.html#recalling-what-went-before-the-break",
+    "title": "Gaussian Processes",
+    "section": "Recalling what went before the break",
+    "text": "Recalling what went before the break"
+  },
+  {
+    "objectID": "slides/17-gp.html#a-brief-agenda",
+    "href": "slides/17-gp.html#a-brief-agenda",
+    "title": "Gaussian Processes",
+    "section": "A brief agenda",
+    "text": "A brief agenda\nBy the end of this lecture you should:\n\nUnderstand the basic concepts of Gaussian processes (GP) and their usefulness in statistical modeling.\nCompute posterior and predictive inference for a simple GP model.\nUse GP as a building block in modeling time-correlated data."
+  },
+  {
+    "objectID": "slides/17-gp.html#motivation",
+    "href": "slides/17-gp.html#motivation",
+    "title": "Gaussian Processes",
+    "section": "Motivation",
+    "text": "Motivation\nLet \\(i\\) index distinct eyes (\\(i=1,2,\\ldots,n\\)) and \\(t\\) index within-eye data in time (\\(t=1,2,\\ldots,n_i\\)).\nSuppose we are interested in effects of time-invariant predictors (age and iop):\n\\[Y_{it} = \\underbrace{\\mathbf{x}_i\\boldsymbol{\\beta}}_{\\text{Fixed in time}} + \\underbrace{\\eta_{it}}_{\\text{Varying in time}} + \\epsilon_{it}\\]\nIn a previous lecture, we included only time (\\(X_{it}\\)) and fit a random slope regression.\n\\[\\eta_{it} = \\theta_{0i} + \\underbrace{X_{it}}_{=Time}\\theta_{1i}.\\]\nWhat if we want a nonlinear model for time effects?"
+  },
+  {
+    "objectID": "slides/17-gp.html#exploratory-analysis-of-population-predictors",
+    "href": "slides/17-gp.html#exploratory-analysis-of-population-predictors",
+    "title": "Gaussian Processes",
+    "section": "Exploratory Analysis of Population Predictors",
+    "text": "Exploratory Analysis of Population Predictors"
+  },
+  {
+    "objectID": "slides/17-gp.html#exploratory-analysis-of-population-predictors-1",
+    "href": "slides/17-gp.html#exploratory-analysis-of-population-predictors-1",
+    "title": "Gaussian Processes",
+    "section": "Exploratory Analysis of Population Predictors",
+    "text": "Exploratory Analysis of Population Predictors"
+  },
+  {
+    "objectID": "slides/17-gp.html#a-review-of-computation-linear-algebra-needed-to-sample",
+    "href": "slides/17-gp.html#a-review-of-computation-linear-algebra-needed-to-sample",
+    "title": "Gaussian Processes",
+    "section": "A review of computation / linear algebra needed to sample",
+    "text": "A review of computation / linear algebra needed to sample\nHow can we sample a 3D normal random vector?\n\np &lt;- 3\nmu &lt;- c(3, -1, 5)\nSigma &lt;- matrix(\n  c(\n    1.0, 0.6, 0.3,\n    0.6, 1.0, 0.6,\n    0.3, 0.6, 1.0\n  ),\n  nrow = 3, ncol = 3\n)\nz &lt;- rnorm(p)\nR &lt;- t(chol(Sigma)) ## R %*% t(R) == Sigma\nx &lt;- R %*% z\n\n# This is the same as\nx &lt;- rmvnorm(1, mu, Sigma)\n\nFrom previous lecture: R decomposes into D (diagonal) and L (Cholesky factor of a correlation matrix)."
+  },
+  {
+    "objectID": "slides/17-gp.html#constructing-a-gaussian-random-function-in-time",
+    "href": "slides/17-gp.html#constructing-a-gaussian-random-function-in-time",
+    "title": "Gaussian Processes",
+    "section": "Constructing a Gaussian Random Function in Time",
+    "text": "Constructing a Gaussian Random Function in Time\nWhat about “random functions”? Can we extend this idea to arbitrarily many time points? What does that even mean?\n\nWe start at time \\(t=0\\) from \\(X_0 = 0\\).\nWhen time passes by amount of \\(h &gt; 0\\), we want\n\n\\[X_{t+h} - X_t \\sim N(0,h).\\] Note: \\(\\mathbb{E}[X_t^2] = \\mathbb{V}(X_t) = t\\) (Why?)\n\nEach increment will be independent from each other.\n\nNow think of passing to the limit: Somehow it works (!) and we have a process defined at every \\(t\\)."
+  },
+  {
+    "objectID": "slides/17-gp.html#visualizing-the-brownian-motion",
+    "href": "slides/17-gp.html#visualizing-the-brownian-motion",
+    "title": "Gaussian Processes",
+    "section": "Visualizing the Brownian Motion",
+    "text": "Visualizing the Brownian Motion"
+  },
+  {
+    "objectID": "slides/17-gp.html#what-if-i-want-different-correlation-structures",
+    "href": "slides/17-gp.html#what-if-i-want-different-correlation-structures",
+    "title": "Gaussian Processes",
+    "section": "What if I want different correlation structures?",
+    "text": "What if I want different correlation structures?\nFor longitudinal data,\n\nWe are not interested in an indefinitely long time span.\nWithin the time window, the data can exhibit stable behavior.\n\n\nHypothesis 1 : The marginal variability of \\(X_t\\) should stay the same.\nHypothesis 2 : Time correlation should decay in, and only depend on, the amount of time elapsed.\nHypothesis 3 : We have expectations about the span of correlation and smoothness of the process.\n\nThese are all a priori hypotheses. The data may come from something very different!"
+  },
+  {
+    "objectID": "slides/17-gp.html#stationary-gaussian-processes",
+    "href": "slides/17-gp.html#stationary-gaussian-processes",
+    "title": "Gaussian Processes",
+    "section": "Stationary Gaussian processes",
+    "text": "Stationary Gaussian processes\nA different process results from a stationary kernel:\n\\[\n\\mathbb{C}(X_t, X_s) = C(|t-s|).\n\\]\nWe want \\(C(0) = \\sigma^2 &gt; 0\\) and \\(C\\to 0\\) as \\(h = |t-s|\\to\\infty\\). Some common choices:\n\nExponential kernel: \\(C(h) = \\sigma^2\\exp(-h/\\rho)\\)\nSquare exponential kernel: \\(C(h) = \\sigma^2\\exp\\{-h^2/(2\\rho^2)\\}\\)\nMatérn kernels"
+  },
+  {
+    "objectID": "slides/17-gp.html#interpreting-hyperparameters-and-kernels",
+    "href": "slides/17-gp.html#interpreting-hyperparameters-and-kernels",
+    "title": "Gaussian Processes",
+    "section": "Interpreting Hyperparameters and Kernels",
+    "text": "Interpreting Hyperparameters and Kernels\nOften, we fix the overall kernel function while learning its “bandwidth” \\(\\rho\\) due to poor identifiability from the data."
+  },
+  {
+    "objectID": "slides/17-gp.html#default-prior-choices",
+    "href": "slides/17-gp.html#default-prior-choices",
+    "title": "Gaussian Processes",
+    "section": "Default Prior Choices",
+    "text": "Default Prior Choices\n\nStan team often recommends \\(\\rho^{-1} \\sim Gamma(5,5)\\)\nA priori the prior is concentrated around 1. For a prior mean, distance increase of 1 corrresponds to a multiplicative decay of correlation by \\(e^{-1}\\sim 37\\%\\).\nBeware of the units! A year correlation is very different from that over a day."
+  },
+  {
+    "objectID": "slides/17-gp.html#prior-sampling-in-stan",
+    "href": "slides/17-gp.html#prior-sampling-in-stan",
+    "title": "Gaussian Processes",
+    "section": "Prior Sampling in Stan",
+    "text": "Prior Sampling in Stan\nOnce we have a GP model, sampling from the prior is equivalent to sampling from a multivariate normal.\n\ndata {\n  int&lt;lower=1&gt; N;\n  array[N] real x;\n  real&lt;lower=0&gt; sigma;\n  real&lt;lower=0&gt; l;\n}\ntransformed data {\n  // 0. A \"small nugget\" to stabilize matrix root computation\n  // This is for.better numerical stability in taking large matrix roots\n  real delta = 1e-9;\n\n  // 1. Compute the squared exponential kernel matrix\n  // x is the time variable\n  vector[N] mu = rep_vector(0, N);\n  matrix[N, N] R_C;\n  matrix[N, N] C = gp_exp_quad_cov(x, sigma, l);\n  for (i in 1:N) {\n    C[i, i] = C[i, i] + delta;\n  }\n\n  // 2. Compute the root of C by Cholesky decomposition\n  R_C = cholesky_decompose(C);\n}\ngenerated quantities {\n  // 3. Sample from the prior: multivariate_normal(0, C)\n  f ~ multi_normal_cholesky(mu, R_C)\n}"
+  },
+  {
+    "objectID": "slides/17-gp.html#posterior-inference",
+    "href": "slides/17-gp.html#posterior-inference",
+    "title": "Gaussian Processes",
+    "section": "Posterior inference",
+    "text": "Posterior inference\nFor each \\(i\\)-th eye: time effect vector is given an independent prior based on the GP model.\n\\[\\boldsymbol{\\eta}_i = (\\eta_{i1},\\ldots,\\eta_{in_i})^\\top \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0},\\mathbf{C}_i)\\]\nEach \\(\\eta_{it}\\) is a pointwise value of the process \\(\\eta_i(t) = \\eta_{it}\\).\n\\[\\mathbf{C}_i = \\begin{bmatrix}\nC(0) & C(|t_{i1}-t_{i2}|) & \\cdots & C(|t_{i1} - t_{in_i}|)\\\\\nC(|t_{i1} - t_{i2}|) & C(0) & \\cdots & C(|t_{i,2} - t_{in_i}|)\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\n\\end{bmatrix}\\]\nRemember: Different eyes need not have the same number of encounters, nor need they have measurements at the same time."
+  },
+  {
+    "objectID": "slides/17-gp.html#programming-in-stan-for-a-single-patient",
+    "href": "slides/17-gp.html#programming-in-stan-for-a-single-patient",
+    "title": "Gaussian Processes",
+    "section": "Programming in Stan for a single patient",
+    "text": "Programming in Stan for a single patient\n\ndata {\n  int&lt;lower = 1&gt; n_i;\n  array[n_i] real Time;\n  vector[n_i] Y;\n}\ntransformed data {\n  // For numerical reasons\n  real delta = 1e-9;\n  \n  // A vector of zeros\n  vector[n_i] mu = rep_vector(0, n_i);\n}\nparameters {\n  // GP hyperparameters\n  vector[n_i] z;\n  real&lt;lower = 0&gt; rho;\n  real&lt;lower = 0&gt; kappa;\n  real&lt;lower = 0&gt; sigma;\n}\ntransformed parameters {\n  // Computes the necessary parameters for GP model\n  vector[N] f;\n  matrix[N, N] L_K;\n  matrix[N, N] K = gp_exp_quad_cov(x, kappa, rho);\n\n  // diagonal elements\n  for (n in 1:N) {\n    K[n, n] = K[n, n] + delta;\n  }\n\n  L_K = cholesky_decompose(K);\n  f = L_K * z;\n}\nmodel {\n  target += normal_lpdf(Y | f, sigma);\n\n  rho ~ inv_gamma(5, 5);\n  alpha ~ std_normal();\n  sigma ~ std_normal();\n\n}"
+  },
+  {
+    "objectID": "slides/17-gp.html#conditional-gp-model",
+    "href": "slides/17-gp.html#conditional-gp-model",
+    "title": "Gaussian Processes",
+    "section": "Conditional GP Model",
+    "text": "Conditional GP Model\n\ndata {\n  int&lt;lower=0&gt; N;       // total number of observations\n  int&lt;lower=1&gt; n;       // number of eyes\n  int&lt;lower=1&gt; p;       // fixed effects dimension\n  vector[N] Y;          // observation\n  matrix[n, p] X;        // fixed effects predictors\n  array[N] real t;      // obs time points\n  array[n] int s;       // sizes of within-pt obs\n}\ntransformed data {\n  real delta = 1e-9;\n}\nparameters {\n  // Fixed effects model\n  vector[p] beta;\n  real&lt;lower=0&gt; sigma;\n  // GP parameters\n  vector[N] eta;\n  real&lt;lower=0&gt; alpha;\n  real&lt;lower=0&gt; rho;\n}\ntransformed parameters {\n  vector[n] mu = X * beta;\n}\nmodel {\n  beta ~ normal(0,3);\n  z ~ std_normal();\n  alpha ~ std_normal();\n  sigma ~ std_normal();\n  rho ~ inv_gamma(5,5);\n\n  vector[N] mu_rep;\n  vector[N] eta;\n  \n  int pos;\n  pos = 1;\n  // Ragged loop computing the mean for each time obs\n  for (i in 1:n) {\n    // GP covariance for the k-th eye\n    int n_i = s[i];\n    int pos_end = pos + n_i - 1;\n    matrix[n_i, n_i] R_C;\n    matrix[n_i, n_i] C = gp_exp_quad_cov(segment(t, pos, n_i), alpha, rho);\n    for (j in 1:n_i) {\n      // adding a small term to the diagonal entries\n      C[j, j] = C[j, j] + delta;\n    }\n    R_C = cholesky_decompose(C);\n    \n    // Mean of data at each time\n    mu_rep[pos:pos_end] = rep_vector(mu[i], n_i);\n    // GP for the i-th eye\n    eta[pos:pos_end] = R_C * segment(z, pos, n_i);\n    pos = pos_end + 1;\n  }\n  // Normal observation model centered at mu_rep + eta\n  Y ~ normal(mu_rep + eta, sigma);\n}"
+  },
+  {
+    "objectID": "slides/17-gp.html#fitting-the-model",
+    "href": "slides/17-gp.html#fitting-the-model",
+    "title": "Gaussian Processes",
+    "section": "Fitting the Model",
+    "text": "Fitting the Model\nSome data preparation code for handling the ragged structure.\n\n# Group predictors fixed across time\nfixed_df &lt;- dataset %&gt;% \n  group_by(eye_id) %&gt;% \n  reframe(age = unique(age), iop = unique(iop))\nXmat &lt;- model.matrix(~age + iop, data = fixed_df)\n# Number of measurements for each eye\ngroupsizes &lt;- dataset %&gt;% \n  group_by(eye_id) %&gt;% \n  summarise(n = n()) %&gt;% \n  pull(n)\nstan_data &lt;- list(\n  N = dim(dataset)[1],\n  Np = 21,\n  K = max(dataset$eye_id),\n  D = dim(Xmat)[2],\n  y = dataset$mean_deviation,\n  t = dataset$time,\n  tp = seq(0, 5, by = 0.25),\n  s = groupsizes,\n  x = Xmat\n)"
+  },
+  {
+    "objectID": "slides/17-gp.html#assessing-convergence",
+    "href": "slides/17-gp.html#assessing-convergence",
+    "title": "Gaussian Processes",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(gp_condl_fit, pars = c(\"beta\", \"sigma\", \"alpha\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/17-gp.html#assessing-convergence-1",
+    "href": "slides/17-gp.html#assessing-convergence-1",
+    "title": "Gaussian Processes",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nbayesplot::mcmc_acf(gp_condl_fit, regex_pars = c(\"beta\", \"sigma\", \"alpha\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/17-gp.html#fitting-a-marginal-model",
+    "href": "slides/17-gp.html#fitting-a-marginal-model",
+    "title": "Gaussian Processes",
+    "section": "Fitting a Marginal Model",
+    "text": "Fitting a Marginal Model\nOnly the model segment has to be changed.\n\nmodel {\n  beta ~ normal(0,3);\n  alpha ~ std_normal();\n  sigma ~ std_normal();\n  rho ~ inv_gamma(5,5);\n\n  int pos;\n  pos = 1;\n  // Ragged loop computing joint likelihood for each eye\n  for (i in 1:n) {\n    // GP covariance for the k-th eye\n    int n_i = s[i];\n    vector[n_i] mu_rep;\n    \n    matrix[n_i, n_i] R_C;\n    matrix[n_i, n_i] C = gp_exp_quad_cov(segment(t, pos, n_i), alpha, rho);\n    for (j in 1:n_i) {\n      // Add noise variance to the diagonal entries\n      C[j, j] = C[j, j] + square(sigma);\n    }\n    R_C = cholesky_decompose(C);\n    // Marginal model for the i-th eye\n    mu_rep = rep_vector(mu[i], n_i);\n    target += multi_normal_cholesky_lpdf(to_vector(segment(Y, pos, n_i)) | mu_rep, R_C);\n    pos = pos + n_i;\n  }\n}"
+  },
+  {
+    "objectID": "slides/17-gp.html#assessing-convergence-2",
+    "href": "slides/17-gp.html#assessing-convergence-2",
+    "title": "Gaussian Processes",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(gp_marginal_fit, pars = c(\"beta\", \"sigma\", \"alpha\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/17-gp.html#assessing-convergence-3",
+    "href": "slides/17-gp.html#assessing-convergence-3",
+    "title": "Gaussian Processes",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nbayesplot::mcmc_acf(gp_marginal_fit, regex_pars = c(\"beta\", \"sigma\", \"alpha\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/17-gp.html#comparison-against-ols-estimates",
+    "href": "slides/17-gp.html#comparison-against-ols-estimates",
+    "title": "Gaussian Processes",
+    "section": "Comparison against OLS estimates",
+    "text": "Comparison against OLS estimates"
+  },
+  {
+    "objectID": "slides/17-gp.html#learned-gp-hyperparameter",
+    "href": "slides/17-gp.html#learned-gp-hyperparameter",
+    "title": "Gaussian Processes",
+    "section": "Learned GP hyperparameter",
+    "text": "Learned GP hyperparameter\n\nThe posterior mean of \\(\\rho\\) (in year) is very large: the pattern of mean deviation change is very gradual over time.\nA posteriori we believe mean deviations of an eye, 10 years apart and adjusted for age and iop, are still strongly correlated (\\(e^{-5/6}\\sim 43\\%\\))."
+  },
+  {
+    "objectID": "slides/17-gp.html#predictive-inference-using-some-math",
+    "href": "slides/17-gp.html#predictive-inference-using-some-math",
+    "title": "Gaussian Processes",
+    "section": "Predictive Inference using Some Math",
+    "text": "Predictive Inference using Some Math\nThe model is continuous in nature and defined, in principle, for all times. This is very convenient for visualiztion, interpolation, and forecasting.\nIn a vector notation, the observed data for the \\(i\\)-th patient have the model:\n\\[\n\\mathbf{Y}_i = \\underbrace{\\mathbf{f}_i}_{ = \\mathbf{x}_i^T\\boldsymbol{\\beta} + \\boldsymbol{\\eta}_i } + \\boldsymbol{\\epsilon}_i\n\\]\nThe vector \\(\\mathbf{f}_i\\) may be interprted as the denoised latent process of one’s mean deviation over time.\n\\[\n\\mathbb{E}[f_{i,t}] = \\mathbf{x}_i^T\\boldsymbol{\\beta},\\; Cov[f_{i,t}, f_{i,t'}] = Cov[\\eta_{i,t},\\eta_{i,t'}]\n\\] The values of \\(f_i\\) at new time points \\(t^{new}\\) can be predicted based on an analytical formula for conditioning normal variables.\n\\[\n\\mathbf{f}^{new}|\\mathbf{f} \\sim Normal\\left(C\\Sigma^{-1}(\\mathbf{f} - \\boldsymbol{\\mu}),\\Sigma^{new}-C\\Sigma^{-1}C^T\\right)\n\\]\n\n\\(\\boldsymbol{\\mu} = \\mathbb{E}[\\mathbf{f}]\\)\n\\(\\Sigma = Cov[\\mathbf{f}]\\)\n\\(C = Cov[\\mathbf{f}^{new}, \\mathbf{f}]\\)"
+  },
+  {
+    "objectID": "slides/17-gp.html#implementation-in-stan",
+    "href": "slides/17-gp.html#implementation-in-stan",
+    "title": "Gaussian Processes",
+    "section": "Implementation in Stan",
+    "text": "Implementation in Stan\nAn analytical formula can be implemented as a function. See the Stan Help page\n\nfunctions {\n  // Analytical formula for latent GP conditional on Gaussian observations\n  vector gp_pred_rng(array[] real x2,\n                     vector y1,\n                     array[] real x1,\n                     real ymean,\n                     real alpha,\n                     real rho,\n                     real sigma,\n                     real delta) {\n    int N1 = rows(y1);\n    int N2 = size(x2);\n    vector[N2] f2;\n    {\n      matrix[N1, N1] L_K;\n      vector[N1] K_div_y1;\n      matrix[N1, N2] k_x1_x2;\n      matrix[N1, N2] v_pred;\n      vector[N2] f2_mu;\n      matrix[N2, N2] cov_f2;\n      matrix[N2, N2] diag_delta;\n      matrix[N1, N1] K;\n      K = gp_exp_quad_cov(x1, alpha, rho);\n      for (n in 1:N1) {\n        K[n, n] = K[n, n] + square(sigma);\n      }\n      L_K = cholesky_decompose(K);\n      K_div_y1 = mdivide_left_tri_low(L_K, y1 - ymean);\n      K_div_y1 = mdivide_right_tri_low(K_div_y1', L_K)';\n      k_x1_x2 = gp_exp_quad_cov(x1, x2, alpha, rho);\n      f2_mu = (k_x1_x2' * K_div_y1);\n      v_pred = mdivide_left_tri_low(L_K, k_x1_x2);\n      cov_f2 = gp_exp_quad_cov(x2, alpha, rho) - v_pred' * v_pred;\n      diag_delta = diag_matrix(rep_vector(delta, N2));\n\n      f2 = multi_normal_rng(f2_mu, cov_f2 + diag_delta);\n    }\n    return f2;\n  }\n}\n//...\ngenerated quantities {\n  matrix[K,Np] fp;\n  matrix[Np,Np] Cp;\n  Cp = gp_exp_quad_cov(tp, alpha, rho);\n  // Posterior predictive on fixed time grid for all patients\n  int pos;\n  pos = 1;\n  for (k in 1:K) {\n    int Nk = s[k];\n    fp[k,] = mu[k] + \n      gp_pred_rng(\n          tp,\n          segment(y, pos, Nk),\n          segment(t, pos, Nk),\n          mu[k], \n          alpha,\n          rho,\n          sigma,\n          delta\n        )';\n    pos = pos + Nk;\n  }\n}"
+  },
+  {
+    "objectID": "slides/17-gp.html#visualizing-latent-effects-using-predictive-formulae",
+    "href": "slides/17-gp.html#visualizing-latent-effects-using-predictive-formulae",
+    "title": "Gaussian Processes",
+    "section": "Visualizing latent effects using predictive formulae",
+    "text": "Visualizing latent effects using predictive formulae"
+  },
+  {
+    "objectID": "slides/17-gp.html#random-effects-covariance-structure",
+    "href": "slides/17-gp.html#random-effects-covariance-structure",
+    "title": "Gaussian Processes",
+    "section": "Random effects covariance structure",
+    "text": "Random effects covariance structure"
+  },
+  {
+    "objectID": "slides/17-gp.html#stan-speed-concerns",
+    "href": "slides/17-gp.html#stan-speed-concerns",
+    "title": "Gaussian Processes",
+    "section": "Stan speed concerns",
+    "text": "Stan speed concerns\n\nGP is notorious for not being scalable. Tl;dr is the need for matrix root / inverse computation.\nFor datasets covered in this class, Stan works well. For research purposes, worth exploring other specialized toolkits.\n\n\nCode MCMC yourself to make it faster (e.g., using Rcpp)\nDo a bit of software research on Wikipedia\nScalable Approximations (some of them will be coming soon!)"
+  },
+  {
+    "objectID": "slides/17-gp.html#a-summary",
+    "href": "slides/17-gp.html#a-summary",
+    "title": "Gaussian Processes",
+    "section": "A summary",
+    "text": "A summary\n\nGP is a flexible, high-dimensional model for handling correlated measurements over time.\nWith some basic knowledge about conditioning Gaussian random variables, we can implement posterior computation and prediction / interpolation.\nProgramming in Stan is straightforward but can be expensive with large number of observations."
+  },
+  {
+    "objectID": "slides/17-gp.html#prepare-for-next-class",
+    "href": "slides/17-gp.html#prepare-for-next-class",
+    "title": "Gaussian Processes",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 04 which is due March 25\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Using GP to model spatial data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+  },
+  {
+    "objectID": "slides/17-gp.html#visualizing-the-brownian-motion-1",
+    "href": "slides/17-gp.html#visualizing-the-brownian-motion-1",
+    "title": "Gaussian Processes",
+    "section": "Visualizing the Brownian Motion",
+    "text": "Visualizing the Brownian Motion\nSuppose we observe this process \\(X_t\\) at time points \\((t_1,t_2,\\ldots,t_N)\\)."
+  },
+  {
+    "objectID": "slides/17-gp.html#gaussian-process-covariance-functions-in-stan",
+    "href": "slides/17-gp.html#gaussian-process-covariance-functions-in-stan",
+    "title": "Gaussian Processes",
+    "section": "Gaussian Process Covariance Functions in Stan",
+    "text": "Gaussian Process Covariance Functions in Stan\nA list of available kernels is available here.\nThe squared exponential kernel (exponentiated quadratic kernel) is given by:\n\\[C(\\mathbf{x}_i,\\mathbf{x}_j) = \\sigma^2 \\exp\\left(-\\frac{|\\mathbf{x}_i - \\mathbf{x}_j|^2}{2l^2}\\right)\\]\n\nmatrix gp_exp_quad_cov(array[] real x, real sigma, real length_scale)\n\nFor us, \\(\\mathbf{x}\\) is 1D (time)…but it does not have to be!"
+  },
+  {
+    "objectID": "slides/17-gp.html#the-full-model",
+    "href": "slides/17-gp.html#the-full-model",
+    "title": "Gaussian Processes",
+    "section": "The full model",
+    "text": "The full model\nFor \\(i\\) (\\(i = 1,\\ldots,n\\)) and \\(t\\) (\\(t = 1,\\ldots,n_i\\)),\n\\[\\begin{align*}\nY_{it} &= \\mathbf{x}_{i}\\boldsymbol{\\beta} + \\eta_{i}(t) + \\epsilon_{it}, \\quad \\epsilon_{it} \\stackrel{iid}{\\sim} N(0,\\sigma^2),\\\\\n\\boldsymbol{\\eta}_i &\\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0},\\mathbf{C}_i),\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}).\n\\end{align*}\\]\n\n\\(\\boldsymbol{\\Omega}\\) represents the population parameters: \\(\\boldsymbol{\\beta}\\), \\(\\sigma^2\\), and any kernel parameters determining \\(\\mathbf{C}_i\\)\nFor concreteness: we use a squared exponential kernel \\(C\\) and model \\(\\mathbb{C}(\\eta_i(t),\\eta_i(t')) = \\alpha^2\\exp(-|t-t'|^2/2\\rho^2).\\) Thus \\(\\boldsymbol{\\Omega} = (\\boldsymbol{\\beta},\\sigma^2,\\alpha,\\rho)\\)."
+  },
+  {
+    "objectID": "slides/17-gp.html#pointwise-observations-from-a-brownian-motion",
+    "href": "slides/17-gp.html#pointwise-observations-from-a-brownian-motion",
+    "title": "Gaussian Processes",
+    "section": "Pointwise Observations from a Brownian Motion",
+    "text": "Pointwise Observations from a Brownian Motion\nSuppose we observe this process \\(X_t\\) at time points \\((t_1,t_2,\\ldots,t_N)\\). Then the distribution of the following vector is a multivariate normal:\n\\[\n\\begin{bmatrix}\nX_1\\\\ \\vdots \\\\ X_N\n\\end{bmatrix}\\sim N\\left(\\mathbf{0},\\boldsymbol{\\Sigma}\\right),\\; \\boldsymbol{\\Sigma} = \\begin{bmatrix}\nt_1 & t_1 & \\cdots & t_1 \\\\\nt_1 & t_2 & \\cdots & t_2 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nt_1 & t_2 & \\cdots & t_N\n\\end{bmatrix}\n\\]\nThe covariance structure comes from solving the equation:\n\\[\nh = \\mathbb{V}(X_{t+h} - X_t) = \\underbrace{\\mathbb{E}[X_{t+h}^2]}_{=t+h} + \\underbrace{\\mathbb{E}[X_t^2]}_{=t} - 2\\mathbb{C}(X_{t+h},X_t).\n\\]"
+  },
+  {
+    "objectID": "slides/17-gp.html#visualizing-the-process",
+    "href": "slides/17-gp.html#visualizing-the-process",
+    "title": "Gaussian Processes",
+    "section": "Visualizing the process",
+    "text": "Visualizing the process"
+  },
+  {
+    "objectID": "slides/17-gp.html#first-look-at-the-data",
+    "href": "slides/17-gp.html#first-look-at-the-data",
+    "title": "Gaussian Processes",
+    "section": "First Look at the Data",
+    "text": "First Look at the Data\n\nhead(dataset)\n\n  pat_id eye_id mean_deviation      time      age      iop\n1      1      1          -7.69 0.0000000 51.55616 10.87303\n2      1      1          -9.95 0.5753425 51.55616 10.87303\n3      1      1          -9.58 1.0547945 51.55616 10.87303\n4      1      1          -9.53 1.5726027 51.55616 10.87303\n5      1      1          -9.18 2.0136986 51.55616 10.87303\n6      1      1          -9.63 2.5671233 51.55616 10.87303"
+  },
+  {
+    "objectID": "slides/17-gp.html#preparing-the-data",
+    "href": "slides/17-gp.html#preparing-the-data",
+    "title": "Gaussian Processes",
+    "section": "Preparing the Data",
+    "text": "Preparing the Data\nA few data processing steps are needed to handle the data structure with more ease.\n\n\\(N\\) will denote the number of all observations: \\(N = \\sum_{i=1}^{n} n_i\\).\n\\(n\\) will denote the total number of eyes.\n\\(p\\) will denote the number of predictors fixed across time (\\(p=3\\): intercept, slopes for age and iop).\nA separate vector of the number of observations (\\(n_i\\)) for each eye will be stored as s."
+  },
+  {
+    "objectID": "slides/17-gp.html#preparing-the-data-1",
+    "href": "slides/17-gp.html#preparing-the-data-1",
+    "title": "Gaussian Processes",
+    "section": "Preparing the Data",
+    "text": "Preparing the Data\n\nlibrary(dplyr)\n\n# Group predictors fixed across time\nfixed_df &lt;- dataset %&gt;% \n  group_by(eye_id) %&gt;% \n  reframe(age = unique(age), iop = unique(iop))\nXmat &lt;- model.matrix(~age + iop, data = fixed_df)\n\n# Number of measurements for each eye\ngroupsizes &lt;- dataset %&gt;% \n  group_by(eye_id) %&gt;% \n  summarise(n = n()) %&gt;% \n  pull(n)\n\nstan_data &lt;- list(\n  N = dim(dataset)[1],\n  n = max(dataset$eye_id),\n  p = dim(Xmat)[2],\n  t = dataset$time,\n  Y = dataset$mean_deviation,\n  s = groupsizes,\n  X = Xmat\n)"
+  },
+  {
+    "objectID": "slides/17-gp.html#marginal-model-specification",
+    "href": "slides/17-gp.html#marginal-model-specification",
+    "title": "Gaussian Processes",
+    "section": "Marginal Model Specification",
+    "text": "Marginal Model Specification\nThe conditional model is pretty slow (can be improved) and results in poor mixing (can be run longer). Marginalizing the random effect can stabilize the computation.\nIn vector notation, our observation model for the \\(i\\)-th eye is\n\\[\n\\mathbf{Y}_i = \\begin{bmatrix} Y_{i1}\\\\ \\vdots \\\\ Y_{in_i} \\end{bmatrix}\n= \\mathbf{x}_i\\boldsymbol{\\beta} + \\boldsymbol{\\eta}_i + \\boldsymbol{\\epsilon}_i\n\\] By marginalizing out \\(\\boldsymbol{\\eta}_i\\), we obtain\n\\[\n\\mathbf{Y}_i \\sim N_{n_i}(\\mathbf{x}_i\\boldsymbol{\\beta},\\mathbf{C}_i + \\sigma^2\\mathbf{I}_{n_i})\n\\]"
+  },
+  {
+    "objectID": "slides/17-gp.html#estimates-of-patient-level-predictors",
+    "href": "slides/17-gp.html#estimates-of-patient-level-predictors",
+    "title": "Gaussian Processes",
+    "section": "Estimates of Patient-level Predictors",
+    "text": "Estimates of Patient-level Predictors"
+  },
+  {
+    "objectID": "slides/17-gp.html#predictive-inference",
+    "href": "slides/17-gp.html#predictive-inference",
+    "title": "Gaussian Processes",
+    "section": "Predictive inference",
+    "text": "Predictive inference\nThe model is continuous in nature and defined, in principle, for all times. This is very convenient for visualiztion, interpolation, and forecasting.\n\\[\n\\mathbf{Y}_i = \\underbrace{\\mathbf{f}_{i}}_{ = \\mathbf{x}_{i}\\boldsymbol{\\beta} + \\boldsymbol{\\eta}_{i} } + \\boldsymbol{\\epsilon}_i\n\\]\nThe vector \\(\\mathbf{f}_{i}\\) may be interpreted as the denoised latent process of an eye-specific mean deviation over time: \\((f_{i1},\\ldots,f_{in_i})^\\top\\).\n\\[\n\\mathbb{E}[f_{it}] = \\mathbf{x}_i\\boldsymbol{\\beta},\\; \\mathbb{C}(f_{it}, f_{it'}) = \\mathbb{C}(\\eta_{it},\\eta_{it'})\n\\]"
+  },
+  {
+    "objectID": "slides/17-gp.html#predictive-inference-using-normal-conditioning",
+    "href": "slides/17-gp.html#predictive-inference-using-normal-conditioning",
+    "title": "Gaussian Processes",
+    "section": "Predictive Inference using Normal Conditioning",
+    "text": "Predictive Inference using Normal Conditioning\nSay \\(\\mathbf{f}^{pred}_i\\) is the values of \\(f_i\\) at \\(m_i\\) new time points which we want to predict, based on our GP model:\n\\[\\begin{align*}\n\\mathbf{f}^{pred}_i &\\sim N_{m_i}(\\mathbf{x}_i\\boldsymbol{\\beta},\\mathbf{C}^{pred}_i)\\\\\n\\mathbf{Y}_i = \\mathbf{f}_i + \\boldsymbol{\\epsilon}_i &\\sim N_{n_1}(\\mathbf{x}_i\\boldsymbol{\\beta},\\mathbf{C}_i + \\sigma^2\\mathbf{I}_{n_i})\n\\end{align*}\\]\nAn analytical formula exists for the conditional distribution of \\(\\mathbf{f}^{pred}\\) given observed \\(Y_{it}\\) at \\(n_i\\) time points.\n\\[\n\\mathbf{f}^{pred}_i | \\mathbf{Y}_i \\sim N\\left(\\mathbf{x}_i\\boldsymbol{\\beta} + \\mathbf{k}_i(\\mathbf{C}_i + \\sigma^2\\mathbf{I})^{-1}(\\mathbf{Y}_i - \\mathbf{x}_i\\boldsymbol{\\beta}), \\mathbf{C}_i^{pred}-\\mathbf{k}_i(\\mathbf{C}_i + \\sigma^2\\mathbf{I})^{-1}\\mathbf{k}_i^\\top\\right)\n\\] where \\(\\mathbf{k}_i = \\mathbb{C}(\\mathbf{f}^{pred}_i, \\mathbf{f}_i)\\) (“cross-covariances”).\nThis stems from a more general fact about conditional distributions of jointly normal vectors: e.g., \\(\\mathbf{f}_i^{pred}\\) and \\(\\mathbf{f}_i\\) need not have the same mean."
+  },
+  {
+    "objectID": "slides/17-gp.html#new-data-for-predictive-inference",
+    "href": "slides/17-gp.html#new-data-for-predictive-inference",
+    "title": "Gaussian Processes",
+    "section": "New Data for Predictive Inference",
+    "text": "New Data for Predictive Inference\nSuppose we are interested in understanding the mean deviation trend for the first 5 years from baseline (\\(t^{pred}\\in [0,5]\\)).\n\nstan_data &lt;- list(\n  N = dim(dataset)[1],\n  n = max(dataset$eye_id),\n  p = dim(Xmat)[2],\n  Y = dataset$mean_deviation,\n  t = dataset$time,\n  s = groupsizes,\n  X = Xmat,\n  # Time window for which we want predictive\n  t_pred = seq(0, 5, by = 0.25),\n  # Total length of this window\n  N_pred = 21\n)"
+  },
+  {
+    "objectID": "slides/17-gp.html#stan-implementation",
+    "href": "slides/17-gp.html#stan-implementation",
+    "title": "Gaussian Processes",
+    "section": "Stan Implementation",
+    "text": "Stan Implementation\nSee the Stan Help page for details.\n\nfunctions {\n  // Analytical formula for latent GP conditional on Gaussian observations\n  vector gp_pred_rng(array[] real x_pred,\n                     vector Y,\n                     array[] real x,\n                     real mu,\n                     real alpha,\n                     real rho,\n                     real sigma,\n                     real delta) {\n    int N1 = rows(Y);\n    int N2 = size(x_pred);\n    vector[N2] f_pred;\n    {\n      matrix[N1, N1] L_Sigma;\n      vector[N1] Sigma_div_y;\n      matrix[N1, N2] C_x_xpred;\n      matrix[N1, N2] v_pred;\n      vector[N2] fpred_mu;\n      matrix[N2, N2] cov_fpred;\n      matrix[N2, N2] diag_delta;\n      matrix[N1, N1] Sigma;\n      Sigma = gp_exp_quad_cov(x, alpha, rho);\n      for (n in 1:N1) {\n        Sigma[n, n] = Sigma[n, n] + square(sigma);\n      }\n      L_Sigma = cholesky_decompose(Sigma);\n      Sigma_div_y = mdivide_left_tri_low(L_Sigma, Y - mu);\n      Sigma_div_y = mdivide_right_tri_low(Sigma_div_y', L_Sigma)';\n      C_x_xpred = gp_exp_quad_cov(x, x_pred, alpha, rho);\n      fpred_mu = (C_x_xpred' * Sigma_div_y);\n      v_pred = mdivide_left_tri_low(L_Sigma, C_x_xpred);\n      cov_fpred = gp_exp_quad_cov(x_pred, alpha, rho) - v_pred' * v_pred;\n      diag_delta = diag_matrix(rep_vector(delta, N2));\n\n      f_pred = multi_normal_rng(fpred_mu, cov_fpred + diag_delta);\n    }\n    return f_pred;\n  }\n}\n//...\ngenerated quantities {\n  matrix[n,Np] f_pred;\n  matrix[Np,Np] Cp;\n  Cp = gp_exp_quad_cov(t_pred, alpha, rho);\n  // Posterior predictive on fixed time grid for all eyes\n  int pos;\n  pos = 1;\n  for (i in 1:n) {\n    int n_i = s[i];\n    f_pred[i,] = mu[i] + \n      gp_pred_rng(\n          t_pred,\n          segment(Y, pos, n_i),\n          segment(t, pos, n_i),\n          mu[i], \n          alpha,\n          rho,\n          sigma,\n          delta\n        )';\n    pos = pos + n_i;\n  }\n}"
+  },
+  {
+    "objectID": "slides/17-gp.html#model-specification",
+    "href": "slides/17-gp.html#model-specification",
+    "title": "Gaussian Processes",
+    "section": "Model Specification",
+    "text": "Model Specification\nWe want to fit a model estimating the effects of age and iop on mean deviation, adjusting for nonlinear time effects:\n\\[\\begin{align*}\nY_{it} &= \\underbrace{\\beta_0 + \\text{age}_i\\beta_1 + \\text{iop}_i\\beta_2}_{=\\mathbf{x}_{i}\\boldsymbol{\\beta}} + \\eta_{it} + \\epsilon_{it}\\\\\n\\boldsymbol{\\eta}_i &= \\begin{bmatrix} \\eta_{i1}\\\\ \\vdots\\\\ \\eta_{in_i} \\end{bmatrix} \\stackrel{iid}{\\sim} N(0,\\mathbf{C}_i)\\\\\n\\epsilon_{it} &\\stackrel{iid}{\\sim} N(0,\\sigma^2)\n\\end{align*}\\]\nOur model for \\(\\eta_{it}\\) is nonlinear in time: time enters the covariance structure of \\(\\mathbf{C}_i\\) producing a function \\(\\eta_i(t) = \\eta_{it}\\)."
+  },
+  {
+    "objectID": "slides/17-gp.html#estimates-of-eye-level-predictors",
+    "href": "slides/17-gp.html#estimates-of-eye-level-predictors",
+    "title": "Gaussian Processes",
+    "section": "Estimates of eye-level Predictors",
+    "text": "Estimates of eye-level Predictors"
+  },
+  {
+    "objectID": "slides/17-gp.html#random-effects-covariance-structure-for-the-first-5-years",
+    "href": "slides/17-gp.html#random-effects-covariance-structure-for-the-first-5-years",
+    "title": "Gaussian Processes",
+    "section": "Random effects covariance structure for the first 5 years",
+    "text": "Random effects covariance structure for the first 5 years"
+  },
+  {
+    "objectID": "slides/17-gp.html#is-linear-fit-the-right-way",
+    "href": "slides/17-gp.html#is-linear-fit-the-right-way",
+    "title": "Gaussian Processes",
+    "section": "Is Linear Fit the Right Way?",
+    "text": "Is Linear Fit the Right Way?\nThere are various ways to fit a model to time-varying behavior of the curves."
+  },
+  {
+    "objectID": "prepare/prepare-mar18.html",
+    "href": "prepare/prepare-mar18.html",
+    "title": "Prepare for March 18 lecture",
+    "section": "",
+    "text": "📖 Review the Longitudinal Data lecture slides.\n📖 Review BDA3 Chapter 21 to learn more about Gaussian process models.\n✅ Work on HW 04 which is due Tuesday March 25 before class."
   }
 ]
