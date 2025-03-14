@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nTBD Topic/Exam Review\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -14839,5 +14839,460 @@
     "title": "Prepare for March 18 lecture",
     "section": "",
     "text": "📖 Review the Longitudinal Data lecture slides.\n📖 Review BDA3 Chapter 21 to learn more about Gaussian process models.\n✅ Work on HW 04 which is due Tuesday March 25 before class."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#review-of-last-lecture",
+    "href": "slides/18-geospatial.html#review-of-last-lecture",
+    "title": "Geospatial Modeling",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nDuring our last lecture, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) data.\nThe longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space)."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#prepare-for-next-class",
+    "href": "slides/18-geospatial.html#prepare-for-next-class",
+    "title": "Geospatial Modeling",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 04, which is due before class on Tuesday.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Disease mapping\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#three-types-of-spatial-data",
+    "href": "slides/18-geospatial.html#three-types-of-spatial-data",
+    "title": "Geospatial Modeling",
+    "section": "Three Types of Spatial Data:",
+    "text": "Three Types of Spatial Data:\n\nGeostatistical Point Referenced Data\nLattice Data (Areal Data)\nSpatial Point Process Data\n\nAll of these data settings can be extended to space-time"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#geostatistical-point-referenced-data",
+    "href": "slides/18-geospatial.html#geostatistical-point-referenced-data",
+    "title": "Geospatial Modeling",
+    "section": "Geostatistical Point Referenced Data",
+    "text": "Geostatistical Point Referenced Data\n\nPoint observations of a continuously varying quantity over a region\n\nDaily Concentrations of Ozone Over NC"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#geostatistical-point-referenced-data-1",
+    "href": "slides/18-geospatial.html#geostatistical-point-referenced-data-1",
+    "title": "Geospatial Modeling",
+    "section": "Geostatistical Point Referenced Data",
+    "text": "Geostatistical Point Referenced Data\n\nDaily Concentrations of PM2.5 Over the US"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#lattice-data-areal-data",
+    "href": "slides/18-geospatial.html#lattice-data-areal-data",
+    "title": "Geospatial Modeling",
+    "section": "Lattice Data (Areal Data)",
+    "text": "Lattice Data (Areal Data)\n\nData observed at the level of an areal unit\n\nCounty Level Sudden Infant Death Syndrome Counts"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#lattice-data-areal-data-1",
+    "href": "slides/18-geospatial.html#lattice-data-areal-data-1",
+    "title": "Geospatial Modeling",
+    "section": "Lattice Data (Areal Data)",
+    "text": "Lattice Data (Areal Data)\n\nBirmingham Tract Level Poverty Levels"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#spatial-point-process-data",
+    "href": "slides/18-geospatial.html#spatial-point-process-data",
+    "title": "Geospatial Modeling",
+    "section": "Spatial Point Process Data",
+    "text": "Spatial Point Process Data\n\nAnalyzing the clustering of random locations\n\nLocations of a certain tree type in a forest\nEpicenter of earthquakes\n\nSometimes difficult to differentiate from point referenced geostatistical data (visually)"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#spatial-point-process-data-1",
+    "href": "slides/18-geospatial.html#spatial-point-process-data-1",
+    "title": "Geospatial Modeling",
+    "section": "Spatial Point Process Data",
+    "text": "Spatial Point Process Data\n\nMinneapolis Convenience Store Locations"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#spatial-data-analysis-when-why-and-how",
+    "href": "slides/18-geospatial.html#spatial-data-analysis-when-why-and-how",
+    "title": "Geospatial Modeling",
+    "section": "Spatial Data Analysis: When, Why, and How?",
+    "text": "Spatial Data Analysis: When, Why, and How?\n\nHow?:\n\nBayesian Hierarchical Modeling:\nFlexible framework to handle multiple levels of uncertainty.\n\nMarkov chain Monte Carlo (MCMC) offers computationally convenient solution to make inference.\n\nFrequentist methods also available through the EM algorithm\nOriginal frequentist methods ignore some of the uncertainty in estimating these spatial models."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#spatial-data-analysis-when-why-and-how-1",
+    "href": "slides/18-geospatial.html#spatial-data-analysis-when-why-and-how-1",
+    "title": "Geospatial Modeling",
+    "section": "Spatial Data Analysis: When, Why, and How?",
+    "text": "Spatial Data Analysis: When, Why, and How?\n\nHow?:\n\nBayesian Hierarchical Modeling:\nFlexible framework to handle multiple levels of uncertainty.\n\nMarkov chain Monte Carlo (MCMC) offers computationally convenient solution to make inference.\n\nFrequentist methods also available through the EM algorithm\nOriginal frequentist methods ignore some of the uncertainty in estimating these spatial models."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#spatial-data-analysis",
+    "href": "slides/18-geospatial.html#spatial-data-analysis",
+    "title": "Geospatial Modeling",
+    "section": "Spatial Data Analysis:",
+    "text": "Spatial Data Analysis:\n\nWhen?:\n\nAnytime you have spatial information collected with your data.\nIncreasing availability of some level of spatial information (latitude/longitude; county; state; etc.)\n\nWhy?:\n\nCorrect statistical inference (conditional independence may not be a valid assumption!)\n\nSpecific goals will depend on the type of spatial data you have and the objective of your analysis\n\nProducing maps with valid inference"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#spatial-data-analysis-when",
+    "href": "slides/18-geospatial.html#spatial-data-analysis-when",
+    "title": "Geospatial Modeling",
+    "section": "Spatial Data Analysis: When?",
+    "text": "Spatial Data Analysis: When?\n\nAnytime you have spatial information collected with your data.\nIncreasing availability of some level of spatial information:\n\nLatitude/longitude.\nCounty, state, etc.\nImaging data."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#spatial-data-analysis-why",
+    "href": "slides/18-geospatial.html#spatial-data-analysis-why",
+    "title": "Geospatial Modeling",
+    "section": "Spatial Data Analysis: Why?",
+    "text": "Spatial Data Analysis: Why?\n\nCorrect statistical inference (conditional independence may not be a valid assumption!).\n\nSpecific goals will depend on the type of spatial data you have and the objective of your analysis.\n\nProducing maps with valid inference."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#spatial-data-analysis-how",
+    "href": "slides/18-geospatial.html#spatial-data-analysis-how",
+    "title": "Geospatial Modeling",
+    "section": "Spatial Data Analysis: How?",
+    "text": "Spatial Data Analysis: How?\n\nBayesian Hierarchical Modeling:\n\nFlexible framework to handle multiple levels of uncertainty.\nMarkov chain Monte Carlo (MCMC) offers computationally convenient solution to make inference.\n\nFrequentist methods also available through the EM algorithm.\n\nOriginal frequentist methods ignore some of the uncertainty in estimating these spatial models."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis",
+    "href": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis",
+    "title": "Geospatial Modeling",
+    "section": "Goals of a Point-referenced Analysis",
+    "text": "Goals of a Point-referenced Analysis\n\nEstimation and explanation:\n\nTypical regression parameter estimation.\n\nHow does temperature change across the domain (large-scale)?\n\n\nPrediction at unobserved locations:\n\nOriginal development of spatial methods.\nKriging named after D.G. Krige (mining applications).\n\nDesign issues:\n\nWhere to put a new air pollution monitor to optimize future prediction criteria?"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis-1",
+    "href": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis-1",
+    "title": "Geospatial Modeling",
+    "section": "Goals of a Point-referenced Analysis",
+    "text": "Goals of a Point-referenced Analysis\n\nEstimation and Explanation"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis-2",
+    "href": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis-2",
+    "title": "Geospatial Modeling",
+    "section": "Goals of a Point-referenced Analysis",
+    "text": "Goals of a Point-referenced Analysis\n\nSpatial Prediction\n\n\n\n\nObserved Data"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis-3",
+    "href": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis-3",
+    "title": "Geospatial Modeling",
+    "section": "Goals of a Point-referenced Analysis",
+    "text": "Goals of a Point-referenced Analysis\n\nSpatial Prediction\n\n\n\n\nPrediction"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis-4",
+    "href": "slides/18-geospatial.html#goals-of-a-point-referenced-analysis-4",
+    "title": "Geospatial Modeling",
+    "section": "Goals of a Point-referenced Analysis",
+    "text": "Goals of a Point-referenced Analysis\n\nSpatial Prediction\n\n\n\n\nStandard Errors"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#point-referenced-modeling",
+    "href": "slides/18-geospatial.html#point-referenced-modeling",
+    "title": "Geospatial Modeling",
+    "section": "Point-referenced Modeling",
+    "text": "Point-referenced Modeling\n\nObservations closer in space tend to be more similar.\n\nCommon regression models assume independence among observations.\n\nNot a valid assumption here, especially at short distances.\n\n\nMultivariate normal distribution with valid spatial covariance function used in Bayesian modeling.\n\nSpatial covariance describes how observations are correlated based on their proximity to each other.\n\nAdvanced models built on similar ideas.\n\nLatent processes often used."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#point-referenced-modeling-1",
+    "href": "slides/18-geospatial.html#point-referenced-modeling-1",
+    "title": "Geospatial Modeling",
+    "section": "Point-referenced Modeling",
+    "text": "Point-referenced Modeling\n\\[  Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij}, \\quad \\epsilon_{ij} \\stackrel{iid}{\\sim} N(0,\\sigma^2).\\]\nData Objects:\n\n\\(i \\in \\{1,\\dots,n\\}\\) indexes unique locations.\n\\(j \\in \\{1,\\dots,n_i\\}\\) indexes individuals at each location.\n\\(Y_{ij}\\) denotes the observation of individual \\(j\\) at location \\(i\\).\n\\(\\mathbf{x}_{ij} \\in \\mathbb{R}^p\\), where \\(p\\) is the number of predictors (exclusing intercept)."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#motivating-dataset",
+    "href": "slides/18-geospatial.html#motivating-dataset",
+    "title": "Geospatial Modeling",
+    "section": "Motivating Dataset",
+    "text": "Motivating Dataset\nWe will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey.\n\nThere are ~8600 women who are nested in ~500 survey clusters.\nVariables are:\n\nloc_id: location id (i.e. survey cluster).\nhemoglobin: hemoglobin level (g/dL).\nanemia: anemia classifications.\nage: age in years.\nurban: urban vs. rural.\nLATNUM: latitude.\nLONGNUM: longitude."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#trying-to-understand-these-trends",
+    "href": "slides/18-geospatial.html#trying-to-understand-these-trends",
+    "title": "Geospatial Modeling",
+    "section": "Trying to understand these trends",
+    "text": "Trying to understand these trends"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#trying-to-understand-these-trends-1",
+    "href": "slides/18-geospatial.html#trying-to-understand-these-trends-1",
+    "title": "Geospatial Modeling",
+    "section": "Trying to understand these trends",
+    "text": "Trying to understand these trends"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#point-referenced-modeling-2",
+    "href": "slides/18-geospatial.html#point-referenced-modeling-2",
+    "title": "Geospatial Modeling",
+    "section": "Point-referenced Modeling",
+    "text": "Point-referenced Modeling\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij}, \\quad \\epsilon_{ij} \\stackrel{iid}{\\sim} N(0,\\sigma^2).\\]\nPopulation Parameters:\n\n\\(\\alpha \\in \\mathbb{R}\\) is the intercept.\n\\(\\boldsymbol{\\beta} \\in \\mathbb{R}^p\\) is the regression coefficients.\n\\(\\sigma^2 \\in \\mathbb{R}^+\\) is the overall residual error (nugget)."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#point-referenced-modeling-3",
+    "href": "slides/18-geospatial.html#point-referenced-modeling-3",
+    "title": "Geospatial Modeling",
+    "section": "Point-referenced Modeling",
+    "text": "Point-referenced Modeling\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij}, \\quad \\epsilon_{ij} \\stackrel{iid}{\\sim} N(0,\\sigma^2).\\]\nLocation-specific Parameters:\n\n\\(\\theta_i\\) denotes the spatial intercept at location \\(\\mathbf{u}_i\\).\n\\(\\mathbf{u}_i \\in \\mathbb{R}^d\\) denotes the spatial location of location \\(i\\). For example, \\(\\mathbf{u}_i = (\\text{latitude}_i, \\text{longitude}_i)\\), so that \\(d = 2\\).\n\nIn a spatial context, we often use the following notation:\n\\[Y_j(\\mathbf{u}_i) = \\alpha + \\mathbf{x}_j(\\mathbf{u}_i)\\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i) + \\epsilon_i(\\mathbf{u}_i).\\]"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#point-referenced-modeling-4",
+    "href": "slides/18-geospatial.html#point-referenced-modeling-4",
+    "title": "Geospatial Modeling",
+    "section": "Point-referenced Modeling",
+    "text": "Point-referenced Modeling\nIn a spatial context, we often use the following notation:\n\\[Y_j(\\mathbf{u}_i) = \\alpha + \\mathbf{x}_j(\\mathbf{u}_i)\\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i) + \\epsilon_i(\\mathbf{u}_i)\\]"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#location-specific-notation",
+    "href": "slides/18-geospatial.html#location-specific-notation",
+    "title": "Geospatial Modeling",
+    "section": "Location-specific Notation",
+    "text": "Location-specific Notation\n\\[\\mathbf{Y}(\\mathbf{u}_i) = \\alpha \\mathbf{1}_{n_i} + \\mathbf{X}(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\mathbf{1}_{n_i} + \\boldsymbol{\\epsilon}(\\mathbf{u}_i)\\]\n\n\\(\\mathbf{Y}(\\mathbf{u}_i) = (Y_1(\\mathbf{u}_i),\\ldots,Y_{n_i}(\\mathbf{u}_i))^\\top\\)\n\\(\\mathbf{X}(\\mathbf{u}_i)\\) is an \\(n_i \\times p\\) dimensional matrix with rows \\(\\mathbf{x}_j(\\mathbf{u}_i)\\).\n\\(\\boldsymbol{\\epsilon}(\\mathbf{u}_i) = (\\epsilon_i(\\mathbf{u}_i),\\ldots,\\epsilon_{n_i}(\\mathbf{u}_i))^\\top\\), where \\(\\epsilon_j(\\mathbf{u}_i) \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\).\n\nNote: This notation is the same as the linear mixed model we have talked about in previous lectures."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#full-data-notation",
+    "href": "slides/18-geospatial.html#full-data-notation",
+    "title": "Geospatial Modeling",
+    "section": "Full data notation",
+    "text": "Full data notation\n\\[\\mathbf{Y} = \\alpha \\mathbf{1}_{N} + \\mathbf{X} \\boldsymbol{\\beta} + \\mathbf{Z}\\boldsymbol{\\theta} + \\boldsymbol{\\epsilon}\\]\n\n\\(\\mathbf{Y} = (\\mathbf{Y}(\\mathbf{u}_1)^\\top,\\ldots,\\mathbf{Y}(\\mathbf{u}_{n})^\\top)^\\top \\in \\mathbb{R}^N\\), with \\(N = \\sum_{i=1}^n n_i\\).\n\\(\\mathbf{X} \\in \\mathbb{R}^{N \\times p}\\) that stacks \\(\\mathbf{X}(\\mathbf{u}_i)\\).\n\\(\\boldsymbol{\\theta} = (\\theta(\\mathbf{u}_1),\\ldots,\\theta(\\mathbf{u}_n))^\\top \\in \\mathbb{R}^n\\).\n\\(\\mathbf{Z}\\) is \\(N \\times n\\) dimensional binary matrix. Each row contains a single 1 in column \\(i\\) that corresponds to the location of \\(Y_j(\\mathbf{u}_i)\\).\n\nThis notation is useful because it allows us to examine the vector of location-specific parameters, \\(\\boldsymbol{\\theta}\\). Spatial dependency will be introduced through \\(\\boldsymbol{\\theta}\\)."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#motivation-for-gaussian-processes-in-spatial-analysis",
+    "href": "slides/18-geospatial.html#motivation-for-gaussian-processes-in-spatial-analysis",
+    "title": "Geospatial Modeling",
+    "section": "Motivation for Gaussian Processes in Spatial Analysis",
+    "text": "Motivation for Gaussian Processes in Spatial Analysis\nIn spatial data analysis, we are often interested in modeling spatially correlated data. One powerful way to model this correlation is through Gaussian Processes (GPs).\nConsider a vector () containing the spatial intercepts at various locations:\n[ =\n\n_1\n_2\n⋮\n_n\n\n]\nWe want to model the spatial variation in () using a prior that reflects the spatial correlation between locations.\nWhat do we want from a prior for ()?\n\nCentered at zero: We assume no prior knowledge of any systematic trends in the data, so the prior should have a mean of zero.\nCovariance dictated by a kernel: The prior covariance is governed by a kernel (or covariance function) that defines how spatially distant locations are related.\nStationary: The covariance function should depend only on the relative distance between locations, not the actual locations themselves.\nIsotropic: The spatial correlation should be the same in all directions (spherically symmetric)."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#characteristics-of-the-gp-prior-covariance",
+    "href": "slides/18-geospatial.html#characteristics-of-the-gp-prior-covariance",
+    "title": "Geospatial Modeling",
+    "section": "Characteristics of the GP Prior Covariance",
+    "text": "Characteristics of the GP Prior Covariance\nThe Matérn covariance function has a general form and is often the default choice for spatial data (squared exponential is often too smooth!). Matérn is a function of a smoothness parameter \\(\\nu &gt; 0\\) and a length scale, which we will define as \\(\\rho\\).\n\n\\(\\nu = 1/2\\): yields the exponential covariance function, gp_exponential_cov.\n\\(\\nu = 3/2\\): Matérn 3/2 covariance function, gp_matern32_cov.\n\n\\[C(||\\mathbf{h}||) = \\tau^2 \\left(1 + \\frac{\\sqrt{3} ||\\mathbf{h}||}{\\rho}\\right) \\exp\\left(-\\frac{\\sqrt{3} ||\\mathbf{h}||}{\\ell}\\right)\\]\n\n\\(\\nu = 5/2\\): Matérn 5/2 covariance function, gp_matern52_cov."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#how-to-incorporate-spatial-correlation",
+    "href": "slides/18-geospatial.html#how-to-incorporate-spatial-correlation",
+    "title": "Geospatial Modeling",
+    "section": "How to incorporate spatial correlation?",
+    "text": "How to incorporate spatial correlation?\n\nWe want to model the spatial variation in \\(\\boldsymbol{\\theta}\\) using a prior that reflects the spatial correlation between locations.\nOne powerful way to incorporate spatial correlations is through Gaussian Processes (GPs).\n\nDesirable properties:\n\nCentered at zero: We assume no prior knowledge of any systematic trends in the data, so the prior should have a mean of zero.\nSpatial covariance function: A covariance structure that defines how spatially distant locations are related.\n\nStationary: The covariance function should depend only on the relative distance between locations, not the actual locations themselves.\nIsotropic: The spatial correlation should be the same in all directions."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#accounting-for-spatial-correlation",
+    "href": "slides/18-geospatial.html#accounting-for-spatial-correlation",
+    "title": "Geospatial Modeling",
+    "section": "Accounting for spatial correlation",
+    "text": "Accounting for spatial correlation\n\nWe want to model the spatial variation in \\(\\boldsymbol{\\theta}\\) using a prior that reflects the spatial correlation between locations.\nOne powerful way to incorporate spatial correlations is through Gaussian processes (GPs).\nConsider \\(\\{\\theta(\\mathbf{u}) \\in \\mathcal D\\}\\), where \\(\\mathcal D\\) is a fixed subset of \\(d\\)-dimensional Euclidean space (\\(d=1\\) is time-series, \\(d=2,3\\) is spatial).\nThe process is said to be Gaussian if, for any \\(n\\geq 1\\) and observed locations \\(\\{\\mathbf{u}_1,\\ldots,\\mathbf{u}_n\\}\\), \\(\\boldsymbol{\\theta} = (\\theta(\\mathbf{u}_1),\\ldots,\\theta(\\mathbf{u}_n))^\\top\\) has a multivariate normal distribution."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#properties-of-gaussian-processes",
+    "href": "slides/18-geospatial.html#properties-of-gaussian-processes",
+    "title": "Geospatial Modeling",
+    "section": "Properties of Gaussian Processes",
+    "text": "Properties of Gaussian Processes\nWe define a GP as \\(\\theta(\\mathbf{u}) \\sim GP(\\mu(\\cdot), C(\\cdot, \\cdot))\\), where \\(\\mu(\\cdot)\\) is the mean process and \\(C(\\cdot, \\cdot)\\) is a covariance function.\n\nMean function: \\(\\mathbb{E}[\\theta(\\mathbf{u})] = \\mu(\\mathbf{u}) = 0\\).\nCovariance function: \\(\\mathbb{C}(\\theta(\\mathbf{u}_i),\\theta(\\mathbf{u}_{i'})) = C(\\mathbf{u}_i, \\mathbf{u}_{i'})\\).\n\nProperties of covariance functions:\n\nStationary: \\(\\mathbb{C}(\\theta(\\mathbf{u}),\\theta(\\mathbf{u} + \\mathbf{h})) = C(\\mathbf{h})\\), where \\(\\mathbf{h} \\in \\mathbf{R}^d\\).\nIsotropic: \\(\\mathbb{C}(\\theta(\\mathbf{u}),\\theta(\\mathbf{u} + \\mathbf{h})) = C(||\\mathbf{h}||)\\), where \\(||\\cdot\\||\\) is a distance length."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#choosing-a-covariance-function",
+    "href": "slides/18-geospatial.html#choosing-a-covariance-function",
+    "title": "Geospatial Modeling",
+    "section": "Choosing a covariance function",
+    "text": "Choosing a covariance function\nThe Matérn covariance function has a general form and is often the default choice for spatial data (squared exponential is often too smooth!). Matérn is a function of a smoothness parameter \\(\\nu &gt; 0\\) and a length scale, which we will define as \\(\\rho\\).\n\n\\(\\nu = 1/2\\): exponential covariance function, gp_exponential_cov.\n\\(\\nu = 3/2\\): Matérn 3/2 covariance function, gp_matern32_cov.\n\n\\[C(||\\mathbf{h}||) = \\tau^2 \\left(1 + \\frac{\\sqrt{3} ||\\mathbf{h}||}{\\rho}\\right) \\exp\\left(-\\frac{\\sqrt{3} ||\\mathbf{h}||}{\\rho}\\right)\\]\n\n\\(\\nu = 5/2\\): Matérn 5/2 covariance function, gp_matern52_cov."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#point-referenced-spatial-model",
+    "href": "slides/18-geospatial.html#point-referenced-spatial-model",
+    "title": "Geospatial Modeling",
+    "section": "Point-referenced spatial model",
+    "text": "Point-referenced spatial model\n\\[\\begin{aligned}\n\\mathbf{Y} | \\alpha, \\boldsymbol{\\beta}, \\boldsymbol{\\theta},\\sigma &\\sim N_N(\\alpha \\mathbf{1}_{N} + \\mathbf{X} \\boldsymbol{\\beta} + \\mathbf{Z}\\boldsymbol{\\theta},\\sigma^2 \\mathbf{I}_N)\\\\\n\\boldsymbol{\\theta} &\\sim N_{n}(\\mathbf{0}_n, \\mathbf{C})\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\n\\end{aligned}\\]\nwhere \\(\\boldsymbol{\\Omega} = (\\alpha,\\boldsymbol{\\beta},\\sigma,\\tau,\\rho)\\) and\n\\[\\mathbf{C} = \\begin{bmatrix}\nC(0) & C(||\\mathbf{u}_1 - \\mathbf{u}_2||) & \\cdots & C(||\\mathbf{u}_1 - \\mathbf{u}_{n_i}||)\\\\\nC(||\\mathbf{u}_1 - \\mathbf{u}_2||) & C(0) & \\cdots & C(||\\mathbf{u}_2 - \\mathbf{u}_{n_i}||)\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\nC(||\\mathbf{u}_{1} - \\mathbf{u}_{n_i}||) & C(||\\mathbf{u}_2 - \\mathbf{u}_{n_i}||) & \\cdots & C(0)\\\\\n\\end{bmatrix}.\\]"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#point-referenced-spatial-model-marginal",
+    "href": "slides/18-geospatial.html#point-referenced-spatial-model-marginal",
+    "title": "Geospatial Modeling",
+    "section": "Point-referenced spatial model: marginal",
+    "text": "Point-referenced spatial model: marginal\n\\[\\begin{aligned}\n\\mathbf{Y} | \\boldsymbol{\\Omega}  &\\sim N_N(\\alpha \\mathbf{1}_{N} + \\mathbf{X} \\boldsymbol{\\beta},\\sigma^2 \\mathbf{I}_N + \\mathbf{Z} \\mathbf{C} \\mathbf{Z}^\\top)\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#point-referenced-spatial-model-1",
+    "href": "slides/18-geospatial.html#point-referenced-spatial-model-1",
+    "title": "Geospatial Modeling",
+    "section": "Point-referenced spatial model",
+    "text": "Point-referenced spatial model\nLike previous lecture, we can also specify a marginal model which is useful if we are only intereted in population parameters, speed is of concern, or the conditional specification has poor convergence.\n\\[\\begin{aligned}\n\\mathbf{Y} | \\boldsymbol{\\Omega}  &\\sim N_N(\\alpha \\mathbf{1}_{N} + \\mathbf{X} \\boldsymbol{\\beta},\\sigma^2 \\mathbf{I}_N + \\mathbf{Z} \\mathbf{C} \\mathbf{Z}^\\top)\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega})\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#posterior-predictive-distribution",
+    "href": "slides/18-geospatial.html#posterior-predictive-distribution",
+    "title": "Geospatial Modeling",
+    "section": "Posterior predictive distribution",
+    "text": "Posterior predictive distribution\nDefine \\(\\mathbf{Y}^* = (Y(\\mathbf{u}_{n+1}),\\ldots, Y(\\mathbf{u}_{n+q+1}))^\\top\\) as observations at \\(q\\) new locations. We ignore the subscript \\(j\\). The new location-specific parameters are \\(\\boldsymbol{\\theta} = (\\theta(\\mathbf{u}_{n+1}),\\ldots,\\mathbf{u}_{n+q+1})^\\top\\).\n\\[\\begin{aligned}\nf(\\mathbf{Y}^* | \\mathbf{Y}) &= \\int f(\\mathbf{Y}^*, \\boldsymbol{\\theta}^*, \\boldsymbol{\\theta}, \\boldsymbol{\\Omega} | \\mathbf{Y}) d\\boldsymbol{\\theta}^* d\\boldsymbol{\\theta} d\\boldsymbol{\\Omega}\\\\\n&= \\int \\underbrace{f(\\mathbf{Y}^* | \\boldsymbol{\\theta}^*, \\boldsymbol{\\Omega})}_{(1)} \\underbrace{f(\\boldsymbol{\\theta}^* | \\boldsymbol{\\theta}, \\boldsymbol{\\Omega})}_{(2)} \\underbrace{f(\\boldsymbol{\\Omega} | \\mathbf{Y})}_{(3)} d\\boldsymbol{\\theta}^* d\\boldsymbol{\\theta} d\\boldsymbol{\\Omega}\\\\\n\\end{aligned}\\]\n\nLikelihood: \\(f(\\mathbf{Y}^* | \\boldsymbol{\\theta}^*, \\boldsymbol{\\Omega}) = \\prod_{i=n+1}^{n+q+1} f(Y(\\mathbf{u}_i) | \\alpha, \\boldsymbol{\\beta}, \\theta(\\mathbf{u}_i),\\sigma)\\)\nKriging: \\(f(\\boldsymbol{\\theta}^* | \\boldsymbol{\\theta}, \\boldsymbol{\\Omega})\\)\nPosterior distribution: \\(f(\\boldsymbol{\\Omega} | \\mathbf{Y})\\)"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#kriging-distribtuion",
+    "href": "slides/18-geospatial.html#kriging-distribtuion",
+    "title": "Geospatial Modeling",
+    "section": "Kriging Distribtuion",
+    "text": "Kriging Distribtuion\nTo compute \\(f(\\boldsymbol{\\theta}^* | \\boldsymbol{\\theta}, \\boldsymbol{\\Omega})\\) we must specify the joint distribtuion:\n\\[f\\left(\\begin{bmatrix}\n    \\boldsymbol{\\theta}\\\\\n    \\boldsymbol{\\theta}^*\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega}\\right) = N\\left(\\begin{bmatrix}\n    \\mathbf{0}_n \\\\\n    \\mathbf{0}_{q}\n  \\end{bmatrix}, \\begin{bmatrix}\n    \\mathbf{C} & \\mathbf{C}_{+}\\\\\n    \\mathbf{C}_{+}^\\top & \\mathbf{C}^*\n  \\end{bmatrix}\\right),\\]\nwhere \\(\\mathbf{C}\\) is the covariance of \\(\\boldsymbol{\\theta}\\),\n\\[\\mathbf{C^*} = \\begin{bmatrix}\nC(0) & C(||\\mathbf{u}_{n+1} - \\mathbf{u}_{n+2}||) & \\cdots & C(||\\mathbf{u}_{n+1} - \\mathbf{u}_{n + q + 1}||)\\\\\nC(||\\mathbf{u}_{n+1} - \\mathbf{u}_{n+2}||) & C(0) & \\cdots & C(||\\mathbf{u}_{n_2} - \\mathbf{u}_{n + q + 1}||)\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\nC(||\\mathbf{u}_{n + 1} - \\mathbf{u}_{n + q + 1}||) & C(||\\mathbf{u}_{n + 2} - \\mathbf{u}_{n + q + 1}||) & \\cdots & C(0)\\\\\n\\end{bmatrix} \\in \\mathbb{R}^{q \\times q},\\]\n\\[\\mathbf{C_+} = \\begin{bmatrix}\nC(||\\mathbf{u}_{1} - \\mathbf{u}_{n+1}||) & C(||\\mathbf{u}_{1} - \\mathbf{u}_{n+2}||) & \\cdots & C(||\\mathbf{u}_{1} - \\mathbf{u}_{n + q + 1}||)\\\\\nC(||\\mathbf{u}_{2} - \\mathbf{u}_{n+1}||) & C(||\\mathbf{u}_{2} - \\mathbf{u}_{n+2}||) & \\cdots & C(||\\mathbf{u}_{n} - \\mathbf{u}_{n + q + 1}||)\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\nC(||\\mathbf{u}_{n} - \\mathbf{u}_{n + 1}||) & C(||\\mathbf{u}_{n} - \\mathbf{u}_{n+2}||) & \\cdots & C(||\\mathbf{u}_{n} - \\mathbf{u}_{n+q+1}||)\\\\\n\\end{bmatrix} \\in \\mathbb{R}^{n \\times q}.\\]"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#kriging-distribtuion-1",
+    "href": "slides/18-geospatial.html#kriging-distribtuion-1",
+    "title": "Geospatial Modeling",
+    "section": "Kriging Distribtuion",
+    "text": "Kriging Distribtuion\nWe can then use the conditional specification of a multivariate normal to find, \\(f(\\boldsymbol{\\theta}_i | \\mathbf{Y}_i, \\boldsymbol{\\Omega}) = N(\\mathbb{E}_{\\boldsymbol{\\theta}_i},\\mathbb{V}_{\\boldsymbol{\\theta}_i})\\), where\n\\[\\begin{aligned}\n\\mathbb{E}_{\\boldsymbol{\\theta}_i} &= \\mathbf{0}_{n_i} + \\boldsymbol{\\Sigma} \\mathbf{Z}_i^\\top \\boldsymbol{\\Upsilon}_i^{-1} (\\mathbf{Y}_i - \\mathbf{X}_i \\boldsymbol{\\beta})\\\\\n\\mathbb{V}_{\\boldsymbol{\\theta}_i} &= \\boldsymbol{\\Sigma} - \\boldsymbol{\\Sigma} \\mathbf{Z}_i^\\top \\boldsymbol{\\Upsilon}_i^{-1} \\mathbf{Z}_i\\boldsymbol{\\Sigma}.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#kriging-distribution",
+    "href": "slides/18-geospatial.html#kriging-distribution",
+    "title": "Geospatial Modeling",
+    "section": "Kriging Distribution",
+    "text": "Kriging Distribution\nTo compute \\(f(\\boldsymbol{\\theta}^* | \\boldsymbol{\\theta}, \\boldsymbol{\\Omega})\\) we must specify the joint distribtuion:\n\\[f\\left(\\begin{bmatrix}\n    \\boldsymbol{\\theta}\\\\\n    \\boldsymbol{\\theta}^*\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega}\\right) = N\\left(\\begin{bmatrix}\n    \\mathbf{0}_n \\\\\n    \\mathbf{0}_{q}\n  \\end{bmatrix}, \\begin{bmatrix}\n    \\mathbf{C} & \\mathbf{C}_{+}\\\\\n    \\mathbf{C}_{+}^\\top & \\mathbf{C}^*\n  \\end{bmatrix}\\right),\\]\nwhere \\(\\mathbf{C}\\) is the covariance of \\(\\boldsymbol{\\theta}\\),\n\\[\\mathbf{C^*} = \\begin{bmatrix}\nC(0) & C(||\\mathbf{u}_{n+1} - \\mathbf{u}_{n+2}||) & \\cdots & C(||\\mathbf{u}_{n+1} - \\mathbf{u}_{n + q + 1}||)\\\\\nC(||\\mathbf{u}_{n+1} - \\mathbf{u}_{n+2}||) & C(0) & \\cdots & C(||\\mathbf{u}_{n_2} - \\mathbf{u}_{n + q + 1}||)\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\nC(||\\mathbf{u}_{n + 1} - \\mathbf{u}_{n + q + 1}||) & C(||\\mathbf{u}_{n + 2} - \\mathbf{u}_{n + q + 1}||) & \\cdots & C(0)\\\\\n\\end{bmatrix} \\in \\mathbb{R}^{q \\times q},\\]\n\\[\\mathbf{C_+} = \\begin{bmatrix}\nC(||\\mathbf{u}_{1} - \\mathbf{u}_{n+1}||) & C(||\\mathbf{u}_{1} - \\mathbf{u}_{n+2}||) & \\cdots & C(||\\mathbf{u}_{1} - \\mathbf{u}_{n + q + 1}||)\\\\\nC(||\\mathbf{u}_{2} - \\mathbf{u}_{n+1}||) & C(||\\mathbf{u}_{2} - \\mathbf{u}_{n+2}||) & \\cdots & C(||\\mathbf{u}_{n} - \\mathbf{u}_{n + q + 1}||)\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\nC(||\\mathbf{u}_{n} - \\mathbf{u}_{n + 1}||) & C(||\\mathbf{u}_{n} - \\mathbf{u}_{n+2}||) & \\cdots & C(||\\mathbf{u}_{n} - \\mathbf{u}_{n+q+1}||)\\\\\n\\end{bmatrix} \\in \\mathbb{R}^{n \\times q}.\\]"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#kriging-distribution-1",
+    "href": "slides/18-geospatial.html#kriging-distribution-1",
+    "title": "Geospatial Modeling",
+    "section": "Kriging Distribution",
+    "text": "Kriging Distribution\nWe can then use the conditional specification of a multivariate normal to find, \\(f(\\boldsymbol{\\theta}^* | \\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) = N(\\mathbb{E}_{\\boldsymbol{\\theta}^*},\\mathbb{V}_{\\boldsymbol{\\theta}^*})\\), where\n\\[\\begin{aligned}\n\\mathbb{E}_{\\boldsymbol{\\theta}^*} &= \\mathbf{C}_+^\\top \\mathbf{C}^{-1} \\boldsymbol{\\theta}\\\\\n\\mathbb{V}_{\\boldsymbol{\\theta}^*} &= \\mathbf{C}^* - \\mathbf{C}_+^\\top \\mathbf{C}^{-1} \\mathbf{C}_+.\n\\end{aligned}\\]\nComputationally it is efficient to compute \\(\\mathbf{L} = \\text{chol}(\\mathbf{C})\\), such that \\(\\mathbf{C} = \\mathbf{L}\\mathbf{L}^\\top\\) and write:\n\\[\\begin{aligned}\n\\mathbb{E}_{\\boldsymbol{\\theta}^*} &= \\mathbf{C}_+^\\top \\left(\\mathbf{L}\\mathbf{L}^\\top\\right)^{-1} \\boldsymbol{\\theta}\\\\\n&= \\mathbf{C}_+^\\top \\left(\\mathbf{L}^{-1}\\right)^\\top\\mathbf{L}^{-1} \\boldsymbol{\\theta}\\\\\n&= \\left(\\mathbf{L}^{-1} \\mathbf{C}_+\\right)^\\top\\mathbf{L}^{-1} \\boldsymbol{\\theta}.\n\\end{aligned}\\]\nEfficient Stan function: mdivide_left_tri_low(A, b) = inverse(tri(A)) * b.\n\\[\\begin{aligned}\n\\mathbb{V}_{\\boldsymbol{\\theta}^*} &=\\mathbf{C}^* - \\left(\\mathbf{L}^{-1} \\mathbf{C}_+\\right)^\\top \\mathbf{L}^{-1} \\mathbf{C}_+.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#visualize-data",
+    "href": "slides/18-geospatial.html#visualize-data",
+    "title": "Geospatial Modeling",
+    "section": "Visualize data",
+    "text": "Visualize data"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#motivating-dataset-1",
+    "href": "slides/18-geospatial.html#motivating-dataset-1",
+    "title": "Geospatial Modeling",
+    "section": "Motivating Dataset",
+    "text": "Motivating Dataset\n\n\n  loc_id hemoglobin     anemia age urban   LATNUM  LONGNUM mean_hemoglobin\n1      1       12.5 not anemic  28 rural 0.220128 21.79508        11.81053\n2      1       12.6 not anemic  42 rural 0.220128 21.79508        11.81053\n3      1       13.3 not anemic  15 rural 0.220128 21.79508        11.81053\n4      1       12.9 not anemic  28 rural 0.220128 21.79508        11.81053\n5      1       10.4       mild  32 rural 0.220128 21.79508        11.81053\n6      1       12.2 not anemic  42 rural 0.220128 21.79508        11.81053\n  community_size mean_age\n1             19       19\n2             19       19\n3             19       19\n4             19       19\n5             19       19\n6             19       19\n\n\n\n\n\n\n\n\nModeling Goals:\n\n\n\nLearn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.\nCreate a predicted map of hemoglobin across the spatial surface, with uncertainty quantification."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#looking-at-community-sizes",
+    "href": "slides/18-geospatial.html#looking-at-community-sizes",
+    "title": "Geospatial Modeling",
+    "section": "Looking at community sizes",
+    "text": "Looking at community sizes"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#today-we-will-focus-on-one-state",
+    "href": "slides/18-geospatial.html#today-we-will-focus-on-one-state",
+    "title": "Geospatial Modeling",
+    "section": "Today we will focus on one state",
+    "text": "Today we will focus on one state"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#today-we-will-focus-on-one-state-1",
+    "href": "slides/18-geospatial.html#today-we-will-focus-on-one-state-1",
+    "title": "Geospatial Modeling",
+    "section": "Today we will focus on one state",
+    "text": "Today we will focus on one state"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#modeling-goals",
+    "href": "slides/18-geospatial.html#modeling-goals",
+    "title": "Geospatial Modeling",
+    "section": "Modeling goals",
+    "text": "Modeling goals\n\\[Y_j(\\mathbf{u}_i) = \\alpha + \\mathbf{x}_j(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i) + \\epsilon_j(\\mathbf{u}_i), \\quad \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\]\n\n\\(N = 490\\), \\(n = 29\\).\n\\(\\mathbf{x}_j(\\mathbf{u}_i) = (\\text{age}_{ij}/10, \\text{urban}_i)\\)\n\nGoals:\n\nLearn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.\nCreate a predicted map of hemoglobin across the spatial surface, with uncertainty quantification."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#define-the-prediction-grid",
+    "href": "slides/18-geospatial.html#define-the-prediction-grid",
+    "title": "Geospatial Modeling",
+    "section": "Define the prediction grid",
+    "text": "Define the prediction grid\nFor prediction I created a \\(20 \\times 20\\) grid, making sure the points are in the surface."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#stan-code",
+    "href": "slides/18-geospatial.html#stan-code",
+    "title": "Geospatial Modeling",
+    "section": "Stan code",
+    "text": "Stan code\n\nfunctions {\n    matrix L_matern32(array[] vector x, real tau, real rho, real delta) { \n        matrix[size(x), size(x)] cov;\n        cov = add_diag(gp_matern32_cov(x, tau, rho), delta);\n        return cholesky_decompose(cov);\n    }\n  vector theta_new_rng(array[] vector x, array[] vector x_new, real tau, \n                        real rho, vector z_obs, real delta) {\n    int n = size(x);\n    int n_new = size(x_new);\n    vector[n_new] theta_new;\n      { // everything declared inside of {} will only exist in that local environment\n      matrix[n, n] LC = L_matern32(x, tau, rho, delta);\n      vector[n] theta_obs = LC * z_obs;\n      matrix[n, n_new] Cplus = gp_matern32_cov(x, x_new, tau, rho);\n      matrix[n, n_new] LCinv_Cplus = mdivide_left_tri_low(LC, Cplus);\n      vector[n] LCinv_theta_obs = mdivide_left_tri_low(LC, theta_obs);\n      vector[n_new] theta_new_mu = LCinv_Cplus' * LCinv_theta_obs;\n      matrix[n_new, n_new] C_star = add_diag(gp_matern32_cov(x_new, tau, rho), delta);\n      matrix[n_new, n_new] theta_new_cov = C_star - LCinv_Cplus' * LCinv_Cplus;\n      theta_new = multi_normal_rng(theta_new_mu, theta_new_cov);\n    }\n    return theta_new;\n    }\n    matrix cov2cor(matrix V) { \n      int p = rows(V); \n      vector[p] Is = inv_sqrt(diagonal(V)); \n      return quad_form_diag(V, Is); \n     }\n}\ndata {\n  int&lt;lower = 1&gt; N;                        // number of observed data points\n  int&lt;lower = 1&gt; p;                        // number of fixed covariates\n  int&lt;lower = 1&gt; n;                        // number of unique locations\n  int&lt;lower = 1&gt; d;                        // dimension of the spatial location\n  int&lt;lower = 1&gt; n_new;                    // total number of points for prediction\n  vector[N] Y;                             // observed data\n  matrix[N, p] X;                          // design matrix - fixed effects\n  array[N] int&lt;lower = 1, upper = n&gt; Ids;  // location mapping indices\n  array[n] vector[d] u;                    // locations for observed data\n  array[n_new] vector[d] u_new;          // locations for prediction\n  matrix[n_new, p] X_new;                 // design matrix for the new locations\n}\ntransformed data {\n  real delta = 1e-9;\n  matrix[N, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n}\nparameters {\n  // likelihood parameters\n  real alpha_star;         // centered intercept\n  vector[p] beta;          // population coefficients\n  real&lt;lower = 0&gt; sigma;   // nugget error term\n  // GP parameters\n  real&lt;lower = 0&gt; tau;     // GP scale for intercept\n  real&lt;lower = 0&gt; rho;     // GP length for intercept\n  vector[n] z;             // standard normal\n  // hyperparameters\n  real&lt;lower = 0&gt; sigma_beta;     // variance for coefficients\n}\ntransformed parameters {\n    // compute spatial intercept\n  matrix[n,n] LC = L_matern32(u, tau, rho, delta);\n  vector[n] theta = LC * z; // spatial intercept\n}\nmodel {\n  // likelihood\n  target += normal_lupdf(Y | alpha_star + X_centered * beta + theta[Ids], sigma);\n  // likelihood parameters\n  target += normal_lupdf(alpha_star | 0, 4);\n  target += normal_lupdf(beta | 0, sigma_beta);\n  target += normal_lupdf(sigma | 0, 2);\n  // GP parameters\n  target += normal_lupdf(tau | 0, 4);\n  target += inv_gamma_lupdf(rho | 5, 5);\n  target += normal_lupdf(z | 0, 1);  \n  // hyperparameters\n  target += normal_lupdf(sigma_beta | 0, 2);\n}\ngenerated quantities {\n  // intercepts\n  real alpha = alpha_star - X_bar * beta;\n  vector[n] alphas = alpha_star + theta;\n  // covariance\n  corr_matrix[n] Phi = cov2cor(add_diag(gp_matern32_cov(u, tau, rho), delta));\n  // posterior predictive distribution for the observed locations\n  array[N] real Y_pred = normal_rng(alpha + X * beta + theta[Ids], sigma);\n  // posterior predictive distribution across a new grid of locations\n  vector[n_new] theta_new = theta_new_rng(u, u_new, tau, rho, z, delta);\n  array[n_new] real Y_new = normal_rng(alpha + X_new * beta + theta_new, sigma);\n  // log-likelihood for loo\n  array[N] real log_lik;\n  for (i in 1:N) log_lik[i] = normal_lpdf(Y[i] | alpha + X[i, ] * beta + theta[Ids[i]], sigma);\n}"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#function-to-compute-mathbfl",
+    "href": "slides/18-geospatial.html#function-to-compute-mathbfl",
+    "title": "Geospatial Modeling",
+    "section": "Function to compute \\(\\mathbf{L}\\)",
+    "text": "Function to compute \\(\\mathbf{L}\\)\n\nfunctions {\n    matrix L_matern32(array[] vector x, real tau, real rho, real delta) { \n        matrix[size(x), size(x)] cov;\n        cov = add_diag(gp_matern32_cov(x, tau, rho), delta);\n        return cholesky_decompose(cov);\n    }\n    ...\n}"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#function-to-predict-boldsymboltheta",
+    "href": "slides/18-geospatial.html#function-to-predict-boldsymboltheta",
+    "title": "Geospatial Modeling",
+    "section": "Function to predict \\(\\boldsymbol{\\theta}^*\\)",
+    "text": "Function to predict \\(\\boldsymbol{\\theta}^*\\)\n\nfunctions {\n  vector theta_new_rng(array[] vector x, array[] vector x_new, real tau, \n                        real rho, vector z_obs, real delta) {\n    int n = size(x);\n    int n_new = size(x_new);\n    vector[n_new] theta_new;\n      { // everything declared inside of {} will only exist in that local environment\n      matrix[n, n] LC = L_matern32(x, tau, rho, delta);\n      vector[n] theta_obs = LC * z_obs;\n      matrix[n, n_new] Cplus = gp_matern32_cov(x, x_new, tau, rho);\n      matrix[n, n_new] LCinv_Cplus = mdivide_left_tri_low(LC, Cplus);\n      vector[n] LCinv_theta_obs = mdivide_left_tri_low(LC, theta_obs);\n      vector[n_new] theta_new_mu = LCinv_Cplus' * LCinv_theta_obs;\n      matrix[n_new, n_new] C_star = add_diag(gp_matern32_cov(x_new, tau, rho), delta);\n      matrix[n_new, n_new] theta_new_cov = C_star - LCinv_Cplus' * LCinv_Cplus;\n      theta_new = multi_normal_rng(theta_new_mu, theta_new_cov);\n    }\n    return theta_new;\n    }\n    ...\n}"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#modeling",
+    "href": "slides/18-geospatial.html#modeling",
+    "title": "Geospatial Modeling",
+    "section": "Modeling",
+    "text": "Modeling\nWe specify the following model:\n\\[\\begin{aligned}\nY_j(\\mathbf{u}_i) &= \\alpha + \\mathbf{x}_j(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i) + \\epsilon_j(\\mathbf{u}_i), \\quad \\epsilon_j(\\mathbf{u}_i) \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\\\\n\\boldsymbol{\\theta} | \\tau,\\rho &\\sim N(\\mathbf{0}_n,\\mathbf{C})\\\\\n\\alpha^* &\\sim N(0,4^2)\\\\\n\\beta_j | \\sigma_{\\beta} &\\sim N(0,\\sigma_{\\beta}^2), \\quad j = 1,\\ldots,p\\\\\n\\sigma &\\sim \\text{Half-Normal}(0, 2^2)\\\\\n\\tau &\\sim \\text{Half-Normal}(0, 4^2)\\\\\n\\rho &\\sim \\text{Inv-Gamma}(5, 5)\\\\\n\\sigma_{\\beta} &\\sim \\text{Half-Normal}(0, 2^2)\n\\end{aligned}\\]\nWhere \\(N = 490\\), \\(n = 29\\), \\(\\mathbf{x}_j(\\mathbf{u}_i) = (\\text{age}_{ij}/10, \\text{urban}_i)\\), and \\(\\mathbf{C}\\) is the Matérn 3/2."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#posterior-summaries",
+    "href": "slides/18-geospatial.html#posterior-summaries",
+    "title": "Geospatial Modeling",
+    "section": "Posterior summaries",
+    "text": "Posterior summaries\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=4000; warmup=2000; thin=1; \npost-warmup draws per chain=2000, total post-warmup draws=8000.\n\n            mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nalpha      11.44    0.07 2.04  5.29 11.10 12.08 12.61 13.41   937 1.01\nbeta[1]     0.00    0.00 0.07 -0.15 -0.04  0.00  0.04  0.14  6759 1.00\nbeta[2]     0.01    0.00 0.19 -0.39 -0.06  0.00  0.08  0.41  3647 1.00\nsigma       1.76    0.00 0.06  1.64  1.72  1.76  1.80  1.88  3787 1.00\ntau         1.72    0.04 1.26  0.43  0.90  1.35  2.10  5.20   937 1.00\nrho         0.90    0.01 0.58  0.35  0.54  0.73  1.05  2.42  1837 1.00\nsigma_beta  0.31    0.01 0.44  0.01  0.06  0.15  0.36  1.57  3734 1.00\n\nSamples were drawn using NUTS(diag_e) at Fri Mar 14 09:53:01 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/18-geospatial.html#traceplots",
+    "href": "slides/18-geospatial.html#traceplots",
+    "title": "Geospatial Modeling",
+    "section": "Traceplots",
+    "text": "Traceplots"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#traceplots-1",
+    "href": "slides/18-geospatial.html#traceplots-1",
+    "title": "Geospatial Modeling",
+    "section": "Traceplots",
+    "text": "Traceplots"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#traceplots-2",
+    "href": "slides/18-geospatial.html#traceplots-2",
+    "title": "Geospatial Modeling",
+    "section": "Traceplots",
+    "text": "Traceplots"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#posterior-predictive-check",
+    "href": "slides/18-geospatial.html#posterior-predictive-check",
+    "title": "Geospatial Modeling",
+    "section": "Posterior predictive check",
+    "text": "Posterior predictive check"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#posterior-correlation-matrix",
+    "href": "slides/18-geospatial.html#posterior-correlation-matrix",
+    "title": "Geospatial Modeling",
+    "section": "Posterior correlation matrix",
+    "text": "Posterior correlation matrix"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#visualize-the-predicted-hemoglobin",
+    "href": "slides/18-geospatial.html#visualize-the-predicted-hemoglobin",
+    "title": "Geospatial Modeling",
+    "section": "Visualize the predicted hemoglobin",
+    "text": "Visualize the predicted hemoglobin"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#posterior-predictive-distribution-1",
+    "href": "slides/18-geospatial.html#posterior-predictive-distribution-1",
+    "title": "Geospatial Modeling",
+    "section": "Posterior predictive distribution",
+    "text": "Posterior predictive distribution"
+  },
+  {
+    "objectID": "slides/18-geospatial.html#correlation-as-a-function-of-distance",
+    "href": "slides/18-geospatial.html#correlation-as-a-function-of-distance",
+    "title": "Geospatial Modeling",
+    "section": "Correlation as a function of distance",
+    "text": "Correlation as a function of distance"
+  },
+  {
+    "objectID": "prepare/prepare-mar20.html",
+    "href": "prepare/prepare-mar20.html",
+    "title": "Prepare for March 20 lecture",
+    "section": "",
+    "text": "📖 Read Bayesian Spatial Analysis by Lawson and Banerjee 2009.\n✅ Work on HW 04 which is due Tuesday March 25 before class."
   }
 ]

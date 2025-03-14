@@ -303,7 +303,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#live-coding-session-details" id="toc-live-coding-session-details" class="nav-link" data-scroll-target="#live-coding-session-details">Live-Coding Session Details</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
@@ -319,7 +323,12 @@ window.Quarto = {
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
   </ul></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/biostat725-sp25/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -346,6 +355,8 @@ window.Quarto = {
 </header>
 
 
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -356,17 +367,36 @@ Due date
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Thursday, March 25 at 11:45am.</strong> To be considered on time, the following must be done by the due date:</p>
+<p>This live-coding exercise is to be completed in-class and turned in by <strong>Thursday, April 10 by 1:00 PM</strong>. To be considered on time, the following must be done by the due date:</p>
 <ul>
 <li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</li>
 <li>Final <code>.pdf</code> file submitted on Gradescope</li>
 </ul>
+<p>I will allow a 5-minute grace period, meaning assignments turned in by 1:05pm will be accepted, but nothing will be accepted after that time.</p>
 </div>
 </div>
+<section id="live-coding-session-details" class="level2">
+<h2 class="anchored" data-anchor-id="live-coding-session-details">Live-Coding Session Details</h2>
+<ul>
+<li><strong>Date and Time</strong>: Thursday, April 10, 11:45 AM - 1:00 PM.</li>
+<li><strong>Work Independently</strong>: You must work by yourself on this exercise. The teaching team will be available for questions.</li>
+<li><strong>Resources Allowed</strong>:
+<ul>
+<li>Lecture slides, homework, exercises, past exam, etc..</li>
+<li>Any material available online (research, textbooks, etc.).</li>
+</ul></li>
+<li><strong>Restrictions</strong>:
+<ul>
+<li>You <strong>cannot</strong> use AI to generate narrative or explanations during the session (you may use it for coding and technical queries only).</li>
+</ul></li>
+</ul>
+<p>The goal is to complete the task independently, applying everything you’ve learned so far in the course. Good luck!</p>
+</section>
+</section>
 <section id="getting-started" class="level1">
 <h1>Getting started</h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>live-coding</strong>. It contains the starter documents you need to complete the live coding exercise.</p></li>
+<li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>live-coding</strong>. It contains the starter documents you need to complete the live-coding exercise.</p></li>
 <li><p>Clone the repo and start a new project in RStudio. See the <a href="https://biostat725-sp25.netlify.app/ae/ae-01-mcmc#clone-the-repo-start-new-rstudio-project">AE 01 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
 </ul>
 </section>
@@ -385,9 +415,9 @@ Due date
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
-<p>This live coding exercise will use data from the <a href="https://physionet.org/content/mimic-iv-ed-demo/2.2/">MIMIC-IV-ED Demo</a>. We will use the same data from Exam 01. To obtain an analysis data, source the R script to obtain a dataset called <code>exam1_data</code>.</p>
+<p>This live-coding exercise will use data from the <a href="https://physionet.org/content/mimic-iv-ed-demo/2.2/">MIMIC-IV-ED Demo</a>, similar to the data from Exam 01. To obtain an analysis data, source the R script to obtain a dataset called <code>live_coding</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"exam-01-process-data.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"live-coding-process-data.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will use the following variables from the dataset:</p>
 <ul>
@@ -453,28 +483,122 @@ Y_i &amp;\stackrel{ind}{\sim} \text{Gamma}(\tau,\mu_i)\\
 &amp;\quad+ \beta_6 acuity\_score\_complex_i + \beta_7 o2sat_i.
 \end{align*}\]</span></p>
 <p>When you fit the model, make sure to center the predictors, such that <span class="math inline">\(\log \mu_i = \alpha^* + \mathbf{x}_i^* \boldsymbol{\beta}\)</span>, where <span class="math inline">\(\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}\)</span> and <span class="math inline">\(\bar{\mathbf{x}} = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\)</span>. Use the following priors <span class="math inline">\(\alpha^* \sim N(0,4^2)\)</span>, <span class="math inline">\(\beta_j \stackrel{ind}{\sim} N(0,1^2)\)</span>, <span class="math inline">\(j = 1,\ldots,p\)</span> and <span class="math inline">\(\tau \sim \text{Exponential}(1).\)</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stan code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In your repo you will find a Stan script called <code>live-coding.stan</code>. This will act as your starter script for performing Gamma regression. Throughout <strong>Exercises 1-4</strong> you will be prompted to add lines of code to the Stan script and in <strong>Exercises 5-8</strong> you will use your completed Stan code.</p>
+</div>
+</div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>To perform Gamma regression in Stan, we need to manually encode the likelihood function. Create a function in your Stan code called <code>gamma_regression_lpdf</code> that encodes the log-likelihood function, <span class="math inline">\(\sum_{i=1}^n \log f_Y(Y_i|\tau,\mu_i)\)</span>. To answer this question, print the function you created using a <code>stan</code> code chunk.</p>
+<p>To perform Gamma regression in Stan, we need to manually encode the likelihood function. Create a function in your Stan code called <code>gamma_regression_lpdf</code> that encodes the log-likelihood function, <span class="math inline">\(\sum_{i=1}^n \log f_Y(Y_i|\tau,\mu_i)\)</span>. To answer this question, print the function you created using a <code>{stan output.var = "likelihood", eval = FALSE}</code> code chunk. Note that the function <code>lgamma(x)</code> computes <span class="math inline">\(\log \Gamma(x)\)</span> in Stan.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Using your function from <strong>Exercise 1</strong> fit the Gamma regression model.</p>
+<p>Eventually, we would like to perform posterior predictive checks for our model. In order to do this we must sample from a Gamma random variable in the generated quantities block. The only built in <a href="https://mc-stan.org/docs/functions-reference/positive_continuous_distributions.html#gamma-distribution">Stan function</a> for sampling from Gamma random variables is <code>gamma_rng</code> which samples from a Gamma random variable with <span class="math inline">\(Y \sim \text{Gamma}(\lambda, \kappa)\)</span> with density <span class="math inline">\(f_Y(y | \lambda, \kappa) = \frac{\kappa^{\lambda}}{\Gamma(\lambda)}y^{\lambda-1}\exp\{-\kappa y\}\)</span>, where <span class="math inline">\(\lambda\)</span> is the shape parameter and <span class="math inline">\(\kappa\)</span> is the inverse scale (or rate), such that <span class="math inline">\(\kappa = 1 / \theta\)</span>. Use the <code>gamma_rng</code> to create a function called <code>gamma_regression_rng</code> that can be used to sample the posterior predictive distribution. To answer this question, print the function you created using a <code>{stan output.var = "rng", eval = FALSE}</code> code chunk.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Sanity check: <code>summary(glm(los ~ race + arrival + sex + acuity_score + o2sat, data = exam1_data, family = Gamma(link = "log")))</code>. How do the results compare?</p>
+<p>When performing inference we would like to inspect the posterior distribution of <span class="math inline">\(\gamma_j\)</span> for <span class="math inline">\(j = 1,\ldots,p\)</span>. Define this parameter in your generated quantities code chunk. To answer this question, print the Stan code used to define this new parameter using a <code>{stan output.var = "gamma", eval = FALSE}</code> code chunk.</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>We would like to perform posterior predictive checks for our model. In order to do this we must sample from a Gamma random variable in the generated quantities block. The only built in <a href="https://mc-stan.org/docs/functions-reference/positive_continuous_distributions.html#gamma-distribution">Stan function</a> for sampling from Gamma random variables is <code>gamma_rng</code> which samples from a Gamma random variable with <span class="math inline">\(Y \sim \text{Gamma}(\lambda, \kappa)\)</span> with density <span class="math inline">\(f_Y(y | \lambda, \kappa) = \frac{\kappa^{\lambda}}{\Gamma(\lambda)}y^{\lambda-1}\exp\{-\kappa y\}\)</span>, where <span class="math inline">\(\lambda\)</span> is the shape parameter and <span class="math inline">\(\kappa\)</span> is the inverse scale (or rate), such that <span class="math inline">\(\kappa = 1 / \theta\)</span>. Use the <code>gamma_rng</code> to create a function called <code>gamma_regression_rng</code> that can be used to sample the posterior predictive distribution.</p>
+<p>When performing inference we would prefer to use <span class="math inline">\(\alpha\)</span> instead of <span class="math inline">\(\alpha^*\)</span> (recall that centering <span class="math inline">\(\mathbf{x}_i\)</span> is for estimation efficiency). In your generated quantities code chunk define <span class="math inline">\(\alpha\)</span> so we can easily obtain posterior summaries after fitting the model. To answer this question, print the Stan code used to define <span class="math inline">\(\alpha\)</span> using a <code>{stan output.var = "alpha", eval = FALSE}</code> code chunk.</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Using the function from <strong>Exercise 4</strong>, perform a posterior predictive check to assess model fit. Does the model fit the data well?</p>
-
-
+<p>Using the code from the previous exercises, fit the Gamma regression model specified above. Provide evidence of MCMC convergence for <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\boldsymbol{\beta}\)</span>, and <span class="math inline">\(\tau\)</span>.</p>
 </section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Perform a posterior predictive check to assess model fit. Does the model fit the data well?</p>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Present posterior means and 95% intervals for <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\boldsymbol{\beta}\)</span>, and <span class="math inline">\(\tau\)</span>. One way to verify that the model has converged is to compare the results with an analogous frequentist model as a sanity check. The Gamma regression with log link function can be computed as: <code>summary(glm(los ~ race + arrival + sex + acuity_score + o2sat, data = exam1_data, family = Gamma(link = "log")))</code>. Are the Bayesian and frequentist results consistent?</p>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<p>Examine the posterior distribution of <span class="math inline">\(\gamma_j\)</span> for <span class="math inline">\(j=1,\ldots,p\)</span>. Choose a significant predictor and interpret its <span class="math inline">\(\gamma_j\)</span>.</p>
+</section>
+</section>
+<section id="submission" class="level1">
+<h1>Submission</h1>
+<p>You will submit the PDF documents for the live-coding to Gradescope as part of your final submission.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the exercise, make sure all documents are updated on your GitHub repo.</p>
+<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+</div>
+</div>
+<p>To submit your assignment:</p>
+<ul>
+<li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/53305">BIOSTAT 725 Canvas site.</a></p></li>
+<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
+<li><p>Mark the pages associated with each exercise. All of the pages of your homework should be associated with at least one question (i.e., should be “checked”).</p></li>
+</ul>
+</section>
+<section id="grading" class="level1">
+<h1>Grading</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ex 1</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 2</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 3</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 4</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 5</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 6</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 7</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ex 8</td>
+<td style="text-align: left;">5</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
 
 </main> <!-- /main -->

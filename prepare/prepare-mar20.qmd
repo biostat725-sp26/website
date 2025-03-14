@@ -1,0 +1,9 @@
+---
+title: Prepare for March 20 lecture
+---
+
+<br>
+
+📖 Read [Bayesian Spatial Analysis](https://bpb-us-w2.wpmucdn.com/sites.umassd.edu/dist/8/406/files/2024/03/Bayesian-Spatial-Analysis-33a429631787924a.pdf) by Lawson and Banerjee 2009.
+
+✅ Work on [HW 04](https://biostat725-sp25.netlify.app/hw/hw-04) which is due **Tuesday** March 25 before class.
