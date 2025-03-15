@@ -630,17 +630,17 @@ functions {
   vector theta_new_rng(array[] vector x, array[] vector x_new, real tau, 
                         real rho, vector z_obs, real delta) {
     int n = size(x);
-  	int n_new = size(x_new);
-    vector[n_new] theta_new;
+  	int q = size(x_new);
+    vector[q] theta_new;
 	  { // everything declared inside of {} will only exist in that local environment
       matrix[n, n] LC = L_matern32(x, tau, rho, delta);
       vector[n] theta_obs = LC * z_obs;
-      matrix[n, n_new] Cplus = gp_matern32_cov(x, x_new, tau, rho);
-      matrix[n, n_new] LCinv_Cplus = mdivide_left_tri_low(LC, Cplus);
+      matrix[n, q] Cplus = gp_matern32_cov(x, x_new, tau, rho);
+      matrix[n, q] LCinv_Cplus = mdivide_left_tri_low(LC, Cplus);
       vector[n] LCinv_theta_obs = mdivide_left_tri_low(LC, theta_obs);
-      vector[n_new] theta_new_mu = LCinv_Cplus' * LCinv_theta_obs;
-      matrix[n_new, n_new] C_star = add_diag(gp_matern32_cov(x_new, tau, rho), delta);
-      matrix[n_new, n_new] theta_new_cov = C_star - LCinv_Cplus' * LCinv_Cplus;
+      vector[q] theta_new_mu = LCinv_Cplus' * LCinv_theta_obs;
+      matrix[q, q] C_star = add_diag(gp_matern32_cov(x_new, tau, rho), delta);
+      matrix[q, q] theta_new_cov = C_star - LCinv_Cplus' * LCinv_Cplus;
       theta_new = multi_normal_rng(theta_new_mu, theta_new_cov);
 	}
 	return theta_new;
@@ -656,13 +656,13 @@ data {
   int<lower = 1> p;                        // number of fixed covariates
   int<lower = 1> n;                        // number of unique locations
   int<lower = 1> d;                        // dimension of the spatial location
-  int<lower = 1> n_new;                    // total number of points for prediction
+  int<lower = 1> q;                    // total number of points for prediction
   vector[N] Y;                             // observed data
   matrix[N, p] X;                          // design matrix - fixed effects
   array[N] int<lower = 1, upper = n> Ids;  // location mapping indices
   array[n] vector[d] u;                    // locations for observed data
-  array[n_new] vector[d] u_new;          // locations for prediction
-  matrix[n_new, p] X_new;                 // design matrix for the new locations
+  array[q] vector[d] u_new;          // locations for prediction
+  matrix[q, p] X_new;                 // design matrix for the new locations
 }
 transformed data {
   real delta = 1e-9;
@@ -713,13 +713,12 @@ generated quantities {
   // posterior predictive distribution for the observed locations
   array[N] real Y_pred = normal_rng(alpha + X * beta + theta[Ids], sigma);
   // posterior predictive distribution across a new grid of locations
-  vector[n_new] theta_new = theta_new_rng(u, u_new, tau, rho, z, delta);
-  array[n_new] real Y_new = normal_rng(alpha + X_new * beta + theta_new, sigma);
+  vector[q] theta_new = theta_new_rng(u, u_new, tau, rho, z, delta);
+  array[q] real Y_new = normal_rng(alpha + X_new * beta + theta_new, sigma);
   // log-likelihood for loo
   array[N] real log_lik;
   for (i in 1:N) log_lik[i] = normal_lpdf(Y[i] | alpha + X[i, ] * beta + theta[Ids[i]], sigma);
 }
-
 ```
 
 ## Function to compute $\mathbf{L}$
@@ -742,17 +741,17 @@ functions {
   vector theta_new_rng(array[] vector x, array[] vector x_new, real tau, 
                         real rho, vector z_obs, real delta) {
     int n = size(x);
-  	int n_new = size(x_new);
-    vector[n_new] theta_new;
+  	int q = size(x_new);
+    vector[q] theta_new;
 	  { // everything declared inside of {} will only exist in that local environment
       matrix[n, n] LC = L_matern32(x, tau, rho, delta);
       vector[n] theta_obs = LC * z_obs;
-      matrix[n, n_new] Cplus = gp_matern32_cov(x, x_new, tau, rho);
-      matrix[n, n_new] LCinv_Cplus = mdivide_left_tri_low(LC, Cplus);
+      matrix[n, q] Cplus = gp_matern32_cov(x, x_new, tau, rho);
+      matrix[n, q] LCinv_Cplus = mdivide_left_tri_low(LC, Cplus);
       vector[n] LCinv_theta_obs = mdivide_left_tri_low(LC, theta_obs);
-      vector[n_new] theta_new_mu = LCinv_Cplus' * LCinv_theta_obs;
-      matrix[n_new, n_new] C_star = add_diag(gp_matern32_cov(x_new, tau, rho), delta);
-      matrix[n_new, n_new] theta_new_cov = C_star - LCinv_Cplus' * LCinv_Cplus;
+      vector[q] theta_new_mu = LCinv_Cplus' * LCinv_theta_obs;
+      matrix[q, q] C_star = add_diag(gp_matern32_cov(x_new, tau, rho), delta);
+      matrix[q, q] theta_new_cov = C_star - LCinv_Cplus' * LCinv_Cplus;
       theta_new = multi_normal_rng(theta_new_mu, theta_new_cov);
 	}
 	return theta_new;

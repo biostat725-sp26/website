@@ -1,0 +1,370 @@
+---
+title: "AE 07: Geospatial"
+subtitle: "Mapping Hemoglobin in the Democratic Republic of Congo"
+date: "March 20, 2025"
+---
+
+::: callout-important
+## Due date
+
+Application exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
+
+-   Final `.qmd` and `.pdf` files pushed to your GitHub repo
+-   **Note:** For homeworks and exams, you will also be required to submit your final `.pdf` file submitted on Gradescope
+:::
+
+# Getting Started
+
+## Clone the repo & start new RStudio project
+
+-   Go to the course organization at [github.com/biostat725-sp25](https://github.com/biostat725-sp25) organization on GitHub.
+-   Click on the repo with the prefix **ae-07-**. It contains the starter documents you need to complete the AE.
+-   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you'll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
+    -   See the [HW 00 instructions](https://biostat725-sp25.netlify.app/hw/hw-00#connect-rstudio-and-github) if you have not set up the SSH key or configured git.
+-   In RStudio, go to *File* $\rightarrow$ *New Project* $\rightarrow$ *Version Control* $\rightarrow$ *Git*.
+-   Copy and paste the URL of your assignment repo into the dialog box *Repository URL*. Again, please make sure to have *SSH* highlighted under *Clone* when you copy the address.
+-   Click *Create Project*, and the files from your GitHub repo will be displayed in the *Files* pane in RStudio.
+-   Click `ae-07.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
+
+# R packages
+
+We will begin by loading R packages that we will use in this AE.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)     # data wrangling and visualization
+library(knitr)         # format output
+library(rstan)         # Stan
+library(bayesplot)     # figures for post Stan inference
+library(loo)           # model comparison
+# new packages are below
+library(sf)            # functions to work with spatial data
+library(rnaturalearth) # maps of DRC
+library(geodist)       # conversion from geodisic to miles
+
+```
+
+# Data
+
+## Democratic Republic of Conge Demographic and Health Survey
+
+We will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are ~8600 women who are nested in ~500 survey clusters. The variables in the dataset are as follows.
+
+  - `loc_id`: location id (i.e. survey cluster).
+
+  - `hemoglobin`: hemoglobin level (g/dL).
+
+  - `anemia`: anemia classifications.
+  
+  - `age`: age in years.
+
+  - `urban`: urban vs. rural.
+
+  - `LATNUM`: latitude.
+
+  - `LONGNUM`: longitude.
+  
+  - `mean_hemoglobin`: average hemoglobin at each community (g/dL).
+  
+  - `community_size`: number of participants at each community.
+
+  - `mean_age`: average age of participants at each community (years).
+
+
+The data set is available in your AE repos and is called `drc`.
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
+drc <- readRDS("drc.rds")
+```
+
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+library(DT)
+data <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/drc/hemoglobin_anemia.csv")
+data <- data[data$hemoglobin < 25, ]
+# data$binary <- 1
+# data$binary[data$anemia == "not anemic"] <- 0
+data$X <- NULL
+data$loc_id <- as.numeric(as.factor(data$loc_id))
+data$mean_hemoglobin <- tapply(data$hemoglobin, list(data$loc_id), mean)[data$loc_id]
+data$community_size <- tapply(data$hemoglobin, list(data$loc_id), length)[data$loc_id]
+data$mean_age <- tapply(data$age, list(data$loc_id), mean)[data$loc_id]
+data <- data[order(data$loc_id), ]
+drc <- data
+DT::datatable(drc)
+```
+
+# Handling Spatial Data in R
+
+## Data Objects and Maps
+
+We will begin by converting our dataset to a `sf` data object, which can be used for spatial data manipulation. We must specify the coordinates (i.e., latitude/longitude) and the Coordinate Reference System (CRS). CRS is a system that defines how spatial data is represented and mapped to the earth. When you see `crs = 4326` in an `sf` object, it means that the spatial data is using the WGS 84 standard, which is the most commonly used CRS for GPS data and web maps (like Google Maps). The coordinates are in terms of longitude and latitude, and they are based on a global reference framework. 
+
+```{r}
+data_sf <- st_as_sf(drc, coords = c("LONGNUM", "LATNUM"), crs = 4326)
+head(data_sf)
+```
+
+The `sf` data object encodes the coordinates into a geometry which can be used for spatial mapping. This data object is convenient because it seamlessly works with `dplyr`, `ggplot2`, and other tidyverse packages for data manipulation and visualization.
+
+We also extract the boundary information for our spatial unit. When you use `ne_states`, you are accessing state or province-level boundary data for countries around the world. This data typically includes geographic outlines (polygons) for the boundaries of states or provinces, and it's useful for tasks like creating maps that show the subdivisions of a country. We make sure to return the data as a `sf` class to be consistent with our spatial data. We also will transform to be in the same CRS.
+
+```{r}
+congo_states_map <- ne_states(country = "Democratic Republic of the Congo", returnclass = "sf")
+congo_states_map <- st_transform(congo_states_map, crs = 4326)
+```
+
+We then use the `st_intersection`, which is a function to find the area where the geometries of two or more spatial objects overlap. We want to make sure all our points are within the DRC boundaries. Most importantly,this function merges our data with the boundary information.
+
+```{r}
+#| warning: false
+data_sf_drc <- st_intersection(data_sf, congo_states_map)
+```
+
+We can now plot the average hemoglobin for each community.
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+ggplot() +
+  # Plot the map of DRC
+  geom_sf(data = congo_states_map, fill = "lightblue", color = "black") +
+  # Plot the points from our data
+  geom_sf(data = data_sf_drc, aes(color = mean_hemoglobin), shape = 16, size = 2) +
+  scale_color_viridis_b() + 
+  # Customize the plot appearance
+  theme_minimal() +
+  labs(title = "Communities in the Democratic Republic of Congo",
+       subtitle = "Points represent average hemoglobin",
+       caption = "Data Source: rnaturalearth",
+       x = "Longitude", y = "Latitude", color = "Hemoglobin (g/dL)") 
+```
+
+Note the choice of color scale, `scale_color_viridis_b`. This is a convenient scale for spatial data. An alternative is a continuous scale, `scale_color_viridis_c`.
+
+## Extracting Data for a Subset
+
+In the lecture, we analyzed data from one state as a demonstration. Here we will show the code for accomoplishing this. We start by defining our state of interest. We can see all the states here.
+
+```{r}
+table(data_sf_drc$name) |> kable(col.names = c("State", "Observations"))
+```
+
+We will work with Sud-Kivu, like we did in the lecture.
+
+```{r}
+state_of_interest <- c("Sud-Kivu")
+data_sf_state_of_interest <- data_sf_drc %>% filter(name %in% state_of_interest)
+```
+
+We can then plot the average hemoglobin across our state of interest.
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+ggplot() +
+  # Plot our state of interest
+  geom_sf(data = congo_states_map %>% filter(name %in% state_of_interest), fill = "lightblue", color = "black", size = 0.2) +
+  # Plot the points from your data
+  geom_sf(data = data_sf_state_of_interest, aes(color = community_size), shape = 16, size = 2) +
+  scale_color_viridis_b() + 
+  theme_minimal() +
+  labs(title = "Map of Sud-Kivu in the DRC",
+       caption = "Data Source: rnaturalearth",
+       color = "Hemoglobin (g/dL)") +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank()) +
+  coord_sf()  # Ensures the map is properly projected
+```
+
+## Obtain a Grid for Prediction
+
+To obtain a grid for prediction, we need to obtain the boundary box for the spatial object.
+
+```{r}
+bbox <- st_bbox(congo_states_map %>% filter(name %in% state_of_interest))
+bbox
+```
+
+We then specify a $20 \times 20$ grid across the boundaries of the state.
+
+```{r}
+n_lat <- 20
+n_long <- 20
+latitudes <- seq(bbox["ymin"], bbox["ymax"], length.out = n_lat)
+longitudes <- seq(bbox["xmin"], bbox["xmax"], length.out = n_long)
+```
+
+Create a data frame with all combinations of latitudes and longitudes and convert to an `sf` data object.
+
+```{r}
+grid_points <- expand.grid(lat = latitudes, long = longitudes)
+grid_sf <- st_as_sf(grid_points, coords = c("long", "lat"), crs = 4326)
+```
+
+We will then make sure to only keep points within the Sid-Kivu boundary using `st_within` (points must be within the polygon).
+
+```{r}
+grid_inside_drc <- grid_sf[st_within(grid_sf, congo_states_map %>% filter(name %in% state_of_interest), sparse = FALSE), ]
+```
+
+Finally, we can plot the grid points within the state, both the original grid and the points within the state.
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+#| fig-width: 5
+#| fig-height: 5
+#| layout-ncol: 2
+# Plot the whole grid
+ggplot() +
+  geom_sf(data = congo_states_map %>% filter(name %in% state_of_interest), fill = "lightblue", color = "black") +
+  geom_sf(data = grid_sf, color = "red", shape = 16, size = 1) +
+  theme_minimal() +
+  labs(title = "Grid of Points across Sud-Kivu",
+       x = "Longitude", y = "Latitude")
+
+# Plot the grid points within the states
+ggplot() +
+  geom_sf(data = congo_states_map %>% filter(name %in% state_of_interest), fill = "lightblue", color = "black") +
+  geom_sf(data = grid_inside_drc, color = "red", shape = 16, size = 1) +
+  theme_minimal() +
+  labs(title = "Grid of Points WITHIN Sud-Kivu",
+       x = "Longitude", y = "Latitude")
+```
+
+## Fit a Bayesian Spatial Model
+
+We will fit the model introduced in the lecture. We begin by preparing the data for the Stan model. We start by defining the vector $\mathbf{Y}$ and the matrix $\mathbf{X}$, being careful to not include an intercept. We then define the location identifier. We also define $N = \sum_{i=1}^{n} n_i$, the number of spatial locations, $n$, and the number of predictors, $p$.
+
+```{r}
+Y <- data_sf_state_of_interest$hemoglobin
+X <- model.matrix(~ I(age / 10) + as.factor(urban), data = data_sf_state_of_interest)[, -1]
+Ids <- as.numeric(as.factor(data_sf_state_of_interest$loc_id))
+N <- length(Y)
+p <- ncol(X)
+n <- length(unique(Ids))
+```
+
+We then define both the observed coordinates, $\mathbf{u}$, and the new coordinates where predictions are desired, $\mathbf{u}^*$. Note that $\mathbf{u}$ is $n$ dimensional, so we must only take one row per location. We also define $d$ the dimension of the spatial location vector (i.e., $d=2$), and $q$, the number of new spatial locations.
+
+```{r}
+u <- st_coordinates(data_sf_state_of_interest)[!duplicated(data_sf_state_of_interest$loc_id), ]
+u_new <- st_coordinates(grid_inside_drc)
+d <- ncol(u)
+q <- nrow(u_new)
+```
+
+Finally, we define the martrix $\mathbf{X}^*$, which is an $q \times p$ dimensional matrix that contains the predictor values for each of the new locations. We just specify the overall average mean age and specify everyone to be rural.
+
+```{r}
+X_new <- matrix(cbind(mean(data$age), 0), nrow = q, ncol = p, byrow = TRUE)
+```
+
+We can now define the Stan data object.
+
+```{r}
+stan_data <- list(
+  N = N,
+  p = p,
+  n = n,
+  d = d, 
+  q = q,
+  Y = Y,
+  X = X,
+  Ids = Ids,
+  u = u,
+  u_new = u_new,
+  X_new = X_new
+)
+```
+
+We can then compile and fit the spatial model, which is saved in `geospatial.stan`, and is available in your AE 07 repo. I specify a few additional arguments to run the model for more iterations and don't save a few parameters that are not needed for inference. I also played with `control` to get optimal convergence. For this model it is useful to specify `options(mc.cores = 4)`.
+
+```{r, eval = FALSE}
+options(mc.cores = 4)
+geospatial_model <- stan_model(file = "geospatial.stan")
+fit_spatial <- sampling(spatial_model, stan_data, iter = 4000, control = list("adapt_delta" = 0.99), pars = c("z", "LK", "theta_new", "lp__"), include = FALSE)
+```
+```{r, echo = FALSE}
+fit_spatial <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/19-fit-spatial.rds")
+```
+
+We can do all of the typical evaluation of MCMC convergence, posterior predictive checks, and posterior summaries. Here I will show you the code for mapping the posterior predictive distribution across the predictive grid. We begin by extracting the posterior predictive distribution for our grid and then compute posterior mean and standard deviation. 
+
+```{r}
+Y_new <- rstan::extract(fit_spatial, pars = "Y_new")$Y_new
+means <- apply(Y_new, 2, mean)
+sds <- apply(Y_new, 2, sd)
+```
+
+We then add these predictions to the `sf` spatial grid object.
+
+```{r}
+grid_inside_drc$prediction_mean <- means
+grid_inside_drc$prediction_sd <- sds
+```
+
+We are now ready to create the visualizations.
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+#| fig-width: 5
+#| fig-height: 5
+#| layout-ncol: 2
+# Means
+ggplot() +
+  geom_sf(data = grid_inside_drc, aes(color = prediction_mean), shape = 15, size = 10) +
+  scale_color_viridis_c() + 
+  geom_sf(data = congo_states_map %>% filter(name %in% state_of_interest), fill = NA, color = "black", size = 1) +
+  geom_sf(data = data_sf_state_of_interest[!duplicated(data_sf_state_of_interest$loc_id), ], col = "gray", shape = 16, size = 2) +
+  theme_minimal() +
+  labs(title = "Posterior Predictive Distribution Mean",
+       subtitle = paste("State:", paste(state_of_interest, collapse = ", ")),
+       caption = "Data Source: rnaturalearth",
+       color = "Posterior Mean") +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank()) +
+  coord_sf()  # Ensures the map is properly projected
+
+# Standard deviations
+ggplot() +
+  # Plot the points from your data
+  geom_sf(data = grid_inside_drc, aes(color = prediction_sd), shape = 15, size = 10) +
+  scale_color_viridis_c() + 
+  geom_sf(data = congo_states_map %>% filter(name %in% state_of_interest), fill = NA, color = "black", size = 1) +
+  geom_sf(data = data_sf_state_of_interest[!duplicated(data_sf_state_of_interest$loc_id), ], col = "gray", shape = 16, size = 2) +
+  theme_minimal() +
+  labs(title = "Posterior Predictive Distribution Standard Deviation (SD)",
+       subtitle = paste("State:", paste(state_of_interest, collapse = ", ")),
+       caption = "Data Source: rnaturalearth",
+       color = "Posterior SD") +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank()) +
+  coord_sf()  # Ensures the map is properly projected
+```
+
+# Exercise
+
+Replicate the analysis above for a different state within DRC (i.e., don't choose Sud-Kivu). Visualize the posterior predictive distribution mean and standard deviation across a grid and compare it to the one from Sud-Kivu.
+
+**Answer:**
+
+```{r}
+#| label: ex1
+
+# add code here
+
+```
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Push all your work to your AE repo on GitHub. You're done! 🎉
+:::
