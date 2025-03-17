@@ -15364,5 +15364,348 @@
     "title": "AE 07: Geospatial",
     "section": "Fit a Bayesian Spatial Model",
     "text": "Fit a Bayesian Spatial Model\nWe will fit the model introduced in the lecture. We begin by preparing the data for the Stan model. We start by defining the vector \\(\\mathbf{Y}\\) and the matrix \\(\\mathbf{X}\\), being careful to not include an intercept. We then define the location identifier. We also define \\(N = \\sum_{i=1}^{n} n_i\\), the number of spatial locations, \\(n\\), and the number of predictors, \\(p\\).\n\nY &lt;- data_sf_state_of_interest$hemoglobin\nX &lt;- model.matrix(~ I(age / 10) + as.factor(urban), data = data_sf_state_of_interest)[, -1]\nIds &lt;- as.numeric(as.factor(data_sf_state_of_interest$loc_id))\nN &lt;- length(Y)\np &lt;- ncol(X)\nn &lt;- length(unique(Ids))\n\nWe then define both the observed coordinates, \\(\\mathbf{u}\\), and the new coordinates where predictions are desired, \\(\\mathbf{u}^*\\). Note that \\(\\mathbf{u}\\) is \\(n\\) dimensional, so we must only take one row per location. We also define \\(d\\) the dimension of the spatial location vector (i.e., \\(d=2\\)), and \\(q\\), the number of new spatial locations.\n\nu &lt;- st_coordinates(data_sf_state_of_interest)[!duplicated(data_sf_state_of_interest$loc_id), ]\nu_new &lt;- st_coordinates(grid_inside_drc)\nd &lt;- ncol(u)\nq &lt;- nrow(u_new)\n\nFinally, we define the martrix \\(\\mathbf{X}^*\\), which is an \\(q \\times p\\) dimensional matrix that contains the predictor values for each of the new locations. We just specify the overall average mean age and specify everyone to be rural.\n\nX_new &lt;- matrix(cbind(mean(data$age), 0), nrow = q, ncol = p, byrow = TRUE)\n\nWe can now define the Stan data object.\n\nstan_data &lt;- list(\n  N = N,\n  p = p,\n  n = n,\n  d = d, \n  q = q,\n  Y = Y,\n  X = X,\n  Ids = Ids,\n  u = u,\n  u_new = u_new,\n  X_new = X_new\n)\n\nWe can then compile and fit the spatial model, which is saved in geospatial.stan, and is available in your AE 07 repo. I specify a few additional arguments to run the model for more iterations and don’t save a few parameters that are not needed for inference. I also played with control to get optimal convergence. For this model it is useful to specify options(mc.cores = 4).\n\noptions(mc.cores = 4)\ngeospatial_model &lt;- stan_model(file = \"geospatial.stan\")\nfit_spatial &lt;- sampling(spatial_model, stan_data, iter = 4000, control = list(\"adapt_delta\" = 0.99), pars = c(\"z\", \"LK\", \"theta_new\", \"lp__\"), include = FALSE)\n\nWe can do all of the typical evaluation of MCMC convergence, posterior predictive checks, and posterior summaries. Here I will show you the code for mapping the posterior predictive distribution across the predictive grid. We begin by extracting the posterior predictive distribution for our grid and then compute posterior mean and standard deviation.\n\nY_new &lt;- rstan::extract(fit_spatial, pars = \"Y_new\")$Y_new\nmeans &lt;- apply(Y_new, 2, mean)\nsds &lt;- apply(Y_new, 2, sd)\n\nWe then add these predictions to the sf spatial grid object.\n\ngrid_inside_drc$prediction_mean &lt;- means\ngrid_inside_drc$prediction_sd &lt;- sds\n\nWe are now ready to create the visualizations.\n# Means\nggplot() +\n  geom_sf(data = grid_inside_drc, aes(color = prediction_mean), shape = 15, size = 10) +\n  scale_color_viridis_c() + \n  geom_sf(data = congo_states_map %&gt;% filter(name %in% state_of_interest), fill = NA, color = \"black\", size = 1) +\n  geom_sf(data = data_sf_state_of_interest[!duplicated(data_sf_state_of_interest$loc_id), ], col = \"gray\", shape = 16, size = 2) +\n  theme_minimal() +\n  labs(title = \"Posterior Predictive Distribution Mean\",\n       subtitle = paste(\"State:\", paste(state_of_interest, collapse = \", \")),\n       caption = \"Data Source: rnaturalearth\",\n       color = \"Posterior Mean\") +\n  theme(axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        axis.title = element_blank()) +\n  coord_sf()  # Ensures the map is properly projected\n# Standard deviations\nggplot() +\n  # Plot the points from your data\n  geom_sf(data = grid_inside_drc, aes(color = prediction_sd), shape = 15, size = 10) +\n  scale_color_viridis_c() + \n  geom_sf(data = congo_states_map %&gt;% filter(name %in% state_of_interest), fill = NA, color = \"black\", size = 1) +\n  geom_sf(data = data_sf_state_of_interest[!duplicated(data_sf_state_of_interest$loc_id), ], col = \"gray\", shape = 16, size = 2) +\n  theme_minimal() +\n  labs(title = \"Posterior Predictive Distribution Standard Deviation (SD)\",\n       subtitle = paste(\"State:\", paste(state_of_interest, collapse = \", \")),\n       caption = \"Data Source: rnaturalearth\",\n       color = \"Posterior SD\") +\n  theme(axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        axis.title = element_blank()) +\n  coord_sf()  # Ensures the map is properly projected"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#review-of-last-lecture",
+    "href": "slides/19-disease-mapping.html#review-of-last-lecture",
+    "title": "Disease Mapping",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nDuring our last lecture, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) data.\nThe longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space)."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#motivating-an-areal-data-analysis",
+    "href": "slides/19-disease-mapping.html#motivating-an-areal-data-analysis",
+    "title": "Disease Mapping",
+    "section": "Motivating an Areal Data Analysis",
+    "text": "Motivating an Areal Data Analysis"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#goal-of-an-areal-data-spatial-analysis",
+    "href": "slides/19-disease-mapping.html#goal-of-an-areal-data-spatial-analysis",
+    "title": "Disease Mapping",
+    "section": "Goal of an Areal Data Spatial Analysis",
+    "text": "Goal of an Areal Data Spatial Analysis\n\nAccount for noise due to spatial variability in order to provide smoothed estimates across space"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#spatial-correlation-areal-data",
+    "href": "slides/19-disease-mapping.html#spatial-correlation-areal-data",
+    "title": "Disease Mapping",
+    "section": "Spatial Correlation: Areal Data",
+    "text": "Spatial Correlation: Areal Data\n\nHow to induce spatial correlation between areal units?\n\nDistances between centroids (possibly population weighted); may be inappropriate for oddly shaped regions of varying sizes (great for equal sized grid though).\nNeighborhood structure of your spatial region; are two regions neighbors?\n\nCorrelation introduced through spatial random effects."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#prepare-for-next-class",
+    "href": "slides/19-disease-mapping.html#prepare-for-next-class",
+    "title": "Disease Mapping",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 04, which is due before class on Tuesday.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Disease mapping\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#bayesian-model-fitting",
+    "href": "slides/19-disease-mapping.html#bayesian-model-fitting",
+    "title": "Disease Mapping",
+    "section": "Bayesian Model Fitting",
+    "text": "Bayesian Model Fitting\n\nCAR models are preferred in the Bayesian setting due to the conditional definition of the model\n\\(\\theta_i\\) parameters are typically updated individually.\nDepending on the likelihood, conjugacy may be available, useful for Gibbs sampling.\nToday, CAR models can be implemented using probabilistic programming languages (e.g., Stan)."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#inducing-spatial-dependency",
+    "href": "slides/19-disease-mapping.html#inducing-spatial-dependency",
+    "title": "Disease Mapping",
+    "section": "Inducing Spatial Dependency",
+    "text": "Inducing Spatial Dependency\nThe most common approach for inducing spatial dependency in an areal data setting using the intrinsic conditional autoregressive (ICAR) process,\n\\[\\boldsymbol{\\theta} | \\tau^2 \\sim \\text{ICAR}\\left(\\tau^2\\right)\\]\n\\[\\theta_{i} | \\boldsymbol{\\theta}_{-i}, \\tau^2 \\sim \\mathcal N \\left({\\frac{\\sum_{j=1}^n w_{ij}\\theta_{j}}{\\sum_{j=1}^n w_{ij}}},\\frac{\\tau^2}{\\sum_{j=1}^n w_{ij}}\\right)\\]\n\n\\(\\boldsymbol\\theta_{-j}\\): Vector of \\(\\theta_{i}\\) parameters with \\(\\theta_{j}\\) removed\n\\(\\boldsymbol{\\beta}_0 | \\tau_0^2 \\sim \\text{ICAR}\\left(\\tau_0^2\\right),\\quad \\boldsymbol{\\beta}_1 | \\tau_1^2 \\sim \\text{ICAR}\\left(\\tau_1^2\\right)\\)\nNot a proper prior distribution (implications for MCMC algorithms!)"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#a-proper-car-process",
+    "href": "slides/19-disease-mapping.html#a-proper-car-process",
+    "title": "Disease Mapping",
+    "section": "A Proper CAR Process",
+    "text": "A Proper CAR Process\n\\[\\boldsymbol{\\theta} = \\left\\{\\theta_1, \\ldots, \\theta_n\\right\\}^{\\text{T}};\\  \\boldsymbol{\\theta} | \\rho, \\tau^2 \\sim \\text{Leroux CAR}\\left(\\rho,\\tau^2\\right)\\]\n\\[\\theta_i | \\boldsymbol{\\theta}_{-i}, \\rho, \\tau^2 \\sim \\mathcal N \\left({\\frac{\\rho \\sum_{j=1}^n w_{ij} \\theta_j}{\\rho \\sum_{j=1}^n w_{ij} + 1 - \\rho}}, \\frac{\\tau^2}{\\rho \\sum_{j=1}^n w_{ij} + 1 - \\rho}\\right)\\]\n\nProper for \\(\\rho \\in [0,1)\\)\n\\(\\rho=1\\) gives us the ICAR model\n\n\\(\\rho\\) is given a prior distribution and estimated by the data\n\\(\\text{COR}(\\theta_k,\\theta_j|\\boldsymbol{\\theta}_{-kj}) = \\frac{\\rho w_{kj}}{\\sqrt{(\\rho \\sum_{i=1}^n w_{ki} + 1 - \\rho)(\\rho \\sum_{i=1}^n w_{ji} + 1-\\rho)}}\\)"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#motivating-data",
+    "href": "slides/19-disease-mapping.html#motivating-data",
+    "title": "Disease Mapping",
+    "section": "Motivating Data",
+    "text": "Motivating Data"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#review-of-the-last-lecture",
+    "href": "slides/21-scalable-1.html#review-of-the-last-lecture",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Review of the last lecture",
+    "text": "Review of the last lecture\nTBU"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#motivating-dataset",
+    "href": "slides/21-scalable-1.html#motivating-dataset",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Motivating dataset",
+    "text": "Motivating dataset\nRecall we worked with a dataset on women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey.\n\nThere are ~8,600 women nested in ~500 survey clusters.\nVariables are:\n\nloc_id: location id (i.e. survey cluster).\nhemoglobin: hemoglobin level (g/dL).\nanemia: anemia classifications.\nage: age in years.\nurban: urban vs. rural.\nLATNUM: latitude.\nLONGNUM: longitude."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#motivating-dataset-1",
+    "href": "slides/21-scalable-1.html#motivating-dataset-1",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Motivating dataset",
+    "text": "Motivating dataset\n\n\n  loc_id hemoglobin     anemia age urban   LATNUM  LONGNUM\n1      1       12.5 not anemic  28 rural 0.220128 21.79508\n2      1       12.6 not anemic  42 rural 0.220128 21.79508\n3      1       13.3 not anemic  15 rural 0.220128 21.79508\n4      1       12.9 not anemic  28 rural 0.220128 21.79508\n5      1       10.4       mild  32 rural 0.220128 21.79508\n6      1       12.2 not anemic  42 rural 0.220128 21.79508\n\n\n\n\n\n\n\n\nModeling goals:\n\n\n\nLearn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.\nCreate a predicted map of hemoglobin across the spatial surface controlling for age and urbanality, with uncertainty quantification."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#map-of-sud-kivu-state",
+    "href": "slides/21-scalable-1.html#map-of-sud-kivu-state",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Map of Sud-Kivu state",
+    "text": "Map of Sud-Kivu state\nLast time, we focused on one state with ~500 women at ~30 locations."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#map-of-the-drc",
+    "href": "slides/21-scalable-1.html#map-of-the-drc",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Map of the DRC",
+    "text": "Map of the DRC\nToday we will extend the analysis to the full dataset."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#modeling",
+    "href": "slides/21-scalable-1.html#modeling",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Modeling",
+    "text": "Modeling\n\\[\\begin{align*}\n  Y_j(\\mathbf{u}_i) &= \\alpha + \\mathbf{x}_j(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i) + \\epsilon_j(\\mathbf{u}_i), \\quad \\epsilon_j(\\mathbf{u}_i) \\stackrel{iid}{\\sim} N(0,\\sigma^2)\n\\end{align*}\\]\nData Objects:\n\n\\(i \\in \\{1,\\dots,n\\}\\) indexes unique locations.\n\\(j \\in \\{1,\\dots,n_i\\}\\) indexes individuals at each location.\n\\(Y_j(\\mathbf{u}_i)\\) denotes the observation of individual \\(j\\) at location \\(\\mathbf{u}_i\\).\n\\(\\mathbf{x}_j(\\mathbf{u}_i) \\in \\mathbb{R}^{1 \\times p}\\), where \\(p=3\\) is the number of predictors (excluding intercept)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#modeling-1",
+    "href": "slides/21-scalable-1.html#modeling-1",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Modeling",
+    "text": "Modeling\n\\[\\begin{align*}\n  Y_j(\\mathbf{u}_i) &= \\alpha + \\mathbf{x}_j(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i) + \\epsilon_j(\\mathbf{u}_i), \\quad \\epsilon_j(\\mathbf{u}_i) \\stackrel{iid}{\\sim} N(0,\\sigma^2)\n\\end{align*}\\]\nPopulation Parameters:\n\n\\(\\alpha \\in \\mathbb{R}\\) is the intercept.\n\\(\\boldsymbol{\\beta} \\in \\mathbb{R}^p\\) is the regression coefficients.\n\\(\\sigma^2 \\in \\mathbb{R}^+\\) is the overall residual error (nugget).\n\nLocation-specific Parameters:\n\n\\(\\mathbf{u}_i = (\\text{latitude}_i, \\text{longitude}_i) \\in \\mathbb{R}^2\\) denotes coordinates of location \\(i\\).\n\\(\\theta(\\mathbf{u}_i)\\) denotes the spatial intercept at location \\(\\mathbf{u}_i\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#location-specific-notation",
+    "href": "slides/21-scalable-1.html#location-specific-notation",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Location-specific Notation",
+    "text": "Location-specific Notation\n\\[\\mathbf{Y}(\\mathbf{u}_i) = \\alpha \\mathbf{1}_{n_i} + \\mathbf{X}(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\mathbf{1}_{n_i} + \\boldsymbol{\\epsilon}(\\mathbf{u}_i)\\]\n\n\\(\\mathbf{Y}(\\mathbf{u}_i) = (Y_1(\\mathbf{u}_i),\\ldots,Y_{n_i}(\\mathbf{u}_i))^\\top\\)\n\\(\\mathbf{X}(\\mathbf{u}_i)\\) is an \\(n_i \\times p\\) dimensional matrix with rows \\(\\mathbf{x}_j(\\mathbf{u}_i)\\).\n\\(\\boldsymbol{\\epsilon}(\\mathbf{u}_i) = (\\epsilon_i(\\mathbf{u}_i),\\ldots,\\epsilon_{n_i}(\\mathbf{u}_i))^\\top\\), where \\(\\epsilon_j(\\mathbf{u}_i) \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#full-data-notation",
+    "href": "slides/21-scalable-1.html#full-data-notation",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Full data notation",
+    "text": "Full data notation\n\\[\\mathbf{Y} = \\alpha \\mathbf{1}_{N} + \\mathbf{X} \\boldsymbol{\\beta} + \\mathbf{Z}\\boldsymbol{\\theta} + \\boldsymbol{\\epsilon}\\]\n\n\\(\\mathbf{Y} = (\\mathbf{Y}(\\mathbf{u}_1)^\\top,\\ldots,\\mathbf{Y}(\\mathbf{u}_{n})^\\top)^\\top \\in \\mathbb{R}^N\\), with \\(N = \\sum_{i=1}^n n_i\\).\n\\(\\mathbf{X} \\in \\mathbb{R}^{N \\times p}\\) that stacks \\(\\mathbf{X}(\\mathbf{u}_i)\\).\n\\(\\boldsymbol{\\theta} = (\\theta(\\mathbf{u}_1),\\ldots,\\theta(\\mathbf{u}_n))^\\top \\in \\mathbb{R}^n\\).\n\\(\\mathbf{Z}\\) is \\(N \\times n\\) dimensional binary matrix. Each row contains a single 1 in column \\(i\\) that corresponds to the location of \\(Y_j(\\mathbf{u}_i)\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset",
+    "href": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Analysis of the full Anemia dataset",
+    "text": "Analysis of the full Anemia dataset\nConsider the following model:\n\\[\\begin{align*}\n  Y_{ij} = \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i) + \\epsilon_{ij}, \\quad \\epsilon_{ij} \\sim N(0,\\sigma^2).\n\\end{align*}\\]\nData Objects:\n\n\\(i \\in \\{1,\\dots,n\\}\\) indexes unique locations.\n\\(j \\in \\{1,\\dots,n_i\\}\\) indexes individuals at each location.\n\\(Y_{ij}\\) denotes the hemoglobin level of individual \\(j\\) at location \\(i\\).\n\\(\\mathbf{x}_{ij} \\in \\mathbb{R}^p\\), \\(p=3\\), are covariates including an intercept, age (years), and urban (binary)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset-1",
+    "href": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset-1",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Analysis of the full Anemia dataset",
+    "text": "Analysis of the full Anemia dataset\nConsider the following model:\n\\[\\begin{align*}\n  Y_{ij} = \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i) + \\epsilon_{ij}, \\quad \\epsilon_{ij} \\sim N(0,\\sigma^2).\n\\end{align*}\\]\nPopulation Parameters:\n\n\\(\\boldsymbol{\\beta} \\in \\mathbb{R}^p\\) is the regression coefficients.\n\\(\\sigma^2 \\in \\mathbb{R}^+\\) is the overall residual error (nugget)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset-2",
+    "href": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset-2",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Analysis of the full Anemia dataset",
+    "text": "Analysis of the full Anemia dataset\nConsider the following model:\n\\[\\begin{align*}\n  Y_{ij} = \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i) + \\epsilon_{ij}, \\quad \\epsilon_{ij} \\sim N(0,\\sigma^2).\n\\end{align*}\\]\nLocation-specific Parameters:\n\n\\(\\theta(\\mathbf{u}_i)\\) denotes the spatial intercept at location \\(\\mathbf{u}_i\\).\n\\(\\mathbf{u}_i \\in \\mathbb{R}^d\\) denotes the spatial location of location \\(i\\). For example, \\(\\mathbf{u}_i = (\\text{latitude}_i, \\text{longitude}_i)\\), so that \\(d = 2\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset-3",
+    "href": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset-3",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Analysis of the full Anemia dataset",
+    "text": "Analysis of the full Anemia dataset\nRewriting the model in a vectorized form (as a LMM):\n\\[\\mathbf{Y}_i = \\mathbf{X}_i \\boldsymbol{\\beta} + \\mathbf{Z}_i \\boldsymbol{\\theta}(\\mathbf{u}_i) + \\boldsymbol{\\epsilon}_i, \\quad \\boldsymbol{\\epsilon}_i \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0}_{n_i}, \\sigma^2 \\mathbf{I}_{n_i}).\\]\n\n\\(\\mathbf{Y}_i = (Y_{i1},\\ldots,Y_{in_i})\\) are location-specific observations.\n\\(\\boldsymbol{\\epsilon}_i = (\\epsilon_{i1},\\ldots,\\epsilon_{in_i})\\), such that \\(\\epsilon_{ij} \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\).\n\n\\[\\begin{align*}\n\\mathbf{Y}_i = \\mathbf{X}_i\\boldsymbol{\\beta} + \\mathbf{Z}_i\\boldsymbol{\\theta}(\\mathbf{u}) + \\boldsymbol{\\epsilon}, \\quad \\boldsymbol{\\epsilon} \\sim N(0,\\sigma^2 \\mathbf{I}),\n\\end{align*}\\]\nwhere\n\n\\(\\mathbf{y} \\in \\mathbb{R}^{n}\\), \\(X \\in \\mathbb{R}^{n \\times p}\\), and \\(\\boldsymbol{\\theta}(\\mathbf{u}) \\in \\mathbb{R}^{q}\\)\n\\(W \\in \\mathbb{R}^{n \\times q}\\) assigns the spatial intercepts to each individual\n\nConsider a Bayesian analysis with\n\n\\(\\boldsymbol{\\theta}(u) \\sim GP(0,K(\\psi))\\) for some covariance kernel \\(K\\) with parameter \\(\\psi\\)\n\\(\\boldsymbol{\\beta} \\sim N(0,\\tau^2)\\)\nand appropriate priors for \\(\\sigma^2\\), \\(\\tau^2\\), and \\(\\psi\\)"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset-4",
+    "href": "slides/21-scalable-1.html#analysis-of-the-full-anemia-dataset-4",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Analysis of the full Anemia dataset",
+    "text": "Analysis of the full Anemia dataset\nRewriting the model in a vectorized form: \\[\n\\begin{align}\n  \\mathbf{y} = X\\boldsymbol{\\beta} + W\\boldsymbol{\\theta}(\\mathbf{u}) + \\boldsymbol{\\epsilon}, \\quad \\boldsymbol{\\epsilon} \\sim N(0,\\sigma^2 \\mathbf{I}),\n\\end{align}\n\\] where\n\n\\(\\mathbf{y} \\in \\mathbb{R}^{n}\\), \\(X \\in \\mathbb{R}^{n \\times p}\\), and \\(\\boldsymbol{\\theta}(\\mathbf{u}) \\in \\mathbb{R}^{q}\\)\n\\(W \\in \\mathbb{R}^{n \\times q}\\) assigns the spatial intercepts to each individual\n\nConsider a Bayesian analysis with\n\n\\(\\boldsymbol{\\theta}(u) \\sim GP(0,K(\\psi))\\) for some covariance kernel \\(K\\) with parameter \\(\\psi\\)\n\\(\\boldsymbol{\\beta} \\sim N(0,\\tau^2)\\)\nand appropriate priors for \\(\\sigma^2\\), \\(\\tau^2\\), and \\(\\psi\\)"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#inference-goals",
+    "href": "slides/21-scalable-1.html#inference-goals",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Inference goals",
+    "text": "Inference goals\nOur goal is to [TBU]:\n\nstudy the associations between the outcome and the covariates\nlearn the spatial intercept surface\n\nTo achieve these goals, we need to\n\nperform Bayesian model fitting to obtain posterior samples of \\(\\boldsymbol{\\beta}\\), \\(\\boldsymbol{\\theta}(\\mathbf{u})\\) and other parameters\nmake out-of-sample predictions for \\(\\boldsymbol{\\theta}(\\mathbf{u}^*)\\), spatial intercepts at \\(q^*\\) new locations \\(\\mathbf{u}^*=(u_1^*,\\dots,u_{q^*})\\)"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#computational-issues-with-gp",
+    "href": "slides/21-scalable-1.html#computational-issues-with-gp",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Computational issues with GP",
+    "text": "Computational issues with GP\nEffectively, the prior for \\(\\boldsymbol{\\theta}(\\mathbf{u})\\) is \\[\n\\begin{align}\n  \\boldsymbol{\\theta}(\\mathbf{u}) = \\begin{pmatrix}\n    \\theta(u_1) \\\\\n    \\vdots \\\\\n    \\theta(u_q)\n  \\end{pmatrix} \\sim N(0, \\Sigma), \\quad \\text{where } \\Sigma \\in \\mathbb{R}^{q \\times q}, \\quad \\Sigma_{ij} = K(u_i,u_j|\\psi).\n\\end{align}\n\\]\nThis is not scalable because of the need to invert a \\(q \\times q\\) covariance matrix for each MCMC iteration, which requires \\(\\mathcal{O}(q^3)\\) floating point operations (flops), and \\(\\mathcal{O}(q^2)\\) memory."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#scalable-gp-methods-overview",
+    "href": "slides/21-scalable-1.html#scalable-gp-methods-overview",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Scalable GP methods overview",
+    "text": "Scalable GP methods overview\nExisting scalable GP methods broadly fall under two categories.\n\nSparsity methods\n\n\nsparsity in \\(\\Sigma\\), e.g., covariance tapering (@furrer2006covariance)\nsparsity in \\(\\Sigma^{-1}\\), e.g., Vecchia approximation (@vecchia1988estimation) and nearest-neighbor GP (@datta2016hierarchical)\n\n\nLow-rank methods\n\n\napproximate \\(\\Sigma\\) on a low-dimensional subspace\ne.g., process convolution (@higdon2002space), inducing point method(@snelson2005sparse)"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#hilbert-space-method-for-gp",
+    "href": "slides/21-scalable-1.html#hilbert-space-method-for-gp",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Hilbert space method for GP",
+    "text": "Hilbert space method for GP\n@solin2020hilbert introduced a Hilbert space method for reduced-rank Gaussian process regression (HSGP).\n@riutort2023practical discussed how to practically implement HSGP.\nTutorial codes are available in different probabilistic programming languages:\n\nstan\nNumPyro\npyMC"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#outline",
+    "href": "slides/21-scalable-1.html#outline",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Outline",
+    "text": "Outline\nLecture today:\n\nWhat is HSGP?\nTheory behind HSGP\nWhy HSGP is scalable?\nHow to use HSGP to make out-of-sample predictions?\n\nLecture on Thursday:\n\nParameter tuning for HSGP\nHow to implement HSGP in stan\nCodes demo for the Anemia dataset\nApplication exercise"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#key-idea-of-hsgp",
+    "href": "slides/21-scalable-1.html#key-idea-of-hsgp",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Key idea of HSGP",
+    "text": "Key idea of HSGP\nHSGP approximates \\(\\Sigma\\) with\n\\[\\Sigma \\approx \\Phi(\\mathbf{u}) \\Lambda(\\psi) \\Phi(\\mathbf{u})^T,\\] where\n\nlet \\(m\\) denote the number of basis functions\n\\(\\Phi(\\mathbf{u}) \\in \\mathbb{R}^{q \\times m}\\) only depends on the observed locations\n\\(\\Lambda(\\psi) \\in \\mathbb{R}^{m \\times m}\\) is diagonal\n\nComputation cost for the GP in each MCMC iteration reduces to \\(\\mathcal{O}(qm + m)\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#definitions",
+    "href": "slides/21-scalable-1.html#definitions",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Definitions",
+    "text": "Definitions\nLet \\(\\mathcal{U} \\in \\mathbb{R}^d\\), \\(d=2\\) be the geographical area of interest. For any locations \\(u,u' \\in \\mathcal{U}\\), let \\(r=u-u'\\). A covariance function \\(K\\) is\n\nstationary (translation invariant) if\n\n\\[K(u,u') = K(r)\\]\n\nisotropic (rotation invariant) if\n\n\\[K(u,u')=K(\\|r\\|)\\]"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#spectral-density",
+    "href": "slides/21-scalable-1.html#spectral-density",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Spectral density",
+    "text": "Spectral density\nBy the Bochner’s theorem, a bounded stationary covariance function \\(K\\) can be represented as\n\\[K(r) = \\frac 1{(2\\pi)^d} \\int \\exp(i w^Tr) \\mu(dw)\\]\nfor some positive finite measure \\(\\mu\\). If \\(\\mu\\) has a density \\(S(w)\\) with respect to the Lebesgue measure, it is called the spectral density.\nBy the Wiener-Khintchin theorem, \\(K(r)\\) and \\(S(w)\\) are Fourier duals: \\[\n\\begin{align}\n  K(r) &= \\frac 1{(2\\pi)^d} \\int \\exp(iw^Tr) S(w) dw \\\\\n  S(w) &= \\int K(r) \\exp(-i w^Tr) dr.\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#polynomial-expansion-of-the-spectral-density",
+    "href": "slides/21-scalable-1.html#polynomial-expansion-of-the-spectral-density",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Polynomial expansion of the spectral density",
+    "text": "Polynomial expansion of the spectral density\nFor an isotropic covariance function \\(K(\\|r\\|)\\), the corresponding spectral density \\(S(w)=S(\\|w\\|)\\).\nFor regular covariance functions, \\(S\\) admits a closed form polynomial expansion of \\(\\|w\\|^2\\):\n\\[S(\\|w\\|) = a_0 + a_1(\\|w\\|^2) + a_2(\\|w\\|^2)^2 + \\dots \\tag{1}\\]\nNote that \\(-\\|w\\|^2\\) is the transfer function for the Laplace operator \\(\\nabla^2\\). Let \\(\\mathcal{F}\\) denote the Fourier transform operator, \\(f\\) denote a twice-differentiable real-valued function,\n\\[[\\mathcal{F}(\\nabla^2 f)](w) = -\\|w\\|^2 [\\mathcal{F}(f)](w).\\]"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#connection-with-the-laplacian",
+    "href": "slides/21-scalable-1.html#connection-with-the-laplacian",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Connection with the Laplacian",
+    "text": "Connection with the Laplacian\nHence applying inverse Fourier transform on both sides of equation (1), we have\n\\[\\mathcal{K} = a_0 + a_1(-\\nabla^2) + a_2(-\\nabla^2)^2 + \\dots \\tag{2}\\]\nwhere \\(\\mathcal{K}\\) is the covariance operator such that\n\\[\\mathcal{K}f(u) = \\int K(u,u')f(u')du'.\\]\nEquation (2) shows the connection between \\(\\nabla^2\\) and \\(\\mathcal{K}\\). If we are able to approximate \\(\\nabla^2\\), we can approximate \\(\\mathcal{K}\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#eigenfunction-expansion-of-the-laplacian",
+    "href": "slides/21-scalable-1.html#eigenfunction-expansion-of-the-laplacian",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Eigenfunction expansion of the Laplacian",
+    "text": "Eigenfunction expansion of the Laplacian\nOn a compact set \\(\\Omega \\subset \\mathbb{R}^d\\), \\(-\\nabla^2\\) has a discrete spectrum. Consider the eigenvalue problem for \\(-\\nabla^2\\) with Dirichlet boundary conditions: \\[\n\\begin{align}\n  \\begin{cases}\n    -\\nabla^2 \\phi_j(x) = \\lambda_j \\phi_j(x), & x \\in \\Omega \\\\\n    \\phi_j(x) = 0, & x \\in \\partial \\Omega\n  \\end{cases}\n\\end{align}\n\\] With sufficiently smooth boundary \\(\\partial \\Omega\\), eigenvalues and eigenfunctions exist. And because \\(-\\nabla^2\\) is positive definite Hermitian,\n\nall the eigenvalues \\(\\lambda_j\\)’s are real and positive\nthe eigenfunctions \\(\\phi_j\\)’s are orthonormal\n\n\\[\\int_\\Omega \\phi_i(u) \\phi_j(u) du = 1_{(i=j)}.\\]"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#eigenfunction-expansion-of-the-laplacian-1",
+    "href": "slides/21-scalable-1.html#eigenfunction-expansion-of-the-laplacian-1",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Eigenfunction expansion of the Laplacian",
+    "text": "Eigenfunction expansion of the Laplacian\nTherefore on \\(\\Omega\\), for sufficiently smooth function \\(f\\),\n\\[-\\nabla^2 f(u) = \\int L(u,u')f(u')du',\\] where the kernel \\[L(u,u') = \\sum_{j=1}^\\infty \\lambda_j \\phi_j(u) \\phi_j(u').\\]\nBy orthonormality,\n\\[L^s(u,u')=\\sum_{j=1}^\\infty \\lambda_j^s \\phi_j(u) \\phi_j(u').\\]"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#low-rank-approximation",
+    "href": "slides/21-scalable-1.html#low-rank-approximation",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Low rank approximation",
+    "text": "Low rank approximation\nTherefore on \\(\\Omega\\) under the boundary conditions,\n\\[\n\\begin{align}\n  \\mathcal{K}f(u) &= [a_0 + a_1(-\\nabla^2) + a_2(-\\nabla^2)^2 + \\dots]f(u) \\\\\n  &= \\int [a_0 + a_1 L(u,u') + a_2L^2(u,u') + \\dots]f(u')du'.\n\\end{align}\n\\] Recall \\(\\mathcal{K}f(u)= \\int K(u,u') f(u') du'\\). Hence\n\\[\n\\begin{align}\n  K(u,u') &= a_0 + a_1 L(u,u') + a_2L^2(u,u') + \\dots \\\\\n  &= \\sum_{j=1}^\\infty (a_0 + a_1 \\lambda_j + a_2 \\lambda_j^2 + \\dots) \\phi_j(u) \\phi_j(u') \\\\\n  &= \\sum_{j=1}^\\infty S(\\sqrt{\\lambda_j})\\phi_j(u) \\phi_j(u').\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#low-rank-approximation-1",
+    "href": "slides/21-scalable-1.html#low-rank-approximation-1",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Low rank approximation",
+    "text": "Low rank approximation\nOverall, we can approximate the covariance function with\n\\[\n\\begin{align}\n  K(u,u') &\\approx \\sum_{j=1}^\\infty S(\\sqrt{\\lambda_j})\\phi_j(u) \\phi_j(u') \\\\\n  &\\approx \\sum_{j=1}^m S(\\sqrt{\\lambda_j})\\phi_j(u) \\phi_j(u').\n\\end{align}\n\\]\n\nthe spectral density \\(S\\) depends on the covariance function \\(K\\)\nthe eigenvalue \\(\\lambda_j\\)’s and eigenfunction \\(\\phi_j\\)’s only depend on the chosen compact domain \\(\\Omega\\) and are independent of \\(K\\)\neven with an infinite sum, this is still an approximation as the eigenexpansion is restricted to \\(\\Omega\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#key-takeaways",
+    "href": "slides/21-scalable-1.html#key-takeaways",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Key takeaways",
+    "text": "Key takeaways\nHSGP approximates the GP covariance function via an eigenfunction expansion of the Laplace operator in a compact set \\(\\Omega\\).\nHSGP only works:\n\nfor covariance functions which admits a power spectral density, e.g., the Matern family.\nunder a user-specified compact domain \\(\\Omega\\).\nunder a user-specified number of basis functions \\(m\\). The approximation can be made arbitrarily accurate as \\(m\\) and \\(\\Omega\\) increase.\nfor \\(d \\le 3\\), at most \\(4\\), because given an accuracy level, \\(m\\) scales exponentially in \\(d\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#hsgp-summary",
+    "href": "slides/21-scalable-1.html#hsgp-summary",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "HSGP Summary",
+    "text": "HSGP Summary\nRecall, we want to model a spatial intercept \\[\\boldsymbol{\\theta}(\\mathbf{u}) \\sim N(0,\\Sigma), \\quad \\Sigma \\in \\mathbb{R}^{q \\times q}, \\quad \\Sigma_{ij}=K(u_i,u_j|\\psi).\\]\nFor isotropic and nice covariance function \\(K\\), we can use HSGP to approximate \\(\\Sigma\\) as\n\\[\n\\begin{align}\n  &\\Sigma_{ik} \\approx \\sum_{j=1}^m S_{K,\\psi}(\\sqrt{\\lambda_j})\\phi_j(u_i) \\phi_j(u_k) \\\\\n  \\implies & \\Sigma \\approx \\Phi(\\mathbf{u})\\Lambda(\\psi)\\Phi(\\mathbf{u})^T, \\quad \\text{where}\n\\end{align}\n\\]\n\n\\(\\Lambda(\\psi) =\\) diag\\((S_{K,\\psi}(\\sqrt{\\lambda_1}), \\dots, S_{K,\\psi}(\\sqrt{\\lambda_m}))\\)\n\\(\\Phi(\\mathbf{u})\\) is a \\(q \\times m\\) matrix with \\(\\Phi(\\mathbf{u})_{ij} = \\phi_j(\\mathbf{u}_i)\\)"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#why-hsgp-is-scalable",
+    "href": "slides/21-scalable-1.html#why-hsgp-is-scalable",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Why HSGP is scalable",
+    "text": "Why HSGP is scalable\nThe HSGP approximation \\[\\Sigma \\approx \\Phi(\\mathbf{u})\\Lambda(\\psi)\\Phi(\\mathbf{u})^T\\]\nis scalable because\n\nno matrix inversion\neach MCMC iteration requires \\(\\mathcal{O}(qm + m)\\) flops, vs \\(\\mathcal{O}(q^3)\\) for full GP\nideally \\(m \\ll q\\), but can be faster even for \\(m&gt;q\\)"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#model-reparameterization",
+    "href": "slides/21-scalable-1.html#model-reparameterization",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Model reparameterization",
+    "text": "Model reparameterization\nUnder HSGP, \\[\\boldsymbol{\\theta}(\\mathbf{u}) \\overset{d}{\\approx} \\Phi(\\mathbf{u}) \\Lambda(\\psi)^{1/2}\\mathbf{z}, \\quad \\text{for } \\mathbf{z} \\sim N(0,\\mathbf{I}).\\]\nTherefore we can reparameterize the model as\n\\[\n\\begin{align}\n  \\mathbf{y} &= X\\boldsymbol{\\beta} + W\\boldsymbol{\\theta}(\\mathbf{u}) + \\boldsymbol{\\epsilon} \\\\\n  &\\approx X\\boldsymbol{\\beta} + \\underbrace{W\\Phi(\\mathbf{u}) \\Lambda(\\psi)^{1/2}}_{A(\\psi)}\\mathbf{z} + \\boldsymbol{\\epsilon}\n\\end{align}\n\\]\nNote the resemblance to linear regression:\n\n\\(A(\\psi) \\in \\mathbb{R}^{n \\times m}\\) is a known design matrix given GP parameters \\(\\psi\\)\n\\(\\mathbf{z}\\) is an unknown parameter vector with prior \\(N(0,\\mathbf{I})\\)"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#hsgp-model-in-stan",
+    "href": "slides/21-scalable-1.html#hsgp-model-in-stan",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "HSGP model in stan",
+    "text": "HSGP model in stan\nSimilarly, we can use the reparameterized model in stan.\nStan documentation calls it the non-centered parameterization, and suggests it’s usually more computationally efficient.\n\ntransformed data {\n  matrix[q,m] PHI = ...;\n}\nparameters {\n  vector[m] z; // standard normal\n}\nmodel {\n  vector[q] theta = PHI * sqrt_Lambda .* z;\n  \n  target += normal_lupdf(y | X * beta + W * theta, sigma);\n  target += normal_lupdf(z | 0, 1);\n  ...\n}"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#out-of-sample-prediction",
+    "href": "slides/21-scalable-1.html#out-of-sample-prediction",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Out-of-sample prediction",
+    "text": "Out-of-sample prediction\nWe are also interested in \\(\\boldsymbol{\\theta}(\\mathbf{u}^*)\\), the spatial intercepts at \\(q^*\\) new locations \\(u^*_1, \\dots u^*_{q^*}\\). Recall under the GP, \\[\n\\begin{align}\n  \\begin{pmatrix}\n    \\boldsymbol{\\theta}(\\mathbf{u}) \\\\\n    \\boldsymbol{\\theta}(\\mathbf{u}^*)\n  \\end{pmatrix} \\sim N \\left(0,\n  \\begin{pmatrix}\n    \\Sigma & C \\\\\n    C^T & \\Sigma^*\n  \\end{pmatrix} \\right),\n\\end{align}\n\\] where \\(\\Sigma^* \\in \\mathbb{R}^{q^* \\times q^*}\\) is the covariance matrix for \\(\\boldsymbol{\\theta}(\\mathbf{u}^*)\\), and \\(C\\) is the cross covariance matrix between \\(\\boldsymbol{\\theta}(\\mathbf{u})\\) and \\(\\boldsymbol{\\theta}(\\mathbf{u}^*)\\).\nThe conditional distribution is \\[\\boldsymbol{\\theta}(\\mathbf{u}^*) \\mid \\boldsymbol{\\theta}(\\mathbf{u}) \\sim N(C^T \\Sigma^{-1}\\boldsymbol{\\theta}(\\mathbf{u}), \\Sigma^*-C^T\\Sigma^{-1}C).\\] For each posterior sample \\(\\boldsymbol{\\theta}(\\mathbf{u})^{(s)}\\), we obtain a posterior predictive sample \\(\\boldsymbol{\\theta}(\\mathbf{u}^*)^{(s)}\\) by drawing from \\(\\boldsymbol{\\theta}(\\mathbf{u}^*) \\mid \\boldsymbol{\\theta}(\\mathbf{u})^{(s)}\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#out-of-sample-prediction-under-hsgp",
+    "href": "slides/21-scalable-1.html#out-of-sample-prediction-under-hsgp",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Out-of-sample prediction under HSGP",
+    "text": "Out-of-sample prediction under HSGP\nUnder HSGP, approximately \\[\n\\begin{align}\n  \\begin{pmatrix}\n    \\boldsymbol{\\theta}(\\mathbf{u}) \\\\\n    \\boldsymbol{\\theta}(\\mathbf{u}^*)\n  \\end{pmatrix} \\sim N \\left(0,\n  \\begin{pmatrix}\n    \\Phi(\\mathbf{u})\\Lambda(\\psi) \\Phi(\\mathbf{u})^T & \\Phi(\\mathbf{u})\\Lambda(\\psi) \\Phi(\\mathbf{u}^*)^T \\\\\n    \\Phi(\\mathbf{u}^*)\\Lambda(\\psi) \\Phi(\\mathbf{u})^T & \\Phi(\\mathbf{u}^*)\\Lambda(\\psi) \\Phi(\\mathbf{u}^*)^T\n  \\end{pmatrix} \\right).\n\\end{align}\n\\]\n\nif \\(m \\ge q\\), use the same approach\nif \\(m &lt; q\\) so that \\(\\Phi(\\mathbf{u})\\Lambda(\\psi) \\Phi(\\mathbf{u})^T\\) is not invertible, \\[\\boldsymbol{\\theta}(\\mathbf{u}^*) \\mid \\boldsymbol{\\theta}(\\mathbf{u}) = (\\Phi(\\mathbf{u}^*)\\Lambda(\\psi) \\Phi(\\mathbf{u})^T) \\Sigma^+\\boldsymbol{\\theta}(\\mathbf{u})\\] where \\(\\Sigma^+\\) is the pseudo inverse of \\(\\Phi(\\mathbf{u})\\Lambda(\\psi) \\Phi(\\mathbf{u})^T\\) such that \\(\\Phi(\\mathbf{u})\\Lambda(\\psi) \\Phi(\\mathbf{u})^T\\Sigma^+ = \\mathbf{I}\\)."
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#out-of-sample-prediction-under-hsgp-1",
+    "href": "slides/21-scalable-1.html#out-of-sample-prediction-under-hsgp-1",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Out-of-sample prediction under HSGP",
+    "text": "Out-of-sample prediction under HSGP\nUnder the reparamterized model, \\[\n\\begin{align}\n  \\boldsymbol{\\theta}(\\mathbf{u}^*) \\mid \\boldsymbol{\\theta}(\\mathbf{u}) &= (\\Phi(\\mathbf{u}^*)\\Lambda(\\psi) \\Phi(\\mathbf{u})^{\\top})   \\Sigma^+\\boldsymbol{\\theta}(\\mathbf{u}) \\\\\n  &= (\\Phi(\\mathbf{u}^*)\\Lambda(\\psi) \\Phi(\\mathbf{u})^T) \\Sigma^+\\Phi(\\mathbf{u}) \\Lambda(\\psi)^{1/2}\\mathbf{z} \\\\\n  &= \\Phi(\\mathbf{u}^*)\\Lambda(\\psi)^{1/2}\\mathbf{z}.\n\\end{align}\n\\]\nTherefore for each posterior sample of \\(\\mathbf{z}\\) and \\(\\psi\\), we can obtain a posterior predictive sample for \\(\\boldsymbol{\\theta}(\\mathbf{u}^*)\\) as \\[\\boldsymbol{\\theta}(\\mathbf{u}^*)^{(s)} = \\Phi(\\mathbf{u}^*)\\Lambda(\\psi^{(s)})^{1/2}\\mathbf{z}^{(s)}.\\]"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#hsgp-prediction-in-stan",
+    "href": "slides/21-scalable-1.html#hsgp-prediction-in-stan",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "HSGP prediction in stan",
+    "text": "HSGP prediction in stan\nEasy to implement in stan.\n\ntransformed data {\n  matrix[q_pred,m] PHI_pred = ...;\n}\ngenerated quantities {\n  vector[q_pred] theta_pred = PHI_pred * sqrt_Lambda .* z;\n}"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#recap",
+    "href": "slides/21-scalable-1.html#recap",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Recap",
+    "text": "Recap\n\nGoal: Bayesian spatial analysis on the full Anemia dataset with \\(n&gt;8,000\\) observations at \\(q \\approx 500\\) locations\nEncountered computational issues with GP, thus need to explore scalable GP methods\nHSGP is a low-rank approximation method based on eigenfunction expansion of the Laplace operator in a compact domain \\(\\Omega\\)\nHSGP can be implemented in stan for both model fitting and out-of-sample prediction"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#next-lecture",
+    "href": "slides/21-scalable-1.html#next-lecture",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Next lecture",
+    "text": "Next lecture\n\nHow to choose the compact domain \\(\\Omega\\)?\nHow to choose number of basis function \\(m\\)?\nWhich covariance functions can we use HSGP for?\nHow to implement HSGP?"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html#references",
+    "href": "slides/21-scalable-1.html#references",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   }
 ]

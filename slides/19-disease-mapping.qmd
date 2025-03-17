@@ -1,0 +1,138 @@
+---
+title: "Disease Mapping"
+author: "Prof. Sam Berchuck"
+date: "2025-03-25"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+filters:
+  - parse-latex
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, }
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(bayesplot)
+library(rstan)
+library(igraph)
+library(tidycensus)
+library(sf)
+library(rnaturalearth)
+library(tidyverse)
+library(tigris)
+library(scales)
+library(spdep)
+library(reshape2)
+nc_counties_sf <- st_read("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/covid/nc_counties.shp", quiet = TRUE)
+```
+
+## Review of last lecture
+
+-   During our last lecture, we learned about Gaussian processes.
+
+-   We learned how to apply Gaussian processes to longitudinal (or time-series) data.
+
+-   The longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space).
+
+## Goal of an Areal Data Spatial Analysis
+
+- Account for noise due to spatial variability in order to provide smoothed estimates across space
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 5
+#| layout-ncol: 1
+ggplot(data = nc_counties_sf) +
+  geom_sf(fill = "lightblue", color = "black") +
+  geom_sf(aes(fill = DEATHS), shape = 16, size = 2) +
+  theme_minimal() +
+  labs(
+    title = "2020 COVID Deaths by County",
+    fill = "Deaths"
+  ) +
+  scale_fill_viridis_c() +  # Custom labels for the breaks
+  coord_sf()  # Ensures the map is properly projected
+```
+
+## Motivating Data
+
+
+
+## Spatial Correlation: Areal Data
+
+- How to induce spatial correlation between areal units? 
+	
+  - Distances between centroids (possibly population weighted); may be inappropriate for oddly shaped regions of varying sizes (great for equal sized grid though).
+
+  - Neighborhood structure of your spatial region; are two regions neighbors?
+  
+- Correlation introduced through spatial random effects.
+
+## Bayesian Model Fitting
+
+- CAR models are preferred in the Bayesian setting due to the conditional definition of the model
+
+- $\theta_i$ parameters are typically updated individually.
+
+- Depending on the likelihood, conjugacy may be available, useful for Gibbs sampling.
+
+- Today, CAR models can be implemented using probabilistic programming languages (e.g., Stan).
+
+## Inducing Spatial Dependency
+
+The most common approach for inducing spatial dependency in an areal data setting using the intrinsic conditional autoregressive (ICAR) process,
+
+$$\boldsymbol{\theta} | \tau^2 \sim \text{ICAR}\left(\tau^2\right)$$
+
+$$\theta_{i} | \boldsymbol{\theta}_{-i}, \tau^2 \sim \mathcal N \left({\frac{\sum_{j=1}^n w_{ij}\theta_{j}}{\sum_{j=1}^n w_{ij}}},\frac{\tau^2}{\sum_{j=1}^n w_{ij}}\right)$$
+
+- $\boldsymbol\theta_{-j}$: Vector of $\theta_{i}$ parameters with $\theta_{j}$ removed
+
+- $\boldsymbol{\beta}_0 | \tau_0^2 \sim \text{ICAR}\left(\tau_0^2\right),\quad \boldsymbol{\beta}_1 | \tau_1^2 \sim \text{ICAR}\left(\tau_1^2\right)$
+
+- Not a proper prior distribution (implications for MCMC algorithms!)
+
+## A Proper CAR Process
+
+$$\boldsymbol{\theta} = \left\{\theta_1, \ldots, \theta_n\right\}^{\text{T}};\  \boldsymbol{\theta} | \rho, \tau^2 \sim \text{Leroux CAR}\left(\rho,\tau^2\right)$$
+
+$$\theta_i | \boldsymbol{\theta}_{-i}, \rho, \tau^2 \sim \mathcal N \left({\frac{\rho \sum_{j=1}^n w_{ij} \theta_j}{\rho \sum_{j=1}^n w_{ij} + 1 - \rho}}, \frac{\tau^2}{\rho \sum_{j=1}^n w_{ij} + 1 - \rho}\right)$$
+
+- Proper for $\rho \in [0,1)$
+
+- $\rho=1$ gives us the ICAR model
+
+  - $\rho$ is given a prior distribution and estimated by the data
+  
+  - $\text{COR}(\theta_k,\theta_j|\boldsymbol{\theta}_{-kj}) = \frac{\rho w_{kj}}{\sqrt{(\rho \sum_{i=1}^n w_{ki} + 1 - \rho)(\rho \sum_{i=1}^n w_{ji} + 1-\rho)}}$
+
+## Prepare for next class
+
+-   Work on HW 04, which is due before class on Tuesday.
+
+-   Complete reading to prepare for next Tuesday's lecture
+
+-   Tuesday's lecture: Disease mapping

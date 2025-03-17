@@ -1,0 +1,687 @@
+---
+title: "Scalable Gaussian Processes #1"
+author: "Christine Shen"
+date: "2025-04-01"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+# logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+# bibliography: ../../doc/reference.bib
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(sf)
+library(rnaturalearth)
+```
+
+
+## Review of the last lecture
+
+TBU
+
+## Motivating dataset {.midi}
+
+Recall we worked with a dataset on women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. 
+
+- There are ~8,600 women nested in ~500 survey clusters. 
+
+- Variables are:
+
+  - `loc_id`: location id (i.e. survey cluster).
+
+  - `hemoglobin`: hemoglobin level (g/dL).
+
+  - `anemia`: anemia classifications.
+  
+  - `age`: age in years.
+
+  - `urban`: urban vs. rural.
+
+  - `LATNUM`: latitude.
+
+  - `LONGNUM`: longitude.
+
+## Motivating dataset {.midi}
+
+```{r, echo = FALSE}
+data <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/drc/hemoglobin_anemia.csv")
+data <- data[complete.cases(data),-1]
+
+# Convert to spatial dataset and merge DRC data
+data_sf <- st_as_sf(data, coords = c("LONGNUM", "LATNUM"), crs = 4326)
+congo_states_map <- ne_states(country = "Democratic Republic of the Congo", returnclass = "sf") %>%
+  select(name,geometry)
+# Ensure that the CRS for the country and grid points match
+congo_states_map <- st_transform(congo_states_map, crs = 4326) 
+data_sf_drc <- st_intersection(data_sf, congo_states_map)
+
+head(data)
+```
+
+::: callout-important
+## Modeling goals:
+
+  - Learn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.
+  
+  - Create a predicted map of hemoglobin across the spatial surface controlling for age and urbanality, with uncertainty quantification.
+  
+:::
+
+## Map of Sud-Kivu state {.midi}
+
+Last time, we focused on one state with ~500 women at ~30 locations.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 8
+#| fig-height: 8
+
+states_of_interest <- c("Sud-Kivu")
+data_sf_states_of_interest <- data_sf_drc %>% 
+  filter(name %in% states_of_interest) %>%
+  group_by(loc_id, urban) %>%
+  summarise(hemoglobin=mean(hemoglobin))
+
+ggplot() +
+  geom_sf(data = subset(congo_states_map, name %in% states_of_interest), fill = "lightblue", color = "black", size = 0.2) +
+  # Plot the points from your data
+  geom_sf(data = data_sf_states_of_interest, aes(color = hemoglobin), shape = 16, size = 2) +
+  scale_color_viridis_b() + 
+  theme_minimal() +
+  labs(title = "Average hemoglobin at each community",
+       subtitle = paste("State:", paste(states_of_interest, collapse = ", ")),
+       color = "Hemoglobin (g/dL)") 
+```
+
+## Map of the DRC{.midi}
+
+Today we will extend the analysis to the full dataset.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 8
+#| fig-height: 8
+
+data_mean <- data %>%
+  group_by(loc_id, urban, LATNUM, LONGNUM) %>%
+  summarise(hemoglobin=mean(hemoglobin))
+data_sf_whole <- st_as_sf(data_mean, coords = c("LONGNUM", "LATNUM"), crs = 4326)
+
+ggplot() +
+  # Plot the map of DRC
+  geom_sf(data = congo_states_map, fill = "lightblue", color = "black") +
+  geom_sf(data = subset(congo_states_map, name %in% states_of_interest), 
+          fill = NA, color = "#a50f15", linewidth = 1.5) +
+  geom_sf(data = data_sf_whole, aes(color = hemoglobin), shape = 16, size = 2) +
+  scale_color_viridis_b() + 
+  # Customize the plot appearance
+  theme_minimal() +
+  labs(title = "Average Hemoglobin Across Communities in the Democratic Republic of Congo",
+       subtitle = "Points represent community locations with hemoglobin averages",
+       x = "Longitude", y = "Latitude", color = "Hemoglobin (g/dL)") 
+
+```
+
+## Modeling{.midi}
+
+\begin{align*}
+  Y_j(\mathbf{u}_i) &= \alpha + \mathbf{x}_j(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_j(\mathbf{u}_i), \quad \epsilon_j(\mathbf{u}_i) \stackrel{iid}{\sim} N(0,\sigma^2)
+\end{align*}
+
+**Data Objects:**
+
+- $i \in \{1,\dots,n\}$ indexes unique locations.
+
+- $j \in \{1,\dots,n_i\}$ indexes individuals at each location.
+
+- $Y_j(\mathbf{u}_i)$ denotes the observation of individual $j$ at location $\mathbf{u}_i$.
+
+- $\mathbf{x}_j(\mathbf{u}_i) \in \mathbb{R}^{1 \times p}$, where $p=3$ is the number of predictors (excluding intercept).
+
+## Modeling{.midi}
+
+\begin{align*}
+  Y_j(\mathbf{u}_i) &= \alpha + \mathbf{x}_j(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_j(\mathbf{u}_i), \quad \epsilon_j(\mathbf{u}_i) \stackrel{iid}{\sim} N(0,\sigma^2)
+\end{align*}
+
+**Population Parameters:**
+
+- $\alpha \in \mathbb{R}$ is the intercept.
+
+- $\boldsymbol{\beta} \in \mathbb{R}^p$ is the regression coefficients.
+
+- $\sigma^2 \in \mathbb{R}^+$ is the overall residual error (nugget).
+
+**Location-specific Parameters:**
+
+- $\mathbf{u}_i = (\text{latitude}_i, \text{longitude}_i) \in \mathbb{R}^2$ denotes coordinates of location $i$.
+
+- $\theta(\mathbf{u}_i)$ denotes the spatial intercept at location $\mathbf{u}_i$.
+
+
+## Location-specific Notation
+
+$$\mathbf{Y}(\mathbf{u}_i) = \alpha \mathbf{1}_{n_i} + \mathbf{X}(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i)\mathbf{1}_{n_i} + \boldsymbol{\epsilon}(\mathbf{u}_i)$$
+
+- $\mathbf{Y}(\mathbf{u}_i) = (Y_1(\mathbf{u}_i),\ldots,Y_{n_i}(\mathbf{u}_i))^\top$
+
+- $\mathbf{X}(\mathbf{u}_i)$ is an $n_i \times p$ dimensional matrix with rows $\mathbf{x}_j(\mathbf{u}_i)$.
+
+- $\boldsymbol{\epsilon}(\mathbf{u}_i) = (\epsilon_i(\mathbf{u}_i),\ldots,\epsilon_{n_i}(\mathbf{u}_i))^\top$, where $\epsilon_j(\mathbf{u}_i) \stackrel{iid}{\sim} N(0,\sigma^2)$.
+
+## Full data notation
+
+$$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}$$
+
+- $\mathbf{Y} = (\mathbf{Y}(\mathbf{u}_1)^\top,\ldots,\mathbf{Y}(\mathbf{u}_{n})^\top)^\top \in \mathbb{R}^N$, with $N = \sum_{i=1}^n n_i$.
+
+- $\mathbf{X} \in \mathbb{R}^{N \times p}$ that stacks $\mathbf{X}(\mathbf{u}_i)$.
+
+- $\boldsymbol{\theta} = (\theta(\mathbf{u}_1),\ldots,\theta(\mathbf{u}_n))^\top \in \mathbb{R}^n$.
+
+- $\mathbf{Z}$ is $N \times n$ dimensional binary matrix. Each row contains a single 1 in column $i$ that corresponds to the location of $Y_j(\mathbf{u}_i)$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Analysis of the full Anemia dataset
+
+Consider the following model:
+
+\begin{align*}
+  Y_{ij} = \mathbf{x}_{ij} \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_{ij}, \quad \epsilon_{ij} \sim N(0,\sigma^2).
+\end{align*}
+
+**Data Objects:**
+
+- $i \in \{1,\dots,n\}$ indexes unique locations.
+
+- $j \in \{1,\dots,n_i\}$ indexes individuals at each location.
+
+- $Y_{ij}$ denotes the hemoglobin level of individual $j$ at location $i$.
+
+- $\mathbf{x}_{ij} \in \mathbb{R}^p$, $p=3$, are covariates including an intercept, age (years), and urban (binary).
+
+## Analysis of the full Anemia dataset
+
+Consider the following model:
+
+\begin{align*}
+  Y_{ij} = \mathbf{x}_{ij} \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_{ij}, \quad \epsilon_{ij} \sim N(0,\sigma^2).
+\end{align*}
+
+**Population Parameters:**
+
+- $\boldsymbol{\beta} \in \mathbb{R}^p$ is the regression coefficients.
+
+- $\sigma^2 \in \mathbb{R}^+$ is the overall residual error (nugget).
+
+## Analysis of the full Anemia dataset
+
+Consider the following model:
+
+\begin{align*}
+  Y_{ij} = \mathbf{x}_{ij} \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_{ij}, \quad \epsilon_{ij} \sim N(0,\sigma^2).
+\end{align*}
+
+**Location-specific Parameters:**
+
+- $\theta(\mathbf{u}_i)$ denotes the spatial intercept at location $\mathbf{u}_i$.
+
+- $\mathbf{u}_i \in \mathbb{R}^d$ denotes the spatial location of location $i$. For example, $\mathbf{u}_i = (\text{latitude}_i, \text{longitude}_i)$, so that $d = 2$.
+
+## Analysis of the full Anemia dataset {.midi}
+
+Rewriting the model in a vectorized form (as a LMM):
+
+$$\mathbf{Y}_i = \mathbf{X}_i \boldsymbol{\beta} + \mathbf{Z}_i \boldsymbol{\theta}(\mathbf{u}_i) + \boldsymbol{\epsilon}_i, \quad \boldsymbol{\epsilon}_i \stackrel{ind}{\sim} N_{n_i}(\mathbf{0}_{n_i}, \sigma^2 \mathbf{I}_{n_i}).$$
+
+-   $\mathbf{Y}_i = (Y_{i1},\ldots,Y_{in_i})$ are location-specific observations.
+
+-   $\boldsymbol{\epsilon}_i = (\epsilon_{i1},\ldots,\epsilon_{in_i})$, such that $\epsilon_{ij} \stackrel{iid}{\sim} N(0,\sigma^2)$.
+
+
+\begin{align*}
+\mathbf{Y}_i = \mathbf{X}_i\boldsymbol{\beta} + \mathbf{Z}_i\boldsymbol{\theta}(\mathbf{u}) + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N(0,\sigma^2 \mathbf{I}),
+\end{align*}
+
+where
+
+- $\mathbf{y} \in \mathbb{R}^{n}$, $X \in \mathbb{R}^{n \times p}$, and $\boldsymbol{\theta}(\mathbf{u}) \in \mathbb{R}^{q}$
+- $W \in \mathbb{R}^{n \times q}$ assigns the spatial intercepts to each individual
+
+Consider a Bayesian analysis with 
+
+- $\boldsymbol{\theta}(u) \sim GP(0,K(\psi))$ for some covariance kernel $K$ with parameter $\psi$
+- $\boldsymbol{\beta} \sim N(0,\tau^2)$
+- and appropriate priors for $\sigma^2$, $\tau^2$, and $\psi$
+
+
+
+## Analysis of the full Anemia dataset
+
+Rewriting the model in a vectorized form:
+$$
+\begin{align}
+  \mathbf{y} = X\boldsymbol{\beta} + W\boldsymbol{\theta}(\mathbf{u}) + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N(0,\sigma^2 \mathbf{I}),
+\end{align}
+$$
+where
+
+- $\mathbf{y} \in \mathbb{R}^{n}$, $X \in \mathbb{R}^{n \times p}$, and $\boldsymbol{\theta}(\mathbf{u}) \in \mathbb{R}^{q}$
+- $W \in \mathbb{R}^{n \times q}$ assigns the spatial intercepts to each individual
+
+Consider a Bayesian analysis with 
+
+- $\boldsymbol{\theta}(u) \sim GP(0,K(\psi))$ for some covariance kernel $K$ with parameter $\psi$
+- $\boldsymbol{\beta} \sim N(0,\tau^2)$
+- and appropriate priors for $\sigma^2$, $\tau^2$, and $\psi$
+
+## Inference goals
+
+Our goal is to [TBU]:
+
+1. study the associations between the outcome and the covariates
+2. learn the spatial intercept surface
+
+To achieve these goals, we need to
+
+1. perform Bayesian model fitting to obtain posterior samples of $\boldsymbol{\beta}$, $\boldsymbol{\theta}(\mathbf{u})$ and other parameters
+2. make out-of-sample predictions for $\boldsymbol{\theta}(\mathbf{u}^*)$, spatial intercepts at $q^*$ new locations $\mathbf{u}^*=(u_1^*,\dots,u_{q^*})$
+
+## Computational issues with GP
+
+Effectively, the prior for $\boldsymbol{\theta}(\mathbf{u})$ is 
+$$
+\begin{align}
+  \boldsymbol{\theta}(\mathbf{u}) = \begin{pmatrix}
+    \theta(u_1) \\
+    \vdots \\
+    \theta(u_q)
+  \end{pmatrix} \sim N(0, \Sigma), \quad \text{where } \Sigma \in \mathbb{R}^{q \times q}, \quad \Sigma_{ij} = K(u_i,u_j|\psi).
+\end{align}
+$$
+
+This is not scalable because of the need to invert a $q \times q$ covariance matrix for each MCMC iteration, which requires $\mathcal{O}(q^3)$ floating point operations (flops), and $\mathcal{O}(q^2)$ memory.
+
+## Scalable GP methods overview
+
+Existing scalable GP methods broadly fall under two categories.
+
+1. Sparsity methods
+
+  - sparsity in $\Sigma$, e.g., covariance tapering (@furrer2006covariance)
+  - sparsity in $\Sigma^{-1}$, e.g., Vecchia approximation (@vecchia1988estimation) and nearest-neighbor GP (@datta2016hierarchical)
+  
+2. Low-rank methods
+
+  - approximate $\Sigma$ on a low-dimensional subspace
+  - e.g., process convolution (@higdon2002space), inducing point method(@snelson2005sparse)
+
+
+## Hilbert space method for GP
+
+@solin2020hilbert introduced a Hilbert space method for reduced-rank Gaussian process regression (HSGP).
+
+@riutort2023practical discussed how to practically implement HSGP.
+
+Tutorial codes are available in different probabilistic programming languages:
+
+- [stan](https://github.com/gabriuma/basis_functions_approach_to_GP/tree/master/Paper)
+- [NumPyro](https://num.pyro.ai/en/0.15.2/examples/hsgp.html)
+- [pyMC](https://juanitorduz.github.io/hsgp_intro/)
+
+## Outline
+
+Lecture today:
+
+ - What is HSGP?
+ - Theory behind HSGP
+ - Why HSGP is scalable?
+ - How to use HSGP to make out-of-sample predictions?
+ 
+Lecture on Thursday:
+
+ - Parameter tuning for HSGP
+ - How to implement HSGP in `stan`
+ - Codes demo for the Anemia dataset
+ - Application exercise
+
+## Key idea of HSGP
+
+HSGP approximates $\Sigma$ with
+
+$$\Sigma \approx \Phi(\mathbf{u}) \Lambda(\psi) \Phi(\mathbf{u})^T,$$
+where 
+
+- let $m$ denote the number of basis functions
+- $\Phi(\mathbf{u}) \in \mathbb{R}^{q \times m}$ only depends on the observed locations
+- $\Lambda(\psi) \in \mathbb{R}^{m \times m}$ is diagonal
+
+Computation cost for the GP in each MCMC iteration reduces to $\mathcal{O}(qm + m)$.
+
+
+# Theory behind HSGP
+
+
+## Definitions
+
+Let $\mathcal{U} \in \mathbb{R}^d$, $d=2$ be the geographical area of interest. For any locations $u,u' \in \mathcal{U}$, let $r=u-u'$. A covariance function $K$ is
+
+- **stationary** (translation invariant) if 
+
+$$K(u,u') = K(r)$$
+
+- **isotropic** (rotation invariant) if 
+
+$$K(u,u')=K(\|r\|)$$
+
+## Spectral density
+
+By the Bochner's theorem, a bounded stationary covariance function $K$ can be represented as
+
+$$K(r) = \frac 1{(2\pi)^d} \int \exp(i w^Tr) \mu(dw)$$
+
+for some positive finite measure $\mu$. If $\mu$ has a density $S(w)$ with respect to the Lebesgue measure, it is called the **spectral density**. 
+
+By the Wiener-Khintchin theorem, $K(r)$ and $S(w)$ are Fourier duals:
+$$
+\begin{align}
+  K(r) &= \frac 1{(2\pi)^d} \int \exp(iw^Tr) S(w) dw \\
+  S(w) &= \int K(r) \exp(-i w^Tr) dr.
+\end{align}
+$$
+
+## Polynomial expansion of the spectral density
+
+For an isotropic covariance function $K(\|r\|)$, the corresponding spectral density $S(w)=S(\|w\|)$. 
+
+For regular covariance functions, $S$ admits a closed form polynomial expansion of $\|w\|^2$:
+
+$$S(\|w\|) = a_0 + a_1(\|w\|^2) + a_2(\|w\|^2)^2 + \dots \tag{1}$$
+
+
+Note that $-\|w\|^2$ is the transfer function for the Laplace operator $\nabla^2$. Let $\mathcal{F}$ denote the Fourier transform operator, $f$ denote a twice-differentiable real-valued function,
+
+$$[\mathcal{F}(\nabla^2 f)](w) = -\|w\|^2 [\mathcal{F}(f)](w).$$
+
+## Connection with the Laplacian
+
+Hence applying inverse Fourier transform on both sides of equation (1), we have
+
+$$\mathcal{K} = a_0 + a_1(-\nabla^2) + a_2(-\nabla^2)^2 + \dots \tag{2}$$
+
+where $\mathcal{K}$ is the covariance operator such that 
+
+$$\mathcal{K}f(u) = \int K(u,u')f(u')du'.$$
+
+Equation (2) shows the connection between $\nabla^2$ and $\mathcal{K}$. If we are able to approximate $\nabla^2$, we can approximate $\mathcal{K}$.
+
+## Eigenfunction expansion of the Laplacian
+
+On a compact set $\Omega \subset \mathbb{R}^d$, $-\nabla^2$ has a discrete spectrum. Consider the eigenvalue problem for $-\nabla^2$ with Dirichlet boundary conditions:
+$$
+\begin{align}
+  \begin{cases}
+    -\nabla^2 \phi_j(x) = \lambda_j \phi_j(x), & x \in \Omega \\
+    \phi_j(x) = 0, & x \in \partial \Omega
+  \end{cases}
+\end{align}
+$$
+With sufficiently smooth boundary $\partial \Omega$, eigenvalues and eigenfunctions exist. And because $-\nabla^2$ is positive definite Hermitian,
+
+- all the eigenvalues $\lambda_j$'s are real and positive
+- the eigenfunctions $\phi_j$'s are orthonormal
+
+$$\int_\Omega \phi_i(u) \phi_j(u) du = 1_{(i=j)}.$$
+
+## Eigenfunction expansion of the Laplacian
+
+Therefore on $\Omega$, for sufficiently smooth function $f$,
+
+$$-\nabla^2 f(u) = \int L(u,u')f(u')du',$$
+where the kernel
+$$L(u,u') = \sum_{j=1}^\infty \lambda_j \phi_j(u) \phi_j(u').$$
+
+By orthonormality,
+
+$$L^s(u,u')=\sum_{j=1}^\infty \lambda_j^s \phi_j(u) \phi_j(u').$$
+
+## Low rank approximation
+
+Therefore on $\Omega$ under the boundary conditions, 
+
+$$
+\begin{align}
+  \mathcal{K}f(u) &= [a_0 + a_1(-\nabla^2) + a_2(-\nabla^2)^2 + \dots]f(u) \\
+  &= \int [a_0 + a_1 L(u,u') + a_2L^2(u,u') + \dots]f(u')du'.
+\end{align}
+$$
+Recall $\mathcal{K}f(u)= \int K(u,u') f(u') du'$. Hence
+
+$$
+\begin{align}
+  K(u,u') &= a_0 + a_1 L(u,u') + a_2L^2(u,u') + \dots \\
+  &= \sum_{j=1}^\infty (a_0 + a_1 \lambda_j + a_2 \lambda_j^2 + \dots) \phi_j(u) \phi_j(u') \\
+  &= \sum_{j=1}^\infty S(\sqrt{\lambda_j})\phi_j(u) \phi_j(u').
+\end{align}
+$$
+
+## Low rank approximation
+
+Overall, we can approximate the covariance function with
+
+$$
+\begin{align}
+  K(u,u') &\approx \sum_{j=1}^\infty S(\sqrt{\lambda_j})\phi_j(u) \phi_j(u') \\
+  &\approx \sum_{j=1}^m S(\sqrt{\lambda_j})\phi_j(u) \phi_j(u').
+\end{align}
+$$
+
+- the spectral density $S$ depends on the covariance function $K$
+- the eigenvalue $\lambda_j$'s and eigenfunction $\phi_j$'s only depend on the chosen compact domain $\Omega$ and are independent of $K$
+- even with an infinite sum, this is still an approximation as the eigenexpansion is restricted to $\Omega$.
+
+## Key takeaways
+
+HSGP approximates the GP covariance function via an eigenfunction expansion of the Laplace operator in a compact set $\Omega$. 
+
+HSGP **only** works:
+
+1. for covariance functions which admits a power spectral density, e.g., the Matern family.
+2. under a user-specified compact domain $\Omega$.
+3. under a user-specified number of basis functions $m$. The approximation can be made arbitrarily accurate as $m$ and $\Omega$ increase.
+4. for $d \le 3$, at most $4$, because given an accuracy level, $m$ scales exponentially in $d$.
+
+## HSGP Summary
+
+Recall, we want to model a spatial intercept
+$$\boldsymbol{\theta}(\mathbf{u}) \sim N(0,\Sigma), \quad \Sigma \in \mathbb{R}^{q \times q}, \quad \Sigma_{ij}=K(u_i,u_j|\psi).$$
+
+For isotropic and *nice* covariance function $K$, we can use HSGP to approximate $\Sigma$ as
+
+$$
+\begin{align}
+  &\Sigma_{ik} \approx \sum_{j=1}^m S_{K,\psi}(\sqrt{\lambda_j})\phi_j(u_i) \phi_j(u_k) \\
+  \implies & \Sigma \approx \Phi(\mathbf{u})\Lambda(\psi)\Phi(\mathbf{u})^T, \quad \text{where}
+\end{align}
+$$
+
+- $\Lambda(\psi) =$ diag$(S_{K,\psi}(\sqrt{\lambda_1}), \dots, S_{K,\psi}(\sqrt{\lambda_m}))$
+- $\Phi(\mathbf{u})$ is a $q \times m$ matrix with $\Phi(\mathbf{u})_{ij} = \phi_j(\mathbf{u}_i)$
+
+## Why HSGP is scalable
+
+The HSGP approximation
+$$\Sigma \approx \Phi(\mathbf{u})\Lambda(\psi)\Phi(\mathbf{u})^T$$
+
+is scalable because 
+
+- no matrix inversion
+- each MCMC iteration requires $\mathcal{O}(qm + m)$ flops, vs $\mathcal{O}(q^3)$ for full GP
+- ideally $m \ll q$, but can be faster even for $m>q$
+
+## Model reparameterization
+
+Under HSGP,
+$$\boldsymbol{\theta}(\mathbf{u}) \overset{d}{\approx} \Phi(\mathbf{u}) \Lambda(\psi)^{1/2}\mathbf{z}, \quad \text{for } \mathbf{z} \sim N(0,\mathbf{I}).$$
+
+Therefore we can reparameterize the model as 
+
+$$
+\begin{align}
+  \mathbf{y} &= X\boldsymbol{\beta} + W\boldsymbol{\theta}(\mathbf{u}) + \boldsymbol{\epsilon} \\
+  &\approx X\boldsymbol{\beta} + \underbrace{W\Phi(\mathbf{u}) \Lambda(\psi)^{1/2}}_{A(\psi)}\mathbf{z} + \boldsymbol{\epsilon}
+\end{align}
+$$
+
+Note the resemblance to linear regression:
+
+- $A(\psi) \in \mathbb{R}^{n \times m}$ is a known design matrix given GP parameters $\psi$
+- $\mathbf{z}$ is an unknown parameter vector with prior $N(0,\mathbf{I})$
+
+## HSGP model in `stan`
+
+Similarly, we can use the reparameterized model in `stan`. 
+
+`Stan` documentation calls it the [*non-centered parameterization*](https://mc-stan.org/docs/stan-users-guide/efficiency-tuning.html#hierarchical-models-and-the-non-centered-parameterization), and suggests it's usually more computationally efficient.
+
+```{stan output.var = "model_in_stan", eval = FALSE}
+transformed data {
+  matrix[q,m] PHI = ...;
+}
+parameters {
+  vector[m] z; // standard normal
+}
+model {
+  vector[q] theta = PHI * sqrt_Lambda .* z;
+  
+  target += normal_lupdf(y | X * beta + W * theta, sigma);
+  target += normal_lupdf(z | 0, 1);
+  ...
+}
+```
+
+## Out-of-sample prediction {.small}
+
+We are also interested in $\boldsymbol{\theta}(\mathbf{u}^*)$, the spatial intercepts at $q^*$ new locations $u^*_1, \dots u^*_{q^*}$. Recall under the GP,
+$$
+\begin{align}
+  \begin{pmatrix}
+    \boldsymbol{\theta}(\mathbf{u}) \\
+    \boldsymbol{\theta}(\mathbf{u}^*)
+  \end{pmatrix} \sim N \left(0,
+  \begin{pmatrix}
+    \Sigma & C \\
+    C^T & \Sigma^*
+  \end{pmatrix} \right),
+\end{align}
+$$
+where $\Sigma^* \in \mathbb{R}^{q^* \times q^*}$ is the covariance matrix for $\boldsymbol{\theta}(\mathbf{u}^*)$, and $C$ is the cross covariance matrix between $\boldsymbol{\theta}(\mathbf{u})$ and $\boldsymbol{\theta}(\mathbf{u}^*)$.
+
+The conditional distribution is 
+$$\boldsymbol{\theta}(\mathbf{u}^*) \mid \boldsymbol{\theta}(\mathbf{u}) \sim N(C^T \Sigma^{-1}\boldsymbol{\theta}(\mathbf{u}), \Sigma^*-C^T\Sigma^{-1}C).$$
+For each posterior sample $\boldsymbol{\theta}(\mathbf{u})^{(s)}$, we obtain a posterior predictive sample $\boldsymbol{\theta}(\mathbf{u}^*)^{(s)}$ by drawing from $\boldsymbol{\theta}(\mathbf{u}^*) \mid \boldsymbol{\theta}(\mathbf{u})^{(s)}$.
+
+## Out-of-sample prediction under HSGP {.small}
+
+Under HSGP, approximately
+$$
+\begin{align}
+  \begin{pmatrix}
+    \boldsymbol{\theta}(\mathbf{u}) \\
+    \boldsymbol{\theta}(\mathbf{u}^*)
+  \end{pmatrix} \sim N \left(0,
+  \begin{pmatrix}
+    \Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u})^T & \Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u}^*)^T \\
+    \Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u})^T & \Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u}^*)^T
+  \end{pmatrix} \right).
+\end{align}
+$$
+
+1. if $m \ge q$, use the same approach
+2. if $m < q$ so that $\Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u})^T$ is not invertible, 
+$$\boldsymbol{\theta}(\mathbf{u}^*) \mid \boldsymbol{\theta}(\mathbf{u}) = (\Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u})^T) \Sigma^+\boldsymbol{\theta}(\mathbf{u})$$
+where $\Sigma^+$ is the pseudo inverse of $\Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u})^T$ such that $\Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u})^T\Sigma^+ = \mathbf{I}$.
+
+
+## Out-of-sample prediction under HSGP
+
+Under the reparamterized model,
+$$
+\begin{align}
+  \boldsymbol{\theta}(\mathbf{u}^*) \mid \boldsymbol{\theta}(\mathbf{u}) &= (\Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u})^{\top})   \Sigma^+\boldsymbol{\theta}(\mathbf{u}) \\
+  &= (\Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u})^T) \Sigma^+\Phi(\mathbf{u}) \Lambda(\psi)^{1/2}\mathbf{z} \\
+  &= \Phi(\mathbf{u}^*)\Lambda(\psi)^{1/2}\mathbf{z}.
+\end{align}
+$$
+
+Therefore for each posterior sample of $\mathbf{z}$ and $\psi$, we can obtain a posterior predictive sample for $\boldsymbol{\theta}(\mathbf{u}^*)$ as
+$$\boldsymbol{\theta}(\mathbf{u}^*)^{(s)} = \Phi(\mathbf{u}^*)\Lambda(\psi^{(s)})^{1/2}\mathbf{z}^{(s)}.$$
+
+## HSGP prediction in `stan`
+
+Easy to implement in `stan`.
+
+```{r, echo=TRUE, eval=FALSE}
+transformed data {
+  matrix[q_pred,m] PHI_pred = ...;
+}
+generated quantities {
+  vector[q_pred] theta_pred = PHI_pred * sqrt_Lambda .* z;
+}
+
+```
+
+## Recap
+
+1. Goal: Bayesian spatial analysis on the full Anemia dataset with $n>8,000$ observations at $q \approx 500$ locations
+2. Encountered computational issues with GP, thus need to explore scalable GP methods
+3. HSGP is a low-rank approximation method based on eigenfunction expansion of the Laplace operator in a compact domain $\Omega$
+4. HSGP can be implemented in `stan` for both model fitting and out-of-sample prediction
+
+## Next lecture
+
+1. How to choose the compact domain $\Omega$?
+2. How to choose number of basis function $m$?
+3. Which covariance functions can we use HSGP for?
+4. How to implement HSGP?
+
+## References
+::: {#refs}
+:::

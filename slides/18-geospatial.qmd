@@ -37,159 +37,154 @@ library(rstan)
 
 ## Review of last lecture
 
--   During our last lecture, we learned about Gaussian processes. 
+-   During our last lecture, we learned about Gaussian processes.
 
--   We learned how to apply Gaussian processes to longitudinal (or time-series) data. 
+-   We learned how to apply Gaussian processes to longitudinal (or time-series) data.
 
 -   The longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space).
 
-
 ## Three Types of Spatial Data:
 
-- Geostatistical Point Referenced Data
+-   Geostatistical Point Referenced Data
 
-- Lattice Data (Areal Data)
+-   Lattice Data (Areal Data)
 
-- Spatial Point Process Data
+-   Spatial Point Process Data
 
-  - All of these data settings can be extended to space-time
-  
+    -   All of these data settings can be extended to space-time
+
 ## Geostatistical Point Referenced Data
 
-- Point observations of a continuously varying quantity over a region
- 
-  - Daily Concentrations of Ozone Over NC
-  
+-   Point observations of a continuously varying quantity over a region
+
+    -   Daily Concentrations of Ozone Over NC
+
 ![](./images/18/daily_ozone_intro.png){fig-align="center" height="400"}
 
-
 ## Geostatistical Point Referenced Data
 
-- Daily Concentrations of PM2.5 Over the US
+-   Daily Concentrations of PM2.5 Over the US
 
 ![](./images/18/pm_us.png){fig-align="center" height="450"}
 
-
 ## Lattice Data (Areal Data)
 
-- Data observed at the level of an areal unit
-  
-  - County Level Sudden Infant Death Syndrome Counts
+-   Data observed at the level of an areal unit
+
+    -   County Level Sudden Infant Death Syndrome Counts
 
 ![](./images/18/lattice_data.png){fig-align="center" height="450"}
-	
-
 
 ## Lattice Data (Areal Data)
 
-- Birmingham Tract Level Poverty Levels
+-   Birmingham Tract Level Poverty Levels
 
 ![](./images/18/Birmingham_Poverty.png){fig-align="center" height="500"}
 
 ## Spatial Point Process Data
 
-- Analyzing the clustering of random locations
- 
-  - Locations of a certain tree type in a forest
-  
-  - Epicenter of earthquakes
+-   Analyzing the clustering of random locations
 
-- Sometimes difficult to differentiate from point referenced geostatistical data (visually)
+    -   Locations of a certain tree type in a forest
+
+    -   Epicenter of earthquakes
+
+-   Sometimes difficult to differentiate from point referenced geostatistical data (visually)
 
 ## Spatial Point Process Data
 
-- Minneapolis Convenience Store Locations
+-   Minneapolis Convenience Store Locations
 
 ![](./images/18/Minneapolis_Convenience_withStores.png){fig-align="center" height="500"}
-	
+
 ## Spatial Data Analysis: When?
 
-- Anytime you have spatial information collected with your data.
+-   Anytime you have spatial information collected with your data.
 
-- Increasing availability of some level of spatial information:
+-   Increasing availability of some level of spatial information:
 
-  - Latitude/longitude.
-  
-  - County, state, etc.
-  
-  - Imaging data.
+    -   Latitude/longitude.
+
+    -   County, state, etc.
+
+    -   Imaging data.
 
 ## Spatial Data Analysis: Why?
 
-  - Correct statistical inference (conditional independence may not be a valid assumption!).
-	
-	- Specific goals will depend on the type of spatial data you have and the objective of your analysis.
+-   Correct statistical inference (conditional independence may not be a valid assumption!).
 
-  - Producing maps with valid inference.
+    -   Specific goals will depend on the type of spatial data you have and the objective of your analysis.
+
+-   Producing maps with valid inference.
 
 ## Spatial Data Analysis: How?
 
-- Bayesian Hierarchical Modeling:
-		
-  - Flexible framework to handle multiple levels of uncertainty.
-  - Markov chain Monte Carlo (MCMC) offers computationally convenient solution to make inference.
-  
-- Frequentist methods also available through the EM algorithm.
-	
-  - Original frequentist methods ignore some of the uncertainty in estimating these spatial models.
-  
-## Goals of a Point-referenced Analysis
+-   Bayesian Hierarchical Modeling:
 
-- Estimation and explanation: 
- 
-  - Typical regression parameter estimation.
-	
-	- How does temperature change across the domain (large-scale)?
+    -   Flexible framework to handle multiple levels of uncertainty.
+    -   Markov chain Monte Carlo (MCMC) offers computationally convenient solution to make inference.
 
-- Prediction at unobserved locations:
- 
-  - Original development of spatial methods.
-  
-  - Kriging named after D.G. Krige (mining applications).
+-   Frequentist methods also available through the EM algorithm.
 
-- Design issues:
-
-  - Where to put a new air pollution monitor to optimize future prediction criteria?
+    -   Original frequentist methods ignore some of the uncertainty in estimating these spatial models.
 
 ## Goals of a Point-referenced Analysis
 
-- Estimation and Explanation
+-   Estimation and explanation:
+
+    -   Typical regression parameter estimation.
+
+        -   How does temperature change across the domain (large-scale)?
+
+-   Prediction at unobserved locations:
+
+    -   Original development of spatial methods.
+
+    -   Kriging named after D.G. Krige (mining applications).
+
+-   Design issues:
+
+    -   Where to put a new air pollution monitor to optimize future prediction criteria?
+
+## Goals of a Point-referenced Analysis
+
+-   Estimation and Explanation
 
 ![](./images/18/Temp.png){fig-align="center" height="500"}
 
 ## Goals of a Point-referenced Analysis
 
-- Spatial Prediction 
+-   Spatial Prediction
 
 ![Observed Data](./images/18/geo_data_intro-eps-converted-to.png){fig-align="center" height="450"}
 
 ## Goals of a Point-referenced Analysis
 
-- Spatial Prediction 
- 
- ![Prediction](./images/18/kriging_est_intro.png){fig-align="center" height="450"}
+-   Spatial Prediction
+
+![Prediction](./images/18/kriging_est_intro.png){fig-align="center" height="450"}
 
 ## Goals of a Point-referenced Analysis
 
-- Spatial Prediction 
- 
- ![Standard Errors](./images/18/kriging_sd_intro-eps-converted-to.png){fig-align="center" height="450"}
+-   Spatial Prediction
+
+![Standard Errors](./images/18/kriging_sd_intro-eps-converted-to.png){fig-align="center" height="450"}
 
 ## Point-referenced Modeling
 
-- Observations closer in space tend to be more similar.
+-   Observations closer in space tend to be more similar.
 
-  - Common regression models assume independence among observations.
-	
-    - Not a valid assumption here, especially at short distances.
+    -   Common regression models assume independence among observations.
 
-- Multivariate normal distribution with valid spatial covariance function used in Bayesian modeling.
+        -   Not a valid assumption here, especially at short distances.
 
-  - Spatial covariance describes how observations are correlated based on their proximity to each other.
+-   Multivariate normal distribution with valid spatial covariance function used in Bayesian modeling.
 
-	- Advanced models built on similar ideas.
+    -   Spatial covariance describes how observations are correlated based on their proximity to each other.
 
-  - Latent processes often used.
+        -   Advanced models built on similar ideas.
+
+    -   Latent processes often used.
 
 ## Point-referenced Modeling
 
@@ -197,13 +192,13 @@ $$  Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{
 
 **Data Objects:**
 
-- $i \in \{1,\dots,n\}$ indexes unique locations.
+-   $i \in \{1,\dots,n\}$ indexes unique locations.
 
-- $j \in \{1,\dots,n_i\}$ indexes individuals at each location.
+-   $j \in \{1,\dots,n_i\}$ indexes individuals at each location.
 
-- $Y_{ij}$ denotes the observation of individual $j$ at location $i$.
+-   $Y_{ij}$ denotes the observation of individual $j$ at location $i$.
 
-- $\mathbf{x}_{ij} \in \mathbb{R}^{1 \times p}$, where $p$ is the number of predictors (excluding intercept).
+-   $\mathbf{x}_{ij} \in \mathbb{R}^{1 \times p}$, where $p$ is the number of predictors (excluding intercept).
 
 ## Point-referenced Modeling
 
@@ -211,11 +206,11 @@ $$Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij
 
 **Population Parameters:**
 
-- $\alpha \in \mathbb{R}$ is the intercept.
+-   $\alpha \in \mathbb{R}$ is the intercept.
 
-- $\boldsymbol{\beta} \in \mathbb{R}^p$ is the regression coefficients.
+-   $\boldsymbol{\beta} \in \mathbb{R}^p$ is the regression coefficients.
 
-- $\sigma^2 \in \mathbb{R}^+$ is the overall residual error (nugget).
+-   $\sigma^2 \in \mathbb{R}^+$ is the overall residual error (nugget).
 
 ## Point-referenced Modeling
 
@@ -223,9 +218,9 @@ $$Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{ij
 
 **Location-specific Parameters:**
 
-- $\theta_i$ denotes the spatial intercept at location $\mathbf{u}_i$.
+-   $\theta_i$ denotes the spatial intercept at location $\mathbf{u}_i$.
 
-- $\mathbf{u}_i \in \mathbb{R}^d$ denotes the spatial location of location $i$. For example, $\mathbf{u}_i = (\text{latitude}_i, \text{longitude}_i)$, so that $d = 2$.
+-   $\mathbf{u}_i \in \mathbb{R}^d$ denotes the spatial location of location $i$. For example, $\mathbf{u}_i = (\text{latitude}_i, \text{longitude}_i)$, so that $d = 2$.
 
 In a spatial context, we often use the following notation:
 
@@ -235,11 +230,11 @@ $$Y_j(\mathbf{u}_i) = \alpha + \mathbf{x}_j(\mathbf{u}_i)\boldsymbol{\beta} + \t
 
 $$\mathbf{Y}(\mathbf{u}_i) = \alpha \mathbf{1}_{n_i} + \mathbf{X}(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i)\mathbf{1}_{n_i} + \boldsymbol{\epsilon}(\mathbf{u}_i)$$
 
-- $\mathbf{Y}(\mathbf{u}_i) = (Y_1(\mathbf{u}_i),\ldots,Y_{n_i}(\mathbf{u}_i))^\top$
+-   $\mathbf{Y}(\mathbf{u}_i) = (Y_1(\mathbf{u}_i),\ldots,Y_{n_i}(\mathbf{u}_i))^\top$
 
-- $\mathbf{X}(\mathbf{u}_i)$ is an $n_i \times p$ dimensional matrix with rows $\mathbf{x}_j(\mathbf{u}_i)$.
+-   $\mathbf{X}(\mathbf{u}_i)$ is an $n_i \times p$ dimensional matrix with rows $\mathbf{x}_j(\mathbf{u}_i)$.
 
-- $\boldsymbol{\epsilon}(\mathbf{u}_i) = (\epsilon_i(\mathbf{u}_i),\ldots,\epsilon_{n_i}(\mathbf{u}_i))^\top$, where $\epsilon_j(\mathbf{u}_i) \stackrel{iid}{\sim} N(0,\sigma^2)$.
+-   $\boldsymbol{\epsilon}(\mathbf{u}_i) = (\epsilon_i(\mathbf{u}_i),\ldots,\epsilon_{n_i}(\mathbf{u}_i))^\top$, where $\epsilon_j(\mathbf{u}_i) \stackrel{iid}{\sim} N(0,\sigma^2)$.
 
 Note: This notation is the same as the linear mixed model we have talked about in previous lectures.
 
@@ -247,53 +242,53 @@ Note: This notation is the same as the linear mixed model we have talked about i
 
 $$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}$$
 
-- $\mathbf{Y} = (\mathbf{Y}(\mathbf{u}_1)^\top,\ldots,\mathbf{Y}(\mathbf{u}_{n})^\top)^\top \in \mathbb{R}^N$, with $N = \sum_{i=1}^n n_i$.
+-   $\mathbf{Y} = (\mathbf{Y}(\mathbf{u}_1)^\top,\ldots,\mathbf{Y}(\mathbf{u}_{n})^\top)^\top \in \mathbb{R}^N$, with $N = \sum_{i=1}^n n_i$.
 
-- $\mathbf{X} \in \mathbb{R}^{N \times p}$ that stacks $\mathbf{X}(\mathbf{u}_i)$.
+-   $\mathbf{X} \in \mathbb{R}^{N \times p}$ that stacks $\mathbf{X}(\mathbf{u}_i)$.
 
-- $\boldsymbol{\theta} = (\theta(\mathbf{u}_1),\ldots,\theta(\mathbf{u}_n))^\top \in \mathbb{R}^n$.
+-   $\boldsymbol{\theta} = (\theta(\mathbf{u}_1),\ldots,\theta(\mathbf{u}_n))^\top \in \mathbb{R}^n$.
 
-- $\mathbf{Z}$ is $N \times n$ dimensional binary matrix. Each row contains a single 1 in column $i$ that corresponds to the location of $Y_j(\mathbf{u}_i)$.
+-   $\mathbf{Z}$ is $N \times n$ dimensional binary matrix. Each row contains a single 1 in column $i$ that corresponds to the location of $Y_j(\mathbf{u}_i)$.
 
 This notation is useful because it allows us to examine the vector of location-specific parameters, $\boldsymbol{\theta}$. Spatial dependency will be introduced through $\boldsymbol{\theta}$.
 
 ## Accounting for spatial correlation
 
-- We want to model the spatial variation in $\boldsymbol{\theta}$ using a **prior** that reflects the spatial correlation between locations.
+-   We want to model the spatial variation in $\boldsymbol{\theta}$ using a **prior** that reflects the spatial correlation between locations.
 
-- One powerful way to incorporate spatial correlations is through Gaussian processes (GPs).
+-   One powerful way to incorporate spatial correlations is through Gaussian processes (GPs).
 
-- Consider $\{\theta(\mathbf{u}) : \mathbf{u} \in \mathcal D\}$, where $\mathcal D$ is a fixed subset of $d$-dimensional Euclidean space ($d=1$ is time-series, $d=2,3$ is spatial).
-  
-- The process is said to be Gaussian if, for any $n\geq 1$ and observed locations $\{\mathbf{u}_1,\ldots,\mathbf{u}_n\}$, $\boldsymbol{\theta} = (\theta(\mathbf{u}_1),\ldots,\theta(\mathbf{u}_n))^\top$ has a multivariate normal distribution.
+-   Consider $\{\theta(\mathbf{u}) : \mathbf{u} \in \mathcal D\}$, where $\mathcal D$ is a fixed subset of $d$-dimensional Euclidean space ($d=1$ is time-series, $d=2,3$ is spatial).
+
+-   The process is said to be Gaussian if, for any $n\geq 1$ and observed locations $\{\mathbf{u}_1,\ldots,\mathbf{u}_n\}$, $\boldsymbol{\theta} = (\theta(\mathbf{u}_1),\ldots,\theta(\mathbf{u}_n))^\top$ has a multivariate normal distribution.
 
 ## Properties of Gaussian Processes
 
 We define a GP as $\theta(\mathbf{u}) \sim GP(\mu(\cdot), C(\cdot, \cdot))$, where $\mu(\cdot)$ is the mean process and $C(\cdot, \cdot)$ is a covariance function.
 
-- Mean function: $\mathbb{E}[\theta(\mathbf{u})] = \mu(\mathbf{u}) = 0$.
+-   Mean function: $\mathbb{E}[\theta(\mathbf{u})] = \mu(\mathbf{u}) = 0$.
 
-- Covariance function: $\mathbb{C}(\theta(\mathbf{u}_i),\theta(\mathbf{u}_{i'})) = C(\mathbf{u}_i, \mathbf{u}_{i'})$.
+-   Covariance function: $\mathbb{C}(\theta(\mathbf{u}_i),\theta(\mathbf{u}_{i'})) = C(\mathbf{u}_i, \mathbf{u}_{i'})$.
 
 **Properties of covariance functions:**
 
-- **Stationary**: $\mathbb{C}(\theta(\mathbf{u}),\theta(\mathbf{u} + \mathbf{h})) = C(\mathbf{h})$, where $\mathbf{h} \in \mathbf{R}^d$. 
+-   **Stationary**: $\mathbb{C}(\theta(\mathbf{u}),\theta(\mathbf{u} + \mathbf{h})) = C(\mathbf{h})$, where $\mathbf{h} \in \mathbf{R}^d$.
 
-- **Isotropic**: $\mathbb{C}(\theta(\mathbf{u}),\theta(\mathbf{u} + \mathbf{h})) = C(||\mathbf{h}||)$, where $||\cdot\||$ is a distance length. 
+-   **Isotropic**: $\mathbb{C}(\theta(\mathbf{u}),\theta(\mathbf{u} + \mathbf{h})) = C(||\mathbf{h}||)$, where $||\cdot\||$ is a distance length.
 
 ## Choosing a covariance function {.midi}
 
 The Matérn covariance function has a general form and is often the default choice for spatial data. Matérn is a function of a smoothness parameter $\nu > 0$, magnitude $\tau$ and a length scale, which we will define as $\rho$. Given a fixed $\nu$, larger values of $\rho$ lead to a smoother surface.
 
-- $\nu = 1/2$: exponential covariance function, `gp_exponential_cov`.
+-   $\nu = 1/2$: exponential covariance function, `gp_exponential_cov`.
 
-- $\nu = 3/2$: Matérn 3/2 covariance function, `gp_matern32_cov`.
+-   $\nu = 3/2$: Matérn 3/2 covariance function, `gp_matern32_cov`.
 
 $$C(||\mathbf{h}||) = \tau^2 \left(1 + \frac{\sqrt{3} ||\mathbf{h}||}{\rho}\right) \exp\left(-\frac{\sqrt{3} ||\mathbf{h}||}{\rho}\right)$$
 
-- $\nu = 5/2$: Matérn 5/2 covariance function, `gp_matern52_cov`.
+-   $\nu = 5/2$: Matérn 5/2 covariance function, `gp_matern52_cov`.
 
-- $\nu \rightarrow \infty$: Squared exponential, `gp_exp_quad_cov`.
+-   $\nu \rightarrow \infty$: Squared exponential, `gp_exp_quad_cov`.
 
 ## Point-referenced spatial model
 
@@ -303,7 +298,7 @@ $$C(||\mathbf{h}||) = \tau^2 \left(1 + \frac{\sqrt{3} ||\mathbf{h}||}{\rho}\righ
 \boldsymbol{\Omega} &\sim f(\boldsymbol{\Omega}),
 \end{align*}
 
-where $\boldsymbol{\Omega} = (\alpha,\boldsymbol{\beta},\sigma,\tau,\rho)$ and 
+where $\boldsymbol{\Omega} = (\alpha,\boldsymbol{\beta},\sigma,\tau,\rho)$ and
 
 $$\mathbf{C} = \begin{bmatrix}
 C(0) & C(||\mathbf{u}_1 - \mathbf{u}_2||) & \cdots & C(||\mathbf{u}_1 - \mathbf{u}_{n}||)\\
@@ -390,29 +385,29 @@ Efficient [Stan function](https://mc-stan.org/docs/functions-reference/matrix_op
 \mathbb{V}_{\boldsymbol{\theta}^*} &=\mathbf{C}^* - \left(\mathbf{L}^{-1} \mathbf{C}_+\right)^\top \mathbf{L}^{-1} \mathbf{C}_+.
 \end{align*}
 
-Direclty computing $\mathbf{C}^{-1}$ can lead to a matrix that is not symmetric. 
+Direclty computing $\mathbf{C}^{-1}$ can lead to a matrix that is not symmetric.
 
 ## Motivating Dataset {.midi}
 
-We will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. 
+We will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey.
 
-- There are ~8600 women who are nested in ~500 survey clusters. 
+-   There are \~8600 women who are nested in \~500 survey clusters.
 
-- Variables are:
+-   Variables are:
 
-  - `loc_id`: location id (i.e. survey cluster).
+    -   `loc_id`: location id (i.e. survey cluster).
 
-  - `hemoglobin`: hemoglobin level (g/dL).
+    -   `hemoglobin`: hemoglobin level (g/dL).
 
-  - `anemia`: anemia classifications.
-  
-  - `age`: age in years.
+    -   `anemia`: anemia classifications.
 
-  - `urban`: urban vs. rural.
+    -   `age`: age in years.
 
-  - `LATNUM`: latitude.
+    -   `urban`: urban vs. rural.
 
-  - `LONGNUM`: longitude.
+    -   `LATNUM`: latitude.
+
+    -   `LONGNUM`: longitude.
 
 ## Motivating Dataset {.midi}
 
@@ -449,10 +444,9 @@ head(data)
 ::: callout-important
 ## Modeling Goals:
 
-  - Learn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.
-  
-  - Create a predicted map of hemoglobin across the spatial surface, with uncertainty quantification.
-  
+-   Learn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.
+
+-   Create a predicted map of hemoglobin across the spatial surface, with uncertainty quantification.
 :::
 
 ## Visualize data
@@ -541,7 +535,7 @@ ggplot() +
 ggplot() +
   geom_sf(data = congo_states_map %>% filter(name %in% states_of_interest), fill = "lightblue", color = "black", size = 0.2) +
   # Plot the points from your data
-  geom_sf(data = data_sf_states_of_interest[!duplicated(data_sf_states_of_interest$loc_id), ], aes(color = hemoglobin), shape = 16, size = 2) +
+  geom_sf(data = data_sf_states_of_interest[!duplicated(data_sf_states_of_interest$loc_id), ], aes(color = mean_hemoglobin), shape = 16, size = 2) +
   scale_color_viridis_b() + 
   theme_minimal() +
   labs(title = "Average hemoglobin at each community",
@@ -556,7 +550,7 @@ ggplot() +
 
 ## Modeling {.midi}
 
-We specify the following model: 
+We specify the following model:
 
 \begin{align*}
 Y_j(\mathbf{u}_i) &= \alpha + \mathbf{x}_j(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_j(\mathbf{u}_i), \quad \epsilon_j(\mathbf{u}_i) \stackrel{iid}{\sim} N(0,\sigma^2)\\
@@ -962,11 +956,11 @@ print(psd)
 
 ## Trying to understand these trends
 
- ![](./images/18/sud-kivu1.png){fig-align="center" height="550"}
+![](./images/18/sud-kivu1.png){fig-align="center" height="550"}
 
 ## Trying to understand these trends
 
- ![](./images/18/sud-kivu2.png){fig-align="center" height="550"}
+![](./images/18/sud-kivu2.png){fig-align="center" height="550"}
 
 ## Prepare for next class
 
