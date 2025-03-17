@@ -628,7 +628,7 @@ Prof.&nbsp;Sam Berchuck
 <li><p><span class="math inline">\(i \in \{1,\dots,n\}\)</span> indexes unique locations.</p></li>
 <li><p><span class="math inline">\(j \in \{1,\dots,n_i\}\)</span> indexes individuals at each location.</p></li>
 <li><p><span class="math inline">\(Y_{ij}\)</span> denotes the observation of individual <span class="math inline">\(j\)</span> at location <span class="math inline">\(i\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{x}_{ij} \in \mathbb{R}^p\)</span>, where <span class="math inline">\(p\)</span> is the number of predictors (exclusing intercept).</p></li>
+<li><p><span class="math inline">\(\mathbf{x}_{ij} \in \mathbb{R}^{1 \times p}\)</span>, where <span class="math inline">\(p\)</span> is the number of predictors (excluding intercept).</p></li>
 </ul>
 </section>
 <section id="point-referenced-modeling-2" class="slide level2">
@@ -678,7 +678,7 @@ Prof.&nbsp;Sam Berchuck
 <ul>
 <li><p>We want to model the spatial variation in <span class="math inline">\(\boldsymbol{\theta}\)</span> using a <strong>prior</strong> that reflects the spatial correlation between locations.</p></li>
 <li><p>One powerful way to incorporate spatial correlations is through Gaussian processes (GPs).</p></li>
-<li><p>Consider <span class="math inline">\(\{\theta(\mathbf{u}) \in \mathcal D\}\)</span>, where <span class="math inline">\(\mathcal D\)</span> is a fixed subset of <span class="math inline">\(d\)</span>-dimensional Euclidean space (<span class="math inline">\(d=1\)</span> is time-series, <span class="math inline">\(d=2,3\)</span> is spatial).</p></li>
+<li><p>Consider <span class="math inline">\(\{\theta(\mathbf{u}) : \mathbf{u} \in \mathcal D\}\)</span>, where <span class="math inline">\(\mathcal D\)</span> is a fixed subset of <span class="math inline">\(d\)</span>-dimensional Euclidean space (<span class="math inline">\(d=1\)</span> is time-series, <span class="math inline">\(d=2,3\)</span> is spatial).</p></li>
 <li><p>The process is said to be Gaussian if, for any <span class="math inline">\(n\geq 1\)</span> and observed locations <span class="math inline">\(\{\mathbf{u}_1,\ldots,\mathbf{u}_n\}\)</span>, <span class="math inline">\(\boldsymbol{\theta} = (\theta(\mathbf{u}_1),\ldots,\theta(\mathbf{u}_n))^\top\)</span> has a multivariate normal distribution.</p></li>
 </ul>
 </section>
@@ -697,14 +697,15 @@ Prof.&nbsp;Sam Berchuck
 </section>
 <section id="choosing-a-covariance-function" class="slide level2 midi">
 <h2>Choosing a covariance function</h2>
-<p>The Matérn covariance function has a general form and is often the default choice for spatial data (squared exponential is often too smooth!). Matérn is a function of a smoothness parameter <span class="math inline">\(\nu &gt; 0\)</span> and a length scale, which we will define as <span class="math inline">\(\rho\)</span>.</p>
+<p>The Matérn covariance function has a general form and is often the default choice for spatial data. Matérn is a function of a smoothness parameter <span class="math inline">\(\nu &gt; 0\)</span>, magnitude <span class="math inline">\(\tau\)</span> and a length scale, which we will define as <span class="math inline">\(\rho\)</span>. Given a fixed <span class="math inline">\(\nu\)</span>, larger values of <span class="math inline">\(\rho\)</span> lead to a smoother surface.</p>
 <ul>
 <li><p><span class="math inline">\(\nu = 1/2\)</span>: exponential covariance function, <code>gp_exponential_cov</code>.</p></li>
 <li><p><span class="math inline">\(\nu = 3/2\)</span>: Matérn 3/2 covariance function, <code>gp_matern32_cov</code>.</p></li>
 </ul>
 <p><span class="math display">\[C(||\mathbf{h}||) = \tau^2 \left(1 + \frac{\sqrt{3} ||\mathbf{h}||}{\rho}\right) \exp\left(-\frac{\sqrt{3} ||\mathbf{h}||}{\rho}\right)\]</span></p>
 <ul>
-<li><span class="math inline">\(\nu = 5/2\)</span>: Matérn 5/2 covariance function, <code>gp_matern52_cov</code>.</li>
+<li><p><span class="math inline">\(\nu = 5/2\)</span>: Matérn 5/2 covariance function, <code>gp_matern52_cov</code>.</p></li>
+<li><p><span class="math inline">\(\nu \rightarrow \infty\)</span>: Squared exponential, <code>gp_exp_quad_cov</code>.</p></li>
 </ul>
 </section>
 <section id="point-referenced-spatial-model" class="slide level2">
@@ -716,10 +717,10 @@ Prof.&nbsp;Sam Berchuck
 \end{aligned}\]</span></p>
 <p>where <span class="math inline">\(\boldsymbol{\Omega} = (\alpha,\boldsymbol{\beta},\sigma,\tau,\rho)\)</span> and</p>
 <p><span class="math display">\[\mathbf{C} = \begin{bmatrix}
-C(0) &amp; C(||\mathbf{u}_1 - \mathbf{u}_2||) &amp; \cdots &amp; C(||\mathbf{u}_1 - \mathbf{u}_{n_i}||)\\
-C(||\mathbf{u}_1 - \mathbf{u}_2||) &amp; C(0) &amp; \cdots &amp; C(||\mathbf{u}_2 - \mathbf{u}_{n_i}||)\\
+C(0) &amp; C(||\mathbf{u}_1 - \mathbf{u}_2||) &amp; \cdots &amp; C(||\mathbf{u}_1 - \mathbf{u}_{n}||)\\
+C(||\mathbf{u}_1 - \mathbf{u}_2||) &amp; C(0) &amp; \cdots &amp; C(||\mathbf{u}_2 - \mathbf{u}_{n}||)\\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
-C(||\mathbf{u}_{1} - \mathbf{u}_{n_i}||) &amp; C(||\mathbf{u}_2 - \mathbf{u}_{n_i}||) &amp; \cdots &amp; C(0)\\
+C(||\mathbf{u}_{1} - \mathbf{u}_{n}||) &amp; C(||\mathbf{u}_2 - \mathbf{u}_{n}||) &amp; \cdots &amp; C(0)\\
 \end{bmatrix}.\]</span></p>
 </section>
 <section id="point-referenced-spatial-model-1" class="slide level2">
@@ -732,20 +733,20 @@ C(||\mathbf{u}_{1} - \mathbf{u}_{n_i}||) &amp; C(||\mathbf{u}_2 - \mathbf{u}_{n_
 </section>
 <section id="posterior-predictive-distribution" class="slide level2 midi">
 <h2>Posterior predictive distribution</h2>
-<p>Define <span class="math inline">\(\mathbf{Y}^* = (Y(\mathbf{u}_{n+1}),\ldots, Y(\mathbf{u}_{n+q+1}))^\top\)</span> as observations at <span class="math inline">\(q\)</span> new locations. We ignore the subscript <span class="math inline">\(j\)</span>. The new location-specific parameters are <span class="math inline">\(\boldsymbol{\theta} = (\theta(\mathbf{u}_{n+1}),\ldots,\mathbf{u}_{n+q+1})^\top\)</span>.</p>
+<p>Define <span class="math inline">\(\mathbf{Y}^* = (Y(\mathbf{u}_{n+1}),\ldots, Y(\mathbf{u}_{n+q}))^\top\)</span> as observations at <span class="math inline">\(q\)</span> new locations. We ignore the subscript <span class="math inline">\(j\)</span>. The new location-specific parameters are <span class="math inline">\(\boldsymbol{\theta} = (\theta(\mathbf{u}_{n+1}),\ldots,\theta(\mathbf{u}_{n+q}))^\top\)</span>.</p>
 <p><span class="math display">\[\begin{aligned}
 f(\mathbf{Y}^* | \mathbf{Y}) &amp;= \int f(\mathbf{Y}^*, \boldsymbol{\theta}^*, \boldsymbol{\theta}, \boldsymbol{\Omega} | \mathbf{Y}) d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
 &amp;= \int \underbrace{f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega})}_{(1)} \underbrace{f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})}_{(2)} \underbrace{f(\boldsymbol{\Omega} | \mathbf{Y})}_{(3)} d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
 \end{aligned}\]</span></p>
 <ol type="1">
-<li><p>Likelihood: <span class="math inline">\(f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega}) = \prod_{i=n+1}^{n+q+1} f(Y(\mathbf{u}_i) | \alpha, \boldsymbol{\beta}, \theta(\mathbf{u}_i),\sigma)\)</span></p></li>
+<li><p>Likelihood: <span class="math inline">\(f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega}) = \prod_{i=n+1}^{n+q} f(Y(\mathbf{u}_i) | \alpha, \boldsymbol{\beta}, \theta(\mathbf{u}_i),\sigma)\)</span></p></li>
 <li><p>Kriging: <span class="math inline">\(f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})\)</span></p></li>
 <li><p>Posterior distribution: <span class="math inline">\(f(\boldsymbol{\Omega} | \mathbf{Y})\)</span></p></li>
 </ol>
 </section>
 <section id="kriging-distribution" class="slide level2 smaller">
 <h2>Kriging Distribution</h2>
-<p>To compute <span class="math inline">\(f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})\)</span> we must specify the joint distribtuion:</p>
+<p>To compute <span class="math inline">\(f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})\)</span> we must specify the joint distribution:</p>
 <p><span class="math display">\[f\left(\begin{bmatrix}
     \boldsymbol{\theta}\\
     \boldsymbol{\theta}^*
@@ -758,16 +759,16 @@ f(\mathbf{Y}^* | \mathbf{Y}) &amp;= \int f(\mathbf{Y}^*, \boldsymbol{\theta}^*, 
   \end{bmatrix}\right),\]</span></p>
 <p>where <span class="math inline">\(\mathbf{C}\)</span> is the covariance of <span class="math inline">\(\boldsymbol{\theta}\)</span>,</p>
 <p><span class="math display">\[\mathbf{C^*} = \begin{bmatrix}
-C(0) &amp; C(||\mathbf{u}_{n+1} - \mathbf{u}_{n+2}||) &amp; \cdots &amp; C(||\mathbf{u}_{n+1} - \mathbf{u}_{n + q + 1}||)\\
-C(||\mathbf{u}_{n+1} - \mathbf{u}_{n+2}||) &amp; C(0) &amp; \cdots &amp; C(||\mathbf{u}_{n_2} - \mathbf{u}_{n + q + 1}||)\\
+C(0) &amp; C(||\mathbf{u}_{n+1} - \mathbf{u}_{n+2}||) &amp; \cdots &amp; C(||\mathbf{u}_{n+1} - \mathbf{u}_{n + q}||)\\
+C(||\mathbf{u}_{n+1} - \mathbf{u}_{n+2}||) &amp; C(0) &amp; \cdots &amp; C(||\mathbf{u}_{n_2} - \mathbf{u}_{n + q}||)\\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
-C(||\mathbf{u}_{n + 1} - \mathbf{u}_{n + q + 1}||) &amp; C(||\mathbf{u}_{n + 2} - \mathbf{u}_{n + q + 1}||) &amp; \cdots &amp; C(0)\\
+C(||\mathbf{u}_{n + 1} - \mathbf{u}_{n + q}||) &amp; C(||\mathbf{u}_{n + 2} - \mathbf{u}_{n + q}||) &amp; \cdots &amp; C(0)\\
 \end{bmatrix} \in \mathbb{R}^{q \times q},\]</span></p>
 <p><span class="math display">\[\mathbf{C_+} = \begin{bmatrix}
-C(||\mathbf{u}_{1} - \mathbf{u}_{n+1}||) &amp; C(||\mathbf{u}_{1} - \mathbf{u}_{n+2}||) &amp; \cdots &amp; C(||\mathbf{u}_{1} - \mathbf{u}_{n + q + 1}||)\\
-C(||\mathbf{u}_{2} - \mathbf{u}_{n+1}||) &amp; C(||\mathbf{u}_{2} - \mathbf{u}_{n+2}||) &amp; \cdots &amp; C(||\mathbf{u}_{n} - \mathbf{u}_{n + q + 1}||)\\
+C(||\mathbf{u}_{1} - \mathbf{u}_{n+1}||) &amp; C(||\mathbf{u}_{1} - \mathbf{u}_{n+2}||) &amp; \cdots &amp; C(||\mathbf{u}_{1} - \mathbf{u}_{n + q}||)\\
+C(||\mathbf{u}_{2} - \mathbf{u}_{n+1}||) &amp; C(||\mathbf{u}_{2} - \mathbf{u}_{n+2}||) &amp; \cdots &amp; C(||\mathbf{u}_{n} - \mathbf{u}_{n + q}||)\\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
-C(||\mathbf{u}_{n} - \mathbf{u}_{n + 1}||) &amp; C(||\mathbf{u}_{n} - \mathbf{u}_{n+2}||) &amp; \cdots &amp; C(||\mathbf{u}_{n} - \mathbf{u}_{n+q+1}||)\\
+C(||\mathbf{u}_{n} - \mathbf{u}_{n + 1}||) &amp; C(||\mathbf{u}_{n} - \mathbf{u}_{n+2}||) &amp; \cdots &amp; C(||\mathbf{u}_{n} - \mathbf{u}_{n+q}||)\\
 \end{bmatrix} \in \mathbb{R}^{n \times q}.\]</span></p>
 </section>
 <section id="kriging-distribution-1" class="slide level2 smaller">
@@ -787,6 +788,7 @@ C(||\mathbf{u}_{n} - \mathbf{u}_{n + 1}||) &amp; C(||\mathbf{u}_{n} - \mathbf{u}
 <p><span class="math display">\[\begin{aligned}
 \mathbb{V}_{\boldsymbol{\theta}^*} &amp;=\mathbf{C}^* - \left(\mathbf{L}^{-1} \mathbf{C}_+\right)^\top \mathbf{L}^{-1} \mathbf{C}_+.
 \end{aligned}\]</span></p>
+<p>Direclty computing <span class="math inline">\(\mathbf{C}^{-1}\)</span> can lead to a matrix that is not symmetric.</p>
 </section>
 <section id="motivating-dataset" class="slide level2 midi">
 <h2>Motivating Dataset</h2>

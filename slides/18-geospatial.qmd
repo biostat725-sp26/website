@@ -203,7 +203,7 @@ $$  Y_{ij} = \alpha + \mathbf{x}_{ij} \boldsymbol{\beta} + \theta_i + \epsilon_{
 
 - $Y_{ij}$ denotes the observation of individual $j$ at location $i$.
 
-- $\mathbf{x}_{ij} \in \mathbb{R}^p$, where $p$ is the number of predictors (exclusing intercept).
+- $\mathbf{x}_{ij} \in \mathbb{R}^{1 \times p}$, where $p$ is the number of predictors (excluding intercept).
 
 ## Point-referenced Modeling
 
@@ -263,7 +263,7 @@ This notation is useful because it allows us to examine the vector of location-s
 
 - One powerful way to incorporate spatial correlations is through Gaussian processes (GPs).
 
-- Consider $\{\theta(\mathbf{u}) \in \mathcal D\}$, where $\mathcal D$ is a fixed subset of $d$-dimensional Euclidean space ($d=1$ is time-series, $d=2,3$ is spatial).
+- Consider $\{\theta(\mathbf{u}) : \mathbf{u} \in \mathcal D\}$, where $\mathcal D$ is a fixed subset of $d$-dimensional Euclidean space ($d=1$ is time-series, $d=2,3$ is spatial).
   
 - The process is said to be Gaussian if, for any $n\geq 1$ and observed locations $\{\mathbf{u}_1,\ldots,\mathbf{u}_n\}$, $\boldsymbol{\theta} = (\theta(\mathbf{u}_1),\ldots,\theta(\mathbf{u}_n))^\top$ has a multivariate normal distribution.
 
@@ -283,7 +283,7 @@ We define a GP as $\theta(\mathbf{u}) \sim GP(\mu(\cdot), C(\cdot, \cdot))$, whe
 
 ## Choosing a covariance function {.midi}
 
-The Matérn covariance function has a general form and is often the default choice for spatial data (squared exponential is often too smooth!). Matérn is a function of a smoothness parameter $\nu > 0$ and a length scale, which we will define as $\rho$.
+The Matérn covariance function has a general form and is often the default choice for spatial data. Matérn is a function of a smoothness parameter $\nu > 0$, magnitude $\tau$ and a length scale, which we will define as $\rho$. Given a fixed $\nu$, larger values of $\rho$ lead to a smoother surface.
 
 - $\nu = 1/2$: exponential covariance function, `gp_exponential_cov`.
 
@@ -292,6 +292,8 @@ The Matérn covariance function has a general form and is often the default choi
 $$C(||\mathbf{h}||) = \tau^2 \left(1 + \frac{\sqrt{3} ||\mathbf{h}||}{\rho}\right) \exp\left(-\frac{\sqrt{3} ||\mathbf{h}||}{\rho}\right)$$
 
 - $\nu = 5/2$: Matérn 5/2 covariance function, `gp_matern52_cov`.
+
+- $\nu \rightarrow \infty$: Squared exponential, `gp_exp_quad_cov`.
 
 ## Point-referenced spatial model
 
@@ -304,10 +306,10 @@ $$C(||\mathbf{h}||) = \tau^2 \left(1 + \frac{\sqrt{3} ||\mathbf{h}||}{\rho}\righ
 where $\boldsymbol{\Omega} = (\alpha,\boldsymbol{\beta},\sigma,\tau,\rho)$ and 
 
 $$\mathbf{C} = \begin{bmatrix}
-C(0) & C(||\mathbf{u}_1 - \mathbf{u}_2||) & \cdots & C(||\mathbf{u}_1 - \mathbf{u}_{n_i}||)\\
-C(||\mathbf{u}_1 - \mathbf{u}_2||) & C(0) & \cdots & C(||\mathbf{u}_2 - \mathbf{u}_{n_i}||)\\
+C(0) & C(||\mathbf{u}_1 - \mathbf{u}_2||) & \cdots & C(||\mathbf{u}_1 - \mathbf{u}_{n}||)\\
+C(||\mathbf{u}_1 - \mathbf{u}_2||) & C(0) & \cdots & C(||\mathbf{u}_2 - \mathbf{u}_{n}||)\\
 \vdots & \vdots & \ddots & \vdots\\
-C(||\mathbf{u}_{1} - \mathbf{u}_{n_i}||) & C(||\mathbf{u}_2 - \mathbf{u}_{n_i}||) & \cdots & C(0)\\
+C(||\mathbf{u}_{1} - \mathbf{u}_{n}||) & C(||\mathbf{u}_2 - \mathbf{u}_{n}||) & \cdots & C(0)\\
 \end{bmatrix}.$$
 
 ## Point-referenced spatial model
@@ -321,14 +323,14 @@ Like previous lecture, we can also specify a marginal model which is useful if w
 
 ## Posterior predictive distribution {.midi}
 
-Define $\mathbf{Y}^* = (Y(\mathbf{u}_{n+1}),\ldots, Y(\mathbf{u}_{n+q+1}))^\top$ as observations at $q$ new locations. We ignore the subscript $j$. The new location-specific parameters are $\boldsymbol{\theta} = (\theta(\mathbf{u}_{n+1}),\ldots,\mathbf{u}_{n+q+1})^\top$.
+Define $\mathbf{Y}^* = (Y(\mathbf{u}_{n+1}),\ldots, Y(\mathbf{u}_{n+q}))^\top$ as observations at $q$ new locations. We ignore the subscript $j$. The new location-specific parameters are $\boldsymbol{\theta} = (\theta(\mathbf{u}_{n+1}),\ldots,\theta(\mathbf{u}_{n+q}))^\top$.
 
 \begin{align*}
 f(\mathbf{Y}^* | \mathbf{Y}) &= \int f(\mathbf{Y}^*, \boldsymbol{\theta}^*, \boldsymbol{\theta}, \boldsymbol{\Omega} | \mathbf{Y}) d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
 &= \int \underbrace{f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega})}_{(1)} \underbrace{f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})}_{(2)} \underbrace{f(\boldsymbol{\Omega} | \mathbf{Y})}_{(3)} d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
 \end{align*}
 
-(1) Likelihood: $f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega}) = \prod_{i=n+1}^{n+q+1} f(Y(\mathbf{u}_i) | \alpha, \boldsymbol{\beta}, \theta(\mathbf{u}_i),\sigma)$
+(1) Likelihood: $f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega}) = \prod_{i=n+1}^{n+q} f(Y(\mathbf{u}_i) | \alpha, \boldsymbol{\beta}, \theta(\mathbf{u}_i),\sigma)$
 
 (2) Kriging: $f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})$
 
@@ -336,7 +338,7 @@ f(\mathbf{Y}^* | \mathbf{Y}) &= \int f(\mathbf{Y}^*, \boldsymbol{\theta}^*, \bol
 
 ## Kriging Distribution {.smaller}
 
-To compute $f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})$ we must specify the joint distribtuion:
+To compute $f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})$ we must specify the joint distribution:
 
 $$f\left(\begin{bmatrix}
     \boldsymbol{\theta}\\
@@ -352,17 +354,17 @@ $$f\left(\begin{bmatrix}
 where $\mathbf{C}$ is the covariance of $\boldsymbol{\theta}$,
 
 $$\mathbf{C^*} = \begin{bmatrix}
-C(0) & C(||\mathbf{u}_{n+1} - \mathbf{u}_{n+2}||) & \cdots & C(||\mathbf{u}_{n+1} - \mathbf{u}_{n + q + 1}||)\\
-C(||\mathbf{u}_{n+1} - \mathbf{u}_{n+2}||) & C(0) & \cdots & C(||\mathbf{u}_{n_2} - \mathbf{u}_{n + q + 1}||)\\
+C(0) & C(||\mathbf{u}_{n+1} - \mathbf{u}_{n+2}||) & \cdots & C(||\mathbf{u}_{n+1} - \mathbf{u}_{n + q}||)\\
+C(||\mathbf{u}_{n+1} - \mathbf{u}_{n+2}||) & C(0) & \cdots & C(||\mathbf{u}_{n_2} - \mathbf{u}_{n + q}||)\\
 \vdots & \vdots & \ddots & \vdots\\
-C(||\mathbf{u}_{n + 1} - \mathbf{u}_{n + q + 1}||) & C(||\mathbf{u}_{n + 2} - \mathbf{u}_{n + q + 1}||) & \cdots & C(0)\\
+C(||\mathbf{u}_{n + 1} - \mathbf{u}_{n + q}||) & C(||\mathbf{u}_{n + 2} - \mathbf{u}_{n + q}||) & \cdots & C(0)\\
 \end{bmatrix} \in \mathbb{R}^{q \times q},$$
 
 $$\mathbf{C_+} = \begin{bmatrix}
-C(||\mathbf{u}_{1} - \mathbf{u}_{n+1}||) & C(||\mathbf{u}_{1} - \mathbf{u}_{n+2}||) & \cdots & C(||\mathbf{u}_{1} - \mathbf{u}_{n + q + 1}||)\\
-C(||\mathbf{u}_{2} - \mathbf{u}_{n+1}||) & C(||\mathbf{u}_{2} - \mathbf{u}_{n+2}||) & \cdots & C(||\mathbf{u}_{n} - \mathbf{u}_{n + q + 1}||)\\
+C(||\mathbf{u}_{1} - \mathbf{u}_{n+1}||) & C(||\mathbf{u}_{1} - \mathbf{u}_{n+2}||) & \cdots & C(||\mathbf{u}_{1} - \mathbf{u}_{n + q}||)\\
+C(||\mathbf{u}_{2} - \mathbf{u}_{n+1}||) & C(||\mathbf{u}_{2} - \mathbf{u}_{n+2}||) & \cdots & C(||\mathbf{u}_{n} - \mathbf{u}_{n + q}||)\\
 \vdots & \vdots & \ddots & \vdots\\
-C(||\mathbf{u}_{n} - \mathbf{u}_{n + 1}||) & C(||\mathbf{u}_{n} - \mathbf{u}_{n+2}||) & \cdots & C(||\mathbf{u}_{n} - \mathbf{u}_{n+q+1}||)\\
+C(||\mathbf{u}_{n} - \mathbf{u}_{n + 1}||) & C(||\mathbf{u}_{n} - \mathbf{u}_{n+2}||) & \cdots & C(||\mathbf{u}_{n} - \mathbf{u}_{n+q}||)\\
 \end{bmatrix} \in \mathbb{R}^{n \times q}.$$
 
 ## Kriging Distribution {.smaller}
@@ -387,6 +389,8 @@ Efficient [Stan function](https://mc-stan.org/docs/functions-reference/matrix_op
 \begin{align*}
 \mathbb{V}_{\boldsymbol{\theta}^*} &=\mathbf{C}^* - \left(\mathbf{L}^{-1} \mathbf{C}_+\right)^\top \mathbf{L}^{-1} \mathbf{C}_+.
 \end{align*}
+
+Direclty computing $\mathbf{C}^{-1}$ can lead to a matrix that is not symmetric. 
 
 ## Motivating Dataset {.midi}
 
