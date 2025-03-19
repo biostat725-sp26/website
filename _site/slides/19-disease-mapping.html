@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -348,15 +413,73 @@ Prof.&nbsp;Sam Berchuck
 <li><p>The longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e.&nbsp;space).</p></li>
 </ul>
 </section>
-<section id="goal-of-an-areal-data-spatial-analysis" class="slide level2">
-<h2>Goal of an Areal Data Spatial Analysis</h2>
+<section id="lattice-data-areal-data" class="slide level2">
+<h2>Lattice Data (Areal Data)</h2>
 <ul>
-<li>Account for noise due to spatial variability in order to provide smoothed estimates across space</li>
+<li><p>Data observed at the level of an areal unit</p>
+<ul>
+<li>County Level Sudden Infant Death Syndrome Counts</li>
+</ul></li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./images/18/lattice_data.png" class="quarto-figure quarto-figure-center" height="450"></p>
+</figure>
+</div>
+</section>
+<section id="lattice-data-areal-data-1" class="slide level2">
+<h2>Lattice Data (Areal Data)</h2>
+<ul>
+<li>Birmingham Tract Level Poverty Levels</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./images/18/Birmingham_Poverty.png" class="quarto-figure quarto-figure-center" height="500"></p>
+</figure>
+</div>
+</section>
+<section id="goals-of-areal-spatial-data-analysis" class="slide level2">
+<h2>Goals of Areal Spatial Data Analysis</h2>
+<p>The goal of <strong>areal spatial data analysis</strong> is to understand how spatial patterns (e.g., mortality rates, disease incidence) vary across different geographic areas (e.g., counties, neighborhoods).</p>
+<p>It helps us identify:</p>
+<ul>
+<li><p><strong>Clusters</strong>: Areas with similar characteristics (e.g., high mortality, disease prevalence).</p></li>
+<li><p><strong>Outliers</strong>: Areas that deviate significantly from the overall pattern (e.g., unexpectedly high mortality rates).</p></li>
+<li><p><strong>Spatial Dependence</strong>: Whether values in one area are correlated with values in nearby areas (e.g., neighboring counties with similar health outcomes).</p></li>
+</ul>
+</section>
+<section id="why-we-care-about-spatial-patterns" class="slide level2">
+<h2>Why We Care About Spatial Patterns</h2>
+<ul>
+<li><p><strong>Local Insights</strong>: Spatial analysis helps identify <strong>local variations</strong> in health outcomes that may not be apparent when analyzing data at a higher (e.g., state or national) level.</p></li>
+<li><p><strong>Targeted Interventions</strong>: Understanding spatial patterns allows for <strong>targeted public health interventions</strong> tailored to regions that need attention (e.g., areas with unusually high mortality rates).</p></li>
+<li><p><strong>Identifying Spatial Clusters</strong>: By recognizing <strong>clusters of high or low rates</strong>, we can investigate potential <strong>common causes</strong> (e.g., environmental factors, access to healthcare, socioeconomic conditions).</p></li>
+</ul>
+</section>
+<section id="motivating-data" class="slide level2 midi">
+<h2>Motivating Data</h2>
+<p>Today, we will motivate areal spatial data analysis and disease mapping by studying 2020 COVID mortality at the county-level in North Carolina. The data object <code>covid_nc_2020</code> is an <code>sf</code> object.</p>
+<ul>
+<li><p>Variables are:</p>
+<ul>
+<li><p><code>name</code>: county name.</p></li>
+<li><p><code>population</code>: 2020 population.</p></li>
+<li><p><code>obs_deaths</code>: observed number of COVID-related deaths in 2020.</p></li>
+<li><p><code>est_deaths</code>: estimated number of COVID-related deaths in 2020.</p></li>
+<li><p><code>smr</code>: standardized mortality ratio.</p></li>
+<li><p><code>age</code>: precentage of residents over 60 years of age.</p></li>
+<li><p><code>poverty</code>: percentage of residents below the poverty line.</p></li>
+<li><p><code>geometry</code>: contains centroid and boundary information for each county.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="covid-mortality" class="slide level2">
+<h2>COVID Mortality</h2>
+<!-- - Account for noise due to spatial variability in order to provide smoothed estimates across space -->
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -368,8 +491,168 @@ Prof.&nbsp;Sam Berchuck
 </div>
 </div>
 </section>
-<section id="motivating-data" class="slide level2">
-<h2>Motivating Data</h2>
+<section id="introduction-to-disease-mapping" class="slide level2">
+<h2>Introduction to Disease Mapping</h2>
+<ul>
+<li><p>Disease mapping is a way of visualizing and analyzing geographic variations in health outcomes, such as mortality or disease incidence, across different regions (e.g., counties or neighborhoods).</p></li>
+<li><p>It helps us identify regions with unusually high or low health outcomes, which could be indicative of underlying health disparities.</p></li>
+</ul>
+</section>
+<section id="the-challenge-with-observed-data" class="slide level2">
+<h2>The Challenge with Observed Data</h2>
+<p>Imagine you want to compare the number of deaths across counties in a state, like North Carolina. If we simply look at <strong>observed death counts</strong>, we might be misled:</p>
+<ul>
+<li><p>Larger counties with more people may have more deaths simply due to their larger population.</p></li>
+<li><p>Smaller counties may appear “healthier” simply because they have fewer people, not because they have lower mortality rates.</p></li>
+</ul>
+<p>Thus, observed death counts are <strong>not enough</strong> to draw meaningful comparisons.</p>
+</section>
+<section id="the-challenge-with-observed-data-1" class="slide level2">
+<h2>The Challenge with Observed Data</h2>
+<ul>
+<li><p>To make fair comparisons between regions of different sizes, we need to <strong>adjust for population size</strong> (and sometimes demographics).</p></li>
+<li><p>Without these adjustments, it’s hard to determine if a county’s high death count is due to its population size or if there’s something unique about the county (e.g., healthcare access, environmental factors) that increases the risk of mortality.</p></li>
+<li><p>This is where we need more <strong>nuanced measures</strong> to adjust for population size and allow for better comparisons.</p></li>
+<li><p>Today we will talk about the standardized mortality ratio (SMR).</p></li>
+</ul>
+</section>
+<section id="standardized-mortality-ratio" class="slide level2">
+<h2>Standardized Mortality Ratio</h2>
+<ul>
+<li><p>SMR is a way of comparing the observed number of deaths in a population to the number of deaths we would expect, given the population’s characteristics (such as population size).</p></li>
+<li><p>It adjusts for differences in population, allowing us to identify areas where deaths are higher or lower than we would expect.</p></li>
+</ul>
+<p><span class="math display">\[\text{SMR} = \frac{\text{Observed Deaths}}{\text{Expected Deaths}}\]</span></p>
+<ul>
+<li><strong>Expected Deaths</strong> is calculated by multiplying the total deaths across the state by the proportion of the population in that county.</li>
+</ul>
+</section>
+<section id="example-data" class="slide level2 midi">
+<h2>Example Data</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>County</th>
+<th>Observed Deaths</th>
+<th>Population</th>
+<th>Population Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>County A</td>
+<td>10</td>
+<td>30,000</td>
+<td>0.3</td>
+</tr>
+<tr class="even">
+<td>County B</td>
+<td>15</td>
+<td>50,000</td>
+<td>0.5</td>
+</tr>
+<tr class="odd">
+<td>County C</td>
+<td>5</td>
+<td>20,000</td>
+<td>0.2</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td>30</td>
+<td>100,000</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="step-1---calculate-expected-deaths" class="slide level2">
+<h2>Step 1 - Calculate Expected Deaths</h2>
+<p>The <strong>Expected Deaths</strong> for each county are calculated by multiplying the <strong>total deaths</strong> by the <strong>population proportion</strong> for that county:</p>
+<p><span class="math display">\[\begin{aligned}
+\text{Expected Deaths for County A} = 30 \times 0.3 &amp;= 9\\
+\text{Expected Deaths for County B} = 30 \times 0.5 &amp;= 15\\
+\text{Expected Deaths for County C} = 30 \times 0.2 &amp;= 6
+\end{aligned}\]</span></p>
+</section>
+<section id="step-2---compute-smr" class="slide level2">
+<h2>Step 2 - Compute SMR</h2>
+<p>Now, we calculate the <strong>SMR</strong> by dividing the <strong>observed deaths</strong> by the <strong>expected deaths</strong>:</p>
+<p><span class="math display">\[\begin{aligned}
+\text{SMR for County A} &amp;= \frac{10}{9} = 1.11\\
+\text{SMR for County B} &amp;= \frac{15}{15} = 1\\
+\text{SMR for County C} &amp;= \frac{5}{6} = 0.83
+\end{aligned}\]</span></p>
+<p>What do these numbers mean?</p>
+</section>
+<section id="interpreting-smr" class="slide level2">
+<h2>Interpreting SMR</h2>
+<ul>
+<li><p><strong>SMR = 1</strong>: The observed number of deaths matches the expected number of deaths.</p></li>
+<li><p><strong>SMR &gt; 1</strong>: More deaths than expected (excess mortality).</p></li>
+<li><p><strong>SMR &lt; 1</strong>: Fewer deaths than expected (lower mortality).</p></li>
+</ul>
+<p>In our example:</p>
+<ul>
+<li><p><strong>County A</strong> has excess mortality, with SMR of <strong>1.11</strong>.</p></li>
+<li><p><strong>County B</strong> has as many deaths as expected, with SMR of <strong>1</strong>.</p></li>
+<li><p><strong>County C</strong> has fewer deaths than expected, with SMR of <strong>0.83</strong>.</p></li>
+</ul>
+</section>
+<section id="why-use-smr-in-disease-mapping" class="slide level2">
+<h2>Why Use SMR in Disease Mapping?</h2>
+<p><strong>SMR</strong> allows us to:</p>
+<ul>
+<li><p>Make meaningful comparisons across counties of different sizes.</p></li>
+<li><p>Identify areas with <strong>excess mortality</strong> (SMR &gt; 1) and areas with <strong>lower-than-expected mortality</strong> (SMR &lt; 1).</p></li>
+</ul>
+<p>In disease mapping, <strong>SMR</strong> helps us better understand <strong>spatial health disparities</strong> and identify regions that may need targeted public health interventions.</p>
+</section>
+<section id="standardized-mortality-ratios" class="slide level2">
+<h2>Standardized Mortality Ratios</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="writing-down-a-model-for-smr" class="slide level2">
+<h2>Writing down a model for SMR</h2>
+<p>Define <span class="math inline">\(Y_i\)</span> and <span class="math inline">\(E_i\)</span> as the observed and expected mortality counts at county <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1\ldots,n\)</span>). We can model the observed counts as follows:</p>
+<p><span class="math display">\[Y_i \stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i).\]</span></p>
+<ul>
+<li><p>Recall that for a random variable <span class="math inline">\(Y \sim \text{Poisson}(\lambda)\)</span>, <span class="math inline">\(\mathbb{E}[Y] = \lambda\)</span> and <span class="math inline">\(\mathbb{V}(Y) = \lambda\)</span>.</p></li>
+<li><p>For our model, we have: <span class="math inline">\(\mathbb{E}[Y_i] = E_i \lambda_i \implies \mathbb{E}\left[\frac{Y_i}{E_i}\right] = \lambda_i\)</span>.</p>
+<ul>
+<li>Under this parameterization <span class="math inline">\(\lambda_i\)</span> is the SMR.</li>
+</ul></li>
+</ul>
+</section>
+<section id="disease-mapping-model" class="slide level2">
+<h2>Disease Mapping Model</h2>
+<p>The parameter <span class="math inline">\(\lambda_i\)</span>, sometimes also called relative risk, is modeled as follows:</p>
+<p><span class="math display">\[\begin{aligned}
+Y_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
+\log \lambda_i &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \theta_i + \epsilon_i
+\end{aligned}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathbf{x}_i \in \mathbb{R}^{p \times 1}\)</span> contains county-level predictors.</p></li>
+<li><p><span class="math inline">\(\alpha \in \mathbb{R}\)</span> is a population intercept.</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\beta} \in \mathbb{R}^p\)</span> is a vector of population coefficients.</p></li>
+</ul>
+<p>Bayesian hierarchical models enable to obtain smoothed disease relative risks by including covariates and random effects to borrow information from neighboring areas. Spatial disease risk models are commonly specified using a Poisson distribution for the observed number of cases (<span class="math inline">\(Y_i\)</span>) with mean equal to the expected number of cases (<span class="math inline">\(E_i\)</span>) times the relative risk (<span class="math inline">\(\lambda_i\)</span>) corresponding to area <span class="math inline">\(i\)</span>, <span class="math inline">\(i = 1,\ldots,n\)</span>,</p>
+<p>Here, the logarithm of <span class="math inline">\(\lambda_i\)</span> is expressed as a sum of fixed effects to quantify the effects of the covariates on the disease risk, and random effects that represent residual variation that is not explained by the available covariates. The fixed effects are expressed using a vector of intercept and</p>
+<p>Spatial random effects <span class="math inline">\(\theta_i\)</span> that smooth data according to a neighborhood structure are included to acknowledge that data may be spatially correlated, and relative risks in neighboring areas may be more similar than relative risks in areas that are further away Unstructured exchangeable components <span class="math inline">\(\epsilon_i\)</span> are also included to model uncorrelated noise.</p>
+<p>The relative risk <span class="math inline">\(\lambda_i\)</span> quantifies whether an area <span class="math inline">\(i\)</span> has higher (<span class="math inline">\(\lambda_i &gt; 1\)</span>) or lower (<span class="math inline">\(\lambda_i &lt; 1\)</span>) risk than the average risk in the standard population (e.g., the whole population of the study region). For example, <span class="math inline">\(\lambda_i = 2\)</span> indicates the risk of area <span class="math inline">\(i\)</span> is two times the average risk in the standard population.</p>
 </section>
 <section id="spatial-correlation-areal-data" class="slide level2">
 <h2>Spatial Correlation: Areal Data</h2>
@@ -414,6 +697,166 @@ Prof.&nbsp;Sam Berchuck
 <li><p><span class="math inline">\(\text{COR}(\theta_k,\theta_j|\boldsymbol{\theta}_{-kj}) = \frac{\rho w_{kj}}{\sqrt{(\rho \sum_{i=1}^n w_{ki} + 1 - \rho)(\rho \sum_{i=1}^n w_{ji} + 1-\rho)}}\)</span></p></li>
 </ul></li>
 </ul>
+</section>
+<section id="compute-adjacency-matrix" class="slide level2">
+<h2>Compute Adjacency Matrix</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="do">###Get adjacency matrix</span></span>
+<span id="cb1-2"><a></a>neighbors <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">poly2nb</span>(covid_nc_2020)</span>
+<span id="cb1-3"><a></a>adj_matrix <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">nb2mat</span>(neighbors, <span class="at">style =</span> <span class="st">"B"</span>, <span class="at">zero.policy =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-4"><a></a><span class="co"># style = "B" specifies binary encoding (1 if neighbors, 0 if not).</span></span>
+<span id="cb1-5"><a></a><span class="co"># zero.policy = TRUE ensures the function works even if some counties do not have neighbors.</span></span>
+<span id="cb1-6"><a></a><span class="co"># Convert adjacency matrix to a long format for ggplot</span></span>
+<span id="cb1-7"><a></a>adj_matrix_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(adj_matrix)</span>
+<span id="cb1-8"><a></a></span>
+<span id="cb1-9"><a></a><span class="co"># Plot the adjacency matrix</span></span>
+<span id="cb1-10"><a></a><span class="co"># ggplot(adj_matrix_long, aes(x = Var1, y = Var2, fill = value)) +</span></span>
+<span id="cb1-11"><a></a><span class="co">#  geom_tile() +</span></span>
+<span id="cb1-12"><a></a><span class="co">#  scale_fill_gradient(low = "white", high = "blue") +</span></span>
+<span id="cb1-13"><a></a><span class="co">#  labs(title = "Adjacency Matrix Heatmap", x = "County", y = "County")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="better-adjacency-plot" class="slide level2">
+<h2>Better Adjacency Plot</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="prepare-adjacnecy-for-stan" class="slide level2">
+<h2>Prepare Adjacnecy for Stan</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Get the row-column pairs where the adjacency matrix is 1</span></span>
+<span id="cb2-2"><a></a><span class="co"># This will return all non-zero indices in the adjacency matrix</span></span>
+<span id="cb2-3"><a></a>neighbor_pairs <span class="ot">&lt;-</span> <span class="fu">which</span>(adj_matrix <span class="sc">==</span> <span class="dv">1</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a><span class="co"># Filter out the upper triangle (to avoid repeating edges)</span></span>
+<span id="cb2-6"><a></a>neighbor_pairs_lower <span class="ot">&lt;-</span> neighbor_pairs[neighbor_pairs[, <span class="dv">1</span>] <span class="sc">&lt;</span> neighbor_pairs[, <span class="dv">2</span>], ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fit-the-stan-model" class="slide level2">
+<h2>Fit the Stan Model</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="do">###Try to fit ICAR model</span></span>
+<span id="cb3-2"><a></a>icar <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="st">"/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/covid/icar.stan"</span>)</span>
+<span id="cb3-3"><a></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> age <span class="sc">+</span> poverty, <span class="at">data =</span> covid_nc_2020)[, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb3-4"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb3-5"><a></a>  <span class="at">n =</span> <span class="fu">nrow</span>(covid_nc_2020),</span>
+<span id="cb3-6"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb3-7"><a></a>  <span class="at">n_edges =</span> <span class="fu">nrow</span>(neighbor_pairs_lower),</span>
+<span id="cb3-8"><a></a>  <span class="at">node1 =</span> neighbor_pairs_lower[, <span class="dv">1</span>],</span>
+<span id="cb3-9"><a></a>  <span class="at">node2 =</span> neighbor_pairs_lower[, <span class="dv">2</span>],</span>
+<span id="cb3-10"><a></a>  <span class="at">Y =</span> covid_nc_2020<span class="sc">$</span>DEATHS,</span>
+<span id="cb3-11"><a></a>  <span class="at">E =</span> covid_nc_2020<span class="sc">$</span>ESTDEATHS,</span>
+<span id="cb3-12"><a></a>  <span class="at">X =</span> X</span>
+<span id="cb3-13"><a></a>)</span>
+<span id="cb3-14"><a></a>fit_icar <span class="ot">&lt;-</span> <span class="fu">sampling</span>(icar, stan_data, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"z"</span>, <span class="st">"log_mu"</span>, <span class="st">"lp__"</span>), <span class="at">include =</span> <span class="cn">FALSE</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span>
+<span id="cb3-15"><a></a><span class="fu">print</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span>
+<span id="cb3-16"><a></a>rstan<span class="sc">::</span><span class="fu">traceplot</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span>
+<span id="cb3-17"><a></a>rstan<span class="sc">::</span><span class="fu">traceplot</span>(fit_icar, <span class="at">pars =</span> <span class="st">"theta[1]"</span>)</span>
+<span id="cb3-18"><a></a><span class="fu">saveRDS</span>(fit_icar, <span class="at">file =</span> <span class="st">"/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/19-fit-icar.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Inference for Stan model: anon_model.
+4 chains, each with iter=10000; warmup=5000; thin=1; 
+post-warmup draws per chain=5000, total post-warmup draws=20000.
+
+            mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat
+alpha      -0.99    0.00 0.42 -1.80 -1.27 -0.99 -0.71 -0.16  6969 1.00
+alpha_star  0.09    0.00 0.05 -0.01  0.05  0.09  0.12  0.18  6498 1.00
+beta[1]     0.98    0.01 1.05 -1.09  0.29  0.99  1.70  3.03  6469 1.00
+beta[2]     4.68    0.01 1.13  2.43  3.93  4.69  5.44  6.86  6770 1.00
+sigma       0.42    0.00 0.05  0.31  0.39  0.43  0.46  0.52  1337 1.00
+tau         0.24    0.01 0.17  0.01  0.11  0.21  0.35  0.62   643 1.01
+
+Samples were drawn using NUTS(diag_e) at Mon Mar 17 11:37:56 2025.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).</code></pre>
+</div>
+</div>
+</section>
+<section id="compute-ppd" class="slide level2">
+<h2>Compute PPD</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>Y_pred <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit_icar, <span class="at">pars =</span> <span class="st">"Y_pred"</span>)<span class="sc">$</span>Y_pred</span>
+<span id="cb5-2"><a></a>ppd_oe <span class="ot">&lt;-</span> <span class="fu">sweep</span>(Y_pred, <span class="dv">2</span>, stan_data<span class="sc">$</span>E, <span class="st">"/"</span>)</span>
+<span id="cb5-3"><a></a>ppd_mean <span class="ot">&lt;-</span> <span class="fu">apply</span>(ppd_oe, <span class="dv">2</span>, mean)</span>
+<span id="cb5-4"><a></a>ppd_sd <span class="ot">&lt;-</span> <span class="fu">apply</span>(ppd_oe, <span class="dv">2</span>, sd)</span>
+<span id="cb5-5"><a></a>covid_nc_2020<span class="sc">$</span>ppd_mean <span class="ot">&lt;-</span> ppd_mean</span>
+<span id="cb5-6"><a></a>covid_nc_2020<span class="sc">$</span>ppd_sd <span class="ot">&lt;-</span> ppd_sd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="looking-at-smr-observed-versus-ppd" class="slide level2">
+<h2>Looking at SMR observed versus PPD</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="final-map" class="slide level2">
+<h2>Final Map</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-11-2.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-11-3.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-11-4.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-figure-with-plambda_i-1" class="slide level2">
+<h2>Create a figure with <span class="math inline">\(P(\lambda_i &gt; 1)\)</span></h2>
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>

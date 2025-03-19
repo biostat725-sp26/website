@@ -477,7 +477,7 @@ parameters {
   vector[p] beta;
   real<lower=0> sigma;
   // GP parameters
-  vector[N] eta;
+  vector[N] z;
   real<lower=0> alpha;
   real<lower=0> rho;
 }

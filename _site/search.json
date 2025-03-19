@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -14600,7 +14600,7 @@
     "href": "slides/17-gp.html#conditional-gp-model",
     "title": "Gaussian Processes",
     "section": "Conditional GP Model",
-    "text": "Conditional GP Model\n\ndata {\n  int&lt;lower=0&gt; N;       // total number of observations\n  int&lt;lower=1&gt; n;       // number of eyes\n  int&lt;lower=1&gt; p;       // fixed effects dimension\n  vector[N] Y;          // observation\n  matrix[n, p] X;        // fixed effects predictors\n  array[N] real t;      // obs time points\n  array[n] int s;       // sizes of within-pt obs\n}\ntransformed data {\n  real delta = 1e-9;\n}\nparameters {\n  // Fixed effects model\n  vector[p] beta;\n  real&lt;lower=0&gt; sigma;\n  // GP parameters\n  vector[N] eta;\n  real&lt;lower=0&gt; alpha;\n  real&lt;lower=0&gt; rho;\n}\ntransformed parameters {\n  vector[n] mu = X * beta;\n}\nmodel {\n  beta ~ normal(0,3);\n  z ~ std_normal();\n  alpha ~ std_normal();\n  sigma ~ std_normal();\n  rho ~ inv_gamma(5,5);\n\n  vector[N] mu_rep;\n  vector[N] eta;\n  \n  int pos;\n  pos = 1;\n  // Ragged loop computing the mean for each time obs\n  for (i in 1:n) {\n    // GP covariance for the k-th eye\n    int n_i = s[i];\n    int pos_end = pos + n_i - 1;\n    matrix[n_i, n_i] R_C;\n    matrix[n_i, n_i] C = gp_exp_quad_cov(segment(t, pos, n_i), alpha, rho);\n    for (j in 1:n_i) {\n      // adding a small term to the diagonal entries\n      C[j, j] = C[j, j] + delta;\n    }\n    R_C = cholesky_decompose(C);\n    \n    // Mean of data at each time\n    mu_rep[pos:pos_end] = rep_vector(mu[i], n_i);\n    // GP for the i-th eye\n    eta[pos:pos_end] = R_C * segment(z, pos, n_i);\n    pos = pos_end + 1;\n  }\n  // Normal observation model centered at mu_rep + eta\n  Y ~ normal(mu_rep + eta, sigma);\n}"
+    "text": "Conditional GP Model\n\ndata {\n  int&lt;lower=0&gt; N;       // total number of observations\n  int&lt;lower=1&gt; n;       // number of eyes\n  int&lt;lower=1&gt; p;       // fixed effects dimension\n  vector[N] Y;          // observation\n  matrix[n, p] X;        // fixed effects predictors\n  array[N] real t;      // obs time points\n  array[n] int s;       // sizes of within-pt obs\n}\ntransformed data {\n  real delta = 1e-9;\n}\nparameters {\n  // Fixed effects model\n  vector[p] beta;\n  real&lt;lower=0&gt; sigma;\n  // GP parameters\n  vector[N] z;\n  real&lt;lower=0&gt; alpha;\n  real&lt;lower=0&gt; rho;\n}\ntransformed parameters {\n  vector[n] mu = X * beta;\n}\nmodel {\n  beta ~ normal(0,3);\n  z ~ std_normal();\n  alpha ~ std_normal();\n  sigma ~ std_normal();\n  rho ~ inv_gamma(5,5);\n\n  vector[N] mu_rep;\n  vector[N] eta;\n  \n  int pos;\n  pos = 1;\n  // Ragged loop computing the mean for each time obs\n  for (i in 1:n) {\n    // GP covariance for the k-th eye\n    int n_i = s[i];\n    int pos_end = pos + n_i - 1;\n    matrix[n_i, n_i] R_C;\n    matrix[n_i, n_i] C = gp_exp_quad_cov(segment(t, pos, n_i), alpha, rho);\n    for (j in 1:n_i) {\n      // adding a small term to the diagonal entries\n      C[j, j] = C[j, j] + delta;\n    }\n    R_C = cholesky_decompose(C);\n    \n    // Mean of data at each time\n    mu_rep[pos:pos_end] = rep_vector(mu[i], n_i);\n    // GP for the i-th eye\n    eta[pos:pos_end] = R_C * segment(z, pos, n_i);\n    pos = pos_end + 1;\n  }\n  // Normal observation model centered at mu_rep + eta\n  Y ~ normal(mu_rep + eta, sigma);\n}"
   },
   {
     "objectID": "slides/17-gp.html#fitting-the-model",
@@ -15349,7 +15349,7 @@
     "href": "ae/ae-07-geospatial.html#extracting-data-for-a-subset",
     "title": "AE 07: Geospatial",
     "section": "Extracting Data for a Subset",
-    "text": "Extracting Data for a Subset\nIn the lecture, we analyzed data from one state as a demonstration. Here we will show the code for accomoplishing this. We start by defining our state of interest. We can see all the states here.\n\ntable(data_sf_drc$name) |&gt; kable(col.names = c(\"State\", \"Observations\"))\n\n\n\n\nState\nObservations\n\n\n\n\nBandundu\n1152\n\n\nBas-Congo\n447\n\n\nÉquateur\n1175\n\n\nKasaï-Occidental\n708\n\n\nKasaï-Oriental\n933\n\n\nKatanga\n980\n\n\nKinshasa City\n818\n\n\nManiema\n426\n\n\nNord-Kivu\n567\n\n\nOrientale\n897\n\n\nSud-Kivu\n490\n\n\n\n\n\nWe will work with Sud-Kivu, like we did in the lecture.\n\nstate_of_interest &lt;- c(\"Sud-Kivu\")\ndata_sf_state_of_interest &lt;- data_sf_drc %&gt;% filter(name %in% state_of_interest)\n\nWe can then plot the average hemoglobin across our state of interest.\n\nggplot() +\n  # Plot our state of interest\n  geom_sf(data = congo_states_map %&gt;% filter(name %in% state_of_interest), fill = \"lightblue\", color = \"black\", size = 0.2) +\n  # Plot the points from your data\n  geom_sf(data = data_sf_state_of_interest, aes(color = community_size), shape = 16, size = 2) +\n  scale_color_viridis_b() + \n  theme_minimal() +\n  labs(title = \"Map of Sud-Kivu in the DRC\",\n       caption = \"Data Source: rnaturalearth\",\n       color = \"Hemoglobin (g/dL)\") +\n  theme(axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        axis.title = element_blank()) +\n  coord_sf()  # Ensures the map is properly projected"
+    "text": "Extracting Data for a Subset\nIn the lecture, we analyzed data from one state as a demonstration. Here we will show the code for accomoplishing this. We start by defining our state of interest. We can see all the states here.\n\ntable(data_sf_drc$name) |&gt; kable(col.names = c(\"State\", \"Observations\"))\n\n\n\n\nState\nObservations\n\n\n\n\nBandundu\n1152\n\n\nBas-Congo\n447\n\n\nÉquateur\n1175\n\n\nKasaï-Occidental\n708\n\n\nKasaï-Oriental\n933\n\n\nKatanga\n980\n\n\nKinshasa City\n818\n\n\nManiema\n426\n\n\nNord-Kivu\n567\n\n\nOrientale\n897\n\n\nSud-Kivu\n490\n\n\n\n\n\nWe will work with Sud-Kivu, like we did in the lecture.\n\nstate_of_interest &lt;- c(\"Sud-Kivu\")\ndata_sf_state_of_interest &lt;- data_sf_drc %&gt;% filter(name %in% state_of_interest)\n\nWe can then plot the average hemoglobin across our state of interest.\n\nggplot() +\n  # Plot our state of interest\n  geom_sf(data = congo_states_map %&gt;% filter(name %in% state_of_interest), fill = \"lightblue\", color = \"black\", size = 0.2) +\n  # Plot the points from your data\n  geom_sf(data = data_sf_state_of_interest, aes(color = mean_hemoglobin), shape = 16, size = 2) +\n  scale_color_viridis_b() + \n  theme_minimal() +\n  labs(title = \"Map of Sud-Kivu in the DRC\",\n       caption = \"Data Source: rnaturalearth\",\n       color = \"Hemoglobin (g/dL)\") +\n  theme(axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        axis.title = element_blank()) +\n  coord_sf()  # Ensures the map is properly projected"
   },
   {
     "objectID": "ae/ae-07-geospatial.html#obtain-a-grid-for-prediction",
@@ -15363,7 +15363,7 @@
     "href": "ae/ae-07-geospatial.html#fit-a-bayesian-spatial-model",
     "title": "AE 07: Geospatial",
     "section": "Fit a Bayesian Spatial Model",
-    "text": "Fit a Bayesian Spatial Model\nWe will fit the model introduced in the lecture. We begin by preparing the data for the Stan model. We start by defining the vector \\(\\mathbf{Y}\\) and the matrix \\(\\mathbf{X}\\), being careful to not include an intercept. We then define the location identifier. We also define \\(N = \\sum_{i=1}^{n} n_i\\), the number of spatial locations, \\(n\\), and the number of predictors, \\(p\\).\n\nY &lt;- data_sf_state_of_interest$hemoglobin\nX &lt;- model.matrix(~ I(age / 10) + as.factor(urban), data = data_sf_state_of_interest)[, -1]\nIds &lt;- as.numeric(as.factor(data_sf_state_of_interest$loc_id))\nN &lt;- length(Y)\np &lt;- ncol(X)\nn &lt;- length(unique(Ids))\n\nWe then define both the observed coordinates, \\(\\mathbf{u}\\), and the new coordinates where predictions are desired, \\(\\mathbf{u}^*\\). Note that \\(\\mathbf{u}\\) is \\(n\\) dimensional, so we must only take one row per location. We also define \\(d\\) the dimension of the spatial location vector (i.e., \\(d=2\\)), and \\(q\\), the number of new spatial locations.\n\nu &lt;- st_coordinates(data_sf_state_of_interest)[!duplicated(data_sf_state_of_interest$loc_id), ]\nu_new &lt;- st_coordinates(grid_inside_drc)\nd &lt;- ncol(u)\nq &lt;- nrow(u_new)\n\nFinally, we define the martrix \\(\\mathbf{X}^*\\), which is an \\(q \\times p\\) dimensional matrix that contains the predictor values for each of the new locations. We just specify the overall average mean age and specify everyone to be rural.\n\nX_new &lt;- matrix(cbind(mean(data$age), 0), nrow = q, ncol = p, byrow = TRUE)\n\nWe can now define the Stan data object.\n\nstan_data &lt;- list(\n  N = N,\n  p = p,\n  n = n,\n  d = d, \n  q = q,\n  Y = Y,\n  X = X,\n  Ids = Ids,\n  u = u,\n  u_new = u_new,\n  X_new = X_new\n)\n\nWe can then compile and fit the spatial model, which is saved in geospatial.stan, and is available in your AE 07 repo. I specify a few additional arguments to run the model for more iterations and don’t save a few parameters that are not needed for inference. I also played with control to get optimal convergence. For this model it is useful to specify options(mc.cores = 4).\n\noptions(mc.cores = 4)\ngeospatial_model &lt;- stan_model(file = \"geospatial.stan\")\nfit_spatial &lt;- sampling(spatial_model, stan_data, iter = 4000, control = list(\"adapt_delta\" = 0.99), pars = c(\"z\", \"LK\", \"theta_new\", \"lp__\"), include = FALSE)\n\nWe can do all of the typical evaluation of MCMC convergence, posterior predictive checks, and posterior summaries. Here I will show you the code for mapping the posterior predictive distribution across the predictive grid. We begin by extracting the posterior predictive distribution for our grid and then compute posterior mean and standard deviation.\n\nY_new &lt;- rstan::extract(fit_spatial, pars = \"Y_new\")$Y_new\nmeans &lt;- apply(Y_new, 2, mean)\nsds &lt;- apply(Y_new, 2, sd)\n\nWe then add these predictions to the sf spatial grid object.\n\ngrid_inside_drc$prediction_mean &lt;- means\ngrid_inside_drc$prediction_sd &lt;- sds\n\nWe are now ready to create the visualizations.\n# Means\nggplot() +\n  geom_sf(data = grid_inside_drc, aes(color = prediction_mean), shape = 15, size = 10) +\n  scale_color_viridis_c() + \n  geom_sf(data = congo_states_map %&gt;% filter(name %in% state_of_interest), fill = NA, color = \"black\", size = 1) +\n  geom_sf(data = data_sf_state_of_interest[!duplicated(data_sf_state_of_interest$loc_id), ], col = \"gray\", shape = 16, size = 2) +\n  theme_minimal() +\n  labs(title = \"Posterior Predictive Distribution Mean\",\n       subtitle = paste(\"State:\", paste(state_of_interest, collapse = \", \")),\n       caption = \"Data Source: rnaturalearth\",\n       color = \"Posterior Mean\") +\n  theme(axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        axis.title = element_blank()) +\n  coord_sf()  # Ensures the map is properly projected\n# Standard deviations\nggplot() +\n  # Plot the points from your data\n  geom_sf(data = grid_inside_drc, aes(color = prediction_sd), shape = 15, size = 10) +\n  scale_color_viridis_c() + \n  geom_sf(data = congo_states_map %&gt;% filter(name %in% state_of_interest), fill = NA, color = \"black\", size = 1) +\n  geom_sf(data = data_sf_state_of_interest[!duplicated(data_sf_state_of_interest$loc_id), ], col = \"gray\", shape = 16, size = 2) +\n  theme_minimal() +\n  labs(title = \"Posterior Predictive Distribution Standard Deviation (SD)\",\n       subtitle = paste(\"State:\", paste(state_of_interest, collapse = \", \")),\n       caption = \"Data Source: rnaturalearth\",\n       color = \"Posterior SD\") +\n  theme(axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        axis.title = element_blank()) +\n  coord_sf()  # Ensures the map is properly projected"
+    "text": "Fit a Bayesian Spatial Model\nWe will fit the model introduced in the lecture. We begin by preparing the data for the Stan model. We start by defining the vector \\(\\mathbf{Y}\\) and the matrix \\(\\mathbf{X}\\), being careful to not include an intercept. We then define the location identifier. We also define \\(N = \\sum_{i=1}^{n} n_i\\), the number of spatial locations, \\(n\\), and the number of predictors, \\(p\\).\n\nY &lt;- data_sf_state_of_interest$hemoglobin\nX &lt;- model.matrix(~ I(age / 10) + as.factor(urban), data = data_sf_state_of_interest)[, -1]\nIds &lt;- as.numeric(as.factor(data_sf_state_of_interest$loc_id))\nN &lt;- length(Y)\np &lt;- ncol(X)\nn &lt;- length(unique(Ids))\n\nWe then define both the observed coordinates, \\(\\mathbf{u}\\), and the new coordinates where predictions are desired, \\(\\mathbf{u}^*\\). Note that \\(\\mathbf{u}\\) should be \\(n\\) dimensional, meaning it only includes the \\(n\\) unique locations, not all \\(N\\) locations. We also define \\(d\\) the dimension of the spatial location vector (i.e., \\(d=2\\)), and \\(q\\), the number of new spatial locations.\n\nu &lt;- st_coordinates(data_sf_state_of_interest)[!duplicated(data_sf_state_of_interest$loc_id), ]\nu_new &lt;- st_coordinates(grid_inside_drc)\nd &lt;- ncol(u)\nq &lt;- nrow(u_new)\n\nFinally, we define the matrix \\(\\mathbf{X}^*\\), which is an \\(q \\times p\\) dimensional matrix that contains the predictor values for each of the new locations. We just specify the overall average mean age and specify everyone to be rural.\n\nX_new &lt;- matrix(cbind(mean(data_sf_state_of_interest$age), 0), nrow = q, ncol = p, byrow = TRUE)\n\nWe can now define the Stan data object.\n\nstan_data &lt;- list(\n  N = N,\n  p = p,\n  n = n,\n  d = d, \n  q = q,\n  Y = Y,\n  X = X,\n  Ids = Ids,\n  u = u,\n  u_new = u_new,\n  X_new = X_new\n)\n\nWe can then compile and fit the spatial model, which is saved in geospatial.stan, and is available in your AE 07 repo. I specify a few additional arguments to run the model for more iterations and don’t save a few parameters that are not needed for inference. I also played with control to get optimal convergence. For this model it is useful to specify options(mc.cores = 4).\n\noptions(mc.cores = 4)\ngeospatial_model &lt;- stan_model(file = \"geospatial.stan\")\nfit_spatial &lt;- sampling(geospatial_model, stan_data, \n                        iter = 4000, \n                        control = list(\"adapt_delta\" = 0.99), \n                        pars = c(\"z\", \"LK\", \"theta_new\", \"lp__\"), \n                        include = FALSE)\n\nWe can do all of the typical evaluation of MCMC convergence, posterior predictive checks, and posterior summaries. Here I will show you the code for mapping the posterior predictive distribution across the predictive grid. We begin by extracting the posterior predictive distribution for our grid and then compute posterior mean and standard deviation.\n\nY_new &lt;- rstan::extract(fit_spatial, pars = \"Y_new\")$Y_new\nmeans &lt;- apply(Y_new, 2, mean)\nsds &lt;- apply(Y_new, 2, sd)\n\nWe then add these predictions to the sf spatial grid object.\n\ngrid_inside_drc$prediction_mean &lt;- means\ngrid_inside_drc$prediction_sd &lt;- sds\n\nWe are now ready to create the visualizations.\n# Means\nggplot() +\n  geom_sf(data = grid_inside_drc, aes(color = prediction_mean), shape = 15, size = 10) +\n  scale_color_viridis_c() + \n  geom_sf(data = congo_states_map %&gt;% filter(name %in% state_of_interest), fill = NA, color = \"black\", size = 1) +\n  geom_sf(data = data_sf_state_of_interest[!duplicated(data_sf_state_of_interest$loc_id), ], col = \"gray\", shape = 16, size = 2) +\n  theme_minimal() +\n  labs(title = \"Posterior Predictive Distribution Mean\",\n       subtitle = paste(\"State:\", paste(state_of_interest, collapse = \", \")),\n       caption = \"Data Source: rnaturalearth\",\n       color = \"Posterior Mean\") +\n  theme(axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        axis.title = element_blank()) +\n  coord_sf()  # Ensures the map is properly projected\n# Standard deviations\nggplot() +\n  # Plot the points from your data\n  geom_sf(data = grid_inside_drc, aes(color = prediction_sd), shape = 15, size = 10) +\n  scale_color_viridis_c() + \n  geom_sf(data = congo_states_map %&gt;% filter(name %in% state_of_interest), fill = NA, color = \"black\", size = 1) +\n  geom_sf(data = data_sf_state_of_interest[!duplicated(data_sf_state_of_interest$loc_id), ], col = \"gray\", shape = 16, size = 2) +\n  theme_minimal() +\n  labs(title = \"Posterior Predictive Distribution Standard Deviation (SD)\",\n       subtitle = paste(\"State:\", paste(state_of_interest, collapse = \", \")),\n       caption = \"Data Source: rnaturalearth\",\n       color = \"Posterior SD\") +\n  theme(axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        axis.title = element_blank()) +\n  coord_sf()  # Ensures the map is properly projected"
   },
   {
     "objectID": "slides/19-disease-mapping.html#review-of-last-lecture",
@@ -15426,7 +15426,7 @@
     "href": "slides/19-disease-mapping.html#motivating-data",
     "title": "Disease Mapping",
     "section": "Motivating Data",
-    "text": "Motivating Data"
+    "text": "Motivating Data\nToday, we will motivate areal spatial data analysis and disease mapping by studying 2020 COVID mortality at the county-level in North Carolina. The data object covid_nc_2020 is an sf object.\n\nVariables are:\n\nname: county name.\npopulation: 2020 population.\nobs_deaths: observed number of COVID-related deaths in 2020.\nest_deaths: estimated number of COVID-related deaths in 2020.\nsmr: standardized mortality ratio.\nage: precentage of residents over 60 years of age.\npoverty: percentage of residents below the poverty line.\ngeometry: contains centroid and boundary information for each county."
   },
   {
     "objectID": "slides/21-scalable-1.html#review-of-the-last-lecture",
@@ -15707,5 +15707,369 @@
     "title": "Scalable Gaussian Processes #1",
     "section": "References",
     "text": "References\n\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#disease-mapping",
+    "href": "slides/19-disease-mapping.html#disease-mapping",
+    "title": "Disease Mapping",
+    "section": "Disease Mapping",
+    "text": "Disease Mapping\nBayesian hierarchical models enable to obtain smoothed disease relative risks by including covariates and random effects to borrow information from neighboring areas. Spatial disease risk models are commonly specified using a Poisson distribution for the observed number of cases (\\(Y_i\\)) with mean equal to the expected number of cases (\\(E_i\\)) times the relative risk (\\(\\lambda_i\\)) corresponding to area \\(i\\), \\(i = 1,\\ldots,n\\),\n\\[\\begin{aligned}\nY_i \\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i\n\\end{aligned}\\]\nHere, the logarithm of \\(\\lambda_i\\) is expressed as a sum of fixed effects to quantify the effects of the covariates on the disease risk, and random effects that represent residual variation that is not explained by the available covariates. The fixed effects are expressed using a vector of intercept and\nSpatial random effects \\(\\theta_i\\) that smooth data according to a neighborhood structure are included to acknowledge that data may be spatially correlated, and relative risks in neighboring areas may be more similar than relative risks in areas that are further away Unstructured exchangeable components \\(\\epsilon_i\\) are also included to model uncorrelated noise.\nThe relative risk \\(\\lambda_i\\) quantifies whether an area \\(i\\) has higher (\\(\\lambda_i &gt; 1\\)) or lower (\\(\\lambda_i &lt; 1\\)) risk than the average risk in the standard population (e.g., the whole population of the study region). For example, \\(\\lambda_i = 2\\) indicates the risk of area \\(i\\) is two times the average risk in the standard population."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#standardized-mortality-ratios",
+    "href": "slides/19-disease-mapping.html#standardized-mortality-ratios",
+    "title": "Disease Mapping",
+    "section": "Standardized Mortality Ratios",
+    "text": "Standardized Mortality Ratios"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#compute-adjacency-matrix",
+    "href": "slides/19-disease-mapping.html#compute-adjacency-matrix",
+    "title": "Disease Mapping",
+    "section": "Compute Adjacency Matrix",
+    "text": "Compute Adjacency Matrix\n\n###Get adjacency matrix\nneighbors &lt;- spdep::poly2nb(covid_nc_2020)\nadj_matrix &lt;- spdep::nb2mat(neighbors, style = \"B\", zero.policy = TRUE)\n# style = \"B\" specifies binary encoding (1 if neighbors, 0 if not).\n# zero.policy = TRUE ensures the function works even if some counties do not have neighbors.\n# Convert adjacency matrix to a long format for ggplot\nadj_matrix_long &lt;- melt(adj_matrix)\n\n# Plot the adjacency matrix\n# ggplot(adj_matrix_long, aes(x = Var1, y = Var2, fill = value)) +\n#  geom_tile() +\n#  scale_fill_gradient(low = \"white\", high = \"blue\") +\n#  labs(title = \"Adjacency Matrix Heatmap\", x = \"County\", y = \"County\")"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#prepare-adjacnecy-for-stan",
+    "href": "slides/19-disease-mapping.html#prepare-adjacnecy-for-stan",
+    "title": "Disease Mapping",
+    "section": "Prepare Adjacnecy for Stan",
+    "text": "Prepare Adjacnecy for Stan\n\n# Get the row-column pairs where the adjacency matrix is 1\n# This will return all non-zero indices in the adjacency matrix\nneighbor_pairs &lt;- which(adj_matrix == 1, arr.ind = TRUE)\n\n# Filter out the upper triangle (to avoid repeating edges)\nneighbor_pairs_lower &lt;- neighbor_pairs[neighbor_pairs[, 1] &lt; neighbor_pairs[, 2], ]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#better-adjacency-plot",
+    "href": "slides/19-disease-mapping.html#better-adjacency-plot",
+    "title": "Disease Mapping",
+    "section": "Better Adjacency Plot",
+    "text": "Better Adjacency Plot"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#fit-the-stan-model",
+    "href": "slides/19-disease-mapping.html#fit-the-stan-model",
+    "title": "Disease Mapping",
+    "section": "Fit the Stan Model",
+    "text": "Fit the Stan Model\n\n###Try to fit ICAR model\nicar &lt;- stan_model(\"/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/covid/icar.stan\")\nX &lt;- model.matrix(~ age + poverty, data = covid_nc_2020)[, -1]\nstan_data &lt;- list(\n  n = nrow(covid_nc_2020),\n  p = ncol(X),\n  n_edges = nrow(neighbor_pairs_lower),\n  node1 = neighbor_pairs_lower[, 1],\n  node2 = neighbor_pairs_lower[, 2],\n  Y = covid_nc_2020$DEATHS,\n  E = covid_nc_2020$ESTDEATHS,\n  X = X\n)\nfit_icar &lt;- sampling(icar, stan_data, pars = c(\"z\", \"log_mu\", \"lp__\"), include = FALSE, iter = 10000)\nprint(fit_icar, pars = c(\"alpha\", \"alpha_star\", \"beta\", \"sigma\", \"tau\"))\nrstan::traceplot(fit_icar, pars = c(\"alpha\", \"alpha_star\", \"beta\", \"sigma\", \"tau\"))\nrstan::traceplot(fit_icar, pars = \"theta[1]\")\nsaveRDS(fit_icar, file = \"/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/19-fit-icar.rds\")\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=10000; warmup=5000; thin=1; \npost-warmup draws per chain=5000, total post-warmup draws=20000.\n\n            mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nalpha      -0.99    0.00 0.42 -1.80 -1.27 -0.99 -0.71 -0.16  6969 1.00\nalpha_star  0.09    0.00 0.05 -0.01  0.05  0.09  0.12  0.18  6498 1.00\nbeta[1]     0.98    0.01 1.05 -1.09  0.29  0.99  1.70  3.03  6469 1.00\nbeta[2]     4.68    0.01 1.13  2.43  3.93  4.69  5.44  6.86  6770 1.00\nsigma       0.42    0.00 0.05  0.31  0.39  0.43  0.46  0.52  1337 1.00\ntau         0.24    0.01 0.17  0.01  0.11  0.21  0.35  0.62   643 1.01\n\nSamples were drawn using NUTS(diag_e) at Mon Mar 17 11:37:56 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#looking-at-smr-observed-versus-ppd",
+    "href": "slides/19-disease-mapping.html#looking-at-smr-observed-versus-ppd",
+    "title": "Disease Mapping",
+    "section": "Looking at SMR observed versus PPD",
+    "text": "Looking at SMR observed versus PPD"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#final-map",
+    "href": "slides/19-disease-mapping.html#final-map",
+    "title": "Disease Mapping",
+    "section": "Final Map",
+    "text": "Final Map"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#compute-ppd",
+    "href": "slides/19-disease-mapping.html#compute-ppd",
+    "title": "Disease Mapping",
+    "section": "Compute PPD",
+    "text": "Compute PPD\n\nY_pred &lt;- rstan::extract(fit_icar, pars = \"Y_pred\")$Y_pred\nppd_oe &lt;- sweep(Y_pred, 2, stan_data$E, \"/\")\nppd_mean &lt;- apply(ppd_oe, 2, mean)\nppd_sd &lt;- apply(ppd_oe, 2, sd)\ncovid_nc_2020$ppd_mean &lt;- ppd_mean\ncovid_nc_2020$ppd_sd &lt;- ppd_sd"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#standardized-mortality-ratios-1",
+    "href": "slides/19-disease-mapping.html#standardized-mortality-ratios-1",
+    "title": "Disease Mapping",
+    "section": "Standardized Mortality Ratios",
+    "text": "Standardized Mortality Ratios\nThe Standardized Mortality Ratio (SMR) is a ratio of the observed number of deaths to the expected number of deaths in a population.\nIt is often used in epidemiology and public health to assess mortality in a population relative to a standard or reference population.\nFormula:\n\\[\\text{SMR} = \\frac{\\text{Total Observed Deaths}}{\\text{Total Expected Deaths}}\\]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#smr-simplified-example",
+    "href": "slides/19-disease-mapping.html#smr-simplified-example",
+    "title": "Disease Mapping",
+    "section": "SMR: Simplified Example",
+    "text": "SMR: Simplified Example\nWe will calculate SMR using the overall population proportions without adjusting for age, sex, or other factors.\nConsider the following data for different counties:\n\n\n\nCounty\nObserved Deaths\nPopulation\n\n\n\n\nCounty A\n10\n20,000\n\n\nCounty B\n15\n30,000\n\n\nCounty C\n5\n10,000"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#smr-step-1---calculate-expected-deaths",
+    "href": "slides/19-disease-mapping.html#smr-step-1---calculate-expected-deaths",
+    "title": "Disease Mapping",
+    "section": "SMR: Step 1 - Calculate Expected Deaths",
+    "text": "SMR: Step 1 - Calculate Expected Deaths\nFirst, we calculate the Expected Deaths for each county based on the overall death rate in the standard population.\nFor simplicity, let’s assume the standard death rate is 0.0005 for all counties.\n\\[\\text{Expected Deaths} = \\text{Death Rate} \\times \\text{Population}\\]\nFor each county:\n\nCounty A: \\(0.0005 \\times 20,000 = 10\\)\nCounty B: \\(0.0005 \\times 30,000 = 15\\)\nCounty C: \\(0.0005 \\times 10,000 = 5\\)"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#smr-step-2---calculate-total-observed-and-expected-deaths",
+    "href": "slides/19-disease-mapping.html#smr-step-2---calculate-total-observed-and-expected-deaths",
+    "title": "Disease Mapping",
+    "section": "SMR: Step 2 - Calculate Total Observed and Expected Deaths",
+    "text": "SMR: Step 2 - Calculate Total Observed and Expected Deaths\nNext, sum the observed deaths and expected deaths across all counties:\n\nTotal Observed Deaths = $ 10 + 15 + 5 = 30 $\nTotal Expected Deaths = $ 10 + 15 + 5 = 30 $"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#smr-step-3---calculate-smr",
+    "href": "slides/19-disease-mapping.html#smr-step-3---calculate-smr",
+    "title": "Disease Mapping",
+    "section": "SMR: Step 3 - Calculate SMR",
+    "text": "SMR: Step 3 - Calculate SMR\nNow, we compute the Standardized Mortality Ratio (SMR):\n\\[\\text{SMR} = \\frac{\\text{Total Observed Deaths}}{\\text{Total Expected Deaths}} = \\frac{30}{30} = 1\\]\nAn SMR of 1 means that the observed number of deaths is exactly what was expected based on the standard population."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#interpretation-of-smr",
+    "href": "slides/19-disease-mapping.html#interpretation-of-smr",
+    "title": "Disease Mapping",
+    "section": "Interpretation of SMR",
+    "text": "Interpretation of SMR\nThe Standardized Mortality Ratio (SMR) helps in understanding the relative mortality in a population compared to a standard population.\n\nSMR = 1: The observed deaths are equal to the expected deaths.\nSMR &gt; 1: The observed deaths exceed the expected deaths, suggesting excess mortality.\nSMR &lt; 1: The observed deaths are fewer than the expected deaths, suggesting lower mortality.\n\nIn this simplified version, we only considered overall population proportions. In real-world applications, age, sex, and other demographic factors are typically accounted for to provide a more accurate SMR."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#standardized-mortality-ratios-2",
+    "href": "slides/19-disease-mapping.html#standardized-mortality-ratios-2",
+    "title": "Disease Mapping",
+    "section": "Standardized Mortality Ratios",
+    "text": "Standardized Mortality Ratios"
+  },
+  {
+    "objectID": "ae/ae-08-disease-mapping.html",
+    "href": "ae/ae-08-disease-mapping.html",
+    "title": "AE 08: Disease Mapping",
+    "section": "",
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-08-disease-mapping.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-08-disease-mapping.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 08: Disease Mapping",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-08-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-08.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-08-disease-mapping.html#covid-death",
+    "href": "ae/ae-08-disease-mapping.html#covid-death",
+    "title": "AE 08: Disease Mapping",
+    "section": "COVID Death",
+    "text": "COVID Death\nToday, we will motivate areal spatial data analysis and disease mapping by studying deaths attributed to COVID in 2020 across North Carolina at the county level. The data object covid_nc_2020 is an sf object.\n\nVariables are:\n\nname: county name.\npopulation: 2020 population.\nobs_deaths: observed number of COVID-related deaths in 2020.\nest_deaths: estimated number of COVID-related deaths in 2020.\nsmr: standardized mortality ratio.\nage: precentage of residents over 60 years of age.\npoverty: percentage of residents below the poverty line.\ngeometry: contains centroid and boundary information for each county.\n\n\nThe data set is available in your AE repos and is called covid_nc_2020.shp.\n\ncovid_nc_2020 &lt;- st_read(\"covid_nc_2020.shp\")"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#covid-mortality",
+    "href": "slides/19-disease-mapping.html#covid-mortality",
+    "title": "Disease Mapping",
+    "section": "COVID Mortality",
+    "text": "COVID Mortality"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-1-introduction-to-disease-mapping",
+    "href": "slides/19-disease-mapping.html#slide-1-introduction-to-disease-mapping",
+    "title": "Disease Mapping",
+    "section": "Slide 1: Introduction to Disease Mapping",
+    "text": "Slide 1: Introduction to Disease Mapping\nWhat is Disease Mapping?\nDisease mapping is a way of visualizing and analyzing geographic variations in health outcomes, such as mortality or disease incidence, across different regions (e.g., counties or neighborhoods).\nIt helps us identify regions with unusually high or low health outcomes, which could be indicative of underlying health disparities."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-2-the-challenge-with-raw-health-data",
+    "href": "slides/19-disease-mapping.html#slide-2-the-challenge-with-raw-health-data",
+    "title": "Disease Mapping",
+    "section": "Slide 2: The Challenge with Raw Health Data",
+    "text": "Slide 2: The Challenge with Raw Health Data\nThe Problem with Raw Counts\nImagine you want to compare the number of deaths across counties in a state, like North Carolina. If we simply look at raw death counts, we might be misled:\n\nLarger counties with more people may have more deaths simply due to their larger population.\nSmaller counties may appear “healthier” simply because they have fewer people, not because they have lower mortality rates.\n\nThus, raw death counts are not enough to draw meaningful comparisons."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-3-disease-mapping-needs-adjustments",
+    "href": "slides/19-disease-mapping.html#slide-3-disease-mapping-needs-adjustments",
+    "title": "Disease Mapping",
+    "section": "Slide 3: Disease Mapping Needs Adjustments",
+    "text": "Slide 3: Disease Mapping Needs Adjustments\nThe Need for Adjustment in Disease Mapping\n\nTo make fair comparisons between regions of different sizes, we need to adjust for population size.\nWithout these adjustments, it’s hard to determine if a county’s high death count is due to its population size or if there’s something unique about the county (e.g., healthcare access, environmental factors) that increases the risk of mortality.\nThis is where we need more nuanced measures to adjust for population size and allow for better comparisons.\nToday we will talk about the standardized mortality ratio (SMR)"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-4-introducing-the-standardized-mortality-ratio-smr",
+    "href": "slides/19-disease-mapping.html#slide-4-introducing-the-standardized-mortality-ratio-smr",
+    "title": "Disease Mapping",
+    "section": "Slide 4: Introducing the Standardized Mortality Ratio (SMR)",
+    "text": "Slide 4: Introducing the Standardized Mortality Ratio (SMR)\nWhat is SMR?\nThe Standardized Mortality Ratio (SMR) is a way of comparing the observed number of deaths in a population to the number of deaths we would expect, given the population’s characteristics (such as population size).\nIt adjusts for differences in population size, allowing us to identify areas where deaths are higher or lower than we would expect."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-5-the-formula-for-smr",
+    "href": "slides/19-disease-mapping.html#slide-5-the-formula-for-smr",
+    "title": "Disease Mapping",
+    "section": "Slide 5: The Formula for SMR",
+    "text": "Slide 5: The Formula for SMR\nSMR Formula\nThe SMR for a given county is calculated as:\n[ = ]\nWhere: - Observed Deaths is the actual number of deaths in the county. - Expected Deaths is the number of deaths we would expect in the county, given the population proportion of that county compared to the total population.\nThe Expected Deaths are calculated by multiplying the total number of deaths in the entire state by the proportion of the population in that county."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-6-example-data",
+    "href": "slides/19-disease-mapping.html#slide-6-example-data",
+    "title": "Disease Mapping",
+    "section": "Slide 6: Example Data",
+    "text": "Slide 6: Example Data\n\n\n\nCounty\nObserved Deaths\nPopulation\nPopulation Proportion\n\n\n\n\nCounty A\n10\n20,000\n0.2\n\n\nCounty B\n15\n30,000\n0.3\n\n\nCounty C\n5\n10,000\n0.5"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-7-step-1---calculate-expected-deaths",
+    "href": "slides/19-disease-mapping.html#slide-7-step-1---calculate-expected-deaths",
+    "title": "Disease Mapping",
+    "section": "Slide 7: Step 1 - Calculate Expected Deaths",
+    "text": "Slide 7: Step 1 - Calculate Expected Deaths\nThe Expected Deaths for each county are calculated by multiplying the total deaths by the population proportion for that county:\n[ = 30 = 6 ] [ = 30 = 9 ] [ = 30 = 15 ]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-8-step-2---compute-smr-for-each-county",
+    "href": "slides/19-disease-mapping.html#slide-8-step-2---compute-smr-for-each-county",
+    "title": "Disease Mapping",
+    "section": "Slide 8: Step 2 - Compute SMR for Each County",
+    "text": "Slide 8: Step 2 - Compute SMR for Each County\nNow, we calculate the SMR by dividing the observed deaths by the expected deaths:\n[ = = 1.67 ] [ = = 1.67 ] [ = = 0.33 ]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-9-interpreting-smr",
+    "href": "slides/19-disease-mapping.html#slide-9-interpreting-smr",
+    "title": "Disease Mapping",
+    "section": "Slide 9: Interpreting SMR",
+    "text": "Slide 9: Interpreting SMR\nWhat Do These Numbers Mean?\n\nSMR = 1: The observed number of deaths matches the expected number of deaths.\nSMR &gt; 1: More deaths than expected (excess mortality).\nSMR &lt; 1: Fewer deaths than expected (lower mortality).\n\nIn our example: - County A and County B have excess mortality, with SMR of 1.67. - County C has fewer deaths than expected, with SMR of 0.33."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-10-why-use-smr-in-disease-mapping",
+    "href": "slides/19-disease-mapping.html#slide-10-why-use-smr-in-disease-mapping",
+    "title": "Disease Mapping",
+    "section": "Slide 10: Why Use SMR in Disease Mapping?",
+    "text": "Slide 10: Why Use SMR in Disease Mapping?\nThe Advantage of SMR\nWithout adjusting for population size, we may misunderstand the health outcomes in a region. Larger regions may appear to have more deaths, but this could be because they have larger populations.\nSMR allows us to: - Make meaningful comparisons across counties of different sizes. - Identify areas with excess mortality (SMR &gt; 1) and areas with lower-than-expected mortality (SMR &lt; 1).\nIn disease mapping, SMR helps us better understand spatial health disparities and identify regions that may need targeted public health interventions."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#slide-11-conclusion",
+    "href": "slides/19-disease-mapping.html#slide-11-conclusion",
+    "title": "Disease Mapping",
+    "section": "Slide 11: Conclusion",
+    "text": "Slide 11: Conclusion\nThe SMR is a crucial tool in disease mapping, helping us adjust for differences in population size and draw more accurate conclusions about health disparities.\nIn this presentation, we showed how disease mapping motivates the need for SMR, which provides a more nuanced and accurate picture of mortality patterns across regions.\nUsing SMR in disease mapping allows us to uncover important patterns and make informed decisions about public health priorities."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#introduction-to-disease-mapping",
+    "href": "slides/19-disease-mapping.html#introduction-to-disease-mapping",
+    "title": "Disease Mapping",
+    "section": "Introduction to Disease Mapping",
+    "text": "Introduction to Disease Mapping\n\nDisease mapping is a way of visualizing and analyzing geographic variations in health outcomes, such as mortality or disease incidence, across different regions (e.g., counties or neighborhoods).\nIt helps us identify regions with unusually high or low health outcomes, which could be indicative of underlying health disparities."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#the-challenge-with-observed-health-data",
+    "href": "slides/19-disease-mapping.html#the-challenge-with-observed-health-data",
+    "title": "Disease Mapping",
+    "section": "The Challenge with Observed Health Data",
+    "text": "The Challenge with Observed Health Data\nImagine you want to compare the number of deaths across counties in a state, like North Carolina. If we simply look at observed death counts, we might be misled:\n\nLarger counties with more people may have more deaths simply due to their larger population.\nSmaller counties may appear “healthier” simply because they have fewer people, not because they have lower mortality rates.\n\nThus, observed death counts are not enough to draw meaningful comparisons."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#introducing-the-standardized-mortality-ratio",
+    "href": "slides/19-disease-mapping.html#introducing-the-standardized-mortality-ratio",
+    "title": "Disease Mapping",
+    "section": "Introducing the Standardized Mortality Ratio",
+    "text": "Introducing the Standardized Mortality Ratio\n\nSMR is a way of comparing the observed number of deaths in a population to the number of deaths we would expect, given the population’s characteristics (such as population size).\nIt adjusts for differences in population size, allowing us to identify areas where deaths are higher or lower than we would expect.\nThe SMR for a given county is calculated as:\n\n\\[\\text{SMR} = \\frac{\\text{Observed Deaths}}{\\text{Expected Deaths}}\\]\n\nThe Expected Deaths are calculated by multiplying the total number of deaths in the entire state by the proportion of the population in that county."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#example-data",
+    "href": "slides/19-disease-mapping.html#example-data",
+    "title": "Disease Mapping",
+    "section": "Example Data",
+    "text": "Example Data\n\n\n\nCounty\nObserved Deaths\nPopulation\nPopulation Proportion\n\n\n\n\nCounty A\n10\n30,000\n0.3\n\n\nCounty B\n15\n50,000\n0.5\n\n\nCounty C\n5\n20,000\n0.2\n\n\nTotal\n30\n100,000\n1.0"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#step-1---calculate-expected-deaths",
+    "href": "slides/19-disease-mapping.html#step-1---calculate-expected-deaths",
+    "title": "Disease Mapping",
+    "section": "Step 1 - Calculate Expected Deaths",
+    "text": "Step 1 - Calculate Expected Deaths\nThe Expected Deaths for each county are calculated by multiplying the total deaths by the population proportion for that county:\n\\[\\begin{aligned}\n\\text{Expected Deaths for County A} = 30 \\times 0.3 &= 9\\\\\n\\text{Expected Deaths for County B} = 30 \\times 0.5 &= 15\\\\\n\\text{Expected Deaths for County C} = 30 \\times 0.2 &= 6\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#step-2---compute-smr-for-each-county",
+    "href": "slides/19-disease-mapping.html#step-2---compute-smr-for-each-county",
+    "title": "Disease Mapping",
+    "section": "Step 2 - Compute SMR for Each County",
+    "text": "Step 2 - Compute SMR for Each County\nNow, we calculate the SMR by dividing the observed deaths by the expected deaths:\n\\[\\begin{aligned}\n\\text{SMR for County A} = \\frac{10}{6} &= 1.67\\\\\n\\text{SMR for County B} = \\frac{15}{9} &= 1.67\\\\\n\\text{SMR for County C} = \\frac{5}{15} &= 0.33\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#nterpreting-smr",
+    "href": "slides/19-disease-mapping.html#nterpreting-smr",
+    "title": "Disease Mapping",
+    "section": "nterpreting SMR",
+    "text": "nterpreting SMR\nWhat Do These Numbers Mean?\n\nSMR = 1: The observed number of deaths matches the expected number of deaths.\nSMR &gt; 1: More deaths than expected (excess mortality).\nSMR &lt; 1: Fewer deaths than expected (lower mortality).\n\nIn our example:\n\nCounty A and County B have excess mortality, with SMR of 1.67.\nCounty C has fewer deaths than expected, with SMR of 0.33."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#why-use-smr-in-disease-mapping",
+    "href": "slides/19-disease-mapping.html#why-use-smr-in-disease-mapping",
+    "title": "Disease Mapping",
+    "section": "Why Use SMR in Disease Mapping?",
+    "text": "Why Use SMR in Disease Mapping?\nSMR allows us to:\n\nMake meaningful comparisons across counties of different sizes.\nIdentify areas with excess mortality (SMR &gt; 1) and areas with lower-than-expected mortality (SMR &lt; 1).\n\nIn disease mapping, SMR helps us better understand spatial health disparities and identify regions that may need targeted public health interventions."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#the-challenge-with-observed-data",
+    "href": "slides/19-disease-mapping.html#the-challenge-with-observed-data",
+    "title": "Disease Mapping",
+    "section": "The Challenge with Observed Data",
+    "text": "The Challenge with Observed Data\nImagine you want to compare the number of deaths across counties in a state, like North Carolina. If we simply look at observed death counts, we might be misled:\n\nLarger counties with more people may have more deaths simply due to their larger population.\nSmaller counties may appear “healthier” simply because they have fewer people, not because they have lower mortality rates.\n\nThus, observed death counts are not enough to draw meaningful comparisons."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#the-challenge-with-observed-data-1",
+    "href": "slides/19-disease-mapping.html#the-challenge-with-observed-data-1",
+    "title": "Disease Mapping",
+    "section": "The Challenge with Observed Data",
+    "text": "The Challenge with Observed Data\n\nTo make fair comparisons between regions of different sizes, we need to adjust for population size (and sometimes demographics).\nWithout these adjustments, it’s hard to determine if a county’s high death count is due to its population size or if there’s something unique about the county (e.g., healthcare access, environmental factors) that increases the risk of mortality.\nThis is where we need more nuanced measures to adjust for population size and allow for better comparisons.\nToday we will talk about the standardized mortality ratio (SMR)."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#standardized-mortality-ratio",
+    "href": "slides/19-disease-mapping.html#standardized-mortality-ratio",
+    "title": "Disease Mapping",
+    "section": "Standardized Mortality Ratio",
+    "text": "Standardized Mortality Ratio\n\nSMR is a way of comparing the observed number of deaths in a population to the number of deaths we would expect, given the population’s characteristics (such as population size).\nIt adjusts for differences in population, allowing us to identify areas where deaths are higher or lower than we would expect.\n\n\\[\\text{SMR} = \\frac{\\text{Observed Deaths}}{\\text{Expected Deaths}}\\]\n\nExpected Deaths is calculated by multiplying the total deaths across the state by the proportion of the population in that county."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#step-2---compute-smr",
+    "href": "slides/19-disease-mapping.html#step-2---compute-smr",
+    "title": "Disease Mapping",
+    "section": "Step 2 - Compute SMR",
+    "text": "Step 2 - Compute SMR\nNow, we calculate the SMR by dividing the observed deaths by the expected deaths:\n\\[\\begin{aligned}\n\\text{SMR for County A} &= \\frac{10}{9} = 1.11\\\\\n\\text{SMR for County B} &= \\frac{15}{15} = 1\\\\\n\\text{SMR for County C} &= \\frac{5}{6} = 0.83\n\\end{aligned}\\]\nWhat do these numbers mean?"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#interpreting-smr",
+    "href": "slides/19-disease-mapping.html#interpreting-smr",
+    "title": "Disease Mapping",
+    "section": "Interpreting SMR",
+    "text": "Interpreting SMR\n\nSMR = 1: The observed number of deaths matches the expected number of deaths.\nSMR &gt; 1: More deaths than expected (excess mortality).\nSMR &lt; 1: Fewer deaths than expected (lower mortality).\n\nIn our example:\n\nCounty A has excess mortality, with SMR of 1.11.\nCounty B has as many deaths as expected, with SMR of 1.\nCounty C has fewer deaths than expected, with SMR of 0.83."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#create-a-figure-with-plambda_i-1",
+    "href": "slides/19-disease-mapping.html#create-a-figure-with-plambda_i-1",
+    "title": "Disease Mapping",
+    "section": "Create a figure with \\(P(\\lambda_i > 1)\\)",
+    "text": "Create a figure with \\(P(\\lambda_i &gt; 1)\\)"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#writing-down-a-model-for-smr",
+    "href": "slides/19-disease-mapping.html#writing-down-a-model-for-smr",
+    "title": "Disease Mapping",
+    "section": "Writing down a model for SMR",
+    "text": "Writing down a model for SMR\nDefine \\(Y_i\\) and \\(E_i\\) as the observed and expected mortality counts at county \\(i\\) (\\(i = 1\\ldots,n\\)). We can model the observed counts as follows:\n\\[Y_i \\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i).\\]\n\nRecall that for a random variable \\(Y \\sim \\text{Poisson}(\\lambda)\\), \\(\\mathbb{E}[Y] = \\lambda\\) and \\(\\mathbb{V}(Y) = \\lambda\\).\nFor our model, we have: \\(\\mathbb{E}[Y_i] = E_i \\lambda_i \\implies \\mathbb{E}\\left[\\frac{Y_i}{E_i}\\right] = \\lambda_i\\).\n\nUnder this parameterization \\(\\lambda_i\\) is the SMR."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#disease-mapping-model",
+    "href": "slides/19-disease-mapping.html#disease-mapping-model",
+    "title": "Disease Mapping",
+    "section": "Disease Mapping Model",
+    "text": "Disease Mapping Model\nThe parameter \\(\\lambda_i\\), sometimes also called relative risk, is modeled as follows:\n\\[\\begin{aligned}\nY_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i\n\\end{aligned}\\]\n\n\\(\\mathbf{x}_i \\in \\mathbb{R}^{p \\times 1}\\) contains county-level predictors.\n\\(\\alpha \\in \\mathbb{R}\\) is a population intercept.\n\\(\\boldsymbol{\\beta} \\in \\mathbb{R}^p\\) is a vector of population coefficients.\n\nBayesian hierarchical models enable to obtain smoothed disease relative risks by including covariates and random effects to borrow information from neighboring areas. Spatial disease risk models are commonly specified using a Poisson distribution for the observed number of cases (\\(Y_i\\)) with mean equal to the expected number of cases (\\(E_i\\)) times the relative risk (\\(\\lambda_i\\)) corresponding to area \\(i\\), \\(i = 1,\\ldots,n\\),\nHere, the logarithm of \\(\\lambda_i\\) is expressed as a sum of fixed effects to quantify the effects of the covariates on the disease risk, and random effects that represent residual variation that is not explained by the available covariates. The fixed effects are expressed using a vector of intercept and\nSpatial random effects \\(\\theta_i\\) that smooth data according to a neighborhood structure are included to acknowledge that data may be spatially correlated, and relative risks in neighboring areas may be more similar than relative risks in areas that are further away Unstructured exchangeable components \\(\\epsilon_i\\) are also included to model uncorrelated noise.\nThe relative risk \\(\\lambda_i\\) quantifies whether an area \\(i\\) has higher (\\(\\lambda_i &gt; 1\\)) or lower (\\(\\lambda_i &lt; 1\\)) risk than the average risk in the standard population (e.g., the whole population of the study region). For example, \\(\\lambda_i = 2\\) indicates the risk of area \\(i\\) is two times the average risk in the standard population."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#lattice-data-areal-data",
+    "href": "slides/19-disease-mapping.html#lattice-data-areal-data",
+    "title": "Disease Mapping",
+    "section": "Lattice Data (Areal Data)",
+    "text": "Lattice Data (Areal Data)\n\nData observed at the level of an areal unit\n\nCounty Level Sudden Infant Death Syndrome Counts"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#lattice-data-areal-data-1",
+    "href": "slides/19-disease-mapping.html#lattice-data-areal-data-1",
+    "title": "Disease Mapping",
+    "section": "Lattice Data (Areal Data)",
+    "text": "Lattice Data (Areal Data)\n\nBirmingham Tract Level Poverty Levels"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#goals-of-areal-spatial-data-analysis",
+    "href": "slides/19-disease-mapping.html#goals-of-areal-spatial-data-analysis",
+    "title": "Disease Mapping",
+    "section": "Goals of Areal Spatial Data Analysis",
+    "text": "Goals of Areal Spatial Data Analysis\nThe goal of areal spatial data analysis is to understand how spatial patterns (e.g., mortality rates, disease incidence) vary across different geographic areas (e.g., counties, neighborhoods).\nIt helps us identify:\n\nClusters: Areas with similar characteristics (e.g., high mortality, disease prevalence).\nOutliers: Areas that deviate significantly from the overall pattern (e.g., unexpectedly high mortality rates).\nSpatial Dependence: Whether values in one area are correlated with values in nearby areas (e.g., neighboring counties with similar health outcomes)."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#why-we-care-about-spatial-patterns",
+    "href": "slides/19-disease-mapping.html#why-we-care-about-spatial-patterns",
+    "title": "Disease Mapping",
+    "section": "Why We Care About Spatial Patterns",
+    "text": "Why We Care About Spatial Patterns\n\nLocal Insights: Spatial analysis helps identify local variations in health outcomes that may not be apparent when analyzing data at a higher (e.g., state or national) level.\nTargeted Interventions: Understanding spatial patterns allows for targeted public health interventions tailored to regions that need attention (e.g., areas with unusually high mortality rates).\nIdentifying Spatial Clusters: By recognizing clusters of high or low rates, we can investigate potential common causes (e.g., environmental factors, access to healthcare, socioeconomic conditions)."
+  },
+  {
+    "objectID": "ae/ae-07-geospatial.html#visualizing-the-correlation",
+    "href": "ae/ae-07-geospatial.html#visualizing-the-correlation",
+    "title": "AE 07: Geospatial",
+    "section": "Visualizing the Correlation",
+    "text": "Visualizing the Correlation\nFinally, we will visualize the posterior correlation function. We begin by extracting the posterior mean value of the covariance function tuning parameter.\n\nrho_mean &lt;- mean(rstan::extract(fit_spatial, pars = \"rho\")$rho)\n\nWe can then define the Matérn 3/2 covariance function, which is a function of the distance between two points, \\(||\\mathbf{h}||\\), and \\(\\rho\\).\n\nmatern_3_2 &lt;- function(h, rho) (1 + sqrt(3) * h / rho) * exp(- sqrt(3) * h / rho)\n\nWe can use this function to compute the correlation matrix for our observed locations. We begin by computing the distance matrix and then compute the correlation matrix at the posterior mean of \\(\\rho\\). We only compute correlation at the unique distances.\n\nD &lt;- as.matrix(dist(u))\ndists &lt;- data.frame(distance_geodisic = unique(D[D != 0]))\ndists$correlation &lt;- matern_3_2(dists$distance_geodisic, rho = rho_mean)\n\nNext we will use the geodist package to convert the geodisic distance of our observed locations to miles. Note that this function converts distance to meters by default, so we divide by 1,609 to get miles.\n\ndist_miles &lt;- geodist::geodist_vec(\n  x1 = u[, 1],\n  y1 = u[, 2],\n  paired = TRUE,\n  measure = \"haversine\"\n) / 1609\n\nThis produces an \\(n \\times n\\) matrix of distances. We extract the unique distances like we did for the original geodisic distances.\n\ndists$distances_miles &lt;- unique(dist_miles[dist_miles != 0])\n\nFinally, we can plot these correlations for both distance units.\n\ncolnames(dists) &lt;- c(\"Geodisic\", \"Correlation\", \"Mile\")\ndat_fig &lt;- pivot_longer(dists, cols = c(\"Geodisic\", \"Mile\"), names_to = \"Distance\")\nggplot(dat_fig, aes(x = value, y = Correlation)) + \n  geom_line() + \n  facet_grid(. ~ Distance, scales = \"free_x\") + \n  labs(x = \"Distance\")"
   }
 ]

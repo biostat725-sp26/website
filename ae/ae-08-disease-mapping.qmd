@@ -1,0 +1,123 @@
+---
+title: "AE 08: Disease Mapping"
+subtitle: "Modeling Standardized Mortality Ratio across North Carolina"
+date: "March 20, 2025"
+---
+
+::: callout-important
+## Due date
+
+Application exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
+
+-   Final `.qmd` and `.pdf` files pushed to your GitHub repo
+-   **Note:** For homeworks and exams, you will also be required to submit your final `.pdf` file submitted on Gradescope
+:::
+
+# Getting Started
+
+## Clone the repo & start new RStudio project
+
+-   Go to the course organization at [github.com/biostat725-sp25](https://github.com/biostat725-sp25) organization on GitHub.
+-   Click on the repo with the prefix **ae-08-**. It contains the starter documents you need to complete the AE.
+-   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you'll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
+    -   See the [HW 00 instructions](https://biostat725-sp25.netlify.app/hw/hw-00#connect-rstudio-and-github) if you have not set up the SSH key or configured git.
+-   In RStudio, go to *File* $\rightarrow$ *New Project* $\rightarrow$ *Version Control* $\rightarrow$ *Git*.
+-   Copy and paste the URL of your assignment repo into the dialog box *Repository URL*. Again, please make sure to have *SSH* highlighted under *Clone* when you copy the address.
+-   Click *Create Project*, and the files from your GitHub repo will be displayed in the *Files* pane in RStudio.
+-   Click `ae-08.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
+
+# R packages
+
+We will begin by loading R packages that we will use in this AE.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)     # data wrangling and visualization
+library(knitr)         # format output
+library(rstan)         # Stan
+library(bayesplot)     # figures for post Stan inference
+library(loo)           # model comparison
+# new packages are below
+library(sf)            # functions to work with spatial data
+library(rnaturalearth) # maps of DRC
+library(geodist)       # conversion from geodisic to miles
+
+```
+
+# Data
+
+## COVID Death 
+
+Today, we will motivate areal spatial data analysis and disease mapping by studying deaths attributed to COVID in 2020 across North Carolina at the county level. The data object `covid_nc_2020` is an `sf` object.
+
+-   Variables are:
+
+    -   `name`: county name.
+
+    -   `population`: 2020 population.
+
+    -   `obs_deaths`: observed number of COVID-related deaths in 2020.
+
+    -   `est_deaths`: estimated number of COVID-related deaths in 2020.
+
+    -   `smr`: standardized mortality ratio.
+
+    -   `age`: precentage of residents over 60 years of age.
+
+    -   `poverty`: percentage of residents below the poverty line.
+    
+    -   `geometry`: contains centroid and boundary information for each county.
+
+The data set is available in your AE repos and is called `covid_nc_2020.shp`.
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
+covid_nc_2020 <- st_read("covid_nc_2020.shp")
+```
+
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+library(DT)
+covid_nc_2020 <- st_read("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/covid/covid_nc_2020.shp", quiet = TRUE)
+DT::datatable(covid_nc_2020)
+```
+
+# Mapping Death
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 5
+#| layout-ncol: 1
+ggplot(data = covid_nc_2020) +
+  geom_sf(fill = "lightblue", color = "black") +
+  geom_sf(aes(fill = obs_deaths), shape = 16, size = 2) +
+  theme_minimal() +
+  labs(title = "2020 COVID Deaths by County",
+       fill = "Deaths") +
+  scale_fill_viridis_c() +  # Custom labels for the breaks
+  coord_sf()  # Ensures the map is properly projected
+```
+
+# Exercise
+
+Replicate the analysis above for a different state within DRC (i.e., don't choose Sud-Kivu). Visualize the posterior predictive distribution mean and standard deviation across a grid and compare it to the one from Sud-Kivu.
+
+**Answer:**
+
+```{r}
+#| label: ex1
+
+# add code here
+
+```
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Push all your work to your AE repo on GitHub. You're done! 🎉
+:::

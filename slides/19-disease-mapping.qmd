@@ -42,7 +42,7 @@ library(tigris)
 library(scales)
 library(spdep)
 library(reshape2)
-nc_counties_sf <- st_read("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/covid/nc_counties.shp", quiet = TRUE)
+covid_nc_2020 <- st_read("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/covid/covid_nc_2020.shp", quiet = TRUE)
 ```
 
 ## Review of last lecture
@@ -53,9 +53,65 @@ nc_counties_sf <- st_read("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp2
 
 -   The longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space).
 
-## Goal of an Areal Data Spatial Analysis
+## Lattice Data (Areal Data)
 
-- Account for noise due to spatial variability in order to provide smoothed estimates across space
+-   Data observed at the level of an areal unit
+
+    -   County Level Sudden Infant Death Syndrome Counts
+
+![](./images/18/lattice_data.png){fig-align="center" height="450"}
+
+## Lattice Data (Areal Data)
+
+-   Birmingham Tract Level Poverty Levels
+
+![](./images/18/Birmingham_Poverty.png){fig-align="center" height="500"}
+
+## Goals of Areal Spatial Data Analysis
+
+The goal of **areal spatial data analysis** is to understand how spatial patterns (e.g., mortality rates, disease incidence) vary across different geographic areas (e.g., counties, neighborhoods).
+
+It helps us identify:
+
+- **Clusters**: Areas with similar characteristics (e.g., high mortality, disease prevalence).
+
+- **Outliers**: Areas that deviate significantly from the overall pattern (e.g., unexpectedly high mortality rates).
+
+- **Spatial Dependence**: Whether values in one area are correlated with values in nearby areas (e.g., neighboring counties with similar health outcomes).
+
+## Why We Care About Spatial Patterns
+
+- **Local Insights**: Spatial analysis helps identify **local variations** in health outcomes that may not be apparent when analyzing data at a higher (e.g., state or national) level.
+
+- **Targeted Interventions**: Understanding spatial patterns allows for **targeted public health interventions** tailored to regions that need attention (e.g., areas with unusually high mortality rates).
+
+- **Identifying Spatial Clusters**: By recognizing **clusters of high or low rates**, we can investigate potential **common causes** (e.g., environmental factors, access to healthcare, socioeconomic conditions).
+
+## Motivating Data {.midi}
+
+Today, we will motivate areal spatial data analysis and disease mapping by studying 2020 COVID mortality at the county-level in North Carolina. The data object `covid_nc_2020` is an `sf` object.
+
+-   Variables are:
+
+    -   `name`: county name.
+
+    -   `population`: 2020 population.
+
+    -   `obs_deaths`: observed number of COVID-related deaths in 2020.
+
+    -   `est_deaths`: estimated number of COVID-related deaths in 2020.
+
+    -   `smr`: standardized mortality ratio.
+
+    -   `age`: precentage of residents over 60 years of age.
+
+    -   `poverty`: percentage of residents below the poverty line.
+    
+    -   `geometry`: contains centroid and boundary information for each county.
+
+## COVID Mortality
+
+<!-- - Account for noise due to spatial variability in order to provide smoothed estimates across space -->
 
 ```{r}
 #| echo: false
@@ -65,9 +121,9 @@ nc_counties_sf <- st_read("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp2
 #| fig-width: 10
 #| fig-height: 5
 #| layout-ncol: 1
-ggplot(data = nc_counties_sf) +
+ggplot(data = covid_nc_2020) +
   geom_sf(fill = "lightblue", color = "black") +
-  geom_sf(aes(fill = DEATHS), shape = 16, size = 2) +
+  geom_sf(aes(fill = obs_deaths), shape = 16, size = 2) +
   theme_minimal() +
   labs(
     title = "2020 COVID Deaths by County",
@@ -77,9 +133,163 @@ ggplot(data = nc_counties_sf) +
   coord_sf()  # Ensures the map is properly projected
 ```
 
-## Motivating Data
+## Introduction to Disease Mapping
 
+- Disease mapping is a way of visualizing and analyzing geographic variations in health outcomes, such as mortality or disease incidence, across different regions (e.g., counties or neighborhoods). 
 
+- It helps us identify regions with unusually high or low health outcomes, which could be indicative of underlying health disparities.
+
+## The Challenge with Observed Data
+
+Imagine you want to compare the number of deaths across counties in a state, like North Carolina. If we simply look at **observed death counts**, we might be misled:
+
+- Larger counties with more people may have more deaths simply due to their larger population.
+
+- Smaller counties may appear "healthier" simply because they have fewer people, not because they have lower mortality rates.
+
+Thus, observed death counts are **not enough** to draw meaningful comparisons.
+
+## The Challenge with Observed Data
+
+- To make fair comparisons between regions of different sizes, we need to **adjust for population size** (and sometimes demographics). 
+
+- Without these adjustments, it's hard to determine if a county's high death count is due to its population size or if there's something unique about the county (e.g., healthcare access, environmental factors) that increases the risk of mortality.
+
+- This is where we need more **nuanced measures** to adjust for population size and allow for better comparisons.
+
+- Today we will talk about the standardized mortality ratio (SMR).
+
+## Standardized Mortality Ratio
+
+- SMR is a way of comparing the observed number of deaths in a population to the number of deaths we would expect, given the population's characteristics (such as population size).
+
+- It adjusts for differences in population, allowing us to identify areas where deaths are higher or lower than we would expect.
+
+$$\text{SMR} = \frac{\text{Observed Deaths}}{\text{Expected Deaths}}$$
+
+- **Expected Deaths** is calculated by multiplying the total deaths across the state by the proportion of the population in that county.
+
+## Example Data {.midi}
+
+| County     | Observed Deaths | Population | Population Proportion |
+|------------|-----------------|------------|-----------------------|
+| County A   | 10              | 30,000     | 0.3                   |
+| County B   | 15              | 50,000     | 0.5                   |
+| County C   | 5               | 20,000     | 0.2                   |
+| Total      | 30              | 100,000    | 1.0                   |
+
+## Step 1 - Calculate Expected Deaths
+
+The **Expected Deaths** for each county are calculated by multiplying the **total deaths** by the **population proportion** for that county:
+
+\begin{align*}
+\text{Expected Deaths for County A} = 30 \times 0.3 &= 9\\
+\text{Expected Deaths for County B} = 30 \times 0.5 &= 15\\
+\text{Expected Deaths for County C} = 30 \times 0.2 &= 6
+\end{align*}
+
+## Step 2 - Compute SMR
+
+Now, we calculate the **SMR** by dividing the **observed deaths** by the **expected deaths**:
+
+\begin{align*}
+\text{SMR for County A} &= \frac{10}{9} = 1.11\\
+\text{SMR for County B} &= \frac{15}{15} = 1\\
+\text{SMR for County C} &= \frac{5}{6} = 0.83
+\end{align*}
+
+What do these numbers mean?
+
+## Interpreting SMR
+
+- **SMR = 1**: The observed number of deaths matches the expected number of deaths.
+
+- **SMR > 1**: More deaths than expected (excess mortality).
+
+- **SMR < 1**: Fewer deaths than expected (lower mortality).
+
+In our example:
+
+- **County A** has excess mortality, with SMR of **1.11**.
+
+- **County B** has as many deaths as expected, with SMR of **1**.
+
+- **County C** has fewer deaths than expected, with SMR of **0.83**.
+
+## Why Use SMR in Disease Mapping?
+
+**SMR** allows us to:
+
+- Make meaningful comparisons across counties of different sizes.
+
+- Identify areas with **excess mortality** (SMR > 1) and areas with **lower-than-expected mortality** (SMR < 1).
+
+In disease mapping, **SMR** helps us better understand **spatial health disparities** and identify regions that may need targeted public health interventions.
+
+## Standardized Mortality Ratios
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 5
+#| layout-ncol: 1
+ggplot(data = covid_nc_2020) +
+  geom_sf(fill = "lightblue", color = "black") +
+  geom_sf(aes(fill = smr), shape = 16, size = 2) +
+  theme_minimal() +
+  scale_fill_gradient2(
+    low = "blue",        # Color for O/E < 1
+    mid = "gray",        # Neutral color for O/E = 1
+    high = "red",        # Color for O/E > 1
+    midpoint = 1,        # Center the color scale at 1
+    name = "SMR"
+  ) +
+  labs(
+    title = "Standardized Mortality Ratios (SMRs) across NC Counties",
+    fill = "SMR"
+  ) +
+  # scale_fill_viridis_c() +  # Custom labels for the breaks
+  coord_sf()  # Ensures the map is properly projected
+```
+
+## Writing down a model for SMR
+
+Define $Y_i$ and $E_i$ as the observed and expected mortality counts at county $i$ ($i = 1\ldots,n$). We can model the observed counts as follows:
+
+$$Y_i \stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i).$$
+
+- Recall that for a random variable $Y \sim \text{Poisson}(\lambda)$, $\mathbb{E}[Y] = \lambda$ and $\mathbb{V}(Y) = \lambda$.
+
+- For our model, we have: $\mathbb{E}[Y_i] = E_i \lambda_i \implies \mathbb{E}\left[\frac{Y_i}{E_i}\right] = \lambda_i$.
+
+  - Under this parameterization $\lambda_i$ is the SMR. 
+
+## Disease Mapping Model
+
+The parameter $\lambda_i$, sometimes also called relative risk, is modeled as follows: 
+
+\begin{align*}
+Y_i &\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
+\log \lambda_i &= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \theta_i + \epsilon_i
+\end{align*}
+
+- $\mathbf{x}_i \in \mathbb{R}^{p \times 1}$ contains county-level predictors.
+
+- $\alpha \in \mathbb{R}$ is a population intercept.
+
+- $\boldsymbol{\beta} \in \mathbb{R}^p$ is a vector of population coefficients.
+
+Bayesian hierarchical models enable to obtain smoothed disease relative risks by including covariates and random effects to borrow information from neighboring areas. Spatial disease risk models are commonly specified using a Poisson distribution for the observed number of cases ($Y_i$) with mean equal to the expected number of cases ($E_i$) times the relative risk ($\lambda_i$) corresponding to area $i$, $i = 1,\ldots,n$,
+
+Here, the logarithm of $\lambda_i$ is expressed as a sum of fixed effects to quantify the effects of the covariates on the disease risk, and random effects that represent residual variation that is not explained by the available covariates. The fixed effects are expressed using a vector of intercept and 
+
+Spatial random effects $\theta_i$ that smooth data according to a neighborhood structure are included to acknowledge that data may be spatially correlated, and relative risks in neighboring areas may be more similar than relative risks in areas that are further away Unstructured exchangeable components $\epsilon_i$ are also included to model uncorrelated noise.
+
+The relative risk $\lambda_i$ quantifies whether an area 
+$i$ has higher ($\lambda_i > 1$) or lower ($\lambda_i < 1$) risk than the average risk in the standard population (e.g., the whole population of the study region). For example, $\lambda_i = 2$ indicates the risk of area $i$ is two times the average risk in the standard population.
 
 ## Spatial Correlation: Areal Data
 
@@ -128,6 +338,228 @@ $$\theta_i | \boldsymbol{\theta}_{-i}, \rho, \tau^2 \sim \mathcal N \left({\frac
   - $\rho$ is given a prior distribution and estimated by the data
   
   - $\text{COR}(\theta_k,\theta_j|\boldsymbol{\theta}_{-kj}) = \frac{\rho w_{kj}}{\sqrt{(\rho \sum_{i=1}^n w_{ki} + 1 - \rho)(\rho \sum_{i=1}^n w_{ji} + 1-\rho)}}$
+
+## Compute Adjacency Matrix
+
+```{r}
+###Get adjacency matrix
+neighbors <- spdep::poly2nb(covid_nc_2020)
+adj_matrix <- spdep::nb2mat(neighbors, style = "B", zero.policy = TRUE)
+# style = "B" specifies binary encoding (1 if neighbors, 0 if not).
+# zero.policy = TRUE ensures the function works even if some counties do not have neighbors.
+# Convert adjacency matrix to a long format for ggplot
+adj_matrix_long <- melt(adj_matrix)
+
+# Plot the adjacency matrix
+# ggplot(adj_matrix_long, aes(x = Var1, y = Var2, fill = value)) +
+#  geom_tile() +
+#  scale_fill_gradient(low = "white", high = "blue") +
+#  labs(title = "Adjacency Matrix Heatmap", x = "County", y = "County")
+```
+
+## Better Adjacency Plot
+
+```{r, echo = FALSE}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 5
+#| layout-ncol: 1
+# Get the centroids of each county
+centroids <- st_centroid(covid_nc_2020)
+centroids <- centroids %>% mutate(id = 1:nrow(centroids))
+edges <- which(adj_matrix == 1, arr.ind = TRUE)
+
+# Create a data frame with the indices of the neighboring counties
+neighbor_pairs <- data.frame(
+  from = edges[, 1],
+  to = edges[, 2]
+)
+ggplot(data = covid_nc_2020) +
+  geom_sf(fill = NA, color = "black") +
+  # Add lines connecting neighboring counties
+  geom_segment(data = neighbor_pairs,
+               aes(x = st_coordinates(centroids)[from, 1], y = st_coordinates(centroids)[from, 2],
+                   xend = st_coordinates(centroids)[to, 1], yend = st_coordinates(centroids)[to, 2]),
+               color = "blue", size = 1.5) +
+  geom_sf(data = centroids, aes(geometry = geometry), color = "red", size = 3) +
+  theme_minimal() +
+  coord_sf(expand = FALSE) +  # Use coord_sf to control map projection
+  labs(x = "Longitude", y = "Latitude") +
+  ggtitle("County Adjacency Map") + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Optional: Rotate x-axis labels for better readability
+```
+
+## Prepare Adjacnecy for Stan
+
+```{r}
+# Get the row-column pairs where the adjacency matrix is 1
+# This will return all non-zero indices in the adjacency matrix
+neighbor_pairs <- which(adj_matrix == 1, arr.ind = TRUE)
+
+# Filter out the upper triangle (to avoid repeating edges)
+neighbor_pairs_lower <- neighbor_pairs[neighbor_pairs[, 1] < neighbor_pairs[, 2], ]
+```
+
+## Fit the Stan Model
+
+```{r, eval = FALSE}
+###Try to fit ICAR model
+icar <- stan_model("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/covid/icar.stan")
+X <- model.matrix(~ age + poverty, data = covid_nc_2020)[, -1]
+stan_data <- list(
+  n = nrow(covid_nc_2020),
+  p = ncol(X),
+  n_edges = nrow(neighbor_pairs_lower),
+  node1 = neighbor_pairs_lower[, 1],
+  node2 = neighbor_pairs_lower[, 2],
+  Y = covid_nc_2020$DEATHS,
+  E = covid_nc_2020$ESTDEATHS,
+  X = X
+)
+fit_icar <- sampling(icar, stan_data, pars = c("z", "log_mu", "lp__"), include = FALSE, iter = 10000)
+print(fit_icar, pars = c("alpha", "alpha_star", "beta", "sigma", "tau"))
+rstan::traceplot(fit_icar, pars = c("alpha", "alpha_star", "beta", "sigma", "tau"))
+rstan::traceplot(fit_icar, pars = "theta[1]")
+saveRDS(fit_icar, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/19-fit-icar.rds")
+```
+```{r, echo = FALSE}
+X <- model.matrix(~ age + poverty, data = covid_nc_2020)[, -1]
+stan_data <- list(
+  n = nrow(covid_nc_2020),
+  p = ncol(X),
+  n_edges = nrow(neighbor_pairs_lower),
+  node1 = neighbor_pairs_lower[, 1],
+  node2 = neighbor_pairs_lower[, 2],
+  Y = covid_nc_2020$obs_deaths,
+  E = covid_nc_2020$est_deaths,
+  X = X
+)
+fit_icar <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/19-fit-icar.rds")
+print(fit_icar, pars = c("alpha", "alpha_star", "beta", "sigma", "tau"))
+```
+
+## Compute PPD
+
+```{r}
+Y_pred <- rstan::extract(fit_icar, pars = "Y_pred")$Y_pred
+ppd_oe <- sweep(Y_pred, 2, stan_data$E, "/")
+ppd_mean <- apply(ppd_oe, 2, mean)
+ppd_sd <- apply(ppd_oe, 2, sd)
+covid_nc_2020$ppd_mean <- ppd_mean
+covid_nc_2020$ppd_sd <- ppd_sd
+```
+
+## Looking at SMR observed versus PPD
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 5
+#| fig-height: 5
+#| layout-ncol: 1
+data.frame(Observed = covid_nc_2020$smr, Bayesian = covid_nc_2020$ppd_mean) |>
+  ggplot(aes(x = Observed, y = Bayesian)) + 
+    geom_point() + 
+    geom_vline(aes(xintercept = 1)) + 
+    geom_hline(aes(yintercept = 1)) +
+    geom_abline(aes(intercept = 0, slope = 1))
+```
+
+## Final Map
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 3.5
+#| layout-ncol: 2
+#| layout-nrow: 2
+###Map the PPD
+min_value <- min(c(covid_nc_2020$smr, covid_nc_2020$ppd_mean))
+max_value <- max(c(covid_nc_2020$smr, covid_nc_2020$ppd_mean))
+min_value <- 0
+ggplot(data = covid_nc_2020) +
+  geom_sf(fill = "lightblue", color = "black") +
+  geom_sf(aes(fill = smr), shape = 16, size = 2) +
+  theme_minimal() +
+  labs(
+    title = "Observed SMR by NC County",
+    fill = "SMR"
+  ) +
+  scale_fill_gradient2(
+    low = "blue",        # Color for O/E < 1
+    mid = "gray",        # Neutral color for O/E = 1
+    high = "red",        # Color for O/E > 1
+    midpoint = 1,        # Center the color scale at 1
+    name = "O/E Ratio",
+    limits = c(min_value, max_value)
+  ) +
+  # scale_fill_viridis_c() +  # Custom labels for the breaks
+  coord_sf()  # Ensures the map is properly projected
+ggplot(data = covid_nc_2020) +
+  geom_sf(fill = "lightblue", color = "black") +
+  geom_sf(aes(fill = ppd_mean), shape = 16, size = 2) +
+  theme_minimal() +
+  labs(
+    title = " Posterior Mean SMR by NC County",
+    fill = "SMR"
+  ) +
+  scale_fill_gradient2(
+    low = "blue",        # Color for O/E < 1
+    mid = "gray",        # Neutral color for O/E = 1
+    high = "red",        # Color for O/E > 1
+    midpoint = 1,        # Center the color scale at 1
+    name = "O/E Ratio",
+    limits = c(min_value, max_value)
+  ) +
+  # scale_fill_viridis_c() +  # Custom labels for the breaks
+  coord_sf()  # Ensures the map is properly projected
+ggplot(data = covid_nc_2020) +
+  geom_sf(fill = "lightblue", color = "black") +
+  geom_sf(aes(fill = ppd_sd), shape = 16, size = 2) +
+  theme_minimal() +
+  labs(
+    title = " Posterior Standard Deviation SMR by NC County",
+    fill = "SD"
+  ) +
+  scale_fill_gradient2(
+    low = "blue",        # Color for O/E < 1
+    mid = "gray",        # Neutral color for O/E = 1
+    high = "red",        # Color for O/E > 1
+    midpoint = 0,        # Center the color scale at 1
+    name = "SD",
+    limits = c(0, max(covid_nc_2020$ppd_sd))
+  ) +
+  # scale_fill_viridis_c() +  # Custom labels for the breaks
+  coord_sf()  # Ensures the map is properly projected
+ggplot(data = covid_nc_2020) +
+  geom_sf(fill = "lightblue", color = "black") +
+  geom_sf(aes(fill = smr - ppd_mean), shape = 16, size = 2) +
+  theme_minimal() +
+  labs(
+    title = " Difference in Observed Minus Bayesian SMR by County",
+    fill = "Difference"
+  ) +
+  scale_fill_gradient2(
+    low = "blue",        # Color for O/E < 1
+    mid = "gray",        # Neutral color for O/E = 1
+    high = "red",        # Color for O/E > 1
+    midpoint = 0,        # Center the color scale at 1
+    name = "Difference",
+    limits = c(-0.5, 0.5)
+  ) +
+  # scale_fill_viridis_c() +  # Custom labels for the breaks
+  coord_sf()  # Ensures the map is properly projected
+```
+
+## Create a figure with $P(\lambda_i > 1)$
 
 ## Prepare for next class
 

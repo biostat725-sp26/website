@@ -50,28 +50,27 @@ library(geodist)       # conversion from geodisic to miles
 
 ## Democratic Republic of Conge Demographic and Health Survey
 
-We will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are ~8600 women who are nested in ~500 survey clusters. The variables in the dataset are as follows.
+We will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are \~8600 women who are nested in \~500 survey clusters. The variables in the dataset are as follows.
 
-  - `loc_id`: location id (i.e. survey cluster).
+-   `loc_id`: location id (i.e. survey cluster).
 
-  - `hemoglobin`: hemoglobin level (g/dL).
+-   `hemoglobin`: hemoglobin level (g/dL).
 
-  - `anemia`: anemia classifications.
-  
-  - `age`: age in years.
+-   `anemia`: anemia classifications.
 
-  - `urban`: urban vs. rural.
+-   `age`: age in years.
 
-  - `LATNUM`: latitude.
+-   `urban`: urban vs. rural.
 
-  - `LONGNUM`: longitude.
-  
-  - `mean_hemoglobin`: average hemoglobin at each community (g/dL).
-  
-  - `community_size`: number of participants at each community.
+-   `LATNUM`: latitude.
 
-  - `mean_age`: average age of participants at each community (years).
+-   `LONGNUM`: longitude.
 
+-   `mean_hemoglobin`: average hemoglobin at each community (g/dL).
+
+-   `community_size`: number of participants at each community.
+
+-   `mean_age`: average age of participants at each community (years).
 
 The data set is available in your AE repos and is called `drc`.
 
@@ -92,6 +91,7 @@ data$community_size <- tapply(data$hemoglobin, list(data$loc_id), length)[data$l
 data$mean_age <- tapply(data$age, list(data$loc_id), mean)[data$loc_id]
 data <- data[order(data$loc_id), ]
 drc <- data
+saveRDS(drc, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/ae-07/drc.rds")
 DT::datatable(drc)
 ```
 
@@ -99,7 +99,7 @@ DT::datatable(drc)
 
 ## Data Objects and Maps
 
-We will begin by converting our dataset to a `sf` data object, which can be used for spatial data manipulation. We must specify the coordinates (i.e., latitude/longitude) and the Coordinate Reference System (CRS). CRS is a system that defines how spatial data is represented and mapped to the earth. When you see `crs = 4326` in an `sf` object, it means that the spatial data is using the WGS 84 standard, which is the most commonly used CRS for GPS data and web maps (like Google Maps). The coordinates are in terms of longitude and latitude, and they are based on a global reference framework. 
+We will begin by converting our dataset to a `sf` data object, which can be used for spatial data manipulation. We must specify the coordinates (i.e., latitude/longitude) and the Coordinate Reference System (CRS). CRS is a system that defines how spatial data is represented and mapped to the earth. When you see `crs = 4326` in an `sf` object, it means that the spatial data is using the WGS 84 standard, which is the most commonly used CRS for GPS data and web maps (like Google Maps). The coordinates are in terms of longitude and latitude, and they are based on a global reference framework.
 
 ```{r}
 data_sf <- st_as_sf(drc, coords = c("LONGNUM", "LATNUM"), crs = 4326)
@@ -167,7 +167,7 @@ ggplot() +
   # Plot our state of interest
   geom_sf(data = congo_states_map %>% filter(name %in% state_of_interest), fill = "lightblue", color = "black", size = 0.2) +
   # Plot the points from your data
-  geom_sf(data = data_sf_state_of_interest, aes(color = community_size), shape = 16, size = 2) +
+  geom_sf(data = data_sf_state_of_interest, aes(color = mean_hemoglobin), shape = 16, size = 2) +
   scale_color_viridis_b() + 
   theme_minimal() +
   labs(title = "Map of Sud-Kivu in the DRC",
@@ -248,7 +248,7 @@ p <- ncol(X)
 n <- length(unique(Ids))
 ```
 
-We then define both the observed coordinates, $\mathbf{u}$, and the new coordinates where predictions are desired, $\mathbf{u}^*$. Note that $\mathbf{u}$ is $n$ dimensional, so we must only take one row per location. We also define $d$ the dimension of the spatial location vector (i.e., $d=2$), and $q$, the number of new spatial locations.
+We then define both the observed coordinates, $\mathbf{u}$, and the new coordinates where predictions are desired, $\mathbf{u}^*$. Note that $\mathbf{u}$ should be $n$ dimensional, meaning it only includes the $n$ unique locations, not all $N$ locations. We also define $d$ the dimension of the spatial location vector (i.e., $d=2$), and $q$, the number of new spatial locations.
 
 ```{r}
 u <- st_coordinates(data_sf_state_of_interest)[!duplicated(data_sf_state_of_interest$loc_id), ]
@@ -257,10 +257,10 @@ d <- ncol(u)
 q <- nrow(u_new)
 ```
 
-Finally, we define the martrix $\mathbf{X}^*$, which is an $q \times p$ dimensional matrix that contains the predictor values for each of the new locations. We just specify the overall average mean age and specify everyone to be rural.
+Finally, we define the matrix $\mathbf{X}^*$, which is an $q \times p$ dimensional matrix that contains the predictor values for each of the new locations. We just specify the overall average mean age and specify everyone to be rural.
 
 ```{r}
-X_new <- matrix(cbind(mean(data$age), 0), nrow = q, ncol = p, byrow = TRUE)
+X_new <- matrix(cbind(mean(data_sf_state_of_interest$age), 0), nrow = q, ncol = p, byrow = TRUE)
 ```
 
 We can now define the Stan data object.
@@ -286,13 +286,18 @@ We can then compile and fit the spatial model, which is saved in `geospatial.sta
 ```{r, eval = FALSE}
 options(mc.cores = 4)
 geospatial_model <- stan_model(file = "geospatial.stan")
-fit_spatial <- sampling(spatial_model, stan_data, iter = 4000, control = list("adapt_delta" = 0.99), pars = c("z", "LK", "theta_new", "lp__"), include = FALSE)
+fit_spatial <- sampling(geospatial_model, stan_data, 
+                        iter = 4000, 
+                        control = list("adapt_delta" = 0.99), 
+                        pars = c("z", "LK", "theta_new", "lp__"), 
+                        include = FALSE)
 ```
+
 ```{r, echo = FALSE}
 fit_spatial <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/19-fit-spatial.rds")
 ```
 
-We can do all of the typical evaluation of MCMC convergence, posterior predictive checks, and posterior summaries. Here I will show you the code for mapping the posterior predictive distribution across the predictive grid. We begin by extracting the posterior predictive distribution for our grid and then compute posterior mean and standard deviation. 
+We can do all of the typical evaluation of MCMC convergence, posterior predictive checks, and posterior summaries. Here I will show you the code for mapping the posterior predictive distribution across the predictive grid. We begin by extracting the posterior predictive distribution for our grid and then compute posterior mean and standard deviation.
 
 ```{r}
 Y_new <- rstan::extract(fit_spatial, pars = "Y_new")$Y_new
@@ -349,14 +354,70 @@ ggplot() +
   coord_sf()  # Ensures the map is properly projected
 ```
 
+## Visualizing the Correlation
+
+Finally, we will visualize the posterior correlation function. We begin by extracting the posterior mean value of the covariance function tuning parameter.
+
+```{r}
+rho_mean <- mean(rstan::extract(fit_spatial, pars = "rho")$rho)
+```
+
+We can then define the Matérn 3/2 covariance function, which is a function of the distance between two points, $||\mathbf{h}||$, and $\rho$.
+
+```{r}
+matern_3_2 <- function(h, rho) (1 + sqrt(3) * h / rho) * exp(- sqrt(3) * h / rho)
+```
+
+We can use this function to compute the correlation matrix for our observed locations. We begin by computing the distance matrix and then compute the correlation matrix at the posterior mean of $\rho$. We only compute correlation at the unique distances.
+
+```{r}
+D <- as.matrix(dist(u))
+dists <- data.frame(distance_geodisic = unique(D[D != 0]))
+dists$correlation <- matern_3_2(dists$distance_geodisic, rho = rho_mean)
+```
+
+Next we will use the `geodist` package to convert the geodisic distance of our observed locations to miles. Note that this function converts distance to meters by default, so we divide by 1,609 to get miles. 
+
+```{r}
+dist_miles <- geodist::geodist_vec(
+  x1 = u[, 1],
+  y1 = u[, 2],
+  paired = TRUE,
+  measure = "haversine"
+) / 1609
+```
+
+This produces an $n \times n$ matrix of distances. We extract the unique distances like we did for the original geodisic distances.
+
+```{r}
+dists$distances_miles <- unique(dist_miles[dist_miles != 0])
+```
+
+Finally, we can plot these correlations for both distance units.
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 12
+#| fig-height: 6
+colnames(dists) <- c("Geodisic", "Correlation", "Mile")
+dat_fig <- pivot_longer(dists, cols = c("Geodisic", "Mile"), names_to = "Distance")
+ggplot(dat_fig, aes(x = value, y = Correlation)) + 
+  geom_line() + 
+  facet_grid(. ~ Distance, scales = "free_x") + 
+  labs(x = "Distance")
+```
+
 # Exercise
 
-Replicate the analysis above for a different state within DRC (i.e., don't choose Sud-Kivu). Visualize the posterior predictive distribution mean and standard deviation across a grid and compare it to the one from Sud-Kivu.
+Replicate the analysis above for the Orientale state. Visualize the posterior predictive distribution mean and standard deviation across a grid and compare it to the one from Sud-Kivu.
 
 **Answer:**
 
 ```{r}
-#| label: ex1
+#| label: ex
 
 # add code here
 
