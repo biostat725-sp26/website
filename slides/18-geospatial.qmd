@@ -274,7 +274,7 @@ We define a GP as $\theta(\mathbf{u}) \sim GP(\mu(\cdot), C(\cdot, \cdot))$, whe
 
 -   **Stationary**: $\mathbb{C}(\theta(\mathbf{u}),\theta(\mathbf{u} + \mathbf{h})) = C(\mathbf{h})$, where $\mathbf{h} \in \mathbf{R}^d$.
 
--   **Isotropic**: $\mathbb{C}(\theta(\mathbf{u}),\theta(\mathbf{u} + \mathbf{h})) = C(||\mathbf{h}||)$, where $||\cdot\||$ is a distance length.
+-   **Isotropic**: $\mathbb{C}(\theta(\mathbf{u}),\theta(\mathbf{u} + \mathbf{h})) = C(||\mathbf{h}||)$, where $||\cdot||$ is a distance length.
 
 ## Choosing a covariance function {.midi}
 
@@ -385,7 +385,7 @@ Efficient [Stan function](https://mc-stan.org/docs/functions-reference/matrix_op
 \mathbb{V}_{\boldsymbol{\theta}^*} &=\mathbf{C}^* - \left(\mathbf{L}^{-1} \mathbf{C}_+\right)^\top \mathbf{L}^{-1} \mathbf{C}_+.
 \end{align*}
 
-Direclty computing $\mathbf{C}^{-1}$ can lead to a matrix that is not symmetric.
+Directly computing $\mathbf{C}^{-1}$ can lead to a matrix that is not symmetric.
 
 ## Motivating Dataset {.midi}
 
