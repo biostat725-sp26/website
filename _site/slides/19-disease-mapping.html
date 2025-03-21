@@ -405,12 +405,13 @@ Prof.&nbsp;Sam Berchuck
 
   <p class="date">Mar 25, 2025</p>
 </section>
-<section id="review-of-last-lecture" class="slide level2">
-<h2>Review of last lecture</h2>
+<section id="review-of-last-week" class="slide level2">
+<h2>Review of last week</h2>
 <ul>
-<li><p>During our last lecture, we learned about Gaussian processes.</p></li>
-<li><p>We learned how to apply Gaussian processes to longitudinal (or time-series) data.</p></li>
-<li><p>The longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e.&nbsp;space).</p></li>
+<li><p>Last week, we learned about Gaussian processes.</p></li>
+<li><p>We learned how to apply Gaussian processes to longitudinal (or time-series) and geospatial data.</p></li>
+<li><p>Focused on making predictions at new locations across the spatial surface.</p></li>
+<li><p>Today we will focus on areal spatial data, which has different goals associated with it than point-referenced spatial data.</p></li>
 </ul>
 </section>
 <section id="lattice-data-areal-data" class="slide level2">
@@ -479,7 +480,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -613,7 +614,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -628,10 +629,10 @@ Prof.&nbsp;Sam Berchuck
 <section id="writing-down-a-model-for-smr" class="slide level2">
 <h2>Writing down a model for SMR</h2>
 <p>Define <span class="math inline">\(Y_i\)</span> and <span class="math inline">\(E_i\)</span> as the observed and expected mortality counts at county <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1\ldots,n\)</span>). We can model the observed counts as follows:</p>
-<p><span class="math display">\[Y_i \stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i).\]</span></p>
+<p><span class="math display">\[Y_i | \lambda_i \stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i).\]</span></p>
 <ul>
 <li><p>Recall that for a random variable <span class="math inline">\(Y \sim \text{Poisson}(\lambda)\)</span>, <span class="math inline">\(\mathbb{E}[Y] = \lambda\)</span> and <span class="math inline">\(\mathbb{V}(Y) = \lambda\)</span>.</p></li>
-<li><p>For our model, we have: <span class="math inline">\(\mathbb{E}[Y_i] = E_i \lambda_i \implies \mathbb{E}\left[\frac{Y_i}{E_i}\right] = \lambda_i\)</span>.</p>
+<li><p>We have: <span class="math inline">\(\mathbb{E}[Y_i | \lambda_i] = E_i \lambda_i \implies \mathbb{E}\left[(Y_i / E_i) | \lambda_i\right] = \lambda_i.\)</span></p>
 <ul>
 <li>Under this parameterization <span class="math inline">\(\lambda_i\)</span> is the SMR.</li>
 </ul></li>
@@ -639,20 +640,31 @@ Prof.&nbsp;Sam Berchuck
 </section>
 <section id="disease-mapping-model" class="slide level2">
 <h2>Disease Mapping Model</h2>
-<p>The parameter <span class="math inline">\(\lambda_i\)</span>, sometimes also called relative risk, is modeled as follows:</p>
+<p>The parameter <span class="math inline">\(\lambda_i\)</span>, sometimes also called <strong>relative risk</strong>, is modeled as follows:</p>
 <p><span class="math display">\[\begin{aligned}
-Y_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
-\log \lambda_i &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \theta_i + \epsilon_i
+Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
+\log \lambda_i &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \theta_i + \epsilon_i, \quad \epsilon_i \stackrel{iid}{\sim} N(0,\sigma^2)
 \end{aligned}\]</span></p>
+<p>where <span class="math inline">\(\mathbf{x}_i \in \mathbb{R}^{p \times 1}\)</span> contains county-level predictors.</p>
+<p><strong>Population parameters</strong>:</p>
 <ul>
-<li><p><span class="math inline">\(\mathbf{x}_i \in \mathbb{R}^{p \times 1}\)</span> contains county-level predictors.</p></li>
 <li><p><span class="math inline">\(\alpha \in \mathbb{R}\)</span> is a population intercept.</p></li>
 <li><p><span class="math inline">\(\boldsymbol{\beta} \in \mathbb{R}^p\)</span> is a vector of population coefficients.</p></li>
+<li><p><span class="math inline">\(\sigma \in \mathbb{R}^+\)</span> is a residual error term.</p></li>
 </ul>
-<p>Bayesian hierarchical models enable to obtain smoothed disease relative risks by including covariates and random effects to borrow information from neighboring areas. Spatial disease risk models are commonly specified using a Poisson distribution for the observed number of cases (<span class="math inline">\(Y_i\)</span>) with mean equal to the expected number of cases (<span class="math inline">\(E_i\)</span>) times the relative risk (<span class="math inline">\(\lambda_i\)</span>) corresponding to area <span class="math inline">\(i\)</span>, <span class="math inline">\(i = 1,\ldots,n\)</span>,</p>
-<p>Here, the logarithm of <span class="math inline">\(\lambda_i\)</span> is expressed as a sum of fixed effects to quantify the effects of the covariates on the disease risk, and random effects that represent residual variation that is not explained by the available covariates. The fixed effects are expressed using a vector of intercept and</p>
-<p>Spatial random effects <span class="math inline">\(\theta_i\)</span> that smooth data according to a neighborhood structure are included to acknowledge that data may be spatially correlated, and relative risks in neighboring areas may be more similar than relative risks in areas that are further away Unstructured exchangeable components <span class="math inline">\(\epsilon_i\)</span> are also included to model uncorrelated noise.</p>
-<p>The relative risk <span class="math inline">\(\lambda_i\)</span> quantifies whether an area <span class="math inline">\(i\)</span> has higher (<span class="math inline">\(\lambda_i &gt; 1\)</span>) or lower (<span class="math inline">\(\lambda_i &lt; 1\)</span>) risk than the average risk in the standard population (e.g., the whole population of the study region). For example, <span class="math inline">\(\lambda_i = 2\)</span> indicates the risk of area <span class="math inline">\(i\)</span> is two times the average risk in the standard population.</p>
+</section>
+<section id="disease-mapping-model-1" class="slide level2">
+<h2>Disease Mapping Model</h2>
+<p>The parameter <span class="math inline">\(\lambda_i\)</span>, sometimes also called <strong>relative risk</strong>, is modeled as follows:</p>
+<p><span class="math display">\[\begin{aligned}
+Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
+\log \lambda_i &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \theta_i + \epsilon_i,\quad \epsilon_i \stackrel{iid}{\sim} N(0,\sigma^2)
+\end{aligned}\]</span></p>
+<p><strong>Spatial Error Term</strong>:</p>
+<ul>
+<li><p><span class="math inline">\(\theta_i \in \mathbb{R}\)</span> is a location-specific parameter that smooths data according to a neighborhood structure.</p></li>
+<li><p><span class="math inline">\(\theta_i\)</span> induces spatial correlation, such that <span class="math inline">\(\lambda_i\)</span> in neighboring areas will be more similar.</p></li>
+</ul>
 </section>
 <section id="spatial-correlation-areal-data" class="slide level2">
 <h2>Spatial Correlation: Areal Data</h2>
@@ -663,108 +675,265 @@ Y_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <li><p>Neighborhood structure of your spatial region; are two regions neighbors?</p></li>
 </ul></li>
 <li><p>Correlation introduced through spatial random effects.</p></li>
+<li><p>The default model for areal data in the Bayesian setting is called the conditionally autoregressive (CAR) model.</p></li>
 </ul>
 </section>
-<section id="bayesian-model-fitting" class="slide level2">
-<h2>Bayesian Model Fitting</h2>
+<section id="adjacency-matrix" class="slide level2">
+<h2>Adjacency Matrix</h2>
 <ul>
-<li><p>CAR models are preferred in the Bayesian setting due to the conditional definition of the model</p></li>
-<li><p><span class="math inline">\(\theta_i\)</span> parameters are typically updated individually.</p></li>
-<li><p>Depending on the likelihood, conjugacy may be available, useful for Gibbs sampling.</p></li>
-<li><p>Today, CAR models can be implemented using probabilistic programming languages (e.g., Stan).</p></li>
-</ul>
-</section>
-<section id="inducing-spatial-dependency" class="slide level2">
-<h2>Inducing Spatial Dependency</h2>
-<p>The most common approach for inducing spatial dependency in an areal data setting using the intrinsic conditional autoregressive (ICAR) process,</p>
-<p><span class="math display">\[\boldsymbol{\theta} | \tau^2 \sim \text{ICAR}\left(\tau^2\right)\]</span></p>
-<p><span class="math display">\[\theta_{i} | \boldsymbol{\theta}_{-i}, \tau^2 \sim \mathcal N \left({\frac{\sum_{j=1}^n w_{ij}\theta_{j}}{\sum_{j=1}^n w_{ij}}},\frac{\tau^2}{\sum_{j=1}^n w_{ij}}\right)\]</span></p>
+<li><p>We will define the matrix <span class="math inline">\(\mathbf{W} \in \mathbb{R}^{n \times n}\)</span> as the <strong>adjacency matrix</strong>.</p>
 <ul>
-<li><p><span class="math inline">\(\boldsymbol\theta_{-j}\)</span>: Vector of <span class="math inline">\(\theta_{i}\)</span> parameters with <span class="math inline">\(\theta_{j}\)</span> removed</p></li>
-<li><p><span class="math inline">\(\boldsymbol{\beta}_0 | \tau_0^2 \sim \text{ICAR}\left(\tau_0^2\right),\quad \boldsymbol{\beta}_1 | \tau_1^2 \sim \text{ICAR}\left(\tau_1^2\right)\)</span></p></li>
-<li><p>Not a proper prior distribution (implications for MCMC algorithms!)</p></li>
-</ul>
-</section>
-<section id="a-proper-car-process" class="slide level2">
-<h2>A Proper CAR Process</h2>
-<p><span class="math display">\[\boldsymbol{\theta} = \left\{\theta_1, \ldots, \theta_n\right\}^{\text{T}};\  \boldsymbol{\theta} | \rho, \tau^2 \sim \text{Leroux CAR}\left(\rho,\tau^2\right)\]</span></p>
-<p><span class="math display">\[\theta_i | \boldsymbol{\theta}_{-i}, \rho, \tau^2 \sim \mathcal N \left({\frac{\rho \sum_{j=1}^n w_{ij} \theta_j}{\rho \sum_{j=1}^n w_{ij} + 1 - \rho}}, \frac{\tau^2}{\rho \sum_{j=1}^n w_{ij} + 1 - \rho}\right)\]</span></p>
-<ul>
-<li><p>Proper for <span class="math inline">\(\rho \in [0,1)\)</span></p></li>
-<li><p><span class="math inline">\(\rho=1\)</span> gives us the ICAR model</p>
-<ul>
-<li><p><span class="math inline">\(\rho\)</span> is given a prior distribution and estimated by the data</p></li>
-<li><p><span class="math inline">\(\text{COR}(\theta_k,\theta_j|\boldsymbol{\theta}_{-kj}) = \frac{\rho w_{kj}}{\sqrt{(\rho \sum_{i=1}^n w_{ki} + 1 - \rho)(\rho \sum_{i=1}^n w_{ji} + 1-\rho)}}\)</span></p></li>
+<li>This is sometimes called a <strong>proximity matrix</strong> or <strong>neighborhood matrix</strong>.</li>
 </ul></li>
+<li><p>Each entry (<span class="math inline">\(w_{ij} = [\mathbf{W}]_{ij}\)</span>) is given by: <span class="math display">\[w_{ij} = 1(i \sim j) = \left\{ \begin{array}{ll}
+       1 &amp; \mbox{if $i$ and $j$ share a border};\\
+       0 &amp; \mbox{otherwise}.\end{array} \right.\]</span></p></li>
+<li><p>In some cases, <span class="math inline">\(w_{ij}\)</span> can be generalized to be non-binary.</p></li>
 </ul>
 </section>
 <section id="compute-adjacency-matrix" class="slide level2">
 <h2>Compute Adjacency Matrix</h2>
+<p>To compute the adjacency matrix of an <code>sf</code> data object we can use the <code>spdep</code> library.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="do">###Get adjacency matrix</span></span>
-<span id="cb1-2"><a></a>neighbors <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">poly2nb</span>(covid_nc_2020)</span>
-<span id="cb1-3"><a></a>adj_matrix <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">nb2mat</span>(neighbors, <span class="at">style =</span> <span class="st">"B"</span>, <span class="at">zero.policy =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-4"><a></a><span class="co"># style = "B" specifies binary encoding (1 if neighbors, 0 if not).</span></span>
-<span id="cb1-5"><a></a><span class="co"># zero.policy = TRUE ensures the function works even if some counties do not have neighbors.</span></span>
-<span id="cb1-6"><a></a><span class="co"># Convert adjacency matrix to a long format for ggplot</span></span>
-<span id="cb1-7"><a></a>adj_matrix_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(adj_matrix)</span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="co"># Plot the adjacency matrix</span></span>
-<span id="cb1-10"><a></a><span class="co"># ggplot(adj_matrix_long, aes(x = Var1, y = Var2, fill = value)) +</span></span>
-<span id="cb1-11"><a></a><span class="co">#  geom_tile() +</span></span>
-<span id="cb1-12"><a></a><span class="co">#  scale_fill_gradient(low = "white", high = "blue") +</span></span>
-<span id="cb1-13"><a></a><span class="co">#  labs(title = "Adjacency Matrix Heatmap", x = "County", y = "County")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>neighbors <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">poly2nb</span>(covid_nc_2020) <span class="co"># computes the neighborhood structure</span></span>
+<span id="cb1-2"><a></a>W <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">nb2mat</span>(neighbors, <span class="at">style =</span> <span class="st">"B"</span>, <span class="at">zero.policy =</span> <span class="cn">TRUE</span>) <span class="co"># converts to an n x n matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li><p><code>style = "B"</code> specifies binary encoding (1 if neighbors, 0 if not).</p></li>
+<li><p><code>zero.policy = TRUE</code> ensures the function works even if some counties do not have neighbors.</p></li>
+</ul>
 </section>
-<section id="better-adjacency-plot" class="slide level2">
-<h2>Better Adjacency Plot</h2>
+<section id="visualzing-the-adjacency-matrix" class="slide level2">
+<h2>Visualzing the Adjacency Matrix</h2>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="prepare-adjacnecy-for-stan" class="slide level2">
-<h2>Prepare Adjacnecy for Stan</h2>
+<section id="visualzing-the-adjacency-matrix-1" class="slide level2">
+<h2>Visualzing the Adjacency Matrix</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="icar-model" class="slide level2">
+<h2>ICAR Model</h2>
+<p>Today, we will look at the intrinsic CAR (ICAR) process for a vector <span class="math inline">\(\boldsymbol{\theta} = (\theta_1, \ldots, \theta_n)^\top\)</span>, <span class="math inline">\(\boldsymbol{\theta} | \tau^2 \sim \text{ICAR}\left(\tau^2\right)\)</span>. Under this specification, the following joint distribution is given:</p>
+<p><span class="math display">\[f(\boldsymbol{\theta} | \tau^2) \propto \exp\left\{-\frac{1}{2\tau^2}\boldsymbol{\theta}^\top \left(\mathbf{D}_w - \mathbf{W}\right) \boldsymbol{\theta}\right\},\]</span></p>
+<p>where <span class="math inline">\(\mathbf{D}_w\)</span> is diagonal with <span class="math inline">\([\mathbf{D}_w]_{ii} = w_{i+}\)</span> and <span class="math inline">\(w_{i+} = \sum_{j=1}^n w_{ij}\)</span> (i.e., <span class="math inline">\(w_{i+}\)</span> is the number of neighbors for locations <span class="math inline">\(i\)</span>).</p>
+<ul>
+<li><p><span class="math inline">\(\left(\mathbf{D}_w - \mathbf{W}\right)\)</span> is singular, so <span class="math inline">\(\left(\mathbf{D}_w - \mathbf{W}\right)^{-1}\)</span> does not exist and this distribution is improper.</p></li>
+<li><p>We can still use this as a prior for <span class="math inline">\(\boldsymbol{\theta}\)</span> and get a proper posterior!</p></li>
+</ul>
+</section>
+<section id="icar-model-conditional-distributinos" class="slide level2">
+<h2>ICAR Model: Conditional Distributinos</h2>
+<p>The joint distribution on the previous slide can be written as a <span class="math inline">\(n\)</span> conditional distributions:</p>
+<p><span class="math display">\[\theta_{i} | \boldsymbol{\theta}_{-i}, \tau^2 \sim  N \left({\frac{\sum_{j=1}^n w_{ij}\theta_{j}}{w_{i+}}},\frac{\tau^2}{w_{i+}}\right)\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\boldsymbol\theta_{-j}\)</span>: Vector of <span class="math inline">\(\theta_{i}\)</span> parameters with <span class="math inline">\(\theta_{j}\)</span> removed.</p></li>
+<li><p>The mean is an average of the neighbors values.</p></li>
+<li><p>The variance shrinks as a function of the number of neighbors.</p></li>
+</ul>
+</section>
+<section id="another-equivalent-specification" class="slide level2">
+<h2>Another Equivalent Specification</h2>
+<p>Pairwise difference specification:</p>
+<p><span class="math display">\[f(\boldsymbol{\theta} | \tau^2) \propto \exp\left\{-\frac{1}{2\tau^2}\sum_{i \sim j} w_{ij} (\theta_i - \theta_j)^2\right\},\]</span></p>
+<ul>
+<li><p>The impropriety of the distribution can also be seen here, because we can add any constant to all <span class="math inline">\(\theta_i\)</span> and the distribution is unaffected.</p></li>
+<li><p>A constraint such as <span class="math inline">\(\sum_{i=1}^n \theta_i = 0\)</span> would provide the needed centering.</p></li>
+<li><p>We will use this specification in Stan.</p></li>
+</ul>
+</section>
+<section id="full-disease-mapping-model" class="slide level2">
+<h2>Full Disease Mapping Model</h2>
+<p>The full model can be written as:</p>
+<p><span class="math display">\[\begin{aligned}
+Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
+\log \lambda_i &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \theta_i + \epsilon_i,\quad \epsilon_i \stackrel{iid}{\sim} N(0,\sigma^2)\\
+\boldsymbol{\theta} | \tau &amp;\sim \text{ICAR}\left(\tau^2\right)\\
+\boldsymbol{\Omega} &amp;\sim f(\boldsymbol{\Omega}),\\
+\end{aligned}\]</span></p>
+<p>where <span class="math inline">\(\boldsymbol{\Omega} = (\alpha, \boldsymbol{\beta}, \sigma, \tau)\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\mu_i = \exp\{\log E_i + \alpha + \mathbf{x}_i\boldsymbol{\beta} + \theta_i + \epsilon_i\}\)</span>.</li>
+</ul>
+</section>
+<section id="posterior-distribution" class="slide level2">
+<h2>Posterior Distribution</h2>
+<p>Define <span class="math inline">\(\mathbf{Y} = (Y_1,\ldots,Y_n)\)</span>. The posterior can be written as:</p>
+<p><span class="math display">\[\begin{aligned}
+f(\boldsymbol{\Omega}, \boldsymbol{\theta} | \mathbf{Y}) &amp;\propto f(\mathbf{Y}, \boldsymbol{\Omega},\boldsymbol{\theta})\\
+&amp;\propto f(\mathbf{Y} | \boldsymbol{\Omega},\boldsymbol{\theta}) f(\boldsymbol{\theta} | \boldsymbol{\Omega}) f(\boldsymbol{\Omega})\\
+&amp;\propto f(\boldsymbol{\Omega}) \prod_{i=1}^n f({Y}_i | \lambda_i) f(\theta_i | \tau^2) .
+\end{aligned}\]</span></p>
+</section>
+<section id="adding-the-icar-prior-to-stan" class="slide level2">
+<h2>Adding the ICAR prior to Stan</h2>
+<p>We will use the pairwise differences specification, so we need the unique pairs of neighbors. We will define <span class="math inline">\(n_{edges}\)</span> as the number of non-zero edges. The following is added to the Stan data code chunk.</p>
+<div class="cell" data-output.var="icar">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb2-1"><a></a><span class="kw">data</span> {</span>
+<span id="cb2-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; n;</span>
+<span id="cb2-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; n_edges;</span>
+<span id="cb2-4"><a></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node1; <span class="co">// node1[i] adjacent to node2[i]</span></span>
+<span id="cb2-5"><a></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node2; <span class="co">// and node1[i] &lt; node2[i]</span></span>
+<span id="cb2-6"><a></a>  ...</span>
+<span id="cb2-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="extracting-non-zero-edges-for-stan" class="slide level2">
+<h2>Extracting non-zero edges for Stan</h2>
+<p>Our goal is to get the row-column pairs from <span class="math inline">\(\mathbf{W}\)</span> where the <span class="math inline">\(w_{ij} = 1\)</span>. This will return all non-zero indices in the adjacency matrix.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Get the row-column pairs where the adjacency matrix is 1</span></span>
-<span id="cb2-2"><a></a><span class="co"># This will return all non-zero indices in the adjacency matrix</span></span>
-<span id="cb2-3"><a></a>neighbor_pairs <span class="ot">&lt;-</span> <span class="fu">which</span>(adj_matrix <span class="sc">==</span> <span class="dv">1</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="co"># Filter out the upper triangle (to avoid repeating edges)</span></span>
-<span id="cb2-6"><a></a>neighbor_pairs_lower <span class="ot">&lt;-</span> neighbor_pairs[neighbor_pairs[, <span class="dv">1</span>] <span class="sc">&lt;</span> neighbor_pairs[, <span class="dv">2</span>], ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>neighbor_pairs <span class="ot">&lt;-</span> <span class="fu">which</span>(W <span class="sc">==</span> <span class="dv">1</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Since <span class="math inline">\(\mathbf{W}\)</span> is symmetric, we only need to keep the edges from above the diagonal to avoid repeating edges.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>neighbor_pairs_lower <span class="ot">&lt;-</span> neighbor_pairs[neighbor_pairs[, <span class="dv">1</span>] <span class="sc">&lt;</span> neighbor_pairs[, <span class="dv">2</span>], ]</span>
+<span id="cb4-2"><a></a>n_edges <span class="ot">&lt;-</span> <span class="fu">nrow</span>(neighbor_pairs_lower)</span>
+<span id="cb4-3"><a></a>node1 <span class="ot">&lt;-</span> neighbor_pairs_lower[, <span class="dv">1</span>]</span>
+<span id="cb4-4"><a></a>node2 <span class="ot">&lt;-</span> neighbor_pairs_lower[, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="adding-the-icar-prior-to-stan-1" class="slide level2">
+<h2>Adding the ICAR prior to Stan</h2>
+<p>We can then add the following to the parameters and model Stan code chunks, where we leverage Stan’s ability to perform multi-indexing and vectorization!</p>
+<div class="cell" data-output.var="icar">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb5-1"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb5-2"><a></a>  <span class="dt">vector</span>[n] z;</span>
+<span id="cb5-3"><a></a>}</span>
+<span id="cb5-4"><a></a><span class="kw">transformed parameters</span> {</span>
+<span id="cb5-5"><a></a>  <span class="dt">vector</span>[n] theta = tau * z;</span>
+<span id="cb5-6"><a></a>}</span>
+<span id="cb5-7"><a></a><span class="kw">model</span> {</span>
+<span id="cb5-8"><a></a>  <span class="kw">target +=</span> -<span class="fl">0.5</span> * dot_self(z[node1] - z[node2]);</span>
+<span id="cb5-9"><a></a>  <span class="co">// soft sum-to-zero constraint on z,</span></span>
+<span id="cb5-10"><a></a>  <span class="co">// equivalent to mean(z) ~ normal(0,0.01)</span></span>
+<span id="cb5-11"><a></a>  sum(z) ~ normal(<span class="dv">0</span>, <span class="fl">0.01</span> * n);</span>
+<span id="cb5-12"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="modeling" class="slide level2 midi">
+<h2>Modeling</h2>
+<p>We specify the following model:</p>
+<p><span class="math display">\[\begin{aligned}
+Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
+\log \lambda_i &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta} + \theta_i + \epsilon_i,\quad \epsilon_i \stackrel{iid}{\sim} N(0,\sigma^2)\\
+\boldsymbol{\theta} | \tau &amp;\sim \text{ICAR}\left(\tau^2\right)\\
+\alpha^* &amp;\sim N(0,3^2)\\
+\beta_j &amp;\sim N(0,3^2), \quad j = 1,\ldots,p\\
+\sigma &amp;\sim \text{Half-Normal}(0, 3^2)\\
+\tau &amp;\sim \text{Half-Normal}(0, 3^2)\\
+\end{aligned}\]</span></p>
+<p>Where <span class="math inline">\(n = 100\)</span>, <span class="math inline">\(\mathbf{x}_i = (\text{age}_{i}, \text{poverty}_i)\)</span>.</p>
+</section>
+<section id="full-stan-model-for-icar" class="slide level2">
+<h2>Full Stan Model for ICAR</h2>
+<div class="cell" data-output.var="full_icar">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a></a><span class="co">// saved in icar.stan</span></span>
+<span id="cb6-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb6-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb6-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb6-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; n_edges;</span>
+<span id="cb6-6"><a></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node1; <span class="co">// node1[i] adjacent to node2[i]</span></span>
+<span id="cb6-7"><a></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node2; <span class="co">// and node1[i] &lt; node2[i]</span></span>
+<span id="cb6-8"><a></a>  <span class="dt">array</span>[n] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; Y;</span>
+<span id="cb6-9"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt;[n] E;</span>
+<span id="cb6-10"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb6-11"><a></a>}</span>
+<span id="cb6-12"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb6-13"><a></a>  <span class="dt">matrix</span>[n, p] X_centered;</span>
+<span id="cb6-14"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb6-15"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
+<span id="cb6-16"><a></a>    X_bar[i] = mean(X[, i]);</span>
+<span id="cb6-17"><a></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
+<span id="cb6-18"><a></a>  }</span>
+<span id="cb6-19"><a></a>  <span class="dt">vector</span>[n] logE = log(E);</span>
+<span id="cb6-20"><a></a>}</span>
+<span id="cb6-21"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb6-22"><a></a>  <span class="dt">real</span> alpha_star;</span>
+<span id="cb6-23"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb6-24"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma; <span class="co">// precision of heterogeneous effects</span></span>
+<span id="cb6-25"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; tau; <span class="co">// precision of spatial effects</span></span>
+<span id="cb6-26"><a></a>  <span class="dt">vector</span>[n] z1; <span class="co">// spatial effects</span></span>
+<span id="cb6-27"><a></a>  <span class="dt">vector</span>[n] z2; <span class="co">// heterogeneous effects</span></span>
+<span id="cb6-28"><a></a>}</span>
+<span id="cb6-29"><a></a><span class="kw">transformed parameters</span> {</span>
+<span id="cb6-30"><a></a>  <span class="dt">vector</span>[n] theta = tau * z1;     <span class="co">// spatial effects</span></span>
+<span id="cb6-31"><a></a>  <span class="dt">vector</span>[n] epsilon = sigma * z2; <span class="co">// heterogeneous effects</span></span>
+<span id="cb6-32"><a></a>}</span>
+<span id="cb6-33"><a></a><span class="kw">model</span> {</span>
+<span id="cb6-34"><a></a>  Y ~ poisson_log(logE + alpha_star + X_centered * beta + theta + epsilon);</span>
+<span id="cb6-35"><a></a>  <span class="co">// the following computes the ICAR prior on theta (through the standardized version z1)</span></span>
+<span id="cb6-36"><a></a>  <span class="kw">target +=</span> -<span class="fl">0.5</span> * dot_self(z1[node1] - z1[node2]);</span>
+<span id="cb6-37"><a></a>  <span class="co">// soft sum-to-zero constraint on theta)</span></span>
+<span id="cb6-38"><a></a>  sum(z1) ~ normal(<span class="dv">0</span>, <span class="fl">0.001</span> * n); <span class="co">// equivalent to mean(z1) ~ normal(0, 0.001)</span></span>
+<span id="cb6-39"><a></a>  <span class="co">// heterogeneous effects</span></span>
+<span id="cb6-40"><a></a>  z2 ~ std_normal();</span>
+<span id="cb6-41"><a></a>  <span class="co">// population parameters</span></span>
+<span id="cb6-42"><a></a>  alpha_star ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb6-43"><a></a>  beta ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb6-44"><a></a>  sigma ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb6-45"><a></a>  tau ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb6-46"><a></a>}</span>
+<span id="cb6-47"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb6-48"><a></a>  <span class="dt">real</span> alpha = alpha_star - X_bar * beta;</span>
+<span id="cb6-49"><a></a>  <span class="dt">vector</span>[n] log_mu = logE + alpha_star + X_centered * beta + theta + epsilon;</span>
+<span id="cb6-50"><a></a>  <span class="dt">vector</span>[n] lambda = exp(log_mu - logE);</span>
+<span id="cb6-51"><a></a>  <span class="dt">vector</span>[n] mu = exp(log_mu);</span>
+<span id="cb6-52"><a></a>  <span class="dt">vector</span>[n] Y_pred;</span>
+<span id="cb6-53"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
+<span id="cb6-54"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb6-55"><a></a>    Y_pred[i] = poisson_log_rng(log_mu[i]);</span>
+<span id="cb6-56"><a></a>    log_lik[i] = poisson_log_lpmf(Y[i] | log_mu[i]);</span>
+<span id="cb6-57"><a></a>  }</span>
+<span id="cb6-58"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fit-the-stan-model" class="slide level2">
 <h2>Fit the Stan Model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="do">###Try to fit ICAR model</span></span>
-<span id="cb3-2"><a></a>icar <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="st">"/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/covid/icar.stan"</span>)</span>
-<span id="cb3-3"><a></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> age <span class="sc">+</span> poverty, <span class="at">data =</span> covid_nc_2020)[, <span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb3-4"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb3-5"><a></a>  <span class="at">n =</span> <span class="fu">nrow</span>(covid_nc_2020),</span>
-<span id="cb3-6"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
-<span id="cb3-7"><a></a>  <span class="at">n_edges =</span> <span class="fu">nrow</span>(neighbor_pairs_lower),</span>
-<span id="cb3-8"><a></a>  <span class="at">node1 =</span> neighbor_pairs_lower[, <span class="dv">1</span>],</span>
-<span id="cb3-9"><a></a>  <span class="at">node2 =</span> neighbor_pairs_lower[, <span class="dv">2</span>],</span>
-<span id="cb3-10"><a></a>  <span class="at">Y =</span> covid_nc_2020<span class="sc">$</span>DEATHS,</span>
-<span id="cb3-11"><a></a>  <span class="at">E =</span> covid_nc_2020<span class="sc">$</span>ESTDEATHS,</span>
-<span id="cb3-12"><a></a>  <span class="at">X =</span> X</span>
-<span id="cb3-13"><a></a>)</span>
-<span id="cb3-14"><a></a>fit_icar <span class="ot">&lt;-</span> <span class="fu">sampling</span>(icar, stan_data, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"z"</span>, <span class="st">"log_mu"</span>, <span class="st">"lp__"</span>), <span class="at">include =</span> <span class="cn">FALSE</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span>
-<span id="cb3-15"><a></a><span class="fu">print</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span>
-<span id="cb3-16"><a></a>rstan<span class="sc">::</span><span class="fu">traceplot</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span>
-<span id="cb3-17"><a></a>rstan<span class="sc">::</span><span class="fu">traceplot</span>(fit_icar, <span class="at">pars =</span> <span class="st">"theta[1]"</span>)</span>
-<span id="cb3-18"><a></a><span class="fu">saveRDS</span>(fit_icar, <span class="at">file =</span> <span class="st">"/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/19-fit-icar.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> age <span class="sc">+</span> poverty, <span class="at">data =</span> covid_nc_2020)[, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb7-2"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb7-3"><a></a>  <span class="at">n =</span> <span class="fu">nrow</span>(covid_nc_2020),</span>
+<span id="cb7-4"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb7-5"><a></a>  <span class="at">n_edges =</span> <span class="fu">nrow</span>(neighbor_pairs_lower),</span>
+<span id="cb7-6"><a></a>  <span class="at">node1 =</span> neighbor_pairs_lower[, <span class="dv">1</span>],</span>
+<span id="cb7-7"><a></a>  <span class="at">node2 =</span> neighbor_pairs_lower[, <span class="dv">2</span>],</span>
+<span id="cb7-8"><a></a>  <span class="at">Y =</span> covid_nc_2020<span class="sc">$</span>obs_deaths,</span>
+<span id="cb7-9"><a></a>  <span class="at">E =</span> covid_nc_2020<span class="sc">$</span>est_deaths,</span>
+<span id="cb7-10"><a></a>  <span class="at">X =</span> X</span>
+<span id="cb7-11"><a></a>)</span>
+<span id="cb7-12"><a></a>icar <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="st">"icar.stan"</span>)</span>
+<span id="cb7-13"><a></a>fit_icar <span class="ot">&lt;-</span> <span class="fu">sampling</span>(icar, stan_data, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"z1"</span>, <span class="st">"z2"</span>, <span class="st">"epsilon"</span>, <span class="st">"log_mu"</span>, <span class="st">"lp__"</span>), <span class="at">include =</span> <span class="cn">FALSE</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="examine-model-summaries" class="slide level2">
+<h2>Examine model summaries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">print</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -773,50 +942,46 @@ Y_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 post-warmup draws per chain=5000, total post-warmup draws=20000.
 
             mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat
-alpha      -0.99    0.00 0.42 -1.80 -1.27 -0.99 -0.71 -0.16  6969 1.00
-alpha_star  0.09    0.00 0.05 -0.01  0.05  0.09  0.12  0.18  6498 1.00
-beta[1]     0.98    0.01 1.05 -1.09  0.29  0.99  1.70  3.03  6469 1.00
-beta[2]     4.68    0.01 1.13  2.43  3.93  4.69  5.44  6.86  6770 1.00
-sigma       0.42    0.00 0.05  0.31  0.39  0.43  0.46  0.52  1337 1.00
-tau         0.24    0.01 0.17  0.01  0.11  0.21  0.35  0.62   643 1.01
+alpha      -0.99    0.01 0.42 -1.81 -1.27 -0.99 -0.71 -0.17  6567    1
+alpha_star  0.08    0.00 0.05 -0.01  0.05  0.08  0.12  0.18  6187    1
+beta[1]     0.99    0.01 1.05 -1.06  0.28  0.99  1.70  3.06  5966    1
+beta[2]     4.66    0.01 1.13  2.40  3.92  4.67  5.43  6.86  6293    1
+sigma       0.42    0.00 0.06  0.30  0.39  0.43  0.46  0.53  1087    1
+tau         0.25    0.01 0.17  0.01  0.11  0.22  0.36  0.64   550    1
 
-Samples were drawn using NUTS(diag_e) at Mon Mar 17 11:37:56 2025.
+Samples were drawn using NUTS(diag_e) at Fri Mar 21 15:37:56 2025.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).</code></pre>
 </div>
 </div>
 </section>
-<section id="compute-ppd" class="slide level2">
-<h2>Compute PPD</h2>
+<section id="examine-traceplots" class="slide level2">
+<h2>Examine traceplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>Y_pred <span class="ot">&lt;-</span> rstan<span class="sc">::</span><span class="fu">extract</span>(fit_icar, <span class="at">pars =</span> <span class="st">"Y_pred"</span>)<span class="sc">$</span>Y_pred</span>
-<span id="cb5-2"><a></a>ppd_oe <span class="ot">&lt;-</span> <span class="fu">sweep</span>(Y_pred, <span class="dv">2</span>, stan_data<span class="sc">$</span>E, <span class="st">"/"</span>)</span>
-<span id="cb5-3"><a></a>ppd_mean <span class="ot">&lt;-</span> <span class="fu">apply</span>(ppd_oe, <span class="dv">2</span>, mean)</span>
-<span id="cb5-4"><a></a>ppd_sd <span class="ot">&lt;-</span> <span class="fu">apply</span>(ppd_oe, <span class="dv">2</span>, sd)</span>
-<span id="cb5-5"><a></a>covid_nc_2020<span class="sc">$</span>ppd_mean <span class="ot">&lt;-</span> ppd_mean</span>
-<span id="cb5-6"><a></a>covid_nc_2020<span class="sc">$</span>ppd_sd <span class="ot">&lt;-</span> ppd_sd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>rstan<span class="sc">::</span><span class="fu">traceplot</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</section>
-<section id="looking-at-smr-observed-versus-ppd" class="slide level2">
-<h2>Looking at SMR observed versus PPD</h2>
+<img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
+<section id="looking-at-smr-observed-versus-lambda_i" class="slide level2">
+<h2>Looking at SMR observed versus <span class="math inline">\(\lambda_i\)</span></h2>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="final-map" class="slide level2">
-<h2>Final Map</h2>
+<section id="posterior-smr-across-north-carolina" class="slide level2">
+<h2>Posterior SMR Across North Carolina</h2>
 <div>
 
 </div>
@@ -825,14 +990,14 @@ convergence, Rhat=1).</code></pre>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-11-2.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-19-2.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -841,29 +1006,61 @@ convergence, Rhat=1).</code></pre>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-11-3.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-19-3.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-11-4.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-19-4.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="create-a-figure-with-plambda_i-1" class="slide level2">
-<h2>Create a figure with <span class="math inline">\(P(\lambda_i &gt; 1)\)</span></h2>
+<section id="mapping-plambda_i-1-mathbfy" class="slide level2">
+<h2>Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mapping-plambda_i-1-mathbfy-1" class="slide level2">
+<h2>Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></h2>
+<p>Binary indicator of <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y}) &gt; 0.95\)</span>:</p>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="19-disease-mapping_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>
 <ul>
-<li><p>Work on HW 04, which is due before class on Tuesday.</p></li>
-<li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
-<li><p>Tuesday’s lecture: Disease mapping</p></li>
+<li><p>Work on HW 05, which is due April 8.</p></li>
+<li><p>Complete reading to prepare for next Thursday’s lecture</p></li>
+<li><p>Thursday’s lecture: Guest lecture by Prof.&nbsp;Hwanhee Hong on Bayesian Meta-Analysis</p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">

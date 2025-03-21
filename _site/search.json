@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -15391,14 +15391,14 @@
     "href": "slides/19-disease-mapping.html#spatial-correlation-areal-data",
     "title": "Disease Mapping",
     "section": "Spatial Correlation: Areal Data",
-    "text": "Spatial Correlation: Areal Data\n\nHow to induce spatial correlation between areal units?\n\nDistances between centroids (possibly population weighted); may be inappropriate for oddly shaped regions of varying sizes (great for equal sized grid though).\nNeighborhood structure of your spatial region; are two regions neighbors?\n\nCorrelation introduced through spatial random effects."
+    "text": "Spatial Correlation: Areal Data\n\nHow to induce spatial correlation between areal units?\n\nDistances between centroids (possibly population weighted); may be inappropriate for oddly shaped regions of varying sizes (great for equal sized grid though).\nNeighborhood structure of your spatial region; are two regions neighbors?\n\nCorrelation introduced through spatial random effects.\nThe default model for areal data in the Bayesian setting is called the conditionally autoregressive (CAR) model."
   },
   {
     "objectID": "slides/19-disease-mapping.html#prepare-for-next-class",
     "href": "slides/19-disease-mapping.html#prepare-for-next-class",
     "title": "Disease Mapping",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 04, which is due before class on Tuesday.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Disease mapping\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 05, which is due April 8.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Guest lecture by Prof. Hwanhee Hong on Bayesian Meta-Analysis\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "slides/19-disease-mapping.html#bayesian-model-fitting",
@@ -15412,7 +15412,7 @@
     "href": "slides/19-disease-mapping.html#inducing-spatial-dependency",
     "title": "Disease Mapping",
     "section": "Inducing Spatial Dependency",
-    "text": "Inducing Spatial Dependency\nThe most common approach for inducing spatial dependency in an areal data setting using the intrinsic conditional autoregressive (ICAR) process,\n\\[\\boldsymbol{\\theta} | \\tau^2 \\sim \\text{ICAR}\\left(\\tau^2\\right)\\]\n\\[\\theta_{i} | \\boldsymbol{\\theta}_{-i}, \\tau^2 \\sim \\mathcal N \\left({\\frac{\\sum_{j=1}^n w_{ij}\\theta_{j}}{\\sum_{j=1}^n w_{ij}}},\\frac{\\tau^2}{\\sum_{j=1}^n w_{ij}}\\right)\\]\n\n\\(\\boldsymbol\\theta_{-j}\\): Vector of \\(\\theta_{i}\\) parameters with \\(\\theta_{j}\\) removed\n\\(\\boldsymbol{\\beta}_0 | \\tau_0^2 \\sim \\text{ICAR}\\left(\\tau_0^2\\right),\\quad \\boldsymbol{\\beta}_1 | \\tau_1^2 \\sim \\text{ICAR}\\left(\\tau_1^2\\right)\\)\nNot a proper prior distribution (implications for MCMC algorithms!)"
+    "text": "Inducing Spatial Dependency\nToday, we will look at the intrinsic CAR (ICAR) process for a vector \\(\\boldsymbol{\\theta} = (\\theta_1, \\ldots, \\theta_n)^\\top\\), \\(\\boldsymbol{\\theta} | \\tau^2 \\sim \\text{ICAR}\\left(\\tau^2\\right)\\). Under this specification, the following conditional distributions are induced.\n\\[\\theta_{i} | \\boldsymbol{\\theta}_{-i}, \\tau^2 \\sim \\mathcal N \\left({\\frac{\\sum_{j=1}^n w_{ij}\\theta_{j}}{\\sum_{j=1}^n w_{ij}}},\\frac{\\tau^2}{\\sum_{j=1}^n w_{ij}}\\right)\\]\n\n\\(\\boldsymbol\\theta_{-j}\\): Vector of \\(\\theta_{i}\\) parameters with \\(\\theta_{j}\\) removed\n\\(\\boldsymbol{\\beta}_0 | \\tau_0^2 \\sim \\text{ICAR}\\left(\\tau_0^2\\right),\\quad \\boldsymbol{\\beta}_1 | \\tau_1^2 \\sim \\text{ICAR}\\left(\\tau_1^2\\right)\\)\nNot a proper prior distribution (implications for MCMC algorithms!)"
   },
   {
     "objectID": "slides/19-disease-mapping.html#a-proper-car-process",
@@ -15727,7 +15727,7 @@
     "href": "slides/19-disease-mapping.html#compute-adjacency-matrix",
     "title": "Disease Mapping",
     "section": "Compute Adjacency Matrix",
-    "text": "Compute Adjacency Matrix\n\n###Get adjacency matrix\nneighbors &lt;- spdep::poly2nb(covid_nc_2020)\nadj_matrix &lt;- spdep::nb2mat(neighbors, style = \"B\", zero.policy = TRUE)\n# style = \"B\" specifies binary encoding (1 if neighbors, 0 if not).\n# zero.policy = TRUE ensures the function works even if some counties do not have neighbors.\n# Convert adjacency matrix to a long format for ggplot\nadj_matrix_long &lt;- melt(adj_matrix)\n\n# Plot the adjacency matrix\n# ggplot(adj_matrix_long, aes(x = Var1, y = Var2, fill = value)) +\n#  geom_tile() +\n#  scale_fill_gradient(low = \"white\", high = \"blue\") +\n#  labs(title = \"Adjacency Matrix Heatmap\", x = \"County\", y = \"County\")"
+    "text": "Compute Adjacency Matrix\nTo compute the adjacency matrix of an sf data object we can use the spdep library.\n\nneighbors &lt;- spdep::poly2nb(covid_nc_2020) # computes the neighborhood structure\nW &lt;- spdep::nb2mat(neighbors, style = \"B\", zero.policy = TRUE) # converts to an n x n matrix\n\n\nstyle = \"B\" specifies binary encoding (1 if neighbors, 0 if not).\nzero.policy = TRUE ensures the function works even if some counties do not have neighbors."
   },
   {
     "objectID": "slides/19-disease-mapping.html#prepare-adjacnecy-for-stan",
@@ -15748,7 +15748,7 @@
     "href": "slides/19-disease-mapping.html#fit-the-stan-model",
     "title": "Disease Mapping",
     "section": "Fit the Stan Model",
-    "text": "Fit the Stan Model\n\n###Try to fit ICAR model\nicar &lt;- stan_model(\"/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/covid/icar.stan\")\nX &lt;- model.matrix(~ age + poverty, data = covid_nc_2020)[, -1]\nstan_data &lt;- list(\n  n = nrow(covid_nc_2020),\n  p = ncol(X),\n  n_edges = nrow(neighbor_pairs_lower),\n  node1 = neighbor_pairs_lower[, 1],\n  node2 = neighbor_pairs_lower[, 2],\n  Y = covid_nc_2020$DEATHS,\n  E = covid_nc_2020$ESTDEATHS,\n  X = X\n)\nfit_icar &lt;- sampling(icar, stan_data, pars = c(\"z\", \"log_mu\", \"lp__\"), include = FALSE, iter = 10000)\nprint(fit_icar, pars = c(\"alpha\", \"alpha_star\", \"beta\", \"sigma\", \"tau\"))\nrstan::traceplot(fit_icar, pars = c(\"alpha\", \"alpha_star\", \"beta\", \"sigma\", \"tau\"))\nrstan::traceplot(fit_icar, pars = \"theta[1]\")\nsaveRDS(fit_icar, file = \"/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/19-fit-icar.rds\")\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=10000; warmup=5000; thin=1; \npost-warmup draws per chain=5000, total post-warmup draws=20000.\n\n            mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nalpha      -0.99    0.00 0.42 -1.80 -1.27 -0.99 -0.71 -0.16  6969 1.00\nalpha_star  0.09    0.00 0.05 -0.01  0.05  0.09  0.12  0.18  6498 1.00\nbeta[1]     0.98    0.01 1.05 -1.09  0.29  0.99  1.70  3.03  6469 1.00\nbeta[2]     4.68    0.01 1.13  2.43  3.93  4.69  5.44  6.86  6770 1.00\nsigma       0.42    0.00 0.05  0.31  0.39  0.43  0.46  0.52  1337 1.00\ntau         0.24    0.01 0.17  0.01  0.11  0.21  0.35  0.62   643 1.01\n\nSamples were drawn using NUTS(diag_e) at Mon Mar 17 11:37:56 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+    "text": "Fit the Stan Model\n\nX &lt;- model.matrix(~ age + poverty, data = covid_nc_2020)[, -1]\nstan_data &lt;- list(\n  n = nrow(covid_nc_2020),\n  p = ncol(X),\n  n_edges = nrow(neighbor_pairs_lower),\n  node1 = neighbor_pairs_lower[, 1],\n  node2 = neighbor_pairs_lower[, 2],\n  Y = covid_nc_2020$obs_deaths,\n  E = covid_nc_2020$est_deaths,\n  X = X\n)\nicar &lt;- stan_model(\"icar.stan\")\nfit_icar &lt;- sampling(icar, stan_data, pars = c(\"z1\", \"z2\", \"epsilon\", \"log_mu\", \"lp__\"), include = FALSE, iter = 10000)"
   },
   {
     "objectID": "slides/19-disease-mapping.html#looking-at-smr-observed-versus-ppd",
@@ -16021,21 +16021,21 @@
     "href": "slides/19-disease-mapping.html#create-a-figure-with-plambda_i-1",
     "title": "Disease Mapping",
     "section": "Create a figure with \\(P(\\lambda_i > 1)\\)",
-    "text": "Create a figure with \\(P(\\lambda_i &gt; 1)\\)"
+    "text": "Create a figure with \\(P(\\lambda_i &gt; 1)\\)\n\ncovid_nc_2020$lambda_prob &lt;- apply(lambda, 2, function(x) mean(x &gt; 1))\ncovid_nc_2020$lambda_prob_binary &lt;- 1 * (covid_nc_2020$lambda_prob &gt; 0.95)\ncovid_nc_2020$lambda_prob_binary &lt;- as.factor(covid_nc_2020$lambda_prob_binary)\nlevels(covid_nc_2020$lambda_prob_binary) &lt;- c(\"No\", \"Yes\")\n\nggplot(data = covid_nc_2020) +\n  geom_sf(fill = \"lightblue\", color = \"black\") +\n  geom_sf(aes(fill = lambda_prob), shape = 16, size = 2) +\n  theme_minimal() +\n  labs(\n    title = \"Posterior Probability that SMR is greater than 1\",\n    fill = \"Probability\"\n  ) +\n  scale_fill_viridis_c() +  # Custom labels for the breaks\n  coord_sf()  # Ensures the map is properly projected\n\n\n\n\n\n\n\nggplot(data = covid_nc_2020) +\n  geom_sf(fill = \"lightblue\", color = \"black\") +\n  geom_sf(aes(fill = as.factor(lambda_prob_binary)), shape = 16, size = 2) +\n  theme_minimal() +\n  labs(\n    title = \"Posterior Indicator that SMR &gt; 1\",\n    fill = \"SMR &gt; 1\"\n  ) +\n  # scale_fill_viridis_b() +  # Custom labels for the breaks\n  coord_sf()  # Ensures the map is properly projected"
   },
   {
     "objectID": "slides/19-disease-mapping.html#writing-down-a-model-for-smr",
     "href": "slides/19-disease-mapping.html#writing-down-a-model-for-smr",
     "title": "Disease Mapping",
     "section": "Writing down a model for SMR",
-    "text": "Writing down a model for SMR\nDefine \\(Y_i\\) and \\(E_i\\) as the observed and expected mortality counts at county \\(i\\) (\\(i = 1\\ldots,n\\)). We can model the observed counts as follows:\n\\[Y_i \\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i).\\]\n\nRecall that for a random variable \\(Y \\sim \\text{Poisson}(\\lambda)\\), \\(\\mathbb{E}[Y] = \\lambda\\) and \\(\\mathbb{V}(Y) = \\lambda\\).\nFor our model, we have: \\(\\mathbb{E}[Y_i] = E_i \\lambda_i \\implies \\mathbb{E}\\left[\\frac{Y_i}{E_i}\\right] = \\lambda_i\\).\n\nUnder this parameterization \\(\\lambda_i\\) is the SMR."
+    "text": "Writing down a model for SMR\nDefine \\(Y_i\\) and \\(E_i\\) as the observed and expected mortality counts at county \\(i\\) (\\(i = 1\\ldots,n\\)). We can model the observed counts as follows:\n\\[Y_i | \\lambda_i \\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i).\\]\n\nRecall that for a random variable \\(Y \\sim \\text{Poisson}(\\lambda)\\), \\(\\mathbb{E}[Y] = \\lambda\\) and \\(\\mathbb{V}(Y) = \\lambda\\).\nWe have: \\(\\mathbb{E}[Y_i | \\lambda_i] = E_i \\lambda_i \\implies \\mathbb{E}\\left[(Y_i / E_i) | \\lambda_i\\right] = \\lambda_i.\\)\n\nUnder this parameterization \\(\\lambda_i\\) is the SMR."
   },
   {
     "objectID": "slides/19-disease-mapping.html#disease-mapping-model",
     "href": "slides/19-disease-mapping.html#disease-mapping-model",
     "title": "Disease Mapping",
     "section": "Disease Mapping Model",
-    "text": "Disease Mapping Model\nThe parameter \\(\\lambda_i\\), sometimes also called relative risk, is modeled as follows:\n\\[\\begin{aligned}\nY_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i\n\\end{aligned}\\]\n\n\\(\\mathbf{x}_i \\in \\mathbb{R}^{p \\times 1}\\) contains county-level predictors.\n\\(\\alpha \\in \\mathbb{R}\\) is a population intercept.\n\\(\\boldsymbol{\\beta} \\in \\mathbb{R}^p\\) is a vector of population coefficients.\n\nBayesian hierarchical models enable to obtain smoothed disease relative risks by including covariates and random effects to borrow information from neighboring areas. Spatial disease risk models are commonly specified using a Poisson distribution for the observed number of cases (\\(Y_i\\)) with mean equal to the expected number of cases (\\(E_i\\)) times the relative risk (\\(\\lambda_i\\)) corresponding to area \\(i\\), \\(i = 1,\\ldots,n\\),\nHere, the logarithm of \\(\\lambda_i\\) is expressed as a sum of fixed effects to quantify the effects of the covariates on the disease risk, and random effects that represent residual variation that is not explained by the available covariates. The fixed effects are expressed using a vector of intercept and\nSpatial random effects \\(\\theta_i\\) that smooth data according to a neighborhood structure are included to acknowledge that data may be spatially correlated, and relative risks in neighboring areas may be more similar than relative risks in areas that are further away Unstructured exchangeable components \\(\\epsilon_i\\) are also included to model uncorrelated noise.\nThe relative risk \\(\\lambda_i\\) quantifies whether an area \\(i\\) has higher (\\(\\lambda_i &gt; 1\\)) or lower (\\(\\lambda_i &lt; 1\\)) risk than the average risk in the standard population (e.g., the whole population of the study region). For example, \\(\\lambda_i = 2\\) indicates the risk of area \\(i\\) is two times the average risk in the standard population."
+    "text": "Disease Mapping Model\nThe parameter \\(\\lambda_i\\), sometimes also called relative risk, is modeled as follows:\n\\[\\begin{aligned}\nY_i | \\lambda_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i, \\quad \\epsilon_i \\stackrel{iid}{\\sim} N(0,\\sigma^2)\n\\end{aligned}\\]\nwhere \\(\\mathbf{x}_i \\in \\mathbb{R}^{p \\times 1}\\) contains county-level predictors.\nPopulation parameters:\n\n\\(\\alpha \\in \\mathbb{R}\\) is a population intercept.\n\\(\\boldsymbol{\\beta} \\in \\mathbb{R}^p\\) is a vector of population coefficients.\n\\(\\sigma \\in \\mathbb{R}^+\\) is a residual error term."
   },
   {
     "objectID": "slides/19-disease-mapping.html#lattice-data-areal-data",
@@ -16330,5 +16330,201 @@
     "title": "Scalable Gaussian Processes #1",
     "section": "References",
     "text": "References\n\n\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#review-of-last-week",
+    "href": "slides/19-disease-mapping.html#review-of-last-week",
+    "title": "Disease Mapping",
+    "section": "Review of last week",
+    "text": "Review of last week\n\nLast week, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) and geospatial data.\nFocused on making predictions at new locations across the spatial surface.\nToday we will focus on areal spatial data, which has different goals associated with it than point-referenced spatial data."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#disease-mapping-model-1",
+    "href": "slides/19-disease-mapping.html#disease-mapping-model-1",
+    "title": "Disease Mapping",
+    "section": "Disease Mapping Model",
+    "text": "Disease Mapping Model\nThe parameter \\(\\lambda_i\\), sometimes also called relative risk, is modeled as follows:\n\\[\\begin{aligned}\nY_i | \\lambda_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} N(0,\\sigma^2)\n\\end{aligned}\\]\nSpatial Error Term:\n\n\\(\\theta_i \\in \\mathbb{R}\\) is a location-specific parameter that smooths data according to a neighborhood structure.\n\\(\\theta_i\\) induces spatial correlation, such that \\(\\lambda_i\\) in neighboring areas will be more similar."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#disease-mapping-model-2",
+    "href": "slides/19-disease-mapping.html#disease-mapping-model-2",
+    "title": "Disease Mapping",
+    "section": "Disease Mapping Model",
+    "text": "Disease Mapping Model\nThe relative risk \\(\\lambda_i\\) quantifies whether an area \\(i\\) has higher (\\(\\lambda_i &gt; 1\\)) or lower (\\(\\lambda_i &lt; 1\\)) risk than the average risk in the standard population (e.g., the whole population of the study region). For example, \\(\\lambda_i = 2\\) indicates the risk of area \\(i\\) is two times the average risk in the standard population."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#adjacency-matrix",
+    "href": "slides/19-disease-mapping.html#adjacency-matrix",
+    "title": "Disease Mapping",
+    "section": "Adjacency Matrix",
+    "text": "Adjacency Matrix\n\nWe will define the matrix \\(\\mathbf{W} \\in \\mathbb{R}^{n \\times n}\\) as the adjacency matrix.\n\nThis is sometimes called a proximity matrix or neighborhood matrix.\n\nEach entry (\\(w_{ij} = [\\mathbf{W}]_{ij}\\)) is given by: \\[w_{ij} = 1(i \\sim j) = \\left\\{ \\begin{array}{ll}\n       1 & \\mbox{if $i$ and $j$ share a border};\\\\\n       0 & \\mbox{otherwise}.\\end{array} \\right.\\]\nIn some cases, \\(w_{ij}\\) can be generalized to be non-binary."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#car-model",
+    "href": "slides/19-disease-mapping.html#car-model",
+    "title": "Disease Mapping",
+    "section": "CAR Model",
+    "text": "CAR Model\n\\[f(\\boldsymbol{\\theta} | \\tau^2) \\propto \\exp\\left\\{-\\frac{1}{2\\tau^2}\\boldsymbol{\\theta}^\\top \\left(\\mathbf{D}_w - \\mathbf{W}\\right) \\boldsymbol{\\theta}\\right\\},\\]\nwhere \\(\\mathbf{D}_w\\) is diagonal with \\([\\mathbf{D}_w]_{ii} = w_{i+}\\) and \\(w_{i+} = \\sum_{i=1}^n w_{ij}\\) (i.e., \\(w_{i+}\\) is the number of neighbors for locations \\(i\\))."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#visualzing-the-adjacency-matrix",
+    "href": "slides/19-disease-mapping.html#visualzing-the-adjacency-matrix",
+    "title": "Disease Mapping",
+    "section": "Visualzing the Adjacency Matrix",
+    "text": "Visualzing the Adjacency Matrix"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#compute-the-non-zero-edges-for-stan",
+    "href": "slides/19-disease-mapping.html#compute-the-non-zero-edges-for-stan",
+    "title": "Disease Mapping",
+    "section": "Compute the Non-Zero Edges for Stan",
+    "text": "Compute the Non-Zero Edges for Stan\n\n# Get the row-column pairs where the adjacency matrix is 1\n# This will return all non-zero indices in the adjacency matrix\nneighbor_pairs &lt;- which(W == 1, arr.ind = TRUE)\n\n# Filter out the upper triangle (to avoid repeating edges)\nneighbor_pairs_lower &lt;- neighbor_pairs[neighbor_pairs[, 1] &lt; neighbor_pairs[, 2], ]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#visualzing-the-adjacency-matrix-1",
+    "href": "slides/19-disease-mapping.html#visualzing-the-adjacency-matrix-1",
+    "title": "Disease Mapping",
+    "section": "Visualzing the Adjacency Matrix",
+    "text": "Visualzing the Adjacency Matrix"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#icar-model",
+    "href": "slides/19-disease-mapping.html#icar-model",
+    "title": "Disease Mapping",
+    "section": "ICAR Model",
+    "text": "ICAR Model\nToday, we will look at the intrinsic CAR (ICAR) process for a vector \\(\\boldsymbol{\\theta} = (\\theta_1, \\ldots, \\theta_n)^\\top\\), \\(\\boldsymbol{\\theta} | \\tau^2 \\sim \\text{ICAR}\\left(\\tau^2\\right)\\). Under this specification, the following joint distribution is given:\n\\[f(\\boldsymbol{\\theta} | \\tau^2) \\propto \\exp\\left\\{-\\frac{1}{2\\tau^2}\\boldsymbol{\\theta}^\\top \\left(\\mathbf{D}_w - \\mathbf{W}\\right) \\boldsymbol{\\theta}\\right\\},\\]\nwhere \\(\\mathbf{D}_w\\) is diagonal with \\([\\mathbf{D}_w]_{ii} = w_{i+}\\) and \\(w_{i+} = \\sum_{j=1}^n w_{ij}\\) (i.e., \\(w_{i+}\\) is the number of neighbors for locations \\(i\\)).\n\n\\(\\left(\\mathbf{D}_w - \\mathbf{W}\\right)\\) is singular, so \\(\\left(\\mathbf{D}_w - \\mathbf{W}\\right)^{-1}\\) does not exist and this distribution is improper.\nWe can still use this as a prior for \\(\\boldsymbol{\\theta}\\) and get a proper posterior!"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#icar-model-conditional-distributinos",
+    "href": "slides/19-disease-mapping.html#icar-model-conditional-distributinos",
+    "title": "Disease Mapping",
+    "section": "ICAR Model: Conditional Distributinos",
+    "text": "ICAR Model: Conditional Distributinos\nThe joint distribution on the previous slide can be written as a \\(n\\) conditional distributions:\n\\[\\theta_{i} | \\boldsymbol{\\theta}_{-i}, \\tau^2 \\sim  N \\left({\\frac{\\sum_{j=1}^n w_{ij}\\theta_{j}}{w_{i+}}},\\frac{\\tau^2}{w_{i+}}\\right)\\]\n\n\\(\\boldsymbol\\theta_{-j}\\): Vector of \\(\\theta_{i}\\) parameters with \\(\\theta_{j}\\) removed.\nThe mean is an average of the neighbors values.\nThe variance shrinks as a function of the number of neighbors."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#another-equivalent-specification",
+    "href": "slides/19-disease-mapping.html#another-equivalent-specification",
+    "title": "Disease Mapping",
+    "section": "Another Equivalent Specification",
+    "text": "Another Equivalent Specification\nPairwise difference specification:\n\\[f(\\boldsymbol{\\theta} | \\tau^2) \\propto \\exp\\left\\{-\\frac{1}{2\\tau^2}\\sum_{i \\sim j} w_{ij} (\\theta_i - \\theta_j)^2\\right\\},\\]\n\nThe impropriety of the distribution can also be seen here, because we can add any constant to all \\(\\theta_i\\) and the distribution is unaffected.\nA constraint such as \\(\\sum_{i=1}^n \\theta_i = 0\\) would provide the needed centering.\nWe will use this specification in Stan."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#full-disease-mapping-model",
+    "href": "slides/19-disease-mapping.html#full-disease-mapping-model",
+    "title": "Disease Mapping",
+    "section": "Full Disease Mapping Model",
+    "text": "Full Disease Mapping Model\nThe full model can be written as:\n\\[\\begin{aligned}\nY_i | \\lambda_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\\\\n\\boldsymbol{\\theta} | \\tau &\\sim \\text{ICAR}\\left(\\tau^2\\right)\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\\\\\n\\end{aligned}\\]\nwhere \\(\\boldsymbol{\\Omega} = (\\alpha, \\boldsymbol{\\beta}, \\sigma, \\tau)\\).\n\n\\(\\mu_i = \\exp\\{\\log E_i + \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\theta_i + \\epsilon_i\\}\\)."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#posterior-distribution",
+    "href": "slides/19-disease-mapping.html#posterior-distribution",
+    "title": "Disease Mapping",
+    "section": "Posterior Distribution",
+    "text": "Posterior Distribution\nDefine \\(\\mathbf{Y} = (Y_1,\\ldots,Y_n)\\). The posterior can be written as:\n\\[\\begin{aligned}\nf(\\boldsymbol{\\Omega}, \\boldsymbol{\\theta} | \\mathbf{Y}) &\\propto f(\\mathbf{Y}, \\boldsymbol{\\Omega},\\boldsymbol{\\theta})\\\\\n&\\propto f(\\mathbf{Y} | \\boldsymbol{\\Omega},\\boldsymbol{\\theta}) f(\\boldsymbol{\\theta} | \\boldsymbol{\\Omega}) f(\\boldsymbol{\\Omega})\\\\\n&\\propto f(\\boldsymbol{\\Omega}) \\prod_{i=1}^n f({Y}_i | \\lambda_i) f(\\theta_i | \\tau^2) .\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#adding-the-icar-prior-to-stan",
+    "href": "slides/19-disease-mapping.html#adding-the-icar-prior-to-stan",
+    "title": "Disease Mapping",
+    "section": "Adding the ICAR prior to Stan",
+    "text": "Adding the ICAR prior to Stan\nWe will use the pairwise differences specification, so we need the unique pairs of neighbors. We will define \\(n_{edges}\\) as the number of non-zero edges. The following is added to the Stan data code chunk.\n\ndata {\n  int&lt;lower=0&gt; n;\n  int&lt;lower=0&gt; n_edges;\n  array[n_edges] int&lt;lower = 1, upper = n&gt; node1; // node1[i] adjacent to node2[i]\n  array[n_edges] int&lt;lower = 1, upper = n&gt; node2; // and node1[i] &lt; node2[i]\n  ...\n}"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#adding-the-icar-prior-to-stan-1",
+    "href": "slides/19-disease-mapping.html#adding-the-icar-prior-to-stan-1",
+    "title": "Disease Mapping",
+    "section": "Adding the ICAR prior to Stan",
+    "text": "Adding the ICAR prior to Stan\nWe can then add the following to the parameters and model Stan code chunks, where we leverage Stan’s ability to perform multi-indexing and vectorization!\n\nparameters {\n  vector[n] z;\n}\ntransformed parameters {\n  vector[n] theta = tau * z;\n}\nmodel {\n  target += -0.5 * dot_self(z[node1] - z[node2]);\n  // soft sum-to-zero constraint on z,\n  // equivalent to mean(z) ~ normal(0,0.01)\n  sum(z) ~ normal(0, 0.01 * n);\n}"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#extracting-the-non-zero-edges-for-stan",
+    "href": "slides/19-disease-mapping.html#extracting-the-non-zero-edges-for-stan",
+    "title": "Disease Mapping",
+    "section": "Extracting the non-zero edges for Stan",
+    "text": "Extracting the non-zero edges for Stan\nOur goal is to get the row-column pairs from \\(\\mathbf{W}\\) where the \\(w_{ij} = 1\\). This will return all non-zero indices in the adjacency matrix.\n\nneighbor_pairs &lt;- which(W == 1, arr.ind = TRUE)\n\nSince \\(\\mathbf{W}\\) is symmetric, we only need to keep the edges from above the diagonal to avoid repeating edges.\n\nneighbor_pairs_lower &lt;- neighbor_pairs[neighbor_pairs[, 1] &lt; neighbor_pairs[, 2], ]\nn_edges &lt;- nrow(neighbor_pairs_lower)\nnode1 &lt;- neighbor_pairs_lower[, 1]\nnode2 &lt;- neighbor_pairs_lower[, 2]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#extracting-non-zero-edges-for-stan",
+    "href": "slides/19-disease-mapping.html#extracting-non-zero-edges-for-stan",
+    "title": "Disease Mapping",
+    "section": "Extracting non-zero edges for Stan",
+    "text": "Extracting non-zero edges for Stan\nOur goal is to get the row-column pairs from \\(\\mathbf{W}\\) where the \\(w_{ij} = 1\\). This will return all non-zero indices in the adjacency matrix.\n\nneighbor_pairs &lt;- which(W == 1, arr.ind = TRUE)\n\nSince \\(\\mathbf{W}\\) is symmetric, we only need to keep the edges from above the diagonal to avoid repeating edges.\n\nneighbor_pairs_lower &lt;- neighbor_pairs[neighbor_pairs[, 1] &lt; neighbor_pairs[, 2], ]\nn_edges &lt;- nrow(neighbor_pairs_lower)\nnode1 &lt;- neighbor_pairs_lower[, 1]\nnode2 &lt;- neighbor_pairs_lower[, 2]"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#modeling",
+    "href": "slides/19-disease-mapping.html#modeling",
+    "title": "Disease Mapping",
+    "section": "Modeling",
+    "text": "Modeling\nWe specify the following model:\n\\[\\begin{aligned}\nY_i | \\lambda_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\\\\n\\boldsymbol{\\theta} | \\tau &\\sim \\text{ICAR}\\left(\\tau^2\\right)\\\\\n\\alpha^* &\\sim N(0,3^2)\\\\\n\\beta_j &\\sim N(0,3^2), \\quad j = 1,\\ldots,p\\\\\n\\sigma &\\sim \\text{Half-Normal}(0, 3^2)\\\\\n\\tau &\\sim \\text{Half-Normal}(0, 3^2)\\\\\n\\end{aligned}\\]\nWhere \\(n = 100\\), \\(\\mathbf{x}_i = (\\text{age}_{i}, \\text{poverty}_i)\\)."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#full-stan-model-for-icar",
+    "href": "slides/19-disease-mapping.html#full-stan-model-for-icar",
+    "title": "Disease Mapping",
+    "section": "Full Stan Model for ICAR",
+    "text": "Full Stan Model for ICAR\n\n// saved in icar.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 0&gt; n_edges;\n  array[n_edges] int&lt;lower = 1, upper = n&gt; node1; // node1[i] adjacent to node2[i]\n  array[n_edges] int&lt;lower = 1, upper = n&gt; node2; // and node1[i] &lt; node2[i]\n  array[n] int&lt;lower = 0&gt; Y;\n  vector&lt;lower = 0&gt;[n] E;\n  matrix[n, p] X;\n}\ntransformed data {\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n  vector[n] logE = log(E);\n}\nparameters {\n  real alpha_star;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma; // precision of heterogeneous effects\n  real&lt;lower = 0&gt; tau; // precision of spatial effects\n  vector[n] z1; // spatial effects\n  vector[n] z2; // heterogeneous effects\n}\ntransformed parameters {\n  vector[n] theta = tau * z1;     // spatial effects\n  vector[n] epsilon = sigma * z2; // heterogeneous effects\n}\nmodel {\n  Y ~ poisson_log(logE + alpha_star + X_centered * beta + theta + epsilon);\n  // the following computes the ICAR prior on theta (through the standardized version z1)\n  target += -0.5 * dot_self(z1[node1] - z1[node2]);\n  // soft sum-to-zero constraint on theta)\n  sum(z1) ~ normal(0, 0.001 * n); // equivalent to mean(z1) ~ normal(0, 0.001)\n  // heterogeneous effects\n  z2 ~ std_normal();\n  // population parameters\n  alpha_star ~ normal(0, 3);\n  beta ~ normal(0, 3);\n  sigma ~ normal(0, 3);\n  tau ~ normal(0, 3);\n}\ngenerated quantities {\n  real alpha = alpha_star - X_bar * beta;\n  vector[n] log_mu = logE + alpha_star + X_centered * beta + theta + epsilon;\n  vector[n] lambda = exp(log_mu - logE);\n  vector[n] mu = exp(log_mu);\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    Y_pred[i] = poisson_log_rng(log_mu[i]);\n    log_lik[i] = poisson_log_lpmf(Y[i] | log_mu[i]);\n  }\n}"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#examine-model-summaries",
+    "href": "slides/19-disease-mapping.html#examine-model-summaries",
+    "title": "Disease Mapping",
+    "section": "Examine model summaries",
+    "text": "Examine model summaries\n\nprint(fit_icar, pars = c(\"alpha\", \"alpha_star\", \"beta\", \"sigma\", \"tau\"))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=10000; warmup=5000; thin=1; \npost-warmup draws per chain=5000, total post-warmup draws=20000.\n\n            mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nalpha      -0.99    0.01 0.42 -1.81 -1.27 -0.99 -0.71 -0.17  6567    1\nalpha_star  0.08    0.00 0.05 -0.01  0.05  0.08  0.12  0.18  6187    1\nbeta[1]     0.99    0.01 1.05 -1.06  0.28  0.99  1.70  3.06  5966    1\nbeta[2]     4.66    0.01 1.13  2.40  3.92  4.67  5.43  6.86  6293    1\nsigma       0.42    0.00 0.06  0.30  0.39  0.43  0.46  0.53  1087    1\ntau         0.25    0.01 0.17  0.01  0.11  0.22  0.36  0.64   550    1\n\nSamples were drawn using NUTS(diag_e) at Fri Mar 21 15:37:56 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#compute-posterior-distribution-of-lambda_i",
+    "href": "slides/19-disease-mapping.html#compute-posterior-distribution-of-lambda_i",
+    "title": "Disease Mapping",
+    "section": "Compute posterior distribution of \\(\\lambda_i\\)",
+    "text": "Compute posterior distribution of \\(\\lambda_i\\)\n\nlambda &lt;- rstan::extract(fit_icar, pars = \"lambda\")$lambda\nlambda_mean &lt;- apply(lambda, 2, mean)\nlambda_sd &lt;- apply(lambda, 2, sd)\ncovid_nc_2020$lambda_mean &lt;- lambda_mean\ncovid_nc_2020$lambda_sd &lt;- lambda_sd"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#looking-at-smr-observed-versus-lambda_i",
+    "href": "slides/19-disease-mapping.html#looking-at-smr-observed-versus-lambda_i",
+    "title": "Disease Mapping",
+    "section": "Looking at SMR observed versus \\(\\lambda_i\\)",
+    "text": "Looking at SMR observed versus \\(\\lambda_i\\)"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#examine-traceplots",
+    "href": "slides/19-disease-mapping.html#examine-traceplots",
+    "title": "Disease Mapping",
+    "section": "Examine traceplots",
+    "text": "Examine traceplots\n\nrstan::traceplot(fit_icar, pars = c(\"alpha\", \"alpha_star\", \"beta\", \"sigma\", \"tau\"))"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#examine-traceplots-1",
+    "href": "slides/19-disease-mapping.html#examine-traceplots-1",
+    "title": "Disease Mapping",
+    "section": "Examine traceplots",
+    "text": "Examine traceplots\n\nrstan::traceplot(fit_icar, pars = \"theta[1]\")"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#mapping-plambda_i-1-mathbfy",
+    "href": "slides/19-disease-mapping.html#mapping-plambda_i-1-mathbfy",
+    "title": "Disease Mapping",
+    "section": "Mapping \\(P(\\lambda_i > 1 | \\mathbf{Y})\\)",
+    "text": "Mapping \\(P(\\lambda_i &gt; 1 | \\mathbf{Y})\\)"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#mapping-plambda_i-1-mathbfy-1",
+    "href": "slides/19-disease-mapping.html#mapping-plambda_i-1-mathbfy-1",
+    "title": "Disease Mapping",
+    "section": "Mapping \\(P(\\lambda_i > 1 | \\mathbf{Y})\\)",
+    "text": "Mapping \\(P(\\lambda_i &gt; 1 | \\mathbf{Y})\\)\nBinary indicator of \\(P(\\lambda_i &gt; 1 | \\mathbf{Y}) &gt; 0.95\\):"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#posterior-smr-across-north-carolina",
+    "href": "slides/19-disease-mapping.html#posterior-smr-across-north-carolina",
+    "title": "Disease Mapping",
+    "section": "Posterior SMR Across North Carolina",
+    "text": "Posterior SMR Across North Carolina"
+  },
+  {
+    "objectID": "prepare/prepare-mar25.html",
+    "href": "prepare/prepare-mar25.html",
+    "title": "Prepare for March 25 lecture",
+    "section": "",
+    "text": "📖 Read Disease risk modeling by Moraga.\n📖 Review Spatial Models in Stan: Intrinsic Auto-Regressive Models for Areal Data by Morris 2019. Review through the section titled: Fitting the Model to the Scotland Lip Cancer Dataset.\n✅ Work on HW 05 which is due Tuesday April 8 before class."
   }
 ]
