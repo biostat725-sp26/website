@@ -223,7 +223,8 @@ We will now fit the model and print the posterior summaries and MCMC convergence
 
 ```{r, eval = FALSE}
 icar <- stan_model(file = "icar.stan")
-fit_icar <- sampling(icar, stan_data, iter = 5000)
+fit_icar <- sampling(icar, stan_data, 
+                     iter = 5000, control = list(adapt_delta = 0.99))
 print(fit_icar, pars = c("alpha_star", "alpha", "beta", "sigma", "tau"))
 ```
 
@@ -290,7 +291,7 @@ The maps can be created as follows.
 #| fig-width: 10
 #| fig-height: 7
 #| layout-ncol: 2
-ggplot(durham_merged) +
+ggplot(durham_plot_data) +
   geom_sf(aes(fill = diabetes), color = "gray20") +
   scale_fill_viridis_c(option = "plasma", na.value = "lightgray") +
   labs(title = "Adult Diabetes Rate by Census Tract (Durham, 2019)",
