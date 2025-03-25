@@ -48,7 +48,7 @@ library(geodist)       # conversion from geodisic to miles
 
 # Data
 
-## Democratic Republic of Conge Demographic and Health Survey
+## Democratic Republic of Congo Demographic and Health Survey
 
 We will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are \~8600 women who are nested in \~500 survey clusters. The variables in the dataset are as follows.
 
@@ -376,7 +376,7 @@ dists <- data.frame(distance_geodisic = unique(D[D != 0]))
 dists$correlation <- matern_3_2(dists$distance_geodisic, rho = rho_mean)
 ```
 
-Next we will use the `geodist` package to convert the geodisic distance of our observed locations to miles. Note that this function converts distance to meters by default, so we divide by 1,609 to get miles. 
+Next we will use the `geodist` package to convert the geodisic distance of our observed locations to miles. Note that this function converts distance to meters by default, so we divide by 1,609 to get miles.
 
 ```{r}
 dist_miles <- geodist::geodist_vec(

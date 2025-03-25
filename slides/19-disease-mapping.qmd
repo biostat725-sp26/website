@@ -299,9 +299,9 @@ Y_i | \lambda_i &\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 
 **Spatial Error Term**:
 
--   $\theta_i \in \mathbb{R}$ is a location-specific parameter that smooths data according to a neighborhood structure. 
+-   $\theta_i \in \mathbb{R}$ is a location-specific parameter that smooths data according to a neighborhood structure.
 
-  -   $\theta_i$ induces spatial correlation, such that $\lambda_i$ in neighboring areas will be more similar.
+-   $\theta_i$ induces spatial correlation, such that $\lambda_i$ in neighboring areas will be more similar.
 
 ## Spatial Correlation: Areal Data
 
@@ -317,15 +317,15 @@ Y_i | \lambda_i &\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 
 ## Adjacency Matrix
 
-- We will define the matrix $\mathbf{W} \in \mathbb{R}^{n \times n}$ as the **adjacency matrix**. 
+-   We will define the matrix $\mathbf{W} \in \mathbb{R}^{n \times n}$ as the **adjacency matrix**.
 
-  - This is sometimes called a **proximity matrix** or **neighborhood matrix**. 
-  
-- Each entry ($w_{ij} = [\mathbf{W}]_{ij}$) is given by: $$w_{ij} = 1(i \sim j) = \left\{ \begin{array}{ll}
-         1 & \mbox{if $i$ and $j$ share a border};\\
-         0 & \mbox{otherwise}.\end{array} \right.$$
+    -   This is sometimes called a **proximity matrix** or **neighborhood matrix**.
 
-- In some cases, $w_{ij}$ can be generalized to be non-binary. 
+-   Each entry ($w_{ij} = [\mathbf{W}]_{ij}$) is given by: $$w_{ij} = 1(i \sim j) = \left\{ \begin{array}{ll}
+           1 & \mbox{if $i$ and $j$ share a border};\\
+           0 & \mbox{otherwise}.\end{array} \right.$$
+
+-   In some cases, $w_{ij}$ can be generalized to be non-binary.
 
 ## Compute Adjacency Matrix
 
@@ -336,9 +336,9 @@ neighbors <- spdep::poly2nb(covid_nc_2020) # computes the neighborhood structure
 W <- spdep::nb2mat(neighbors, style = "B", zero.policy = TRUE) # converts to an n x n matrix
 ```
 
-- `style = "B"` specifies binary encoding (1 if neighbors, 0 if not).
+-   `style = "B"` specifies binary encoding (1 if neighbors, 0 if not).
 
-- `zero.policy = TRUE` ensures the function works even if some counties do not have neighbors.
+-   `zero.policy = TRUE` ensures the function works even if some counties do not have neighbors.
 
 ## Visualzing the Adjacency Matrix
 
@@ -406,13 +406,13 @@ $$f(\boldsymbol{\theta} | \tau^2) \propto \exp\left\{-\frac{1}{2\tau^2}\boldsymb
 
 where $\mathbf{D}_w$ is diagonal with $[\mathbf{D}_w]_{ii} = w_{i+}$ and $w_{i+} = \sum_{j=1}^n w_{ij}$ (i.e., $w_{i+}$ is the number of neighbors for locations $i$).
 
-- $\left(\mathbf{D}_w - \mathbf{W}\right)$ is singular, so $\left(\mathbf{D}_w - \mathbf{W}\right)^{-1}$ does not exist and this distribution is improper. 
+-   $\left(\mathbf{D}_w - \mathbf{W}\right)$ is singular, so $\left(\mathbf{D}_w - \mathbf{W}\right)^{-1}$ does not exist and this distribution is improper.
 
-- We can still use this as a prior for $\boldsymbol{\theta}$ and get a proper posterior!
+-   We can still use this as a prior for $\boldsymbol{\theta}$ and get a proper posterior!
 
 ## ICAR Model: Conditional Distributinos
 
-The joint distribution on the previous slide can be written as a $n$ conditional distributions: 
+The joint distribution on the previous slide can be written as a $n$ conditional distributions:
 
 $$\theta_{i} | \boldsymbol{\theta}_{-i}, \tau^2 \sim  N \left({\frac{\sum_{j=1}^n w_{ij}\theta_{j}}{w_{i+}}},\frac{\tau^2}{w_{i+}}\right)$$
 
@@ -420,19 +420,19 @@ $$\theta_{i} | \boldsymbol{\theta}_{-i}, \tau^2 \sim  N \left({\frac{\sum_{j=1}^
 
 -   The mean is an average of the neighbors values.
 
--   The variance shrinks as a function of the number of neighbors. 
+-   The variance shrinks as a function of the number of neighbors.
 
 ## Another Equivalent Specification
 
-Pairwise difference specification: 
+Pairwise difference specification:
 
 $$f(\boldsymbol{\theta} | \tau^2) \propto \exp\left\{-\frac{1}{2\tau^2}\sum_{i \sim j} w_{ij} (\theta_i - \theta_j)^2\right\},$$
 
-- The impropriety of the distribution can also be seen here, because we can add any constant to all $\theta_i$ and the distribution is unaffected. 
+-   The impropriety of the distribution can also be seen here, because we can add any constant to all $\theta_i$ and the distribution is unaffected.
 
-- A constraint such as $\sum_{i=1}^n \theta_i = 0$ would provide the needed centering. 
+-   A constraint such as $\sum_{i=1}^n \theta_i = 0$ would provide the needed centering.
 
-- We will use this specification in Stan.
+-   We will use this specification in Stan.
 
 ## Full Disease Mapping Model
 
@@ -447,7 +447,7 @@ Y_i | \lambda_i &\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 
 where $\boldsymbol{\Omega} = (\alpha, \boldsymbol{\beta}, \sigma, \tau)$.
 
-- $\mu_i = \exp\{\log E_i + \alpha + \mathbf{x}_i\boldsymbol{\beta} + \theta_i + \epsilon_i\}$.
+-   $\mu_i = \exp\{\log E_i + \alpha + \mathbf{x}_i\boldsymbol{\beta} + \theta_i + \epsilon_i\}$.
 
 ## Posterior Distribution
 
@@ -508,6 +508,14 @@ model {
   sum(z) ~ normal(0, 0.01 * n);
 }
 ```
+
+## Non-centered parameterization
+
+In Stan it is more computationally efficient to use a non-centered parameterization. We define, $\mathbf{z} \in \mathbb{R}^n$ and give it the following prior:
+
+$$\mathbf{z} \sim \text{ICAR}(\tau^2 = 1), \quad \sum_{i=1}^n z_i = 0.$$
+
+We can then recover $\boldsymbol{\theta}$ by computing $\boldsymbol{\theta} = \tau \mathbf{z}.$
 
 ## Modeling {.midi}
 

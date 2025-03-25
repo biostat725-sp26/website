@@ -3816,9 +3816,9 @@
   {
     "objectID": "hw/hw-05.html",
     "href": "hw/hw-05.html",
-    "title": "HW 05",
+    "title": "HW 05: Geospatial Modeling",
     "section": "",
-    "text": "To be posted.",
+    "text": "Due date\n\n\n\nThis assignment is due on Tuesday, April 8 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
     "crumbs": [
       "Homework",
       "HW 05"
@@ -16526,5 +16526,182 @@
     "title": "Prepare for March 25 lecture",
     "section": "",
     "text": "📖 Read Disease risk modeling by Moraga.\n📖 Review Spatial Models in Stan: Intrinsic Auto-Regressive Models for Areal Data by Morris 2019. Review through the section titled: Fitting the Model to the Scotland Lip Cancer Dataset.\n✅ Work on HW 05 which is due Tuesday April 8 before class."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#using-the-non-centered-parameterization",
+    "href": "slides/19-disease-mapping.html#using-the-non-centered-parameterization",
+    "title": "Disease Mapping",
+    "section": "Using the non-centered parameterization",
+    "text": "Using the non-centered parameterization\nIn Stan it is more computationally efficient to use a non-centered parameterization. We define, \\(\\mathbf{z} \\in \\mathbb{R}^n\\) and give it the following prior:\n\\[\\mathbf{z} \\sim \\text{ICAR}(\\tau^2 = 1), \\quad \\sum_{i=1}^n z_i = 0.\\]\nWe can then recover \\(\\boldsymbol{\\theta}\\) by computing \\(\\boldsymbol{\\theta} = \\tau \\mathbf{z}.\\)"
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html#non-centered-parameterization",
+    "href": "slides/19-disease-mapping.html#non-centered-parameterization",
+    "title": "Disease Mapping",
+    "section": "Non-centered parameterization",
+    "text": "Non-centered parameterization\nIn Stan it is more computationally efficient to use a non-centered parameterization. We define, \\(\\mathbf{z} \\in \\mathbb{R}^n\\) and give it the following prior:\n\\[\\mathbf{z} \\sim \\text{ICAR}(\\tau^2 = 1), \\quad \\sum_{i=1}^n z_i = 0.\\]\nWe can then recover \\(\\boldsymbol{\\theta}\\) by computing \\(\\boldsymbol{\\theta} = \\tau \\mathbf{z}.\\)"
+  },
+  {
+    "objectID": "ae/ae-08-disease-mapping.html#the-durham-neighborhood-compass",
+    "href": "ae/ae-08-disease-mapping.html#the-durham-neighborhood-compass",
+    "title": "AE 08: Disease Mapping",
+    "section": "The Durham Neighborhood Compass",
+    "text": "The Durham Neighborhood Compass\n\nThe Durham Neighborhood Compass is a public data portal developed by the City and County of Durham, NC. It provides neighborhood-level indicators across many topics, including: health (e.g., diabetes, asthma), education, housing and development, crime and safety, and demographics and equity. Most indicators are available at the census tract level, allowing for spatial analysis of neighborhoods within Durham County. Data are updated regularly and reflect community conditions over time. Today we will focus on adult diabetes prevalence by census tract in 2019. The data is available in data/DurhamNeighborhoodCompass-Health-tract.csv and can be downloaded directly from the Durham Neighborhood Compass website.\n\n\ndiabetes_data &lt;- read_csv(\"data/DurhamNeighborhoodCompass-Health-tract.csv\")\n\n\n\n\n\n\n\nWe will work with the Diabetes (Adult Population), 2019 variable."
+  },
+  {
+    "objectID": "ae/ae-08-disease-mapping.html#creating-an-analysis-dataset",
+    "href": "ae/ae-08-disease-mapping.html#creating-an-analysis-dataset",
+    "title": "AE 08: Disease Mapping",
+    "section": "Creating an analysis dataset",
+    "text": "Creating an analysis dataset\nWe will begin by extracting the spatial information for Durham County, NC using the tigris R package.\n\ndurham_tracts &lt;- tracts(\n  state = \"NC\", \n  county = \"Durham\", \n  year = 2019,\n  class = \"sf\",\n  progress_bar = FALSE\n)\n\nThis object is an sf data object. The relevant variables are GEOID, which contains a unique identifier of each county and geometry, which contains the boundary information. For analyzing our data, we will first process the diabetes variable and then merge it with the sf data object. We begin by preparing the data for merging.\n\ndiabetes_data &lt;- diabetes_data %&gt;%\n  select(GEOID = `Geography Id`, diabetes = `Diabetes (Adult Population), 2019`) %&gt;%\n  mutate(\n    GEOID = as.character(GEOID),\n    diabetes = str_remove(diabetes, \"%\"),\n    diabetes = as.numeric(diabetes)\n  )\n\n\ndiabetes_data &lt;- read_csv(\"/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/ae-08/data/DurhamNeighborhoodCompass-Health-tract.csv\")\n\nRows: 60 Columns: 91\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (88): Geography Label, Chronic Kidney Disease (Black or African American...\ndbl  (3): Geography Id, Average Age of Death, 2009, Average Age of Death, 2014\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ndiabetes_data &lt;- diabetes_data %&gt;%\n  select(GEOID = `Geography Id`, diabetes = `Diabetes (Adult Population), 2019`) %&gt;%\n  mutate(\n    GEOID = as.character(GEOID),\n    diabetes = str_remove(diabetes, \"%\"),\n    diabetes = as.numeric(diabetes)\n  )\n\nWe then merge the diabetes data with the sf data object.\n\ndurham_merged &lt;- durham_tracts %&gt;%\n  left_join(diabetes_data , by = \"GEOID\")\n\nWe can now visualize the adult diabetes proportion across the Durham county census tracts.\nggplot(durham_merged) +\n  geom_sf(aes(fill = diabetes), color = \"gray20\") +\n  scale_fill_viridis_c(option = \"plasma\", na.value = \"lightgray\") +\n  labs(title = \"Adult Diabetes Rate by Census Tract (Durham, 2019)\",\n       fill = \"% with Diabetes\") +\n  scale_fill_viridis_c() + \n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nNote that there are three locations that do not have any data, represented in gray. These locations correspond to census tracts with a zero residents. For the analysis we will remove them."
+  },
+  {
+    "objectID": "ae/ae-08-disease-mapping.html#computing-the-adjacnecy-matrix",
+    "href": "ae/ae-08-disease-mapping.html#computing-the-adjacnecy-matrix",
+    "title": "AE 08: Disease Mapping",
+    "section": "Computing the adjacnecy matrix",
+    "text": "Computing the adjacnecy matrix\nTo fit the model, we required an adjacency matrix, \\(\\mathbf{W}\\). We only want to compute our adjacency matrix for the locations with non-zero residents. Thus, we create a dataset that removes census tracts with NA for diabetes.\n\ndurham_model_data &lt;- durham_merged %&gt;%\n  filter(!is.na(diabetes))\n\nWe then use functions for the R package spdep to create a neighbor list and adjacency matrix.\n\nnb &lt;- poly2nb(durham_model_data)\nW &lt;- nb2mat(nb, style = \"B\", zero.policy = TRUE)\n\nWe can visualize the adjacency matrix. To do this we first get the centroids of each census tract.\n\ncentroids &lt;- st_centroid(durham_model_data)\ncentroids &lt;- centroids %&gt;% mutate(id = 1:nrow(centroids))\n\nWe then compute the edges and create a data frame with the indices of the neighboring census tracts.\n\nneighbor_pairs &lt;- which(W == 1, arr.ind = TRUE)\nedges &lt;- data.frame(\n  from = neighbor_pairs[, 1],\n  to = neighbor_pairs[, 2]\n)\n\nThis plot shows the adjacency structure among Durham County census tracts used in the spatial model. The function geom_sf() draws the outlines of the tracts and also plots red dots at each tract centroid to show where the adjacency links originate. The function geom_segment() draws blue lines between neighboring tracts, based on their centroids.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinally, we can compute the needed objects for Stan.\n\nneighbor_pairs_lower &lt;- neighbor_pairs[neighbor_pairs[, 1] &lt; neighbor_pairs[, 2], ]\nn_edges &lt;- nrow(neighbor_pairs_lower)\nnode1 &lt;- neighbor_pairs_lower[, 1]\nnode2 &lt;- neighbor_pairs_lower[, 2]"
+  },
+  {
+    "objectID": "ae/ae-08-disease-mapping.html#computing-the-adjacency-matrix",
+    "href": "ae/ae-08-disease-mapping.html#computing-the-adjacency-matrix",
+    "title": "AE 08: Disease Mapping",
+    "section": "Computing the adjacency matrix",
+    "text": "Computing the adjacency matrix\nTo fit the model, we required an adjacency matrix, \\(\\mathbf{W}\\). We only want to compute our adjacency matrix for the locations with non-zero residents. Thus, we create a dataset that removes census tracts with NA for diabetes.\n\ndurham_model_data &lt;- durham_merged %&gt;%\n  filter(!is.na(diabetes))\n\nWe then use functions for the R package spdep to create a neighbor list and adjacency matrix.\n\nnb &lt;- poly2nb(durham_model_data)\nW &lt;- nb2mat(nb, style = \"B\", zero.policy = TRUE)\n\nWe can visualize the adjacency matrix. To do this we first get the centroids of each census tract.\n\ncentroids &lt;- st_centroid(durham_model_data)\ncentroids &lt;- centroids %&gt;% mutate(id = 1:nrow(centroids))\n\nWe then compute the edges and create a data frame with the indices of the neighboring census tracts.\n\nneighbor_pairs &lt;- which(W == 1, arr.ind = TRUE)\nedges &lt;- data.frame(\n  from = neighbor_pairs[, 1],\n  to = neighbor_pairs[, 2]\n)\n\nThis plot shows the adjacency structure among Durham County census tracts used in the spatial model. The function geom_sf() draws the outlines of the tracts and also plots red dots at each tract centroid to show where the adjacency links originate. The function geom_segment() draws blue lines between neighboring tracts, based on their centroids.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinally, we can compute the needed objects for Stan.\n\nneighbor_pairs_lower &lt;- neighbor_pairs[neighbor_pairs[, 1] &lt; neighbor_pairs[, 2], ]\nn_edges &lt;- nrow(neighbor_pairs_lower)\nnode1 &lt;- neighbor_pairs_lower[, 1]\nnode2 &lt;- neighbor_pairs_lower[, 2]\n\nAverage number of neighbors.\n\navg_neighbors &lt;- mean(card(nb))\navg_neighbors\n\n[1] 5.578947"
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-1",
+    "href": "hw/hw-05.html#exercise-1",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nBased on AE-07, process the drc data to create an sf data object that can be used for spatial analyses. Create a map that visualizes the proportion of participants with anemia at each community in Sud-Kivu.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html#data",
+    "href": "hw/hw-05.html#data",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Data",
+    "text": "Data\nWe will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are ~8600 women who are nested in ~500 survey clusters. The variables in the dataset are as follows.\n\nloc_id: location id (i.e. survey cluster).\nhemoglobin: hemoglobin level (g/dL).\nanemia: anemia classifications.\nage: age in years.\nurban: urban vs. rural.\nLATNUM: latitude.\nLONGNUM: longitude.\nmean_hemoglobin: average hemoglobin at each community (g/dL).\ncommunity_size: number of participants at each community.\nmean_age: average age of participants at each community (years).\n\nThe data set is the same one that was used in AE-07 and available in your HW repos.\n\ndrc &lt;- readRDS(\"drc.rds\")",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html#modeling",
+    "href": "hw/hw-05.html#modeling",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Modeling",
+    "text": "Modeling\nIn this homework, we will focus on the Sud-Kivu state within the DRC. Researchers are interested in mapping risk of anemia across Sud-Kivu. Anemia is a condition in which the body lacks enough healthy red blood cells to carry adequate oxygen to tissues. It is commonly associated with low levels of hemoglobin, the oxygen-carrying protein in red blood cells. Anemia can result from malnutrition, especially deficiencies in iron, folate, or vitamin B12, and is linked to a range of negative outcomes including fatigue, impaired cognitive development, weakened immunity, and poor pregnancy outcomes. In children and women, anemia is often a marker of underlying nutritional and health disparities.\nTo study anemia, researchers would like to fit a logistic regression model using a Bayesian hierarchical model with spatially varying intercepts. Define \\(Y_{ij} \\in \\{0,1\\}\\) as the indicator of anemia at location \\(i\\) (\\(i = 1,\\ldots,n\\)) for participant \\(j\\) (\\(j = 1,\\ldots, n_i\\)).\n\ndrc &lt;- drc %&gt;%\n  mutate(anemic = if_else(anemia == \"not anemic\", 0, 1))\n\nWe will fit the following model:\n\\[\\begin{align*}\nY_j(\\mathbf{u}_i) | \\alpha, \\boldsymbol{\\beta}, \\theta(\\mathbf{u}_i) &\\stackrel{ind}{\\sim} \\text{Bernoulli}(\\pi_{j}(\\mathbf{u}_i))\\\\\n\\text{logit}(\\pi_{j}(\\mathbf{u}_i)) &= \\alpha + \\mathbf{x}_j(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\\\\n\\boldsymbol{\\theta} | \\tau,\\rho &\\sim N(\\mathbf{0}_n,\\mathbf{C})\\\\\n\\alpha^* &\\sim N(0,4^2)\\\\\n\\beta_j | \\sigma_{\\beta} &\\sim N(0,\\sigma_{\\beta}^2), \\quad j = 1,\\ldots,p\\\\\n\\tau &\\sim \\text{Half-Normal}(0, 4^2)\\\\\n\\rho &\\sim \\text{Inv-Gamma}(5, 5)\\\\\n\\sigma_{\\beta} &\\sim \\text{Half-Normal}(0, 2^2),\n\\end{align*}\\] where \\(\\boldsymbol{\\theta} = (\\theta(\\mathbf{u}_1),\\ldots,\\theta(\\mathbf{u}_n))^\\top\\), \\(N = \\sum_{i=1}^n n_i = 490\\), \\(n = 29\\), \\(\\mathbf{x}_j(\\mathbf{u}_i) = (\\text{age}_{ij}/10, \\text{urban}_i)\\), and \\(\\mathbf{C}\\) a covariance matrix produced using the Matérn 3/2 covariance function with scale parameter \\(\\tau\\) and length scale \\(\\rho\\). The parameter \\(\\alpha^*\\) is the intercept after centering, such that \\(\\text{logit}(\\pi_{j}(\\mathbf{u}_i)) = \\alpha^* + \\mathbf{x}_j^*(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\), where \\(\\mathbf{x}_j^*(\\mathbf{u}_i) = \\mathbf{x}_j(\\mathbf{u}_i) - \\bar{\\mathbf{x}}_j(\\mathbf{u}_i)\\) and \\(\\bar{\\mathbf{x}}_j(\\mathbf{u}_i) = \\frac{1}{N} \\sum_{i=1}^n \\sum_{j=1}^{n_i} \\mathbf{x}_j(\\mathbf{u}_i)\\).",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-2",
+    "href": "hw/hw-05.html#exercise-2",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCreate a \\(25 \\times 25\\) grid of points to be used for prediction, and only keep those points within Sud-Kivu. Visualize the grid.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-3",
+    "href": "hw/hw-05.html#exercise-3",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nResearchers are interested in understanding the a priori correlation between the anemia probability between two communities across Sud-Kivu. Visualize the correlation as a function of distance between two locations given in miles, evaluated at the prior mean for \\(\\rho\\). What is the a priori correlation between two locations that are 25 miles apart?",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05-blank.html",
+    "href": "hw/hw-05-blank.html",
+    "title": "HW 05",
+    "section": "",
+    "text": "To be posted."
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-4",
+    "href": "hw/hw-05.html#exercise-4",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFit the model detailed above. Present evidence of MCMC convergence.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-5",
+    "href": "hw/hw-05.html#exercise-5",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nResearchers would like to understand the a posteriori correlation between the anemia probability between two communities across Sud-Kivu. Repeat Exercise 3 using the posterior mean of \\(\\rho\\). Visualize the correlations from the prior and posterioron the same figure. How does the posterior correlation compare to the prior?",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-6",
+    "href": "hw/hw-05.html#exercise-6",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nPresent posterior means and intervals for the odds ratios for age and urbanality. Are any of these predictors associated with anemia?",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-7",
+    "href": "hw/hw-05.html#exercise-7",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nMap the posterior mean probability of anemia across your Sud-Kivu, \\(\\pi(\\mathbf{u}_i)\\). To make this map, we must specify \\(x(\\mathbf{u}_i) = (2.8, 0)\\), such that the age is 28 years (average age in Sud-Kivu) and we assume locations are rural (most common community location). Describe any spatial patterns that arise.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-8",
+    "href": "hw/hw-05.html#exercise-8",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nCreate a map of the posterior standard deviation that corresponds to your map in Exercise 5. Describe any spatial patterns that arise.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-9",
+    "href": "hw/hw-05.html#exercise-9",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nResearchers are worried about any locations where the posterior probability is greater than 0.4, \\(p_i = P(\\pi(\\mathbf{u}_i) &gt; 0.4 | \\mathbf{Y})\\). In particular, any locations with \\(p_i\\) greater than 0.5 \\(\\left(h_i = 1(p_i &gt; 0.5)\\right)\\) indicates a hot spot region where public health individuals would like to intervene. Visualize both the \\(p_i\\) and \\(h_i\\) and make a statement about where intervention is warranted.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
+  },
+  {
+    "objectID": "ae/ae-07-geospatial.html#democratic-republic-of-congo-demographic-and-health-survey",
+    "href": "ae/ae-07-geospatial.html#democratic-republic-of-congo-demographic-and-health-survey",
+    "title": "AE 07: Geospatial",
+    "section": "Democratic Republic of Congo Demographic and Health Survey",
+    "text": "Democratic Republic of Congo Demographic and Health Survey\nWe will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are ~8600 women who are nested in ~500 survey clusters. The variables in the dataset are as follows.\n\nloc_id: location id (i.e. survey cluster).\nhemoglobin: hemoglobin level (g/dL).\nanemia: anemia classifications.\nage: age in years.\nurban: urban vs. rural.\nLATNUM: latitude.\nLONGNUM: longitude.\nmean_hemoglobin: average hemoglobin at each community (g/dL).\ncommunity_size: number of participants at each community.\nmean_age: average age of participants at each community (years).\n\nThe data set is available in your AE repos and is called drc.\n\ndrc &lt;- readRDS(\"drc.rds\")"
   }
 ]

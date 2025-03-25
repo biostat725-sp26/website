@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW 05: Geospatial Modeling – BIOSTAT 725 - Spring 2025</title>
+<title>HW 05 – BIOSTAT 725 - Spring 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,7 +30,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../hw/hw-04.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,35 +67,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -143,7 +79,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-00.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-05.html">HW 05</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">HW 05</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -249,13 +185,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Homework</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../hw/hw-00.html" class="sidebar-item-text sidebar-link">
@@ -288,7 +224,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hw/hw-05.html" class="sidebar-item-text sidebar-link active">
+  <a href="../hw/hw-05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 05</span></a>
   </div>
 </li>
@@ -299,42 +235,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><strong>Getting started</strong></a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  </ul></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/biostat725-sp25/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hw/hw-00.html">Homework</a></li><li class="breadcrumb-item"><a href="../hw/hw-05.html">HW 05</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW 05: Geospatial Modeling</h1>
-<p class="subtitle lead">Mapping Anemia Across the Democratic Republic of Congo</p>
+<h1 class="title">HW 05</h1>
 </div>
 
 
@@ -351,204 +260,9 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Due date
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This assignment is due on <strong>Tuesday, April 8 at 11:45am.</strong> To be considered on time, the following must be done by the due date:</p>
-<ul>
-<li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</li>
-<li>Final <code>.pdf</code> file submitted on Gradescope</li>
-</ul>
-</div>
-</div>
-<section id="getting-started" class="level1">
-<h1><strong>Getting started</strong></h1>
-<ul>
-<li><p>Go to the <a href="https://www.github.com/biostat725-sp25">biostat725-sp25</a> organization on GitHub. Click on the repo with the prefix <strong>hw-05</strong>. It contains the starter documents you need to complete the homework.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="https://biostat725-sp25.netlify.app/ae/ae-01-mcmc#clone-the-repo-start-new-rstudio-project">AE 01 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
-</ul>
-</section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>The following packages are used in this assignment:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(loo)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># new packages are below</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)            <span class="co"># functions to work with spatial data</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth) <span class="co"># maps of DRC</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geodist)       <span class="co"># conversion from geodisic to miles</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>We will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are ~8600 women who are nested in ~500 survey clusters. The variables in the dataset are as follows.</p>
-<ul>
-<li><p><code>loc_id</code>: location id (i.e.&nbsp;survey cluster).</p></li>
-<li><p><code>hemoglobin</code>: hemoglobin level (g/dL).</p></li>
-<li><p><code>anemia</code>: anemia classifications.</p></li>
-<li><p><code>age</code>: age in years.</p></li>
-<li><p><code>urban</code>: urban vs.&nbsp;rural.</p></li>
-<li><p><code>LATNUM</code>: latitude.</p></li>
-<li><p><code>LONGNUM</code>: longitude.</p></li>
-<li><p><code>mean_hemoglobin</code>: average hemoglobin at each community (g/dL).</p></li>
-<li><p><code>community_size</code>: number of participants at each community.</p></li>
-<li><p><code>mean_age</code>: average age of participants at each community (years).</p></li>
-</ul>
-<p>The data set is the same one that was used in AE-07 and available in your HW repos.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>drc <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"drc.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="modeling" class="level2">
-<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
-<p>In this homework, we will focus on the Sud-Kivu state within the DRC. Researchers are interested in mapping risk of anemia across Sud-Kivu. Anemia is a condition in which the body lacks enough healthy red blood cells to carry adequate oxygen to tissues. It is commonly associated with <strong>low levels of hemoglobin</strong>, the oxygen-carrying protein in red blood cells. Anemia can result from malnutrition, especially deficiencies in iron, folate, or vitamin B12, and is linked to a range of negative outcomes including fatigue, impaired cognitive development, weakened immunity, and poor pregnancy outcomes. In children and women, anemia is often a marker of underlying nutritional and health disparities.</p>
-<p>To study anemia, researchers would like to fit a logistic regression model using a Bayesian hierarchical model with spatially varying intercepts. Define <span class="math inline">\(Y_{ij} \in \{0,1\}\)</span> as the indicator of anemia at location <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1,\ldots,n\)</span>) for participant <span class="math inline">\(j\)</span> (<span class="math inline">\(j = 1,\ldots, n_i\)</span>).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>drc <span class="ot">&lt;-</span> drc <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">anemic =</span> <span class="fu">if_else</span>(anemia <span class="sc">==</span> <span class="st">"not anemic"</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We will fit the following model:</p>
-<p><span class="math display">\[\begin{align*}
-Y_j(\mathbf{u}_i) | \alpha, \boldsymbol{\beta}, \theta(\mathbf{u}_i) &amp;\stackrel{ind}{\sim} \text{Bernoulli}(\pi_{j}(\mathbf{u}_i))\\
-\text{logit}(\pi_{j}(\mathbf{u}_i)) &amp;= \alpha + \mathbf{x}_j(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i)\\
-\boldsymbol{\theta} | \tau,\rho &amp;\sim N(\mathbf{0}_n,\mathbf{C})\\
-\alpha^* &amp;\sim N(0,4^2)\\
-\beta_j | \sigma_{\beta} &amp;\sim N(0,\sigma_{\beta}^2), \quad j = 1,\ldots,p\\
-\tau &amp;\sim \text{Half-Normal}(0, 4^2)\\
-\rho &amp;\sim \text{Inv-Gamma}(5, 5)\\
-\sigma_{\beta} &amp;\sim \text{Half-Normal}(0, 2^2),
-\end{align*}\]</span> where <span class="math inline">\(\boldsymbol{\theta} = (\theta(\mathbf{u}_1),\ldots,\theta(\mathbf{u}_n))^\top\)</span>, <span class="math inline">\(N = \sum_{i=1}^n n_i = 490\)</span>, <span class="math inline">\(n = 29\)</span>, <span class="math inline">\(\mathbf{x}_j(\mathbf{u}_i) = (\text{age}_{ij}/10, \text{urban}_i)\)</span>, and <span class="math inline">\(\mathbf{C}\)</span> a covariance matrix produced using the Matérn 3/2 covariance function with scale parameter <span class="math inline">\(\tau\)</span> and length scale <span class="math inline">\(\rho\)</span>. The parameter <span class="math inline">\(\alpha^*\)</span> is the intercept after centering, such that <span class="math inline">\(\text{logit}(\pi_{j}(\mathbf{u}_i)) = \alpha^* + \mathbf{x}_j^*(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i)\)</span>, where <span class="math inline">\(\mathbf{x}_j^*(\mathbf{u}_i) = \mathbf{x}_j(\mathbf{u}_i) - \bar{\mathbf{x}}_j(\mathbf{u}_i)\)</span> and <span class="math inline">\(\bar{\mathbf{x}}_j(\mathbf{u}_i) = \frac{1}{N} \sum_{i=1}^n \sum_{j=1}^{n_i} \mathbf{x}_j(\mathbf{u}_i)\)</span>.</p>
-</section>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Based on <a href="https://biostat725-sp25.netlify.app/ae/ae-07-geospatial">AE-07</a>, process the <code>drc</code> data to create an <code>sf</code> data object that can be used for spatial analyses. Create a map that visualizes the proportion of participants with anemia at each community in Sud-Kivu.</p>
-</section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Create a <span class="math inline">\(25 \times 25\)</span> grid of points to be used for prediction, and only keep those points within Sud-Kivu. Visualize the grid.</p>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>Researchers are interested in understanding the <strong>a priori</strong> correlation between the anemia probability between two communities across Sud-Kivu. Visualize the correlation as a function of distance between two locations given in miles, evaluated at the prior mean for <span class="math inline">\(\rho\)</span>. What is the a priori correlation between two locations that are 25 miles apart?</p>
-</section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Fit the model detailed above. Present evidence of MCMC convergence.</p>
-</section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Researchers would like to understand the <strong>a posteriori</strong> correlation between the anemia probability between two communities across Sud-Kivu. Repeat <strong>Exercise 3</strong> using the posterior mean of <span class="math inline">\(\rho\)</span>. Visualize the correlations from the prior and posterioron the same figure. How does the posterior correlation compare to the prior?</p>
-</section>
-<section id="exercise-6" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Present posterior means and intervals for the odds ratios for age and urbanality. Are any of these predictors associated with anemia?</p>
-</section>
-<section id="exercise-7" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Map the posterior mean probability of anemia across your Sud-Kivu, <span class="math inline">\(\pi(\mathbf{u}_i)\)</span>. To make this map, we must specify <span class="math inline">\(x(\mathbf{u}_i) = (2.8, 0)\)</span>, such that the age is 28 years (average age in Sud-Kivu) and we assume locations are rural (most common community location). Describe any spatial patterns that arise.</p>
-</section>
-<section id="exercise-8" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Create a map of the posterior standard deviation that corresponds to your map in <strong>Exercise 5</strong>. Describe any spatial patterns that arise.</p>
-</section>
-<section id="exercise-9" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
-<p>Researchers are worried about any locations where the posterior probability is greater than 0.4, <span class="math inline">\(p_i = P(\pi(\mathbf{u}_i) &gt; 0.4 | \mathbf{Y})\)</span>. In particular, any locations with <span class="math inline">\(p_i\)</span> greater than 0.5 <span class="math inline">\(\left(h_i = 1(p_i &gt; 0.5)\right)\)</span> indicates a hot spot region where public health individuals would like to intervene. Visualize both the <span class="math inline">\(p_i\)</span> and <span class="math inline">\(h_i\)</span> and make a statement about where intervention is warranted.</p>
-</section>
-</section>
-<section id="submission" class="level1">
-<h1>Submission</h1>
-<p>You will submit the PDF documents for homeworks, and exams in to Gradescope as part of your final submission.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
-</div>
-</div>
-<p>To submit your assignment:</p>
-<ul>
-<li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/53305">BIOSTAT 725 Canvas site.</a></p></li>
-<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your homework should be associated with at least one question (i.e., should be “checked”).</p></li>
-</ul>
-</section>
-<section id="grading" class="level1">
-<h1>Grading</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Component</th>
-<th style="text-align: left;">Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;">10</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 3</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 4</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 5</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 6</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 7</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ex 8</td>
-<td style="text-align: left;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ex 9</td>
-<td style="text-align: left;">5</td>
-</tr>
-</tbody>
-</table>
+<p>To be posted.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -971,15 +685,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../hw/hw-04.html" class="pagination-link" aria-label="HW 04">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">HW 04</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -988,7 +693,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/biostat725-sp25/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/biostat725-sp25/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
 </div>

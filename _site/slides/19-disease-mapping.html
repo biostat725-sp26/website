@@ -480,7 +480,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -614,7 +614,7 @@ Prof.&nbsp;Sam Berchuck
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -708,7 +708,7 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -725,7 +725,7 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -834,6 +834,12 @@ f(\boldsymbol{\Omega}, \boldsymbol{\theta} | \mathbf{Y}) &amp;\propto f(\mathbf{
 <span id="cb5-11"><a></a>  sum(z) ~ normal(<span class="dv">0</span>, <span class="fl">0.01</span> * n);</span>
 <span id="cb5-12"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="non-centered-parameterization" class="slide level2">
+<h2>Non-centered parameterization</h2>
+<p>In Stan it is more computationally efficient to use a non-centered parameterization. We define, <span class="math inline">\(\mathbf{z} \in \mathbb{R}^n\)</span> and give it the following prior:</p>
+<p><span class="math display">\[\mathbf{z} \sim \text{ICAR}(\tau^2 = 1), \quad \sum_{i=1}^n z_i = 0.\]</span></p>
+<p>We can then recover <span class="math inline">\(\boldsymbol{\theta}\)</span> by computing <span class="math inline">\(\boldsymbol{\theta} = \tau \mathbf{z}.\)</span></p>
 </section>
 <section id="modeling" class="slide level2 midi">
 <h2>Modeling</h2>
@@ -968,7 +974,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -985,7 +991,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2" data-layout-nrow="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -1025,7 +1031,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1" data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -1043,7 +1049,7 @@ convergence, Rhat=1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1" data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
