@@ -122,7 +122,7 @@ Fit the model detailed above. Present evidence of MCMC convergence.
 
 ## Exercise 5
 
-Researchers would like to understand the **a posteriori** correlation between the anemia probability between two communities across Sud-Kivu. Repeat **Exercise 3** using the posterior mean of $\rho$. Visualize the correlations from the prior and posterioron the same figure. How does the posterior correlation compare to the prior?
+Researchers would like to understand the **a posteriori** correlation between the anemia probability between two communities across Sud-Kivu. Repeat **Exercise 3** using the posterior mean of $\rho$. Visualize the correlations from the prior and posterior on the same figure. How does the posterior correlation compare to the prior?
 
 ## Exercise 6
 
@@ -130,15 +130,15 @@ Present posterior means and intervals for the odds ratios for age and urbanality
 
 ## Exercise 7
 
-Map the posterior mean probability of anemia across your Sud-Kivu, $\pi(\mathbf{u}_i)$. To make this map, we must specify $x(\mathbf{u}_i) = (2.8, 0)$, such that the age is 28 years (average age in Sud-Kivu) and we assume locations are rural (most common community location). Describe any spatial patterns that arise.
+Map the posterior mean probability of anemia across Sud-Kivu, $\pi(\mathbf{u}_i)$. To make this map, we must specify $x(\mathbf{u}_i) = (2.8, 0)$, such that the age is 28 years (average age in Sud-Kivu) and we assume locations are rural (most common community location). Describe any spatial patterns that arise.
 
 ## Exercise 8
 
-Create a map of the posterior standard deviation that corresponds to your map in **Exercise 5**. Describe any spatial patterns that arise.
+Create a map of the posterior standard deviation that corresponds to your map in **Exercise 7**. Describe any spatial patterns that arise.
 
 ## Exercise 9
 
-Researchers are worried about any locations where the posterior probability is greater than 0.4, $p_i = P(\pi(\mathbf{u}_i) > 0.4 | \mathbf{Y})$. In particular, any locations with $p_i$ greater than 0.5 $\left(h_i = 1(p_i > 0.5)\right)$ indicates a hot spot region where public health individuals would like to intervene. Visualize both the $p_i$ and $h_i$ and make a statement about where intervention is warranted.
+Researchers would like to identify locations in Sud-Kivu where a public health intervention is warranted. The are intrerested in intervening in locations where the posterior probability of anemia is greater than 0.4, $p_i = P(\pi(\mathbf{u}_i) > 0.4 | \mathbf{Y})$. In particular, any locations with $p_i$ greater than 0.5 $\left(h_i = 1(p_i > 0.5)\right)$ indicates a hot spot region where intervention is needed. Visualize both the $p_i$ and $h_i$ and make a statement about where intervention is warranted.
 
 # Submission
 

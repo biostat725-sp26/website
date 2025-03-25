@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTBD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due",
     "crumbs": [
       "Schedule"
     ]
@@ -16647,7 +16647,7 @@
     "href": "hw/hw-05.html#exercise-5",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 5",
-    "text": "Exercise 5\nResearchers would like to understand the a posteriori correlation between the anemia probability between two communities across Sud-Kivu. Repeat Exercise 3 using the posterior mean of \\(\\rho\\). Visualize the correlations from the prior and posterioron the same figure. How does the posterior correlation compare to the prior?",
+    "text": "Exercise 5\nResearchers would like to understand the a posteriori correlation between the anemia probability between two communities across Sud-Kivu. Repeat Exercise 3 using the posterior mean of \\(\\rho\\). Visualize the correlations from the prior and posterior on the same figure. How does the posterior correlation compare to the prior?",
     "crumbs": [
       "Homework",
       "HW 05"
@@ -16669,7 +16669,7 @@
     "href": "hw/hw-05.html#exercise-7",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 7",
-    "text": "Exercise 7\nMap the posterior mean probability of anemia across your Sud-Kivu, \\(\\pi(\\mathbf{u}_i)\\). To make this map, we must specify \\(x(\\mathbf{u}_i) = (2.8, 0)\\), such that the age is 28 years (average age in Sud-Kivu) and we assume locations are rural (most common community location). Describe any spatial patterns that arise.",
+    "text": "Exercise 7\nMap the posterior mean probability of anemia across Sud-Kivu, \\(\\pi(\\mathbf{u}_i)\\). To make this map, we must specify \\(x(\\mathbf{u}_i) = (2.8, 0)\\), such that the age is 28 years (average age in Sud-Kivu) and we assume locations are rural (most common community location). Describe any spatial patterns that arise.",
     "crumbs": [
       "Homework",
       "HW 05"
@@ -16680,7 +16680,7 @@
     "href": "hw/hw-05.html#exercise-8",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 8",
-    "text": "Exercise 8\nCreate a map of the posterior standard deviation that corresponds to your map in Exercise 5. Describe any spatial patterns that arise.",
+    "text": "Exercise 8\nCreate a map of the posterior standard deviation that corresponds to your map in Exercise 7. Describe any spatial patterns that arise.",
     "crumbs": [
       "Homework",
       "HW 05"
@@ -16691,7 +16691,7 @@
     "href": "hw/hw-05.html#exercise-9",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 9",
-    "text": "Exercise 9\nResearchers are worried about any locations where the posterior probability is greater than 0.4, \\(p_i = P(\\pi(\\mathbf{u}_i) &gt; 0.4 | \\mathbf{Y})\\). In particular, any locations with \\(p_i\\) greater than 0.5 \\(\\left(h_i = 1(p_i &gt; 0.5)\\right)\\) indicates a hot spot region where public health individuals would like to intervene. Visualize both the \\(p_i\\) and \\(h_i\\) and make a statement about where intervention is warranted.",
+    "text": "Exercise 9\nResearchers would like to identify locations in Sud-Kivu where a public health intervention is warranted. The are intrerested in intervening in locations where the posterior probability of anemia is greater than 0.4, \\(p_i = P(\\pi(\\mathbf{u}_i) &gt; 0.4 | \\mathbf{Y})\\). In particular, any locations with \\(p_i\\) greater than 0.5 \\(\\left(h_i = 1(p_i &gt; 0.5)\\right)\\) indicates a hot spot region where intervention is needed. Visualize both the \\(p_i\\) and \\(h_i\\) and make a statement about where intervention is warranted.",
     "crumbs": [
       "Homework",
       "HW 05"
@@ -16745,5 +16745,19 @@
     "title": "AE 08: Disease Mapping",
     "section": "Exercise 3",
     "text": "Exercise 3\nPresent posterior summaries of \\(\\boldsymbol{\\beta}\\). Which predictors are associated with adult diabetes?\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "prepare/prepare-apr01.html",
+    "href": "prepare/prepare-apr01.html",
+    "title": "Prepare for April 1 lecture",
+    "section": "",
+    "text": "📖 Read Sections 1-3 of Practical Hilbert space approximate Bayesian Gaussian processes for probabilistic programming by Riutort-Mayol et al. 2022. You don’t need to fully understand everything in the paper!\n✅ Work on HW 05 which is due Tuesday April 8 before class."
+  },
+  {
+    "objectID": "prepare/prepare-apr03.html",
+    "href": "prepare/prepare-apr03.html",
+    "title": "Prepare for April 3 lecture",
+    "section": "",
+    "text": "📖 Read Sections 4-6 of Practical Hilbert space approximate Bayesian Gaussian processes for probabilistic programming by Riutort-Mayol et al. 2022. You don’t need to fully understand everything in the paper!\n✅ Work on HW 05 which is due Tuesday April 8 before class."
   }
 ]
