@@ -49,19 +49,31 @@ library(spdep)         # compute adjacency matrix
 
 ## The Durham Neighborhood Compass
 
-- The [Durham Neighborhood Compass](https://compass.durhamnc.gov) is a public data portal developed by the City and County of Durham, NC. It provides **neighborhood-level indicators** across many topics, including: health (e.g., diabetes, asthma), education, housing and development, crime and safety, and demographics and equity. Most indicators are available at the **census tract level**, allowing for spatial analysis of neighborhoods within Durham County. Data are updated regularly and reflect community conditions over time. Today we will focus on adult diabetes prevalence by census tract in 2019. The data is available in `data/DurhamNeighborhoodCompass-Health-tract.csv` and can be downloaded directly from the Durham Neighborhood Compass website.
+- The [Durham Neighborhood Compass](https://compass.durhamnc.gov) is a public data portal developed by the City and County of Durham, NC. It provides **neighborhood-level indicators** across many topics, including: health (e.g., diabetes, asthma), education, housing and development, crime and safety, and demographics and equity. Most indicators are available at the **census tract level**, allowing for spatial analysis of neighborhoods within Durham County. Data are updated regularly and reflect community conditions over time. Today we will focus on adult diabetes prevalence by census tract in 2019. The data is available in `dnc.csv` and can be downloaded directly from the Durham Neighborhood Compass website.
 
-```{r, eval = FALSE}
-diabetes_data <- read_csv("data/DurhamNeighborhoodCompass-Health-tract.csv")
+The variables in the dataset are as follows and are specific to each census tract in 2019.
+
+-   `GEOID`: location id for each census tract.
+
+-   `diabetes`: percentage of adults with diabetes.
+
+-   `education`: percentage of adults with a bachelors degree or higher.
+
+-   `income`: median household income, in $10,000.
+
+-   `color`: percentage of people of color.
+
+The data set is available in your AE repos and is called `dnc`.
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
+dnc <- read_csv("data/dnc.csv")
 ```
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
 library(DT)
-diabetes_data <- read_csv("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/ae-08/data/DurhamNeighborhoodCompass-Health-tract.csv")
-DT::datatable(diabetes_data)
+dnc <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/ae-08/data/dnc.csv")
+DT::datatable(dnc)
 ```
-
-We will work with the `Diabetes (Adult Population), 2019` variable. 
 
 ## Creating an analysis dataset
 
@@ -77,35 +89,12 @@ durham_tracts <- tracts(
 )
 ```
 
-This object is an `sf` data object. The relevant variables are `GEOID`, which contains a unique identifier of each county and `geometry`, which contains the boundary information. For analyzing our data, we will first process the diabetes variable and then merge it with the `sf` data object. We begin by preparing the data for merging.
-
-```{r}
-diabetes_data <- diabetes_data %>%
-  select(GEOID = `Geography Id`, diabetes = `Diabetes (Adult Population), 2019`) %>%
-  mutate(
-    GEOID = as.character(GEOID),
-    diabetes = str_remove(diabetes, "%"),
-    diabetes = as.numeric(diabetes)
-  )
-```
-
-```{r}
-diabetes_data <- read_csv("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/ae-08/data/DurhamNeighborhoodCompass-Health-tract.csv")
-diabetes_data <- diabetes_data %>%
-  select(GEOID = `Geography Id`, diabetes = `Diabetes (Adult Population), 2019`) %>%
-  mutate(
-    GEOID = as.character(GEOID),
-    diabetes = str_remove(diabetes, "%"),
-    diabetes = as.numeric(diabetes)
-  )
-```
-
-
-We then merge the diabetes data with the `sf` data object.
+This object is an `sf` data object. The relevant variables are `GEOID`, which contains a unique identifier of each county and `geometry`, which contains the boundary information. For analyzing our data, we will first merge `dnc` with the `sf` data object. We begin by preparing the data for merging.
 
 ```{r}
 durham_merged <- durham_tracts %>%
-  left_join(diabetes_data , by = "GEOID")
+  mutate(GEOID = as.numeric(GEOID)) %>%
+  left_join(dnc , by = "GEOID")
 ```
 
 We can now visualize the adult diabetes proportion across the Durham county census tracts.
@@ -131,15 +120,17 @@ Note that there are three locations that do not have any data, represented in gr
 
 # Model Goals
 
-Define $Y_i$ as the percentage of adults with diabetes in census tract $i$, for $i = 1,\ldots,n$. There are $n = 57$ census tract in Durham county. We are interested in producing a map of adult diabetes that has been smoothed using an ICAR process. We want to fit the following model: 
+Define $Y_i$ as the percentage of adults with diabetes in census tract $i$, for $i = 1,\ldots,n$. There are $n = 57$ census tract in Durham county with a non-zero number of residents. We are interested in producing a map of adult diabetes that has been smoothed using an ICAR process. We want to fit the following model: 
 
 \begin{align*}
-Y_i &= \alpha + \theta_i + \epsilon_i, \quad \epsilon_i \stackrel{iid}{\sim} N(0,\sigma^2)\\
+Y_i &= \alpha + \mathbf{x}_i\boldsymbol{\beta} + \theta_i + \epsilon_i, \quad \epsilon_i \stackrel{iid}{\sim} N(0,\sigma^2)\\
 \boldsymbol{\theta} &\sim \text{ICAR}(\tau^2)\\
-\alpha &\sim N(0, 4^2)\\
-\sigma &\sim \text{Half-Normal}(0, 4^2)\\
-\tau &\sim \text{Half-Normal}(0, 4^2).
+\alpha^* &\sim N(0, 3^2)\\
+\beta_j &\sim N(0,3^2)\quad j = 1,\ldots,p\\
+\sigma &\sim \text{Half-Normal}(0, 3^2)\\
+\tau &\sim \text{Half-Normal}(0, 3^2),
 \end{align*}
+where $\mathbf{x}_i = (\text{education}_i,\text{income}_i,\text{color}_i)$ and $\alpha^*$ is the centered intercept.
 
 ## Computing the adjacency matrix
 
@@ -177,7 +168,7 @@ edges <- data.frame(
 This plot shows the adjacency structure among Durham County census tracts used in the spatial model. The function `geom_sf()` draws the outlines of the tracts and also plots red dots at each tract centroid to show where the adjacency links originate. The function `geom_segment()` draws blue lines between neighboring tracts, based on their centroids.
 
 ```{r, echo = FALSE}
-#| echo: false
+#| echo: true
 #| message: false
 #| warning: false
 #| fig-align: "center"
@@ -198,7 +189,7 @@ ggplot(data = durham_model_data) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-Finally, we can compute the needed objects for Stan. 
+Finally, we can compute the needed objects for the ICAR prior.
 
 ```{r}
 neighbor_pairs_lower <- neighbor_pairs[neighbor_pairs[, 1] < neighbor_pairs[, 2], ]
@@ -207,99 +198,120 @@ node1 <- neighbor_pairs_lower[, 1]
 node2 <- neighbor_pairs_lower[, 2]
 ```
 
-Average number of neighbors.
+## Fitting the Model
+
+We can then compute the design matrix, making sure to remove the intercept.
 
 ```{r}
-avg_neighbors <- mean(card(nb))
-avg_neighbors
+X <- model.matrix(~ education + income + color, data = durham_model_data)[, -1]
 ```
 
-<!-- ```{r} -->
-<!-- stan_data <- list( -->
-<!--   n = nrow(durham_model_data), -->
-<!--   n_edges = n_edges, -->
-<!--   node1 = node1, -->
-<!--   node2 = node2, -->
-<!--   Y = durham_model_data$diabetes / 100, -->
-<!--   avg_neighbors = avg_neighbors, -->
-<!--   scale_sigma = 1, -->
-<!--   avg_neighbors = avg_neighbors -->
-<!-- ) -->
-<!-- ``` -->
+And then we can create the Stan data object.
 
-<!-- ```{r, eval = FALSE} -->
-<!-- icar_ae <- stan_model(file = "icar_ae.stan") -->
-<!-- ``` -->
+```{r}
+stan_data <- list(
+  n = nrow(durham_model_data),
+  p = ncol(X),
+  n_edges = n_edges,
+  node1 = node1,
+  node2 = node2,
+  Y = durham_model_data$diabetes,
+  X = X
+)
+```
 
-<!-- ```{r, echo = FALSE, eval = FALSE} -->
-<!-- icar_ae <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/ae-08/icar_ae.stan") -->
-<!-- fit_icar_ae <- sampling(icar_ae, stan_data, iter = 5000, control = list(adapt_delta = 0.999,  -->
-<!--                                max_treedepth = 10, -->
-<!--                                stepsize = 1)) -->
-<!-- print(fit_icar_ae, pars = c("alpha", "sigma", "tau")) -->
-<!-- traceplot(fit_icar_ae, pars = c("alpha", "sigma", "tau")) -->
-<!-- save(fit_icar_ae, file = "/Users/sib2/") -->
-<!-- ``` -->
+We will now fit the model and print the posterior summaries and MCMC convergence diagnostics.
 
+```{r, eval = FALSE}
+icar <- stan_model(file = "icar.stan")
+fit_icar <- sampling(icar, stan_data, iter = 5000)
+print(fit_icar, pars = c("alpha_star", "alpha", "beta", "sigma", "tau"))
+```
 
-<!-- ```{r} -->
-<!-- Y_pred <- rstan::extract(fit_icar_ae, pars = "Y_pred")$Y_pred -->
-<!-- ppd_mean <- apply(Y_pred, 2, mean) -->
-<!-- ppd_sd <- apply(Y_pred, 2, sd) -->
-<!-- ``` -->
+```{r, echo = FALSE}
+fit_icar <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/DNC/fit-icar.rds")
+print(fit_icar, pars = c("alpha_star", "alpha", "beta", "sigma", "tau"))
+```
 
-<!-- Merge predictions back to the dataset. Extract GEOIDs of non-NA tracts (in model order) and -->
+```{r, echo = FALSE, eval = FALSE}
+icar <- stan_model(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/ae-08/icar.stan")
+fit_icar <- sampling(icar, stan_data, iter = 5000, control = list(adapt_delta = 0.99))
+saveRDS(fit_icar, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/DNC/fit-icar.rds")
+```
 
-<!-- ```{r} -->
-<!-- model_geoids <- durham_merged %>% -->
-<!--   filter(!is.na(diabetes)) %>% -->
-<!--   pull(GEOID) -->
-<!-- predictions <- tibble(GEOID = model_geoids, -->
-<!--                       ppd_mean = ppd_mean, -->
-<!--                       ppd_sd = ppd_sd) -->
+Note that I increased `adapt_delta` from its default of 0.8 to help with the convergence. We will can also look at traceplots, which look good. The number of effective samples is quite small for the variance parameters, which is a bit concerning, however since the $\hat{R}$ and traceplots look good, we can proceed with inference. 
 
-<!-- ``` -->
+```{r}
+rstan::traceplot(fit_icar, pars = c("alpha_star", "alpha", "beta", "sigma", "tau"))
+```
 
-<!-- ```{r} -->
-<!-- # Merge predictions back into the full spatial object -->
-<!-- durham_plot_data <- durham_merged %>% -->
-<!--   left_join(predictions, by = "GEOID") -->
-<!-- ``` -->
+## Posterior Predictive Distribution
 
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- #| message: false -->
-<!-- #| warning: false -->
-<!-- #| fig-align: "center" -->
-<!-- #| fig-width: 10 -->
-<!-- #| fig-height: 7 -->
-<!-- #| layout-ncol: 2 -->
-<!-- ggplot(durham_merged) + -->
-<!--   geom_sf(aes(fill = diabetes), color = "gray20") + -->
-<!--   scale_fill_viridis_c(option = "plasma", na.value = "lightgray") + -->
-<!--   labs(title = "Adult Diabetes Rate by Census Tract (Durham, 2019)", -->
-<!--        fill = "% with Diabetes") + -->
-<!--   scale_fill_viridis_c( -->
-<!--     limits = c(0, 25), -->
-<!--     na.value = "lightgray"  # Gray out missing tracts -->
-<!--   ) +  -->
-<!--   theme_minimal() -->
-<!-- ggplot(durham_plot_data) + -->
-<!--   geom_sf(aes(fill = ppd_mean), color = "black") + -->
-<!--   scale_fill_viridis_c( -->
-<!--     limits = c(0, 25), -->
-<!--     na.value = "lightgray"  # Gray out missing tracts -->
-<!--   ) + -->
-<!--   labs( -->
-<!--     title = "Predicted Diabetes Rate by Census Tract (ICAR Model)", -->
-<!--     fill = "Predicted %" -->
-<!--   ) + -->
-<!--   theme_minimal() -->
-<!-- ``` -->
+We will now look at the posterior predictive distributions, which we can use to map the diabetes proportion across Durham census tracts. We begin by extracting the posterior predictive distribution and then compute summaries. 
 
-# Exercise
+```{r}
+Y_pred <- rstan::extract(fit_icar, pars = "Y_pred")$Y_pred
+ppd_mean <- apply(Y_pred, 2, mean)
+ppd_sd <- apply(Y_pred, 2, sd)
+```
 
-Fit the model.
+We then merge the predictions back to the original dataset, with all census tracts, including those with the `NA` for diabetes, so that our maps are across all census tracts. We begin by creating a data object that contains our predictions that can then be merged into the full data.
+
+```{r}
+model_geoids <- durham_merged %>%
+  filter(!is.na(diabetes)) %>%
+  pull(GEOID)
+predictions <- tibble(GEOID = model_geoids,
+                      ppd_mean = ppd_mean,
+                      ppd_sd = ppd_sd)
+
+```
+
+We now merge predictions back into the full spatial object for plotting.
+
+```{r}
+durham_plot_data <- durham_merged %>%
+  left_join(predictions, by = "GEOID")
+```
+
+The code to create a map of the observed diabetes proportion and the posterior mean are below. 
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 7
+#| layout-ncol: 2
+ggplot(durham_merged) +
+  geom_sf(aes(fill = diabetes), color = "gray20") +
+  scale_fill_viridis_c(option = "plasma", na.value = "lightgray") +
+  labs(title = "Adult Diabetes Rate by Census Tract (Durham, 2019)",
+       fill = "% with Diabetes") +
+  scale_fill_viridis_c(
+    # limits = c(0, 25),
+    na.value = "lightgray"  # Gray out missing tracts
+  ) + 
+  theme_minimal()
+ggplot(durham_plot_data) +
+  geom_sf(aes(fill = ppd_mean), color = "black") +
+  scale_fill_viridis_c(
+    # limits = c(0, 25),
+    na.value = "lightgray"  # Gray out missing tracts
+  ) +
+  labs(
+    title = "Predicted Diabetes Rate by Census Tract (ICAR Model)",
+    fill = "Predicted %"
+  ) +
+  theme_minimal()
+```
+
+# Exercises
+
+## Exercise 1
+
+Examine the two side-by-side plots above and compare and contrast them. What changes to do you observe?
 
 **Answer:**
 
@@ -309,6 +321,33 @@ Fit the model.
 # add code here
 
 ```
+
+## Exercise 2
+
+Create a map of the posterior predictive standard deviation across the Durham census tracts. What patterns do you observe? 
+
+**Answer:**
+
+```{r}
+#| label: ex2
+
+# add code here
+
+```
+
+## Exercise 3
+
+Present posterior summaries of $\boldsymbol{\beta}$. Which predictors are associated with adult diabetes? 
+
+**Answer:**
+
+```{r}
+#| label: ex3
+
+# add code here
+
+```
+
 
 ::: callout-important
 To submit the AE:
