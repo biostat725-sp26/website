@@ -49,7 +49,7 @@ library(spdep)         # compute adjacency matrix
 
 ## The Durham Neighborhood Compass
 
-- The [Durham Neighborhood Compass](https://compass.durhamnc.gov) is a public data portal developed by the City and County of Durham, NC. It provides **neighborhood-level indicators** across many topics, including: health (e.g., diabetes, asthma), education, housing and development, crime and safety, and demographics and equity. Most indicators are available at the **census tract level**, allowing for spatial analysis of neighborhoods within Durham County. Data are updated regularly and reflect community conditions over time. Today we will focus on adult diabetes prevalence by census tract in 2019. The data is available in `dnc.csv` and can be downloaded directly from the Durham Neighborhood Compass website.
+-   The [Durham Neighborhood Compass](https://compass.durhamnc.gov) is a public data portal developed by the City and County of Durham, NC. It provides **neighborhood-level indicators** across many topics, including: health (e.g., diabetes, asthma), education, housing and development, crime and safety, and demographics and equity. Most indicators are available at the **census tract level**, allowing for spatial analysis of neighborhoods within Durham County. Data are updated regularly and reflect community conditions over time. Today we will focus on adult diabetes prevalence by census tract in 2019. The data is available in `dnc.csv` and can be downloaded directly from the Durham Neighborhood Compass website.
 
 The variables in the dataset are as follows and are specific to each census tract in 2019.
 
@@ -59,7 +59,7 @@ The variables in the dataset are as follows and are specific to each census trac
 
 -   `education`: percentage of adults with a bachelors degree or higher.
 
--   `income`: median household income, in $10,000.
+-   `income`: median household income, in \$10,000.
 
 -   `color`: percentage of people of color.
 
@@ -116,11 +116,11 @@ ggplot(durham_merged) +
   theme_minimal()
 ```
 
-Note that there are three locations that do not have any data, represented in gray. These locations correspond to census tracts with a zero residents. For the analysis we will remove them. 
+Note that there are three locations that do not have any data, represented in gray. These locations correspond to census tracts with a zero residents. For the analysis we will remove them.
 
 # Model Goals
 
-Define $Y_i$ as the percentage of adults with diabetes in census tract $i$, for $i = 1,\ldots,n$. There are $n = 57$ census tract in Durham county with a non-zero number of residents. We are interested in producing a map of adult diabetes that has been smoothed using an ICAR process. We want to fit the following model: 
+Define $Y_i$ as the percentage of adults with diabetes in census tract $i$, for $i = 1,\ldots,n$. There are $n = 57$ census tract in Durham county with a non-zero number of residents. We are interested in producing a map of adult diabetes that has been smoothed using an ICAR process. We want to fit the following model:
 
 \begin{align*}
 Y_i &= \alpha + \mathbf{x}_i\boldsymbol{\beta} + \theta_i + \epsilon_i, \quad \epsilon_i \stackrel{iid}{\sim} N(0,\sigma^2)\\
@@ -129,8 +129,7 @@ Y_i &= \alpha + \mathbf{x}_i\boldsymbol{\beta} + \theta_i + \epsilon_i, \quad \e
 \beta_j &\sim N(0,3^2)\quad j = 1,\ldots,p\\
 \sigma &\sim \text{Half-Normal}(0, 3^2)\\
 \tau &\sim \text{Half-Normal}(0, 3^2),
-\end{align*}
-where $\mathbf{x}_i = (\text{education}_i,\text{income}_i,\text{color}_i)$ and $\alpha^*$ is the centered intercept.
+\end{align*} where $\mathbf{x}_i = (\text{education}_i,\text{income}_i,\text{color}_i)$ and $\alpha^*$ is the centered intercept.
 
 ## Computing the adjacency matrix
 
@@ -239,7 +238,7 @@ fit_icar <- sampling(icar, stan_data, iter = 5000, control = list(adapt_delta = 
 saveRDS(fit_icar, file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/DNC/fit-icar.rds")
 ```
 
-Note that I increased `adapt_delta` from its default of 0.8 to help with the convergence. We will can also look at traceplots, which look good. The number of effective samples is quite small for the variance parameters, which is a bit concerning, however since the $\hat{R}$ and traceplots look good, we can proceed with inference. 
+Note that I increased `adapt_delta` from its default of 0.8 to help with the convergence. We will can also look at traceplots, which look good. The number of effective samples is quite small for the variance parameters, which is a bit concerning, however since the $\hat{R}$ and traceplots look good, we can proceed with inference.
 
 ```{r}
 rstan::traceplot(fit_icar, pars = c("alpha_star", "alpha", "beta", "sigma", "tau"))
@@ -247,7 +246,7 @@ rstan::traceplot(fit_icar, pars = c("alpha_star", "alpha", "beta", "sigma", "tau
 
 ## Posterior Predictive Distribution
 
-We will now look at the posterior predictive distributions, which we can use to map the diabetes proportion across Durham census tracts. We begin by extracting the posterior predictive distribution and then compute summaries. 
+We will now look at the posterior predictive distributions, which we can use to map the diabetes proportion across Durham census tracts. We begin by extracting the posterior predictive distribution and then compute summaries.
 
 ```{r}
 Y_pred <- rstan::extract(fit_icar, pars = "Y_pred")$Y_pred
@@ -274,7 +273,14 @@ durham_plot_data <- durham_merged %>%
   left_join(predictions, by = "GEOID")
 ```
 
-The code to create a map of the observed diabetes proportion and the posterior mean are below. 
+The code to create a map of the observed diabetes proportion and the posterior mean is below. Note that I make sure to have each plot be on the same color scale, so they are comparable. I first compute the maximum value needed for the upper bound and then use the `limits` functions.
+
+```{r}
+max_limit <- max(c(durham_merged$diabetes,
+                   durham_plot_data$ppd_mean), na.rm = TRUE)
+```
+
+The maps can be created as follows.
 
 ```{r}
 #| echo: true
@@ -290,14 +296,14 @@ ggplot(durham_merged) +
   labs(title = "Adult Diabetes Rate by Census Tract (Durham, 2019)",
        fill = "% with Diabetes") +
   scale_fill_viridis_c(
-    # limits = c(0, 25),
+    limits = c(0, max_limit),
     na.value = "lightgray"  # Gray out missing tracts
   ) + 
   theme_minimal()
 ggplot(durham_plot_data) +
   geom_sf(aes(fill = ppd_mean), color = "black") +
   scale_fill_viridis_c(
-    # limits = c(0, 25),
+    limits = c(0, max_limit),
     na.value = "lightgray"  # Gray out missing tracts
   ) +
   labs(
@@ -324,7 +330,7 @@ Examine the two side-by-side plots above and compare and contrast them. What cha
 
 ## Exercise 2
 
-Create a map of the posterior predictive standard deviation across the Durham census tracts. What patterns do you observe? 
+Create a map of the posterior predictive standard deviation across the Durham census tracts. What patterns do you observe?
 
 **Answer:**
 
@@ -337,7 +343,7 @@ Create a map of the posterior predictive standard deviation across the Durham ce
 
 ## Exercise 3
 
-Present posterior summaries of $\boldsymbol{\beta}$. Which predictors are associated with adult diabetes? 
+Present posterior summaries of $\boldsymbol{\beta}$. Which predictors are associated with adult diabetes?
 
 **Answer:**
 
@@ -347,7 +353,6 @@ Present posterior summaries of $\boldsymbol{\beta}$. Which predictors are associ
 # add code here
 
 ```
-
 
 ::: callout-important
 To submit the AE:
