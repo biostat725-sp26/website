@@ -489,11 +489,11 @@ We want to make predictions for $\mathbf{Y}^* = (Y(\mathbf{u}_{n+1}),\ldots, Y(\
   &= \int \underbrace{f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega})}_{(1)} \underbrace{f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})}_{(2)} \underbrace{f(\boldsymbol{\theta},\boldsymbol{\Omega} | \mathbf{Y})}_{(3)} d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
 \end{align*}
 
-(1) Likelihood: $f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega})$ [ -- remains the same as for GP ]{.fragment data-fragment-index="1" style="color: #a50f15;"}
+(1) Likelihood: $f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega})$ [-- remains the same as for GP]{.fragment data-fragment-index="1" style="color: #a50f15;"}
 
-(2) Kriging: $f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})$ [ -- we will focus on this next ]{.fragment data-fragment-index="2" style="color: #a50f15;"}
+(2) Kriging: $f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})$ [-- we will focus on this next]{.fragment data-fragment-index="2" style="color: #a50f15;"}
 
-(3) Posterior distribution: $f(\boldsymbol{\theta},\boldsymbol{\Omega} | \mathbf{Y})$ [ -- we have just discussed ]{.fragment data-fragment-index="0" style="color: #a50f15;"}
+(3) Posterior distribution: $f(\boldsymbol{\theta},\boldsymbol{\Omega} | \mathbf{Y})$ [-- we have just discussed]{.fragment data-fragment-index="0" style="color: #a50f15;"}
 
 ## Kriging {.midi}
 
