@@ -98,6 +98,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -424,16 +425,21 @@ Christine Shen
 
   <p class="date">Apr 01, 2025</p>
 </section>
-<section id="review-of-the-last-lecture" class="slide level2">
-<h2>Review of the last lecture</h2>
-<p>TBU</p>
+<section id="review-of-previous-lectures" class="slide level2 midi">
+<h2>Review of previous lectures</h2>
+<p>Two weeks ago, we learned about:</p>
+<ol type="1">
+<li><p>Gaussian processes, and</p></li>
+<li><p>How to use Gaussian processes for</p>
+<ul>
+<li>longitudinal data</li>
+<li>geospatial data</li>
+</ul></li>
+</ol>
 </section>
 <section id="motivating-dataset" class="slide level2 midi">
 <h2>Motivating dataset</h2>
-<p>Recall we worked with a dataset on women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey.</p>
-<ul>
-<li><p>There are ~8,600 women nested in ~500 survey clusters.</p></li>
-<li><p>Variables are:</p>
+<p>Recall we worked with a dataset on women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. Variables are:</p>
 <ul>
 <li><p><code>loc_id</code>: location id (i.e.&nbsp;survey cluster).</p></li>
 <li><p><code>hemoglobin</code>: hemoglobin level (g/dL).</p></li>
@@ -442,7 +448,6 @@ Christine Shen
 <li><p><code>urban</code>: urban vs.&nbsp;rural.</p></li>
 <li><p><code>LATNUM</code>: latitude.</p></li>
 <li><p><code>LONGNUM</code>: longitude.</p></li>
-</ul></li>
 </ul>
 </section>
 <section id="motivating-dataset-1" class="slide level2 midi">
@@ -475,27 +480,77 @@ Christine Shen
 </div>
 </div>
 </section>
-<section id="map-of-sud-kivu-state" class="slide level2 midi">
-<h2>Map of Sud-Kivu state</h2>
-<p>Last time, we focused on one state with ~500 women at ~30 locations.</p>
+<section id="map-of-the-sud-kivu-state" class="slide level2 midi">
+<h2>Map of the Sud-Kivu state</h2>
+<p>Last time, we focused on one state with ~500 observations at ~30 locations.</p>
 
 <img data-src="21-scalable-1_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<section id="prediction-for-the-sud-kivu-state" class="slide level2 midi">
+<h2>Prediction for the Sud-Kivu state</h2>
+<p>And we created a <span class="math inline">\(20 \times 20\)</span> grid for prediction of the spatial intercept surface over the Sud-Kivu state.</p>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="21-scalable-1_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="21-scalable-1_files/figure-revealjs/unnamed-chunk-4-2.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="map-of-the-drc" class="slide level2 midi">
 <h2>Map of the DRC</h2>
-<p>Today we will extend the analysis to the full dataset.</p>
+<p>Today we will extend the analysis to the full dataset with ~8,600 observations at ~500 locations.</p>
 
-<img data-src="21-scalable-1_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<img data-src="21-scalable-1_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<section id="prediction-for-the-drc" class="slide level2 midi">
+<h2>Prediction for the DRC</h2>
+<p>And we will make predictions on a <span class="math inline">\(30 \times 30\)</span> grid over the DRC.</p>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="21-scalable-1_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="21-scalable-1_files/figure-revealjs/unnamed-chunk-6-2.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="modeling" class="slide level2 midi">
 <h2>Modeling</h2>
 <p><span class="math display">\[\begin{align*}
   Y_j(\mathbf{u}_i) &amp;= \alpha + \mathbf{x}_j(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_j(\mathbf{u}_i), \quad \epsilon_j(\mathbf{u}_i) \stackrel{iid}{\sim} N(0,\sigma^2)
 \end{align*}\]</span></p>
-<p><strong>Data Objects:</strong></p>
+<p><strong>Data objects:</strong></p>
 <ul>
 <li><p><span class="math inline">\(i \in \{1,\dots,n\}\)</span> indexes unique locations.</p></li>
 <li><p><span class="math inline">\(j \in \{1,\dots,n_i\}\)</span> indexes individuals at each location.</p></li>
 <li><p><span class="math inline">\(Y_j(\mathbf{u}_i)\)</span> denotes the observation of individual <span class="math inline">\(j\)</span> at location <span class="math inline">\(\mathbf{u}_i\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{x}_j(\mathbf{u}_i) \in \mathbb{R}^{1 \times p}\)</span>, where <span class="math inline">\(p=3\)</span> is the number of predictors (excluding intercept).</p></li>
+<li><p><span class="math inline">\(\mathbf{x}_j(\mathbf{u}_i) = (\text{age}_{ij}/10,\text{urban}_i) \in \mathbb{R}^{1 \times p}\)</span>, where <span class="math inline">\(p=2\)</span> is the number of predictors (excluding intercept).</p></li>
 </ul>
 </section>
 <section id="modeling-1" class="slide level2 midi">
@@ -503,459 +558,509 @@ Christine Shen
 <p><span class="math display">\[\begin{align*}
   Y_j(\mathbf{u}_i) &amp;= \alpha + \mathbf{x}_j(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_j(\mathbf{u}_i), \quad \epsilon_j(\mathbf{u}_i) \stackrel{iid}{\sim} N(0,\sigma^2)
 \end{align*}\]</span></p>
-<p><strong>Population Parameters:</strong></p>
+<p><strong>Population parameters:</strong></p>
 <ul>
 <li><p><span class="math inline">\(\alpha \in \mathbb{R}\)</span> is the intercept.</p></li>
 <li><p><span class="math inline">\(\boldsymbol{\beta} \in \mathbb{R}^p\)</span> is the regression coefficients.</p></li>
 <li><p><span class="math inline">\(\sigma^2 \in \mathbb{R}^+\)</span> is the overall residual error (nugget).</p></li>
 </ul>
-<p><strong>Location-specific Parameters:</strong></p>
+<p><strong>Location-specific parameters:</strong></p>
 <ul>
 <li><p><span class="math inline">\(\mathbf{u}_i = (\text{latitude}_i, \text{longitude}_i) \in \mathbb{R}^2\)</span> denotes coordinates of location <span class="math inline">\(i\)</span>.</p></li>
 <li><p><span class="math inline">\(\theta(\mathbf{u}_i)\)</span> denotes the spatial intercept at location <span class="math inline">\(\mathbf{u}_i\)</span>.</p></li>
 </ul>
 </section>
-<section id="location-specific-notation" class="slide level2">
-<h2>Location-specific Notation</h2>
-<p><span class="math display">\[\mathbf{Y}(\mathbf{u}_i) = \alpha \mathbf{1}_{n_i} + \mathbf{X}(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i)\mathbf{1}_{n_i} + \boldsymbol{\epsilon}(\mathbf{u}_i)\]</span></p>
+<section id="location-specific-notation" class="slide level2 midi">
+<h2>Location-specific notation</h2>
+<p><span class="math display">\[\mathbf{Y}(\mathbf{u}_i) = \alpha \mathbf{1}_{n_i} + \mathbf{X}(\mathbf{u}_i) \boldsymbol{\beta} + \theta(\mathbf{u}_i)\mathbf{1}_{n_i} + \boldsymbol{\epsilon}(\mathbf{u}_i), \quad \boldsymbol{\epsilon}(\mathbf{u}_i) \sim N_{n_i}(\mathbf{0},\sigma^2\mathbf{I})\]</span></p>
 <ul>
-<li><p><span class="math inline">\(\mathbf{Y}(\mathbf{u}_i) = (Y_1(\mathbf{u}_i),\ldots,Y_{n_i}(\mathbf{u}_i))^\top\)</span></p></li>
+<li><p><span class="math inline">\(\mathbf{Y}(\mathbf{u}_i) = (Y_1(\mathbf{u}_i),\ldots,Y_{n_i}(\mathbf{u}_i))^\top\)</span>.</p></li>
 <li><p><span class="math inline">\(\mathbf{X}(\mathbf{u}_i)\)</span> is an <span class="math inline">\(n_i \times p\)</span> dimensional matrix with rows <span class="math inline">\(\mathbf{x}_j(\mathbf{u}_i)\)</span>.</p></li>
-<li><p><span class="math inline">\(\boldsymbol{\epsilon}(\mathbf{u}_i) = (\epsilon_i(\mathbf{u}_i),\ldots,\epsilon_{n_i}(\mathbf{u}_i))^\top\)</span>, where <span class="math inline">\(\epsilon_j(\mathbf{u}_i) \stackrel{iid}{\sim} N(0,\sigma^2)\)</span>.</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\epsilon}(\mathbf{u}_i) = (\epsilon_i(\mathbf{u}_i),\ldots,\epsilon_{n_i}(\mathbf{u}_i))^\top\)</span>.</p></li>
 </ul>
 </section>
-<section id="full-data-notation" class="slide level2">
+<section id="full-data-notation" class="slide level2 midi">
 <h2>Full data notation</h2>
-<p><span class="math display">\[\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}\]</span></p>
+<p><span class="math display">\[\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N_N(\mathbf{0},\sigma^2\mathbf{I})\]</span></p>
 <ul>
 <li><p><span class="math inline">\(\mathbf{Y} = (\mathbf{Y}(\mathbf{u}_1)^\top,\ldots,\mathbf{Y}(\mathbf{u}_{n})^\top)^\top \in \mathbb{R}^N\)</span>, with <span class="math inline">\(N = \sum_{i=1}^n n_i\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{X} \in \mathbb{R}^{N \times p}\)</span> that stacks <span class="math inline">\(\mathbf{X}(\mathbf{u}_i)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbf{X} \in \mathbb{R}^{N \times p}\)</span> stacks <span class="math inline">\(\mathbf{X}(\mathbf{u}_i)\)</span>.</p></li>
 <li><p><span class="math inline">\(\boldsymbol{\theta} = (\theta(\mathbf{u}_1),\ldots,\theta(\mathbf{u}_n))^\top \in \mathbb{R}^n\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{Z}\)</span> is <span class="math inline">\(N \times n\)</span> dimensional binary matrix. Each row contains a single 1 in column <span class="math inline">\(i\)</span> that corresponds to the location of <span class="math inline">\(Y_j(\mathbf{u}_i)\)</span>.</p></li>
-</ul>
-</section>
-<section id="analysis-of-the-full-anemia-dataset" class="slide level2">
-<h2>Analysis of the full Anemia dataset</h2>
-<p>Consider the following model:</p>
-<p><span class="math display">\[\begin{align*}
-  Y_{ij} = \mathbf{x}_{ij} \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_{ij}, \quad \epsilon_{ij} \sim N(0,\sigma^2).
-\end{align*}\]</span></p>
-<p><strong>Data Objects:</strong></p>
-<ul>
-<li><p><span class="math inline">\(i \in \{1,\dots,n\}\)</span> indexes unique locations.</p></li>
-<li><p><span class="math inline">\(j \in \{1,\dots,n_i\}\)</span> indexes individuals at each location.</p></li>
-<li><p><span class="math inline">\(Y_{ij}\)</span> denotes the hemoglobin level of individual <span class="math inline">\(j\)</span> at location <span class="math inline">\(i\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{x}_{ij} \in \mathbb{R}^p\)</span>, <span class="math inline">\(p=3\)</span>, are covariates including an intercept, age (years), and urban (binary).</p></li>
-</ul>
-</section>
-<section id="analysis-of-the-full-anemia-dataset-1" class="slide level2">
-<h2>Analysis of the full Anemia dataset</h2>
-<p>Consider the following model:</p>
-<p><span class="math display">\[\begin{align*}
-  Y_{ij} = \mathbf{x}_{ij} \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_{ij}, \quad \epsilon_{ij} \sim N(0,\sigma^2).
-\end{align*}\]</span></p>
-<p><strong>Population Parameters:</strong></p>
-<ul>
-<li><p><span class="math inline">\(\boldsymbol{\beta} \in \mathbb{R}^p\)</span> is the regression coefficients.</p></li>
-<li><p><span class="math inline">\(\sigma^2 \in \mathbb{R}^+\)</span> is the overall residual error (nugget).</p></li>
-</ul>
-</section>
-<section id="analysis-of-the-full-anemia-dataset-2" class="slide level2">
-<h2>Analysis of the full Anemia dataset</h2>
-<p>Consider the following model:</p>
-<p><span class="math display">\[\begin{align*}
-  Y_{ij} = \mathbf{x}_{ij} \boldsymbol{\beta} + \theta(\mathbf{u}_i) + \epsilon_{ij}, \quad \epsilon_{ij} \sim N(0,\sigma^2).
-\end{align*}\]</span></p>
-<p><strong>Location-specific Parameters:</strong></p>
-<ul>
-<li><p><span class="math inline">\(\theta(\mathbf{u}_i)\)</span> denotes the spatial intercept at location <span class="math inline">\(\mathbf{u}_i\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbf{u}_i \in \mathbb{R}^d\)</span> denotes the spatial location of location <span class="math inline">\(i\)</span>. For example, <span class="math inline">\(\mathbf{u}_i = (\text{latitude}_i, \text{longitude}_i)\)</span>, so that <span class="math inline">\(d = 2\)</span>.</p></li>
-</ul>
-</section>
-<section id="analysis-of-the-full-anemia-dataset-3" class="slide level2 midi">
-<h2>Analysis of the full Anemia dataset</h2>
-<p>Rewriting the model in a vectorized form (as a LMM):</p>
-<p><span class="math display">\[\mathbf{Y}_i = \mathbf{X}_i \boldsymbol{\beta} + \mathbf{Z}_i \boldsymbol{\theta}(\mathbf{u}_i) + \boldsymbol{\epsilon}_i, \quad \boldsymbol{\epsilon}_i \stackrel{ind}{\sim} N_{n_i}(\mathbf{0}_{n_i}, \sigma^2 \mathbf{I}_{n_i}).\]</span></p>
-<ul>
-<li><p><span class="math inline">\(\mathbf{Y}_i = (Y_{i1},\ldots,Y_{in_i})\)</span> are location-specific observations.</p></li>
-<li><p><span class="math inline">\(\boldsymbol{\epsilon}_i = (\epsilon_{i1},\ldots,\epsilon_{in_i})\)</span>, such that <span class="math inline">\(\epsilon_{ij} \stackrel{iid}{\sim} N(0,\sigma^2)\)</span>.</p></li>
-</ul>
-<p><span class="math display">\[\begin{align*}
-\mathbf{Y}_i = \mathbf{X}_i\boldsymbol{\beta} + \mathbf{Z}_i\boldsymbol{\theta}(\mathbf{u}) + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N(0,\sigma^2 \mathbf{I}),
-\end{align*}\]</span></p>
-<p>where</p>
-<ul>
-<li><span class="math inline">\(\mathbf{y} \in \mathbb{R}^{n}\)</span>, <span class="math inline">\(X \in \mathbb{R}^{n \times p}\)</span>, and <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}) \in \mathbb{R}^{q}\)</span></li>
-<li><span class="math inline">\(W \in \mathbb{R}^{n \times q}\)</span> assigns the spatial intercepts to each individual</li>
-</ul>
-<p>Consider a Bayesian analysis with</p>
-<ul>
-<li><span class="math inline">\(\boldsymbol{\theta}(u) \sim GP(0,K(\psi))\)</span> for some covariance kernel <span class="math inline">\(K\)</span> with parameter <span class="math inline">\(\psi\)</span></li>
-<li><span class="math inline">\(\boldsymbol{\beta} \sim N(0,\tau^2)\)</span></li>
-<li>and appropriate priors for <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(\tau^2\)</span>, and <span class="math inline">\(\psi\)</span></li>
-</ul>
-</section>
-<section id="analysis-of-the-full-anemia-dataset-4" class="slide level2">
-<h2>Analysis of the full Anemia dataset</h2>
-<p>Rewriting the model in a vectorized form: <span class="math display">\[
+<li><p><span class="math inline">\(\mathbf{Z}\)</span> is an <span class="math inline">\(N \times n\)</span> dimensional block diagonal binary matrix. Each row contains a single 1 in column <span class="math inline">\(i\)</span> that corresponds to the location of <span class="math inline">\(Y_j(\mathbf{u}_i)\)</span>. <span class="math display">\[
 \begin{align}
-  \mathbf{y} = X\boldsymbol{\beta} + W\boldsymbol{\theta}(\mathbf{u}) + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N(0,\sigma^2 \mathbf{I}),
+\mathbf{Z} = \begin{bmatrix}
+\mathbf{1}_{n_1} &amp; \mathbf{0} &amp; \dots &amp; \mathbf{0} \\
+\mathbf{0} &amp; \mathbf{1}_{n_2} &amp; \dots &amp; \mathbf{0}  \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\mathbf{0} &amp; \dots &amp; \mathbf{0} &amp; \mathbf{1}_{n_n}
+\end{bmatrix}.
 \end{align}
-\]</span> where</p>
-<ul>
-<li><span class="math inline">\(\mathbf{y} \in \mathbb{R}^{n}\)</span>, <span class="math inline">\(X \in \mathbb{R}^{n \times p}\)</span>, and <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}) \in \mathbb{R}^{q}\)</span></li>
-<li><span class="math inline">\(W \in \mathbb{R}^{n \times q}\)</span> assigns the spatial intercepts to each individual</li>
-</ul>
-<p>Consider a Bayesian analysis with</p>
-<ul>
-<li><span class="math inline">\(\boldsymbol{\theta}(u) \sim GP(0,K(\psi))\)</span> for some covariance kernel <span class="math inline">\(K\)</span> with parameter <span class="math inline">\(\psi\)</span></li>
-<li><span class="math inline">\(\boldsymbol{\beta} \sim N(0,\tau^2)\)</span></li>
-<li>and appropriate priors for <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(\tau^2\)</span>, and <span class="math inline">\(\psi\)</span></li>
+\]</span></p></li>
 </ul>
 </section>
-<section id="inference-goals" class="slide level2">
-<h2>Inference goals</h2>
-<p>Our goal is to [TBU]:</p>
-<ol type="1">
-<li>study the associations between the outcome and the covariates</li>
-<li>learn the spatial intercept surface</li>
-</ol>
-<p>To achieve these goals, we need to</p>
-<ol type="1">
-<li>perform Bayesian model fitting to obtain posterior samples of <span class="math inline">\(\boldsymbol{\beta}\)</span>, <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u})\)</span> and other parameters</li>
-<li>make out-of-sample predictions for <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}^*)\)</span>, spatial intercepts at <span class="math inline">\(q^*\)</span> new locations <span class="math inline">\(\mathbf{u}^*=(u_1^*,\dots,u_{q^*})\)</span></li>
-</ol>
+<section id="modeling-2" class="slide level2 midi">
+<h2>Modeling</h2>
+<p>We specify the following model: <span class="math display">\[\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N_N(\mathbf{0},\sigma^2\mathbf{I})\]</span> with priors</p>
+<ul>
+<li><span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}) | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))\)</span>, where <span class="math inline">\(C\)</span> is the Matérn 3/2 covariance function with magnitude <span class="math inline">\(\tau\)</span> and length scale <span class="math inline">\(\rho\)</span></li>
+<li><span class="math inline">\(\alpha^* \sim N(0,4^2)\)</span>. This is the intercept after centering <span class="math inline">\(\mathbf{X}\)</span>.</li>
+<li><span class="math inline">\(\beta_j | \sigma_{\beta} \sim N(0,\sigma_{\beta}^2)\)</span>, <span class="math inline">\(j \in \{1,\dots,p\}\)</span></li>
+<li><span class="math inline">\(\sigma \sim \text{Half-Normal}(0, 2^2)\)</span></li>
+<li><span class="math inline">\(\tau \sim \text{Half-Normal}(0, 4^2)\)</span></li>
+<li><span class="math inline">\(\rho \sim \text{Inv-Gamma}(5, 5)\)</span></li>
+<li><span class="math inline">\(\sigma_{\beta} \sim \text{Half-Normal}(0, 2^2)\)</span></li>
+</ul>
 </section>
-<section id="computational-issues-with-gp" class="slide level2">
+<section id="computational-issues-with-gp" class="slide level2 midi">
 <h2>Computational issues with GP</h2>
-<p>Effectively, the prior for <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u})\)</span> is <span class="math display">\[
-\begin{align}
-  \boldsymbol{\theta}(\mathbf{u}) = \begin{pmatrix}
-    \theta(u_1) \\
-    \vdots \\
-    \theta(u_q)
-  \end{pmatrix} \sim N(0, \Sigma), \quad \text{where } \Sigma \in \mathbb{R}^{q \times q}, \quad \Sigma_{ij} = K(u_i,u_j|\psi).
-\end{align}
-\]</span></p>
-<p>This is not scalable because of the need to invert a <span class="math inline">\(q \times q\)</span> covariance matrix for each MCMC iteration, which requires <span class="math inline">\(\mathcal{O}(q^3)\)</span> floating point operations (flops), and <span class="math inline">\(\mathcal{O}(q^2)\)</span> memory.</p>
+<p>Effectively, the prior for <span class="math inline">\(\boldsymbol{\theta}\)</span> is <span class="math display">\[\boldsymbol{\theta} | \tau,\rho \sim N_n(\mathbf{0},\mathbf{C}), \quad \mathbf{C} \in \mathbb{R}^{n \times n}.\]</span> Matérn 3/2 is an isotropic covariance function, <span class="math inline">\(C(\mathbf{u}_i, \mathbf{u}_j) = C(\|\mathbf{u}_i-\mathbf{u}_j\|)\)</span>.</p>
+<p><span class="math display">\[\mathbf{C} = \begin{bmatrix}
+C(0) &amp; C(\|\mathbf{u}_1 - \mathbf{u}_2\|) &amp; \cdots &amp; C(\|\mathbf{u}_1 - \mathbf{u}_n\|)\\
+C(\|\mathbf{u}_1 - \mathbf{u}_2\|) &amp; C(0) &amp; \cdots &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|)\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &amp; \cdots &amp; C(0)\\
+\end{bmatrix}.\]</span></p>
+<p>This is not scalable because we need to invert an <span class="math inline">\(n \times n\)</span> dense covariance matrix for each MCMC iteration, which requires <span class="math inline">\(\mathcal{O}(n^3)\)</span> floating point operations (flops), and <span class="math inline">\(\mathcal{O}(n^2)\)</span> memory.</p>
 </section>
-<section id="scalable-gp-methods-overview" class="slide level2">
+<section id="scalable-gp-methods-overview" class="slide level2 midi">
 <h2>Scalable GP methods overview</h2>
-<p>Existing scalable GP methods broadly fall under two categories.</p>
+<p>The computational issues motivated exploration in scalable GP methods. Existing scalable methods broadly fall under two categories.</p>
+<div>
 <ol type="1">
-<li>Sparsity methods</li>
-</ol>
+<li class="fragment"><p>Sparsity methods</p>
 <ul>
-<li>sparsity in <span class="math inline">\(\Sigma\)</span>, e.g., covariance tapering (<span class="citation" data-cites="furrer2006covariance">@furrer2006covariance</span>)</li>
-<li>sparsity in <span class="math inline">\(\Sigma^{-1}\)</span>, e.g., Vecchia approximation (<span class="citation" data-cites="vecchia1988estimation">@vecchia1988estimation</span>) and nearest-neighbor GP (<span class="citation" data-cites="datta2016hierarchical">@datta2016hierarchical</span>)</li>
-</ul>
-<ol start="2" type="1">
-<li>Low-rank methods</li>
-</ol>
+<li class="fragment">sparsity in <span class="math inline">\(\mathbf{C}\)</span>, e.g., covariance tapering (<span class="citation" data-cites="furrer2006covariance">Furrer, Genton, and Nychka (<a href="#/references" role="doc-biblioref" onclick="">2006</a>)</span>).</li>
+<li class="fragment">sparsity in <span class="math inline">\(\mathbf{C}^{-1}\)</span>, e.g., Vecchia approximation (<span class="citation" data-cites="vecchia1988estimation">Vecchia (<a href="#/references" role="doc-biblioref" onclick="">1988</a>)</span>) and nearest-neighbor GP (<span class="citation" data-cites="datta2016hierarchical">Datta et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>).</li>
+</ul></li>
+<li class="fragment"><p>Low-rank methods</p>
 <ul>
-<li>approximate <span class="math inline">\(\Sigma\)</span> on a low-dimensional subspace</li>
-<li>e.g., process convolution (<span class="citation" data-cites="higdon2002space">@higdon2002space</span>), inducing point method(<span class="citation" data-cites="snelson2005sparse">@snelson2005sparse</span>)</li>
-</ul>
+<li class="fragment">approximate <span class="math inline">\(\mathbf{C}\)</span> on a low-dimensional subspace.</li>
+<li class="fragment">e.g., process convolution (<span class="citation" data-cites="higdon2002space">Higdon (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>), inducing point method(<span class="citation" data-cites="snelson2005sparse">Snelson and Ghahramani (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span>).</li>
+</ul></li>
+</ol>
+</div>
 </section>
-<section id="hilbert-space-method-for-gp" class="slide level2">
+<section id="hilbert-space-method-for-gp" class="slide level2 midi">
 <h2>Hilbert space method for GP</h2>
-<p><span class="citation" data-cites="solin2020hilbert">@solin2020hilbert</span> introduced a Hilbert space method for reduced-rank Gaussian process regression (HSGP).</p>
-<p><span class="citation" data-cites="riutort2023practical">@riutort2023practical</span> discussed how to practically implement HSGP.</p>
-<p>Tutorial codes are available in different probabilistic programming languages:</p>
+<ul>
+<li><p><span class="citation" data-cites="solin2020hilbert">Solin and Särkkä (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> introduced a Hilbert space method for reduced-rank Gaussian process regression (HSGP).</p></li>
+<li><p><span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> discussed how to practically implement HSGP.</p></li>
+<li><p>Tutorial codes are available in different probabilistic programming languages:</p>
 <ul>
 <li><a href="https://github.com/gabriuma/basis_functions_approach_to_GP/tree/master/Paper">stan</a></li>
 <li><a href="https://num.pyro.ai/en/0.15.2/examples/hsgp.html">NumPyro</a></li>
 <li><a href="https://juanitorduz.github.io/hsgp_intro/">pyMC</a></li>
+</ul></li>
 </ul>
 </section>
-<section id="outline" class="slide level2">
-<h2>Outline</h2>
-<p>Lecture today:</p>
+<section id="lecture-plan" class="slide level2 midi">
+<h2>Lecture plan</h2>
+<p>Today:</p>
 <ul>
-<li>What is HSGP?</li>
-<li>Theory behind HSGP</li>
-<li>Why HSGP is scalable?</li>
-<li>How to use HSGP to make out-of-sample predictions?</li>
+<li>How does HSGP work</li>
+<li>Why HSGP is scalable</li>
+<li>How to use HSGP for Bayesian geospatial model fitting and posterior predictive sampling</li>
 </ul>
-<p>Lecture on Thursday:</p>
+<div class="fragment">
+<p>Thursday:</p>
 <ul>
 <li>Parameter tuning for HSGP</li>
 <li>How to implement HSGP in <code>stan</code></li>
-<li>Codes demo for the Anemia dataset</li>
-<li>Application exercise</li>
 </ul>
+</div>
 </section>
-<section id="key-idea-of-hsgp" class="slide level2">
-<h2>Key idea of HSGP</h2>
-<p>HSGP approximates <span class="math inline">\(\Sigma\)</span> with</p>
-<p><span class="math display">\[\Sigma \approx \Phi(\mathbf{u}) \Lambda(\psi) \Phi(\mathbf{u})^T,\]</span> where</p>
+<section id="hsgp-approximation" class="slide level2 midi">
+<h2>HSGP approximation</h2>
+<p>Given:</p>
 <ul>
-<li>let <span class="math inline">\(m\)</span> denote the number of basis functions</li>
-<li><span class="math inline">\(\Phi(\mathbf{u}) \in \mathbb{R}^{q \times m}\)</span> only depends on the observed locations</li>
-<li><span class="math inline">\(\Lambda(\psi) \in \mathbb{R}^{m \times m}\)</span> is diagonal</li>
+<li>an isotropic covariance function <span class="math inline">\(C\)</span> which admits a <em>power spectral density</em>, e.g., the Matérn family, and</li>
+<li>a compact domain <span class="math inline">\(\boldsymbol{\Theta} \in \mathbb{R}^d\)</span> with <em>smooth</em> boundaries. For our purposes, we only consider <em>boxes</em>, e.g., <span class="math inline">\([-1,1] \times [-1,1]\)</span>.</li>
 </ul>
-<p>Computation cost for the GP in each MCMC iteration reduces to <span class="math inline">\(\mathcal{O}(qm + m)\)</span>.</p>
+<p>HSGP approximates the <span class="math inline">\((i,j)\)</span> element of the corresponding <span class="math inline">\(n \times n\)</span> covariance matrix <span class="math inline">\(\mathbf{C}\)</span> as <span class="math display">\[\mathbf{C}_{ij}=C(\|\mathbf{u}_i - \mathbf{u}_j\|) \approx \sum_{k=1}^m s_k\phi_k(\mathbf{u}_i)\phi_k(\mathbf{u}_j).\]</span></p>
 </section>
-<section>
-<section id="theory-behind-hsgp" class="title-slide slide level1 center">
-<h1>Theory behind HSGP</h1>
-
-</section>
-<section id="definitions" class="slide level2">
-<h2>Definitions</h2>
-<p>Let <span class="math inline">\(\mathcal{U} \in \mathbb{R}^d\)</span>, <span class="math inline">\(d=2\)</span> be the geographical area of interest. For any locations <span class="math inline">\(u,u' \in \mathcal{U}\)</span>, let <span class="math inline">\(r=u-u'\)</span>. A covariance function <span class="math inline">\(K\)</span> is</p>
+<section id="hsgp-approximation-1" class="slide level2 midi">
+<h2>HSGP approximation</h2>
+<p><span class="math display">\[\mathbf{C}_{ij}=C(\|\mathbf{u}_i - \mathbf{u}_j\|) \approx \sum_{k=1}^m s_k\phi_k(\mathbf{u}_i)\phi_k(\mathbf{u}_j).\]</span></p>
 <ul>
-<li><strong>stationary</strong> (translation invariant) if</li>
+<li><span class="math inline">\(s_k \in \mathbb{R}^+\)</span> are positive scalars which depends on the covariance function <span class="math inline">\(C\)</span> and its parameters <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span>.</li>
+<li><span class="math inline">\(\phi_k: \boldsymbol{\Theta} \to \mathbb{R}\)</span> are <em>basis functions</em> which only depends on <span class="math inline">\(\boldsymbol{\Theta}\)</span>.</li>
+<li><span class="math inline">\(m\)</span> is the number of basis functions. Note: even with an infinite sum (<span class="math inline">\(m \to \infty\)</span>), this remains an approximation (see <span class="citation" data-cites="solin2020hilbert">Solin and Särkkä (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>).</li>
 </ul>
-<p><span class="math display">\[K(u,u') = K(r)\]</span></p>
-<ul>
-<li><strong>isotropic</strong> (rotation invariant) if</li>
-</ul>
-<p><span class="math display">\[K(u,u')=K(\|r\|)\]</span></p>
 </section>
-<section id="spectral-density" class="slide level2">
-<h2>Spectral density</h2>
-<p>By the Bochner’s theorem, a bounded stationary covariance function <span class="math inline">\(K\)</span> can be represented as</p>
-<p><span class="math display">\[K(r) = \frac 1{(2\pi)^d} \int \exp(i w^Tr) \mu(dw)\]</span></p>
-<p>for some positive finite measure <span class="math inline">\(\mu\)</span>. If <span class="math inline">\(\mu\)</span> has a density <span class="math inline">\(S(w)\)</span> with respect to the Lebesgue measure, it is called the <strong>spectral density</strong>.</p>
-<p>By the Wiener-Khintchin theorem, <span class="math inline">\(K(r)\)</span> and <span class="math inline">\(S(w)\)</span> are Fourier duals: <span class="math display">\[
+<section id="hsgp-approximation-2" class="slide level2 midi">
+<h2>HSGP approximation</h2>
+<p>In matrix notation,</p>
+<p><span class="math display">\[\mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top.\]</span></p>
+<ul>
+<li><span class="math inline">\(\boldsymbol{\Phi} \in \mathbb{R}^{n \times m}\)</span> is a <em>feature matrix</em>. Only depends on <span class="math inline">\(\boldsymbol{\Theta}\)</span> and the observed locations.</li>
+<li><span class="math inline">\(\mathbf{S} \in \mathbb{R}^{m \times m}\)</span> is diagonal. Depends on the covariance function <span class="math inline">\(C\)</span> and parameters <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span>.</li>
+</ul>
+<p><span class="math display">\[
 \begin{align}
-  K(r) &amp;= \frac 1{(2\pi)^d} \int \exp(iw^Tr) S(w) dw \\
-  S(w) &amp;= \int K(r) \exp(-i w^Tr) dr.
+  \boldsymbol{\Phi} = \begin{bmatrix}
+  \phi_1(\mathbf{u}_1) &amp; \dots &amp; \phi_m(\mathbf{u}_1) \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \phi_1(\mathbf{u}_n) &amp; \dots &amp; \phi_m(\mathbf{u}_n)
+  \end{bmatrix}, \quad
+  \mathbf{S} = \begin{bmatrix}
+  s_1 &amp;  &amp;  \\
+  &amp; \ddots &amp;  \\
+  &amp;  &amp; s_m
+  \end{bmatrix}.
 \end{align}
 \]</span></p>
 </section>
-<section id="polynomial-expansion-of-the-spectral-density" class="slide level2">
-<h2>Polynomial expansion of the spectral density</h2>
-<p>For an isotropic covariance function <span class="math inline">\(K(\|r\|)\)</span>, the corresponding spectral density <span class="math inline">\(S(w)=S(\|w\|)\)</span>.</p>
-<p>For regular covariance functions, <span class="math inline">\(S\)</span> admits a closed form polynomial expansion of <span class="math inline">\(\|w\|^2\)</span>:</p>
-<p><span class="math display">\[S(\|w\|) = a_0 + a_1(\|w\|^2) + a_2(\|w\|^2)^2 + \dots \tag{1}\]</span></p>
-<p>Note that <span class="math inline">\(-\|w\|^2\)</span> is the transfer function for the Laplace operator <span class="math inline">\(\nabla^2\)</span>. Let <span class="math inline">\(\mathcal{F}\)</span> denote the Fourier transform operator, <span class="math inline">\(f\)</span> denote a twice-differentiable real-valued function,</p>
-<p><span class="math display">\[[\mathcal{F}(\nabla^2 f)](w) = -\|w\|^2 [\mathcal{F}(f)](w).\]</span></p>
-</section>
-<section id="connection-with-the-laplacian" class="slide level2">
-<h2>Connection with the Laplacian</h2>
-<p>Hence applying inverse Fourier transform on both sides of equation (1), we have</p>
-<p><span class="math display">\[\mathcal{K} = a_0 + a_1(-\nabla^2) + a_2(-\nabla^2)^2 + \dots \tag{2}\]</span></p>
-<p>where <span class="math inline">\(\mathcal{K}\)</span> is the covariance operator such that</p>
-<p><span class="math display">\[\mathcal{K}f(u) = \int K(u,u')f(u')du'.\]</span></p>
-<p>Equation (2) shows the connection between <span class="math inline">\(\nabla^2\)</span> and <span class="math inline">\(\mathcal{K}\)</span>. If we are able to approximate <span class="math inline">\(\nabla^2\)</span>, we can approximate <span class="math inline">\(\mathcal{K}\)</span>.</p>
-</section>
-<section id="eigenfunction-expansion-of-the-laplacian" class="slide level2">
-<h2>Eigenfunction expansion of the Laplacian</h2>
-<p>On a compact set <span class="math inline">\(\Omega \subset \mathbb{R}^d\)</span>, <span class="math inline">\(-\nabla^2\)</span> has a discrete spectrum. Consider the eigenvalue problem for <span class="math inline">\(-\nabla^2\)</span> with Dirichlet boundary conditions: <span class="math display">\[
-\begin{align}
-  \begin{cases}
-    -\nabla^2 \phi_j(x) = \lambda_j \phi_j(x), &amp; x \in \Omega \\
-    \phi_j(x) = 0, &amp; x \in \partial \Omega
-  \end{cases}
-\end{align}
-\]</span> With sufficiently smooth boundary <span class="math inline">\(\partial \Omega\)</span>, eigenvalues and eigenfunctions exist. And because <span class="math inline">\(-\nabla^2\)</span> is positive definite Hermitian,</p>
-<ul>
-<li>all the eigenvalues <span class="math inline">\(\lambda_j\)</span>’s are real and positive</li>
-<li>the eigenfunctions <span class="math inline">\(\phi_j\)</span>’s are orthonormal</li>
-</ul>
-<p><span class="math display">\[\int_\Omega \phi_i(u) \phi_j(u) du = 1_{(i=j)}.\]</span></p>
-</section>
-<section id="eigenfunction-expansion-of-the-laplacian-1" class="slide level2">
-<h2>Eigenfunction expansion of the Laplacian</h2>
-<p>Therefore on <span class="math inline">\(\Omega\)</span>, for sufficiently smooth function <span class="math inline">\(f\)</span>,</p>
-<p><span class="math display">\[-\nabla^2 f(u) = \int L(u,u')f(u')du',\]</span> where the kernel <span class="math display">\[L(u,u') = \sum_{j=1}^\infty \lambda_j \phi_j(u) \phi_j(u').\]</span></p>
-<p>By orthonormality,</p>
-<p><span class="math display">\[L^s(u,u')=\sum_{j=1}^\infty \lambda_j^s \phi_j(u) \phi_j(u').\]</span></p>
-</section>
-<section id="low-rank-approximation" class="slide level2">
-<h2>Low rank approximation</h2>
-<p>Therefore on <span class="math inline">\(\Omega\)</span> under the boundary conditions,</p>
-<p><span class="math display">\[
-\begin{align}
-  \mathcal{K}f(u) &amp;= [a_0 + a_1(-\nabla^2) + a_2(-\nabla^2)^2 + \dots]f(u) \\
-  &amp;= \int [a_0 + a_1 L(u,u') + a_2L^2(u,u') + \dots]f(u')du'.
-\end{align}
-\]</span> Recall <span class="math inline">\(\mathcal{K}f(u)= \int K(u,u') f(u') du'\)</span>. Hence</p>
-<p><span class="math display">\[
-\begin{align}
-  K(u,u') &amp;= a_0 + a_1 L(u,u') + a_2L^2(u,u') + \dots \\
-  &amp;= \sum_{j=1}^\infty (a_0 + a_1 \lambda_j + a_2 \lambda_j^2 + \dots) \phi_j(u) \phi_j(u') \\
-  &amp;= \sum_{j=1}^\infty S(\sqrt{\lambda_j})\phi_j(u) \phi_j(u').
-\end{align}
-\]</span></p>
-</section>
-<section id="low-rank-approximation-1" class="slide level2">
-<h2>Low rank approximation</h2>
-<p>Overall, we can approximate the covariance function with</p>
-<p><span class="math display">\[
-\begin{align}
-  K(u,u') &amp;\approx \sum_{j=1}^\infty S(\sqrt{\lambda_j})\phi_j(u) \phi_j(u') \\
-  &amp;\approx \sum_{j=1}^m S(\sqrt{\lambda_j})\phi_j(u) \phi_j(u').
-\end{align}
-\]</span></p>
-<ul>
-<li>the spectral density <span class="math inline">\(S\)</span> depends on the covariance function <span class="math inline">\(K\)</span></li>
-<li>the eigenvalue <span class="math inline">\(\lambda_j\)</span>’s and eigenfunction <span class="math inline">\(\phi_j\)</span>’s only depend on the chosen compact domain <span class="math inline">\(\Omega\)</span> and are independent of <span class="math inline">\(K\)</span></li>
-<li>even with an infinite sum, this is still an approximation as the eigenexpansion is restricted to <span class="math inline">\(\Omega\)</span>.</li>
-</ul>
-</section>
-<section id="key-takeaways" class="slide level2">
-<h2>Key takeaways</h2>
-<p>HSGP approximates the GP covariance function via an eigenfunction expansion of the Laplace operator in a compact set <span class="math inline">\(\Omega\)</span>.</p>
-<p>HSGP <strong>only</strong> works:</p>
-<ol type="1">
-<li>for covariance functions which admits a power spectral density, e.g., the Matern family.</li>
-<li>under a user-specified compact domain <span class="math inline">\(\Omega\)</span>.</li>
-<li>under a user-specified number of basis functions <span class="math inline">\(m\)</span>. The approximation can be made arbitrarily accurate as <span class="math inline">\(m\)</span> and <span class="math inline">\(\Omega\)</span> increase.</li>
-<li>for <span class="math inline">\(d \le 3\)</span>, at most <span class="math inline">\(4\)</span>, because given an accuracy level, <span class="math inline">\(m\)</span> scales exponentially in <span class="math inline">\(d\)</span>.</li>
-</ol>
-</section>
-<section id="hsgp-summary" class="slide level2">
-<h2>HSGP Summary</h2>
-<p>Recall, we want to model a spatial intercept <span class="math display">\[\boldsymbol{\theta}(\mathbf{u}) \sim N(0,\Sigma), \quad \Sigma \in \mathbb{R}^{q \times q}, \quad \Sigma_{ij}=K(u_i,u_j|\psi).\]</span></p>
-<p>For isotropic and <em>nice</em> covariance function <span class="math inline">\(K\)</span>, we can use HSGP to approximate <span class="math inline">\(\Sigma\)</span> as</p>
-<p><span class="math display">\[
-\begin{align}
-  &amp;\Sigma_{ik} \approx \sum_{j=1}^m S_{K,\psi}(\sqrt{\lambda_j})\phi_j(u_i) \phi_j(u_k) \\
-  \implies &amp; \Sigma \approx \Phi(\mathbf{u})\Lambda(\psi)\Phi(\mathbf{u})^T, \quad \text{where}
-\end{align}
-\]</span></p>
-<ul>
-<li><span class="math inline">\(\Lambda(\psi) =\)</span> diag<span class="math inline">\((S_{K,\psi}(\sqrt{\lambda_1}), \dots, S_{K,\psi}(\sqrt{\lambda_m}))\)</span></li>
-<li><span class="math inline">\(\Phi(\mathbf{u})\)</span> is a <span class="math inline">\(q \times m\)</span> matrix with <span class="math inline">\(\Phi(\mathbf{u})_{ij} = \phi_j(\mathbf{u}_i)\)</span></li>
-</ul>
-</section>
-<section id="why-hsgp-is-scalable" class="slide level2">
+<section id="why-hsgp-is-scalable" class="slide level2 midi">
 <h2>Why HSGP is scalable</h2>
-<p>The HSGP approximation <span class="math display">\[\Sigma \approx \Phi(\mathbf{u})\Lambda(\psi)\Phi(\mathbf{u})^T\]</span></p>
-<p>is scalable because</p>
+<p><span class="math display">\[\mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top.\]</span></p>
 <ul>
-<li>no matrix inversion</li>
-<li>each MCMC iteration requires <span class="math inline">\(\mathcal{O}(qm + m)\)</span> flops, vs <span class="math inline">\(\mathcal{O}(q^3)\)</span> for full GP</li>
-<li>ideally <span class="math inline">\(m \ll q\)</span>, but can be faster even for <span class="math inline">\(m&gt;q\)</span></li>
+<li><span class="math inline">\(\boldsymbol{\Phi}\)</span> only depends on <span class="math inline">\(\boldsymbol{\Theta}\)</span> and the observed locations, can be pre-calculated.</li>
+<li>No matrix inversion.</li>
+<li>Each MCMC iteration requires <span class="math inline">\(\mathcal{O}(nm + m)\)</span> flops, vs <span class="math inline">\(\mathcal{O}(n^3)\)</span> for a full GP.</li>
+<li>Ideally <span class="math inline">\(m \ll n\)</span>, but HSGP can be faster even for <span class="math inline">\(m&gt;n\)</span>.</li>
 </ul>
 </section>
-<section id="model-reparameterization" class="slide level2">
+<section id="model-reparameterization" class="slide level2 midi">
 <h2>Model reparameterization</h2>
-<p>Under HSGP, <span class="math display">\[\boldsymbol{\theta}(\mathbf{u}) \overset{d}{\approx} \Phi(\mathbf{u}) \Lambda(\psi)^{1/2}\mathbf{z}, \quad \text{for } \mathbf{z} \sim N(0,\mathbf{I}).\]</span></p>
+<p>Under HSGP, approximately <span class="math display">\[\boldsymbol{\theta} \overset{d}{=} \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}, \quad \mathbf{b} \sim N_m(0,\mathbf{I}).\]</span></p>
 <p>Therefore we can reparameterize the model as</p>
 <p><span class="math display">\[
 \begin{align}
-  \mathbf{y} &amp;= X\boldsymbol{\beta} + W\boldsymbol{\theta}(\mathbf{u}) + \boldsymbol{\epsilon} \\
-  &amp;\approx X\boldsymbol{\beta} + \underbrace{W\Phi(\mathbf{u}) \Lambda(\psi)^{1/2}}_{A(\psi)}\mathbf{z} + \boldsymbol{\epsilon}
+  \mathbf{Y} &amp;= \alpha \mathbf{1}_{N} + X\boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon} \\
+  &amp;\approx \alpha \mathbf{1}_{N} + X\boldsymbol{\beta} + \underbrace{\mathbf{Z}\boldsymbol{\Phi} \mathbf{S}^{1/2}}_{\mathbf{W}}\mathbf{b} + \boldsymbol{\epsilon}
 \end{align}
 \]</span></p>
 <p>Note the resemblance to linear regression:</p>
 <ul>
-<li><span class="math inline">\(A(\psi) \in \mathbb{R}^{n \times m}\)</span> is a known design matrix given GP parameters <span class="math inline">\(\psi\)</span></li>
-<li><span class="math inline">\(\mathbf{z}\)</span> is an unknown parameter vector with prior <span class="math inline">\(N(0,\mathbf{I})\)</span></li>
+<li><span class="math inline">\(\mathbf{W} \in \mathbb{R}^{n \times m}\)</span> is a known design matrix given parameters <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span>.</li>
+<li><span class="math inline">\(\mathbf{b}\)</span> is an unknown parameter vector with prior <span class="math inline">\(N_m(0,\mathbf{I})\)</span>.</li>
 </ul>
 </section>
-<section id="hsgp-model-in-stan" class="slide level2">
-<h2>HSGP model in <code>stan</code></h2>
+<section id="hsgp-in-stan" class="slide level2 midi">
+<h2>HSGP in <code>stan</code></h2>
 <p>Similarly, we can use the reparameterized model in <code>stan</code>.</p>
-<p><code>Stan</code> documentation calls it the <a href="https://mc-stan.org/docs/stan-users-guide/efficiency-tuning.html#hierarchical-models-and-the-non-centered-parameterization"><em>non-centered parameterization</em></a>, and suggests it’s usually more computationally efficient.</p>
+<p>This is called the <a href="https://mc-stan.org/docs/stan-users-guide/efficiency-tuning.html#hierarchical-models-and-the-non-centered-parameterization"><em>non-centered parameterization</em></a> in <code>stan</code> documentation. It’s recommended for computational efficiency for hierarchical models.</p>
 <div class="cell" data-output.var="model_in_stan">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb2-1"><a></a><span class="kw">transformed data</span> {</span>
-<span id="cb2-2"><a></a>  <span class="dt">matrix</span>[q,m] PHI = ...;</span>
-<span id="cb2-3"><a></a>}</span>
-<span id="cb2-4"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb2-5"><a></a>  <span class="dt">vector</span>[m] z; <span class="co">// standard normal</span></span>
-<span id="cb2-6"><a></a>}</span>
-<span id="cb2-7"><a></a><span class="kw">model</span> {</span>
-<span id="cb2-8"><a></a>  <span class="dt">vector</span>[q] theta = PHI * sqrt_Lambda .* z;</span>
-<span id="cb2-9"><a></a>  </span>
-<span id="cb2-10"><a></a>  <span class="kw">target +=</span> normal_lupdf(y | X * beta + W * theta, sigma);</span>
-<span id="cb2-11"><a></a>  <span class="kw">target +=</span> normal_lupdf(z | <span class="dv">0</span>, <span class="dv">1</span>);</span>
-<span id="cb2-12"><a></a>  ...</span>
-<span id="cb2-13"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a></a>  <span class="dt">matrix</span>[n,m] PHI;</span>
+<span id="cb2-3"><a></a>  <span class="dt">matrix</span>[N,m] Z;</span>
+<span id="cb2-4"><a></a>}</span>
+<span id="cb2-5"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb2-6"><a></a>  <span class="dt">real</span> alpha;</span>
+<span id="cb2-7"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; sigma;</span>
+<span id="cb2-8"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb2-9"><a></a>  <span class="dt">vector</span>[m] b;</span>
+<span id="cb2-10"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
+<span id="cb2-11"><a></a>}</span>
+<span id="cb2-12"><a></a><span class="kw">model</span> {</span>
+<span id="cb2-13"><a></a>  <span class="dt">vector</span>[n] theta = PHI * (sqrt_S .* b);</span>
+<span id="cb2-14"><a></a>  <span class="kw">target +=</span> normal_lupdf(y | alpha + X * beta + Z * theta, sigma);</span>
+<span id="cb2-15"><a></a>  <span class="kw">target +=</span> normal_lupdf(b | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb2-16"><a></a>  ...</span>
+<span id="cb2-17"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="out-of-sample-prediction" class="slide level2 small">
-<h2>Out-of-sample prediction</h2>
-<p>We are also interested in <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}^*)\)</span>, the spatial intercepts at <span class="math inline">\(q^*\)</span> new locations <span class="math inline">\(u^*_1, \dots u^*_{q^*}\)</span>. Recall under the GP, <span class="math display">\[
-\begin{align}
-  \begin{pmatrix}
-    \boldsymbol{\theta}(\mathbf{u}) \\
-    \boldsymbol{\theta}(\mathbf{u}^*)
-  \end{pmatrix} \sim N \left(0,
-  \begin{pmatrix}
-    \Sigma &amp; C \\
-    C^T &amp; \Sigma^*
-  \end{pmatrix} \right),
-\end{align}
-\]</span> where <span class="math inline">\(\Sigma^* \in \mathbb{R}^{q^* \times q^*}\)</span> is the covariance matrix for <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}^*)\)</span>, and <span class="math inline">\(C\)</span> is the cross covariance matrix between <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u})\)</span> and <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}^*)\)</span>.</p>
-<p>The conditional distribution is <span class="math display">\[\boldsymbol{\theta}(\mathbf{u}^*) \mid \boldsymbol{\theta}(\mathbf{u}) \sim N(C^T \Sigma^{-1}\boldsymbol{\theta}(\mathbf{u}), \Sigma^*-C^T\Sigma^{-1}C).\]</span> For each posterior sample <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u})^{(s)}\)</span>, we obtain a posterior predictive sample <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}^*)^{(s)}\)</span> by drawing from <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}^*) \mid \boldsymbol{\theta}(\mathbf{u})^{(s)}\)</span>.</p>
-</section>
-<section id="out-of-sample-prediction-under-hsgp" class="slide level2 small">
-<h2>Out-of-sample prediction under HSGP</h2>
-<p>Under HSGP, approximately <span class="math display">\[
-\begin{align}
-  \begin{pmatrix}
-    \boldsymbol{\theta}(\mathbf{u}) \\
-    \boldsymbol{\theta}(\mathbf{u}^*)
-  \end{pmatrix} \sim N \left(0,
-  \begin{pmatrix}
-    \Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u})^T &amp; \Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u}^*)^T \\
-    \Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u})^T &amp; \Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u}^*)^T
-  \end{pmatrix} \right).
-\end{align}
-\]</span></p>
+<section id="posterior-predictive-distribution" class="slide level2 midi">
+<h2>Posterior predictive distribution</h2>
+<p>We want to make predictions for <span class="math inline">\(\mathbf{Y}^* = (Y(\mathbf{u}_{n+1}),\ldots, Y(\mathbf{u}_{n+q}))^\top\)</span>, observations at <span class="math inline">\(q\)</span> new locations. Define <span class="math inline">\(\boldsymbol{\theta}^* = (\theta(\mathbf{u}_{n+1}),\ldots,\theta(\mathbf{u}_{n+q}))^\top\)</span>, <span class="math inline">\(\boldsymbol{\Omega} = (\alpha,\boldsymbol{\beta},\sigma,\tau,\rho)\)</span>. Recall:</p>
+<p><span class="math display">\[\begin{align*}
+  f(\mathbf{Y}^* | \mathbf{Y}) &amp;= \int f(\mathbf{Y}^*, \boldsymbol{\theta}^*, \boldsymbol{\theta}, \boldsymbol{\Omega} | \mathbf{Y}) d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
+  &amp;= \int \underbrace{f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega})}_{(1)} \underbrace{f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})}_{(2)} \underbrace{f(\boldsymbol{\theta},\boldsymbol{\Omega} | \mathbf{Y})}_{(3)} d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
+\end{align*}\]</span></p>
 <ol type="1">
-<li>if <span class="math inline">\(m \ge q\)</span>, use the same approach</li>
-<li>if <span class="math inline">\(m &lt; q\)</span> so that <span class="math inline">\(\Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u})^T\)</span> is not invertible, <span class="math display">\[\boldsymbol{\theta}(\mathbf{u}^*) \mid \boldsymbol{\theta}(\mathbf{u}) = (\Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u})^T) \Sigma^+\boldsymbol{\theta}(\mathbf{u})\]</span> where <span class="math inline">\(\Sigma^+\)</span> is the pseudo inverse of <span class="math inline">\(\Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u})^T\)</span> such that <span class="math inline">\(\Phi(\mathbf{u})\Lambda(\psi) \Phi(\mathbf{u})^T\Sigma^+ = \mathbf{I}\)</span>.</li>
+<li><p>Likelihood: <span class="math inline">\(f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega})\)</span> <span class="fragment" data-fragment-index="1" style="color: #a50f15;">– remains the same as for GP</span></p></li>
+<li><p>Kriging: <span class="math inline">\(f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})\)</span> <span class="fragment" data-fragment-index="2" style="color: #a50f15;">– we will focus on this next</span></p></li>
+<li><p>Posterior distribution: <span class="math inline">\(f(\boldsymbol{\theta},\boldsymbol{\Omega} | \mathbf{Y})\)</span> <span class="fragment" data-fragment-index="0" style="color: #a50f15;">– we have just discussed</span></p></li>
 </ol>
 </section>
-<section id="out-of-sample-prediction-under-hsgp-1" class="slide level2">
-<h2>Out-of-sample prediction under HSGP</h2>
-<p>Under the reparamterized model, <span class="math display">\[
+<section id="kriging" class="slide level2 midi">
+<h2>Kriging</h2>
+<p>Recall under the GP prior,</p>
+<p><span class="math display">\[\begin{bmatrix}
+    \boldsymbol{\theta}\\
+    \boldsymbol{\theta}^*
+  \end{bmatrix} \Bigg| \boldsymbol{\Omega} \sim N_{n+q}\left(\begin{bmatrix}
+    \mathbf{0}_n \\
+    \mathbf{0}_q
+  \end{bmatrix}, \begin{bmatrix}
+    \mathbf{C} &amp; \mathbf{C}_{+}\\
+    \mathbf{C}_{+}^\top &amp; \mathbf{C}^*
+  \end{bmatrix}\right),\]</span></p>
+<p>where <span class="math inline">\(\mathbf{C}\)</span> is the covariance of <span class="math inline">\(\boldsymbol{\theta}\)</span>, <span class="math inline">\(\mathbf{C}^*\)</span> is the covariance of <span class="math inline">\(\boldsymbol{\theta}^*\)</span>, and <span class="math inline">\(\mathbf{C}_{+}\)</span> is the cross covariance matrix between <span class="math inline">\(\boldsymbol{\theta}\)</span> and <span class="math inline">\(\boldsymbol{\theta}^*\)</span>.</p>
+<p>Therefore by properties of multivariate normal, <span class="math display">\[\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \sim N_q(\mathbb{E}_{\boldsymbol{\theta}^*},\mathbb{V}_{\boldsymbol{\theta}^*}), \quad \text{where}\]</span> <span class="math display">\[
 \begin{align}
-  \boldsymbol{\theta}(\mathbf{u}^*) \mid \boldsymbol{\theta}(\mathbf{u}) &amp;= (\Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u})^{\top})   \Sigma^+\boldsymbol{\theta}(\mathbf{u}) \\
-  &amp;= (\Phi(\mathbf{u}^*)\Lambda(\psi) \Phi(\mathbf{u})^T) \Sigma^+\Phi(\mathbf{u}) \Lambda(\psi)^{1/2}\mathbf{z} \\
-  &amp;= \Phi(\mathbf{u}^*)\Lambda(\psi)^{1/2}\mathbf{z}.
+  \mathbb{E}_{\boldsymbol{\theta}^*} &amp;= \mathbf{C}_+^\top \mathbf{C}^{-1} \boldsymbol{\theta}\\
+  \mathbb{V}_{\boldsymbol{\theta}^*} &amp;= \mathbf{C}^* - \mathbf{C}_+^\top \mathbf{C}^{-1} \mathbf{C}_+.
 \end{align}
 \]</span></p>
-<p>Therefore for each posterior sample of <span class="math inline">\(\mathbf{z}\)</span> and <span class="math inline">\(\psi\)</span>, we can obtain a posterior predictive sample for <span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}^*)\)</span> as <span class="math display">\[\boldsymbol{\theta}(\mathbf{u}^*)^{(s)} = \Phi(\mathbf{u}^*)\Lambda(\psi^{(s)})^{1/2}\mathbf{z}^{(s)}.\]</span></p>
 </section>
-<section id="hsgp-prediction-in-stan" class="slide level2">
-<h2>HSGP prediction in <code>stan</code></h2>
-<p>Easy to implement in <code>stan</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>transformed data {</span>
-<span id="cb3-2"><a></a>  matrix[q_pred,m] PHI_pred <span class="ot">=</span> ...;</span>
+<section id="kriging-under-hsgp" class="slide level2 midi">
+<h2>Kriging under HSGP</h2>
+<p>Under HSGP, <span class="math inline">\(\mathbf{C}^* \approx \boldsymbol{\Phi}^* \mathbf{S}\boldsymbol{\Phi}^{*\top}\)</span>, <span class="math inline">\(\mathbf{C}_+ \approx \boldsymbol{\Phi} \mathbf{S}\boldsymbol{\Phi}^{*\top}\)</span>, where <span class="math display">\[
+\begin{align}
+  \boldsymbol{\Phi}^* \in \mathbb{R}^{q \times m} = \begin{bmatrix}
+  \phi_1(\mathbf{u}_{n+1}) &amp; \dots &amp; \phi_m(\mathbf{u}_{n+1}) \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \phi_1(\mathbf{u}_{n+q}) &amp; \dots &amp; \phi_m(\mathbf{u}_{n+q})
+  \end{bmatrix}
+\end{align}
+\]</span> is the feature matrix for the new locations. Therefore approximately <span class="math display">\[
+\begin{align}
+  \begin{bmatrix}
+    \boldsymbol{\theta} \\
+    \boldsymbol{\theta}^*
+  \end{bmatrix} \sim N_{n
+  +q} \left(\begin{bmatrix}
+    \mathbf{0}_n \\
+    \mathbf{0}_q
+  \end{bmatrix},
+  \begin{bmatrix}
+    \boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top &amp; \boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top} \\
+    \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top &amp; \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}
+  \end{bmatrix} \right).
+\end{align}
+\]</span> Claim <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}\)</span>, where <span class="math inline">\(\mathbf{A}^\dagger\)</span> denotes a generalized inverse of matrix <span class="math inline">\(\mathbf{A}\)</span> such that <span class="math inline">\(\mathbf{A}\mathbf{A}^\dagger = \mathbf{I}\)</span>.</p>
+</section>
+<section id="kriging-under-hsgp-1" class="slide level2 midi">
+<h2>Kriging under HSGP</h2>
+<p>Claim <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}.\)</span></p>
+<p>Sketch proof below, see details in class:</p>
+<ol type="1">
+<li>By properties of multivariate normal, <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \sim N_q(\mathbb{E}_{\boldsymbol{\theta}^*}^{HS},\mathbb{V}_{\boldsymbol{\theta}^*}^{HS})\)</span>, <span class="math display">\[
+\begin{align}
+  \mathbb{E}_{\boldsymbol{\theta}^*}^{HS} &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}\\
+  \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
+\end{align}
+\]</span></li>
+<li>Show if <span class="math inline">\(\boldsymbol{\Phi}\)</span> has full column rank, which is true under HSGP, then for any matrix <span class="math inline">\(\mathbf{A}\)</span> of proper dimension, <span class="math display">\[\mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}\boldsymbol{\Phi}\mathbf{A} = \mathbf{A} \tag{1}\]</span> Therefore <span class="math inline">\(\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}\)</span>.</li>
+</ol>
+</section>
+<section id="kriging-under-hsgp-2" class="slide level2 midi">
+<h2>Kriging under HSGP</h2>
+<p>Under the reparameterized model, <span class="math inline">\(\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}\)</span>, for <span class="math inline">\(\mathbf{b} \sim N_m(0,\mathbf{I}).\)</span> Therefore <span class="math display">\[
+\begin{align}
+  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta} \\
+  &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}(\boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}) \\
+  &amp;= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}. \quad (\text{by equation (1) in the last slide})
+\end{align}
+\]</span></p>
+<p>During MCMC sampling, we can obtain posterior predictive samples for <span class="math inline">\(\boldsymbol{\theta}^*\)</span> through posterior samples of <span class="math inline">\(\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{S}\)</span>. Let superscript <span class="math inline">\((s)\)</span> denote the <span class="math inline">\(s\)</span>th posterior sample:</p>
+<p><span class="math display">\[\boldsymbol{\theta}^{*(s)} = \boldsymbol{\Phi}^* \mathbf{S}^{(s) 1/2} \mathbf{b}^{(s)}.\]</span></p>
+</section>
+<section id="kriging-under-hsgp-alternative-view" class="slide level2 midi">
+<h2>Kriging under HSGP – alternative view</h2>
+<p>Under the reparameterized model, there is another (perhaps more intuitive) way to recognize the kriging distribution under HSGP.</p>
+<p>We model <span class="math inline">\(\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}\)</span>, where <span class="math inline">\(\mathbf{b}\)</span> is treated as the unknown parameter. Therefore for kriging: <span class="math display">\[
+\begin{align}
+  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &amp;= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\boldsymbol{\Omega}) \\
+  &amp;=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
+\end{align}
+\]</span></p>
+</section>
+<section id="hsgp-kriging-in-stan" class="slide level2 midi">
+<h2>HSGP kriging in <code>stan</code></h2>
+<p>Kriging under HSGP can be easily implemented in <code>stan</code>.</p>
+<div class="cell" data-output.var="model_in_stan">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb3-1"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb3-2"><a></a>  <span class="dt">matrix</span>[q,m] PHI_new;</span>
 <span id="cb3-3"><a></a>}</span>
-<span id="cb3-4"><a></a>generated quantities {</span>
-<span id="cb3-5"><a></a>  vector[q_pred] theta_pred <span class="ot">=</span> PHI_pred <span class="sc">*</span> sqrt_Lambda .<span class="sc">*</span> z;</span>
-<span id="cb3-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb3-5"><a></a>  <span class="dt">vector</span>[m] b;</span>
+<span id="cb3-6"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
+<span id="cb3-7"><a></a>}</span>
+<span id="cb3-8"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb3-9"><a></a>  <span class="dt">vector</span>[q] theta_new = PHI_new * (sqrt_S .* b);</span>
+<span id="cb3-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="recap" class="slide level2">
+<section id="recap" class="slide level2 midi">
 <h2>Recap</h2>
-<ol type="1">
-<li>Goal: Bayesian spatial analysis on the full Anemia dataset with <span class="math inline">\(n&gt;8,000\)</span> observations at <span class="math inline">\(q \approx 500\)</span> locations</li>
-<li>Encountered computational issues with GP, thus need to explore scalable GP methods</li>
-<li>HSGP is a low-rank approximation method based on eigenfunction expansion of the Laplace operator in a compact domain <span class="math inline">\(\Omega\)</span></li>
-<li>HSGP can be implemented in <code>stan</code> for both model fitting and out-of-sample prediction</li>
-</ol>
+<p>HSGP is a low rank approximation method for GP.</p>
+<p><span class="math display">\[
+\begin{align}
+  \mathbf{C}_{ij} \approx \sum_{k=1}^m s_k\phi_k(\mathbf{u}_i)\phi_k(\mathbf{u}_j), \quad \mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top,
+\end{align}
+\]</span></p>
+<ul>
+<li>for covariance function <span class="math inline">\(C\)</span> which admits a power spectral density.</li>
+<li>on a box <span class="math inline">\(\boldsymbol{\Theta} \subset \mathbb{R}^d\)</span>.</li>
+<li>with <span class="math inline">\(m\)</span> number of basis functions.</li>
+</ul>
+<p>We have talked about:</p>
+<ul>
+<li>why HSGP is scalable.</li>
+<li>how to do posterior sampling and posterior predictive sampling in <code>stan</code>.</li>
+</ul>
 </section>
-<section id="next-lecture" class="slide level2">
-<h2>Next lecture</h2>
+<section id="hsgp-parameters" class="slide level2 midi">
+<h2>HSGP parameters</h2>
+<p><span class="citation" data-cites="solin2020hilbert">Solin and Särkkä (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> showed that HSGP approximation can be made arbitrarily accurate as <span class="math inline">\(\boldsymbol{\Theta}\)</span> and <span class="math inline">\(m\)</span> increase.</p>
+<div class="fragment">
+<p>But how to choose:</p>
+<ul>
+<li>size of the box <span class="math inline">\(\boldsymbol{\Theta}\)</span>.</li>
+<li>number of basis functions <span class="math inline">\(m\)</span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Our goal:</strong></p>
+</div>
+<div class="callout-content">
+<p>Minimize the run time while maintaining reasonable approximation accuracy.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment small">
+<p><em>Note: we treat estimation of the GP magnitude parameter</em> <span class="math inline">\(\tau\)</span> as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function.</p>
+</div>
+</section>
+<section id="hsgp-approximation-box" class="slide level2 midi">
+<h2>HSGP approximation box</h2>
+<p>Due to the design of HSGP, the approximation is less accurate near the boundaries of <span class="math inline">\(\boldsymbol{\Theta}\)</span>.</p>
+<ul>
+<li>Suppose all the coordinates are centered. Let <span class="math display">\[S_l = \max_i |\mathbf{u}_{il}|, \quad l=1,\dots,d, \quad i= 1, \dots, (n+q)\]</span> such that <span class="math inline">\(\boldsymbol{\Theta}_S = \prod_{l=1}^d [-S_l,S_l]\)</span> is the smallest box which contains all observed and prediction locations. We should at least ensure <span class="math inline">\(\boldsymbol{\Theta} \supset \boldsymbol{\Theta}_S\)</span>.</li>
+<li>We want the box to be large enough to ensure good boundary accuracy. Let <span class="math inline">\(c_l \ge 1\)</span> be <em>boundary factors</em>, we consider <span class="math display">\[\boldsymbol{\Theta} = \prod_{l=1}^d [-L_l,L_l], \quad L_l = c_l S_l.\]</span></li>
+</ul>
+</section>
+<section id="hsgp-approximation-box-and-rho" class="slide level2 midi">
+<h2>HSGP approximation box and <span class="math inline">\(\rho\)</span></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./images/21/HSGPbox.png" class="quarto-figure quarto-figure-center" height="350"></p>
+</figure>
+</div>
+<p>How much the approximation accuracy deteriorates towards the boundaries depends on smoothness of the true surface.</p>
+<ul>
+<li>the larger the length scale <span class="math inline">\(\rho\)</span>, the smoother the surface, a smaller box (smaller <span class="math inline">\(c\)</span>) can be used for the same level of boundary accuracy.</li>
+</ul>
+</section>
+<section id="hsgp-approximation-box-and-m" class="slide level2 midi">
+<h2>HSGP approximation box and <span class="math inline">\(m\)</span></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./images/21/HSGPbox.png" class="quarto-figure quarto-figure-center" height="350"></p>
+</figure>
+</div>
+<p>The larger the box,</p>
+<ul>
+<li>the more basis functions we need for the same level of overall accuracy,</li>
+<li>hence higher run time.</li>
+</ul>
+</section>
+<section id="zooming-out-doesnt-simplify-the-problem" class="slide level2 midi">
+<h2>Zooming out doesn’t simplify the problem</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./images/21/HSGPbox2.png" class="quarto-figure quarto-figure-center" height="350"></p>
+</figure>
+</div>
+<ul>
+<li>If we scale the coordinates by a constant <span class="math inline">\(b\)</span>, the length scale <span class="math inline">\(\rho\)</span> also needs to be approximately scaled by <span class="math inline">\(b\)</span> to achieve the same level of accuracy.</li>
+<li>We can effectively think of the length scale parameter as <span class="math inline">\((\rho/\|\mathbf{S}\|)\)</span>.</li>
+</ul>
+</section>
+<section id="hsgp-basis-functions" class="slide level2 midi">
+<h2>HSGP basis functions</h2>
+<p>The total number of basis functions <span class="math inline">\(m = \prod_{l=1}^d m_l\)</span>, i.e., we need to decide on <span class="math inline">\(m_l\)</span>’s, the number of basis functions for each dimension.</p>
+<ul>
+<li>The higher the <span class="math inline">\(m\)</span>, the better the overall approximation accuracy, the higher the runtime.</li>
+<li><span class="math inline">\(m\)</span> scales exponentially in <span class="math inline">\(d\)</span>, hence the HSGP computation complexity <span class="math inline">\(\mathcal{O}(mn+m)\)</span> also scales exponentially in <span class="math inline">\(d\)</span>. Therefore HSGP is only recommended for <span class="math inline">\(d \le 3\)</span>, at most <span class="math inline">\(4\)</span>.</li>
+</ul>
+</section>
+<section id="relationship-between-c-and-m" class="slide level2 midi">
+<h2>Relationship between <span class="math inline">\(c\)</span> and <span class="math inline">\(m\)</span></h2>
+<p><span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> used simulations with a squared exponential covariance function to investigate the relationship between <span class="math inline">\(c\)</span> and <span class="math inline">\(m\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./images/21/PHSGP_fig2.png" class="quarto-figure quarto-figure-center" height="375"></p>
+</figure>
+</div>
+<p>Notice that <span class="math inline">\(c\)</span> needs to be above a certain <em>minimum value</em> to achieve a reasonable boundary accuracy.</p>
+</section>
+<section id="relationship-between-c-m-and-rho" class="slide level2 midi">
+<h2>Relationship between <span class="math inline">\(c\)</span>, <span class="math inline">\(m\)</span> and <span class="math inline">\(\rho\)</span></h2>
+<p>For simplicity, let <span class="math inline">\(d=1\)</span>. To summarize:</p>
+<div>
 <ol type="1">
-<li>How to choose the compact domain <span class="math inline">\(\Omega\)</span>?</li>
-<li>How to choose number of basis function <span class="math inline">\(m\)</span>?</li>
-<li>Which covariance functions can we use HSGP for?</li>
-<li>How to implement HSGP?</li>
+<li class="fragment">As <span class="math inline">\((\rho/S)\)</span> decreases, the surface is less smooth,
+<ul>
+<li class="fragment"><span class="math inline">\(c\)</span> needs to increase to retain boundary accuracy.</li>
+<li class="fragment"><span class="math inline">\(m\)</span> needs to increase to retain overall accuracy.</li>
+</ul></li>
+<li class="fragment">For a given <span class="math inline">\(\rho/S\)</span>, there exists a minimum <span class="math inline">\(c\)</span>, below which the approximation is poor no matter how large <span class="math inline">\(m\)</span> is. This minimum value increases as <span class="math inline">\(\rho/S\)</span> increases.</li>
+<li class="fragment">As <span class="math inline">\(c\)</span> increases, <span class="math inline">\(m\)</span> needs to increase to retain overall accuracy.</li>
+<li class="fragment">As <span class="math inline">\(m\)</span> increases, run time increases. Hence we want to minimize <span class="math inline">\(m\)</span> and <span class="math inline">\(c\)</span> while maintaining certain accuracy level.</li>
+</ol>
+</div>
+</section>
+<section id="empirical-functional-form" class="slide level2 midi">
+<h2>Empirical functional form</h2>
+<ul>
+<li>Given a covariance function <span class="math inline">\(C\)</span>, and fixed <span class="math inline">\(c\)</span> and <span class="math inline">\(\rho/S\)</span>, the number of basis functions required for a certain accuracy level is computable.</li>
+<li>Repeating this for different combinations of <span class="math inline">\((c,\rho/S)\)</span> gives <span class="math inline">\(m(c,\rho/S)\)</span>, an empirical functional form of the relationship.</li>
+<li><span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> used extensive simulations to obtain <span class="math inline">\(m(c,\rho/S)\)</span> for frequently used Matérn covariance functions: Squared exponential, Matérn 5/2, Matérn 3/2 and Matérn 1/2. E.g., for Matérn 3/2,</li>
+</ul>
+<p><span class="math display">\[m(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.\]</span> <em>Note the linear proportionality between</em> <span class="math inline">\(m\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\rho/S\)</span>.</p>
+</section>
+<section id="question" class="slide level2 midi">
+<h2>Question</h2>
+<p>BUT, in real applications, we <strong>do not</strong> know <span class="math inline">\(\rho\)</span>.</p>
+<div class="fragment">
+<p>So how to use <span class="math inline">\(m(c,\rho/S)\)</span> to help choose <span class="math inline">\(c\)</span> and <span class="math inline">\(m\)</span>?</p>
+</div>
+</section>
+<section id="prepare-for-next-class" class="slide level2 midi">
+<h2>Prepare for next class</h2>
+<ol type="1">
+<li><p>Work on HW 05 which is due Apr 8</p></li>
+<li><p>Complete reading to prepare for Thursday’s lecture</p></li>
+<li><p>Thursday’s lecture:</p>
+<ul>
+<li>Parameter tuning for HSGP</li>
+<li>How to implement HSGP in <code>stan</code></li>
+</ul></li>
 </ol>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-datta2016hierarchical" class="csl-entry" role="listitem">
+Datta, Abhirup, Sudipto Banerjee, Andrew O Finley, and Alan E Gelfand. 2016. <span>“Hierarchical Nearest-Neighbor Gaussian Process Models for Large Geostatistical Datasets.”</span> <em>Journal of the American Statistical Association</em> 111 (514): 800–812.
+</div>
+<div id="ref-furrer2006covariance" class="csl-entry" role="listitem">
+Furrer, Reinhard, Marc G Genton, and Douglas Nychka. 2006. <span>“Covariance Tapering for Interpolation of Large Spatial Datasets.”</span> <em>Journal of Computational and Graphical Statistics</em> 15 (3): 502–23.
+</div>
+<div id="ref-higdon2002space" class="csl-entry" role="listitem">
+Higdon, Dave. 2002. <span>“Space and Space-Time Modeling Using Process Convolutions.”</span> In <em>Quantitative Methods for Current Environmental Issues</em>, 37–56. Springer.
+</div>
+<div id="ref-riutort2023practical" class="csl-entry" role="listitem">
+Riutort-Mayol, Gabriel, Paul-Christian Bürkner, Michael R Andersen, Arno Solin, and Aki Vehtari. 2023. <span>“Practical Hilbert Space Approximate Bayesian Gaussian Processes for Probabilistic Programming.”</span> <em>Statistics and Computing</em> 33 (1): 17.
+</div>
+<div id="ref-snelson2005sparse" class="csl-entry" role="listitem">
+Snelson, Edward, and Zoubin Ghahramani. 2005. <span>“Sparse Gaussian Processes Using Pseudo-Inputs.”</span> <em>Advances in Neural Information Processing Systems</em> 18.
+</div>
+<div id="ref-solin2020hilbert" class="csl-entry" role="listitem">
+Solin, Arno, and Simo Särkkä. 2020. <span>“Hilbert Space Methods for Reduced-Rank Gaussian Process Regression.”</span> <em>Statistics and Computing</em> 30 (2): 419–46.
+</div>
+<div id="ref-vecchia1988estimation" class="csl-entry" role="listitem">
+Vecchia, Aldo V. 1988. <span>“Estimation and Model Identification for Continuous Spatial Processes.”</span> <em>Journal of the Royal Statistical Society Series B: Statistical Methodology</em> 50 (2): 297–312.
+</div>
 </div>
 
 <div class="quarto-auto-generated-content">
+<p><img src="../images/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://biostat725-sp25.netlify.app/">🔗 BIOSTAT 725 - Spring 2025</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

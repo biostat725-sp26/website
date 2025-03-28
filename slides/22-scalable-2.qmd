@@ -1,0 +1,298 @@
+---
+title: "Scalable Gaussian Processes #2"
+author: "Christine Shen"
+date: "2025-04-03"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(sf)
+library(rnaturalearth)
+library(ggpubr)
+```
+
+```{r, echo = FALSE}
+data <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/drc/hemoglobin_anemia.csv")
+data <- data[complete.cases(data),-1]
+
+# Convert to spatial dataset and merge DRC data
+data_sf <- st_as_sf(data, coords = c("LONGNUM", "LATNUM"), crs = 4326)
+congo_states_map <- ne_states(country = "Democratic Republic of the Congo", returnclass = "sf") %>%
+  select(name,geometry)
+# Ensure that the CRS for the country and grid points match
+congo_states_map <- st_transform(congo_states_map, crs = 4326) 
+data_sf_drc <- st_intersection(data_sf, congo_states_map)
+
+```
+
+## Geospatial analysis on hemoglobin dataset {.midi}
+
+::: midi
+We wanted to perform geospatial analysis on a dataset with \~8,600 observations at \~500 locations, and make predictions at \~440 locations on a grid.
+:::
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: "center"
+#| fig-width: 12
+#| fig-height: 6
+
+data_mean <- data %>%
+  group_by(loc_id, urban, LATNUM, LONGNUM) %>%
+  summarise(hemoglobin=mean(hemoglobin))
+data_sf_whole <- st_as_sf(data_mean, coords = c("LONGNUM", "LATNUM"), crs = 4326)
+
+# Extract bounding box coordinates
+bbox <- st_bbox(congo_states_map)
+
+latitudes <- seq(bbox["ymin"], bbox["ymax"], length.out = 30)
+longitudes <- seq(bbox["xmin"], bbox["xmax"], length.out = 30)
+grid_points <- expand.grid(lat = latitudes, long = longitudes)
+
+# Convert the grid into an sf object
+grid_sf <- st_as_sf(grid_points, coords = c("long", "lat"), crs = 4326)
+in_drc <- st_within(grid_sf, congo_states_map, sparse = FALSE)
+in_drc <- apply(in_drc,1,any)
+
+grid_inside_drc <- grid_sf[in_drc, ]
+p1 <- ggplot() +
+  # Plot the map of DRC
+  geom_sf(data = congo_states_map, fill = "lightblue", color = "black") +
+  geom_sf(data = data_sf_whole, aes(color = hemoglobin), shape = 16, size = 2) +
+  scale_color_viridis_b() + 
+  # Customize the plot appearance
+  theme_minimal() +
+  labs(title = "Average Hemoglobin Across Communities DRC",
+       caption = "",
+       x = "Longitude", y = "Latitude", color = "Hemoglobin (g/dL)") 
+p2 <- ggplot() +
+  geom_sf(data = congo_states_map, fill = "lightblue", color = "black") +
+  geom_sf(data = grid_inside_drc, color = "red", shape = 16, size = 1) +
+  theme_minimal() +
+  labs(title = "Grid of Points WITHIN DRC",
+       caption = "Data Source: rnaturalearth",
+       # subtitle = "Red points represent valid grid points inside DRC boundaries",
+       x = "Longitude", y = "Latitude")
+
+ggarrange(p1,p2,widths=c(1.3,1),ncol=2)
+```
+
+## Geospatial model {.midi}
+
+We specify the following model: $$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N_N(\mathbf{0},\sigma^2\mathbf{I})$$ with priors
+
+-   $\boldsymbol{\theta}(\mathbf{u}) | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))$, where $C$ is the Matérn 3/2 covariance function with magnitude $\tau$ and length scale $\rho$
+-   $\alpha^* \sim N(0,4^2)$. This is the intercept after centering $\mathbf{X}$.
+-   $\beta_j | \sigma_{\beta} \sim N(0,\sigma_{\beta}^2)$, $j \in \{1,\dots,p\}$
+-   $\sigma \sim \text{Half-Normal}(0, 2^2)$
+-   $\tau \sim \text{Half-Normal}(0, 4^2)$
+-   $\rho \sim \text{Inv-Gamma}(5, 5)$
+-   $\sigma_{\beta} \sim \text{Half-Normal}(0, 2^2)$
+
+## Review of the last lecture {.midi}
+
+1.  Gaussian process (GP) requires $\mathcal{O}(n^3)$ flops per MCMC iteration, hence it is not scalable.
+
+2.  Introduced HSGP, a Hilbert space low-rank approximation method for GP. $$\mathbf{C} \approx \boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^T, \quad \text{where}$$
+
+    -   $\boldsymbol{\Phi} \in \mathbb{R}^{n \times m}$ only depends on the *approximation box* $\boldsymbol{\Theta}$ and observed locations
+    -   $\mathbf{S} \in \mathbb{R}^{m \times m}$ is diagonal, $m$ is the number of basis functions
+
+3.  Model reparameterization under HSGP
+
+4.  Kriging under HSGP
+
+5.  Parameter tuning for HSGP
+
+## Parameter tuning for HSGP {.midi}
+
+:::::: columns
+::: {.column width="60%"}
+To implement HSGP, we need to decide on:
+
+1.  number of basis functions $m=\prod_{l=1}^d m_l$
+
+    -   one number $m_l$ for each dimension of the GP.
+
+2.  size of the approximation box $\boldsymbol{\Theta}$
+
+    -   scale of the coordinates $\mathbf{S}=(S_1,S_2)$.
+    -   boundary factors $\mathbf{c}=(c_1,c_2)$.
+:::
+
+:::: {.column width="40%"}
+::: {style="margin-top: 30px;"}
+![](./images/21/HSGPbox.png){fig-align="center" height="300"}
+:::
+::::
+::::::
+
+:::: fragment
+::: callout-important
+## Our goal:
+
+Minimize the run time while maintaining reasonable approximation accuracy.
+:::
+::::
+
+## Review of what we discussed last time {.midi}
+
+For simplicity, let $d=1$
+
+::: incremental
+1.  Estimation of the GP magnitude $\tau$ is treated as a separate problem. We only consider approximation accuracy in terms of the correlation matrix.
+2.  Scaling the coordinates do not change the problem. We consider the length scale parameter as $(\rho/S)$.
+3.  As $(\rho/S)$ decreases, the surface is less smooth,
+    -   $c$ needs to increase to retain boundary accuracy.
+    -   $m$ needs to increase to retain overall accuracy.
+4.  For a given $\rho/S$, there exists a minimum $c$, below which the approximation is poor no matter how large $m$ is. This minimum value increases as $\rho/S$ increases.
+5.  As $c$ increases, $m$ needs to increase to retain overall accuracy.
+:::
+
+## Review of what we discussed last time {.midi}
+
+::: incremental
+6.  As $m$ increases, run time increases. Hence we want to minimize $m$ and $c$ while maintaining certain accuracy level.
+
+7.  @riutort2023practical presented an empirical functional form of $m$ as a function of $c$ and $\rho/S$ for Matérn 3/2 covariance function: $$m(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.$$
+
+8.  Note we also have
+
+    -   $\rho(m,c,S)=3.42 Sc/m$: the minimum $\rho$ (least smooth surface) that can be well approximated given $c$, $m$ and $S$.
+    -   $c(\rho,S)=\min(4.5\rho/S,1.2)$: the minimum $c$ for HSGP to work.
+:::
+
+::: fragment
+Question: in real applications, we **do not** know $\rho$. So how to proceed?
+:::
+
+## An iterative algorithm {.midi}
+
+Pseudo-codes for HSGP parameter tuning assuming $d=1$.
+
+```{r, eval=F, echo=T}
+
+u = centered(data locations)
+S = box size (u)
+max_iter = 30
+
+# initialization
+j = 0
+check = FALSE
+rho = 0.5*S
+c = c(rho,S) # minimum c given rho and S
+m = m(c,rho/S) # minimum m given c, and rho/S
+L = c*S
+diag = logical(max_iter) # store checking results for each iteration
+
+while (!check & j<=max_iter){
+  
+  fit = runHSGP(rho,L,m) # stan run
+  j = j + 1
+
+  rho_hat = mean(fit$rho_hat) # obtain fitted value for rho
+  # check the fitted is larger than the minimum rho that can be well approximated
+  diag[j] = (rho_hat + 0.01 >= rho)
+  if (j==1) {
+    
+    if (diag[j]){
+      # if the diagnosis check is passed, do one more run just to make sure
+      m = m + 2
+      c = c(rho_hat,S)
+      rho = rho(m,c,S)
+    } else {
+      # if the check failed, update our knowledge about rho
+      rho = rho_hat
+      c = c(rho,S)
+      m = m(c,rho/S)
+    }
+  } else {
+    if (diag[j] & diag[j-2]){
+      # if the check passed for the last two runs, we finish tuning
+      check = TRUE
+    } else if (diag[j] & !diag[j-2]){
+      # if the check failed last time but passed this time, do one more run
+      m = m + 2
+      c = c(rho_hat,S)
+      rho = rho(m,c,S)      
+    } else if (!diag[j]){
+      # if the check failed, update our knowledge about rho
+      rho = rho_hat
+      c = c(rho,S)
+      m = m(c,rho/S)
+    }
+  }
+  L = c*S
+}
+```
+
+## HSGP implementation codes {.midi}
+
+Please clone the repo for AE 09 for HSGP implementation codes.
+
+## Side notes on HSGP implementation {.midi}
+
+A few random things to keep in mind for implementation in practice:
+
+::: incremental
+1.  Make sure the starting total number of basis functions used is reasonable before the run.
+2.  Because HSGP is a low-rank approximation method, $\tau$ will always be overestimated. However, we can adjust for this and use a bias-adjusted $\tau$ instead.
+3.  If $d>1$, we need to do parameter tuning for each dimension. It is possible to use different length scale parameter for each dimension. See [demo codes here](https://github.com/gabriuma/basis_functions_approach_to_GP/tree/master/Paper) for examples.
+4.  The iterative algorithm described in @riutort2023practical sometimes run into a loop and doesn't converge. AE codes show one way to avoid it.
+5.  Due to identifiability issues, we always look at the spatial intercept $\alpha+\boldsymbol{\theta}(\mathbf{u})$ together instead of just $\boldsymbol{\theta}(\mathbf{u})$.
+:::
+
+## GP vs HSGP spatial intercept posterior mean {.midi}
+
+![](./images/22/intercept_p_m.png){fig-align="center" height="600"}
+
+## GP vs HSGP spatial intercept posterior SD {.midi}
+
+![](./images/22/intercept_p_sd.png){fig-align="center" height="600"}
+
+## GP vs HSGP parameter posterior density {.midi}
+
+![](./images/22/density.png){fig-align="center" height="550"}
+
+## GP vs HSGP correlation function {.midi}
+
+![](./images/22/correlation.png){fig-align="center" height="550"}
+
+## GP vs HSGP effective sample size {.midi}
+
+![](./images/22/ESS.png){fig-align="center" height="550"}
+
+## Prepare for next class {.midi}
+
+1.  Work on HW 05 which is due Apr 8
+2.  Complete reading to prepare for Tuesday's lecture
+3.  Tuesday's lecture: Bayesian Clustering
+
+## References
+
+::: {#refs}
+:::

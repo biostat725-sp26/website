@@ -20,14 +20,14 @@ I will allow a 5-minute grace period, meaning assignments turned in by 1:05pm wi
 
 ## Live-Coding Session Details
 
-- **Date and Time**: Thursday, April 10, 11:45 AM - 1:00 PM.
-- **Work Independently**: You must work by yourself on this exercise. The teaching team will be available for questions. 
-- **Resources Allowed**: 
-  - Lecture slides, homework, exercises, past exam, etc..
-  - Any material available online (research, textbooks, etc.).
-- **Restrictions**: 
-  - You **cannot** use AI to generate narrative or explanations during the session (you may use it for coding and technical queries only).
-  
+-   **Date and Time**: Thursday, April 10, 11:45 AM - 1:00 PM.
+-   **Work Independently**: You must work by yourself on this exercise. The teaching team will be available for questions.
+-   **Resources Allowed**:
+    -   Lecture slides, homework, exercises, past exam, etc..
+    -   Any material available online (research, textbooks, etc.).
+-   **Restrictions**:
+    -   You **cannot** use AI to generate narrative or explanations during the session (you may use it for coding and technical queries only).
+
 The goal is to complete the task independently, applying everything you've learned so far in the course. Good luck!
 
 # Getting started
@@ -81,7 +81,7 @@ We will use the following variables from the dataset:
 
 # Motivation
 
-In Exam 01, we modeled ED length of stay using quantile regression. Another approach for modeling the ED length of stay is Gamma regression. 
+In Exam 01, we modeled ED length of stay using quantile regression. Another approach for modeling the ED length of stay is Gamma regression.
 
 ```{r}
 #| message: false
@@ -147,11 +147,10 @@ Y_i &\stackrel{ind}{\sim} \text{Gamma}(\tau,\mu_i)\\
 
 When you fit the model, make sure to center the predictors, such that $\log \mu_i = \alpha^* + \mathbf{x}_i^* \boldsymbol{\beta}$, where $\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}$ and $\bar{\mathbf{x}} = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i$. Use the following priors $\alpha^* \sim N(0,4^2)$, $\beta_j \stackrel{ind}{\sim} N(0,1^2)$, $j = 1,\ldots,p$ and $\tau \sim \text{Exponential}(1).$
 
-:::callout-important
+::: callout-important
 ## Stan code
 
 In your repo you will find a Stan script called `live-coding.stan`. This will act as your starter script for performing Gamma regression. Throughout **Exercises 1-4** you will be prompted to add lines of code to the Stan script and in **Exercises 5-8** you will use your completed Stan code.
-
 :::
 
 ## Exercise 1
@@ -168,11 +167,11 @@ When performing inference we would like to inspect the posterior distribution of
 
 ## Exercise 4
 
-When performing inference we would prefer to use $\alpha$ instead of $\alpha^*$ (recall that centering  $\mathbf{x}_i$ is for estimation efficiency). In your generated quantities code chunk define $\alpha$ so we can easily obtain posterior summaries after fitting the model. To answer this question, print the Stan code used to define $\alpha$ using a `{stan output.var = "alpha", eval = FALSE}` code chunk.
+When performing inference we would prefer to use $\alpha$ instead of $\alpha^*$ (recall that centering $\mathbf{x}_i$ is for estimation efficiency). In your generated quantities code chunk define $\alpha$ so we can easily obtain posterior summaries after fitting the model. To answer this question, print the Stan code used to define $\alpha$ using a `{stan output.var = "alpha", eval = FALSE}` code chunk.
 
 ## Exercise 5
 
-Using the code from the previous exercises, fit the Gamma regression model specified above. Provide evidence of MCMC convergence for $\alpha$, $\boldsymbol{\beta}$, and $\tau$. 
+Using the code from the previous exercises, fit the Gamma regression model specified above. Provide evidence of MCMC convergence for $\alpha$, $\boldsymbol{\beta}$, and $\tau$.
 
 ## Exercise 6
 
