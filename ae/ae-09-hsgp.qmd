@@ -64,7 +64,7 @@ library(geodist)       # conversion from geodisic to miles
 
 # Data
 
-## Democratic Republic of Conge Demographic and Health Survey
+## Democratic Republic of Congo Demographic and Health Survey
 
 We continue working on the hemoglobin dataset, with a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are \~8600 women who are nested in \~500 survey clusters. The variables in the dataset are as follows.
 
@@ -99,7 +99,9 @@ library(DT)
 data <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/drc/hemoglobin_anemia.csv")[,-1]
 data <- data[complete.cases(data),] %>%
   group_by(loc_id) %>%
-  mutate(mean_hemoglobin = mean(hemoglobin)) %>%
+  mutate(mean_hemoglobin = mean(hemoglobin),
+         community_size = n(),
+         mean_age = mean(age)) %>%
   ungroup()
 DT::datatable(data)
 ```
@@ -187,7 +189,7 @@ ggplot() +
 We obtain the design matrix $\mathbf{X}$ and the mapping table. Make sure $\mathbf{X}$ doesn't contain an intercept as that will be modeled separately through the $\alpha$ parameter.
 
 ```{r}
-X <- model.matrix(~age+urban,data=data)[,-1]
+X <- model.matrix(~I(age/10)+urban,data=data)[,-1]
 Ids <- match(
   paste(data_loc_centered$LONGNUM,data_loc_centered$LATNUM), 
   paste(u$LONGNUM,u$LATNUM)
