@@ -81,9 +81,9 @@ head(data)
 ::: callout-important
 ## Modeling goals:
 
--   Learn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.
+-   Learn the associations between age and urbanicity and hemoglobin, accounting for unmeasured spatial confounders.
 
--   Create a predicted map of hemoglobin across the spatial surface controlling for age and urbanality, with uncertainty quantification.
+-   Create a predicted map of hemoglobin across the spatial surface controlling for age and urbanicity, with uncertainty quantification.
 :::
 
 ## Map of the Sud-Kivu state {.midi}
@@ -263,7 +263,7 @@ ggplot() +
 
 -   $j \in \{1,\dots,n_i\}$ indexes individuals at each location.
 
--   $Y_j(\mathbf{u}_i)$ denotes the observation of individual $j$ at location $\mathbf{u}_i$.
+-   $Y_j(\mathbf{u}_i)$ denotes the hemoglobin level of individual $j$ at location $\mathbf{u}_i$.
 
 -   $\mathbf{x}_j(\mathbf{u}_i) = (\text{age}_{ij}/10,\text{urban}_i) \in \mathbb{R}^{1 \times p}$, where $p=2$ is the number of predictors (excluding intercept).
 
@@ -283,7 +283,7 @@ ggplot() +
 
 **Location-specific parameters:**
 
--   $\mathbf{u}_i = (\text{latitude}_i, \text{longitude}_i) \in \mathbb{R}^2$ denotes coordinates of location $i$.
+-   $\mathbf{u}_i = (\text{longitude}_i,\text{latitude}_i) \in \mathbb{R}^2$ denotes coordinates of location $i$.
 
 -   $\theta(\mathbf{u}_i)$ denotes the spatial intercept at location $\mathbf{u}_i$.
 
@@ -322,7 +322,7 @@ $$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z
 
 We specify the following model: $$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N_N(\mathbf{0},\sigma^2\mathbf{I})$$ with priors
 
--   $\boldsymbol{\theta}(\mathbf{u}) | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))$, where $C$ is the Matérn 3/2 covariance function with magnitude $\tau$ and length scale $\rho$
+-   $\boldsymbol{\theta}(\mathbf{u}) | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))$, where $C$ is the Matérn 3/2 covariance function with magnitude $\tau$ and length scale $\rho$.
 -   $\alpha^* \sim N(0,4^2)$. This is the intercept after centering $\mathbf{X}$.
 -   $\beta_j | \sigma_{\beta} \sim N(0,\sigma_{\beta}^2)$, $j \in \{1,\dots,p\}$
 -   $\sigma \sim \text{Half-Normal}(0, 2^2)$
@@ -335,10 +335,10 @@ We specify the following model: $$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X
 Effectively, the prior for $\boldsymbol{\theta}$ is $$\boldsymbol{\theta} | \tau,\rho \sim N_n(\mathbf{0},\mathbf{C}), \quad \mathbf{C} \in \mathbb{R}^{n \times n}.$$ Matérn 3/2 is an isotropic covariance function, $C(\mathbf{u}_i, \mathbf{u}_j) = C(\|\mathbf{u}_i-\mathbf{u}_j\|)$.
 
 $$\mathbf{C} = \begin{bmatrix}
-C(0) & C(\|\mathbf{u}_1 - \mathbf{u}_2\|) & \cdots & C(\|\mathbf{u}_1 - \mathbf{u}_n\|)\\
-C(\|\mathbf{u}_1 - \mathbf{u}_2\|) & C(0) & \cdots & C(\|\mathbf{u}_2 - \mathbf{u}_n\|)\\
+C(\mathbf{0}) & C(\|\mathbf{u}_1 - \mathbf{u}_2\|) & \cdots & C(\|\mathbf{u}_1 - \mathbf{u}_n\|)\\
+C(\|\mathbf{u}_1 - \mathbf{u}_2\|) & C(\mathbf{0}) & \cdots & C(\|\mathbf{u}_2 - \mathbf{u}_n\|)\\
 \vdots & \vdots & \ddots & \vdots\\
-C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) & C(\|\mathbf{u}_2 - \mathbf{u}_n\|) & \cdots & C(0)\\
+C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) & C(\|\mathbf{u}_2 - \mathbf{u}_n\|) & \cdots & C(\mathbf{0})\\
 \end{bmatrix}.$$
 
 This is not scalable because we need to invert an $n \times n$ dense covariance matrix for each MCMC iteration, which requires $\mathcal{O}(n^3)$ floating point operations (flops), and $\mathcal{O}(n^2)$ memory.
@@ -401,7 +401,7 @@ $$\mathbf{C}_{ij}=C(\|\mathbf{u}_i - \mathbf{u}_j\|) \approx \sum_{k=1}^m s_k\ph
 
 -   $s_k \in \mathbb{R}^+$ are positive scalars which depends on the covariance function $C$ and its parameters $\tau$ and $\rho$.
 -   $\phi_k: \boldsymbol{\Theta} \to \mathbb{R}$ are *basis functions* which only depends on $\boldsymbol{\Theta}$.
--   $m$ is the number of basis functions. Note: even with an infinite sum ($m \to \infty$), this remains an approximation (see @solin2020hilbert).
+-   $m$ is the number of basis functions. Note: even with an infinite sum (i.e., $m \to \infty$), this remains an approximation (see @solin2020hilbert).
 
 ## HSGP approximation {.midi}
 
@@ -454,7 +454,7 @@ Note the resemblance to linear regression:
 -   $\mathbf{W} \in \mathbb{R}^{n \times m}$ is a known design matrix given parameters $\tau$ and $\rho$.
 -   $\mathbf{b}$ is an unknown parameter vector with prior $N_m(0,\mathbf{I})$.
 
-## HSGP in `stan` {.midi}
+## HSGP in `stan` {.small}
 
 Similarly, we can use the reparameterized model in `stan`.
 
@@ -464,13 +464,15 @@ This is called the [*non-centered parameterization*](https://mc-stan.org/docs/st
 transformed data {
   matrix[n,m] PHI;
   matrix[N,m] Z;
+  matrix[N,p] X_centered;
 }
 parameters {
-  real alpha;
+  real alpha_star;
   real<lower=0> sigma;
   vector[p] beta;
   vector[m] b;
   vector<lower=0>[m] sqrt_S;
+  ...
 }
 model {
   vector[n] theta = PHI * (sqrt_S .* b);
@@ -534,7 +536,7 @@ $$ is the feature matrix for the new locations. Therefore approximately $$
   \begin{bmatrix}
     \boldsymbol{\theta} \\
     \boldsymbol{\theta}^*
-  \end{bmatrix} \sim N_{n
+  \end{bmatrix} \Bigg| \boldsymbol{\Omega} \sim N_{n
   +q} \left(\begin{bmatrix}
     \mathbf{0}_n \\
     \mathbf{0}_q
@@ -544,28 +546,45 @@ $$ is the feature matrix for the new locations. Therefore approximately $$
     \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top & \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}
   \end{bmatrix} \right).
 \end{align}
-$$ Claim $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}$, where $\mathbf{A}^\dagger$ denotes a generalized inverse of matrix $\mathbf{A}$ such that $\mathbf{A}\mathbf{A}^\dagger = \mathbf{I}$.
+$$
 
 ## Kriging under HSGP {.midi}
 
-Claim $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}.$
+Again by properties of multivariate normal, $$\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \overset{?}{\sim} N_q(\mathbb{E}_{\boldsymbol{\theta}^*}^{HS},\mathbb{V}_{\boldsymbol{\theta}^*}^{HS}),$$
 
-Sketch proof below, see details in class:
+$$
+\begin{align}
+  \mathbb{E}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{-1} \boldsymbol{\theta}\\
+  \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{-1}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
+\end{align}
+$$
+
+::: incremental
+-   If $m \ge n$, $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)$ is invertible, this is the kriging distribution under HSGP.
+-   But what if $m < n$?
+:::
+
+## Kriging under HSGP {.midi}
+
+If $m \le n$, claim $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},$ where $\mathbf{A}^\dagger$ denotes a generalized inverse of matrix $\mathbf{A}$ such that $\mathbf{A}^\dagger\mathbf{A}=\mathbf{I}$[^1]. Sketch proof below, see details in class.
+
+[^1]: This result holds more generally for $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{-}$ where $\mathbf{A}^-$ denotes any generalized inverse of matrix $\mathbf{A}$ such that $\mathbf{A}\mathbf{A}^-\mathbf{A}=\mathbf{A}$. We only prove for $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^\dagger$ here for simplicity.
 
 1.  By properties of multivariate normal, $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \sim N_q(\mathbb{E}_{\boldsymbol{\theta}^*}^{HS},\mathbb{V}_{\boldsymbol{\theta}^*}^{HS})$, $$
     \begin{align}
       \mathbb{E}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}\\
-      \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
+      \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
     \end{align}
     $$
-2.  Show if $\boldsymbol{\Phi}$ has full column rank, which is true under HSGP, then for any matrix $\mathbf{A}$ of proper dimension, $$\mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}\boldsymbol{\Phi}\mathbf{A} = \mathbf{A} \tag{1}$$ Therefore $\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}$.
+
+2.  Show if $\boldsymbol{\Phi}$ has full column rank, which is true under HSGP, then $\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}$ because for any vector $\mathbf{v} \in \mathbb{R}^m$, $$\mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}\boldsymbol{\Phi}\mathbf{v} = \mathbf{v} \tag{1}.$$
 
 ## Kriging under HSGP {.midi}
 
 Under the reparameterized model, $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}$, for $\mathbf{b} \sim N_m(0,\mathbf{I}).$ Therefore $$
 \begin{align}
-  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta} \\
-  &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}(\boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}) \\
+  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top} \boldsymbol{\theta} \\
+  &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}(\boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}) \\
   &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}. \quad (\text{by equation (1) in the last slide})
 \end{align}
 $$
@@ -576,18 +595,18 @@ $$\boldsymbol{\theta}^{*(s)} = \boldsymbol{\Phi}^* \mathbf{S}^{(s) 1/2} \mathbf{
 
 ## Kriging under HSGP -- alternative view {.midi}
 
-Under the reparameterized model, there is another (perhaps more intuitive) way to recognize the kriging distribution under HSGP.
+Under the reparameterized model, there is another (perhaps more intuitive) way to recognize the kriging distribution under HSGP when $m \le n$.
 
 We model $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}$, where $\mathbf{b}$ is treated as the unknown parameter. Therefore for kriging: $$
 \begin{align}
-  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\boldsymbol{\Omega}) \\
+  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\mathbf{S},\boldsymbol{\Omega}) \\
   &=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
 \end{align}
 $$
 
 ## HSGP kriging in `stan` {.midi}
 
-Kriging under HSGP can be easily implemented in `stan`.
+If $m \le n$, Kriging under HSGP can be easily implemented in `stan`.
 
 ```{stan output.var = "model_in_stan", eval = FALSE}
 transformed data {
@@ -602,6 +621,10 @@ generated quantities {
 }
 
 ```
+
+::: fragment
+If $m>n$, we need to invert an $n \times n$ matrix $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)$ for kriging, which could be computationally prohibitive.
+:::
 
 ## Recap {.midi}
 
@@ -641,7 +664,7 @@ Minimize the run time while maintaining reasonable approximation accuracy.
 :::
 ::::
 
-::: {.fragment .small}
+::: fragment
 *Note: we treat estimation of the GP magnitude parameter* $\tau$ as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function.
 :::
 
@@ -673,51 +696,50 @@ The larger the box,
 
 ![](./images/21/HSGPbox2.png){fig-align="center" height="350"}
 
--   If we scale the coordinates by a constant $b$, the length scale $\rho$ also needs to be approximately scaled by $b$ to achieve the same level of accuracy.
+-   If we scale the coordinates by a constant $b$, the length scale $\rho$ of the underlying GP also needs to be approximately scaled by $b$ to capture the same level of details in the data.
 -   We can effectively think of the length scale parameter as $(\rho/\|\mathbf{S}\|)$.
 
 ## HSGP basis functions {.midi}
 
 The total number of basis functions $m = \prod_{l=1}^d m_l$, i.e., we need to decide on $m_l$'s, the number of basis functions for each dimension.
 
--   The higher the $m$, the better the overall approximation accuracy, the higher the runtime.
 -   $m$ scales exponentially in $d$, hence the HSGP computation complexity $\mathcal{O}(mn+m)$ also scales exponentially in $d$. Therefore HSGP is only recommended for $d \le 3$, at most $4$.
-
-## Relationship between $c$ and $m$ {.midi}
-
-@riutort2023practical used simulations with a squared exponential covariance function to investigate the relationship between $c$ and $m$.
-
-![](./images/21/PHSGP_fig2.png){fig-align="center" height="375"}
-
-Notice that $c$ needs to be above a certain *minimum value* to achieve a reasonable boundary accuracy.
+-   The higher the $m$, the better the overall approximation accuracy, the higher the runtime.
 
 ## Relationship between $c$, $m$ and $\rho$ {.midi}
 
-For simplicity, let $d=1$. To summarize:
+Let's quickly recap. For simplicity, let $d=1$,
 
 ::: incremental
 1.  As $(\rho/S)$ decreases, the surface is less smooth,
     -   $c$ needs to increase to retain boundary accuracy.
     -   $m$ needs to increase to retain overall accuracy.
-2.  For a given $\rho/S$, there exists a minimum $c$, below which the approximation is poor no matter how large $m$ is. This minimum value increases as $\rho/S$ increases.
-3.  As $c$ increases, $m$ needs to increase to retain overall accuracy.
-4.  As $m$ increases, run time increases. Hence we want to minimize $m$ and $c$ while maintaining certain accuracy level.
+2.  As $c$ increases, $m$ needs to increase to retain overall accuracy.
+3.  As $m$ increases, run time increases.
+:::
+
+::: fragment
+Hence we want to minimize $m$ and $c$ while maintaining approximation accuracy.
 :::
 
 ## Empirical functional form {.midi}
 
--   Given a covariance function $C$, and fixed $c$ and $\rho/S$, the number of basis functions required for a certain accuracy level is computable.
--   Repeating this for different combinations of $(c,\rho/S)$ gives $m(c,\rho/S)$, an empirical functional form of the relationship.
--   @riutort2023practical used extensive simulations to obtain $m(c,\rho/S)$ for frequently used Matérn covariance functions: Squared exponential, Matérn 5/2, Matérn 3/2 and Matérn 1/2. E.g., for Matérn 3/2,
+-   Given $c$ and $\rho/S$, let $m_C(c,\rho/S)$ denote the minimum number of basis functions needed for a near 100% accuracy under covariance function $C$.
+-   @riutort2023practical used extensive simulations to obtain an empirical function form of $m_C(c,\rho/S)$ for frequently used Matérn covariance functions. E.g., for Matérn 3/2,
 
-$$m(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.$$ *Note the linear proportionality between* $m$, $c$ and $\rho/S$.
+$$m_{3/2}(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.$$
+
+Notice:
+
+-   linear proportionality between $m$, $c$ and $\rho/S$.
+-   for a given $\rho/S$, there exists a minimum $c$, below which the approximation is poor no matter how large $m$ is.
 
 ## Question {.midi}
 
 BUT, in real applications, we **do not** know $\rho$.
 
 ::: fragment
-So how to use $m(c,\rho/S)$ to help choose $c$ and $m$?
+So how to use $m_C(c,\rho/S)$ to help choose $c$ and $m$?
 :::
 
 ## Prepare for next class {.midi}
