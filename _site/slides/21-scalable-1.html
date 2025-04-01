@@ -841,23 +841,23 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 </section>
 <section id="kriging-under-hsgp-2" class="slide level2 midi">
 <h2>Kriging under HSGP</h2>
-<p>If <span class="math inline">\(m \le n\)</span>, claim <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},\)</span> where <span class="math inline">\(\mathbf{A}^\dagger\)</span> denotes a generalized inverse of matrix <span class="math inline">\(\mathbf{A}\)</span> such that <span class="math inline">\(\mathbf{A}^\dagger\mathbf{A}=\mathbf{I}\)</span><sup>1</sup>. Sketch proof below, see details in class.</p>
+<p>If <span class="math inline">\(m \le n\)</span>, claim <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},\)</span> where <span class="math inline">\(\mathbf{A}^\dagger\)</span> denotes a generalized inverse of matrix <span class="math inline">\(\mathbf{A}\)</span> such that <span class="math inline">\(\mathbf{A}^{\dagger \top} = \mathbf{A}^\dagger\)</span>, <span class="math inline">\(\mathbf{A}^\dagger\mathbf{A}=\mathbf{I}\)</span><sup>1</sup>. Sketch proof below, see details in class.</p>
 <ol type="1">
 <li><p>By properties of multivariate normal, <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \sim N_q(\mathbb{E}_{\boldsymbol{\theta}^*}^{HS},\mathbb{V}_{\boldsymbol{\theta}^*}^{HS})\)</span>, <span class="math display">\[
 \begin{align}
   \mathbb{E}_{\boldsymbol{\theta}^*}^{HS} &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}\\
-  \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
+  \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi})^{\dagger}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
 \end{align}
 \]</span></p></li>
-<li><p>Show if <span class="math inline">\(\boldsymbol{\Phi}\)</span> has full column rank, which is true under HSGP, then <span class="math inline">\(\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}\)</span> because for any vector <span class="math inline">\(\mathbf{v} \in \mathbb{R}^m\)</span>, <span class="math display">\[\mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}\boldsymbol{\Phi}\mathbf{v} = \mathbf{v} \tag{1}.\]</span></p></li>
+<li><p>Show if <span class="math inline">\(\boldsymbol{\Phi}\)</span> has full column rank, which is true under HSGP, then <span class="math inline">\(\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}\)</span> because for any vector <span class="math inline">\(\mathbf{v} \in \mathbb{R}^m\)</span>, <span class="math display">\[\mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}\boldsymbol{\Phi}\mathbf{v} = \mathbf{v} \tag{1}.\]</span></p></li>
 </ol>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>This result holds more generally for <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{-}\)</span> where <span class="math inline">\(\mathbf{A}^-\)</span> denotes any generalized inverse of matrix <span class="math inline">\(\mathbf{A}\)</span> such that <span class="math inline">\(\mathbf{A}\mathbf{A}^-\mathbf{A}=\mathbf{A}\)</span>. We only prove for <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^\dagger\)</span> here for simplicity.</p></li></ol></aside></section>
 <section id="kriging-under-hsgp-3" class="slide level2 midi">
 <h2>Kriging under HSGP</h2>
 <p>Under the reparameterized model, <span class="math inline">\(\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}\)</span>, for <span class="math inline">\(\mathbf{b} \sim N_m(0,\mathbf{I}).\)</span> Therefore <span class="math display">\[
 \begin{align}
-  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top} \boldsymbol{\theta} \\
-  &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}(\boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}) \\
+  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta} \\
+  &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}(\boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}) \\
   &amp;= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}. \quad (\text{by equation (1) in the last slide})
 \end{align}
 \]</span></p>
@@ -990,7 +990,7 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <h2>HSGP basis functions</h2>
 <p>The total number of basis functions <span class="math inline">\(m = \prod_{l=1}^d m_l\)</span>, i.e., we need to decide on <span class="math inline">\(m_l\)</span>’s, the number of basis functions for each dimension.</p>
 <ul>
-<li><span class="math inline">\(m\)</span> scales exponentially in <span class="math inline">\(d\)</span>, hence the HSGP computation complexity <span class="math inline">\(\mathcal{O}(mn+m)\)</span> also scales exponentially in <span class="math inline">\(d\)</span>. Therefore HSGP is only recommended for <span class="math inline">\(d \le 3\)</span>, at most <span class="math inline">\(4\)</span>.</li>
+<li><span class="math inline">\(m\)</span> scales exponentially in <span class="math inline">\(d\)</span>, hence the HSGP computation complexity <span class="math inline">\(\mathcal{O}(nm+m)\)</span> also scales exponentially in <span class="math inline">\(d\)</span>. Therefore HSGP is only recommended for <span class="math inline">\(d \le 3\)</span>, at most <span class="math inline">\(4\)</span>.</li>
 <li>The higher the <span class="math inline">\(m\)</span>, the better the overall approximation accuracy, the higher the runtime.</li>
 </ul>
 </section>

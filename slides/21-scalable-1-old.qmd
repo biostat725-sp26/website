@@ -566,25 +566,25 @@ $$
 
 ## Kriging under HSGP {.midi}
 
-If $m \le n$, claim $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},$ where $\mathbf{A}^\dagger$ denotes a generalized inverse of matrix $\mathbf{A}$ such that $\mathbf{A}^{\dagger \top} = \mathbf{A}^\dagger$, $\mathbf{A}^\dagger\mathbf{A}=\mathbf{I}$[^1]. Sketch proof below, see details in class.
+If $m \le n$, claim $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},$ where $\mathbf{A}^\dagger$ denotes a generalized inverse of matrix $\mathbf{A}$ such that $\mathbf{A}^\dagger\mathbf{A}=\mathbf{I}$[^1]. Sketch proof below, see details in class.
 
 [^1]: This result holds more generally for $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{-}$ where $\mathbf{A}^-$ denotes any generalized inverse of matrix $\mathbf{A}$ such that $\mathbf{A}\mathbf{A}^-\mathbf{A}=\mathbf{A}$. We only prove for $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^\dagger$ here for simplicity.
 
 1.  By properties of multivariate normal, $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \sim N_q(\mathbb{E}_{\boldsymbol{\theta}^*}^{HS},\mathbb{V}_{\boldsymbol{\theta}^*}^{HS})$, $$
     \begin{align}
       \mathbb{E}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}\\
-      \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi})^{\dagger}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
+      \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
     \end{align}
     $$
 
-2.  Show if $\boldsymbol{\Phi}$ has full column rank, which is true under HSGP, then $\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}$ because for any vector $\mathbf{v} \in \mathbb{R}^m$, $$\mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}\boldsymbol{\Phi}\mathbf{v} = \mathbf{v} \tag{1}.$$
+2.  Show if $\boldsymbol{\Phi}$ has full column rank, which is true under HSGP, then $\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}$ because for any vector $\mathbf{v} \in \mathbb{R}^m$, $$\mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}\boldsymbol{\Phi}\mathbf{v} = \mathbf{v} \tag{1}.$$
 
 ## Kriging under HSGP {.midi}
 
 Under the reparameterized model, $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}$, for $\mathbf{b} \sim N_m(0,\mathbf{I}).$ Therefore $$
 \begin{align}
-  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta} \\
-  &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}(\boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}) \\
+  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top} \boldsymbol{\theta} \\
+  &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}(\boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}) \\
   &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}. \quad (\text{by equation (1) in the last slide})
 \end{align}
 $$
@@ -703,7 +703,7 @@ The larger the box,
 
 The total number of basis functions $m = \prod_{l=1}^d m_l$, i.e., we need to decide on $m_l$'s, the number of basis functions for each dimension.
 
--   $m$ scales exponentially in $d$, hence the HSGP computation complexity $\mathcal{O}(nm+m)$ also scales exponentially in $d$. Therefore HSGP is only recommended for $d \le 3$, at most $4$.
+-   $m$ scales exponentially in $d$, hence the HSGP computation complexity $\mathcal{O}(mn+m)$ also scales exponentially in $d$. Therefore HSGP is only recommended for $d \le 3$, at most $4$.
 -   The higher the $m$, the better the overall approximation accuracy, the higher the runtime.
 
 ## Relationship between $c$, $m$ and $\rho$ {.midi}
