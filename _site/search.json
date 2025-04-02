@@ -16828,7 +16828,7 @@
     "href": "slides/21-scalable-1.html#hsgp-in-stan",
     "title": "Scalable Gaussian Processes #1",
     "section": "HSGP in stan",
-    "text": "HSGP in stan\nSimilarly, we can use the reparameterized model in stan.\nThis is called the non-centered parameterization in stan documentation. It’s recommended for computational efficiency for hierarchical models.\n\ntransformed data {\n  matrix[n,m] PHI;\n  matrix[N,m] Z;\n  matrix[N,p] X_centered;\n}\nparameters {\n  real alpha_star;\n  real&lt;lower=0&gt; sigma;\n  vector[p] beta;\n  vector[m] b;\n  vector&lt;lower=0&gt;[m] sqrt_S;\n  ...\n}\nmodel {\n  vector[n] theta = PHI * (sqrt_S .* b);\n  target += normal_lupdf(y | alpha + X * beta + Z * theta, sigma);\n  target += normal_lupdf(b | 0, 1);\n  ...\n}"
+    "text": "HSGP in stan\nSimilarly, we can use the reparameterized model in stan.\nThis is called the non-centered parameterization in stan documentation. It’s recommended for computational efficiency for hierarchical models.\n\ntransformed data {\n  matrix[n,m] PHI;\n  matrix[N,m] Z;\n  matrix[N,p] X_centered;\n}\nparameters {\n  real alpha_star;\n  real&lt;lower=0&gt; sigma;\n  vector[p] beta;\n  vector[m] b;\n  vector&lt;lower=0&gt;[m] sqrt_S;\n  ...\n}\nmodel {\n  vector[n] theta = PHI * (sqrt_S .* b);\n  target += normal_lupdf(y | alpha_star + X_centered * beta + Z * theta, sigma);\n  target += normal_lupdf(b | 0, 1);\n  ...\n}"
   },
   {
     "objectID": "slides/21-scalable-1.html#posterior-predictive-distribution",
@@ -16863,7 +16863,7 @@
     "href": "slides/21-scalable-1.html#kriging-under-hsgp-2",
     "title": "Scalable Gaussian Processes #1",
     "section": "Kriging under HSGP",
-    "text": "Kriging under HSGP\nIf \\(m \\le n\\), claim \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) = (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta},\\) where \\(\\mathbf{A}^\\dagger\\) denotes a generalized inverse of matrix \\(\\mathbf{A}\\) such that \\(\\mathbf{A}^{\\dagger \\top} = \\mathbf{A}^\\dagger\\), \\(\\mathbf{A}^\\dagger\\mathbf{A}=\\mathbf{I}\\)1. Sketch proof below, see details in class.\n\nBy properties of multivariate normal, \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) \\sim N_q(\\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS},\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS})\\), \\[\n\\begin{align}\n  \\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta}\\\\\n  \\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}) - (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi})^{\\dagger}(\\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top}).\n\\end{align}\n\\]\nShow if \\(\\boldsymbol{\\Phi}\\) has full column rank, which is true under HSGP, then \\(\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} \\equiv \\mathbf{0}\\) because for any vector \\(\\mathbf{v} \\in \\mathbb{R}^m\\), \\[\\mathbf{S} \\boldsymbol{\\Phi}^\\top(\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger}\\boldsymbol{\\Phi}\\mathbf{v} = \\mathbf{v} \\tag{1}.\\]\n\nThis result holds more generally for \\((\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{-}\\) where \\(\\mathbf{A}^-\\) denotes any generalized inverse of matrix \\(\\mathbf{A}\\) such that \\(\\mathbf{A}\\mathbf{A}^-\\mathbf{A}=\\mathbf{A}\\). We only prove for \\((\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^\\dagger\\) here for simplicity."
+    "text": "Kriging under HSGP\nIf \\(m \\le n\\), claim \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) = (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta},\\) where \\(\\mathbf{A}^\\dagger\\) denotes a generalized inverse of matrix \\(\\mathbf{A}\\) such that \\(\\mathbf{A}\\mathbf{A}^{\\dagger}\\mathbf{A} = \\mathbf{A}\\). Sketch proof below, see details in class.\n\nBy properties of multivariate normal, \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) \\sim N_q(\\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS},\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS})\\), \\[\n\\begin{align}\n  \\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta}\\\\\n  \\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}) - (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger \\top}(\\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top}).\n\\end{align}\n\\]\nShow if \\(\\boldsymbol{\\Phi}\\) has full column rank, which is true under HSGP, then \\[\n\\begin{align}\n  \\mathbf{S} \\boldsymbol{\\Phi}^\\top(\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger \\top}\\boldsymbol{\\Phi}\\mathbf{S} = \\mathbf{S} \\tag{1} \\\\\n  \\mathbf{S} \\boldsymbol{\\Phi}^\\top(\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger}\\boldsymbol{\\Phi}\\mathbf{S} = \\mathbf{S} \\tag{2}.\n\\end{align}\n\\] Equation (1) is sufficient to show \\(\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} \\equiv \\mathbf{0}\\)."
   },
   {
     "objectID": "slides/21-scalable-1.html#kriging-under-hsgp-alternative-view",
@@ -16877,7 +16877,7 @@
     "href": "slides/21-scalable-1.html#hsgp-kriging-in-stan",
     "title": "Scalable Gaussian Processes #1",
     "section": "HSGP kriging in stan",
-    "text": "HSGP kriging in stan\nIf \\(m \\le n\\), Kriging under HSGP can be easily implemented in stan.\n\ntransformed data {\n  matrix[q,m] PHI_new;\n}\nparameters {\n  vector[m] b;\n  vector&lt;lower=0&gt;[m] sqrt_S;\n}\ngenerated quantities {\n  vector[q] theta_new = PHI_new * (sqrt_S .* b);\n}\n\n\nIf \\(m&gt;n\\), we need to invert an \\(n \\times n\\) matrix \\((\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)\\) for kriging, which could be computationally prohibitive."
+    "text": "HSGP kriging in stan\nIf \\(m \\le n\\), kriging under HSGP can be easily implemented in stan.\n\ntransformed data {\n  matrix[q,m] PHI_new;\n  ...\n}\nparameters {\n  vector[m] b;\n  vector&lt;lower=0&gt;[m] sqrt_S;\n  ...\n}\nmodel {\n  ...\n}\ngenerated quantities {\n  vector[q] theta_new = PHI_new * (sqrt_S .* b);\n}\n\n\nIf \\(m&gt;n\\), we need to invert an \\(n \\times n\\) matrix \\((\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)\\) for kriging, which could be computationally prohibitive."
   },
   {
     "objectID": "slides/21-scalable-1.html#hsgp-parameters",
@@ -17143,6 +17143,237 @@
     "href": "slides/21-scalable-1.html#kriging-under-hsgp-3",
     "title": "Scalable Gaussian Processes #1",
     "section": "Kriging under HSGP",
-    "text": "Kriging under HSGP\nUnder the reparameterized model, \\(\\boldsymbol{\\theta} = \\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}\\), for \\(\\mathbf{b} \\sim N_m(0,\\mathbf{I}).\\) Therefore \\[\n\\begin{align}\n  \\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta},\\boldsymbol{\\Omega}) &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta} \\\\\n  &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger}(\\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}) \\\\\n  &= \\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}. \\quad (\\text{by equation (1) in the last slide})\n\\end{align}\n\\]\nDuring MCMC sampling, we can obtain posterior predictive samples for \\(\\boldsymbol{\\theta}^*\\) through posterior samples of \\(\\mathbf{b}\\) and \\(\\mathbf{S}\\). Let superscript \\((s)\\) denote the \\(s\\)th posterior sample:\n\\[\\boldsymbol{\\theta}^{*(s)} = \\boldsymbol{\\Phi}^* \\mathbf{S}^{(s) 1/2} \\mathbf{b}^{(s)}.\\]"
+    "text": "Kriging under HSGP\nUnder the reparameterized model, \\(\\boldsymbol{\\theta} = \\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}\\), for \\(\\mathbf{b} \\sim N_m(0,\\mathbf{I}).\\) Therefore \\[\n\\begin{align}\n  \\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta},\\boldsymbol{\\Omega}) &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta} \\\\\n  &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger}(\\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}) \\\\\n  &= \\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}. \\quad (\\text{by equation (2) in the last slide})\n\\end{align}\n\\]\nDuring MCMC sampling, we can obtain posterior predictive samples for \\(\\boldsymbol{\\theta}^*\\) through posterior samples of \\(\\mathbf{b}\\) and \\(\\mathbf{S}\\). Let superscript \\((s)\\) denote the \\(s\\)th posterior sample:\n\\[\\boldsymbol{\\theta}^{*(s)} = \\boldsymbol{\\Phi}^* \\mathbf{S}^{(s) 1/2} \\mathbf{b}^{(s)}.\\]"
+  },
+  {
+    "objectID": "slides/23-clustering.html#learning-objectives",
+    "href": "slides/23-clustering.html#learning-objectives",
+    "title": "Bayesian Clustering",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nWe will introduce the basic mixture modeling framework as a mechanism for model-based clustering and describe computational and inferential challenges.\nVariations of the popular finite Gaussian mixture model (GMM) will be introduced to cluster patients according to ED length-of-stay.\nWe present an implementation of mixture modeling in Stan and challenges therein.\nFinally, various posterior summaries will be explored."
+  },
+  {
+    "objectID": "slides/23-clustering.html#finding-subtypes",
+    "href": "slides/23-clustering.html#finding-subtypes",
+    "title": "Bayesian Clustering",
+    "section": "Finding subtypes",
+    "text": "Finding subtypes\nRevisiting data on patients admitted to the emergency department (ED) from the MIMIC-IV-ED demo.\n\nCan we identify subgroups within this population?"
+  },
+  {
+    "objectID": "slides/23-clustering.html#the-usual-setup",
+    "href": "slides/23-clustering.html#the-usual-setup",
+    "title": "Bayesian Clustering",
+    "section": "The usual setup",
+    "text": "The usual setup\nMost models introduced in this course are of the form:\n\\[f\\left(Y_i\\mid X_i\\right) = f\\left(Y_i\\mid \\boldsymbol{\\theta}_i\\left(X_i\\right)\\right).\\]\n\n\\(f(\\cdot)\\) is the density or distribution function of an assumed family (e.g., Gaussian, binomial),\n\\(\\boldsymbol{\\theta}_i\\) is a parameter (or parameters) that may depend on individual covariates \\(X_i\\)."
+  },
+  {
+    "objectID": "slides/23-clustering.html#the-usual-setup-1",
+    "href": "slides/23-clustering.html#the-usual-setup-1",
+    "title": "Bayesian Clustering",
+    "section": "The usual setup",
+    "text": "The usual setup\n\\[f\\left(Y_i\\mid X_i\\right) = f\\left(Y_i\\mid \\boldsymbol{\\theta}_i\\left(X_i\\right)\\right)\\]\nLinear regression:\n\n\\(f\\) is the Gaussian density function, and \\(\\boldsymbol{\\theta}_i(X_i)=(X_i\\beta, \\sigma^2)^\\top\\)\n\nBinary classification:\n\n\\(f\\) is the Bernoulli mass function, and \\(\\boldsymbol{\\theta}_i(X_i)=\\text{logit}(X_i\\beta)^{-1}\\)"
+  },
+  {
+    "objectID": "slides/23-clustering.html#limitations-of-the-usual-setup",
+    "href": "slides/23-clustering.html#limitations-of-the-usual-setup",
+    "title": "Bayesian Clustering",
+    "section": "Limitations of the usual setup",
+    "text": "Limitations of the usual setup\nSuppose patients \\(i=1,\\dots,n\\) are administered a diagnostic test. Their outcome \\(Y_i\\) depends only on whether or not they have previously received treatment: \\(X_i=1\\) if yes and \\(X_i=0\\) otherwise. Suppose the diagnostic test has Gaussian-distributed measurement error, so \\[Y_i\\mid X_i \\sim N(\\alpha + \\beta X_i, \\sigma^2).\\] Now, suppose past treatment information is not included in patients’ record—we cannot condition on \\(X_i\\). Marginalizing, \\[\\begin{align*}\np(Y_i) = &P(X_i=1)\\times N(Y_i\\mid \\alpha + \\beta, \\sigma^2) \\\\\n      & +P(X_i=0)\\times N(Y_i\\mid \\alpha, \\sigma^2).\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/23-clustering.html#limitations-of-the-usual-setup-1",
+    "href": "slides/23-clustering.html#limitations-of-the-usual-setup-1",
+    "title": "Bayesian Clustering",
+    "section": "Limitations of the usual setup",
+    "text": "Limitations of the usual setup\n\nn &lt;- 500; mu &lt;- c(1,4.5); s2 &lt;- 1\nx &lt;- sample(1:2, n, T); y &lt;- rnorm(n, mu[x], sqrt(s2))\nggplot(data.frame(y = y), aes(x = y)) + \n  geom_histogram() + \n  labs(x = \"Y\", y = \"Count\")"
+  },
+  {
+    "objectID": "slides/23-clustering.html#limitations-of-the-usual-setup-2",
+    "href": "slides/23-clustering.html#limitations-of-the-usual-setup-2",
+    "title": "Bayesian Clustering",
+    "section": "Limitations of the usual setup",
+    "text": "Limitations of the usual setup\n\nfit &lt;- lm(y ~ 1)\nggplot(data.frame(residuals = fit$residuals), aes(x = residuals)) + \n  geom_histogram() + \n  labs(x = \"Residuals\", y = \"Count\")\n\n\nNormality of residuals?"
+  },
+  {
+    "objectID": "slides/23-clustering.html#mixture-model",
+    "href": "slides/23-clustering.html#mixture-model",
+    "title": "Bayesian Clustering",
+    "section": "Mixture Model",
+    "text": "Mixture Model\nMotivation for using a mixture model: Standard distributional families are not sufficiently expressive.\n\nThe inflexibility of the model may be due to unobserved heterogeneity (e.g., unrecorded treatment history).\n\nGenerically, \\[f(Y_i) = \\sum_{h = 1}^k \\pi_h \\times f_h(Y_i).\\]\nUses of mixture models:\n\nModeling weird densities/distributions (e.g., bimodal).\nLearning latent groups/clusters."
+  },
+  {
+    "objectID": "slides/23-clustering.html#mixture-model-1",
+    "href": "slides/23-clustering.html#mixture-model-1",
+    "title": "Bayesian Clustering",
+    "section": "Mixture Model",
+    "text": "Mixture Model\n\\[p(Y_i) = \\sum_{h=1}^k \\pi_h\\times f_h(Y_i)\\]\n\nThis mixture is comprised of \\(k\\) components indexed by \\(h=1,\\dots,k\\). For each component, we have a probability density (or mass) function \\(f_h\\) and a mixture weight \\(\\pi_h\\), where \\(\\sum_{h=1}^k \\pi_k=1\\).\nWhen \\(k\\) is finite, we call this a finite mixture model for \\(Y_i\\).\nIt is common to let, \\[f_h(Y_i) = f(Y_i\\mid \\boldsymbol{\\theta}_h).\\]\n\nThe component densities share a functional form and differ in their parameters."
+  },
+  {
+    "objectID": "slides/23-clustering.html#gaussian-mixture-model",
+    "href": "slides/23-clustering.html#gaussian-mixture-model",
+    "title": "Bayesian Clustering",
+    "section": "Gaussian Mixture Model",
+    "text": "Gaussian Mixture Model\nLetting \\(f_h(Y_i) = N(Y_i\\mid \\mu_h, \\sigma^2_h)\\) for \\(h=1,\\dots,k\\), yields the Gaussian mixture model. For \\(Y_i\\in\\mathbb{R}\\), \\[p(Y_i) = \\sum_{h=1}^k \\pi_h N\\left({Y}_i\\mid \\mu_h, \\sigma^2_h\\right)\\]\nFor multivariate outcomes \\(\\mathbf{Y}_i\\in\\mathbb{R}^p\\),\n\\[ p(\\mathbf{Y}_i) = \\sum_{h=1}^k \\pi_h N_p\\left(\\mathbf{Y}_i\\mid\\boldsymbol{\\mu}_h, \\boldsymbol{\\Sigma}_h\\right).\\]"
+  },
+  {
+    "objectID": "slides/23-clustering.html#gaussian-mixture-model-1",
+    "href": "slides/23-clustering.html#gaussian-mixture-model-1",
+    "title": "Bayesian Clustering",
+    "section": "Gaussian Mixture Model",
+    "text": "Gaussian Mixture Model\nConsider a mixture model with 3 groups:\n\nMixture 1: \\(\\mu_1 = -1.5, \\sigma_1 = 1\\).\nMixture 2: \\(\\mu_2 = 0, \\sigma_2 = 1.5\\).\nMixture 3: \\(\\mu_3 = 2, \\sigma_3 = 0.6\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotice, both means \\(\\mu_h\\) and variances \\(\\sigma^2_h\\) vary across clusters."
+  },
+  {
+    "objectID": "slides/23-clustering.html#generative-perspective-on-gmm",
+    "href": "slides/23-clustering.html#generative-perspective-on-gmm",
+    "title": "Bayesian Clustering",
+    "section": "Generative perspective on GMM",
+    "text": "Generative perspective on GMM\nTo simulate from a \\(k\\)-component Gaussian mixture with means \\(\\mu_1,\\dots,\\mu_k\\), variances \\(\\sigma_1^2,\\dots,\\sigma^2_k\\), and weights \\(\\pi_1,\\dots,\\pi_k\\):\n\nSample the component indicator \\(z_i\\in \\{1, \\dots,k\\}\\) with probabilities: \\[P(z_i=h) = \\pi_h.\\]\nGiven \\(z_i\\), sample \\(Y_i\\) from the appropriate component: \\[\\left(Y_i\\mid z_i =h\\right) \\sim N\\left(\\mu_h, \\sigma^2_h\\right).\\]"
+  },
+  {
+    "objectID": "slides/23-clustering.html#generative-perspective-on-gmm-1",
+    "href": "slides/23-clustering.html#generative-perspective-on-gmm-1",
+    "title": "Bayesian Clustering",
+    "section": "Generative perspective on GMM",
+    "text": "Generative perspective on GMM\n\nn &lt;- 500 \nmu &lt;- c(1, 4.5)\ns2 &lt;- 1 \n# implicit: pi = c(0.5, 0.5)\nz &lt;- sample(1:2, n, TRUE)\ny &lt;- rnorm(n, mu[z], sqrt(s2))\n\nThis is essentially the code used to simulate the missing treatment history example."
+  },
+  {
+    "objectID": "slides/23-clustering.html#marginalizing-component-indicators",
+    "href": "slides/23-clustering.html#marginalizing-component-indicators",
+    "title": "Bayesian Clustering",
+    "section": "Marginalizing Component Indicators",
+    "text": "Marginalizing Component Indicators\nThe label \\(z_i\\) indicates which component \\(Y_i\\) is drawn from—think of this as the cluster label. \\(f\\left(Y_i\\mid z_i=h\\right) = N\\left(Y_i\\mid \\mu_h,\\sigma^2_h \\right).\\)\nBut \\(z_i\\) is unknown, so we marginalize to obtain:\n\\[\\begin{align*}\nf(Y_i) &= \\int_\\mathcal{Z}f\\left(Y_i\\mid z\\right) f(z)dz \\\\\n&= \\sum_{h=1}^k f\\left(Y_i\\mid z=h\\right) P(z=h) \\\\\n&= \\sum_{h=1}^k N\\left(Y_i\\mid \\mu_h,\\sigma^2_h \\right) \\times \\pi_h.\n\\end{align*}\\]\nThis is key to implementing in Stan."
+  },
+  {
+    "objectID": "slides/23-clustering.html#gaussian-mixture-in-stan",
+    "href": "slides/23-clustering.html#gaussian-mixture-in-stan",
+    "title": "Bayesian Clustering",
+    "section": "Gaussian mixture in Stan",
+    "text": "Gaussian mixture in Stan\nComponent indicators \\(z_i\\) are discrete parameters, which cannot be estimated in Stan. As before, suppose \\(f(Y_i) = \\sum_{h=1}^k  \\pi_h N\\left(Y_i\\mid \\mu_h,\\sigma^2_h \\right)\\).\nThe log-likelihood is:\n\\[\\begin{align*}\n\\log f(Y_i)\n&= \\log \\sum_{h=1}^k  \\exp \\left(\\log\\left[\\pi_h N\\left(Y_i\\mid \\mu_h,\\sigma^2_h \\right) \\right]\\right)\\\\\n&= \\verb|log_sum_exp| \\left[\\log\\pi_1 + \\log N\\left(Y_i\\mid \\mu_1,\\sigma^2_1 \\right),\\right. \\\\\n&\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\dots, \\\\\n&\\quad\\quad\\quad\\quad\\quad\\quad\\quad \\left.\\log\\pi_k + \\log N\\left(Y_i\\mid \\mu_k,\\sigma^2_k \\right) \\right],\n\\end{align*}\\]\nlog_sum_exp is a Stan function."
+  },
+  {
+    "objectID": "slides/23-clustering.html#gaussian-mixture-in-stan-1",
+    "href": "slides/23-clustering.html#gaussian-mixture-in-stan-1",
+    "title": "Bayesian Clustering",
+    "section": "Gaussian mixture in Stan",
+    "text": "Gaussian mixture in Stan\n\n// saved in mixture1.stan\ndata {\n  int&lt;lower = 1&gt; k;          // number of mixture components\n  int&lt;lower = 1&gt; n;          // number of data points\n  array[n] real Y;           // observations\n}\nparameters {\n  simplex[k] pi; // mixing proportions\n  ordered[k] mu; // means of the mixture components\n  vector&lt;lower=0&gt;[k] sigma; // sds of the mixture components\n}\nmodel {\n  target += normal_lpdf(mu |0.0, 10.0);\n  target += exponential_lpdf(sigma | 1.0);\n  vector[k] log_probs = log(pi);\n  for (i in 1:n){\n    vector[k] lps = log_probs;\n    for (h in 1:k){\n      lps[h] += normal_lpdf(Y[i] | mu[h], sigma[h]);\n    }\n    target += log_sum_exp(lps);\n  }\n}\n\nOf note: simplex and ordered types."
+  },
+  {
+    "objectID": "slides/23-clustering.html#first-fit",
+    "href": "slides/23-clustering.html#first-fit",
+    "title": "Bayesian Clustering",
+    "section": "First fit",
+    "text": "First fit\n\ned &lt;- read.csv(\"exam1_data.csv\")\ndat &lt;- list(Y = (ed$los - mean(ed$los)),\n            n = length(ed$los),\n            k = 2)\nmod1 &lt;- stan_model(\"mixture1.stan\")\nfit1 &lt;- sampling(mod1, data=dat, chains=4, iter=5000, control=list(\"adapt_delta\"=0.99))\nprint(fit1, pars = c(\"pi\", \"mu\", \"sigma\"), probs = c(0.025, 0.975))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=5000; warmup=2500; thin=1; \npost-warmup draws per chain=2500, total post-warmup draws=10000.\n\n          mean se_mean   sd  2.5% 97.5% n_eff Rhat\npi[1]     0.37    0.17 0.24  0.16  0.83     2 6.35\npi[2]     0.63    0.17 0.24  0.17  0.84     2 6.35\nmu[1]    -3.17    0.09 0.51 -4.49 -2.49    33 1.05\nmu[2]     0.45    3.96 5.69 -3.17 13.08     2 5.14\nsigma[1] 13.25    4.48 6.46  2.09 20.11     2 4.97\nsigma[2]  5.03    3.28 4.68  2.03 14.78     2 7.56\n\nSamples were drawn using NUTS(diag_e) at Sat Mar 22 13:54:38 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/23-clustering.html#what-is-going-on",
+    "href": "slides/23-clustering.html#what-is-going-on",
+    "title": "Bayesian Clustering",
+    "section": "What is going on?",
+    "text": "What is going on?\n\npairs(fit1, pars = c(\"mu\", \"sigma\"))"
+  },
+  {
+    "objectID": "slides/23-clustering.html#bimodal-posterior",
+    "href": "slides/23-clustering.html#bimodal-posterior",
+    "title": "Bayesian Clustering",
+    "section": "Bimodal posterior",
+    "text": "Bimodal posterior\n\n\nIn one mode, \\(\\sigma^2_1 \\ll \\sigma^2_2\\) and in the other, \\(\\sigma^2_1\\gg\\sigma^2_2\\)"
+  },
+  {
+    "objectID": "slides/23-clustering.html#bimodal-posterior-1",
+    "href": "slides/23-clustering.html#bimodal-posterior-1",
+    "title": "Bayesian Clustering",
+    "section": "Bimodal posterior",
+    "text": "Bimodal posterior\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Gaussian clusters have light tails, so outlying values of \\(Y\\) force large values of \\(\\sigma^2_h\\). When \\(\\sigma^2_h\\) is large, small changes to \\(\\mu_h\\) have little impact on the log-likelihood, and the ordering constraint is not sufficient to identify the clusters."
+  },
+  {
+    "objectID": "slides/23-clustering.html#things-to-consider-when-your-mixture-model-is-mixed-up",
+    "href": "slides/23-clustering.html#things-to-consider-when-your-mixture-model-is-mixed-up",
+    "title": "Bayesian Clustering",
+    "section": "Things to consider when your mixture model is mixed up",
+    "text": "Things to consider when your mixture model is mixed up\nMixture modeling, especially when clusters are of interest, can be fickle.\n\nDifferent mixtures can give similar fit to data, leading to multimodal posteriors that are difficult to sample from (previous slides).\nClusters will depend on your choice of \\(f_h\\)—a Gaussian mixture model can only find Gaussian-shaped clusters.\nIncreasing \\(k\\) often improves fit, but may muddle cluster interpretation."
+  },
+  {
+    "objectID": "slides/23-clustering.html#things-to-consider-when-your-mixture-model-is-mixed-up-1",
+    "href": "slides/23-clustering.html#things-to-consider-when-your-mixture-model-is-mixed-up-1",
+    "title": "Bayesian Clustering",
+    "section": "Things to consider when your mixture model is mixed up",
+    "text": "Things to consider when your mixture model is mixed up\n\nEmploy informative priors.\nVary the number of clusters.\nChange the form of the kernel."
+  },
+  {
+    "objectID": "slides/23-clustering.html#updated-model",
+    "href": "slides/23-clustering.html#updated-model",
+    "title": "Bayesian Clustering",
+    "section": "Updated model",
+    "text": "Updated model\n\n// saved in mixture2.stan\ndata {\n  int&lt;lower=1&gt; k;          // number of mixture components\n  int&lt;lower=1&gt; n;          // number of data points\n  array[n] real Y;         // observations\n}\n\nparameters {\n  simplex[k] pi; // mixing proportions\n  ordered[k] mu; // means of the mixture components\n  vector&lt;lower=0&gt;[k] sigma; // sds of the mixture components\n  vector&lt;lower=1&gt;[k] nu;\n}\n\nmodel {\n  target += normal_lpdf(mu |0.0, 10.0);\n  target += normal_lpdf(sigma | 2.0, 0.5);\n  target += gamma_lpdf(nu | 5., 0.5);\n  \n  vector[k] log_probs = log(pi);\n  for (i in 1:n){\n    vector[k] lps = log_probs;\n    for (h in 1:k){\n      lps[h] += student_t_lpdf(Y[i] | nu[h], mu[h], sigma[h]);\n    }\n    target += log_sum_exp(lps);\n  }\n}\n\n\nInformative prior on \\(\\sigma^2_h\\).\nMixture of Student-t."
+  },
+  {
+    "objectID": "slides/23-clustering.html#updated-model-fit",
+    "href": "slides/23-clustering.html#updated-model-fit",
+    "title": "Bayesian Clustering",
+    "section": "Updated model fit",
+    "text": "Updated model fit\n\nmod2 &lt;- stan_model(\"mixture2.stan\")\nfit2 &lt;- sampling(mod2, data=dat, chains=4, iter=5000, control=list(\"adapt_delta\"=0.99))\nprint(fit2, pars=c(\"pi\", \"mu\", \"sigma\", \"nu\"))\n# saveRDS(fit2, \"fits/fit2.rds\")\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=5000; warmup=2500; thin=1; \npost-warmup draws per chain=2500, total post-warmup draws=10000.\n\n          mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\npi[1]     0.81    0.00 0.04  0.73  0.79  0.81  0.83  0.87  5567    1\npi[2]     0.19    0.00 0.04  0.13  0.17  0.19  0.21  0.27  5567    1\nmu[1]    -2.96    0.00 0.22 -3.39 -3.10 -2.96 -2.81 -2.53  7318    1\nmu[2]     8.30    0.02 1.10  6.03  7.66  8.35  9.01 10.28  4306    1\nsigma[1]  2.20    0.00 0.17  1.88  2.09  2.20  2.31  2.55  5987    1\nsigma[2]  2.82    0.00 0.40  2.06  2.55  2.81  3.09  3.64  6745    1\nnu[1]    11.98    0.04 4.44  5.14  8.75 11.38 14.57 22.22  9860    1\nnu[2]     1.54    0.00 0.43  1.03  1.25  1.46  1.74  2.50  9286    1\n\nSamples were drawn using NUTS(diag_e) at Sat Mar 29 12:52:38 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/23-clustering.html#updated-model-results",
+    "href": "slides/23-clustering.html#updated-model-results",
+    "title": "Bayesian Clustering",
+    "section": "Updated model results",
+    "text": "Updated model results"
+  },
+  {
+    "objectID": "slides/23-clustering.html#from-marginal-mixture-model-to-clusters",
+    "href": "slides/23-clustering.html#from-marginal-mixture-model-to-clusters",
+    "title": "Bayesian Clustering",
+    "section": "From marginal mixture model to clusters",
+    "text": "From marginal mixture model to clusters\nStan cannot directly infer categorical component indicators \\(z_i\\). Instead, for each individual, we compute\n\\[\\begin{align*}\nP\\left(z_i = h \\mid Y_i, \\boldsymbol{\\mu},\\boldsymbol{\\sigma},\\boldsymbol{\\pi} \\right) &= \\frac{f(Y_i\\mid z_i = h, \\mu_h,\\sigma_h)P(z_i=h\\mid \\pi_h)}{\\sum_{h'=1}^k f(Y_i\\mid z_i = h', \\mu_{h'},\\sigma_{h'})P(z_i=h'\\mid \\pi_{h'})}\\\\\n&= \\frac{N(Y_i | \\mu_{h},\\sigma_{h})\\pi_{h}}{\\sum_{h' = 1}^k N(Y_i | \\mu_{h'},\\sigma_{h'})\\pi_{h'}} = p_{ih}.\n\\end{align*}\\]\nGiven these cluster membership probabilities, we can recover cluster indicators through simulation: \\[(z_i\\mid -) \\sim \\text{Categorical}\\left(k, \\left\\{ p_{i1},\\dots,p_{ik}  \\right\\}\\right).\\]"
+  },
+  {
+    "objectID": "slides/23-clustering.html#from-marginal-mixture-model-to-clusters-1",
+    "href": "slides/23-clustering.html#from-marginal-mixture-model-to-clusters-1",
+    "title": "Bayesian Clustering",
+    "section": "From marginal mixture model to clusters",
+    "text": "From marginal mixture model to clusters\n\n...\n\ngenerated quantities {\n  matrix[n,k] lPrZik;\n  int&lt;lower=1, upper=k&gt; z[n];\n  for (i in 1:n){\n    for (h in 1:k){\n      lPrZik[i,h] = log(pi[h]) + student_t_lpdf(Y[i] | nu[h], mu[h], sigma[h]);\n    }\n    lPrZik[i] -= log(sum(exp(lPrZik[i])));\n    z[i] = categorical_rng(exp(lPrZik[i]'));\n  }\n}"
+  },
+  {
+    "objectID": "slides/23-clustering.html#co-clustering-probabilities",
+    "href": "slides/23-clustering.html#co-clustering-probabilities",
+    "title": "Bayesian Clustering",
+    "section": "Co-clustering probabilities",
+    "text": "Co-clustering probabilities\nRecovering \\(z_i\\) allows us to make the following pairwise comparison: what is the probability that unit \\(i\\) and unit \\(j\\) are in the same cluster? This is the “co-clustering probability”.\nIt is common to arrange these probabilities in a co-clustering matrix \\(C\\), where the \\(i,j\\) entry is given by, \\[C_{ij}=\\text{Pr}\\left( z_i=z_j\\mid- \\right)\\approx \\frac{1}{S}\\sum_{s=1}^S \\mathbb{1}\\left[z_i^{(s)}=z_j^{(s)}\\right].\\]"
+  },
+  {
+    "objectID": "slides/23-clustering.html#co-clustering-probabilities-1",
+    "href": "slides/23-clustering.html#co-clustering-probabilities-1",
+    "title": "Bayesian Clustering",
+    "section": "Co-clustering probabilities",
+    "text": "Co-clustering probabilities"
+  },
+  {
+    "objectID": "slides/23-clustering.html#how-do-our-results-change-when-we-use-more-components",
+    "href": "slides/23-clustering.html#how-do-our-results-change-when-we-use-more-components",
+    "title": "Bayesian Clustering",
+    "section": "How do our results change when we use more components?",
+    "text": "How do our results change when we use more components?\n\\(k=3\\)"
+  },
+  {
+    "objectID": "slides/23-clustering.html#how-do-our-results-change-when-we-use-more-components-1",
+    "href": "slides/23-clustering.html#how-do-our-results-change-when-we-use-more-components-1",
+    "title": "Bayesian Clustering",
+    "section": "How do our results change when we use more components?",
+    "text": "How do our results change when we use more components?\n\\(k=4\\)"
+  },
+  {
+    "objectID": "slides/23-clustering.html#co-clusterings-across-k",
+    "href": "slides/23-clustering.html#co-clusterings-across-k",
+    "title": "Bayesian Clustering",
+    "section": "Co-clusterings across \\(k\\)",
+    "text": "Co-clusterings across \\(k\\)\n\nThe same general pattern persists when more clusters are used, indicating that \\(k=2\\) is a reasonable choice."
+  },
+  {
+    "objectID": "slides/23-clustering.html#prepare-for-next-class",
+    "href": "slides/23-clustering.html#prepare-for-next-class",
+    "title": "Bayesian Clustering",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nReminder: On Thursday, we will have a in-class live-coding exercise.\nBegin working on Exam 02, which is due for feedback on April 15.\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   }
 ]

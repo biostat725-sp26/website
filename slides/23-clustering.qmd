@@ -1,0 +1,770 @@
+---
+title: "Bayesian Clustering"
+author: "Prof. Sam Berchuck (developed with Braden Scherting)"
+date: "2025-04-08"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r echo=F}
+library(rstan)
+library(tidyverse)
+library(patchwork)
+library(extraDistr)
+options(mc.cores = 4)
+set.seed(24600)
+```
+
+## Learning Objectives
+
+1.  We will introduce the basic mixture modeling framework as a mechanism for model-based clustering and describe computational and inferential challenges.
+2.  Variations of the popular finite Gaussian mixture model (GMM) will be introduced to cluster patients according to ED length-of-stay.
+3.  We present an implementation of mixture modeling in Stan and challenges therein.
+4.  Finally, various posterior summaries will be explored.
+
+## Finding subtypes
+
+Revisiting data on patients admitted to the emergency department (ED) from the MIMIC-IV-ED demo.
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 5
+#| fig-align: "center" 
+ed <- read.csv("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/725bayesclust2/exam1_data.csv")
+ggplot(ed, aes(x = los)) + 
+  geom_histogram() + 
+  labs(x = "ED Length of Stay (hours)",
+       y = "Count") 
+```
+
+**Can we identify subgroups within this population?**
+
+## The usual setup
+
+Most models introduced in this course are of the form:
+
+$$f\left(Y_i\mid X_i\right) = f\left(Y_i\mid \boldsymbol{\theta}_i\left(X_i\right)\right).$$
+
+-   $f(\cdot)$ is the density or distribution function of an assumed family (e.g., Gaussian, binomial),
+
+-   $\boldsymbol{\theta}_i$ is a parameter (or parameters) that may depend on individual covariates $X_i$.
+
+## The usual setup
+
+$$f\left(Y_i\mid X_i\right) = f\left(Y_i\mid \boldsymbol{\theta}_i\left(X_i\right)\right)$$
+
+**Linear regression:**
+
+-   $f$ is the Gaussian density function, and $\boldsymbol{\theta}_i(X_i)=(X_i\beta, \sigma^2)^\top$
+
+**Binary classification:**
+
+-   $f$ is the Bernoulli mass function, and $\boldsymbol{\theta}_i(X_i)=\text{logit}(X_i\beta)^{-1}$
+
+## Limitations of the usual setup
+
+Suppose patients $i=1,\dots,n$ are administered a diagnostic test. Their outcome $Y_i$ depends only on whether or not they have previously received treatment: $X_i=1$ if yes and $X_i=0$ otherwise. Suppose the diagnostic test has Gaussian-distributed measurement error, so 
+$$Y_i\mid X_i \sim N(\alpha + \beta X_i, \sigma^2).$$ 
+Now, suppose past treatment information is not included in patients' record—*we cannot condition on* $X_i$. Marginalizing, \begin{align*}
+p(Y_i) = &P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
+      & +P(X_i=0)\times N(Y_i\mid \alpha, \sigma^2).
+\end{align*}
+
+## Limitations of the usual setup
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 4
+n <- 500; mu <- c(1,4.5); s2 <- 1
+x <- sample(1:2, n, T); y <- rnorm(n, mu[x], sqrt(s2))
+ggplot(data.frame(y = y), aes(x = y)) + 
+  geom_histogram() + 
+  labs(x = "Y", y = "Count")
+```
+
+## Limitations of the usual setup
+
+```{r}
+#| echo: true
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 4
+fit <- lm(y ~ 1)
+ggplot(data.frame(residuals = fit$residuals), aes(x = residuals)) + 
+  geom_histogram() + 
+  labs(x = "Residuals", y = "Count")
+```
+
+*Normality of residuals?*
+
+## Mixture Model {.midi}
+
+Motivation for using a mixture model: *Standard distributional families are not sufficiently expressive*.
+
+-   The inflexibility of the model may be due to unobserved heterogeneity (e.g., unrecorded treatment history).
+
+Generically, 
+$$f(Y_i) = \sum_{h = 1}^k \pi_h \times f_h(Y_i).$$
+
+**Uses of mixture models:**
+
+1)  Modeling weird densities/distributions (e.g., bimodal).
+2)  Learning latent groups/clusters.
+
+## Mixture Model {.midi}
+
+$$p(Y_i) = \sum_{h=1}^k \pi_h\times f_h(Y_i)$$
+
+-   This mixture is comprised of $k$ components indexed by $h=1,\dots,k$. For each component, we have a probability density (or mass) function $f_h$ and a mixture weight $\pi_h$, where $\sum_{h=1}^k \pi_k=1$.
+
+-   When $k$ is finite, we call this a **finite mixture model** for $Y_i$.
+
+-   It is common to let,
+$$f_h(Y_i) = f(Y_i\mid \boldsymbol{\theta}_h).$$
+    -   The component densities share a functional form and differ in their parameters.
+
+## Gaussian Mixture Model
+
+Letting $f_h(Y_i) = N(Y_i\mid \mu_h, \sigma^2_h)$ for $h=1,\dots,k$, yields the Gaussian mixture model. For $Y_i\in\mathbb{R}$, 
+$$p(Y_i) = \sum_{h=1}^k \pi_h N\left({Y}_i\mid \mu_h, \sigma^2_h\right)$$ 
+
+For multivariate outcomes $\mathbf{Y}_i\in\mathbb{R}^p$, 
+
+$$ p(\mathbf{Y}_i) = \sum_{h=1}^k \pi_h N_p\left(\mathbf{Y}_i\mid\boldsymbol{\mu}_h, \boldsymbol{\Sigma}_h\right).$$
+
+## Gaussian Mixture Model {.small}
+
+Consider a mixture model with 3 groups:
+
+- Mixture 1: $\mu_1 = -1.5, \sigma_1 = 1$.
+- Mixture 2: $\mu_2 = 0, \sigma_2 = 1.5$.
+- Mixture 3: $\mu_3 = 2, \sigma_3 = 0.6$.
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| layout-ncol: 2
+#| fig-width: 5
+#| fig-height: 2.5
+mus <- c(-1.5,0,2)
+sds <- c(1,1.5, 0.6)
+pis <- c(0.25,0.25,0.5)
+
+Y <- seq(-4, 4, length.out = 1000)
+f1 <- pis[1]*dnorm(Y, mus[1], sds[1])
+f2 <- pis[2]*dnorm(Y, mus[2], sds[2])
+f3 <- pis[3]*dnorm(Y, mus[3], sds[3])
+Mixture <- pis[1]*dnorm(Y, mus[1], sds[1]) + pis[2]*dnorm(Y, mus[2], sds[2]) + pis[3]*dnorm(Y, mus[3], sds[3])
+dat_fig <- data.frame(Y, f1, f2, f3, Mixture)
+dat_fig <- pivot_longer(dat_fig, cols = c("f1", "f2", "f3", "Mixture"), names_to = "Distribution", values_to = "Density")
+ggplot(dat_fig, aes(x = Y, Density, color = Distribution)) + 
+  geom_line(size = 1.25) + 
+  labs(title = bquote("Gaussian Mixture:" ~ pi ~ " = (0.25, 0.25, 0.50)"))
+
+pis <- c(0.5,0.2,0.3)
+f1 <- pis[1]*dnorm(Y, mus[1], sds[1])
+f2 <- pis[2]*dnorm(Y, mus[2], sds[2])
+f3 <- pis[3]*dnorm(Y, mus[3], sds[3])
+Mixture <- pis[1]*dnorm(Y, mus[1], sds[1]) + pis[2]*dnorm(Y, mus[2], sds[2]) + pis[3]*dnorm(Y, mus[3], sds[3])
+dat_fig <- data.frame(Y, f1, f2, f3, Mixture)
+dat_fig <- pivot_longer(dat_fig, cols = c("f1", "f2", "f3", "Mixture"), names_to = "Distribution", values_to = "Density")
+ggplot(dat_fig, aes(x = Y, Density, color = Distribution)) + 
+  geom_line(size = 1.25) + 
+  labs(title = bquote("Gaussian Mixture:" ~ pi ~ " = (0.5, 0.2, 0.3)"))
+```
+
+Notice, both means $\mu_h$ and variances $\sigma^2_h$ vary across clusters.
+
+## Generative perspective on GMM
+
+To simulate from a $k$-component Gaussian mixture with means $\mu_1,\dots,\mu_k$, variances $\sigma_1^2,\dots,\sigma^2_k$, and weights $\pi_1,\dots,\pi_k$:
+
+1.  Sample the component indicator $z_i\in \{1, \dots,k\}$ with probabilities: $$P(z_i=h) = \pi_h.$$
+2.  Given $z_i$, sample $Y_i$ from the appropriate component: 
+$$\left(Y_i\mid z_i =h\right) \sim N\left(\mu_h, \sigma^2_h\right).$$
+
+## Generative perspective on GMM
+
+```{r echo=T}
+n <- 500 
+mu <- c(1, 4.5)
+s2 <- 1 
+# implicit: pi = c(0.5, 0.5)
+z <- sample(1:2, n, TRUE)
+y <- rnorm(n, mu[z], sqrt(s2))
+```
+
+*This is essentially the code used to simulate the missing treatment history example.*
+
+## Marginalizing Component Indicators {.midi}
+
+The label $z_i$ indicates which component $Y_i$ is drawn from---*think of this as the cluster label*. $f\left(Y_i\mid z_i=h\right) = N\left(Y_i\mid \mu_h,\sigma^2_h \right).$
+
+But $z_i$ is unknown, so we marginalize to obtain:
+
+\begin{align*}
+f(Y_i) &= \int_\mathcal{Z}f\left(Y_i\mid z\right) f(z)dz \\
+&= \sum_{h=1}^k f\left(Y_i\mid z=h\right) P(z=h) \\
+&= \sum_{h=1}^k N\left(Y_i\mid \mu_h,\sigma^2_h \right) \times \pi_h.
+\end{align*}
+
+*This is key to implementing in* `Stan`.
+
+## Gaussian mixture in Stan {.midi}
+
+Component indicators $z_i$ are discrete parameters, which cannot be estimated in `Stan`. As before, suppose $f(Y_i) = \sum_{h=1}^k  \pi_h N\left(Y_i\mid \mu_h,\sigma^2_h \right)$. 
+
+The log-likelihood is:
+
+\begin{align*}
+\log f(Y_i) 
+&= \log \sum_{h=1}^k  \exp \left(\log\left[\pi_h N\left(Y_i\mid \mu_h,\sigma^2_h \right) \right]\right)\\
+&= \verb|log_sum_exp| \left[\log\pi_1 + \log N\left(Y_i\mid \mu_1,\sigma^2_1 \right),\right. \\ 
+&\quad\quad\quad\quad\quad\quad\quad\dots, \\
+&\quad\quad\quad\quad\quad\quad\quad \left.\log\pi_k + \log N\left(Y_i\mid \mu_k,\sigma^2_k \right) \right],
+\end{align*}
+
+`log_sum_exp` is a `Stan` function.
+
+## Gaussian mixture in Stan
+
+```{stan eval=FALSE, echo=T, output.var="tmp"}
+// saved in mixture1.stan
+data {
+  int<lower = 1> k;          // number of mixture components
+  int<lower = 1> n;          // number of data points
+  array[n] real Y;           // observations
+}
+parameters {
+  simplex[k] pi; // mixing proportions
+  ordered[k] mu; // means of the mixture components
+  vector<lower=0>[k] sigma; // sds of the mixture components
+}
+model {
+  target += normal_lpdf(mu |0.0, 10.0);
+  target += exponential_lpdf(sigma | 1.0);
+  vector[k] log_probs = log(pi);
+  for (i in 1:n){
+    vector[k] lps = log_probs;
+    for (h in 1:k){
+      lps[h] += normal_lpdf(Y[i] | mu[h], sigma[h]);
+    }
+    target += log_sum_exp(lps);
+  }
+}
+```
+
+Of note: `simplex` and `ordered` types.
+
+## First fit {.midi}
+
+```{r}
+#| echo: true
+#| eval: false
+ed <- read.csv("exam1_data.csv")
+dat <- list(Y = (ed$los - mean(ed$los)),
+            n = length(ed$los),
+            k = 2)
+mod1 <- stan_model("mixture1.stan")
+fit1 <- sampling(mod1, data=dat, chains=4, iter=5000, control=list("adapt_delta"=0.99))
+print(fit1, pars = c("pi", "mu", "sigma"), probs = c(0.025, 0.975))
+```
+
+```{r}
+#| eval: true
+#| echo: false
+#| output: true
+# ed <- read.csv("exam1_data.csv")
+dat <- list(Y = (ed$los - mean(ed$los)),
+            n = length(ed$los),
+            k=2)
+fit1 <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/23-clustering/fit1.rds")
+print(fit1, pars = c("pi", "mu", "sigma"), probs = c(0.025, 0.975))
+```
+
+## What is going on?
+
+```{r}
+#| echo: true
+pairs(fit1, pars = c("mu", "sigma"))
+```
+
+<!-- ## What is going on? -->
+
+<!-- ```{r echo=T} -->
+<!-- samples <- rstan::extract(fit1) -->
+<!-- hist(dat$Y, breaks = 75, probability = T, xlim=c(min(dat$Y)-10,max(dat$Y)+10), col="white", main="Posterior draws", ylab="", xlab="") -->
+<!-- for (it in sample(1:10000, 15)){ -->
+<!--   curve(mean(samples$pi[it,1]) * dnorm(x, mean(samples$mu[it,1]), mean(samples$sigma[it,1])),  -->
+<!--         from=min(dat$Y)-10, to=max(dat$Y)+10, ylab="dens", add=T, n = 1001, lty=1, lwd=2, col=rgb(1,0.1,0, 0.5)) -->
+<!--   curve(mean(samples$pi[it,2]) * dnorm(x, mean(samples$mu[it,2]), mean(samples$sigma[it,2])),  -->
+<!--         from=min(dat$Y)-10, to=max(dat$Y)+10, ylab="dens", add=T, n = 1001, lty=2, lwd=2, col=rgb(0,0.1,1, 0.25)) -->
+<!-- } -->
+
+<!-- x <- rep(seq(min(dat$Y)-10, max(dat$Y)+10, length.out=1000), 2) -->
+<!-- ``` -->
+
+
+## Bimodal posterior
+```{r, echo=F}
+traceplot(fit1)
+```
+
+-   In one mode, $\sigma^2_1 \ll \sigma^2_2$ and in the other, $\sigma^2_1\gg\sigma^2_2$
+
+## Bimodal posterior
+
+```{r, echo=F}
+#| layout: [[50,50]]
+samples <- rstan::extract(fit1)
+it=1
+# hist(dat$Y, breaks = 75, probability = T, xlim=c(min(dat$Y)-10,max(dat$Y)+1), col="white", main="Example posterior draw from chain 1", ylab="", xlab="")
+# curve(mean(samples$pi[it,1]) * dnorm(x, mean(samples$mu[it,1]), mean(samples$sigma[it,1])), 
+#         from=min(dat$Y)-10, to=max(dat$Y)+1, ylab="dens", add=T, n = 1001, lty=1, lwd=2, col=rgb(1,0.1,0, 1))
+#   curve(mean(samples$pi[it,2]) * dnorm(x, mean(samples$mu[it,2]), mean(samples$sigma[it,2])), 
+#         from=min(dat$Y)-10, to=max(dat$Y)+1, ylab="dens", add=T, n = 1001, lty=2, lwd=2, col=rgb(0,0.1,1, 1))
+
+x <- seq(min(dat$Y)-10, max(dat$Y)+10, length.out=1000)
+y <- c(
+  mean(samples$pi[1:1000,1]) * dnorm(x, mean(samples$mu[1:1000,1]), mean(samples$sigma[1:1000,1])),
+  mean(samples$pi[1:1000,2]) * dnorm(x, mean(samples$mu[1:1000,2]), mean(samples$sigma[1:1000,2]))
+)
+h <- c(rep("1", 1000), rep("2",1000))
+
+
+ggplot() + 
+  geom_histogram(aes(x=dat$Y, y=after_stat(count)/sum(after_stat(count))), binwidth = 1.25) +
+  geom_line(aes(x=c(x,x), y=y, color=h, linetype=h), linewidth=1.5) + 
+  scale_color_manual(values=c("gold2","turquoise")) +
+  scale_linetype_manual(values=c(1,1)) + 
+  xlab(bquote(Y)) + ylab(bquote(p(Y[i]))) + 
+  ggtitle("Post. mean mixture from chain 1")
+  
+it=4001
+# hist(dat$Y, breaks = 75, probability = T, xlim=c(min(dat$Y)-10,max(dat$Y)+1), col="white", main="Example posterior draw from chain 2", ylab="", xlab="")
+# 
+# curve(mean(samples$pi[it,1]) * dnorm(x, mean(samples$mu[it,1]), mean(samples$sigma[it,1])), 
+#         from=min(dat$Y)-10, to=max(dat$Y)+1, ylab="dens", add=T, n = 1001, lty=1, lwd=2, col=rgb(1,0.1,0, 1))
+# curve(mean(samples$pi[it,2]) * dnorm(x, mean(samples$mu[it,2]), mean(samples$sigma[it,2])), 
+#         from=min(dat$Y)-10, to=max(dat$Y)+1, ylab="dens", add=T, n = 1001, lty=2, lwd=2, col=rgb(0,0.1,1, 1))
+
+x <- seq(min(dat$Y)-10, max(dat$Y)+10, length.out=1000)
+y2 <- c(
+  mean(samples$pi[3001:4000,1]) * dnorm(x, mean(samples$mu[3001:4000,1]), mean(samples$sigma[3001:4000,1])),
+  mean(samples$pi[3001:4000,2]) * dnorm(x, mean(samples$mu[3001:4000,2]), mean(samples$sigma[3001:4000,2]))
+)
+h <- c(rep("1", 1000), rep("2",1000))
+
+
+ggplot() + 
+  geom_histogram(aes(x=dat$Y, y=after_stat(count)/sum(after_stat(count))), binwidth = 1.25) +
+  geom_line(aes(x=c(x,x), y=y2, color=h, linetype=h), linewidth=1.5) + 
+  scale_color_manual(values=c("gold2","turquoise")) +
+  scale_linetype_manual(values=c(1,1)) + 
+  xlab(bquote(Y)) + ylab(bquote(p(Y[i]))) + 
+  ggtitle("Post. mean mixture from chain 2")
+
+# p1+p2
+```
+
+The Gaussian clusters have light tails, so outlying values of $Y$ force large values of $\sigma^2_h$. When $\sigma^2_h$ is large, small changes to $\mu_h$ have little impact on the log-likelihood, and the ordering constraint is not sufficient to identify the clusters. 
+
+## Things to consider when your mixture model is mixed up
+
+Mixture modeling, *especially when clusters are of interest*, can be fickle.
+
+1)  Different mixtures can give similar fit to data, leading to multimodal posteriors that are difficult to sample from (previous slides).
+2)  Clusters will depend on your choice of $f_h$—a Gaussian mixture model can only find Gaussian-shaped clusters.
+3)  Increasing $k$ often improves fit, but may muddle cluster interpretation.
+
+## Things to consider when your mixture model is mixed up
+
+1)  Employ informative priors.
+2)  Vary the number of clusters.
+3)  Change the form of the kernel.
+
+## Updated model {.midi}
+
+```{stan eval=FALSE, echo=T, output.var="tmp2"}
+// saved in mixture2.stan
+data {
+  int<lower=1> k;          // number of mixture components
+  int<lower=1> n;          // number of data points
+  array[n] real Y;         // observations
+}
+
+parameters {
+  simplex[k] pi; // mixing proportions
+  ordered[k] mu; // means of the mixture components
+  vector<lower=0>[k] sigma; // sds of the mixture components
+  vector<lower=1>[k] nu;
+}
+
+model {
+  target += normal_lpdf(mu |0.0, 10.0);
+  target += normal_lpdf(sigma | 2.0, 0.5);
+  target += gamma_lpdf(nu | 5., 0.5);
+  
+  vector[k] log_probs = log(pi);
+  for (i in 1:n){
+    vector[k] lps = log_probs;
+    for (h in 1:k){
+      lps[h] += student_t_lpdf(Y[i] | nu[h], mu[h], sigma[h]);
+    }
+    target += log_sum_exp(lps);
+  }
+}
+```
+
+-   Informative prior on $\sigma^2_h$.
+-   Mixture of Student-t.
+
+## Updated model fit
+
+```{r}
+#| echo: true
+#| eval: false
+mod2 <- stan_model("mixture2.stan")
+fit2 <- sampling(mod2, data=dat, chains=4, iter=5000, control=list("adapt_delta"=0.99))
+print(fit2, pars=c("pi", "mu", "sigma", "nu"))
+# saveRDS(fit2, "fits/fit2.rds")
+```
+
+```{r}
+#| eval: true
+#| echo: false
+#| output: true
+fit2 <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/23-clustering/fit2.rds")
+print(fit2, pars=c("pi", "mu", "sigma", "nu"))
+```
+
+## Updated model results
+
+```{r, eval=T, echo=F}
+samples <- rstan::extract(fit2)
+# hist(dat$Y, breaks = 75, probability = T, xlim=c(min(dat$Y)-1,max(dat$Y)+1), col="white", main="", xlab="Y")
+# for (it in sample(1:10000, 15)){
+#   curve(mean(samples$pi[it,1]) * dnorm(x, mean(samples$mu[it,1]), mean(samples$sigma[it,1])), 
+#         from=min(dat$Y)-1, to=max(dat$Y)+1, ylab="dens", add=T, n = 1001, lty=1, lwd=2, col=rgb(1,0.1,0, 0.25))
+#   curve(mean(samples$pi[it,2]) * dnorm(x, mean(samples$mu[it,2]), mean(samples$sigma[it,2])), 
+#         from=min(dat$Y)-1, to=max(dat$Y)+1, ylab="dens", add=T, n = 1001, lty=2, lwd=2, col=rgb(0,0.1,1, 0.25))
+#   # curve(mean(samples$pi[it,3]) * dnorm(x, mean(samples$mu[it,3]), mean(samples$sigma[it,3])), 
+#   #       from=0, to=max(dat$Y)+1, ylab="dens", add=T, n = 1001, lty=3, lwd=2, col=rgb(0,1,0, 0.25))
+#   # curve(mean(samples$pi[it,4]) * dnorm(x, mean(samples$mu[1,4]), mean(samples$sigma[it,4])), 
+#   #       from=0, to=90, ylab="dens", add=T, n = 1001, col=4, lwd=2)
+# }
+
+tmix <- function(x, pi, df, mu, sigma){
+  return(pi * dlst(x, df, mu, sigma))
+}
+
+base <- ggplot() + 
+  geom_histogram(aes(x=dat$Y, y=after_stat(count)/sum(after_stat(count))), 
+                 binwidth = 1.25) + 
+            ylab("Density") + xlab("Y") + ggtitle("Posterior Mixture Samples (solid, gold/turquoise) + Component Means (dashed, black)")
+
+for (it in sample(1:10000, 100)){
+  base <- base + geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                               args=list(pi=samples$pi[it,1], df=samples$nu[it,1], 
+                                         mu=samples$mu[it,1], sigma=samples$sigma[it,1]), 
+                               n=1000, color="gold2", alpha=0.35, linewidth=0.25) + 
+                 geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                               args=list(pi=samples$pi[it,2], df=samples$nu[it,2], 
+                                         mu=samples$mu[it,2], sigma=samples$sigma[it,2]), 
+                               n=1000, color="turquoise", alpha=0.35, linewidth=0.25, linetype=1) 
+}
+
+base + 
+  # geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+  #                     args=list(pi=samples$pi[,1]|>mean(), df=samples$nu[,1]|>mean(), 
+  #                               mu=samples$mu[,1]|>mean(), sigma=samples$sigma[,1]|>mean()), 
+  #                     n=1000, color="red", linewidth=1) + 
+   geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                      args=list(pi=samples$pi[,1]|>mean(), df=samples$nu[,1]|>mean(), 
+                                mu=samples$mu[,1]|>mean(), sigma=samples$sigma[,1]|>mean()), 
+                      n=1000, color="black", linetype="dashed", linewidth=0.75) + 
+  geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                args=list(pi=samples$pi[,2]|>mean(), df=samples$nu[,2]|>mean(), 
+                          mu=samples$mu[,2]|>mean(), sigma=samples$sigma[,2]|>mean()), 
+                n=1000, color="black", linetype="dashed", linewidth=0.75) 
+
+```
+
+## From marginal mixture model to clusters {.midi}
+
+`Stan` cannot directly *infer* categorical component indicators $z_i$. Instead, for each individual, we compute 
+
+\begin{align*}
+P\left(z_i = h \mid Y_i, \boldsymbol{\mu},\boldsymbol{\sigma},\boldsymbol{\pi} \right) &= \frac{f(Y_i\mid z_i = h, \mu_h,\sigma_h)P(z_i=h\mid \pi_h)}{\sum_{h'=1}^k f(Y_i\mid z_i = h', \mu_{h'},\sigma_{h'})P(z_i=h'\mid \pi_{h'})}\\
+&= \frac{N(Y_i | \mu_{h},\sigma_{h})\pi_{h}}{\sum_{h' = 1}^k N(Y_i | \mu_{h'},\sigma_{h'})\pi_{h'}} = p_{ih}.
+\end{align*}
+
+Given these cluster membership probabilities, we can recover cluster indicators through simulation:
+$$(z_i\mid -) \sim \text{Categorical}\left(k, \left\{ p_{i1},\dots,p_{ik}  \right\}\right).$$
+
+## From marginal mixture model to clusters
+```{stan eval=FALSE, echo=T, output.var="gq"}
+...
+
+generated quantities {
+  matrix[n,k] lPrZik;
+  int<lower=1, upper=k> z[n];
+  for (i in 1:n){
+    for (h in 1:k){
+      lPrZik[i,h] = log(pi[h]) + student_t_lpdf(Y[i] | nu[h], mu[h], sigma[h]);
+    }
+    lPrZik[i] -= log(sum(exp(lPrZik[i])));
+    z[i] = categorical_rng(exp(lPrZik[i]'));
+  }
+}
+```
+
+## Co-clustering probabilities
+
+Recovering $z_i$ allows us to make the following pairwise comparison: *what is the probability that unit $i$ and unit $j$ are in the same cluster?* This is the "co-clustering probability". 
+
+It is common to arrange these probabilities in a co-clustering matrix $C$, where the $i,j$ entry is given by,
+$$C_{ij}=\text{Pr}\left( z_i=z_j\mid- \right)\approx \frac{1}{S}\sum_{s=1}^S \mathbb{1}\left[z_i^{(s)}=z_j^{(s)}\right].$$
+
+## Co-clustering probabilities
+
+```{r}
+#| echo: FALSE
+ccmat <- matrix(1, dat$n, dat$n)
+for (i in 1:(dat$n-1)){
+  for (j in (i+1):dat$n){
+    ccmat[i,j] <- mean(samples$z[,i] ==samples$z[,j])
+    ccmat[j,i] <- ccmat[i,j]
+  }
+}
+colnames(ccmat) <- paste0("Y", 1:dat$n)
+rownames(ccmat) <- paste0("Y", 1:dat$n)
+
+ccmat <- ccmat[order(dat$Y, decreasing = F),order(dat$Y, decreasing = F)]
+
+dat2 <- reshape::melt(ccmat)
+
+ggplot(dat2, aes(X1, X2)) +
+  geom_tile(aes(fill = value)) +
+  # geom_text(aes(label = round(value, 1))) +
+  scale_fill_gradient(low = "blue", high = "red", name = bquote("Pr(" ~ z[i]~"="~z[j] ~ "|"-")")) + 
+  theme(axis.text = element_blank()) + 
+  xlab("Y rank") + ylab("Y rank") + coord_equal() 
+  
+
+# x <- 1:dat$n
+# y <- paste0("var", seq(1,20))
+# data <- expand.grid(X=x, Y=y)
+# data$Z <- runif(400, 0, 5)
+#  
+# # Heatmap 
+# ggplot(data, aes(X, Y, fill= Z)) + 
+#   geom_tile()
+```
+
+## How do our results change when we use more components?
+
+**$k=3$**
+
+```{r}
+#| echo: FALSE
+# dat3 <- dat; dat3$k <- 3
+# fit3 <- sampling(mod2, data=dat3, chains=4, iter=10000, thin=2, control=list("adapt_delta"=0.99))
+# saveRDS(rstan::extract(fit3, pars=c("pi", "mu","nu","sigma","z")), "fits/fit3.rds")
+
+samples <-readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/23-clustering/fit3.rds")
+base <- ggplot() + 
+  geom_histogram(aes(x=dat$Y, y=after_stat(count)/sum(after_stat(count))), 
+                 binwidth = 1.25) + 
+  ylab("Density") + xlab("Y") + ggtitle("Posterior Mixture Samples (colors) + Component Means (black)")
+
+for (it in sample(1:10000, 100)){
+  base <- base + geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                               args=list(pi=samples$pi[it,1], df=samples$nu[it,1], 
+                                         mu=samples$mu[it,1], sigma=samples$sigma[it,1]), 
+                               n=1000, color="gold2", alpha=0.5, linewidth=0.25) + 
+    geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                  args=list(pi=samples$pi[it,2], df=samples$nu[it,2], 
+                            mu=samples$mu[it,2], sigma=samples$sigma[it,2]), 
+                  n=1000, color="turquoise", alpha=0.2, linetype=1)  + 
+    geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                  args=list(pi=samples$pi[it,3], df=samples$nu[it,3], 
+                            mu=samples$mu[it,3], sigma=samples$sigma[it,3]), 
+                  n=1000, color="firebrick3", alpha=0.2, linetype=1) 
+}
+
+base + geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                     args=list(pi=samples$pi[,1]|>mean(), df=samples$nu[,1]|>mean(), 
+                               mu=samples$mu[,1]|>mean(), sigma=samples$sigma[,1]|>mean()), 
+                     n=1000, color="black", linetype="dashed", linewidth=0.65) + 
+  geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                args=list(pi=samples$pi[,2]|>mean(), df=samples$nu[,2]|>mean(), 
+                          mu=samples$mu[,2]|>mean(), sigma=samples$sigma[,2]|>mean()), 
+                n=1000, color="black", linetype="dashed", linewidth=0.65)  + 
+  geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                args=list(pi=samples$pi[,3]|>mean(), df=samples$nu[,3]|>mean(), 
+                          mu=samples$mu[,3]|>mean(), sigma=samples$sigma[,3]|>mean()), 
+                n=1000, color="black", linetype="dashed", linewidth=0.65) 
+```
+
+## How do our results change when we use more components?
+
+**$k=4$**
+
+```{r}
+#| echo: FALSE
+
+# dat4 <- dat; dat4$k <- 4
+# fit4 <- sampling(mod2, data=dat4, chains=4, iter=10000, control=list("adapt_delta"=0.99))
+# saveRDS(rstan::extract(fit4, pars=c("pi", "mu","nu","sigma","z")), "fits/fit4.rds")
+samples <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/23-clustering/fit4.rds")
+
+base <- ggplot() + 
+  geom_histogram(aes(x=dat$Y, y=after_stat(count)/sum(after_stat(count))), 
+                 binwidth = 1.25) + 
+  ylab("Density") + xlab("Y") + ggtitle("Posterior Mixture Samples (colors) + Component Means (black)")
+
+for (it in sample(1:20000, 250)){
+  base <- base + geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                               args=list(pi=samples$pi[it,1], df=samples$nu[it,1], 
+                                         mu=samples$mu[it,1], sigma=samples$sigma[it,1]), 
+                               n=1000, color="gold2", alpha=0.1) + 
+    geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                  args=list(pi=samples$pi[it,2], df=samples$nu[it,2], 
+                            mu=samples$mu[it,2], sigma=samples$sigma[it,2]), 
+                  n=1000, color="turquoise", alpha=0.1, linetype=1)  + 
+    geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                  args=list(pi=samples$pi[it,3], df=samples$nu[it,3], 
+                            mu=samples$mu[it,3], sigma=samples$sigma[it,3]), 
+                  n=1000, color="firebrick3", alpha=0.1, linetype=1)   + 
+    geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                  args=list(pi=samples$pi[it,4], df=samples$nu[it,4], 
+                            mu=samples$mu[it,4], sigma=samples$sigma[it,4]), 
+                  n=1000, color="plum2", alpha=0.1, linetype=1) 
+}
+
+base + geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                     args=list(pi=samples$pi[,1]|>mean(), df=samples$nu[,1]|>mean(), 
+                               mu=samples$mu[,1]|>mean(), sigma=samples$sigma[,1]|>mean()), 
+                     n=1000, color="black", linetype="dashed", linewidth=0.65) + 
+  geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                args=list(pi=samples$pi[,2]|>mean(), df=samples$nu[,2]|>mean(), 
+                          mu=samples$mu[,2]|>mean(), sigma=samples$sigma[,2]|>mean()), 
+                n=1000, color="black", linetype="dashed", linewidth=0.65)  + 
+  geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                args=list(pi=samples$pi[,3]|>mean(), df=samples$nu[,3]|>mean(), 
+                          mu=samples$mu[,3]|>mean(), sigma=samples$sigma[,3]|>mean()), 
+                n=1000, color="black", linetype="dashed", linewidth=0.65)  + 
+  geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix, 
+                args=list(pi=samples$pi[,4]|>mean(), df=samples$nu[,4]|>mean(), 
+                          mu=samples$mu[,4]|>mean(), sigma=samples$sigma[,4]|>mean()), 
+                n=1000, color="black", linetype="dashed", linewidth=0.65) 
+```
+
+## Co-clusterings across $k$
+
+```{r}
+#| echo: FALSE
+
+samples <- rstan::extract(fit2)
+ccmat <- matrix(1, dat$n, dat$n)
+for (i in 1:(dat$n-1)){
+  for (j in (i+1):dat$n){
+    ccmat[i,j] <- mean(samples$z[,i] ==samples$z[,j])
+    ccmat[j,i] <- ccmat[i,j]
+  }
+}
+colnames(ccmat) <- paste0("Y", 1:dat$n)
+rownames(ccmat) <- paste0("Y", 1:dat$n)
+
+ccmat <- ccmat[order(dat$Y, decreasing = F),order(dat$Y, decreasing = F)]
+
+dat2 <- reshape::melt(ccmat)
+
+a <- ggplot(dat2, aes(X1, X2)) +
+  geom_tile(aes(fill = value), show.legend = F) +
+  # geom_text(aes(label = round(value, 1))) +
+  scale_fill_gradient(low = "blue", high = "red", name = bquote("Pr(" ~ z[i]~"="~z[j] ~ "|"-")")) + 
+  theme(axis.text = element_blank()) + 
+  xlab("Y rank") + ylab("Y rank") + coord_equal() +
+  ggtitle("k=2")
+
+samples <-readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/23-clustering/fit3.rds")
+ccmat <- matrix(1, dat$n, dat$n)
+for (i in 1:(dat$n-1)){
+  for (j in (i+1):dat$n){
+    ccmat[i,j] <- mean(samples$z[,i] ==samples$z[,j])
+    ccmat[j,i] <- ccmat[i,j]
+  }
+}
+colnames(ccmat) <- paste0("Y", 1:dat$n)
+rownames(ccmat) <- paste0("Y", 1:dat$n)
+
+ccmat <- ccmat[order(dat$Y, decreasing = F),order(dat$Y, decreasing = F)]
+
+dat2 <- reshape::melt(ccmat)
+
+b <- ggplot(dat2, aes(X1, X2)) +
+  geom_tile(aes(fill = value), show.legend = F) +
+  # geom_text(aes(label = round(value, 1))) +
+  scale_fill_gradient(low = "blue", high = "red", name = bquote("Pr(" ~ z[i]~"="~z[j] ~ "|"-")")) + 
+  theme(axis.text = element_blank()) + 
+  xlab("Y rank") + ylab("Y rank") + coord_equal() +
+  ggtitle("k=3")
+
+samples <- readRDS("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/23-clustering/fit4.rds")
+ccmat <- matrix(1, dat$n, dat$n)
+for (i in 1:(dat$n-1)){
+  for (j in (i+1):dat$n){
+    ccmat[i,j] <- mean(samples$z[,i] ==samples$z[,j])
+    ccmat[j,i] <- ccmat[i,j]
+  }
+}
+colnames(ccmat) <- paste0("Y", 1:dat$n)
+rownames(ccmat) <- paste0("Y", 1:dat$n)
+
+ccmat <- ccmat[order(dat$Y, decreasing = F),order(dat$Y, decreasing = F)]
+
+dat2 <- reshape::melt(ccmat)
+
+c <- ggplot(dat2, aes(X1, X2)) +
+  geom_tile(aes(fill = value)) +
+  # geom_text(aes(label = round(value, 1))) +
+  scale_fill_gradient(low = "blue", high = "red", name = bquote("Pr(" ~ z[i]~"="~z[j] ~ "|"-")")) + 
+  theme(axis.text = element_blank()) + 
+  xlab("Y rank") + ylab("Y rank") + coord_equal() +
+  ggtitle("k=4")
+
+a+b+c
+```
+
+The same general pattern persists when more clusters are used, indicating that $k=2$ is a reasonable choice.
+
+## Prepare for next class
+
+1.  Reminder: On Thursday, we will have a in-class live-coding exercise.
+
+2.  Begin working on Exam 02, which is due for feedback on April 15. 

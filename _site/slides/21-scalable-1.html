@@ -491,7 +491,7 @@ Christine Shen
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -521,7 +521,7 @@ Christine Shen
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -756,7 +756,7 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <span id="cb2-13"><a></a>}</span>
 <span id="cb2-14"><a></a><span class="kw">model</span> {</span>
 <span id="cb2-15"><a></a>  <span class="dt">vector</span>[n] theta = PHI * (sqrt_S .* b);</span>
-<span id="cb2-16"><a></a>  <span class="kw">target +=</span> normal_lupdf(y | alpha + X * beta + Z * theta, sigma);</span>
+<span id="cb2-16"><a></a>  <span class="kw">target +=</span> normal_lupdf(y | alpha_star + X_centered * beta + Z * theta, sigma);</span>
 <span id="cb2-17"><a></a>  <span class="kw">target +=</span> normal_lupdf(b | <span class="dv">0</span>, <span class="dv">1</span>);</span>
 <span id="cb2-18"><a></a>  ...</span>
 <span id="cb2-19"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -841,24 +841,29 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 </section>
 <section id="kriging-under-hsgp-2" class="slide level2 midi">
 <h2>Kriging under HSGP</h2>
-<p>If <span class="math inline">\(m \le n\)</span>, claim <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},\)</span> where <span class="math inline">\(\mathbf{A}^\dagger\)</span> denotes a generalized inverse of matrix <span class="math inline">\(\mathbf{A}\)</span> such that <span class="math inline">\(\mathbf{A}^{\dagger \top} = \mathbf{A}^\dagger\)</span>, <span class="math inline">\(\mathbf{A}^\dagger\mathbf{A}=\mathbf{I}\)</span><sup>1</sup>. Sketch proof below, see details in class.</p>
+<p>If <span class="math inline">\(m \le n\)</span>, claim <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},\)</span> where <span class="math inline">\(\mathbf{A}^\dagger\)</span> denotes a generalized inverse of matrix <span class="math inline">\(\mathbf{A}\)</span> such that <span class="math inline">\(\mathbf{A}\mathbf{A}^{\dagger}\mathbf{A} = \mathbf{A}\)</span>. Sketch proof below, see details in class.</p>
 <ol type="1">
 <li><p>By properties of multivariate normal, <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \sim N_q(\mathbb{E}_{\boldsymbol{\theta}^*}^{HS},\mathbb{V}_{\boldsymbol{\theta}^*}^{HS})\)</span>, <span class="math display">\[
 \begin{align}
   \mathbb{E}_{\boldsymbol{\theta}^*}^{HS} &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}\\
-  \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi})^{\dagger}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
+  \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
 \end{align}
 \]</span></p></li>
-<li><p>Show if <span class="math inline">\(\boldsymbol{\Phi}\)</span> has full column rank, which is true under HSGP, then <span class="math inline">\(\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}\)</span> because for any vector <span class="math inline">\(\mathbf{v} \in \mathbb{R}^m\)</span>, <span class="math display">\[\mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}\boldsymbol{\Phi}\mathbf{v} = \mathbf{v} \tag{1}.\]</span></p></li>
+<li><p>Show if <span class="math inline">\(\boldsymbol{\Phi}\)</span> has full column rank, which is true under HSGP, then <span class="math display">\[
+\begin{align}
+  \mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}\boldsymbol{\Phi}\mathbf{S} = \mathbf{S} \tag{1} \\
+  \mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}\boldsymbol{\Phi}\mathbf{S} = \mathbf{S} \tag{2}.
+\end{align}
+\]</span> Equation (1) is sufficient to show <span class="math inline">\(\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}\)</span>.</p></li>
 </ol>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>This result holds more generally for <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{-}\)</span> where <span class="math inline">\(\mathbf{A}^-\)</span> denotes any generalized inverse of matrix <span class="math inline">\(\mathbf{A}\)</span> such that <span class="math inline">\(\mathbf{A}\mathbf{A}^-\mathbf{A}=\mathbf{A}\)</span>. We only prove for <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^\dagger\)</span> here for simplicity.</p></li></ol></aside></section>
+</section>
 <section id="kriging-under-hsgp-3" class="slide level2 midi">
 <h2>Kriging under HSGP</h2>
 <p>Under the reparameterized model, <span class="math inline">\(\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}\)</span>, for <span class="math inline">\(\mathbf{b} \sim N_m(0,\mathbf{I}).\)</span> Therefore <span class="math display">\[
 \begin{align}
   \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta} \\
   &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}(\boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}) \\
-  &amp;= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}. \quad (\text{by equation (1) in the last slide})
+  &amp;= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}. \quad (\text{by equation (2) in the last slide})
 \end{align}
 \]</span></p>
 <p>During MCMC sampling, we can obtain posterior predictive samples for <span class="math inline">\(\boldsymbol{\theta}^*\)</span> through posterior samples of <span class="math inline">\(\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{S}\)</span>. Let superscript <span class="math inline">\((s)\)</span> denote the <span class="math inline">\(s\)</span>th posterior sample:</p>
@@ -876,18 +881,23 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 </section>
 <section id="hsgp-kriging-in-stan" class="slide level2 midi">
 <h2>HSGP kriging in <code>stan</code></h2>
-<p>If <span class="math inline">\(m \le n\)</span>, Kriging under HSGP can be easily implemented in <code>stan</code>.</p>
+<p>If <span class="math inline">\(m \le n\)</span>, kriging under HSGP can be easily implemented in <code>stan</code>.</p>
 <div class="cell" data-output.var="model_in_stan">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb3-1"><a></a><span class="kw">transformed data</span> {</span>
 <span id="cb3-2"><a></a>  <span class="dt">matrix</span>[q,m] PHI_new;</span>
-<span id="cb3-3"><a></a>}</span>
-<span id="cb3-4"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb3-5"><a></a>  <span class="dt">vector</span>[m] b;</span>
-<span id="cb3-6"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
-<span id="cb3-7"><a></a>}</span>
-<span id="cb3-8"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb3-9"><a></a>  <span class="dt">vector</span>[q] theta_new = PHI_new * (sqrt_S .* b);</span>
-<span id="cb3-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a>  ...</span>
+<span id="cb3-4"><a></a>}</span>
+<span id="cb3-5"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb3-6"><a></a>  <span class="dt">vector</span>[m] b;</span>
+<span id="cb3-7"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
+<span id="cb3-8"><a></a>  ...</span>
+<span id="cb3-9"><a></a>}</span>
+<span id="cb3-10"><a></a><span class="kw">model</span> {</span>
+<span id="cb3-11"><a></a>  ...</span>
+<span id="cb3-12"><a></a>}</span>
+<span id="cb3-13"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb3-14"><a></a>  <span class="dt">vector</span>[q] theta_new = PHI_new * (sqrt_S .* b);</span>
+<span id="cb3-15"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>If <span class="math inline">\(m&gt;n\)</span>, we need to invert an <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)\)</span> for kriging, which could be computationally prohibitive.</p>
@@ -941,97 +951,6 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <p><em>Note: we treat estimation of the GP magnitude parameter</em> <span class="math inline">\(\tau\)</span> as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function.</p>
 </div>
 </section>
-<section id="hsgp-approximation-box" class="slide level2 midi">
-<h2>HSGP approximation box</h2>
-<p>Due to the design of HSGP, the approximation is less accurate near the boundaries of <span class="math inline">\(\boldsymbol{\Theta}\)</span>.</p>
-<ul>
-<li>Suppose all the coordinates are centered. Let <span class="math display">\[S_l = \max_i |\mathbf{u}_{il}|, \quad l=1,\dots,d, \quad i= 1, \dots, (n+q)\]</span> such that <span class="math inline">\(\boldsymbol{\Theta}_S = \prod_{l=1}^d [-S_l,S_l]\)</span> is the smallest box which contains all observed and prediction locations. We should at least ensure <span class="math inline">\(\boldsymbol{\Theta} \supset \boldsymbol{\Theta}_S\)</span>.</li>
-<li>We want the box to be large enough to ensure good boundary accuracy. Let <span class="math inline">\(c_l \ge 1\)</span> be <em>boundary factors</em>, we consider <span class="math display">\[\boldsymbol{\Theta} = \prod_{l=1}^d [-L_l,L_l], \quad L_l = c_l S_l.\]</span></li>
-</ul>
-</section>
-<section id="hsgp-approximation-box-and-rho" class="slide level2 midi">
-<h2>HSGP approximation box and <span class="math inline">\(\rho\)</span></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./images/21/HSGPbox.png" class="quarto-figure quarto-figure-center" height="350"></p>
-</figure>
-</div>
-<p>How much the approximation accuracy deteriorates towards the boundaries depends on smoothness of the true surface.</p>
-<ul>
-<li>the larger the length scale <span class="math inline">\(\rho\)</span>, the smoother the surface, a smaller box (smaller <span class="math inline">\(c\)</span>) can be used for the same level of boundary accuracy.</li>
-</ul>
-</section>
-<section id="hsgp-approximation-box-and-m" class="slide level2 midi">
-<h2>HSGP approximation box and <span class="math inline">\(m\)</span></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./images/21/HSGPbox.png" class="quarto-figure quarto-figure-center" height="350"></p>
-</figure>
-</div>
-<p>The larger the box,</p>
-<ul>
-<li>the more basis functions we need for the same level of overall accuracy,</li>
-<li>hence higher run time.</li>
-</ul>
-</section>
-<section id="zooming-out-doesnt-simplify-the-problem" class="slide level2 midi">
-<h2>Zooming out doesn’t simplify the problem</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./images/21/HSGPbox2.png" class="quarto-figure quarto-figure-center" height="350"></p>
-</figure>
-</div>
-<ul>
-<li>If we scale the coordinates by a constant <span class="math inline">\(b\)</span>, the length scale <span class="math inline">\(\rho\)</span> of the underlying GP also needs to be approximately scaled by <span class="math inline">\(b\)</span> to capture the same level of details in the data.</li>
-<li>We can effectively think of the length scale parameter as <span class="math inline">\((\rho/\|\mathbf{S}\|)\)</span>.</li>
-</ul>
-</section>
-<section id="hsgp-basis-functions" class="slide level2 midi">
-<h2>HSGP basis functions</h2>
-<p>The total number of basis functions <span class="math inline">\(m = \prod_{l=1}^d m_l\)</span>, i.e., we need to decide on <span class="math inline">\(m_l\)</span>’s, the number of basis functions for each dimension.</p>
-<ul>
-<li><span class="math inline">\(m\)</span> scales exponentially in <span class="math inline">\(d\)</span>, hence the HSGP computation complexity <span class="math inline">\(\mathcal{O}(nm+m)\)</span> also scales exponentially in <span class="math inline">\(d\)</span>. Therefore HSGP is only recommended for <span class="math inline">\(d \le 3\)</span>, at most <span class="math inline">\(4\)</span>.</li>
-<li>The higher the <span class="math inline">\(m\)</span>, the better the overall approximation accuracy, the higher the runtime.</li>
-</ul>
-</section>
-<section id="relationship-between-c-m-and-rho" class="slide level2 midi">
-<h2>Relationship between <span class="math inline">\(c\)</span>, <span class="math inline">\(m\)</span> and <span class="math inline">\(\rho\)</span></h2>
-<p>Let’s quickly recap. For simplicity, let <span class="math inline">\(d=1\)</span>,</p>
-<div>
-<ol type="1">
-<li class="fragment">As <span class="math inline">\((\rho/S)\)</span> decreases, the surface is less smooth,
-<ul>
-<li class="fragment"><span class="math inline">\(c\)</span> needs to increase to retain boundary accuracy.</li>
-<li class="fragment"><span class="math inline">\(m\)</span> needs to increase to retain overall accuracy.</li>
-</ul></li>
-<li class="fragment">As <span class="math inline">\(c\)</span> increases, <span class="math inline">\(m\)</span> needs to increase to retain overall accuracy.</li>
-<li class="fragment">As <span class="math inline">\(m\)</span> increases, run time increases.</li>
-</ol>
-</div>
-<div class="fragment">
-<p>Hence we want to minimize <span class="math inline">\(m\)</span> and <span class="math inline">\(c\)</span> while maintaining approximation accuracy.</p>
-</div>
-</section>
-<section id="empirical-functional-form" class="slide level2 midi">
-<h2>Empirical functional form</h2>
-<ul>
-<li>Given <span class="math inline">\(c\)</span> and <span class="math inline">\(\rho/S\)</span>, let <span class="math inline">\(m_C(c,\rho/S)\)</span> denote the minimum number of basis functions needed for a near 100% accuracy under covariance function <span class="math inline">\(C\)</span>.</li>
-<li><span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> used extensive simulations to obtain an empirical function form of <span class="math inline">\(m_C(c,\rho/S)\)</span> for frequently used Matérn covariance functions. E.g., for Matérn 3/2,</li>
-</ul>
-<p><span class="math display">\[m_{3/2}(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.\]</span></p>
-<p>Notice:</p>
-<ul>
-<li>linear proportionality between <span class="math inline">\(m\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\rho/S\)</span>.</li>
-<li>for a given <span class="math inline">\(\rho/S\)</span>, there exists a minimum <span class="math inline">\(c\)</span>, below which the approximation is poor no matter how large <span class="math inline">\(m\)</span> is.</li>
-</ul>
-</section>
-<section id="question" class="slide level2 midi">
-<h2>Question</h2>
-<p>BUT, in real applications, we <strong>do not</strong> know <span class="math inline">\(\rho\)</span>.</p>
-<div class="fragment">
-<p>So how to use <span class="math inline">\(m_C(c,\rho/S)\)</span> to help choose <span class="math inline">\(c\)</span> and <span class="math inline">\(m\)</span>?</p>
-</div>
-</section>
 <section id="prepare-for-next-class" class="slide level2 midi">
 <h2>Prepare for next class</h2>
 <ol type="1">
@@ -1077,7 +996,6 @@ Vecchia, Aldo V. 1988. <span>“Estimation and Model Identification for Continuo
 </div>
 </div>
 </section>
-
     </div>
   </div>
 

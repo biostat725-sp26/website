@@ -476,7 +476,7 @@ parameters {
 }
 model {
   vector[n] theta = PHI * (sqrt_S .* b);
-  target += normal_lupdf(y | alpha + X * beta + Z * theta, sigma);
+  target += normal_lupdf(y | alpha_star + X_centered * beta + Z * theta, sigma);
   target += normal_lupdf(b | 0, 1);
   ...
 }
@@ -566,18 +566,21 @@ $$
 
 ## Kriging under HSGP {.midi}
 
-If $m \le n$, claim $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},$ where $\mathbf{A}^\dagger$ denotes a generalized inverse of matrix $\mathbf{A}$ such that $\mathbf{A}^{\dagger \top} = \mathbf{A}^\dagger$, $\mathbf{A}^\dagger\mathbf{A}=\mathbf{I}$[^1]. Sketch proof below, see details in class.
-
-[^1]: This result holds more generally for $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{-}$ where $\mathbf{A}^-$ denotes any generalized inverse of matrix $\mathbf{A}$ such that $\mathbf{A}\mathbf{A}^-\mathbf{A}=\mathbf{A}$. We only prove for $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^\dagger$ here for simplicity.
+If $m \le n$, claim $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},$ where $\mathbf{A}^\dagger$ denotes a generalized inverse of matrix $\mathbf{A}$ such that $\mathbf{A}\mathbf{A}^{\dagger}\mathbf{A} = \mathbf{A}$. Sketch proof below, see details in class.
 
 1.  By properties of multivariate normal, $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \sim N_q(\mathbb{E}_{\boldsymbol{\theta}^*}^{HS},\mathbb{V}_{\boldsymbol{\theta}^*}^{HS})$, $$
     \begin{align}
       \mathbb{E}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}\\
-      \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi})^{\dagger}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
+      \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
     \end{align}
     $$
 
-2.  Show if $\boldsymbol{\Phi}$ has full column rank, which is true under HSGP, then $\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}$ because for any vector $\mathbf{v} \in \mathbb{R}^m$, $$\mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}\boldsymbol{\Phi}\mathbf{v} = \mathbf{v} \tag{1}.$$
+2.  Show if $\boldsymbol{\Phi}$ has full column rank, which is true under HSGP, then $$
+    \begin{align}
+      \mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger \top}\boldsymbol{\Phi}\mathbf{S} = \mathbf{S} \tag{1} \\
+      \mathbf{S} \boldsymbol{\Phi}^\top(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}\boldsymbol{\Phi}\mathbf{S} = \mathbf{S} \tag{2}.
+    \end{align}
+    $$ Equation (1) is sufficient to show $\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}$.
 
 ## Kriging under HSGP {.midi}
 
@@ -585,7 +588,7 @@ Under the reparameterized model, $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathb
 \begin{align}
   \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta} \\
   &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger}(\boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}) \\
-  &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}. \quad (\text{by equation (1) in the last slide})
+  &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}. \quad (\text{by equation (2) in the last slide})
 \end{align}
 $$
 
@@ -606,15 +609,20 @@ $$
 
 ## HSGP kriging in `stan` {.midi}
 
-If $m \le n$, Kriging under HSGP can be easily implemented in `stan`.
+If $m \le n$, kriging under HSGP can be easily implemented in `stan`.
 
 ```{stan output.var = "model_in_stan", eval = FALSE}
 transformed data {
   matrix[q,m] PHI_new;
+  ...
 }
 parameters {
   vector[m] b;
   vector<lower=0>[m] sqrt_S;
+  ...
+}
+model {
+  ...
 }
 generated quantities {
   vector[q] theta_new = PHI_new * (sqrt_S .* b);
@@ -666,80 +674,6 @@ Minimize the run time while maintaining reasonable approximation accuracy.
 
 ::: fragment
 *Note: we treat estimation of the GP magnitude parameter* $\tau$ as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function.
-:::
-
-## HSGP approximation box {.midi}
-
-Due to the design of HSGP, the approximation is less accurate near the boundaries of $\boldsymbol{\Theta}$.
-
--   Suppose all the coordinates are centered. Let $$S_l = \max_i |\mathbf{u}_{il}|, \quad l=1,\dots,d, \quad i= 1, \dots, (n+q)$$ such that $\boldsymbol{\Theta}_S = \prod_{l=1}^d [-S_l,S_l]$ is the smallest box which contains all observed and prediction locations. We should at least ensure $\boldsymbol{\Theta} \supset \boldsymbol{\Theta}_S$.
--   We want the box to be large enough to ensure good boundary accuracy. Let $c_l \ge 1$ be *boundary factors*, we consider $$\boldsymbol{\Theta} = \prod_{l=1}^d [-L_l,L_l], \quad L_l = c_l S_l.$$
-
-## HSGP approximation box and $\rho$ {.midi}
-
-![](./images/21/HSGPbox.png){fig-align="center" height="350"}
-
-How much the approximation accuracy deteriorates towards the boundaries depends on smoothness of the true surface.
-
--   the larger the length scale $\rho$, the smoother the surface, a smaller box (smaller $c$) can be used for the same level of boundary accuracy.
-
-## HSGP approximation box and $m$ {.midi}
-
-![](./images/21/HSGPbox.png){fig-align="center" height="350"}
-
-The larger the box,
-
--   the more basis functions we need for the same level of overall accuracy,
--   hence higher run time.
-
-## Zooming out doesn't simplify the problem {.midi}
-
-![](./images/21/HSGPbox2.png){fig-align="center" height="350"}
-
--   If we scale the coordinates by a constant $b$, the length scale $\rho$ of the underlying GP also needs to be approximately scaled by $b$ to capture the same level of details in the data.
--   We can effectively think of the length scale parameter as $(\rho/\|\mathbf{S}\|)$.
-
-## HSGP basis functions {.midi}
-
-The total number of basis functions $m = \prod_{l=1}^d m_l$, i.e., we need to decide on $m_l$'s, the number of basis functions for each dimension.
-
--   $m$ scales exponentially in $d$, hence the HSGP computation complexity $\mathcal{O}(nm+m)$ also scales exponentially in $d$. Therefore HSGP is only recommended for $d \le 3$, at most $4$.
--   The higher the $m$, the better the overall approximation accuracy, the higher the runtime.
-
-## Relationship between $c$, $m$ and $\rho$ {.midi}
-
-Let's quickly recap. For simplicity, let $d=1$,
-
-::: incremental
-1.  As $(\rho/S)$ decreases, the surface is less smooth,
-    -   $c$ needs to increase to retain boundary accuracy.
-    -   $m$ needs to increase to retain overall accuracy.
-2.  As $c$ increases, $m$ needs to increase to retain overall accuracy.
-3.  As $m$ increases, run time increases.
-:::
-
-::: fragment
-Hence we want to minimize $m$ and $c$ while maintaining approximation accuracy.
-:::
-
-## Empirical functional form {.midi}
-
--   Given $c$ and $\rho/S$, let $m_C(c,\rho/S)$ denote the minimum number of basis functions needed for a near 100% accuracy under covariance function $C$.
--   @riutort2023practical used extensive simulations to obtain an empirical function form of $m_C(c,\rho/S)$ for frequently used Matérn covariance functions. E.g., for Matérn 3/2,
-
-$$m_{3/2}(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.$$
-
-Notice:
-
--   linear proportionality between $m$, $c$ and $\rho/S$.
--   for a given $\rho/S$, there exists a minimum $c$, below which the approximation is poor no matter how large $m$ is.
-
-## Question {.midi}
-
-BUT, in real applications, we **do not** know $\rho$.
-
-::: fragment
-So how to use $m_C(c,\rho/S)$ to help choose $c$ and $m$?
 :::
 
 ## Prepare for next class {.midi}
