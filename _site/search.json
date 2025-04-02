@@ -16960,22 +16960,22 @@
     "objectID": "slides/22-scalable-2.html#geospatial-analysis-on-hemoglobin-dataset",
     "href": "slides/22-scalable-2.html#geospatial-analysis-on-hemoglobin-dataset",
     "title": "Scalable Gaussian Processes #2",
-    "section": "",
-    "text": "We wanted to perform geospatial analysis on a dataset with ~8,600 observations at ~500 locations, and make predictions at ~440 locations on a grid."
+    "section": "Geospatial analysis on hemoglobin dataset",
+    "text": "Geospatial analysis on hemoglobin dataset\n\nWe wanted to perform geospatial analysis on a dataset with ~8,600 observations at ~500 locations, and make predictions at ~440 locations on a grid."
   },
   {
     "objectID": "slides/22-scalable-2.html#geospatial-model",
     "href": "slides/22-scalable-2.html#geospatial-model",
     "title": "Scalable Gaussian Processes #2",
     "section": "Geospatial model",
-    "text": "Geospatial model\nWe specify the following model: \\[\\mathbf{Y} = \\alpha \\mathbf{1}_{N} + \\mathbf{X} \\boldsymbol{\\beta} + \\mathbf{Z}\\boldsymbol{\\theta} + \\boldsymbol{\\epsilon}, \\quad \\boldsymbol{\\epsilon} \\sim N_N(\\mathbf{0},\\sigma^2\\mathbf{I})\\] with priors\n\n\\(\\boldsymbol{\\theta}(\\mathbf{u}) | \\tau,\\rho \\sim GP(\\mathbf{0},C(\\cdot,\\cdot))\\), where \\(C\\) is the Matérn 3/2 covariance function with magnitude \\(\\tau\\) and length scale \\(\\rho\\)\n\\(\\alpha^* \\sim N(0,4^2)\\). This is the intercept after centering \\(\\mathbf{X}\\).\n\\(\\beta_j | \\sigma_{\\beta} \\sim N(0,\\sigma_{\\beta}^2)\\), \\(j \\in \\{1,\\dots,p\\}\\)\n\\(\\sigma \\sim \\text{Half-Normal}(0, 2^2)\\)\n\\(\\tau \\sim \\text{Half-Normal}(0, 4^2)\\)\n\\(\\rho \\sim \\text{Inv-Gamma}(5, 5)\\)\n\\(\\sigma_{\\beta} \\sim \\text{Half-Normal}(0, 2^2)\\)"
+    "text": "Geospatial model\nWe specify the following model: \\[\\mathbf{Y} = \\alpha \\mathbf{1}_{N} + \\mathbf{X} \\boldsymbol{\\beta} + \\mathbf{Z}\\boldsymbol{\\theta} + \\boldsymbol{\\epsilon}, \\quad \\boldsymbol{\\epsilon} \\sim N_N(\\mathbf{0},\\sigma^2\\mathbf{I})\\] with priors\n\n\\(\\boldsymbol{\\theta} | \\tau,\\rho \\sim GP(\\mathbf{0},C(\\cdot,\\cdot))\\), where \\(C\\) is the Matérn 3/2 covariance function with magnitude \\(\\tau\\) and length scale \\(\\rho\\)\n\\(\\alpha^* \\sim N(0,4^2)\\). This is the intercept after centering \\(\\mathbf{X}\\).\n\\(\\beta_j | \\sigma_{\\beta} \\sim N(0,\\sigma_{\\beta}^2)\\), \\(j \\in \\{1,\\dots,p\\}\\)\n\\(\\sigma \\sim \\text{Half-Normal}(0, 2^2)\\)\n\\(\\tau \\sim \\text{Half-Normal}(0, 4^2)\\)\n\\(\\rho \\sim \\text{Inv-Gamma}(5, 5)\\)\n\\(\\sigma_{\\beta} \\sim \\text{Half-Normal}(0, 2^2)\\)"
   },
   {
     "objectID": "slides/22-scalable-2.html#review-of-the-last-lecture",
     "href": "slides/22-scalable-2.html#review-of-the-last-lecture",
     "title": "Scalable Gaussian Processes #2",
     "section": "Review of the last lecture",
-    "text": "Review of the last lecture\n\nGaussian process (GP) requires \\(\\mathcal{O}(n^3)\\) flops per MCMC iteration, hence it is not scalable.\nIntroduced HSGP, a Hilbert space low-rank approximation method for GP. \\[\\mathbf{C} \\approx \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^T, \\quad \\text{where}\\]\n\n\\(\\boldsymbol{\\Phi} \\in \\mathbb{R}^{n \\times m}\\) only depends on the approximation box \\(\\boldsymbol{\\Theta}\\) and observed locations\n\\(\\mathbf{S} \\in \\mathbb{R}^{m \\times m}\\) is diagonal, \\(m\\) is the number of basis functions\n\nModel reparameterization under HSGP\nKriging under HSGP\nParameter tuning for HSGP"
+    "text": "Review of the last lecture\n\n\nGaussian process (GP) is not scalable as it requires \\(\\mathcal{O}(n^3)\\) flops per MCMC iteration.\nIntroduced HSGP, a Hilbert space low-rank approximation method for GP. \\[\\mathbf{C} \\approx \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^T, \\quad \\text{where}\\]\n\n\\(\\boldsymbol{\\Phi} \\in \\mathbb{R}^{n \\times m}\\) only depends on the approximation box \\(\\boldsymbol{\\Theta}\\) and observed locations.\n\\(\\mathbf{S} \\in \\mathbb{R}^{m \\times m}\\) is diagonal. It depends on the covariance function \\(C\\) and parameters \\(\\tau\\) and \\(\\rho\\).\n\\(m\\) is the number of basis functions.\n\nModel reparameterization under HSGP.\nBayesian model fitting and kriging under HSGP."
   },
   {
     "objectID": "slides/22-scalable-2.html#parameter-tuning-for-hsgp",
@@ -17003,7 +17003,7 @@
     "href": "slides/22-scalable-2.html#an-iterative-algorithm",
     "title": "Scalable Gaussian Processes #2",
     "section": "An iterative algorithm",
-    "text": "An iterative algorithm\nPseudo-codes for HSGP parameter tuning assuming \\(d=1\\).\n\nu = centered(data locations)\nS = box size (u)\nmax_iter = 30\n\n# initialization\nj = 0\ncheck = FALSE\nrho = 0.5*S\nc = c(rho,S) # minimum c given rho and S\nm = m(c,rho/S) # minimum m given c, and rho/S\nL = c*S\ndiag = logical(max_iter) # store checking results for each iteration\n\nwhile (!check & j&lt;=max_iter){\n  \n  fit = runHSGP(rho,L,m) # stan run\n  j = j + 1\n\n  rho_hat = mean(fit$rho_hat) # obtain fitted value for rho\n  # check the fitted is larger than the minimum rho that can be well approximated\n  diag[j] = (rho_hat + 0.01 &gt;= rho)\n  if (j==1) {\n    \n    if (diag[j]){\n      # if the diagnosis check is passed, do one more run just to make sure\n      m = m + 2\n      c = c(rho_hat,S)\n      rho = rho(m,c,S)\n    } else {\n      # if the check failed, update our knowledge about rho\n      rho = rho_hat\n      c = c(rho,S)\n      m = m(c,rho/S)\n    }\n  } else {\n    if (diag[j] & diag[j-2]){\n      # if the check passed for the last two runs, we finish tuning\n      check = TRUE\n    } else if (diag[j] & !diag[j-2]){\n      # if the check failed last time but passed this time, do one more run\n      m = m + 2\n      c = c(rho_hat,S)\n      rho = rho(m,c,S)      \n    } else if (!diag[j]){\n      # if the check failed, update our knowledge about rho\n      rho = rho_hat\n      c = c(rho,S)\n      m = m(c,rho/S)\n    }\n  }\n  L = c*S\n}"
+    "text": "An iterative algorithm\nPseudo-codes for HSGP parameter tuning assuming \\(d=1\\).\n\nu = center(observed and prediction locations)\nS = box size (u)\nmax_iter = 30\n\n# initialization\nj = 0\ncheck = FALSE\nrho = 0.5*S # the practical paper recommends setting the initial guess of rho to be 0.5 to 1 times S\nc = c(rho/S) # minimum c given rho and S\nm = m(c,rho/S) # minimum m given c, and rho/S\nL = c*S\ndiagnosis = logical(max_iter) # store checking results for each iteration\n\nwhile (!check & j&lt;=max_iter){\n  \n  fit = runHSGP(L,m) # stan run\n  j = j + 1\n\n  rho_hat = mean(fit$rho) # obtain fitted value for rho\n  # check the fitted is larger than the minimum rho that can be well approximated\n  diagnosis[j] = (rho_hat + 0.01 &gt;= rho)\n  if (j==1) {\n    \n    if (diagnosis[j]){\n      # if the diagnosis check is passed, do one more run just to make sure\n      m = m + 2\n      c = c(rho_hat/S)\n      rho = rho(m,c,S)\n    } else {\n      # if the check failed, update our knowledge about rho\n      rho = rho_hat\n      c = c(rho/S)\n      m = m(c,rho/S)\n    }\n  } else {\n    if (diagnosis[j] & diagnosis[j-2]){\n      # if the check passed for the last two runs, we finish tuning\n      check = TRUE\n    } else if (diagnosis[j] & !diagnosis[j-2]){\n      # if the check failed last time but passed this time, do one more run\n      m = m + 2\n      c = c(rho_hat/S)\n      rho = rho(m,c,S)      \n    } else if (!diagnosis[j]){\n      # if the check failed, update our knowledge about rho\n      rho = rho_hat\n      c = c(rho/S)\n      m = m(c,rho/S)\n    }\n  }\n  L = c*S\n}"
   },
   {
     "objectID": "slides/22-scalable-2.html#hsgp-implementation-codes",
@@ -17017,7 +17017,7 @@
     "href": "slides/22-scalable-2.html#side-notes-on-hsgp-implementation",
     "title": "Scalable Gaussian Processes #2",
     "section": "Side notes on HSGP implementation",
-    "text": "Side notes on HSGP implementation\nA few random things to keep in mind for implementation in practice:\n\n\nMake sure the starting total number of basis functions used is reasonable before the run.\nBecause HSGP is a low-rank approximation method, \\(\\tau\\) will always be overestimated. However, we can adjust for this and use a bias-adjusted \\(\\tau\\) instead.\nIf \\(d&gt;1\\), we need to do parameter tuning for each dimension. It is possible to use different length scale parameter for each dimension. See demo codes here for examples.\nThe iterative algorithm described in Riutort-Mayol et al. (2023) sometimes run into a loop and doesn’t converge. AE codes show one way to avoid it.\nDue to identifiability issues, we always look at the spatial intercept \\(\\alpha+\\boldsymbol{\\theta}(\\mathbf{u})\\) together instead of just \\(\\boldsymbol{\\theta}(\\mathbf{u})\\)."
+    "text": "Side notes on HSGP implementation\nA few random things to keep in mind for implementation in practice:\n\n\nIf your HSGP run is suspiciously VERY slow, check the number of basis functions being used in the run and make sure it is reasonable.\nCheck whether \\(m \\le n\\) before using the kriging results.\nBecause HSGP is a low-rank approximation method, the GP magnitude parameter \\(\\tau\\) will always be overestimated. However, we can account for this and use a bias-adjusted \\(\\tau\\) instead. See the AE 09 stan codes for parameter tau_adj.\nIf \\(d&gt;1\\), we need to do parameter tuning for each dimension."
   },
   {
     "objectID": "slides/22-scalable-2.html#gp-vs-hsgp-spatial-intercept-posterior-mean",
@@ -17066,7 +17066,7 @@
     "href": "slides/22-scalable-2.html#references",
     "title": "Scalable Gaussian Processes #2",
     "section": "References",
-    "text": "References\n\n\nRiutort-Mayol, Gabriel, Paul-Christian Bürkner, Michael R Andersen, Arno Solin, and Aki Vehtari. 2023. “Practical Hilbert Space Approximate Bayesian Gaussian Processes for Probabilistic Programming.” Statistics and Computing 33 (1): 17."
+    "text": "References\n\n\nRiutort-Mayol, Gabriel, Paul-Christian Bürkner, Michael R Andersen, Arno Solin, and Aki Vehtari. 2023. “Practical Hilbert Space Approximate Bayesian Gaussian Processes for Probabilistic Programming.” Statistics and Computing 33 (1): 17.\n\n\nSolin, Arno, and Simo Särkkä. 2020. “Hilbert Space Methods for Reduced-Rank Gaussian Process Regression.” Statistics and Computing 30 (2): 419–46.\n\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
   },
   {
     "objectID": "ae/ae-09-hsgp.html",
@@ -17129,7 +17129,7 @@
     "href": "ae/ae-09-hsgp.html#exercise-4",
     "title": "AE 09: Scalable Gaussian processes",
     "section": "Exercise 4",
-    "text": "Exercise 4\nUse codes provided in the last AE to create visualizations of the surface of posterior mean and posterior SD of the spatial intercept. You can use the following codes to extract the posterior mean and SD. Note that due to the identifiability issue discussed in class, here we look at \\(\\alpha+\\boldsymbol{\\theta}(\\mathbf{u})\\).\n\nres_HSGP &lt;- runspec$fit\np_theta_HSGP &lt;- as.matrix(res_HSGP,pars=\"theta_new\")\np_alpha_HSGP &lt;- as.matrix(res_HSGP,pars=\"alpha\")\np_intercept_HSGP &lt;- p_theta_HSGP + c(p_alpha_HSGP)\np_intercept_HSGP_m &lt;- colMeans(p_intercept_HSGP)\np_intercept_HSGP_sd &lt;- apply(p_intercept_HSGP,2,sd)\n\nDescribe the spatial pattern of hemoglobin level for females in DRC, and think of possible reasons based on your knowledge about DRC.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+    "text": "Exercise 4\nUse codes provided in the last AE to create visualizations of the surface of posterior mean and posterior SD of the spatial intercept. You can use the following codes to extract the posterior mean and SD. Note that due to the identifiability issue discussed in class, here we look at \\(\\alpha\\mathbf{1}+\\boldsymbol{\\theta}^*\\).\n\nres_HSGP &lt;- runspec$fit\np_theta_HSGP &lt;- as.matrix(res_HSGP,pars=\"theta_new\")\np_alpha_HSGP &lt;- as.matrix(res_HSGP,pars=\"alpha\")\np_intercept_HSGP &lt;- p_theta_HSGP + c(p_alpha_HSGP)\np_intercept_HSGP_m &lt;- colMeans(p_intercept_HSGP)\np_intercept_HSGP_sd &lt;- apply(p_intercept_HSGP,2,sd)\n\nDescribe the spatial pattern of hemoglobin level for females in DRC, and think of possible reasons based on your knowledge about DRC.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
   },
   {
     "objectID": "ae/ae-09-hsgp.html#democratic-republic-of-congo-demographic-and-health-survey",
@@ -17382,5 +17382,82 @@
     "title": "Scalable Gaussian Processes #2",
     "section": "",
     "text": "We wanted to perform geospatial analysis on a dataset with ~8,600 observations at ~500 locations, and make predictions at ~440 locations on a grid."
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#hsgp-parameters",
+    "href": "slides/22-scalable-2.html#hsgp-parameters",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "HSGP parameters",
+    "text": "HSGP parameters\nSolin and Särkkä (2020) showed that HSGP approximation can be made arbitrarily accurate as \\(\\boldsymbol{\\Theta}\\) and \\(m\\) increase.\n\n\n\n\n\n\n\n\nOur goal:\n\n\n\nMinimize the run time while maintaining reasonable approximation accuracy.\nFind minimum \\(\\boldsymbol{\\Theta}\\) and \\(m\\) with reasonable accuracy.\n\n\n\n\n\n\n\nNote: we treat estimation of the GP magnitude parameter \\(\\tau\\) as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function."
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#hsgp-approximation-box",
+    "href": "slides/22-scalable-2.html#hsgp-approximation-box",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "HSGP approximation box",
+    "text": "HSGP approximation box\nDue to the design of HSGP, the approximation is less accurate near the boundaries of \\(\\boldsymbol{\\Theta}\\).\n\nSuppose all the coordinates are centered. Let \\[S_l = \\max_i |\\mathbf{u}_{il}|, \\quad l=1,\\dots,d, \\quad i= 1, \\dots, (n+q)\\] such that \\(\\boldsymbol{\\Theta}_S = \\prod_{l=1}^d [-S_l,S_l]\\) is the smallest box which contains all observed and prediction locations. We should at least ensure \\(\\boldsymbol{\\Theta} \\supset \\boldsymbol{\\Theta}_S\\).\nWe want the box to be large enough to ensure good boundary accuracy. Let \\(c_l \\ge 1\\) be boundary factors, we consider \\[\\boldsymbol{\\Theta} = \\prod_{l=1}^d [-L_l,L_l], \\quad L_l = c_l S_l.\\]"
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#hsgp-approximation-box-and-rho",
+    "href": "slides/22-scalable-2.html#hsgp-approximation-box-and-rho",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "HSGP approximation box and \\(\\rho\\)",
+    "text": "HSGP approximation box and \\(\\rho\\)\n\n\n\n\n\nHow much the approximation accuracy deteriorates towards the boundaries depends on smoothness of the true surface.\n\nthe larger the length scale \\(\\rho\\), the smoother the surface, a smaller box (smaller \\(c\\)) can be used for the same level of boundary accuracy."
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#hsgp-approximation-box-and-m",
+    "href": "slides/22-scalable-2.html#hsgp-approximation-box-and-m",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "HSGP approximation box and \\(m\\)",
+    "text": "HSGP approximation box and \\(m\\)\n\n\n\n\n\nThe larger the box,\n\nthe more basis functions we need for the same level of overall accuracy,\nhence higher run time."
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#zooming-out-doesnt-simplify-the-problem",
+    "href": "slides/22-scalable-2.html#zooming-out-doesnt-simplify-the-problem",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Zooming out doesn’t simplify the problem",
+    "text": "Zooming out doesn’t simplify the problem\n\n\n\n\n\n\nIf we scale the coordinates by a constant \\(b\\), the length scale \\(\\rho\\) of the underlying GP also needs to be approximately scaled by \\(b\\) to capture the same level of details in the data.\nWe can effectively think of the length scale parameter as \\((\\rho/\\|\\mathbf{S}\\|)\\)."
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#hsgp-basis-functions",
+    "href": "slides/22-scalable-2.html#hsgp-basis-functions",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "HSGP basis functions",
+    "text": "HSGP basis functions\nThe total number of basis functions \\(m = \\prod_{l=1}^d m_l\\), i.e., we need to decide on \\(m_l\\)’s, the number of basis functions for each dimension.\n\n\\(m\\) scales exponentially in \\(d\\), hence the HSGP computation complexity \\(\\mathcal{O}(nm+m)\\) also scales exponentially in \\(d\\). Therefore HSGP is only recommended for \\(d \\le 3\\), at most \\(4\\).\nThe higher the \\(m\\), the better the overall approximation accuracy, the higher the runtime."
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#relationship-between-c-m-and-rhos",
+    "href": "slides/22-scalable-2.html#relationship-between-c-m-and-rhos",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Relationship between \\(c\\), \\(m\\) and \\(\\rho/S\\)",
+    "text": "Relationship between \\(c\\), \\(m\\) and \\(\\rho/S\\)\nLet’s quickly recap. For simplicity, let \\(d=1\\),\n\n\nAs \\((\\rho/S)\\) decreases, the surface is less smooth,\n\n\\(c\\) needs to increase to retain boundary accuracy.\n\\(m\\) needs to increase to retain overall accuracy.\n\nAs \\(c\\) increases, \\(m\\) needs to increase to retain overall accuracy.\nAs \\(m\\) increases, run time increases."
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#empirical-functional-form",
+    "href": "slides/22-scalable-2.html#empirical-functional-form",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Empirical functional form",
+    "text": "Empirical functional form\nStill assuming \\(d=1\\). If \\(\\rho\\) is known to us,\n\ngiven \\(c\\) and \\(\\rho/S\\) and the covariance function \\(C\\), we can compute \\(m(c,\\rho/S)\\), the minimum number of basis functions needed for a near 100% approximation accuracy of the correlation matrix.\nRiutort-Mayol et al. (2023) used extensive simulations to obtain an empirical function form of \\(m(c,\\rho/S)\\) for frequently used Matérn covariance functions. E.g., for Matérn 3/2,\n\n\\[m_{3/2}(c,\\rho/S)=3.24 \\frac{c}{\\rho/S}, \\quad c \\ge 4.5 \\frac{\\rho}S, \\quad c \\ge 1.2.\\]"
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#empirical-functional-form-1",
+    "href": "slides/22-scalable-2.html#empirical-functional-form-1",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Empirical functional form",
+    "text": "Empirical functional form\n\\[m(c,\\rho/S)=3.24 \\frac{c}{\\rho/S}, \\quad c \\ge 4.5 \\frac{\\rho}S, \\quad c \\ge 1.2.\\]\n\n\nNotice the linear proportionality between \\(m\\), \\(c\\) and \\(\\rho/S\\).\nFor a given \\(\\rho/S\\), there exists a minimum \\(c(\\rho/S)=\\min(4.5\\rho/S,1.2)\\), below which the approximation is poor no matter how large \\(m\\) is.\nFrom \\(m(c,\\rho/S)\\), we also have \\[\\rho(m,c,S)=3.42 S \\frac cm,\\] the minimum \\(\\rho\\) (least smooth surface) that can be well approximated given \\(c\\), \\(m\\) and \\(S\\)."
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#question",
+    "href": "slides/22-scalable-2.html#question",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Question",
+    "text": "Question\nBUT, in real applications, we do not know \\(\\rho\\).\n\nSo how to make use of \\(m(c,\\rho/S)\\) to help choose \\(c\\) and \\(m\\)?"
+  },
+  {
+    "objectID": "slides/22-scalable-2.html#side-notes-on-hsgp-implementation-1",
+    "href": "slides/22-scalable-2.html#side-notes-on-hsgp-implementation-1",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Side notes on HSGP implementation",
+    "text": "Side notes on HSGP implementation\nA few random things to keep in mind for implementation in practice:\n\n\nIt is possible to use different length scale parameters for each dimension. See demo codes here for examples.\nThe iterative algorithm described in Riutort-Mayol et al. (2023) (i.e., pseudo-codes on slide 15) can be further improved:\n\nit sometimes stops at a place.\nit sometimes runs into a circular loop. See AE 09 stan codes for one possible fix.\nit errs on the safe side and only changes \\(m\\) if it might be too small.\n\nDue to identifiability issues, we always look at the spatial intercept \\(\\alpha \\mathbf{1}+\\boldsymbol{\\theta}\\) together instead of just \\(\\boldsymbol{\\theta}\\)."
   }
 ]

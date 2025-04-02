@@ -285,7 +285,7 @@ Obtain posterior mean and 95% credible interval for the regression coefficients.
 
 ## Exercise 4
 
-Use codes provided in the last AE to create visualizations of the surface of posterior mean and posterior SD of the spatial intercept. You can use the following codes to extract the posterior mean and SD. Note that due to the identifiability issue discussed in class, here we look at $\alpha+\boldsymbol{\theta}(\mathbf{u})$.
+Use codes provided in the last AE to create visualizations of the surface of posterior mean and posterior SD of the spatial intercept. You can use the following codes to extract the posterior mean and SD. Note that due to the identifiability issue discussed in class, here we look at $\alpha\mathbf{1}+\boldsymbol{\theta}^*$.
 
 ```{r, eval=F}
 res_HSGP <- runspec$fit

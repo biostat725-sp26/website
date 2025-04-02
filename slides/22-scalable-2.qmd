@@ -105,7 +105,7 @@ ggarrange(p1,p2,widths=c(1.3,1),ncol=2)
 
 We specify the following model: $$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N_N(\mathbf{0},\sigma^2\mathbf{I})$$ with priors
 
--   $\boldsymbol{\theta}(\mathbf{u}) | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))$, where $C$ is the Matérn 3/2 covariance function with magnitude $\tau$ and length scale $\rho$
+-   $\boldsymbol{\theta} | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))$, where $C$ is the Matérn 3/2 covariance function with magnitude $\tau$ and length scale $\rho$
 -   $\alpha^* \sim N(0,4^2)$. This is the intercept after centering $\mathbf{X}$.
 -   $\beta_j | \sigma_{\beta} \sim N(0,\sigma_{\beta}^2)$, $j \in \{1,\dots,p\}$
 -   $\sigma \sim \text{Half-Normal}(0, 2^2)$
@@ -115,79 +115,114 @@ We specify the following model: $$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X
 
 ## Review of the last lecture {.midi}
 
-1.  Gaussian process (GP) requires $\mathcal{O}(n^3)$ flops per MCMC iteration, hence it is not scalable.
+::: incremental
+1.  Gaussian process (GP) is not scalable as it requires $\mathcal{O}(n^3)$ flops per MCMC iteration.
 
 2.  Introduced HSGP, a Hilbert space low-rank approximation method for GP. $$\mathbf{C} \approx \boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^T, \quad \text{where}$$
 
-    -   $\boldsymbol{\Phi} \in \mathbb{R}^{n \times m}$ only depends on the *approximation box* $\boldsymbol{\Theta}$ and observed locations
-    -   $\mathbf{S} \in \mathbb{R}^{m \times m}$ is diagonal, $m$ is the number of basis functions
+    -   $\boldsymbol{\Phi} \in \mathbb{R}^{n \times m}$ only depends on the *approximation box* $\boldsymbol{\Theta}$ and observed locations.
+    -   $\mathbf{S} \in \mathbb{R}^{m \times m}$ is diagonal. It depends on the covariance function $C$ and parameters $\tau$ and $\rho$.
+    -   $m$ is the number of basis functions.
 
-3.  Model reparameterization under HSGP
+3.  Model reparameterization under HSGP.
 
-4.  Kriging under HSGP
-
-5.  Parameter tuning for HSGP
-
-## Parameter tuning for HSGP {.midi}
-
-:::::: columns
-::: {.column width="60%"}
-To implement HSGP, we need to decide on:
-
-1.  number of basis functions $m=\prod_{l=1}^d m_l$
-
-    -   one number $m_l$ for each dimension of the GP.
-
-2.  size of the approximation box $\boldsymbol{\Theta}$
-
-    -   scale of the coordinates $\mathbf{S}=(S_1,S_2)$.
-    -   boundary factors $\mathbf{c}=(c_1,c_2)$.
+4.  Bayesian model fitting and kriging under HSGP.
 :::
 
-:::: {.column width="40%"}
-::: {style="margin-top: 30px;"}
-![](./images/21/HSGPbox.png){fig-align="center" height="300"}
-:::
-::::
-::::::
+## HSGP parameters {.midi}
 
-:::: fragment
+@solin2020hilbert showed that HSGP approximation can be made arbitrarily accurate as $\boldsymbol{\Theta}$ and $m$ increase.
+
+::::: fragment
+:::: incremental
 ::: callout-important
 ## Our goal:
 
-Minimize the run time while maintaining reasonable approximation accuracy.
+-   Minimize the run time while maintaining reasonable approximation accuracy.
+-   Find minimum $\boldsymbol{\Theta}$ and $m$ with reasonable accuracy.
 :::
 ::::
-
-## Review of what we discussed last time {.midi}
-
-For simplicity, let $d=1$
-
-::: incremental
-1.  Estimation of the GP magnitude $\tau$ is treated as a separate problem. We only consider approximation accuracy in terms of the correlation matrix.
-2.  Scaling the coordinates do not change the problem. We consider the length scale parameter as $(\rho/S)$.
-3.  As $(\rho/S)$ decreases, the surface is less smooth,
-    -   $c$ needs to increase to retain boundary accuracy.
-    -   $m$ needs to increase to retain overall accuracy.
-4.  For a given $\rho/S$, there exists a minimum $c$, below which the approximation is poor no matter how large $m$ is. This minimum value increases as $\rho/S$ increases.
-5.  As $c$ increases, $m$ needs to increase to retain overall accuracy.
-:::
-
-## Review of what we discussed last time {.midi}
-
-::: incremental
-6.  As $m$ increases, run time increases. Hence we want to minimize $m$ and $c$ while maintaining certain accuracy level.
-
-7.  @riutort2023practical presented an empirical functional form of $m$ as a function of $c$ and $\rho/S$ for Matérn 3/2 covariance function: $$m(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.$$
-
-8.  Note we also have
-
-    -   $\rho(m,c,S)=3.42 Sc/m$: the minimum $\rho$ (least smooth surface) that can be well approximated given $c$, $m$ and $S$.
-    -   $c(\rho,S)=\min(4.5\rho/S,1.2)$: the minimum $c$ for HSGP to work.
-:::
+:::::
 
 ::: fragment
-Question: in real applications, we **do not** know $\rho$. So how to proceed?
+*Note: we treat estimation of the GP magnitude parameter* $\tau$ as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function.
+:::
+
+## HSGP approximation box {.midi}
+
+Due to the design of HSGP, the approximation is less accurate near the boundaries of $\boldsymbol{\Theta}$.
+
+-   Suppose all the coordinates are centered. Let $$S_l = \max_i |\mathbf{u}_{il}|, \quad l=1,\dots,d, \quad i= 1, \dots, (n+q)$$ such that $\boldsymbol{\Theta}_S = \prod_{l=1}^d [-S_l,S_l]$ is the smallest box which contains all observed and prediction locations. We should at least ensure $\boldsymbol{\Theta} \supset \boldsymbol{\Theta}_S$.
+-   We want the box to be large enough to ensure good boundary accuracy. Let $c_l \ge 1$ be *boundary factors*, we consider $$\boldsymbol{\Theta} = \prod_{l=1}^d [-L_l,L_l], \quad L_l = c_l S_l.$$
+
+## HSGP approximation box and $\rho$ {.midi}
+
+![](./images/22/HSGPbox.png){fig-align="center" height="350"}
+
+How much the approximation accuracy deteriorates towards the boundaries depends on smoothness of the true surface.
+
+-   the larger the length scale $\rho$, the smoother the surface, a smaller box (smaller $c$) can be used for the same level of boundary accuracy.
+
+## HSGP approximation box and $m$ {.midi}
+
+![](./images/22/HSGPbox.png){fig-align="center" height="350"}
+
+The larger the box,
+
+-   the more basis functions we need for the same level of overall accuracy,
+-   hence higher run time.
+
+## Zooming out doesn't simplify the problem {.midi}
+
+![](./images/22/HSGPbox2.png){fig-align="center" height="350"}
+
+-   If we scale the coordinates by a constant $b$, the length scale $\rho$ of the underlying GP also needs to be approximately scaled by $b$ to capture the same level of details in the data.
+-   We can effectively think of the length scale parameter as $(\rho/\|\mathbf{S}\|)$.
+
+## HSGP basis functions {.midi}
+
+The total number of basis functions $m = \prod_{l=1}^d m_l$, i.e., we need to decide on $m_l$'s, the number of basis functions for each dimension.
+
+-   $m$ scales exponentially in $d$, hence the HSGP computation complexity $\mathcal{O}(nm+m)$ also scales exponentially in $d$. Therefore HSGP is only recommended for $d \le 3$, at most $4$.
+-   The higher the $m$, the better the overall approximation accuracy, the higher the runtime.
+
+## Relationship between $c$, $m$ and $\rho/S$ {.midi}
+
+Let's quickly recap. For simplicity, let $d=1$,
+
+::: incremental
+1.  As $(\rho/S)$ decreases, the surface is less smooth,
+    -   $c$ needs to increase to retain boundary accuracy.
+    -   $m$ needs to increase to retain overall accuracy.
+2.  As $c$ increases, $m$ needs to increase to retain overall accuracy.
+3.  As $m$ increases, run time increases.
+:::
+
+## Empirical functional form {.midi}
+
+Still assuming $d=1$. If $\rho$ is known to us,
+
+-   given $c$ and $\rho/S$ and the covariance function $C$, we can compute $m(c,\rho/S)$, the minimum number of basis functions needed for a near 100% approximation accuracy of the correlation matrix.
+-   @riutort2023practical used extensive simulations to obtain an empirical function form of $m(c,\rho/S)$ for frequently used Matérn covariance functions. E.g., for Matérn 3/2,
+
+$$m_{3/2}(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.$$
+
+## Empirical functional form {.midi}
+
+$$m(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.$$
+
+::: incremental
+-   Notice the linear proportionality between $m$, $c$ and $\rho/S$.
+-   For a given $\rho/S$, there exists a minimum $c(\rho/S)=\min(4.5\rho/S,1.2)$, below which the approximation is poor no matter how large $m$ is.
+-   From $m(c,\rho/S)$, we also have $$\rho(m,c,S)=3.42 S \frac cm,$$ the minimum $\rho$ (least smooth surface) that can be well approximated given $c$, $m$ and $S$.
+:::
+
+## Question {.midi}
+
+BUT, in real applications, we **do not** know $\rho$.
+
+::: fragment
+So how to make use of $m(c,\rho/S)$ to help choose $c$ and $m$?
 :::
 
 ## An iterative algorithm {.midi}
@@ -196,53 +231,53 @@ Pseudo-codes for HSGP parameter tuning assuming $d=1$.
 
 ```{r, eval=F, echo=T}
 
-u = centered(data locations)
+u = center(observed and prediction locations)
 S = box size (u)
 max_iter = 30
 
 # initialization
 j = 0
 check = FALSE
-rho = 0.5*S
-c = c(rho,S) # minimum c given rho and S
+rho = 0.5*S # the practical paper recommends setting the initial guess of rho to be 0.5 to 1 times S
+c = c(rho/S) # minimum c given rho and S
 m = m(c,rho/S) # minimum m given c, and rho/S
 L = c*S
-diag = logical(max_iter) # store checking results for each iteration
+diagnosis = logical(max_iter) # store checking results for each iteration
 
 while (!check & j<=max_iter){
   
-  fit = runHSGP(rho,L,m) # stan run
+  fit = runHSGP(L,m) # stan run
   j = j + 1
 
-  rho_hat = mean(fit$rho_hat) # obtain fitted value for rho
+  rho_hat = mean(fit$rho) # obtain fitted value for rho
   # check the fitted is larger than the minimum rho that can be well approximated
-  diag[j] = (rho_hat + 0.01 >= rho)
+  diagnosis[j] = (rho_hat + 0.01 >= rho)
   if (j==1) {
     
-    if (diag[j]){
+    if (diagnosis[j]){
       # if the diagnosis check is passed, do one more run just to make sure
       m = m + 2
-      c = c(rho_hat,S)
+      c = c(rho_hat/S)
       rho = rho(m,c,S)
     } else {
       # if the check failed, update our knowledge about rho
       rho = rho_hat
-      c = c(rho,S)
+      c = c(rho/S)
       m = m(c,rho/S)
     }
   } else {
-    if (diag[j] & diag[j-2]){
+    if (diagnosis[j] & diagnosis[j-2]){
       # if the check passed for the last two runs, we finish tuning
       check = TRUE
-    } else if (diag[j] & !diag[j-2]){
+    } else if (diagnosis[j] & !diagnosis[j-2]){
       # if the check failed last time but passed this time, do one more run
       m = m + 2
-      c = c(rho_hat,S)
+      c = c(rho_hat/S)
       rho = rho(m,c,S)      
-    } else if (!diag[j]){
+    } else if (!diagnosis[j]){
       # if the check failed, update our knowledge about rho
       rho = rho_hat
-      c = c(rho,S)
+      c = c(rho/S)
       m = m(c,rho/S)
     }
   }
@@ -259,11 +294,26 @@ Please clone the repo for AE 09 for HSGP implementation codes.
 A few random things to keep in mind for implementation in practice:
 
 ::: incremental
-1.  Make sure the starting total number of basis functions used is reasonable before the run.
-2.  Because HSGP is a low-rank approximation method, $\tau$ will always be overestimated. However, we can adjust for this and use a bias-adjusted $\tau$ instead.
-3.  If $d>1$, we need to do parameter tuning for each dimension. It is possible to use different length scale parameter for each dimension. See [demo codes here](https://github.com/gabriuma/basis_functions_approach_to_GP/tree/master/Paper) for examples.
-4.  The iterative algorithm described in @riutort2023practical sometimes run into a loop and doesn't converge. AE codes show one way to avoid it.
-5.  Due to identifiability issues, we always look at the spatial intercept $\alpha+\boldsymbol{\theta}(\mathbf{u})$ together instead of just $\boldsymbol{\theta}(\mathbf{u})$.
+1.  If your HSGP run is suspiciously VERY slow, check the number of basis functions being used in the run and make sure it is reasonable.
+2.  Check whether $m \le n$ before using the kriging results.
+3.  Because HSGP is a low-rank approximation method, the GP magnitude parameter $\tau$ will always be overestimated. However, we can account for this and use a bias-adjusted $\tau$ instead. See the AE 09 `stan` codes for parameter `tau_adj`.
+4.  If $d>1$, we need to do parameter tuning for each dimension.
+:::
+
+## Side notes on HSGP implementation {.midi}
+
+A few random things to keep in mind for implementation in practice:
+
+::: incremental
+5.  It is possible to use different length scale parameters for each dimension. See [demo codes here](https://github.com/gabriuma/basis_functions_approach_to_GP/tree/master/Paper) for examples.
+
+6.  The iterative algorithm described in @riutort2023practical (i.e., pseudo-codes on slide 15) can be further improved:
+
+    -   it sometimes stops at a \textit{bad} place.
+    -   it sometimes runs into a circular loop. See AE 09 `stan` codes for one possible fix.
+    -   it errs on the safe side and only changes $m$ if it might be too small.
+
+7.  Due to identifiability issues, we always look at the spatial intercept $\alpha \mathbf{1}+\boldsymbol{\theta}$ together instead of just $\boldsymbol{\theta}$.
 :::
 
 ## GP vs HSGP spatial intercept posterior mean {.midi}
