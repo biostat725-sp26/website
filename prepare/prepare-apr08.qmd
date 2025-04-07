@@ -1,0 +1,11 @@
+---
+title: Prepare for April 8 lecture
+---
+
+<br>
+
+📖 Review **BDA3** Section 22.1 to get an introduction to finite mixture models.
+
+✅ Work on Exam 02, which will be assigned after class on Tuesday.
+
+✅ Prepare for the in-class live-coding exercise on Thursday.

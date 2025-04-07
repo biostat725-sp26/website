@@ -410,7 +410,7 @@ Prof.&nbsp;Sam Berchuck (developed with Braden Scherting)
 <ol type="1">
 <li>We will introduce the basic mixture modeling framework as a mechanism for model-based clustering and describe computational and inferential challenges.</li>
 <li>Variations of the popular finite Gaussian mixture model (GMM) will be introduced to cluster patients according to ED length-of-stay.</li>
-<li>We present an implementation of mixture modeling in Stan and challenges therein.</li>
+<li>We present an implementation of mixture modeling in Stan and discuss challenges therein.</li>
 <li>Finally, various posterior summaries will be explored.</li>
 </ol>
 </section>
@@ -485,7 +485,7 @@ p(Y_i) = &amp;P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
 </section>
 <section id="mixture-model-1" class="slide level2 midi">
 <h2>Mixture Model</h2>
-<p><span class="math display">\[p(Y_i) = \sum_{h=1}^k \pi_h\times f_h(Y_i)\]</span></p>
+<p><span class="math display">\[f(Y_i) = \sum_{h=1}^k \pi_h\times f_h(Y_i)\]</span></p>
 <ul>
 <li><p>This mixture is comprised of <span class="math inline">\(k\)</span> components indexed by <span class="math inline">\(h=1,\dots,k\)</span>. For each component, we have a probability density (or mass) function <span class="math inline">\(f_h\)</span> and a mixture weight <span class="math inline">\(\pi_h\)</span>, where <span class="math inline">\(\sum_{h=1}^k \pi_k=1\)</span>.</p></li>
 <li><p>When <span class="math inline">\(k\)</span> is finite, we call this a <strong>finite mixture model</strong> for <span class="math inline">\(Y_i\)</span>.</p></li>
@@ -497,9 +497,9 @@ p(Y_i) = &amp;P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
 </section>
 <section id="gaussian-mixture-model" class="slide level2">
 <h2>Gaussian Mixture Model</h2>
-<p>Letting <span class="math inline">\(f_h(Y_i) = N(Y_i\mid \mu_h, \sigma^2_h)\)</span> for <span class="math inline">\(h=1,\dots,k\)</span>, yields the Gaussian mixture model. For <span class="math inline">\(Y_i\in\mathbb{R}\)</span>, <span class="math display">\[p(Y_i) = \sum_{h=1}^k \pi_h N\left({Y}_i\mid \mu_h, \sigma^2_h\right)\]</span></p>
+<p>Letting <span class="math inline">\(f_h(Y_i) = N(Y_i\mid \mu_h, \sigma^2_h)\)</span> for <span class="math inline">\(h=1,\dots,k\)</span>, yields the Gaussian mixture model. For <span class="math inline">\(Y_i\in\mathbb{R}\)</span>, <span class="math display">\[f(Y_i) = \sum_{h=1}^k \pi_h N\left({Y}_i\mid \mu_h, \sigma^2_h\right)\]</span></p>
 <p>For multivariate outcomes <span class="math inline">\(\mathbf{Y}_i\in\mathbb{R}^p\)</span>,</p>
-<p><span class="math display">\[ p(\mathbf{Y}_i) = \sum_{h=1}^k \pi_h N_p\left(\mathbf{Y}_i\mid\boldsymbol{\mu}_h, \boldsymbol{\Sigma}_h\right).\]</span></p>
+<p><span class="math display">\[ f(\mathbf{Y}_i) = \sum_{h=1}^k \pi_h N_p\left(\mathbf{Y}_i\mid\boldsymbol{\mu}_h, \boldsymbol{\Sigma}_h\right).\]</span></p>
 </section>
 <section id="gaussian-mixture-model-1" class="slide level2 small">
 <h2>Gaussian Mixture Model</h2>
@@ -512,7 +512,7 @@ p(Y_i) = &amp;P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -536,7 +536,7 @@ p(Y_i) = &amp;P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
 <h2>Generative perspective on GMM</h2>
 <p>To simulate from a <span class="math inline">\(k\)</span>-component Gaussian mixture with means <span class="math inline">\(\mu_1,\dots,\mu_k\)</span>, variances <span class="math inline">\(\sigma_1^2,\dots,\sigma^2_k\)</span>, and weights <span class="math inline">\(\pi_1,\dots,\pi_k\)</span>:</p>
 <ol type="1">
-<li>Sample the component indicator <span class="math inline">\(z_i\in \{1, \dots,k\}\)</span> with probabilities: <span class="math display">\[P(z_i=h) = \pi_h.\]</span></li>
+<li>Sample the component indicator <span class="math inline">\(z_i\in \{1, \dots,k\}\)</span> with probabilities: <span class="math display">\[P(z_i=h) = \pi_h \iff z_i \sim \text{Categorical}(k, \{\pi_1,\ldots,\pi_k\}).\]</span></li>
 <li>Given <span class="math inline">\(z_i\)</span>, sample <span class="math inline">\(Y_i\)</span> from the appropriate component: <span class="math display">\[\left(Y_i\mid z_i =h\right) \sim N\left(\mu_h, \sigma^2_h\right).\]</span></li>
 </ol>
 </section>
@@ -551,10 +551,11 @@ p(Y_i) = &amp;P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
 <span id="cb3-6"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, mu[z], <span class="fu">sqrt</span>(s2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>This is essentially the code used to simulate the missing treatment history example.</em></p>
-</section>
+
+<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="480"></section>
 <section id="marginalizing-component-indicators" class="slide level2 midi">
 <h2>Marginalizing Component Indicators</h2>
-<p>The label <span class="math inline">\(z_i\)</span> indicates which component <span class="math inline">\(Y_i\)</span> is drawn from—<em>think of this as the cluster label</em>. <span class="math inline">\(f\left(Y_i\mid z_i=h\right) = N\left(Y_i\mid \mu_h,\sigma^2_h \right).\)</span></p>
+<p>The label <span class="math inline">\(z_i\)</span> indicates which component <span class="math inline">\(Y_i\)</span> is drawn from—<em>think of this as the cluster label</em>: <span class="math inline">\(f\left(Y_i\mid z_i=h\right) = N\left(Y_i\mid \mu_h,\sigma^2_h \right).\)</span></p>
 <p>But <span class="math inline">\(z_i\)</span> is unknown, so we marginalize to obtain:</p>
 <p><span class="math display">\[\begin{align*}
 f(Y_i) &amp;= \int_\mathcal{Z}f\left(Y_i\mid z\right) f(z)dz \\
@@ -639,7 +640,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="what-is-going-on" class="slide level2">
 <h2>What is going on?</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">pairs</span>(fit1, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"mu"</span>, <span class="st">"sigma"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -655,11 +656,11 @@ convergence, Rhat=1).</code></pre>
 <!-- } -->
 <!-- x <- rep(seq(min(dat$Y)-10, max(dat$Y)+10, length.out=1000), 2) -->
 <!-- ``` -->
-<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="bimodal-posterior" class="slide level2">
 <h2>Bimodal posterior</h2>
 
-<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"><ul>
+<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"><ul>
 <li>In one mode, <span class="math inline">\(\sigma^2_1 \ll \sigma^2_2\)</span> and in the other, <span class="math inline">\(\sigma^2_1\gg\sigma^2_2\)</span></li>
 </ul>
 </section>
@@ -671,10 +672,10 @@ convergence, Rhat=1).</code></pre>
 <div class="cell quarto-layout-panel" data-layout="[[50,50]]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-12-2.png" width="960"></p>
+<p><img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-13-2.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -702,32 +703,29 @@ convergence, Rhat=1).</code></pre>
 <div class="cell" data-output.var="tmp2">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb8-1"><a></a><span class="co">// saved in mixture2.stan</span></span>
 <span id="cb8-2"><a></a><span class="kw">data</span> {</span>
-<span id="cb8-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">1</span>&gt; k;          <span class="co">// number of mixture components</span></span>
-<span id="cb8-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">1</span>&gt; n;          <span class="co">// number of data points</span></span>
+<span id="cb8-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; k;          <span class="co">// number of mixture components</span></span>
+<span id="cb8-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;          <span class="co">// number of data points</span></span>
 <span id="cb8-5"><a></a>  <span class="dt">array</span>[n] <span class="dt">real</span> Y;         <span class="co">// observations</span></span>
 <span id="cb8-6"><a></a>}</span>
-<span id="cb8-7"><a></a></span>
-<span id="cb8-8"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb8-9"><a></a>  <span class="dt">simplex</span>[k] pi; <span class="co">// mixing proportions</span></span>
-<span id="cb8-10"><a></a>  <span class="dt">ordered</span>[k] mu; <span class="co">// means of the mixture components</span></span>
-<span id="cb8-11"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[k] sigma; <span class="co">// sds of the mixture components</span></span>
-<span id="cb8-12"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">1</span>&gt;[k] nu;</span>
-<span id="cb8-13"><a></a>}</span>
-<span id="cb8-14"><a></a></span>
-<span id="cb8-15"><a></a><span class="kw">model</span> {</span>
-<span id="cb8-16"><a></a>  <span class="kw">target +=</span> normal_lpdf(mu |<span class="fl">0.0</span>, <span class="fl">10.0</span>);</span>
-<span id="cb8-17"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="fl">2.0</span>, <span class="fl">0.5</span>);</span>
-<span id="cb8-18"><a></a>  <span class="kw">target +=</span> gamma_lpdf(nu | <span class="fl">5.</span>, <span class="fl">0.5</span>);</span>
-<span id="cb8-19"><a></a>  </span>
-<span id="cb8-20"><a></a>  <span class="dt">vector</span>[k] log_probs = log(pi);</span>
-<span id="cb8-21"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n){</span>
-<span id="cb8-22"><a></a>    <span class="dt">vector</span>[k] lps = log_probs;</span>
-<span id="cb8-23"><a></a>    <span class="cf">for</span> (h <span class="cf">in</span> <span class="dv">1</span>:k){</span>
-<span id="cb8-24"><a></a>      lps[h] += student_t_lpdf(Y[i] | nu[h], mu[h], sigma[h]);</span>
-<span id="cb8-25"><a></a>    }</span>
-<span id="cb8-26"><a></a>    <span class="kw">target +=</span> log_sum_exp(lps);</span>
-<span id="cb8-27"><a></a>  }</span>
-<span id="cb8-28"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-7"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb8-8"><a></a>  <span class="dt">simplex</span>[k] pi; <span class="co">// mixing proportions</span></span>
+<span id="cb8-9"><a></a>  <span class="dt">ordered</span>[k] mu; <span class="co">// means of the mixture components</span></span>
+<span id="cb8-10"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt;[k] sigma; <span class="co">// sds of the mixture components</span></span>
+<span id="cb8-11"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt;[k] nu;</span>
+<span id="cb8-12"><a></a>}</span>
+<span id="cb8-13"><a></a><span class="kw">model</span> {</span>
+<span id="cb8-14"><a></a>  <span class="kw">target +=</span> normal_lpdf(mu | <span class="fl">0.0</span>, <span class="fl">10.0</span>);</span>
+<span id="cb8-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="fl">2.0</span>, <span class="fl">0.5</span>);</span>
+<span id="cb8-16"><a></a>  <span class="kw">target +=</span> gamma_lpdf(nu | <span class="fl">5.0</span>, <span class="fl">0.5</span>);</span>
+<span id="cb8-17"><a></a>  <span class="dt">vector</span>[k] log_probs = log(pi);</span>
+<span id="cb8-18"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n){</span>
+<span id="cb8-19"><a></a>    <span class="dt">vector</span>[k] lps = log_probs;</span>
+<span id="cb8-20"><a></a>    <span class="cf">for</span> (h <span class="cf">in</span> <span class="dv">1</span>:k){</span>
+<span id="cb8-21"><a></a>      lps[h] += student_t_lpdf(Y[i] | nu[h], mu[h], sigma[h]);</span>
+<span id="cb8-22"><a></a>    }</span>
+<span id="cb8-23"><a></a>    <span class="kw">target +=</span> log_sum_exp(lps);</span>
+<span id="cb8-24"><a></a>  }</span>
+<span id="cb8-25"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Informative prior on <span class="math inline">\(\sigma^2_h\)</span>.</li>
@@ -739,8 +737,7 @@ convergence, Rhat=1).</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>mod2 <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="st">"mixture2.stan"</span>)</span>
 <span id="cb9-2"><a></a>fit2 <span class="ot">&lt;-</span> <span class="fu">sampling</span>(mod2, <span class="at">data=</span>dat, <span class="at">chains=</span><span class="dv">4</span>, <span class="at">iter=</span><span class="dv">5000</span>, <span class="at">control=</span><span class="fu">list</span>(<span class="st">"adapt_delta"</span><span class="ot">=</span><span class="fl">0.99</span>))</span>
-<span id="cb9-3"><a></a><span class="fu">print</span>(fit2, <span class="at">pars=</span><span class="fu">c</span>(<span class="st">"pi"</span>, <span class="st">"mu"</span>, <span class="st">"sigma"</span>, <span class="st">"nu"</span>))</span>
-<span id="cb9-4"><a></a><span class="co"># saveRDS(fit2, "fits/fit2.rds")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a></a><span class="fu">print</span>(fit2, <span class="at">pars=</span><span class="fu">c</span>(<span class="st">"pi"</span>, <span class="st">"mu"</span>, <span class="st">"sigma"</span>, <span class="st">"nu"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -768,7 +765,7 @@ convergence, Rhat=1).</code></pre>
 <section id="updated-model-results" class="slide level2">
 <h2>Updated model results</h2>
 
-<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
+<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
 <section id="from-marginal-mixture-model-to-clusters" class="slide level2 midi">
 <h2>From marginal mixture model to clusters</h2>
 <p><code>Stan</code> cannot directly <em>infer</em> categorical component indicators <span class="math inline">\(z_i\)</span>. Instead, for each individual, we compute</p>
@@ -798,27 +795,27 @@ P\left(z_i = h \mid Y_i, \boldsymbol{\mu},\boldsymbol{\sigma},\boldsymbol{\pi} \
 </section>
 <section id="co-clustering-probabilities" class="slide level2">
 <h2>Co-clustering probabilities</h2>
-<p>Recovering <span class="math inline">\(z_i\)</span> allows us to make the following pairwise comparison: <em>what is the probability that unit <span class="math inline">\(i\)</span> and unit <span class="math inline">\(j\)</span> are in the same cluster?</em> This is the “co-clustering probability”.</p>
-<p>It is common to arrange these probabilities in a co-clustering matrix <span class="math inline">\(C\)</span>, where the <span class="math inline">\(i,j\)</span> entry is given by, <span class="math display">\[C_{ij}=\text{Pr}\left( z_i=z_j\mid- \right)\approx \frac{1}{S}\sum_{s=1}^S \mathbb{1}\left[z_i^{(s)}=z_j^{(s)}\right].\]</span></p>
+<p>Recovering <span class="math inline">\(z_i\)</span> allows us to make the following pairwise comparison: <em>what is the probability that unit</em> <span class="math inline">\(i\)</span> and unit <span class="math inline">\(j\)</span> are in the same cluster? This is the “co-clustering probability”.</p>
+<p>It is common to arrange these probabilities in a co-clustering matrix <span class="math inline">\(\mathbf{C}\)</span>, where the <span class="math inline">\(i,j\)</span> entry is given by, <span class="math display">\[C_{ij}=P\left( z_i=z_j\mid- \right)\approx \frac{1}{S}\sum_{s=1}^S \mathbb{1}\left[z_i^{(s)}=z_j^{(s)}\right].\]</span></p>
 </section>
 <section id="co-clustering-probabilities-1" class="slide level2">
 <h2>Co-clustering probabilities</h2>
 
-<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
 <section id="how-do-our-results-change-when-we-use-more-components" class="slide level2">
 <h2>How do our results change when we use more components?</h2>
-<p><strong><span class="math inline">\(k=3\)</span></strong></p>
-
-<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
-<section id="how-do-our-results-change-when-we-use-more-components-1" class="slide level2">
-<h2>How do our results change when we use more components?</h2>
-<p><strong><span class="math inline">\(k=4\)</span></strong></p>
+<p><span class="math inline">\(k=3\)</span></p>
 
 <img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
+<section id="how-do-our-results-change-when-we-use-more-components-1" class="slide level2">
+<h2>How do our results change when we use more components?</h2>
+<p><span class="math inline">\(k=4\)</span></p>
+
+<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
 <section id="co-clusterings-across-k" class="slide level2">
 <h2>Co-clusterings across <span class="math inline">\(k\)</span></h2>
 
-<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"><p>The same general pattern persists when more clusters are used, indicating that <span class="math inline">\(k=2\)</span> is a reasonable choice.</p>
+<img data-src="23-clustering_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"><p>The same general pattern persists when more clusters are used, indicating that <span class="math inline">\(k=2\)</span> is a reasonable choice.</p>
 </section>
 <section id="prepare-for-next-class" class="slide level2">
 <h2>Prepare for next class</h2>

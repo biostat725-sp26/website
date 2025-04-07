@@ -39,7 +39,7 @@ set.seed(24600)
 
 1.  We will introduce the basic mixture modeling framework as a mechanism for model-based clustering and describe computational and inferential challenges.
 2.  Variations of the popular finite Gaussian mixture model (GMM) will be introduced to cluster patients according to ED length-of-stay.
-3.  We present an implementation of mixture modeling in Stan and challenges therein.
+3.  We present an implementation of mixture modeling in Stan and discuss challenges therein.
 4.  Finally, various posterior summaries will be explored.
 
 ## Finding subtypes
@@ -84,9 +84,7 @@ $$f\left(Y_i\mid X_i\right) = f\left(Y_i\mid \boldsymbol{\theta}_i\left(X_i\righ
 
 ## Limitations of the usual setup
 
-Suppose patients $i=1,\dots,n$ are administered a diagnostic test. Their outcome $Y_i$ depends only on whether or not they have previously received treatment: $X_i=1$ if yes and $X_i=0$ otherwise. Suppose the diagnostic test has Gaussian-distributed measurement error, so 
-$$Y_i\mid X_i \sim N(\alpha + \beta X_i, \sigma^2).$$ 
-Now, suppose past treatment information is not included in patients' record—*we cannot condition on* $X_i$. Marginalizing, \begin{align*}
+Suppose patients $i=1,\dots,n$ are administered a diagnostic test. Their outcome $Y_i$ depends only on whether or not they have previously received treatment: $X_i=1$ if yes and $X_i=0$ otherwise. Suppose the diagnostic test has Gaussian-distributed measurement error, so $$Y_i\mid X_i \sim N(\alpha + \beta X_i, \sigma^2).$$ Now, suppose past treatment information is not included in patients' record—*we cannot condition on* $X_i$. Marginalizing, \begin{align*}
 p(Y_i) = &P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
       & +P(X_i=0)\times N(Y_i\mid \alpha, \sigma^2).
 \end{align*}
@@ -126,8 +124,7 @@ Motivation for using a mixture model: *Standard distributional families are not 
 
 -   The inflexibility of the model may be due to unobserved heterogeneity (e.g., unrecorded treatment history).
 
-Generically, 
-$$f(Y_i) = \sum_{h = 1}^k \pi_h \times f_h(Y_i).$$
+Generically, $$f(Y_i) = \sum_{h = 1}^k \pi_h \times f_h(Y_i).$$
 
 **Uses of mixture models:**
 
@@ -136,32 +133,32 @@ $$f(Y_i) = \sum_{h = 1}^k \pi_h \times f_h(Y_i).$$
 
 ## Mixture Model {.midi}
 
-$$p(Y_i) = \sum_{h=1}^k \pi_h\times f_h(Y_i)$$
+$$f(Y_i) = \sum_{h=1}^k \pi_h\times f_h(Y_i)$$
 
 -   This mixture is comprised of $k$ components indexed by $h=1,\dots,k$. For each component, we have a probability density (or mass) function $f_h$ and a mixture weight $\pi_h$, where $\sum_{h=1}^k \pi_k=1$.
 
 -   When $k$ is finite, we call this a **finite mixture model** for $Y_i$.
 
--   It is common to let,
-$$f_h(Y_i) = f(Y_i\mid \boldsymbol{\theta}_h).$$
+-   It is common to let, $$f_h(Y_i) = f(Y_i\mid \boldsymbol{\theta}_h).$$
+
     -   The component densities share a functional form and differ in their parameters.
 
 ## Gaussian Mixture Model
 
 Letting $f_h(Y_i) = N(Y_i\mid \mu_h, \sigma^2_h)$ for $h=1,\dots,k$, yields the Gaussian mixture model. For $Y_i\in\mathbb{R}$, 
-$$p(Y_i) = \sum_{h=1}^k \pi_h N\left({Y}_i\mid \mu_h, \sigma^2_h\right)$$ 
+$$f(Y_i) = \sum_{h=1}^k \pi_h N\left({Y}_i\mid \mu_h, \sigma^2_h\right)$$
 
-For multivariate outcomes $\mathbf{Y}_i\in\mathbb{R}^p$, 
+For multivariate outcomes $\mathbf{Y}_i\in\mathbb{R}^p$,
 
-$$ p(\mathbf{Y}_i) = \sum_{h=1}^k \pi_h N_p\left(\mathbf{Y}_i\mid\boldsymbol{\mu}_h, \boldsymbol{\Sigma}_h\right).$$
+$$ f(\mathbf{Y}_i) = \sum_{h=1}^k \pi_h N_p\left(\mathbf{Y}_i\mid\boldsymbol{\mu}_h, \boldsymbol{\Sigma}_h\right).$$
 
 ## Gaussian Mixture Model {.small}
 
 Consider a mixture model with 3 groups:
 
-- Mixture 1: $\mu_1 = -1.5, \sigma_1 = 1$.
-- Mixture 2: $\mu_2 = 0, \sigma_2 = 1.5$.
-- Mixture 3: $\mu_3 = 2, \sigma_3 = 0.6$.
+-   Mixture 1: $\mu_1 = -1.5, \sigma_1 = 1$.
+-   Mixture 2: $\mu_2 = 0, \sigma_2 = 1.5$.
+-   Mixture 3: $\mu_3 = 2, \sigma_3 = 0.6$.
 
 ```{r}
 #| echo: false
@@ -182,6 +179,7 @@ dat_fig <- data.frame(Y, f1, f2, f3, Mixture)
 dat_fig <- pivot_longer(dat_fig, cols = c("f1", "f2", "f3", "Mixture"), names_to = "Distribution", values_to = "Density")
 ggplot(dat_fig, aes(x = Y, Density, color = Distribution)) + 
   geom_line(size = 1.25) + 
+  ylim(0, 0.4) + 
   labs(title = bquote("Gaussian Mixture:" ~ pi ~ " = (0.25, 0.25, 0.50)"))
 
 pis <- c(0.5,0.2,0.3)
@@ -193,6 +191,7 @@ dat_fig <- data.frame(Y, f1, f2, f3, Mixture)
 dat_fig <- pivot_longer(dat_fig, cols = c("f1", "f2", "f3", "Mixture"), names_to = "Distribution", values_to = "Density")
 ggplot(dat_fig, aes(x = Y, Density, color = Distribution)) + 
   geom_line(size = 1.25) + 
+  ylim(0, 0.4) + 
   labs(title = bquote("Gaussian Mixture:" ~ pi ~ " = (0.5, 0.2, 0.3)"))
 ```
 
@@ -202,9 +201,8 @@ Notice, both means $\mu_h$ and variances $\sigma^2_h$ vary across clusters.
 
 To simulate from a $k$-component Gaussian mixture with means $\mu_1,\dots,\mu_k$, variances $\sigma_1^2,\dots,\sigma^2_k$, and weights $\pi_1,\dots,\pi_k$:
 
-1.  Sample the component indicator $z_i\in \{1, \dots,k\}$ with probabilities: $$P(z_i=h) = \pi_h.$$
-2.  Given $z_i$, sample $Y_i$ from the appropriate component: 
-$$\left(Y_i\mid z_i =h\right) \sim N\left(\mu_h, \sigma^2_h\right).$$
+1.  Sample the component indicator $z_i\in \{1, \dots,k\}$ with probabilities: $$P(z_i=h) = \pi_h \iff z_i \sim \text{Categorical}(k, \{\pi_1,\ldots,\pi_k\}).$$
+2.  Given $z_i$, sample $Y_i$ from the appropriate component: $$\left(Y_i\mid z_i =h\right) \sim N\left(\mu_h, \sigma^2_h\right).$$
 
 ## Generative perspective on GMM
 
@@ -219,9 +217,19 @@ y <- rnorm(n, mu[z], sqrt(s2))
 
 *This is essentially the code used to simulate the missing treatment history example.*
 
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-height: 3
+#| fig-width: 5
+ggplot(data.frame(y = y), aes(x = y)) + 
+  geom_histogram() + 
+  labs(x = "Y", y = "Count")
+```
+
 ## Marginalizing Component Indicators {.midi}
 
-The label $z_i$ indicates which component $Y_i$ is drawn from---*think of this as the cluster label*. $f\left(Y_i\mid z_i=h\right) = N\left(Y_i\mid \mu_h,\sigma^2_h \right).$
+The label $z_i$ indicates which component $Y_i$ is drawn from---*think of this as the cluster label*: $f\left(Y_i\mid z_i=h\right) = N\left(Y_i\mid \mu_h,\sigma^2_h \right).$
 
 But $z_i$ is unknown, so we marginalize to obtain:
 
@@ -235,7 +243,7 @@ f(Y_i) &= \int_\mathcal{Z}f\left(Y_i\mid z\right) f(z)dz \\
 
 ## Gaussian mixture in Stan {.midi}
 
-Component indicators $z_i$ are discrete parameters, which cannot be estimated in `Stan`. As before, suppose $f(Y_i) = \sum_{h=1}^k  \pi_h N\left(Y_i\mid \mu_h,\sigma^2_h \right)$. 
+Component indicators $z_i$ are discrete parameters, which cannot be estimated in `Stan`. As before, suppose $f(Y_i) = \sum_{h=1}^k  \pi_h N\left(Y_i\mid \mu_h,\sigma^2_h \right)$.
 
 The log-likelihood is:
 
@@ -309,26 +317,38 @@ print(fit1, pars = c("pi", "mu", "sigma"), probs = c(0.025, 0.975))
 
 ```{r}
 #| echo: true
+#| fig-align: "center"
+#| fig-width: 8
+#| fig-height: 7
 pairs(fit1, pars = c("mu", "sigma"))
 ```
 
 <!-- ## What is going on? -->
 
 <!-- ```{r echo=T} -->
+
 <!-- samples <- rstan::extract(fit1) -->
+
 <!-- hist(dat$Y, breaks = 75, probability = T, xlim=c(min(dat$Y)-10,max(dat$Y)+10), col="white", main="Posterior draws", ylab="", xlab="") -->
+
 <!-- for (it in sample(1:10000, 15)){ -->
+
 <!--   curve(mean(samples$pi[it,1]) * dnorm(x, mean(samples$mu[it,1]), mean(samples$sigma[it,1])),  -->
+
 <!--         from=min(dat$Y)-10, to=max(dat$Y)+10, ylab="dens", add=T, n = 1001, lty=1, lwd=2, col=rgb(1,0.1,0, 0.5)) -->
+
 <!--   curve(mean(samples$pi[it,2]) * dnorm(x, mean(samples$mu[it,2]), mean(samples$sigma[it,2])),  -->
+
 <!--         from=min(dat$Y)-10, to=max(dat$Y)+10, ylab="dens", add=T, n = 1001, lty=2, lwd=2, col=rgb(0,0.1,1, 0.25)) -->
+
 <!-- } -->
 
 <!-- x <- rep(seq(min(dat$Y)-10, max(dat$Y)+10, length.out=1000), 2) -->
+
 <!-- ``` -->
 
-
 ## Bimodal posterior
+
 ```{r, echo=F}
 traceplot(fit1)
 ```
@@ -390,7 +410,7 @@ ggplot() +
 # p1+p2
 ```
 
-The Gaussian clusters have light tails, so outlying values of $Y$ force large values of $\sigma^2_h$. When $\sigma^2_h$ is large, small changes to $\mu_h$ have little impact on the log-likelihood, and the ordering constraint is not sufficient to identify the clusters. 
+The Gaussian clusters have light tails, so outlying values of $Y$ force large values of $\sigma^2_h$. When $\sigma^2_h$ is large, small changes to $\mu_h$ have little impact on the log-likelihood, and the ordering constraint is not sufficient to identify the clusters.
 
 ## Things to consider when your mixture model is mixed up
 
@@ -411,23 +431,20 @@ Mixture modeling, *especially when clusters are of interest*, can be fickle.
 ```{stan eval=FALSE, echo=T, output.var="tmp2"}
 // saved in mixture2.stan
 data {
-  int<lower=1> k;          // number of mixture components
-  int<lower=1> n;          // number of data points
+  int<lower = 1> k;          // number of mixture components
+  int<lower = 1> n;          // number of data points
   array[n] real Y;         // observations
 }
-
 parameters {
   simplex[k] pi; // mixing proportions
   ordered[k] mu; // means of the mixture components
-  vector<lower=0>[k] sigma; // sds of the mixture components
-  vector<lower=1>[k] nu;
+  vector<lower = 0>[k] sigma; // sds of the mixture components
+  vector<lower = 1>[k] nu;
 }
-
 model {
-  target += normal_lpdf(mu |0.0, 10.0);
+  target += normal_lpdf(mu | 0.0, 10.0);
   target += normal_lpdf(sigma | 2.0, 0.5);
-  target += gamma_lpdf(nu | 5., 0.5);
-  
+  target += gamma_lpdf(nu | 5.0, 0.5);
   vector[k] log_probs = log(pi);
   for (i in 1:n){
     vector[k] lps = log_probs;
@@ -450,7 +467,6 @@ model {
 mod2 <- stan_model("mixture2.stan")
 fit2 <- sampling(mod2, data=dat, chains=4, iter=5000, control=list("adapt_delta"=0.99))
 print(fit2, pars=c("pi", "mu", "sigma", "nu"))
-# saveRDS(fit2, "fits/fit2.rds")
 ```
 
 ```{r}
@@ -515,17 +531,17 @@ base +
 
 ## From marginal mixture model to clusters {.midi}
 
-`Stan` cannot directly *infer* categorical component indicators $z_i$. Instead, for each individual, we compute 
+`Stan` cannot directly *infer* categorical component indicators $z_i$. Instead, for each individual, we compute
 
 \begin{align*}
 P\left(z_i = h \mid Y_i, \boldsymbol{\mu},\boldsymbol{\sigma},\boldsymbol{\pi} \right) &= \frac{f(Y_i\mid z_i = h, \mu_h,\sigma_h)P(z_i=h\mid \pi_h)}{\sum_{h'=1}^k f(Y_i\mid z_i = h', \mu_{h'},\sigma_{h'})P(z_i=h'\mid \pi_{h'})}\\
 &= \frac{N(Y_i | \mu_{h},\sigma_{h})\pi_{h}}{\sum_{h' = 1}^k N(Y_i | \mu_{h'},\sigma_{h'})\pi_{h'}} = p_{ih}.
 \end{align*}
 
-Given these cluster membership probabilities, we can recover cluster indicators through simulation:
-$$(z_i\mid -) \sim \text{Categorical}\left(k, \left\{ p_{i1},\dots,p_{ik}  \right\}\right).$$
+Given these cluster membership probabilities, we can recover cluster indicators through simulation: $$(z_i\mid -) \sim \text{Categorical}\left(k, \left\{ p_{i1},\dots,p_{ik}  \right\}\right).$$
 
 ## From marginal mixture model to clusters
+
 ```{stan eval=FALSE, echo=T, output.var="gq"}
 ...
 
@@ -544,10 +560,9 @@ generated quantities {
 
 ## Co-clustering probabilities
 
-Recovering $z_i$ allows us to make the following pairwise comparison: *what is the probability that unit $i$ and unit $j$ are in the same cluster?* This is the "co-clustering probability". 
+Recovering $z_i$ allows us to make the following pairwise comparison: *what is the probability that unit* $i$ and unit $j$ are in the same cluster? This is the "co-clustering probability".
 
-It is common to arrange these probabilities in a co-clustering matrix $C$, where the $i,j$ entry is given by,
-$$C_{ij}=\text{Pr}\left( z_i=z_j\mid- \right)\approx \frac{1}{S}\sum_{s=1}^S \mathbb{1}\left[z_i^{(s)}=z_j^{(s)}\right].$$
+It is common to arrange these probabilities in a co-clustering matrix $\mathbf{C}$, where the $i,j$ entry is given by, $$C_{ij}=P\left( z_i=z_j\mid- \right)\approx \frac{1}{S}\sum_{s=1}^S \mathbb{1}\left[z_i^{(s)}=z_j^{(s)}\right].$$
 
 ## Co-clustering probabilities
 
@@ -587,7 +602,7 @@ ggplot(dat2, aes(X1, X2)) +
 
 ## How do our results change when we use more components?
 
-**$k=3$**
+$k=3$
 
 ```{r}
 #| echo: FALSE
@@ -632,7 +647,7 @@ base + geom_function(xlim=c(min(dat$Y)-5, max(dat$Y)+5), fun=tmix,
 
 ## How do our results change when we use more components?
 
-**$k=4$**
+$k=4$
 
 ```{r}
 #| echo: FALSE
@@ -767,4 +782,4 @@ The same general pattern persists when more clusters are used, indicating that $
 
 1.  Reminder: On Thursday, we will have a in-class live-coding exercise.
 
-2.  Begin working on Exam 02, which is due for feedback on April 15. 
+2.  Begin working on Exam 02, which is due for feedback on April 15.
