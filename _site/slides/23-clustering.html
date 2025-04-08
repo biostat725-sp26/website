@@ -444,7 +444,7 @@ Prof.&nbsp;Sam Berchuck (developed with Braden Scherting)
 <section id="limitations-of-the-usual-setup" class="slide level2">
 <h2>Limitations of the usual setup</h2>
 <p>Suppose patients <span class="math inline">\(i=1,\dots,n\)</span> are administered a diagnostic test. Their outcome <span class="math inline">\(Y_i\)</span> depends only on whether or not they have previously received treatment: <span class="math inline">\(X_i=1\)</span> if yes and <span class="math inline">\(X_i=0\)</span> otherwise. Suppose the diagnostic test has Gaussian-distributed measurement error, so <span class="math display">\[Y_i\mid X_i \sim N(\alpha + \beta X_i, \sigma^2).\]</span> Now, suppose past treatment information is not included in patients’ record—<em>we cannot condition on</em> <span class="math inline">\(X_i\)</span>. Marginalizing, <span class="math display">\[\begin{align*}
-p(Y_i) = &amp;P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
+f(Y_i) &amp;= P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
       &amp; +P(X_i=0)\times N(Y_i\mid \alpha, \sigma^2).
 \end{align*}\]</span></p>
 </section>

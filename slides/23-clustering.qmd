@@ -85,7 +85,7 @@ $$f\left(Y_i\mid X_i\right) = f\left(Y_i\mid \boldsymbol{\theta}_i\left(X_i\righ
 ## Limitations of the usual setup
 
 Suppose patients $i=1,\dots,n$ are administered a diagnostic test. Their outcome $Y_i$ depends only on whether or not they have previously received treatment: $X_i=1$ if yes and $X_i=0$ otherwise. Suppose the diagnostic test has Gaussian-distributed measurement error, so $$Y_i\mid X_i \sim N(\alpha + \beta X_i, \sigma^2).$$ Now, suppose past treatment information is not included in patients' record—*we cannot condition on* $X_i$. Marginalizing, \begin{align*}
-p(Y_i) = &P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
+f(Y_i) &= P(X_i=1)\times N(Y_i\mid \alpha + \beta, \sigma^2) \\
       & +P(X_i=0)\times N(Y_i\mid \alpha, \sigma^2).
 \end{align*}
 
