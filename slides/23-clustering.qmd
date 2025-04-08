@@ -834,29 +834,6 @@ ed %>%
     geom_col(position = "dodge") +
     labs(y = "Percentage", x = "Cluster", fill = "Acuity Score") +
     theme_minimal()
-
-# ed %>%
-#   count(cluster, discharge) %>%
-#   group_by(cluster) %>%  # group over the "denominator" you want
-#   mutate(percent = n / sum(n) * 100) %>%
-#   ungroup() %>% 
-#   ggplot(aes(x = cluster, y = percent, fill = discharge)) +
-#     geom_col(position = "dodge") +
-#     labs(y = "Percentage", x = "Cluster", fill = "Discharge") +
-#     theme_minimal()
-# 
-# ed %>% 
-#   ggplot(aes(y = o2sat, fill = cluster)) + 
-#     geom_boxplot() + 
-#     labs(y = "Oxygen Saturation", fill = "Cluster")
-# 
-# ed %>% 
-#   ggplot(aes(y = los, fill = cluster)) + 
-#     geom_boxplot() + 
-#     labs(y = "ED Length of Stay", fill = "Cluster")
-
-
-
 ```
 
 ## Characterizing the Clusters
@@ -880,12 +857,13 @@ ed %>%
     theme_minimal()
 
 ed %>%
-  ggplot(aes(y = o2sat, fill = cluster)) +
+  ggplot(aes(x = cluster, y = o2sat, fill = cluster)) +
     geom_boxplot() +
+    scale_fill_discrete() + 
     labs(y = "Oxygen Saturation", fill = "Cluster")
 
 ed %>%
-  ggplot(aes(y = los, fill = cluster)) +
+  ggplot(aes(x = cluster, y = los, fill = cluster)) +
     geom_boxplot() +
     labs(y = "ED Length of Stay", fill = "Cluster")
 
