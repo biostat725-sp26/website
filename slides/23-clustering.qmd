@@ -145,8 +145,7 @@ $$f(Y_i) = \sum_{h=1}^k \pi_h\times f_h(Y_i)$$
 
 ## Gaussian Mixture Model
 
-Letting $f_h(Y_i) = N(Y_i\mid \mu_h, \sigma^2_h)$ for $h=1,\dots,k$, yields the Gaussian mixture model. For $Y_i\in\mathbb{R}$, 
-$$f(Y_i) = \sum_{h=1}^k \pi_h N\left({Y}_i\mid \mu_h, \sigma^2_h\right)$$
+Letting $f_h(Y_i) = N(Y_i\mid \mu_h, \sigma^2_h)$ for $h=1,\dots,k$, yields the Gaussian mixture model. For $Y_i\in\mathbb{R}$, $$f(Y_i) = \sum_{h=1}^k \pi_h N\left({Y}_i\mid \mu_h, \sigma^2_h\right)$$
 
 For multivariate outcomes $\mathbf{Y}_i\in\mathbb{R}^p$,
 
@@ -777,6 +776,122 @@ a+b+c
 ```
 
 The same general pattern persists when more clusters are used, indicating that $k=2$ is a reasonable choice.
+
+## Characterizing the Clusters
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 3
+#| fig-height: 7
+#| layout-ncol: 4
+samples <- rstan::extract(fit2)
+z <- samples$z
+group <- numeric(length = nrow(ed))
+for (i in 1:nrow(ed)) {
+  probs <- table(z[, i]) / nrow(z)
+  group[i] <- as.numeric(names(probs[which.max(probs)]))
+}
+ed$cluster <- as.factor(group)
+  
+ed %>%
+  count(cluster, sex) %>%
+  group_by(cluster) %>%  # group over the "denominator" you want
+  mutate(percent = n / sum(n) * 100) %>%
+  ungroup() %>% 
+  ggplot(aes(x = cluster, y = percent, fill = sex)) +
+    geom_col(position = "dodge") +
+    labs(y = "Percentage", x = "Cluster", fill = "Sex") +
+    theme_minimal()
+
+ed %>%
+  count(cluster, race) %>%
+  group_by(cluster) %>%  # group over the "denominator" you want
+  mutate(percent = n / sum(n) * 100) %>%
+  ungroup() %>% 
+  ggplot(aes(x = cluster, y = percent, fill = race)) +
+    geom_col(position = "dodge") +
+    labs(y = "Percentage", x = "Cluster", fill = "Race") +
+    theme_minimal()
+
+ed %>%
+  count(cluster, arrival) %>%
+  group_by(cluster) %>%  # group over the "denominator" you want
+  mutate(percent = n / sum(n) * 100) %>%
+  ungroup() %>% 
+  ggplot(aes(x = cluster, y = percent, fill = arrival)) +
+    geom_col(position = "dodge") +
+    labs(y = "Percentage", x = "Cluster", fill = "Arrival") +
+    theme_minimal()
+  
+ed %>%
+  count(cluster, acuity_score) %>%
+  group_by(cluster) %>%  # group over the "denominator" you want
+  mutate(percent = n / sum(n) * 100) %>%
+  ungroup() %>% 
+  ggplot(aes(x = cluster, y = percent, fill = acuity_score)) +
+    geom_col(position = "dodge") +
+    labs(y = "Percentage", x = "Cluster", fill = "Acuity Score") +
+    theme_minimal()
+
+# ed %>%
+#   count(cluster, discharge) %>%
+#   group_by(cluster) %>%  # group over the "denominator" you want
+#   mutate(percent = n / sum(n) * 100) %>%
+#   ungroup() %>% 
+#   ggplot(aes(x = cluster, y = percent, fill = discharge)) +
+#     geom_col(position = "dodge") +
+#     labs(y = "Percentage", x = "Cluster", fill = "Discharge") +
+#     theme_minimal()
+# 
+# ed %>% 
+#   ggplot(aes(y = o2sat, fill = cluster)) + 
+#     geom_boxplot() + 
+#     labs(y = "Oxygen Saturation", fill = "Cluster")
+# 
+# ed %>% 
+#   ggplot(aes(y = los, fill = cluster)) + 
+#     geom_boxplot() + 
+#     labs(y = "ED Length of Stay", fill = "Cluster")
+
+
+
+```
+
+## Characterizing the Clusters
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 4
+#| fig-height: 7
+#| layout-ncol: 3
+
+ed %>%
+  count(cluster, discharge) %>%
+  group_by(cluster) %>%  # group over the "denominator" you want
+  mutate(percent = n / sum(n) * 100) %>%
+  ungroup() %>%
+  ggplot(aes(x = cluster, y = percent, fill = discharge)) +
+    geom_col(position = "dodge") +
+    labs(y = "Percentage", x = "Cluster", fill = "Discharge") +
+    theme_minimal()
+
+ed %>%
+  ggplot(aes(y = o2sat, fill = cluster)) +
+    geom_boxplot() +
+    labs(y = "Oxygen Saturation", fill = "Cluster")
+
+ed %>%
+  ggplot(aes(y = los, fill = cluster)) +
+    geom_boxplot() +
+    labs(y = "ED Length of Stay", fill = "Cluster")
+
+
+
+```
 
 ## Prepare for next class
 
