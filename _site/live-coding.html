@@ -460,7 +460,7 @@ Y_i &amp;\stackrel{ind}{\sim} \text{Gamma}(\tau, \mu_i),\quad i = 1,\ldots,n\\
 </section>
 <section id="interpreting-coefficients" class="level2">
 <h2 class="anchored" data-anchor-id="interpreting-coefficients">Interpreting Coefficients</h2>
-<p>To interpret the coefficients, you must exponentiate them, <span class="math inline">\(\gamma_j = \exp\{\beta_j\}\)</span>. It is easy to see that <span class="math inline">\(\gamma_j\)</span> can be interpreted as a multiplicative factor on the mean. To see this, we can consider a particular variable <span class="math inline">\(x_{ij}\)</span> and its corresponding coefficient <span class="math inline">\(\beta_j\)</span>. Define <span class="math inline">\(\mathbf{x}_{i,-j} = (x_{i1},\ldots,x_{i(j-1)}, x_{i(j+1)}, \ldots, x_{ip})\)</span> and <span class="math inline">\(\boldsymbol{\beta}_{-j} = (\beta_{1},\ldots,\beta_{j-1}, \beta_{j+1}, \ldots, \beta_{p})^\top\)</span> as object that have removed the <span class="math inline">\(j\)</span>-th entry. Now assume that we observe two observations <span class="math inline">\(\mathbf{x}_i\)</span> and <span class="math inline">\(\mathbf{x}_{i'}\)</span>, such that the only difference between the two are that <span class="math inline">\(x_{i'j} = x_{ij} + 1\)</span>. From this setup, we can see that indeed the <span class="math inline">\(\gamma_j\)</span> can be interpreted as being multiplicative on the mean, <span class="math display">\[\begin{align*}
+<p>To interpret the coefficients, you must exponentiate them, <span class="math inline">\(\gamma_j = \exp\{\beta_j\}\)</span>. It is easy to see that <span class="math inline">\(\gamma_j\)</span> can be interpreted as a multiplicative factor on the mean. To see this, we can consider a particular variable <span class="math inline">\(x_{ij}\)</span> and its corresponding coefficient <span class="math inline">\(\beta_j\)</span>. Define <span class="math inline">\(\mathbf{x}_{i,-j} = (x_{i1},\ldots,x_{i(j-1)}, x_{i(j+1)}, \ldots, x_{ip})\)</span> and <span class="math inline">\(\boldsymbol{\beta}_{-j} = (\beta_{1},\ldots,\beta_{j-1}, \beta_{j+1}, \ldots, \beta_{p})^\top\)</span> as objects that have removed the <span class="math inline">\(j\)</span>-th entry. Now assume that we observe two observations <span class="math inline">\(\mathbf{x}_i\)</span> and <span class="math inline">\(\mathbf{x}_{i'}\)</span>, such that the only difference between the two are that <span class="math inline">\(x_{i'j} = x_{ij} + 1\)</span>. From this setup, we can see that indeed the <span class="math inline">\(\gamma_j\)</span> can be interpreted as being multiplicative on the mean, <span class="math display">\[\begin{align*}
 \mu_{i'} &amp;= \exp\{\alpha +\mathbf{x}_{i'}\boldsymbol{\beta}\}\\
 &amp;= \exp\left\{\alpha +\mathbf{x}_{i',-j} \boldsymbol{\beta}_{-j} + x_{i'j} \beta_j\right\}\\
 &amp;= \exp\left\{\alpha +\mathbf{x}_{i,-j} \boldsymbol{\beta}_{-j} + (x_{ij} + 1) \beta_j\right\}\\
@@ -498,11 +498,11 @@ Stan code
 </div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>To perform Gamma regression in Stan, we need to manually encode the likelihood function. Create a function in your Stan code called <code>gamma_regression_lpdf</code> that encodes the log-likelihood function, <span class="math inline">\(\sum_{i=1}^n \log f_Y(Y_i|\tau,\mu_i)\)</span>. To answer this question, print the function you created using a <code>{stan output.var = "likelihood", eval = FALSE}</code> code chunk. Note that the function <code>lgamma(x)</code> computes <span class="math inline">\(\log \Gamma(x)\)</span> in Stan.</p>
+<p>To perform Gamma regression in Stan, we need to manually encode the likelihood function. Create a function in your Stan code called <code>gamma_regression_lpdf</code> that encodes the log-likelihood function, <span class="math inline">\(\sum_{i=1}^n \log f_Y(Y_i|\tau,\mu_i)\)</span>. To answer this question, print the function you created using a <code>{stan output.var = "likelihood", eval = FALSE}</code> code chunk. The function <code>gamma_regression_lpdf</code> should be vectorized. Note that the function <code>lgamma(x)</code> computes <span class="math inline">\(\log \Gamma(x)\)</span> in Stan.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Eventually, we would like to perform posterior predictive checks for our model. In order to do this we must sample from a Gamma random variable in the generated quantities block. The only built in <a href="https://mc-stan.org/docs/functions-reference/positive_continuous_distributions.html#gamma-distribution">Stan function</a> for sampling from Gamma random variables is <code>gamma_rng</code> which samples from a Gamma random variable with <span class="math inline">\(Y \sim \text{Gamma}(\lambda, \kappa)\)</span> with density <span class="math inline">\(f_Y(y | \lambda, \kappa) = \frac{\kappa^{\lambda}}{\Gamma(\lambda)}y^{\lambda-1}\exp\{-\kappa y\}\)</span>, where <span class="math inline">\(\lambda\)</span> is the shape parameter and <span class="math inline">\(\kappa\)</span> is the inverse scale (or rate), such that <span class="math inline">\(\kappa = 1 / \theta\)</span>. Use the <code>gamma_rng</code> to create a function called <code>gamma_regression_rng</code> that can be used to sample the posterior predictive distribution. To answer this question, print the function you created using a <code>{stan output.var = "rng", eval = FALSE}</code> code chunk.</p>
+<p>Eventually, we would like to perform posterior predictive checks for our model. In order to do this we must sample from a Gamma random variable in the generated quantities block. The only built in <a href="https://mc-stan.org/docs/functions-reference/positive_continuous_distributions.html#gamma-distribution">Stan function</a> for sampling from Gamma random variables is <code>gamma_rng</code> which samples from a Gamma random variable with <span class="math inline">\(Y \sim \text{Gamma}(\lambda, \kappa)\)</span> with density <span class="math inline">\(f_Y(y | \lambda, \kappa) = \frac{\kappa^{\lambda}}{\Gamma(\lambda)}y^{\lambda-1}\exp\{-\kappa y\}\)</span>, where <span class="math inline">\(\lambda\)</span> is the shape parameter and <span class="math inline">\(\kappa\)</span> is the inverse scale (or rate), such that <span class="math inline">\(\kappa = 1 / \theta\)</span>. Use the <code>gamma_rng</code> to create a function called <code>gamma_regression_rng</code> that can be used to sample the posterior predictive distribution. The function <code>gamma_regression_rng</code> should <strong>not</strong> be vectorized. To answer this question, print the function you created using a <code>{stan output.var = "rng", eval = FALSE}</code> code chunk.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
@@ -514,11 +514,11 @@ Stan code
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Using the code from the previous exercises, fit the Gamma regression model specified above. Provide evidence of MCMC convergence for <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\boldsymbol{\beta}\)</span>, and <span class="math inline">\(\tau\)</span>.</p>
+<p>Using the code from the previous exercises, fit the Gamma regression model specified above. Print the Stan code that fits the model and the convergence diagnostic plots. Make a statement about MCMC convergence for <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\boldsymbol{\beta}\)</span>, and <span class="math inline">\(\tau\)</span>.</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Perform a posterior predictive check to assess model fit. Does the model fit the data well?</p>
+<p>Perform a posterior predictive check to assess model fit and describe how well the model fits the data.</p>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
@@ -526,7 +526,7 @@ Stan code
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Examine the posterior distribution of <span class="math inline">\(\gamma_j\)</span> for <span class="math inline">\(j=1,\ldots,p\)</span>. Choose a significant predictor and interpret its <span class="math inline">\(\gamma_j\)</span>.</p>
+<p>Present posterior summaries for <span class="math inline">\(\gamma_j\)</span> for <span class="math inline">\(j=1,\ldots,p\)</span>. Provide an interpretation for <span class="math inline">\(\gamma_1\)</span> within the context of the scientific problem.</p>
 </section>
 </section>
 <section id="submission" class="level1">
