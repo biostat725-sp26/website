@@ -72,6 +72,8 @@ website:
           text: HW 04
         - href: hw/hw-05.qmd
           text: HW 05
+      - href: live-coding.qmd
+        text: Live-Coding
 
 
 format:
