@@ -2,7 +2,7 @@
 title: "Live-Coding"
 subtitle: Gamma regression for ED length of stay
 search: false
-format: pdf
+format: html
 ---
 
 # Introduction
