@@ -2,7 +2,7 @@
 title: "Live-Coding"
 subtitle: Gamma regression for ED length of stay
 search: false
-format: html
+format: pdf
 ---
 
 # Introduction
@@ -155,7 +155,7 @@ In your repo you will find a Stan script called `live-coding.stan`. This will ac
 
 ## Exercise 1
 
-To perform Gamma regression in Stan, we need to manually encode the likelihood function. Create a function in your Stan code called `gamma_regression_lpdf` that encodes the log-likelihood function, $\sum_{i=1}^n \log f_Y(Y_i|\tau,\mu_i)$. To answer this question, print the function you created using a `{stan output.var = "likelihood", eval = FALSE}` code chunk. The function `gamma_regression_lpdf` should be vectorized. Note that the function `lgamma(x)` computes $\log \Gamma(x)$ in Stan. 
+To perform Gamma regression in Stan, we need to manually encode the likelihood function. Create a function in your Stan code called `gamma_regression_lpdf` that encodes the log-likelihood function, $\sum_{i=1}^n \log f_Y(Y_i|\tau,\mu_i)$. To answer this question, print the function you created using a `{stan output.var = "likelihood", eval = FALSE}` code chunk. The function `gamma_regression_lpdf` should be vectorized. Note that the function `lgamma(x)` computes $\log \Gamma(x)$ in Stan.
 
 ## Exercise 2
 
