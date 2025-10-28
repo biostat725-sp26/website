@@ -1,10 +1,10 @@
 # Website for BIOSTAT 725 at Duke University
 
-# Spring 2025
+# Spring 2026
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1230d4e0-308a-4f05-a8eb-7d959c9f8e35/deploy-status)](https://app.netlify.com/sites/biostat725-sp25/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f435ad8b-b479-4154-927f-6349ab226154/deploy-status)](https://app.netlify.com/projects/biostat725-sp26/deploys)
 
-:link: [biostat725-sp25.netlify.app](https://biostat725-sp25.netlify.app/)
+:link: [biostat725-sp26.netlify.app](https://biostat725-sp26.netlify.app/)
 
 ## Colors
 
