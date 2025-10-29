@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 9\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 14\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 16\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 21\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 23\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 28\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 30\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 4\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 6\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 11\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 13\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 18\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 20\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 25\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 27\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 4\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 6\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 11\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 13\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 18\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 20\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 25\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 27\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nApr 1\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 3\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 8\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 10\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 15\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 12:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 12:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -2761,22 +2761,22 @@
     "objectID": "slides/01-welcome.html#teaching-assistants-tas",
     "href": "slides/01-welcome.html#teaching-assistants-tas",
     "title": "Welcome to BIOSTAT 725!",
-    "section": "Teaching Assistants (TAs)",
-    "text": "Teaching Assistants (TAs)\n\nDr. Youngsoo Baek (PhD)\n\nPhd in Statistical Science from Duke University\nPostdoc in Biostatistics & Bioinformatics\n\nBraden Scherting\n\nPhd candidate in Statistical Science"
+    "section": "",
+    "text": "Dr. Youngsoo Baek (PhD)\n\nPhd in Statistical Science from Duke University\nPostdoc in Biostatistics & Bioinformatics\n\nBraden Scherting\n\nPhd candidate in Statistical Science"
   },
   {
     "objectID": "slides/01-welcome.html#check-in-on-ed-discussion",
     "href": "slides/01-welcome.html#check-in-on-ed-discussion",
     "title": "Welcome to BIOSTAT 725!",
-    "section": "Check-in on Ed Discussion!",
-    "text": "Check-in on Ed Discussion!\n\nClick on the link or scan the QR code to answer the Ed Discussion poll\nhttps://edstem.org/us/courses/68995/discussion/5942168"
+    "section": "",
+    "text": "Click on the link or scan the QR code to answer the Ed Discussion poll\nhttps://edstem.org/us/courses/68995/discussion/5942168"
   },
   {
     "objectID": "slides/01-welcome.html#topics",
     "href": "slides/01-welcome.html#topics",
     "title": "Welcome to BIOSTAT 725!",
-    "section": "Topics",
-    "text": "Topics\n\nIntroduction to the course\nSyllabus activity\nReview of probability"
+    "section": "",
+    "text": "Introduction to the course\nSyllabus activity\nReview of probability"
   },
   {
     "objectID": "slides/01-welcome.html#what-is-regression-analysis",
@@ -2811,7 +2811,7 @@
     "href": "slides/01-welcome.html#course-topics",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Course topics",
-    "text": "Course topics\n\n\n\n\nLinear regression\n\nMethods for inference\nPrior elicitation\nPosterior estimation\nUncertainty quantification\nModel assessment\nBayesian workflow\nPrediction\n\n\n\n\nHealth Datasets\n\n\n\n\nExtensions\n\nRobust regression\nRegularization\nClassification\nMissing data\n\n\n\n\nHierarchical Model\n\nGaussian processes\nLongitudinal data\nSpatial data"
+    "text": "Course topics\n\n\n\n\nLinear regression\n\nMethods for inference\nPrior elicitation\nPosterior estimation\nUncertainty quantification\nModel assessment\nBayesian workflow\nPrediction\n\n\n\n\n\nHealth Datasets\n\n\n\n\n\nExtensions\n\nRobust regression\nRegularization\nClassification\nMissing data\n\n\n\n\n\nHierarchical Model\n\nGaussian processes\nLongitudinal data\nSpatial data"
   },
   {
     "objectID": "slides/01-welcome.html#course-toolkit",
@@ -3874,8 +3874,8 @@
     "objectID": "slides/01-welcome.html#meet-prof.-berchuck",
     "href": "slides/01-welcome.html#meet-prof.-berchuck",
     "title": "Welcome to BIOSTAT 725!",
-    "section": "Meet Prof. Berchuck!",
-    "text": "Meet Prof. Berchuck!\n\n\nEducation and career journey\n\nBS in Statistical Science from Duke University\nPhD in Biostatistics from University of North Carolina - Chapel Hill\nPostdoc in Duke Forge: Duke’s Center for Actionable Health Data Science\nNIH/NEI Pathway to Independence Fellow (K99/R00)\nAssistant Professor, Department of Biostatistics & Bioinformatics and Statistical Science at Duke; Faculty Affiliate of Duke AI Health\n\nWork focuses on developing data science tools to improve patient experience using biomedical data (including EHR)\nDad of 4 and 6 year old daughters 🙂"
+    "section": "",
+    "text": "Education and career journey\n\nBS in Statistical Science from Duke University\nPhD in Biostatistics from University of North Carolina - Chapel Hill\nPostdoc in Duke Forge: Duke’s Center for Actionable Health Data Science\nNIH/NEI Pathway to Independence Fellow (K99/R00)\nAssistant Professor, Department of Biostatistics & Bioinformatics and Statistical Science at Duke; Faculty Affiliate of Duke AI Health\n\nWork focuses on developing data science tools to improve patient experience using biomedical data (including EHR)\nDad of 4 and 6 year old daughters 🙂"
   },
   {
     "objectID": "slides/01-welcome.html#early-years",
@@ -3910,7 +3910,7 @@
     "href": "slides/01-welcome.html#what-is-biostat-725",
     "title": "Welcome to BIOSTAT 725!",
     "section": "What is BIOSTAT 725?",
-    "text": "What is BIOSTAT 725?\n\n\n\n\n\n Bayes \n\nModeling\n\n\n\n\n+\n\n\n\n\n\n Stan\n\nProbabilistic Programming\n\n\n\nPrerequisites: BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course with instructor permission."
+    "text": "What is BIOSTAT 725?\n\n\n\n\n\n Bayes \n\nModeling\n\n\n\n\n+\n\n\n\n\n\n Stan\n\nProbabilistic Programming\n\n\n\n\nPrerequisites: BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course with instructor permission."
   },
   {
     "objectID": "slides/01-welcome.html#exploring-the-game",
@@ -4854,7 +4854,7 @@
     "href": "slides/01-welcome.html#prepare-for-next-week",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Prepare for next week",
-    "text": "Prepare for next week\n\nComplete HW 00 tasks\nReview syllabus\nComplete reading to prepare for Tuesday’s lecture\nTuesday’s lecture: Monte Carlo Sampling\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next week\n\nComplete HW 00 tasks\nReview syllabus\nComplete reading to prepare for Tuesday’s lecture\nTuesday’s lecture: Monte Carlo Sampling"
   },
   {
     "objectID": "slides/03-linear-regression.html#review-of-last-lecture",
@@ -5574,7 +5574,7 @@
     "href": "slides/01-welcome.html#bayes-rule",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Bayes rule",
-    "text": "Bayes rule\n\n\n\n\n\nThomas Bayes, 1701-1761\n\n\nPierre-Simon Laplace, 1749-1827\n\n\\[f(\\boldsymbol{\\theta}|\\mathbf{Y}) = \\frac{f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})}{\\int f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})d\\boldsymbol{\\theta}}\\]"
+    "text": "Bayes rule\n\n\n\n\n\nThomas Bayes, 1701-1761\n\n\nPierre-Simon Laplace, 1749-1827\n\n\n\\[f(\\boldsymbol{\\theta}|\\mathbf{Y}) = \\frac{f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})}{\\int f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})d\\boldsymbol{\\theta}}\\]"
   },
   {
     "objectID": "slides/02-monte-carlo.html#defining-the-model",
@@ -5679,7 +5679,7 @@
     "href": "slides/02-monte-carlo.html#summarizing-the-posterior",
     "title": "Monte Carlo Sampling",
     "section": "Summarizing the posterior",
-    "text": "Summarizing the posterior\nWe now have a posterior distribution. What do we do now?\n\n\nPosterior means, medians, modes, and variances\n\n\n\n\nJoint, conditional, and marginal probabilities, for example: \\(P(\\pi &lt; c | Z)\\)\n\n\n\n\n\\(\\alpha\\)-quantiles: \\(\\{q_{\\alpha} : P(\\pi &lt; q_{\\alpha} | Z) = \\alpha\\}, \\alpha \\in (0,1)\\)\n\n\n\n\n\\(\\ldots\\)\n\n\n\nHow do we go about computing these summaries?"
+    "text": "Summarizing the posterior\nWe now have a posterior distribution. What do we do now?\n. . .\n\nPosterior means, medians, modes, and variances\n\n. . .\n\nJoint, conditional, and marginal probabilities, for example: \\(P(\\pi &lt; c | Z)\\)\n\n. . .\n\n\\(\\alpha\\)-quantiles: \\(\\{q_{\\alpha} : P(\\pi &lt; q_{\\alpha} | Z) = \\alpha\\}, \\alpha \\in (0,1)\\)\n\n. . .\n\n\\(\\ldots\\)\n\n. . .\nHow do we go about computing these summaries?"
   },
   {
     "objectID": "slides/02-monte-carlo.html#summarizing-the-posterior-1",
@@ -5755,8 +5755,8 @@
     "objectID": "slides/03-mcmc.html#review-of-last-lecture",
     "href": "slides/03-mcmc.html#review-of-last-lecture",
     "title": "Markov chain Monte Carlo",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nOn Tuesday, we performed posterior inference for a Beta-Binomial model using Monte Carlo estimation.\nToday we will discuss Bayesian estimation of linear regression:\n\n\\[\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2 \\sim N(\\mathbf{X} \\boldsymbol{\\beta}, \\sigma^2 \\mathbf{I}_n).\\]\n\nThere is no closed form posterior, so we cannot directly use Monte Carlo sampling.\nWe need Markov chain Monte Carlo (MCMC)!\nOur goal is to gain intuition behind MCMC, the workhorse behind Stan."
+    "section": "",
+    "text": "On Tuesday, we performed posterior inference for a Beta-Binomial model using Monte Carlo estimation.\nToday we will discuss Bayesian estimation of linear regression:\n\n\\[\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2 \\sim N(\\mathbf{X} \\boldsymbol{\\beta}, \\sigma^2 \\mathbf{I}_n).\\]\n\nThere is no closed form posterior, so we cannot directly use Monte Carlo sampling.\nWe need Markov chain Monte Carlo (MCMC)!\nOur goal is to gain intuition behind MCMC, the workhorse behind Stan."
   },
   {
     "objectID": "slides/03-mcmc.html#posterior-for-linear-regression",
@@ -5770,7 +5770,7 @@
     "href": "slides/03-mcmc.html#motivation-for-gibbs-sampling",
     "title": "Markov chain Monte Carlo",
     "section": "Motivation for Gibbs sampling",
-    "text": "Motivation for Gibbs sampling\n\nSuppose we were given \\(\\sigma^{2(1)}\\), a single sample from the marginal posterior distribution \\(f\\left(\\sigma^2|\\mathbf{Y}\\right)\\) (from where, who knows?)\nUse the sample to generate \\(\\boldsymbol{\\beta}^{(1)}\\) from \\(f\\left(\\boldsymbol{\\beta}|\\mathbf{Y},\\sigma^{2(1)}\\right)\\)\n\\(\\left(\\boldsymbol{\\beta}^{(1)},\\sigma^{2(1)}\\right)\\) is a sample from \\(f\\left(\\boldsymbol{\\beta}, \\sigma^2 | \\mathbf{Y}\\right)\\)\n\\(\\boldsymbol{\\beta}^{(1)}\\) is a sample from \\(f\\left(\\boldsymbol{\\beta} | \\mathbf{Y}\\right)\\)\n\n\n\n\n\n\n\n\nRecall\n\n\n\\(f\\left(\\boldsymbol{\\beta}, \\sigma^{2}|\\mathbf{Y}\\right) = f\\left(\\boldsymbol{\\beta} | \\sigma^{2},\\mathbf{Y}\\right)f\\left(\\sigma^{2}|\\mathbf{Y}\\right)\\)"
+    "text": "Motivation for Gibbs sampling\n\nSuppose we were given \\(\\sigma^{2(1)}\\), a single sample from the marginal posterior distribution \\(f\\left(\\sigma^2|\\mathbf{Y}\\right)\\) (from where, who knows?)\nUse the sample to generate \\(\\boldsymbol{\\beta}^{(1)}\\) from \\(f\\left(\\boldsymbol{\\beta}|\\mathbf{Y},\\sigma^{2(1)}\\right)\\)\n\\(\\left(\\boldsymbol{\\beta}^{(1)},\\sigma^{2(1)}\\right)\\) is a sample from \\(f\\left(\\boldsymbol{\\beta}, \\sigma^2 | \\mathbf{Y}\\right)\\)\n\\(\\boldsymbol{\\beta}^{(1)}\\) is a sample from \\(f\\left(\\boldsymbol{\\beta} | \\mathbf{Y}\\right)\\)\n\n. . .\n\n\n\n\n\n\nRecall\n\n\n\n\\(f\\left(\\boldsymbol{\\beta}, \\sigma^{2}|\\mathbf{Y}\\right) = f\\left(\\boldsymbol{\\beta} | \\sigma^{2},\\mathbf{Y}\\right)f\\left(\\sigma^{2}|\\mathbf{Y}\\right)\\)"
   },
   {
     "objectID": "slides/03-mcmc.html#gibbs-sampler-for-linear-regression",
@@ -5994,7 +5994,7 @@
     "href": "slides/02-monte-carlo.html#prepare-for-next-class",
     "title": "Monte Carlo Sampling",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nComplete HW 00 which is due before Thursday’s class\nComplete reading to prepare for Thursday’s lecture\nThursday’s lecture: Markov chain Monte Carlo\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nComplete HW 00 which is due before Thursday’s class\nComplete reading to prepare for Thursday’s lecture\nThursday’s lecture: Markov chain Monte Carlo"
   },
   {
     "objectID": "slides/03-mcmc.html#hmc",
@@ -6057,7 +6057,7 @@
     "href": "slides/03-mcmc.html#hamiltonian-monte-carlo-hmc-intuition",
     "title": "Markov chain Monte Carlo",
     "section": "Hamiltonian Monte Carlo (HMC) intuition",
-    "text": "Hamiltonian Monte Carlo (HMC) intuition\n\nHMC is a new MCMC approach that has been shown to work better than the usual MH algorithm.\nIt is based on the idea of Hamiltonian dynamics (a physical concept)\n\n\n\n\n\n\n\nRollercoaster Metaphor\n\n\nImagine you’re on a roller coaster at an amusement park. As the roller coaster moves along the track, it goes up and down hills. When the roller coaster is at the top of a hill, it has a lot of potential energy (like stored energy). When it goes down the hill, that potential energy turns into kinetic energy (energy of motion), making the roller coaster go faster. Hamiltonian dynamics is like a set of rules that tells us how the roller coaster’s energy changes as it moves along the track."
+    "text": "Hamiltonian Monte Carlo (HMC) intuition\n\nHMC is a new MCMC approach that has been shown to work better than the usual MH algorithm.\nIt is based on the idea of Hamiltonian dynamics (a physical concept)\n\n\n\n\n\n\n\nRollercoaster Metaphor\n\n\n\nImagine you’re on a roller coaster at an amusement park. As the roller coaster moves along the track, it goes up and down hills. When the roller coaster is at the top of a hill, it has a lot of potential energy (like stored energy). When it goes down the hill, that potential energy turns into kinetic energy (energy of motion), making the roller coaster go faster. Hamiltonian dynamics is like a set of rules that tells us how the roller coaster’s energy changes as it moves along the track."
   },
   {
     "objectID": "slides/03-mcmc.html#hmc-intuition",
@@ -6071,14 +6071,14 @@
     "href": "slides/03-mcmc.html#prepare-for-next-class",
     "title": "Markov chain Monte Carlo",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nBegin HW 01 which is due January 30\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Probabilistic Programming (Intro to Stan!)\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nBegin HW 01 which is due January 30\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Probabilistic Programming (Intro to Stan!)"
   },
   {
     "objectID": "slides/04-stan.html#review-of-last-lecture",
     "href": "slides/04-stan.html#review-of-last-lecture",
     "title": "Probabilistic Programming (Intro to Stan!)",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\nOn Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling.\n\nWe obtained correlated samples from the posterior using MCMC.\nGibbs required a lot math!\nMetropolis required tuning!\n\nToday we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference."
+    "section": "",
+    "text": "On Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling.\n\nWe obtained correlated samples from the posterior using MCMC.\nGibbs required a lot math!\nMetropolis required tuning!\n\nToday we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference."
   },
   {
     "objectID": "slides/04-stan.html#learning-objectives",
@@ -6371,8 +6371,8 @@
     "objectID": "slides/06-model-checking.html#review-of-last-lecture",
     "href": "slides/06-model-checking.html#review-of-last-lecture",
     "title": "Model checking",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\nOn Thursday, we learned about\n\nDifferent types of priors that can be specified\nPosterior summaries: point estimates, intervals, and probabilities\nPosterior predictive distributions\nWe learned about the generated quantities code chunk\n\nToday, we will dive into (1) methods for assessing MCMC convergence, and (2) model performance techniques."
+    "section": "",
+    "text": "On Thursday, we learned about\n\nDifferent types of priors that can be specified\nPosterior summaries: point estimates, intervals, and probabilities\nPosterior predictive distributions\nWe learned about the generated quantities code chunk\n\nToday, we will dive into (1) methods for assessing MCMC convergence, and (2) model performance techniques."
   },
   {
     "objectID": "slides/06-model-checking.html#learning-objectives",
@@ -6434,8 +6434,8 @@
     "objectID": "slides/05-priors-ppds.html#review-of-last-lecture",
     "href": "slides/05-priors-ppds.html#review-of-last-lecture",
     "title": "Priors, Posteriors, and PPDs!",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\nOn Tuesday, we learned about Stan\n\nA probabilistic programming language for Bayesian inference\nWe learned about the data, parameter, and model code chunks\nWe used Stan to fit a Bayesian linear regression\n\nToday, we will dive into priors, posterior summaries, and posterior predictive distributions (PPDs)"
+    "section": "",
+    "text": "On Tuesday, we learned about Stan\n\nA probabilistic programming language for Bayesian inference\nWe learned about the data, parameter, and model code chunks\nWe used Stan to fit a Bayesian linear regression\n\nToday, we will dive into priors, posterior summaries, and posterior predictive distributions (PPDs)"
   },
   {
     "objectID": "slides/05-priors-ppds.html#learning-objectives",
@@ -6680,21 +6680,21 @@
     "href": "slides/05-priors-ppds.html#examining-prediction-performance",
     "title": "Priors, Posteriors, and PPDs!",
     "section": "Examining prediction performance",
-    "text": "Examining prediction performance\n\n###Inspect the ppd\nppds &lt;- extract(fit, pars = c(\"in_sample\", \"out_sample\"))\nlapply(ppds, dim)\n\n$in_sample\n[1] 2000  100\n\n$out_sample\n[1] 2000   10"
+    "text": "Examining prediction performance\n\n###Inspect the ppd\nppds &lt;- extract(fit, pars = c(\"in_sample\", \"out_sample\"))\nlapply(ppds, dim)\n\n$in_sample\n[1] 2000  100\n\n$out_sample\n[1] 2000   10\n\n\n. . ."
   },
   {
     "objectID": "slides/04-stan.html#prepare-for-next-class",
     "href": "slides/04-stan.html#prepare-for-next-class",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 01 which is due January 30\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Priors, Posteriors, and PPDs!\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 01 which is due January 30\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Priors, Posteriors, and PPDs!"
   },
   {
     "objectID": "slides/05-priors-ppds.html#prepare-for-next-class",
     "href": "slides/05-priors-ppds.html#prepare-for-next-class",
     "title": "Priors, Posteriors, and PPDs!",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 01 which is due next Thursday before class\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Model checking\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 01 which is due next Thursday before class\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Model checking"
   },
   {
     "objectID": "slides/06-model-checking.html#traceplots-1",
@@ -6729,7 +6729,7 @@
     "href": "slides/06-model-checking.html#prepare-for-next-class",
     "title": "Model checking",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 01 which is due before next class\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Model Comparison\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 01 which is due before next class\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Model Comparison"
   },
   {
     "objectID": "slides/06-model-checking.html#convergence-in-a-few-iterations",
@@ -6974,7 +6974,7 @@
     "href": "slides/05-priors-ppds.html#hyperpriors-1",
     "title": "Priors, Posteriors, and PPDs!",
     "section": "Hyperpriors",
-    "text": "Hyperpriors\n\nFor example: Suppose in linear regression, we place the following prior for \\(\\boldsymbol{\\beta}\\), \\(f(\\boldsymbol{\\beta} | \\boldsymbol{\\beta}_0, \\sigma_{\\beta}^2) = N(\\boldsymbol{\\beta}_0,\\sigma_{\\beta}^2 \\mathbf{I})\\) and\n\n\\(f(\\boldsymbol{\\beta}_0) = N(\\mathbf{0}, \\mathbf{I})\\)\n\\(f(\\sigma_{\\beta}^2) = IG(a_{\\beta}, b_{\\beta})\\)\n\n\\(f(\\boldsymbol{\\beta}_0)\\) and \\(f(\\sigma_{\\beta}^2)\\) are hyperpriors.\n\\(a_{\\beta}, b_{\\beta}\\) are hyperparameters.\n\n\nQuestion: Why would a researcher be interested in a hyperprior?"
+    "text": "Hyperpriors\n\nFor example: Suppose in linear regression, we place the following prior for \\(\\boldsymbol{\\beta}\\), \\(f(\\boldsymbol{\\beta} | \\boldsymbol{\\beta}_0, \\sigma_{\\beta}^2) = N(\\boldsymbol{\\beta}_0,\\sigma_{\\beta}^2 \\mathbf{I})\\) and\n\n\\(f(\\boldsymbol{\\beta}_0) = N(\\mathbf{0}, \\mathbf{I})\\)\n\\(f(\\sigma_{\\beta}^2) = IG(a_{\\beta}, b_{\\beta})\\)\n\n\\(f(\\boldsymbol{\\beta}_0)\\) and \\(f(\\sigma_{\\beta}^2)\\) are hyperpriors.\n\\(a_{\\beta}, b_{\\beta}\\) are hyperparameters.\n\n. . .\nQuestion: Why would a researcher be interested in a hyperprior?"
   },
   {
     "objectID": "slides/07-workflow.html#review-of-last-lecture",
@@ -7464,14 +7464,14 @@
     "href": "slides/02-monte-carlo.html",
     "title": "Monte Carlo Sampling",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine"
+    "text": "Monte Carlo (MC) sampling\nBayesian inference using MC sampling"
   },
   {
     "objectID": "slides/02-monte-carlo.html#simulating-pi-using-monte-carlo",
     "href": "slides/02-monte-carlo.html#simulating-pi-using-monte-carlo",
     "title": "Monte Carlo Sampling",
     "section": "Simulating \\(\\pi\\) using Monte Carlo",
-    "text": "Simulating \\(\\pi\\) using Monte Carlo\nSuppose we are interested in estimating \\(\\pi\\).\n\n\n\nWe can formulate \\(\\pi\\) as a function of the area of a square and circle.\nArea of a circle: \\(A_c = \\pi r^2\\)\nArea of a square: \\(A_s = 4 r^2\\)\nThe ratio of the two areas is: \\(\\frac{A_c}{A_s} = \\frac{\\pi r^2}{4 r^2} \\implies \\pi = \\frac{4 A_c}{A_s}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIf we have an estimate for the ratio we can solve for \\(\\pi\\). The challenge becomes estimating this ratio."
+    "text": "Simulating \\(\\pi\\) using Monte Carlo\nSuppose we are interested in estimating \\(\\pi\\).\n\n\n\nWe can formulate \\(\\pi\\) as a function of the area of a square and circle.\nArea of a circle: \\(A_c = \\pi r^2\\)\nArea of a square: \\(A_s = 4 r^2\\)\nThe ratio of the two areas is: \\(\\frac{A_c}{A_s} = \\frac{\\pi r^2}{4 r^2} \\implies \\pi = \\frac{4 A_c}{A_s}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIf we have an estimate for the ratio we can solve for \\(\\pi\\). The challenge becomes estimating this ratio."
   },
   {
     "objectID": "slides/02-monte-carlo.html#monte-carlo-simulations",
@@ -7499,7 +7499,7 @@
     "href": "slides/02-monte-carlo.html#algorithm-for-estimating-pi",
     "title": "Monte Carlo Sampling",
     "section": "Algorithm for estimating \\(\\pi\\)",
-    "text": "Algorithm for estimating \\(\\pi\\)\n\nGenerate a random point \\((x, y)\\) inside a square centered at the origin with length 2.\n\n\nThis is equivalent to assuming:\n\n\\(f_{X,Y}(x,y) = f_X(x)f_Y(y)\\)\n\\(f_X(x) = Uniform(-1, 1)\\), \\(f_Y(y) = Uniform(-1, 1)\\)\n\n\n\n\nDetermine whether the point falls inside the unit circle inscribed in the square by checking whether \\(x^2 + y^2 \\leq 1\\).\n\n\n\n\nRepeat steps 1 and 2 for a large number of points (\\(S\\))."
+    "text": "Algorithm for estimating \\(\\pi\\)\n\nGenerate a random point \\((x, y)\\) inside a square centered at the origin with length 2.\n\n\nThis is equivalent to assuming:\n\n\\(f_{X,Y}(x,y) = f_X(x)f_Y(y)\\)\n\\(f_X(x) = Uniform(-1, 1)\\), \\(f_Y(y) = Uniform(-1, 1)\\)\n\n\n. . .\n\nDetermine whether the point falls inside the unit circle inscribed in the square by checking whether \\(x^2 + y^2 \\leq 1\\).\n\n. . .\n\nRepeat steps 1 and 2 for a large number of points (\\(S\\))."
   },
   {
     "objectID": "slides/02-monte-carlo.html#how-big-of-a-difference-does-s-make",
@@ -7576,7 +7576,7 @@
     "href": "slides/02-monte-carlo.html#prior-specification",
     "title": "Monte Carlo Sampling",
     "section": "Prior specification",
-    "text": "Prior specification\nWhat do we know about \\(\\pi\\)?\n\n\\(\\pi\\) is continuous.\n\\(\\pi \\in (0,1)\\).\n\nWe should place a distribution on \\(\\pi\\) that permits these properties.\n\nOne option is the Beta distribution, \\(\\pi \\sim Beta(\\alpha,\\beta)\\), \\[f(\\pi) = \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}.\\]"
+    "text": "Prior specification\nWhat do we know about \\(\\pi\\)?\n\n\\(\\pi\\) is continuous.\n\\(\\pi \\in (0,1)\\).\n\nWe should place a distribution on \\(\\pi\\) that permits these properties.\n. . .\nOne option is the Beta distribution, \\(\\pi \\sim Beta(\\alpha,\\beta)\\), \\[f(\\pi) = \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}.\\]"
   },
   {
     "objectID": "slides/02-monte-carlo.html#computing-the-posterior-1",
@@ -7632,14 +7632,14 @@
     "href": "slides/02-monte-carlo.html#algorithm-for-estimating-pi-1",
     "title": "Monte Carlo Sampling",
     "section": "Algorithm for estimating \\(\\pi\\)",
-    "text": "Algorithm for estimating \\(\\pi\\)\n\nGenerate a random point \\((x, y)\\) inside a square centered at the origin with length 2.\nDetermine whether the point falls inside the unit circle inscribed in the square by checking whether \\(x^2 + y^2 \\leq 1\\).\nRepeat steps 1 and 2 for a large number of points (\\(S\\)).\nCalculate the ratio of the number of points that fell inside the circle to the total number of points generated.\n\n\n\nMultiply the ratio by 4 to estimate the value of \\(\\pi\\)."
+    "text": "Algorithm for estimating \\(\\pi\\)\n\nGenerate a random point \\((x, y)\\) inside a square centered at the origin with length 2.\nDetermine whether the point falls inside the unit circle inscribed in the square by checking whether \\(x^2 + y^2 \\leq 1\\).\nRepeat steps 1 and 2 for a large number of points (\\(S\\)).\nCalculate the ratio of the number of points that fell inside the circle to the total number of points generated.\n\n. . .\n\nMultiply the ratio by 4 to estimate the value of \\(\\pi\\)."
   },
   {
     "objectID": "slides/02-monte-carlo.html#computing-the-marginal-likelihood",
     "href": "slides/02-monte-carlo.html#computing-the-marginal-likelihood",
     "title": "Monte Carlo Sampling",
     "section": "Computing the marginal likelihood",
-    "text": "Computing the marginal likelihood\nUnder our prior specification, we can compute the marginal likelihood, \\(f(Z)\\):\n\\[\\begin{aligned}\nf(Z) &= \\int f(Z | \\pi) f(\\pi) d\\pi\\\\\n&= \\int {n \\choose z} \\pi^z(1-\\pi)^{n-z} \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1} d\\pi\\\\\n&= {n \\choose z}\\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)} \\int \\underbrace{\\pi^{(\\alpha + z) - 1}(1-\\pi)^{(\\beta + n - z) - 1}}_{Beta\\text{ }kernel} d\\pi\n\\end{aligned}\\]\n\n\n\n\n\n\nDefinition\n\n\nThe part of the pdf/pmf that depends on the variable is called the kernel.\nExample: The kernel of the Beta pdf is \\(\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}\\)"
+    "text": "Computing the marginal likelihood\nUnder our prior specification, we can compute the marginal likelihood, \\(f(Z)\\):\n\\[\\begin{aligned}\nf(Z) &= \\int f(Z | \\pi) f(\\pi) d\\pi\\\\\n&= \\int {n \\choose z} \\pi^z(1-\\pi)^{n-z} \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1} d\\pi\\\\\n&= {n \\choose z}\\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)} \\int \\underbrace{\\pi^{(\\alpha + z) - 1}(1-\\pi)^{(\\beta + n - z) - 1}}_{Beta\\text{ }kernel} d\\pi\n\\end{aligned}\\]\n\n\n\n\n\n\nDefinition\n\n\n\nThe part of the pdf/pmf that depends on the variable is called the kernel.\nExample: The kernel of the Beta pdf is \\(\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}\\)"
   },
   {
     "objectID": "slides/02-monte-carlo.html#computing-the-marginal-likelihood-1",
@@ -7800,7 +7800,7 @@
     "href": "slides/03-mcmc.html#full-conditional-for-boldsymbolbeta-1",
     "title": "Markov chain Monte Carlo",
     "section": "Full conditional for \\(\\boldsymbol{\\beta}\\)",
-    "text": "Full conditional for \\(\\boldsymbol{\\beta}\\)\nThe full conditional can be found in closed-form and is Gaussian with the following moments: \\[\\begin{aligned}\n\\mathbb{V}(\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2) &= \\left(\\frac{\\mathbf{I}_{p+1}}{\\sigma_{\\beta}^2} + \\frac{\\mathbf{X}^\\top \\mathbf{X}}{\\sigma^2}\\right)^{-1}\\\\\n\\mathbb{E}[\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2] &= \\left(\\frac{\\mathbf{I}_{p+1}}{\\sigma_{\\beta}^2} + \\frac{\\mathbf{X}^\\top \\mathbf{X}}{\\sigma^2}\\right)^{-1}\\left(\\frac{\\boldsymbol{\\beta}_0}{\\sigma_{\\beta}^2} + \\frac{\\mathbf{X}^\\top \\mathbf{Y}}{\\sigma^2}\\right)\n\\end{aligned}\\]\n\n\n\\(\\sigma_{\\beta}^2 \\rightarrow \\infty: \\mathbb{E}[\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2] = (\\mathbf{X}^\\top \\mathbf{X})^{-1}\\mathbf{X}^\\top \\mathbf{Y} = \\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\hat{\\boldsymbol{\\beta}}_{\\text{MLE}}\\)\n\n\n\n\n\\(\\sigma^2 \\rightarrow \\infty: \\mathbb{E}[\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2] = \\boldsymbol{\\beta}_0\\)"
+    "text": "Full conditional for \\(\\boldsymbol{\\beta}\\)\nThe full conditional can be found in closed-form and is Gaussian with the following moments: \\[\\begin{aligned}\n\\mathbb{V}(\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2) &= \\left(\\frac{\\mathbf{I}_{p+1}}{\\sigma_{\\beta}^2} + \\frac{\\mathbf{X}^\\top \\mathbf{X}}{\\sigma^2}\\right)^{-1}\\\\\n\\mathbb{E}[\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2] &= \\left(\\frac{\\mathbf{I}_{p+1}}{\\sigma_{\\beta}^2} + \\frac{\\mathbf{X}^\\top \\mathbf{X}}{\\sigma^2}\\right)^{-1}\\left(\\frac{\\boldsymbol{\\beta}_0}{\\sigma_{\\beta}^2} + \\frac{\\mathbf{X}^\\top \\mathbf{Y}}{\\sigma^2}\\right)\n\\end{aligned}\\]\n. . .\n\n\\(\\sigma_{\\beta}^2 \\rightarrow \\infty: \\mathbb{E}[\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2] = (\\mathbf{X}^\\top \\mathbf{X})^{-1}\\mathbf{X}^\\top \\mathbf{Y} = \\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\hat{\\boldsymbol{\\beta}}_{\\text{MLE}}\\)\n\n. . .\n\n\\(\\sigma^2 \\rightarrow \\infty: \\mathbb{E}[\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2] = \\boldsymbol{\\beta}_0\\)"
   },
   {
     "objectID": "slides/03-mcmc.html#full-conditional-for-sigma2",
@@ -7932,8 +7932,8 @@
     "objectID": "slides/07-model-comparison.html#review-of-last-lecture",
     "href": "slides/07-model-comparison.html#review-of-last-lecture",
     "title": "Model Comparison",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\nOn Tuesday, we learned about various ways to check MCMC convergence and model fit.\n\nTraceplots, effective sample size (\\(n_{eff}\\)), MC standard error, \\(\\hat{R}\\), sampling issues\nPosterior predictive checks\nModel checks using shinystan\n\nToday, we will learn about model comparisons."
+    "section": "",
+    "text": "On Tuesday, we learned about various ways to check MCMC convergence and model fit.\n\nTraceplots, effective sample size (\\(n_{eff}\\)), MC standard error, \\(\\hat{R}\\), sampling issues\nPosterior predictive checks\nModel checks using shinystan\n\nToday, we will learn about model comparisons."
   },
   {
     "objectID": "slides/07-model-comparison.html#model-comparison-1",
@@ -8045,21 +8045,21 @@
     "href": "slides/07-model-comparison.html#prepare-for-next-class",
     "title": "Model Comparison",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02, which was just assigned\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Bayesian Workflow\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 02, which was just assigned\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Bayesian Workflow"
   },
   {
     "objectID": "slides/08-workflow.html#review-of-last-lecture",
     "href": "slides/08-workflow.html#review-of-last-lecture",
     "title": "Bayesian Workflow",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\nOn Thursday, we learned about various ways compare models.\n\nAIC, DIC, WAIC\nLOO-CV/LOO-IC\n\nToday, we will put these concepts within the larger framework of the Bayesian workflow."
+    "section": "",
+    "text": "On Thursday, we learned about various ways compare models.\n\nAIC, DIC, WAIC\nLOO-CV/LOO-IC\n\nToday, we will put these concepts within the larger framework of the Bayesian workflow."
   },
   {
     "objectID": "slides/08-workflow.html#bayes-theorem",
     "href": "slides/08-workflow.html#bayes-theorem",
     "title": "Bayesian Workflow",
     "section": "Bayes theorem",
-    "text": "Bayes theorem\n\\[f(\\boldsymbol{\\theta} | \\mathbf{Y}) = \\frac{f(\\mathbf{Y} | \\boldsymbol{\\theta})f(\\boldsymbol{\\theta})}{f(\\mathbf{Y})}\\]\n\n\nRethinking Bayes theorem:\n\n\\[f(\\boldsymbol{\\theta} | \\mathbf{Y}) \\propto f(\\mathbf{Y}, \\boldsymbol{\\theta}) = f(\\mathbf{Y} | \\boldsymbol{\\theta})f(\\boldsymbol{\\theta}) \\]\n\n\n\nIn Stan:\n\n\\[\\log f(\\mathbf{Y} | \\boldsymbol{\\theta}) + \\log f(\\boldsymbol{\\theta})\\]"
+    "text": "Bayes theorem\n\\[f(\\boldsymbol{\\theta} | \\mathbf{Y}) = \\frac{f(\\mathbf{Y} | \\boldsymbol{\\theta})f(\\boldsymbol{\\theta})}{f(\\mathbf{Y})}\\]\n. . .\n\nRethinking Bayes theorem:\n\n\\[f(\\boldsymbol{\\theta} | \\mathbf{Y}) \\propto f(\\mathbf{Y}, \\boldsymbol{\\theta}) = f(\\mathbf{Y} | \\boldsymbol{\\theta})f(\\boldsymbol{\\theta}) \\]\n. . .\n\nIn Stan:\n\n\\[\\log f(\\mathbf{Y} | \\boldsymbol{\\theta}) + \\log f(\\boldsymbol{\\theta})\\]"
   },
   {
     "objectID": "slides/08-workflow.html#bayesian-workflow",
@@ -8087,14 +8087,14 @@
     "href": "slides/08-workflow.html#bayesian-workflow-2",
     "title": "Bayesian Workflow",
     "section": "Bayesian workflow",
-    "text": "Bayesian workflow\n\nResearch question: What are your dependent and indepednent variables? What associations are you interested in? EDA.\n\n\n\nSpecify likelihood & priors: Use knowledge of the problem to construct a generative model.\n\n\n\n\nCheck the model with simulated data: Generate data from the model and evaluate fit as a sanity check (prior predictive checks).\n\n\n\n\nFit the model to real data: Estimate parameters using MCMC."
+    "text": "Bayesian workflow\n\nResearch question: What are your dependent and indepednent variables? What associations are you interested in? EDA.\n\n. . .\n\nSpecify likelihood & priors: Use knowledge of the problem to construct a generative model.\n\n. . .\n\nCheck the model with simulated data: Generate data from the model and evaluate fit as a sanity check (prior predictive checks).\n\n. . .\n\nFit the model to real data: Estimate parameters using MCMC."
   },
   {
     "objectID": "slides/08-workflow.html#bayesian-workflow-3",
     "href": "slides/08-workflow.html#bayesian-workflow-3",
     "title": "Bayesian Workflow",
     "section": "Bayesian workflow",
-    "text": "Bayesian workflow\n\nCheck diagnostics: Use MCMC diagnostics to guarentee that the algorithm converged.\n\n\n\nExamine posterior fit: Create posterior summaries that are relevant to the research question.\n\n\n\n\nCheck predictions: Examing posterior predictive checks.\n\n\n\n\nCompare models: Iterate on model design and choose a model."
+    "text": "Bayesian workflow\n\nCheck diagnostics: Use MCMC diagnostics to guarentee that the algorithm converged.\n\n. . .\n\nExamine posterior fit: Create posterior summaries that are relevant to the research question.\n\n. . .\n\nCheck predictions: Examing posterior predictive checks.\n\n. . .\n\nCompare models: Iterate on model design and choose a model."
   },
   {
     "objectID": "slides/08-workflow.html#motivating-example-predicting-weight-from-height",
@@ -8381,14 +8381,14 @@
     "href": "slides/08-workflow.html#prepare-for-next-class",
     "title": "Bayesian Workflow",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Nonlinear Regression\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 02\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Nonlinear Regression"
   },
   {
     "objectID": "slides/01-welcome.html",
     "href": "slides/01-welcome.html",
     "title": "Welcome to BIOSTAT 725!",
     "section": "",
-    "text": "Education and career journey\n\nBS in Statistical Science from Duke University\nPhD in Biostatistics from University of North Carolina - Chapel Hill\nPostdoc in Duke Forge: Duke’s Center for Actionable Health Data Science\nNIH/NEI Pathway to Independence Fellow (K99/R00)\nAssistant Professor, Department of Biostatistics & Bioinformatics and Statistical Science at Duke; Faculty Affiliate of Duke AI Health\n\nWork focuses on developing data science tools to improve patient experience using biomedical data (including EHR)\nDad of 4 and 6 year old daughters 🙂\n\n\n\n\n\n\n\nDr. Youngsoo Baek (PhD)\n\nPhd in Statistical Science from Duke University\nPostdoc in Biostatistics & Bioinformatics\n\n\n\n\n\n\nClick on the link or scan the QR code to answer the Ed Discussion poll\nhttps://edstem.org/us/courses/62513/discussion/625046\n\n\n\n\n\n\n\n\n\n\nIntroduction to the course\nSyllabus activity\nReview of probability"
+    "text": "Education and career journey\n\nBS in Statistical Science from Duke University\nPhD in Biostatistics from University of North Carolina - Chapel Hill\nPostdoc in Duke Forge: Duke’s Center for Actionable Health Data Science\nNIH/NEI Pathway to Independence Fellow (K99/R00)\nAssistant Professor, Department of Biostatistics & Bioinformatics and Statistical Science at Duke; Faculty Affiliate of Duke AI Health\n\nWork focuses on developing data science tools to improve patient experience using biomedical data (including EHR)\nDad of 4 and 6 year old daughters 🙂\n\n\n\n\n\n\n\nDr. Youngsoo Baek (PhD)\n\nPhd in Statistical Science from Duke University\nPostdoc in Biostatistics & Bioinformatics\n\nBraden Scherting\n\nPhd candidate in Statistical Science\n\n\n\n\n\n\nClick on the link or scan the QR code to answer the Ed Discussion poll\nhttps://edstem.org/us/courses/68995/discussion/5942168\n\n\n\n\n\n\n\n\n\n\nIntroduction to the course\nSyllabus activity\nReview of probability"
   },
   {
     "objectID": "slides/07-model-comparison.html#model-selection",
@@ -8549,7 +8549,7 @@
     "href": "slides/07-model-comparison.html#kullback-leibler-divergence-1",
     "title": "Model Comparison",
     "section": "Kullback-Leibler divergence",
-    "text": "Kullback-Leibler divergence\nAs an example, assume that the data are generated by a true model \\(M_0\\), and we have two candidate models \\(M_1\\) and \\(M_2\\), where\n\n\n\n\\(M_0: Y_i \\sim N(3,2)\\)\n\\(M_1: Y_i \\sim N(3.5, 2.5)\\)\n\\(M_2: Y_i \\sim Cauchy(3,2)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(D_{KL}(M_0 |M_1) = 0.063\\), \\(D_{KL}(M_0 | M_1) = 0.259\\), so \\(M_1\\) is a better model than \\(M_2\\)."
+    "text": "Kullback-Leibler divergence\nAs an example, assume that the data are generated by a true model \\(M_0\\), and we have two candidate models \\(M_1\\) and \\(M_2\\), where\n\n\n\n\\(M_0: Y_i \\sim N(3,2)\\)\n\\(M_1: Y_i \\sim N(3.5, 2.5)\\)\n\\(M_2: Y_i \\sim Cauchy(3,2)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(D_{KL}(M_0 |M_1) = 0.063\\), \\(D_{KL}(M_0 | M_1) = 0.259\\), so \\(M_1\\) is a better model than \\(M_2\\)."
   },
   {
     "objectID": "slides/07-model-comparison.html#comparing-models-using-kl-divergence",
@@ -8724,7 +8724,7 @@
     "href": "slides/07-model-comparison.html",
     "title": "Model Comparison",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine"
+    "text": "On Tuesday, we learned about various ways to check MCMC convergence and model fit.\n\nTraceplots, effective sample size (\\(n_{eff}\\)), MC standard error, \\(\\hat{R}\\), sampling issues\nPosterior predictive checks\nModel checks using shinystan\n\nToday, we will learn about model comparisons."
   },
   {
     "objectID": "slides/05-priors-ppds.html",
@@ -8737,15 +8737,15 @@
     "objectID": "slides/09-nonlinear.html#review-of-last-lecture",
     "href": "slides/09-nonlinear.html#review-of-last-lecture",
     "title": "Nonlinear Regression",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nOn Tuesday, we put all of our skills together and learned about the Bayesian workflow.\nWe have now learned all the skills needed to perform Bayesian inference.\nThe rest of the course we will introduce new models and data types that are useful for performing biomedical data science."
+    "section": "",
+    "text": "On Tuesday, we put all of our skills together and learned about the Bayesian workflow.\nWe have now learned all the skills needed to perform Bayesian inference.\nThe rest of the course we will introduce new models and data types that are useful for performing biomedical data science."
   },
   {
     "objectID": "slides/09-nonlinear.html#prepare-for-next-class",
     "href": "slides/09-nonlinear.html#prepare-for-next-class",
     "title": "Nonlinear Regression",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Robust regression\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 02.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Robust regression"
   },
   {
     "objectID": "slides/09-robust.html#review-of-last-lecture",
@@ -9668,8 +9668,8 @@
     "objectID": "slides/10-robust.html#review-of-last-lecture",
     "href": "slides/10-robust.html#review-of-last-lecture",
     "title": "Robust Regression",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nOn Thursday, we started to branch out from linear regression.\nWe learned about approaches for nonlinear regression.\nToday we will address approaches for robust regression, which will generalize the assumption of homoskedasticity (and also the normality assumption)."
+    "section": "",
+    "text": "On Thursday, we started to branch out from linear regression.\nWe learned about approaches for nonlinear regression.\nToday we will address approaches for robust regression, which will generalize the assumption of homoskedasticity (and also the normality assumption)."
   },
   {
     "objectID": "slides/10-robust.html#a-motivating-research-question",
@@ -9914,14 +9914,14 @@
     "href": "slides/10-robust.html#prepare-for-next-class",
     "title": "Robust Regression",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization"
   },
   {
     "objectID": "slides/12-classification.html#review-of-last-lecture",
     "href": "slides/12-classification.html#review-of-last-lecture",
     "title": "Classification",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nLast week, we learned about Bayesian approaches to robust regression and regularization.\n\nGlobal-local shrinkage priors.\n\nThis week, we will focus on classification models.\n\nToday: Binary classification (logistic regression).\nThursday: Multiclass classification (multinomial, ordinal regression)."
+    "section": "",
+    "text": "Last week, we learned about Bayesian approaches to robust regression and regularization.\n\nGlobal-local shrinkage priors.\n\nThis week, we will focus on classification models.\n\nToday: Binary classification (logistic regression).\nThursday: Multiclass classification (multinomial, ordinal regression)."
   },
   {
     "objectID": "slides/12-classification.html#generalized-linear-models",
@@ -9956,7 +9956,7 @@
     "href": "slides/12-classification.html#what-can-go-wrong",
     "title": "Classification",
     "section": "What can go wrong?",
-    "text": "What can go wrong?\n\nSuppose we fit the following model:\n\n\\[\\begin{aligned}\nY_i &= \\alpha + \\beta_1(ascites)_i + \\beta_2(bilirubin)_i\\\\\n&\\quad+\\beta_3(stage = 2)_i + \\beta_4(stage = 3)_i\\\\\n&\\quad+\\beta_5(stage = 4)_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\n\\end{aligned}\\]\n\nWhat can go wrong?"
+    "text": "What can go wrong?\n\nSuppose we fit the following model:\n\n\\[\\begin{aligned}\nY_i &= \\alpha + \\beta_1(ascites)_i + \\beta_2(bilirubin)_i\\\\\n&\\quad+\\beta_3(stage = 2)_i + \\beta_4(stage = 3)_i\\\\\n&\\quad+\\beta_5(stage = 4)_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\n\\end{aligned}\\]\n. . .\nWhat can go wrong?"
   },
   {
     "objectID": "slides/12-classification.html#what-can-go-wrong-1",
@@ -10166,7 +10166,7 @@
     "href": "slides/12-classification.html#prepare-for-next-class",
     "title": "Classification",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Multiclass classification\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Multiclass classification"
   },
   {
     "objectID": "slides/09-nonlinear.html#a-motivating-example",
@@ -10411,7 +10411,7 @@
     "href": "slides/09-nonlinear.html#writing-down-a-model",
     "title": "Nonlinear Regression",
     "section": "Writing down a model",
-    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu_i + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\nModel for the mean process:\n\n\\[\\mu_i =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
+    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu_i + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n. . .\n\nModel for the mean process:\n\n\\[\\mu_i =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
   },
   {
     "objectID": "slides/09-nonlinear.html#change-point-model-in-stan",
@@ -10459,8 +10459,8 @@
     "objectID": "slides/11-regularization.html#review-of-last-lecture",
     "href": "slides/11-regularization.html#review-of-last-lecture",
     "title": "Regularization",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nOn Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nMedian regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
+    "section": "",
+    "text": "On Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nMedian regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
   },
   {
     "objectID": "slides/11-regularization.html#sparsity-in-regression-problems",
@@ -10621,14 +10621,14 @@
     "href": "slides/11-regularization.html#prepare-for-next-class",
     "title": "Regularization",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 03, which was just assigned.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Classification\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 03, which was just assigned.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Classification"
   },
   {
     "objectID": "slides/13-multiclass.html#review-of-last-lecture",
     "href": "slides/13-multiclass.html#review-of-last-lecture",
     "title": "Multiclass Classification",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nOn Tuesday, we learned about classification using logistic regression.\nToday, we will focus on multiclass classification: multinomial regression, ordinal regression."
+    "section": "",
+    "text": "On Tuesday, we learned about classification using logistic regression.\nToday, we will focus on multiclass classification: multinomial regression, ordinal regression."
   },
   {
     "objectID": "slides/13-multiclass.html#generalized-linear-models",
@@ -10873,7 +10873,7 @@
     "href": "slides/13-multiclass.html#prepare-for-next-class",
     "title": "Multiclass Classification",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data"
   },
   {
     "objectID": "slides/13-multiclass.html#multinomial-regression-2",
@@ -11405,8 +11405,8 @@
     "objectID": "slides/14-missing.html#review-of-last-lecture",
     "href": "slides/14-missing.html#review-of-last-lecture",
     "title": "Missing Data",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nLast, we learned about classification for binary and multiclass problems."
+    "section": "",
+    "text": "Last, we learned about classification for binary and multiclass problems."
   },
   {
     "objectID": "slides/14-missing.html#missing-data-framework",
@@ -11420,7 +11420,7 @@
     "href": "slides/14-missing.html#prepare-for-next-class",
     "title": "Missing Data",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for Thursday’s lecture\nThursday’s lecture: Hierarchical Models\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for Thursday’s lecture\nThursday’s lecture: Hierarchical Models"
   },
   {
     "objectID": "slides/14-missing.html#defining-the-full-data-likelihood",
@@ -11462,7 +11462,7 @@
     "href": "slides/14-missing.html#complete-data-likelihood",
     "title": "Missing Data",
     "section": "Complete data likelihood",
-    "text": "Complete data likelihood\n\nThe joint distribution of \\((\\mathbf{Y}, \\mathbf{O})\\) can be written as,\n\n\\[f(\\mathbf{Y}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) = \\underbrace{f(\\mathbf{Y} | \\mathbf{X}, \\boldsymbol{\\theta})}_{\\text{likelihood}} \\times  \\underbrace{f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X}, \\boldsymbol{\\phi})}_{\\text{missing model}}.\\]\n\nThe parameter block, \\((\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\), consists of:\n\n\\(\\boldsymbol{\\theta}\\), the target parameters of interest (e.g., feature effects on outcome), and\n\\(\\boldsymbol{\\phi}\\), the nuisance parameters.\n\n\n\nCan we perform inference using this likelihood?"
+    "text": "Complete data likelihood\n\nThe joint distribution of \\((\\mathbf{Y}, \\mathbf{O})\\) can be written as,\n\n\\[f(\\mathbf{Y}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) = \\underbrace{f(\\mathbf{Y} | \\mathbf{X}, \\boldsymbol{\\theta})}_{\\text{likelihood}} \\times  \\underbrace{f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X}, \\boldsymbol{\\phi})}_{\\text{missing model}}.\\]\n\nThe parameter block, \\((\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\), consists of:\n\n\\(\\boldsymbol{\\theta}\\), the target parameters of interest (e.g., feature effects on outcome), and\n\\(\\boldsymbol{\\phi}\\), the nuisance parameters.\n\n\n. . .\nCan we perform inference using this likelihood?"
   },
   {
     "objectID": "slides/14-missing.html#missing-data-models-mcar",
@@ -11959,21 +11959,21 @@
     "href": "slides/10-robust.html",
     "title": "Robust Regression",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine"
+    "text": "On Thursday, we started to branch out from linear regression.\nWe learned about approaches for nonlinear regression.\nToday we will address approaches for robust regression, which will generalize the assumption of homoskedasticity (and also the normality assumption)."
   },
   {
     "objectID": "slides/11-regularization.html",
     "href": "slides/11-regularization.html",
     "title": "Regularization",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+    "text": "On Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nMedian regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
   },
   {
     "objectID": "slides/13-multiclass.html",
     "href": "slides/13-multiclass.html",
     "title": "Multiclass Classification",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+    "text": "On Tuesday, we learned about classification using logistic regression.\nToday, we will focus on multiclass classification: multinomial regression, ordinal regression."
   },
   {
     "objectID": "hw/hw-02.html#exercise-9",
@@ -12117,7 +12117,7 @@
     "href": "slides/09-nonlinear.html",
     "title": "Nonlinear Regression",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+    "text": "On Tuesday, we put all of our skills together and learned about the Bayesian workflow.\nWe have now learned all the skills needed to perform Bayesian inference.\nThe rest of the course we will introduce new models and data types that are useful for performing biomedical data science."
   },
   {
     "objectID": "ae/ae-05-nonlinear.html#exercise-4",
@@ -12784,7 +12784,7 @@
     "href": "slides/12-classification.html",
     "title": "Classification",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+    "text": "Last week, we learned about Bayesian approaches to robust regression and regularization.\n\nGlobal-local shrinkage priors.\n\nThis week, we will focus on classification models.\n\nToday: Binary classification (logistic regression).\nThursday: Multiclass classification (multinomial, ordinal regression)."
   },
   {
     "objectID": "prepare/prepare-feb20.html",
@@ -12797,8 +12797,8 @@
     "objectID": "slides/15-hierarchical.html#review-of-last-lecture",
     "href": "slides/15-hierarchical.html#review-of-last-lecture",
     "title": "Hierarchical Models",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nOn Tuesday, we learned about missing data, including various types: MCAR, MAR, and MNAR.\nWe learned about two Bayesian approaches to missing data under the MAR assumption:\n\nJoint model that assumes the missing data are parameters.\nMultiple imputation.\n\nMoving forward: Up until today, we have dealt with independent data. Today, we will look at our first example of dependent data!"
+    "section": "",
+    "text": "On Tuesday, we learned about missing data, including various types: MCAR, MAR, and MNAR.\nWe learned about two Bayesian approaches to missing data under the MAR assumption:\n\nJoint model that assumes the missing data are parameters.\nMultiple imputation.\n\nMoving forward: Up until today, we have dealt with independent data. Today, we will look at our first example of dependent data!"
   },
   {
     "objectID": "slides/15-hierarchical.html#linear-regression-assumptions",
@@ -12812,7 +12812,7 @@
     "href": "slides/15-hierarchical.html#prepare-for-next-class",
     "title": "Hierarchical Models",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on Exam 01, which is due before next Thursday’s class!\nNext Tuesday’s class will be office hours. I will be available in the lecture room during the meeting time.\nNext Thursday’s lecture: Longitudinal Data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on Exam 01, which is due before next Thursday’s class!\nNext Tuesday’s class will be office hours. I will be available in the lecture room during the meeting time.\nNext Thursday’s lecture: Longitudinal Data"
   },
   {
     "objectID": "slides/15-hierarchical.html#recap-linear-regression-assumptions",
@@ -13336,15 +13336,15 @@
     "objectID": "slides/16-longitudinal.html#review-of-last-lecture",
     "href": "slides/16-longitudinal.html#review-of-last-lecture",
     "title": "Longitudinal Data",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nDuring our last lecture, we introduced correlated (or dependent) data sources.\nWe discussed the idea of accounting for dependencies within a group using group-specific parameters.\nWe introduced the random intercept model and studied the induced correlation (forced to be positive) in the marginal model.\nToday we will look at longitudinal data and introduce a simple model that accounts for group-level changes."
+    "section": "",
+    "text": "During our last lecture, we introduced correlated (or dependent) data sources.\nWe discussed the idea of accounting for dependencies within a group using group-specific parameters.\nWe introduced the random intercept model and studied the induced correlation (forced to be positive) in the marginal model.\nToday we will look at longitudinal data and introduce a simple model that accounts for group-level changes."
   },
   {
     "objectID": "slides/16-longitudinal.html#prepare-for-next-class",
     "href": "slides/16-longitudinal.html#prepare-for-next-class",
     "title": "Longitudinal Data",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 04, which will be assigned soon. It’s not due until March 25.\nEnjoy your spring break!\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 04, which will be assigned soon. It’s not due until March 25.\nEnjoy your spring break!"
   },
   {
     "objectID": "slides/16-longitudinal.html#longitudinal-data",
@@ -14705,7 +14705,7 @@
     "href": "slides/17-gp.html#prepare-for-next-class",
     "title": "Gaussian Processes",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 04 which is due March 25\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Using GP to model spatial data\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 04 which is due March 25\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Using GP to model spatial data"
   },
   {
     "objectID": "slides/17-gp.html#visualizing-the-brownian-motion-1",
@@ -14844,15 +14844,15 @@
     "objectID": "slides/18-geospatial.html#review-of-last-lecture",
     "href": "slides/18-geospatial.html#review-of-last-lecture",
     "title": "Geospatial Modeling",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nDuring our last lecture, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) data.\nThe longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space)."
+    "section": "",
+    "text": "During our last lecture, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) data.\nThe longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space)."
   },
   {
     "objectID": "slides/18-geospatial.html#prepare-for-next-class",
     "href": "slides/18-geospatial.html#prepare-for-next-class",
     "title": "Geospatial Modeling",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 04, which is due before class on Tuesday.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Disease mapping\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 04, which is due before class on Tuesday.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Disease mapping"
   },
   {
     "objectID": "slides/18-geospatial.html#three-types-of-spatial-data",
@@ -15160,7 +15160,7 @@
     "href": "slides/18-geospatial.html#motivating-dataset-1",
     "title": "Geospatial Modeling",
     "section": "Motivating Dataset",
-    "text": "Motivating Dataset\n\n\n  loc_id hemoglobin     anemia age urban   LATNUM  LONGNUM mean_hemoglobin\n1      1       12.5 not anemic  28 rural 0.220128 21.79508        11.81053\n2      1       12.6 not anemic  42 rural 0.220128 21.79508        11.81053\n3      1       13.3 not anemic  15 rural 0.220128 21.79508        11.81053\n4      1       12.9 not anemic  28 rural 0.220128 21.79508        11.81053\n5      1       10.4       mild  32 rural 0.220128 21.79508        11.81053\n6      1       12.2 not anemic  42 rural 0.220128 21.79508        11.81053\n  community_size mean_age\n1             19       19\n2             19       19\n3             19       19\n4             19       19\n5             19       19\n6             19       19\n\n\n\n\n\n\n\n\nModeling Goals:\n\n\n\nLearn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.\nCreate a predicted map of hemoglobin across the spatial surface, with uncertainty quantification."
+    "text": "Motivating Dataset\n\n\n  loc_id hemoglobin     anemia age urban   LATNUM  LONGNUM mean_hemoglobin\n1      1       12.5 not anemic  28 rural 0.220128 21.79508        11.81053\n2      1       12.6 not anemic  42 rural 0.220128 21.79508        11.81053\n3      1       13.3 not anemic  15 rural 0.220128 21.79508        11.81053\n4      1       12.9 not anemic  28 rural 0.220128 21.79508        11.81053\n5      1       10.4       mild  32 rural 0.220128 21.79508        11.81053\n6      1       12.2 not anemic  42 rural 0.220128 21.79508        11.81053\n  community_size mean_age\n1             19       19\n2             19       19\n3             19       19\n4             19       19\n5             19       19\n6             19       19\n\n\n\n\n\n\n\n\nModeling Goals:\n\n\n\n\nLearn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.\nCreate a predicted map of hemoglobin across the spatial surface, with uncertainty quantification."
   },
   {
     "objectID": "slides/18-geospatial.html#looking-at-community-sizes",
@@ -15398,7 +15398,7 @@
     "href": "slides/19-disease-mapping.html#prepare-for-next-class",
     "title": "Disease Mapping",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nWork on HW 05, which is due April 8.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Guest lecture by Prof. Hwanhee Hong on Bayesian Meta-Analysis\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nWork on HW 05, which is due April 8.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Guest lecture by Prof. Hwanhee Hong on Bayesian Meta-Analysis"
   },
   {
     "objectID": "slides/19-disease-mapping.html#bayesian-model-fitting",
@@ -15447,7 +15447,7 @@
     "href": "slides/21-scalable-1.html#motivating-dataset-1",
     "title": "Scalable Gaussian Processes #1",
     "section": "Motivating dataset",
-    "text": "Motivating dataset\n\n\n  loc_id hemoglobin     anemia age urban   LATNUM  LONGNUM\n1      1       12.5 not anemic  28 rural 0.220128 21.79508\n2      1       12.6 not anemic  42 rural 0.220128 21.79508\n3      1       13.3 not anemic  15 rural 0.220128 21.79508\n4      1       12.9 not anemic  28 rural 0.220128 21.79508\n5      1       10.4       mild  32 rural 0.220128 21.79508\n6      1       12.2 not anemic  42 rural 0.220128 21.79508\n\n\n\n\n\n\n\n\nModeling goals:\n\n\n\nLearn the associations between age and urbanicity and hemoglobin, accounting for unmeasured spatial confounders.\nCreate a predicted map of hemoglobin across the spatial surface controlling for age and urbanicity, with uncertainty quantification."
+    "text": "Motivating dataset\n\n\n  loc_id hemoglobin     anemia age urban   LATNUM  LONGNUM\n1      1       12.5 not anemic  28 rural 0.220128 21.79508\n2      1       12.6 not anemic  42 rural 0.220128 21.79508\n3      1       13.3 not anemic  15 rural 0.220128 21.79508\n4      1       12.9 not anemic  28 rural 0.220128 21.79508\n5      1       10.4       mild  32 rural 0.220128 21.79508\n6      1       12.2 not anemic  42 rural 0.220128 21.79508\n\n\n\n\n\n\n\n\nModeling goals:\n\n\n\n\nLearn the associations between age and urbanicity and hemoglobin, accounting for unmeasured spatial confounders.\nCreate a predicted map of hemoglobin across the spatial surface controlling for age and urbanicity, with uncertainty quantification."
   },
   {
     "objectID": "slides/21-scalable-1.html#map-of-sud-kivu-state",
@@ -15706,7 +15706,7 @@
     "href": "slides/21-scalable-1.html#references",
     "title": "Scalable Gaussian Processes #1",
     "section": "References",
-    "text": "References\n\n\nDatta, Abhirup, Sudipto Banerjee, Andrew O Finley, and Alan E Gelfand. 2016. “Hierarchical Nearest-Neighbor Gaussian Process Models for Large Geostatistical Datasets.” Journal of the American Statistical Association 111 (514): 800–812.\n\n\nFurrer, Reinhard, Marc G Genton, and Douglas Nychka. 2006. “Covariance Tapering for Interpolation of Large Spatial Datasets.” Journal of Computational and Graphical Statistics 15 (3): 502–23.\n\n\nHigdon, Dave. 2002. “Space and Space-Time Modeling Using Process Convolutions.” In Quantitative Methods for Current Environmental Issues, 37–56. Springer.\n\n\nRiutort-Mayol, Gabriel, Paul-Christian Bürkner, Michael R Andersen, Arno Solin, and Aki Vehtari. 2023. “Practical Hilbert Space Approximate Bayesian Gaussian Processes for Probabilistic Programming.” Statistics and Computing 33 (1): 17.\n\n\nSnelson, Edward, and Zoubin Ghahramani. 2005. “Sparse Gaussian Processes Using Pseudo-Inputs.” Advances in Neural Information Processing Systems 18.\n\n\nSolin, Arno, and Simo Särkkä. 2020. “Hilbert Space Methods for Reduced-Rank Gaussian Process Regression.” Statistics and Computing 30 (2): 419–46.\n\n\nVecchia, Aldo V. 1988. “Estimation and Model Identification for Continuous Spatial Processes.” Journal of the Royal Statistical Society Series B: Statistical Methodology 50 (2): 297–312.\n\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "References\n\n\nDatta, Abhirup, Sudipto Banerjee, Andrew O Finley, and Alan E Gelfand. 2016. “Hierarchical Nearest-Neighbor Gaussian Process Models for Large Geostatistical Datasets.” Journal of the American Statistical Association 111 (514): 800–812.\n\n\nFurrer, Reinhard, Marc G Genton, and Douglas Nychka. 2006. “Covariance Tapering for Interpolation of Large Spatial Datasets.” Journal of Computational and Graphical Statistics 15 (3): 502–23.\n\n\nHigdon, Dave. 2002. “Space and Space-Time Modeling Using Process Convolutions.” In Quantitative Methods for Current Environmental Issues, 37–56. Springer.\n\n\nRiutort-Mayol, Gabriel, Paul-Christian Bürkner, Michael R Andersen, Arno Solin, and Aki Vehtari. 2023. “Practical Hilbert Space Approximate Bayesian Gaussian Processes for Probabilistic Programming.” Statistics and Computing 33 (1): 17.\n\n\nSnelson, Edward, and Zoubin Ghahramani. 2005. “Sparse Gaussian Processes Using Pseudo-Inputs.” Advances in Neural Information Processing Systems 18.\n\n\nSolin, Arno, and Simo Särkkä. 2020. “Hilbert Space Methods for Reduced-Rank Gaussian Process Regression.” Statistics and Computing 30 (2): 419–46.\n\n\nVecchia, Aldo V. 1988. “Estimation and Model Identification for Continuous Spatial Processes.” Journal of the Royal Statistical Society Series B: Statistical Methodology 50 (2): 297–312."
   },
   {
     "objectID": "slides/19-disease-mapping.html#disease-mapping",
@@ -16335,8 +16335,8 @@
     "objectID": "slides/19-disease-mapping.html#review-of-last-week",
     "href": "slides/19-disease-mapping.html#review-of-last-week",
     "title": "Disease Mapping",
-    "section": "Review of last week",
-    "text": "Review of last week\n\nLast week, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) and geospatial data.\nFocused on making predictions at new locations across the spatial surface.\nToday we will focus on areal spatial data, which has different goals associated with it than point-referenced spatial data."
+    "section": "",
+    "text": "Last week, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) and geospatial data.\nFocused on making predictions at new locations across the spatial surface.\nToday we will focus on areal spatial data, which has different goals associated with it than point-referenced spatial data."
   },
   {
     "objectID": "slides/19-disease-mapping.html#disease-mapping-model-1",
@@ -16764,8 +16764,8 @@
     "objectID": "slides/21-scalable-1.html#review-of-previous-lectures",
     "href": "slides/21-scalable-1.html#review-of-previous-lectures",
     "title": "Scalable Gaussian Processes #1",
-    "section": "Review of previous lectures",
-    "text": "Review of previous lectures\nTwo weeks ago, we learned about:\n\nGaussian processes, and\nHow to use Gaussian processes for\n\nlongitudinal data\ngeospatial data"
+    "section": "",
+    "text": "Two weeks ago, we learned about:\n\nGaussian processes, and\nHow to use Gaussian processes for\n\nlongitudinal data\ngeospatial data"
   },
   {
     "objectID": "slides/21-scalable-1.html#map-of-the-sud-kivu-state",
@@ -16884,7 +16884,7 @@
     "href": "slides/21-scalable-1.html#hsgp-parameters",
     "title": "Scalable Gaussian Processes #1",
     "section": "HSGP parameters",
-    "text": "HSGP parameters\nSolin and Särkkä (2020) showed that HSGP approximation can be made arbitrarily accurate as \\(\\boldsymbol{\\Theta}\\) and \\(m\\) increase.\n\nBut how to choose:\n\nsize of the box \\(\\boldsymbol{\\Theta}\\).\nnumber of basis functions \\(m\\).\n\n\n\n\n\n\n\n\n\nOur goal:\n\n\nMinimize the run time while maintaining reasonable approximation accuracy.\n\n\n\n\n\nNote: we treat estimation of the GP magnitude parameter \\(\\tau\\) as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function."
+    "text": "HSGP parameters\nSolin and Särkkä (2020) showed that HSGP approximation can be made arbitrarily accurate as \\(\\boldsymbol{\\Theta}\\) and \\(m\\) increase.\n\nBut how to choose:\n\nsize of the box \\(\\boldsymbol{\\Theta}\\).\nnumber of basis functions \\(m\\).\n\n\n\n\n\n\n\n\n\nOur goal:\n\n\n\nMinimize the run time while maintaining reasonable approximation accuracy.\n\n\n\n\nNote: we treat estimation of the GP magnitude parameter \\(\\tau\\) as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function."
   },
   {
     "objectID": "slides/21-scalable-1.html#hsgp-approximation-box",
@@ -16960,8 +16960,8 @@
     "objectID": "slides/22-scalable-2.html#geospatial-analysis-on-hemoglobin-dataset",
     "href": "slides/22-scalable-2.html#geospatial-analysis-on-hemoglobin-dataset",
     "title": "Scalable Gaussian Processes #2",
-    "section": "Geospatial analysis on hemoglobin dataset",
-    "text": "Geospatial analysis on hemoglobin dataset\n\nWe wanted to perform geospatial analysis on a dataset with ~8,600 observations at ~500 locations, and make predictions at ~440 locations on a grid."
+    "section": "",
+    "text": "We wanted to perform geospatial analysis on a dataset with ~8,600 observations at ~500 locations, and make predictions at ~440 locations on a grid."
   },
   {
     "objectID": "slides/22-scalable-2.html#geospatial-model",
@@ -17066,7 +17066,7 @@
     "href": "slides/22-scalable-2.html#references",
     "title": "Scalable Gaussian Processes #2",
     "section": "References",
-    "text": "References\n\n\nRiutort-Mayol, Gabriel, Paul-Christian Bürkner, Michael R Andersen, Arno Solin, and Aki Vehtari. 2023. “Practical Hilbert Space Approximate Bayesian Gaussian Processes for Probabilistic Programming.” Statistics and Computing 33 (1): 17.\n\n\nSolin, Arno, and Simo Särkkä. 2020. “Hilbert Space Methods for Reduced-Rank Gaussian Process Regression.” Statistics and Computing 30 (2): 419–46.\n\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "References\n\n\nRiutort-Mayol, Gabriel, Paul-Christian Bürkner, Michael R Andersen, Arno Solin, and Aki Vehtari. 2023. “Practical Hilbert Space Approximate Bayesian Gaussian Processes for Probabilistic Programming.” Statistics and Computing 33 (1): 17.\n\n\nSolin, Arno, and Simo Särkkä. 2020. “Hilbert Space Methods for Reduced-Rank Gaussian Process Regression.” Statistics and Computing 30 (2): 419–46."
   },
   {
     "objectID": "ae/ae-09-hsgp.html",
@@ -17149,15 +17149,15 @@
     "objectID": "slides/23-clustering.html#learning-objectives",
     "href": "slides/23-clustering.html#learning-objectives",
     "title": "Bayesian Clustering",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nWe will introduce the basic mixture modeling framework as a mechanism for model-based clustering and describe computational and inferential challenges.\nVariations of the popular finite Gaussian mixture model (GMM) will be introduced to cluster patients according to ED length-of-stay.\nWe present an implementation of mixture modeling in Stan and discuss challenges therein.\nFinally, various posterior summaries will be explored."
+    "section": "",
+    "text": "We will introduce the basic mixture modeling framework as a mechanism for model-based clustering and describe computational and inferential challenges.\nVariations of the popular finite Gaussian mixture model (GMM) will be introduced to cluster patients according to ED length-of-stay.\nWe present an implementation of mixture modeling in Stan and discuss challenges therein.\nFinally, various posterior summaries will be explored."
   },
   {
     "objectID": "slides/23-clustering.html#finding-subtypes",
     "href": "slides/23-clustering.html#finding-subtypes",
     "title": "Bayesian Clustering",
     "section": "Finding subtypes",
-    "text": "Finding subtypes\nRevisiting data on patients admitted to the emergency department (ED) from the MIMIC-IV-ED demo.\n\nCan we identify subgroups within this population?"
+    "text": "Finding subtypes\nRevisiting data on patients admitted to the emergency department (ED) from the MIMIC-IV-ED demo.\n\n\n\n\n\n\n\n\n\nCan we identify subgroups within this population?"
   },
   {
     "objectID": "slides/23-clustering.html#the-usual-setup",
@@ -17192,7 +17192,7 @@
     "href": "slides/23-clustering.html#limitations-of-the-usual-setup-2",
     "title": "Bayesian Clustering",
     "section": "Limitations of the usual setup",
-    "text": "Limitations of the usual setup\n\nfit &lt;- lm(y ~ 1)\nggplot(data.frame(residuals = fit$residuals), aes(x = residuals)) + \n  geom_histogram() + \n  labs(x = \"Residuals\", y = \"Count\")\n\n\nNormality of residuals?"
+    "text": "Limitations of the usual setup\n\nfit &lt;- lm(y ~ 1)\nggplot(data.frame(residuals = fit$residuals), aes(x = residuals)) + \n  geom_histogram() + \n  labs(x = \"Residuals\", y = \"Count\")\n\n\n\n\n\n\n\n\nNormality of residuals?"
   },
   {
     "objectID": "slides/23-clustering.html#mixture-model",
@@ -17276,7 +17276,7 @@
     "href": "slides/23-clustering.html#bimodal-posterior",
     "title": "Bayesian Clustering",
     "section": "Bimodal posterior",
-    "text": "Bimodal posterior\n\n\nIn one mode, \\(\\sigma^2_1 \\ll \\sigma^2_2\\) and in the other, \\(\\sigma^2_1\\gg\\sigma^2_2\\)"
+    "text": "Bimodal posterior\n\n\n\n\n\n\n\n\n\n\nIn one mode, \\(\\sigma^2_1 \\ll \\sigma^2_2\\) and in the other, \\(\\sigma^2_1\\gg\\sigma^2_2\\)"
   },
   {
     "objectID": "slides/23-clustering.html#bimodal-posterior-1",
@@ -17367,28 +17367,28 @@
     "href": "slides/23-clustering.html#co-clusterings-across-k",
     "title": "Bayesian Clustering",
     "section": "Co-clusterings across \\(k\\)",
-    "text": "Co-clusterings across \\(k\\)\n\nThe same general pattern persists when more clusters are used, indicating that \\(k=2\\) is a reasonable choice."
+    "text": "Co-clusterings across \\(k\\)\n\n\n\n\n\n\n\n\n\nThe same general pattern persists when more clusters are used, indicating that \\(k=2\\) is a reasonable choice."
   },
   {
     "objectID": "slides/23-clustering.html#prepare-for-next-class",
     "href": "slides/23-clustering.html#prepare-for-next-class",
     "title": "Bayesian Clustering",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nReminder: On Thursday, we will have a in-class live-coding exercise.\nBegin working on Exam 02, which is due for feedback on April 15.\n\n\n\n\n\n🔗 BIOSTAT 725 - Spring 2025"
+    "text": "Prepare for next class\n\nReminder: On Thursday, we will have a in-class live-coding exercise.\nBegin working on Exam 02, which is due for feedback on April 15."
   },
   {
     "objectID": "slides/22-scalable-2.html",
     "href": "slides/22-scalable-2.html",
     "title": "Scalable Gaussian Processes #2",
     "section": "",
-    "text": "Warning: attribute variables are assumed to be spatially constant throughout\nall geometries"
+    "text": "We wanted to perform geospatial analysis on a dataset with ~8,600 observations at ~500 locations, and make predictions at ~440 locations on a grid."
   },
   {
     "objectID": "slides/22-scalable-2.html#hsgp-parameters",
     "href": "slides/22-scalable-2.html#hsgp-parameters",
     "title": "Scalable Gaussian Processes #2",
     "section": "HSGP parameters",
-    "text": "HSGP parameters\nSolin and Särkkä (2020) showed that HSGP approximation can be made arbitrarily accurate as \\(\\boldsymbol{\\Theta}\\) and \\(m\\) increase.\n\n\n\n\n\n\n\n\nOur goal:\n\n\n\nMinimize the run time while maintaining reasonable approximation accuracy.\nFind minimum \\(\\boldsymbol{\\Theta}\\) and \\(m\\) with reasonable accuracy.\n\n\n\n\n\n\n\nNote: we treat estimation of the GP magnitude parameter \\(\\tau\\) as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function."
+    "text": "HSGP parameters\nSolin and Särkkä (2020) showed that HSGP approximation can be made arbitrarily accurate as \\(\\boldsymbol{\\Theta}\\) and \\(m\\) increase.\n\n\n\n\n\n\n\n\nOur goal:\n\n\n\n\nMinimize the run time while maintaining reasonable approximation accuracy.\nFind minimum \\(\\boldsymbol{\\Theta}\\) and \\(m\\) with reasonable accuracy.\n\n\n\n\n\n\nNote: we treat estimation of the GP magnitude parameter \\(\\tau\\) as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function."
   },
   {
     "objectID": "slides/22-scalable-2.html#hsgp-approximation-box",
@@ -17529,5 +17529,68 @@
     "title": "Bayesian Clustering",
     "section": "Characterizing the Clusters",
     "text": "Characterizing the Clusters"
+  },
+  {
+    "objectID": "slides/21-scalable-1.html",
+    "href": "slides/21-scalable-1.html",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "",
+    "text": "Two weeks ago, we learned about:\n\nGaussian processes, and\nHow to use Gaussian processes for\n\nlongitudinal data\ngeospatial data"
+  },
+  {
+    "objectID": "slides/18-geospatial.html",
+    "href": "slides/18-geospatial.html",
+    "title": "Geospatial Modeling",
+    "section": "",
+    "text": "During our last lecture, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) data.\nThe longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space)."
+  },
+  {
+    "objectID": "slides/06-model-checking.html",
+    "href": "slides/06-model-checking.html",
+    "title": "Model checking",
+    "section": "",
+    "text": "On Thursday, we learned about\n\nDifferent types of priors that can be specified\nPosterior summaries: point estimates, intervals, and probabilities\nPosterior predictive distributions\nWe learned about the generated quantities code chunk\n\nToday, we will dive into (1) methods for assessing MCMC convergence, and (2) model performance techniques."
+  },
+  {
+    "objectID": "slides/23-clustering.html",
+    "href": "slides/23-clustering.html",
+    "title": "Bayesian Clustering",
+    "section": "",
+    "text": "We will introduce the basic mixture modeling framework as a mechanism for model-based clustering and describe computational and inferential challenges.\nVariations of the popular finite Gaussian mixture model (GMM) will be introduced to cluster patients according to ED length-of-stay.\nWe present an implementation of mixture modeling in Stan and discuss challenges therein.\nFinally, various posterior summaries will be explored."
+  },
+  {
+    "objectID": "slides/08-workflow.html",
+    "href": "slides/08-workflow.html",
+    "title": "Bayesian Workflow",
+    "section": "",
+    "text": "On Thursday, we learned about various ways compare models.\n\nAIC, DIC, WAIC\nLOO-CV/LOO-IC\n\nToday, we will put these concepts within the larger framework of the Bayesian workflow."
+  },
+  {
+    "objectID": "slides/14-missing.html",
+    "href": "slides/14-missing.html",
+    "title": "Missing Data",
+    "section": "",
+    "text": "Last, we learned about classification for binary and multiclass problems."
+  },
+  {
+    "objectID": "slides/16-longitudinal.html",
+    "href": "slides/16-longitudinal.html",
+    "title": "Longitudinal Data",
+    "section": "",
+    "text": "During our last lecture, we introduced correlated (or dependent) data sources.\nWe discussed the idea of accounting for dependencies within a group using group-specific parameters.\nWe introduced the random intercept model and studied the induced correlation (forced to be positive) in the marginal model.\nToday we will look at longitudinal data and introduce a simple model that accounts for group-level changes."
+  },
+  {
+    "objectID": "slides/19-disease-mapping.html",
+    "href": "slides/19-disease-mapping.html",
+    "title": "Disease Mapping",
+    "section": "",
+    "text": "Last week, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) and geospatial data.\nFocused on making predictions at new locations across the spatial surface.\nToday we will focus on areal spatial data, which has different goals associated with it than point-referenced spatial data."
+  },
+  {
+    "objectID": "slides/04-stan.html",
+    "href": "slides/04-stan.html",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "",
+    "text": "On Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling.\n\nWe obtained correlated samples from the posterior using MCMC.\nGibbs required a lot math!\nMetropolis required tuning!\n\nToday we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference."
   }
 ]

@@ -16,7 +16,7 @@ library(googlesheets4)
 library(gt)
 library(tidyverse)
 gs4_deauth()
-d <- read_sheet("https://docs.google.com/spreadsheets/d/1iQtIr1Uvqp8ZwpbEgHCiQxOM-A0nMbKY021H45zaibc/edit?usp=sharing", sheet = "Sheet1")
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1_Gw0tSHAIEGd3sM2goMEH7NlrtbZDfq2nD6oC4HS_rQ/edit?usp=sharing", sheet = "Sheet1")
 ```
 
 ::: column-screen-right

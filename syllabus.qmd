@@ -1,6 +1,6 @@
 ---
 title: BIOSTAT 725 Syllabus
-subtitle: Spring 2025
+subtitle: Spring 2026
 format:
   html: default
   pdf: default

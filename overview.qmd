@@ -1,6 +1,6 @@
 ---
 title: "BIOSTAT 725 - Bayesian Health Data Science"
-subtitle: "Spring 2025 - Prof. Sam Berchuck"
+subtitle: "Spring 2026 - Prof. Sam Berchuck"
 navbar: false
 ---
 
