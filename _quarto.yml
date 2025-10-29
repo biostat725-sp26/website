@@ -60,21 +60,18 @@ website:
           text: R resources
       - section: Homework
         contents:
-        - href: hw/hw-00.qmd
+        - href: hw/hw-00-blank.qmd
           text: HW 00
-        - href: hw/hw-01.qmd
+        - href: hw/hw-01-blank.qmd
           text: HW 01
-        - href: hw/hw-02.qmd
+        - href: hw/hw-02-blank.qmd
           text: HW 02
-        - href: hw/hw-03.qmd
+        - href: hw/hw-03-blank.qmd
           text: HW 03
-        - href: hw/hw-04.qmd
+        - href: hw/hw-04-blank.qmd
           text: HW 04
-        - href: hw/hw-05.qmd
+        - href: hw/hw-05-blank.qmd
           text: HW 05
-      - href: live-coding.qmd
-        text: Live-Coding
-
 
 format:
   html:

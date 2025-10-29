@@ -1,9 +1,0 @@
----
-title: Prepare for April 1 lecture
----
-
-<br>
-
-📖 Read Sections 1-3 of [Practical Hilbert space approximate Bayesian Gaussian processes for probabilistic programming](pdfs/riutort-mayol-2020.pdf) by Riutort-Mayol et al. 2022. **You don’t need to fully understand everything in the paper!**
-
-✅ Work on [HW 05](https://biostat725-sp25.netlify.app/hw/hw-05) which is due **Tuesday** April 8 before class.
