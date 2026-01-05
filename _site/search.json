@@ -288,7 +288,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nBayesian Meta-Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 12:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 12:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -452,5 +452,278 @@
     "crumbs": [
       "Syllabus"
     ]
+  },
+  {
+    "objectID": "slides/01-welcome.html#meet-prof.-berchuck",
+    "href": "slides/01-welcome.html#meet-prof.-berchuck",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "",
+    "text": "Education and career journey\n\nBS in Statistical Science from Duke University\nPhD in Biostatistics from University of North Carolina - Chapel Hill\nPostdoc in Duke Forge: Duke’s Center for Actionable Health Data Science\nNIH/NEI Pathway to Independence Fellow (K99/R00)\nAssistant Professor, Department of Biostatistics & Bioinformatics and Statistical Science at Duke; Faculty Affiliate of Duke AI Health\n\nWork focuses on developing data science tools to improve patient experience using biomedical data (including EHR)\nDad of 5 and 7 year old daughters 🙂"
+  },
+  {
+    "objectID": "slides/01-welcome.html#teaching-assistants-tas",
+    "href": "slides/01-welcome.html#teaching-assistants-tas",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "",
+    "text": "Dr. Youngsoo Baek (PhD)\n\nPhd in Statistical Science from Duke University\nPostdoc in Biostatistics & Bioinformatics\n\nBraden Scherting\n\nPhd candidate in Statistical Science"
+  },
+  {
+    "objectID": "slides/01-welcome.html#check-in-on-ed-discussion",
+    "href": "slides/01-welcome.html#check-in-on-ed-discussion",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "",
+    "text": "Click on the link or scan the QR code to answer the Ed Discussion poll\nhttps://edstem.org/us/courses/68995/discussion/5942168"
+  },
+  {
+    "objectID": "slides/01-welcome.html#topics",
+    "href": "slides/01-welcome.html#topics",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "",
+    "text": "Introduction to the course\nSyllabus activity\nReview of probability"
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-is-bayesian-health-data-science",
+    "href": "slides/01-welcome.html#what-is-bayesian-health-data-science",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "What is Bayesian Health Data Science?",
+    "text": "What is Bayesian Health Data Science?\n\n\nBayesian Health Data Science involves using Bayesian methods to analyze health data, which can include electronic health records (EHR), clinical trial data, and other health-related datasets. These methods are model-based and can appropriately quantify and propagate uncertainty, making them suitable for tackling challenges in health research.\n\nSource: ChatGPT"
+  },
+  {
+    "objectID": "slides/01-welcome.html#why-data-science",
+    "href": "slides/01-welcome.html#why-data-science",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Why Data Science?",
+    "text": "Why Data Science?\n\n\nStatistics versus Data Science?\nIntroductory Bayesian statistics courses are often very mathematical and involve intense computation; thus Bayesian methods are not as frequently used in applied settings.\nModern software now exists to lower the mathematical burden and computational intensity of Bayesian statistics, but courses do not reflect this.\nThis course focuses on teaching students Bayesian statistics as a tool for research; or anywhere data science is practiced."
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-is-biostat-725",
+    "href": "slides/01-welcome.html#what-is-biostat-725",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "What is BIOSTAT 725?",
+    "text": "What is BIOSTAT 725?\n\n\n\n\n\n Bayes \n\nModeling\n\n\n\n\n+\n\n\n\n\n\n Stan\n\nProbabilistic Programming\n\n\n\n\nPrerequisites: BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course with instructor permission."
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-learning-objectives",
+    "href": "slides/01-welcome.html#course-learning-objectives",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Course learning objectives",
+    "text": "Course learning objectives\nBy the end of the semester, you will be able to…\n\nunderstand fundamental concepts of Bayesian statistics, including prior and posterior, and predictive distributions,\nimplement the Bayesian workflow, including model building, checking, and refinement,\nuse probabilistic programming software for Bayesian analysis (e.g., Stan),\napply Bayesian techniques to real-world health data,\ncommunicate Bayesian analysis results effectively to both technical and non-technical audiences, and\nidentify opportunities for using Bayesian statistics in your research and/or job."
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-topics",
+    "href": "slides/01-welcome.html#course-topics",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Course topics",
+    "text": "Course topics\n\n\n\n\nLinear regression\n\nMethods for inference\nPrior elicitation\nPosterior estimation\nUncertainty quantification\nModel assessment\nBayesian workflow\nPrediction\n\n\n\n\n\nHealth Datasets\n\n\n\n\n\nExtensions\n\nRobust regression\nRegularization\nClassification\nMissing data\n\n\n\n\n\nHierarchical Model\n\nGaussian processes\nLongitudinal data\nSpatial data"
+  },
+  {
+    "objectID": "slides/01-welcome.html#course-toolkit",
+    "href": "slides/01-welcome.html#course-toolkit",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Course toolkit",
+    "text": "Course toolkit\n\nWebsite: https://biostat725-sp25.netlify.app/\n\nCentral hub for the course!\nTour of the website\n\nCanvas: https://canvas.duke.edu/courses/53305\n\nGradebook\nAnnouncements\nGradescope\nEd Discussion\n\nGitHub: github.com/biostat725-sp25\n\nDistribute assignments\nPlatform for version control and collaboration"
+  },
+  {
+    "objectID": "slides/01-welcome.html#computing-toolkit",
+    "href": "slides/01-welcome.html#computing-toolkit",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Computing toolkit",
+    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nInference using Stan, a probabilistic programming language (rstan)\nWrite reproducible reports in Quarto\nAccess RStudio through STA725 Docker Containers\n\n\n\n\n\n\n\n\n\n\n\n\nAccess assignments\nFacilitates version control and collaboration\nAll work in BIOSTAT 725 course organization"
+  },
+  {
+    "objectID": "slides/01-welcome.html#syllabus-activity",
+    "href": "slides/01-welcome.html#syllabus-activity",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Syllabus activity",
+    "text": "Syllabus activity\n\n\nIntroduce yourself to your group members.\nChoose a reporter. This person will share the group’s summary with the class.\nRead the portion of the syllabus assigned to your group.\nDiscuss the key points and questions you my have.\nThe reporter will share a summary with the class."
+  },
+  {
+    "objectID": "slides/01-welcome.html#syllabus-activity-assignments",
+    "href": "slides/01-welcome.html#syllabus-activity-assignments",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Syllabus activity assignments",
+    "text": "Syllabus activity assignments\n\nGroup 1: What to expect in the course\nGroup 2: Homework\nGroup 3: Exams\nGroup 4: Live Coding\nGroup 5: Application Exercises\nGroup 6: Academic honesty (except AI policy)\nGroup 7: Artificial intelligence policy\nGroup 8: Late work policy and waiver for extenuating circumstances\nGroup 9: Regrade requests and attendance policy\nGroup 10: Getting help in the course"
+  },
+  {
+    "objectID": "slides/01-welcome.html#syllabus-activity-report-out",
+    "href": "slides/01-welcome.html#syllabus-activity-report-out",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Syllabus activity report out",
+    "text": "Syllabus activity report out\n\n\nGroup 1: What to expect in the course\nGroup 2: Homework\nGroup 3: Exams\nGroup 4: Live Coding\nGroup 5: Application Exercises\nGroup 6: Academic honesty (except AI policy)\nGroup 7: Artificial intelligence policy\nGroup 8: Late work policy and waiver for extenuating circumstances\nGroup 9: Regrade requests and attendance policy\nGroup 10: Getting help in the course"
+  },
+  {
+    "objectID": "slides/01-welcome.html#grading",
+    "href": "slides/01-welcome.html#grading",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nCategory\nPercentage\n\n\n\n\nHomework\n40%\n\n\nExam 01\n20%\n\n\nExam 02\n20%\n\n\nLive Coding\n10%\n\n\nApplication Exercises\n10%\n\n\nTotal\n100%"
+  },
+  {
+    "objectID": "slides/01-welcome.html#five-tips-for-success-in-biostat-725",
+    "href": "slides/01-welcome.html#five-tips-for-success-in-biostat-725",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Five tips for success in BIOSTAT 725",
+    "text": "Five tips for success in BIOSTAT 725\n\nComplete all the preparation work before class.\nAsk questions in class, office hours, and on Ed Discussion.\nDo the homework; get started on homework early when possible.\nDon’t procrastinate and don’t let a week pass by with lingering questions.\nStay up-to-date on announcements on Ed Discussion and sent via email."
+  },
+  {
+    "objectID": "slides/01-welcome.html#review-of-probability",
+    "href": "slides/01-welcome.html#review-of-probability",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Review of probability",
+    "text": "Review of probability\n\nThe goal of Bayesian statistics is to compute the posterior distribution (i.e., the uncertainty distribution of the parameters, \\(\\boldsymbol{\\theta}\\), after observing the data, \\(\\mathbf{Y}\\)).\nThis is the conditional distribution of \\(\\boldsymbol{\\theta}\\) given \\(\\mathbf{Y}\\).\nTherefore, we need to review the probability concepts that lead to the conditional distribution of one variable conditioned on another.\n\nProbability mass (pmf) and density (pdf) functions\nJoint distributions\nMarginal and conditional distributions"
+  },
+  {
+    "objectID": "slides/01-welcome.html#random-variables",
+    "href": "slides/01-welcome.html#random-variables",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Random variables",
+    "text": "Random variables\n\n\\(X\\) (capital) is a random variable.\nWe want to compute the probability that \\(X\\) takes on a specific value \\(x\\) (lowercase).\n\nThis is denoted \\(P(X = x)\\).\n\nWe also might want to compute the probability of \\(X\\) being in a set \\(\\mathcal A\\).\n\nThis is denoted \\(P(X \\in \\mathcal A)\\).\n\nThe set of possible values that \\(X\\) can take on is called its support, \\(\\mathcal S\\)."
+  },
+  {
+    "objectID": "slides/01-welcome.html#random-variables---example",
+    "href": "slides/01-welcome.html#random-variables---example",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Random variables - example",
+    "text": "Random variables - example\n\nExample 1: \\(X\\) is the roll of a die.\n\nThe support is \\(\\mathcal S = \\{1, 2, 3, 4, 5, 6\\}\\).\n\\(P(X = 1) = 1/6\\).\n\nExample 2: \\(X\\) is a newborn baby’s weight.\n\nThe support is \\(\\mathcal S = (0, \\infty)\\).\n\\(P(X \\in [0, \\infty]) = 1\\)."
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-is-probability",
+    "href": "slides/01-welcome.html#what-is-probability",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "What is probability?",
+    "text": "What is probability?\nObjective (associated with frequentist)\n\n\\(P(X = x)\\) as a purely mathematical statement.\nIf we repeatedly sampled \\(X\\), then the proportion of draws equal to \\(x\\) converges to \\(P(X = x)\\).\n\nSubjective (associated with Bayesian)\n\n\\(P(X = x)\\) represents an individual’s degree of belief.\nOften quantified as the amount an individual would be willing to wager that \\(X\\) will be \\(x\\).\n\nA Bayesian analysis makes use of both of these concepts."
+  },
+  {
+    "objectID": "slides/01-welcome.html#what-is-uncertainty",
+    "href": "slides/01-welcome.html#what-is-uncertainty",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "What is uncertainty?",
+    "text": "What is uncertainty?\nAleatoric uncertainty (likelihood)\n\nUncontrollable randomness in the experiment.\nFor example, the results of a fair coin flip can never be predicted with certainty.\n\nEpistemic uncertainty (prior/posterior)\n\nUncertainty about a quantity that could theoretically be known.\nFor example, if we flipped a coin infinitely-many times we could know the true probability of a head.\n\nA Bayesian analysis makes use of both of these concepts."
+  },
+  {
+    "objectID": "slides/01-welcome.html#univariate-distributions",
+    "href": "slides/01-welcome.html#univariate-distributions",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Univariate distributions",
+    "text": "Univariate distributions\n\nWe often distinguish between discrete and continuous random variables.\nThe random variable \\(X\\) is discrete if its support \\(\\mathcal S\\) is countable.\nExamples:\n\n\\(X \\in \\{0, 1, 2, 3\\}\\) is the number of successes in 3 trials.\n\\(X \\in \\{0, 1, 2, \\ldots\\}\\) is the number of patients with COVID in Durham County."
+  },
+  {
+    "objectID": "slides/01-welcome.html#univariate-distributions-1",
+    "href": "slides/01-welcome.html#univariate-distributions-1",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Univariate distributions",
+    "text": "Univariate distributions\n\nWe often distinguish between discrete and continuous random variables.\nThe random variable \\(X\\) is continuous if its support \\(\\mathcal S\\) is uncountable.\nExamples with \\(\\mathcal S = (0, \\infty)\\):\n\n\\(X &gt; 0\\) is systolic blood pressure.\n\\(X &gt; 0\\) is a patient’s BMI."
+  },
+  {
+    "objectID": "slides/01-welcome.html#discrete-univariate-distributions",
+    "href": "slides/01-welcome.html#discrete-univariate-distributions",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Discrete univariate distributions",
+    "text": "Discrete univariate distributions\n\nIf \\(X\\) is discrete we describe its distribution with its probability mass function (pmf).\nThe pmf is \\(f(x) = P(X = x)\\).\nThe domain of \\(X\\) is the set of \\(x\\) with \\(f(x) &gt; 0\\).\nWe must have \\(f(x) \\geq 0\\) and \\(\\sum_x f(x) = 1\\).\nThe mean is \\(\\mathbb E[X] = \\sum_x x f(x)\\).\nThe variance is \\(\\mathbb V(X) = \\sum_x(x − \\mathbb E[X])^2f(x)\\).\nThe last three sums are over \\(X\\)’s domain."
+  },
+  {
+    "objectID": "slides/01-welcome.html#parametric-families-of-distributions",
+    "href": "slides/01-welcome.html#parametric-families-of-distributions",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Parametric families of distributions",
+    "text": "Parametric families of distributions\n\nA statistical analysis typically proceeds by selecting a pmf that seems to match the distribution of a sample.\nWe rarely know the pmf exactly, but we assume it is from a parametric family of distributions.\nFor example, Binomial(10, 0.5) and Binomial(4, 0.1) are different but both from the binomial family.\nA family of distributions have the same equation for the pmf but differ by some unknown parameters \\(\\boldsymbol{\\theta}\\).\nWe must estimate these parameters."
+  },
+  {
+    "objectID": "slides/01-welcome.html#continuous-univariate-distributions",
+    "href": "slides/01-welcome.html#continuous-univariate-distributions",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Continuous univariate distributions",
+    "text": "Continuous univariate distributions\n\nIf \\(X\\) is continuous we describe its distribution with the probability density function (pdf) \\(f(x) \\geq 0\\).\nSince there are uncountably many possible values, \\(P(X = x) = 0\\) for all \\(x\\).\nProbabilities are computed as areas under the pdf curve \\[P(a &lt; X &lt; b) = \\int_a^b f(x)dx.\\]\nTherefore, to be valid \\(f(x)\\) must satisfy \\(f(x) \\geq 0\\) and \\[P(−\\infty &lt; X &lt; \\infty) = \\int_{-\\infty}^{\\infty} f(x)dx = 1.\\]"
+  },
+  {
+    "objectID": "slides/01-welcome.html#continuous-univariate-distributions-1",
+    "href": "slides/01-welcome.html#continuous-univariate-distributions-1",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Continuous univariate distributions",
+    "text": "Continuous univariate distributions\n\nThe domain is the set of \\(x\\) values with \\(f(x) &gt; 0\\).\nThe mean and the variance are defined similarly to the discrete case but with the sums replaced by integrals.\nThe mean is \\(\\mathbb E[X] = \\int x f(x)dx\\).\nThe variance is \\(\\mathbb V(X) = \\int (x − \\mathbb E[X])^2 f(x)dx\\)."
+  },
+  {
+    "objectID": "slides/01-welcome.html#joint-distributions",
+    "href": "slides/01-welcome.html#joint-distributions",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Joint distributions",
+    "text": "Joint distributions\n\n\\(\\mathbf{X} = (X_1, \\ldots, X_p)\\) is a random vector (vectors and matrices should be in bold).\nFor notational convenience, let’s consider only \\(p = 2\\) random variables \\(X\\) and \\(Y\\).\n\\((X, Y)\\) is discrete if it can take on a countable number of values, such as:\n\n\\(X\\) = number of hearts and \\(Y\\) = number of face cards.\n\n\\((X, Y)\\) is continuous if it can take on an uncountable number of values, such as:\n\n\\(X\\) = birthweight and \\(Y\\) = gestational age."
+  },
+  {
+    "objectID": "slides/01-welcome.html#discrete-random-variables",
+    "href": "slides/01-welcome.html#discrete-random-variables",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Discrete random variables",
+    "text": "Discrete random variables\n\nThe joint pmf: \\(f(x, y) = P(X = x, Y = y)\\)\n\n\\(\\sum_x \\sum_y f(x, y) = 1\\)\n\nThe marginal pmf for \\(X\\): \\(f_X(x) = P(X = x) = \\sum_y f(x, y)\\)\nThe marginal pmf for \\(Y\\): \\(f_Y(y) = P(Y = y) = \\sum_x f(x, y)\\)\nThe marginal distribution is the same as univariate distribution as if we ignored the other variable."
+  },
+  {
+    "objectID": "slides/01-welcome.html#discrete-random-variables-1",
+    "href": "slides/01-welcome.html#discrete-random-variables-1",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Discrete random variables",
+    "text": "Discrete random variables\n\nThe conditional pmf of \\(Y\\) given \\(X\\) is \\(f(y|x) = P(Y = y|X = x) = \\frac{P(X = x, Y = y)}{P(X = x)} = \\frac{f(x, y)}{f_X (x)}.\\)\n\\(X\\) and \\(Y\\) are independent if \\(f(x, y) = f_X(x)f_Y(y)\\) for all \\(x\\) and \\(y\\).\n\nVariables are dependent if they are not independent.\n\nEquivalently, \\(X\\) and \\(Y\\) are independent if \\(f(x|y) = f_X(x)\\) for all \\(x\\) and \\(y\\)."
+  },
+  {
+    "objectID": "slides/01-welcome.html#discrete-random-variables-2",
+    "href": "slides/01-welcome.html#discrete-random-variables-2",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Discrete random variables",
+    "text": "Discrete random variables\n\nNotation: \\(X_1, \\dots, X_n \\overset{\\mathrm{iid}}{\\sim} f(x)\\) means that \\(X_1, \\ldots, X_n\\) are independent and identically distributed.\nThis implies the joint pmf is \\[P(X_1 = x_1, \\ldots, X_n = x_n) = \\prod_{i=1}^n f(x_i).\\]\nThe same notation and definitions of independence apply to continuous random variables.\nIn this class, assume independence unless otherwise noted."
+  },
+  {
+    "objectID": "slides/01-welcome.html#continuous-random-variables",
+    "href": "slides/01-welcome.html#continuous-random-variables",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Continuous random variables",
+    "text": "Continuous random variables\n\nManipulating joint pdfs is similar to joint pmfs but sums are replaced by integrals.\nThe joint pdf is denoted \\(f(x, y)\\).\nProbabilities are computed as volume under the pdf: \\[P((X, Y) ∈ A) = \\int_A f(x, y)dxdy\\] where \\(A \\subset \\mathbb{R}^2\\)."
+  },
+  {
+    "objectID": "slides/01-welcome.html#continuous-random-variables-1",
+    "href": "slides/01-welcome.html#continuous-random-variables-1",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Continuous random variables",
+    "text": "Continuous random variables\n\nThe marginal pdf of \\(X\\) is \\(f_X(x) = \\int f(x, y)dy\\).\n\\(f_X\\) is the univariate pdf for \\(X\\) as if we never considered \\(Y\\).\nThe conditional pdf of \\(Y\\) given \\(X\\) is \\[f(y|x) = \\frac{f(x, y)}{f_X (x)}.\\]\nProper: \\(\\int f(y|x)dy = \\int \\frac{f(x,y)}{f_X(x)}dy = \\frac{\\int f(x,y)dy}{f_X(x)} = 1\\)."
+  },
+  {
+    "objectID": "slides/01-welcome.html#defining-joint-distributions-conditionally",
+    "href": "slides/01-welcome.html#defining-joint-distributions-conditionally",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Defining joint distributions conditionally",
+    "text": "Defining joint distributions conditionally\n\nSpecifying joint distributions is hard.\nEvery joint distribution can be written \\(f(x, y) = f(y|x)f(x)\\).\nTherefore, any joint distribution can be defined by,\n\n\\(X\\)’s marginal distribution\nThe conditional distribution of \\(Y|X\\)\n\nThe joint problem reduces to two univariate problems.\nThis idea forms the basis of hierarchical modeling."
+  },
+  {
+    "objectID": "slides/01-welcome.html#bayes-rule",
+    "href": "slides/01-welcome.html#bayes-rule",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Bayes rule",
+    "text": "Bayes rule\n\n\n\n\n\nThomas Bayes, 1701-1761\n\n\nPierre-Simon Laplace, 1749-1827\n\n\n\\[f(\\boldsymbol{\\theta}|\\mathbf{Y}) = \\frac{f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})}{\\int f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})d\\boldsymbol{\\theta}}\\]"
+  },
+  {
+    "objectID": "slides/01-welcome.html#prepare-for-next-week",
+    "href": "slides/01-welcome.html#prepare-for-next-week",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Prepare for next week",
+    "text": "Prepare for next week\n\nComplete HW 00 tasks\nReview syllabus\nComplete reading to prepare for Tuesday’s lecture\nTuesday’s lecture: Monte Carlo Sampling"
+  },
+  {
+    "objectID": "slides/01-welcome.html#the-table-game",
+    "href": "slides/01-welcome.html#the-table-game",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "The Table Game",
+    "text": "The Table Game"
+  },
+  {
+    "objectID": "slides/01-welcome.html",
+    "href": "slides/01-welcome.html",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "",
+    "text": "Education and career journey\n\nBS in Statistical Science from Duke University\nPhD in Biostatistics from University of North Carolina - Chapel Hill\nPostdoc in Duke Forge: Duke’s Center for Actionable Health Data Science\nNIH/NEI Pathway to Independence Fellow (K99/R00)\nAssistant Professor, Department of Biostatistics & Bioinformatics and Statistical Science at Duke; Faculty Affiliate of Duke AI Health\n\nWork focuses on developing data science tools to improve patient experience using biomedical data (including EHR)\nDad of 5 and 7 year old daughters 🙂\n\n\n\n\n\n\n\nDr. Youngsoo Baek (PhD)\n\nPhd in Statistical Science from Duke University\nPostdoc in Biostatistics & Bioinformatics\n\nBraden Scherting\n\nPhd candidate in Statistical Science\n\n\n\n\n\n\nClick on the link or scan the QR code to answer the Ed Discussion poll\nhttps://edstem.org/us/courses/68995/discussion/5942168\n\n\n\n\n\n\n\n\n\n\nIntroduction to the course\nSyllabus activity\nReview of probability"
+  },
+  {
+    "objectID": "slides/01-welcome.html#translation",
+    "href": "slides/01-welcome.html#translation",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Translation",
+    "text": "Translation"
   }
 ]
