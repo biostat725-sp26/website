@@ -19,15 +19,13 @@ format:
 +--------------------+---------------+---------------------+----------------------+
 | Name               | Role          | Office Hours        | Location             |
 +====================+===============+=====================+======================+
-| Prof. Sam Berchuck | Instructor    | Tue 2 - 4pm         | Hock 10092           |
+| Prof. Sam Berchuck | Instructor    | TBD                 | TBD                  |
 |                    |               |                     |                      |
 |                    |               | *or by appointment* |                      |
 +--------------------+---------------+---------------------+----------------------+
-| Dr. Youngsoo Baek  | TA\           | Wed 2 - 4pm         | Hock 10090           |
+| Christine Shen     | TA\           | Mon 1:30 - 3:30pm   | Old Chemistry 203A   |
 +--------------------+---------------+---------------------+----------------------+
-| Braden Scherting   | TA\           | Mon 9 – 10am        | Old Chemistry 203A/B |
-|                    |               |                     |                      |
-|                    |               | Wed 1 – 2pm         |                      |
+| Jiang Shu          | TA\           | Wed 4:45 – 6:45pm   | Hock (Room TBD)      |
 +--------------------+---------------+---------------------+----------------------+
 
 ## Course description
@@ -76,9 +74,9 @@ The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) 
 
 ### Communication
 
-All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, [biostat725-sp25.netlify.app](https://biostat725-sp25.netlify.app).
+All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, [biostat725-sp26.netlify.app](https://biostat725-sp26.netlify.app).
 
-Links to Zoom meetings may be found in Canvas. Periodic announcements will be sent via email and will also be available through Ed Discussion and Canvas Announcements. Please check your email regularly to ensure you have the latest announcements for the course.
+Links to Zoom meetings may be found in Canvas. Periodic announcements will be sent via email and Canvas Announcements. Please check your email regularly to ensure you have the latest announcements for the course.
 
 ### Email
 
@@ -86,7 +84,7 @@ If you have questions about assignment extensions, accommodations, or any other 
 
 ## Five tips for success
 
-Your success on this course depends very much on you and the effort you put into it. Your TA(s) and I will help you be providing you with materials and answering questions and setting a pace, but for this to work you must do the following:
+Your success in this course depends very much on you and the effort you put into it. Your TA(s) and I will help you be providing you with materials and answering questions and setting a pace, but for this to work you must do the following:
 
 1.  Complete all the preparation work before class.
 
@@ -102,7 +100,7 @@ Your success on this course depends very much on you and the effort you put into
 
 -   If you have a question during lecture, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.
 -   The teaching team is here to help you be successful in the course. You are encouraged to attend *office hours*[^1] to ask questions about the course content and assignments. Many questions are most effectively answered as you discuss them with others, so office hours are a valuable resource. You are encouraged to use them!
--   Outside of class and office hours, any general questions about course content or assignments should be posted on the class discussion forum [Ed Discussion](https://edstem.org/). There is a chance another student has already asked a similar question, so please check the other posts in Ed Discussion before adding a new question. If you know the answer to a question posted in the discussion forum, you are encouraged to respond!
+<!-- -   Outside of class and office hours, any general questions about course content or assignments should be posted on the class discussion forum [Ed Discussion](https://edstem.org/). There is a chance another student has already asked a similar question, so please check the other posts in Ed Discussion before adding a new question. If you know the answer to a question posted in the discussion forum, you are encouraged to respond! -->
 
 [^1]: Office hours are times the teaching team set aside each week to meet with students. [Click here](https://academicguides.duke.edu/reasons-to-attend-office-hours/) to learn more about how to effectively use office hours.
 
@@ -138,11 +136,11 @@ There will be two exams in this course. Each exam will be an open-note take-home
 
 ### Live Coding
 
-There will be a live coding evaluation in this course. Students will meet with Prof. Berchuck and/or a TA in a closed session to demonstrate their ability to code in Stan. The session will be 15-30 minutes. During the session, they will be asked to implement a Bayesian model and interpret the results. This exercise aims to assess their understanding of Bayesian methods and their proficiency in using Stan. Students will be required to schedule and complete the session after returning from spring break and before the last day of classes. The evaluation will surround one of the course assignments (e.g., a particular homework) which the student will choose. More information about the project will be provided during the semester.
+There will be an in-class live coding evaluation in this course. The exercise will take place on Thursday, April 9, during the regularly scheduled class period, and will account for 10% of the final course grade. Students will work independently in a real-time setting to implement and analyze a Bayesian model using Stan, drawing on concepts from lectures and course assignments. This will be an open-book exercise: students may use course materials and external online resources, but may not use AI tools to generate written explanations or narrative interpretations (AI may be used for coding and technical assistance only). The goal of the exercise is to assess students' ability to apply Bayesian modeling concepts and work effectively in Stan under realistic analytical conditions. Materials will be distributed at the start of the session via a Github repo. Students who cannot attend on this date must contact the instructor in advance to arrange an alternative. More information about the project will be provided during the semester.
 
 ### Application exercises
 
-You will get the most out of the course if you actively participate in class. Parts of some lectures will be dedicated to working on Application Exercises (AEs). AEs are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59p ET, and AEs from Thursday lectures are should be submitted by Sunday at 11:59p ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
+You will get the most out of the course if you actively participate in class. Parts of some lectures will be dedicated to working on Application Exercises (AEs). AEs are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59p ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59p ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
 
 AEs will be graded based on making a good-faith effort to attempt all questions covered in class. You are welcome to, but not required, to work on AEs beyond lecture.
 
@@ -237,7 +235,7 @@ The due dates for assignments are there to help you keep up with the course mate
 
 ### Waiver for extenuating circumstances
 
-If there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email me at sib2\@duke.edu before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. *This waiver may only be used once in the semester, so only use it for a truly extenuating circumstance.*
+If there are circumstances that prevent you from completing a homework assignment by the stated due date, you may email me at sib2\@duke.edu before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. *This waiver may only be used once in the semester, so only use it for a truly extenuating circumstance.*
 
 If there are circumstances that are having a longer-term impact on your academic performance, please let your director of graduate studies (DGS) know, as they can be a resource. Please let me know if you need help contacting your DGS.
 
@@ -291,13 +289,13 @@ If you need accommodations for this class, you will need to register with the St
 
 ## Important dates
 
--   **January 8**: Classes begin
--   **January 20**: MLK Jr Day. No classes
--   **January 22**: Drop/Add ends
--   **March 8 - 16**: Spring Break. No classes
--   **April 16**: Graduate classes end.
--   **April 17**: Reading period begins (no classes or projects are due during the reading period).
--   **April 27**: Reading period ends.
--   **April 28 - May 3**: Final exam period
+-   **January 7**: Classes begin
+-   **January 19**: MLK Jr Day. No classes
+-   **January 21**: Drop/Add ends
+-   **March 7 - 15**: Spring Break. No classes
+-   **April 15**: Graduate classes end.
+-   **April 16**: Reading period begins (no classes or projects are due during the reading period).
+-   **April 26**: Reading period ends.
+-   **April 27 - May 2**: Final exam period
 
-[Click here](https://registrar.duke.edu/2024-2025-academic-calendar) for the full Duke academic calendar.
+[Click here](https://registrar.duke.edu/2025-2026-academic-calendar) for the full Duke academic calendar.

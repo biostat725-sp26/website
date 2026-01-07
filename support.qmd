@@ -14,9 +14,9 @@ The teaching team is here to help you be successful in the course. You are encou
 
 Make a pledge to stop by office hours at least once during the first three weeks of class. If you truly have no questions to ask, just stop by and say hi and introduce yourself. You can find a list of everyone's office hours [here](overview.qmd).
 
-## Ed Discussion
+<!-- ## Ed Discussion -->
 
-Outside of class and office hours, any general questions about course content or assignments should be posted on [Ed Discussion](https://edstem.org/us/courses/68995/discussion/). There is a chance another student has already asked a similar question, so please check the other posts on Ed Discussion before adding a new question. If you know the answer to a question that is posted, I encourage you to respond!
+<!-- Outside of class and office hours, any general questions about course content or assignments should be posted on [Ed Discussion](https://edstem.org/us/courses/68995/discussion/). There is a chance another student has already asked a similar question, so please check the other posts on Ed Discussion before adding a new question. If you know the answer to a question that is posted, I encourage you to respond! -->
 
 ## Email
 

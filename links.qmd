@@ -7,6 +7,5 @@ title: "Useful links"
 | RStudio containers | 🔗 for [Duke Container Manager](https://cmgr.oit.duke.edu/containers) |
 | Course GitHub organization | 🔗 for [GitHub](https://github.com/biostat725-sp26) |
 | Course Canvas site | 🔗 for [Canvas](https://canvas.duke.edu/courses/75433) |
-| Discussion forum | 🔗 to [Ed Discussion](https://edstem.org/us/courses/68995/discussion/) |
 | Assignment submission | 🔗 to [Gradescope](https://www.gradescope.com/courses/1174420) |
 | Zoom links | 🔗 on [Canvas](https://canvas.duke.edu/courses/75433/external_tools/184) |

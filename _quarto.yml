@@ -28,8 +28,8 @@ website:
       - icon: code-square
         href: https://cmgr.oit.duke.edu/containers
         text: "RStudio Containers"
-      - icon: chat-dots-fill
-        href: https://edstem.org/us/courses/68995/discussion/
+      # - icon: chat-dots-fill
+      #   href: https://edstem.org/us/courses/68995/discussion/
       - icon: check-square-fill
         menu:
           - text: Canvas
@@ -60,7 +60,7 @@ website:
           text: R resources
       - section: Homework
         contents:
-        - href: hw/hw-00-blank.qmd
+        - href: hw/hw-00.qmd
           text: HW 00
         - href: hw/hw-01-blank.qmd
           text: HW 01
