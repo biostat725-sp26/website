@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -453,29 +453,29 @@
     "objectID": "slides/01-welcome.html#meet-prof.-berchuck",
     "href": "slides/01-welcome.html#meet-prof.-berchuck",
     "title": "Welcome to BIOSTAT 725!",
-    "section": "",
-    "text": "Education and career journey\n\nBS in Statistical Science from Duke University\nPhD in Biostatistics from University of North Carolina - Chapel Hill\nPostdoc in Duke Forge: Duke’s Center for Actionable Health Data Science\nNIH/NEI Pathway to Independence Fellow (K99/R00)\nAssistant Professor, Department of Biostatistics & Bioinformatics and Statistical Science at Duke; Faculty Affiliate of Duke AI Health\n\nWork focuses on developing data science tools to improve patient experience using biomedical data (including EHR)\nDad of 5 and 7 year old daughters 🙂"
+    "section": "Meet Prof. Berchuck!",
+    "text": "Meet Prof. Berchuck!\n\nEducation and career journey\n\nBS in Statistical Science from Duke University\nPhD in Biostatistics from University of North Carolina - Chapel Hill\nPostdoc in Duke Forge: Duke’s Center for Actionable Health Data Science\nNIH/NEI Pathway to Independence Fellow (K99/R00)\nAssistant Professor, Department of Biostatistics & Bioinformatics and Statistical Science at Duke; Faculty Affiliate of Duke AI Health\n\nWork focuses on developing data science tools to improve patient experience using biomedical data (including EHR)\nDad of 5 and 7 year old daughters 🙂"
   },
   {
     "objectID": "slides/01-welcome.html#teaching-assistants-tas",
     "href": "slides/01-welcome.html#teaching-assistants-tas",
     "title": "Welcome to BIOSTAT 725!",
-    "section": "",
-    "text": "Dr. Youngsoo Baek (PhD)\n\nPhd in Statistical Science from Duke University\nPostdoc in Biostatistics & Bioinformatics\n\nBraden Scherting\n\nPhd candidate in Statistical Science"
+    "section": "Teaching Assistants (TAs)",
+    "text": "Teaching Assistants (TAs)\n\nChristine Shen\n\n5th year PhD student in the Department of Statistical Science at Duke\n\nJiang Shu\n\n1st year PhD student in the Department of Biostatistics & Bioinformatics at Duke"
   },
   {
     "objectID": "slides/01-welcome.html#check-in-on-ed-discussion",
     "href": "slides/01-welcome.html#check-in-on-ed-discussion",
     "title": "Welcome to BIOSTAT 725!",
-    "section": "",
-    "text": "Click on the link or scan the QR code to answer the Ed Discussion poll\nhttps://edstem.org/us/courses/68995/discussion/5942168"
+    "section": "Check-in on Ed Discussion!",
+    "text": "Check-in on Ed Discussion!\n\nClick on the link or scan the QR code to answer the Ed Discussion poll\nhttps://forms.office.com/r/QTuhmC0wM3"
   },
   {
     "objectID": "slides/01-welcome.html#topics",
     "href": "slides/01-welcome.html#topics",
     "title": "Welcome to BIOSTAT 725!",
-    "section": "",
-    "text": "Introduction to the course\nSyllabus activity\nReview of probability"
+    "section": "Topics",
+    "text": "Topics\n\nIntroduction to the course\nSyllabus activity\nReview of probability"
   },
   {
     "objectID": "slides/01-welcome.html#what-is-bayesian-health-data-science",
@@ -489,14 +489,14 @@
     "href": "slides/01-welcome.html#why-data-science",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Why Data Science?",
-    "text": "Why Data Science?\n\n\nStatistics versus Data Science?\nIntroductory Bayesian statistics courses are often very mathematical and involve intense computation; thus Bayesian methods are not as frequently used in applied settings.\nModern software now exists to lower the mathematical burden and computational intensity of Bayesian statistics, but courses do not reflect this.\nThis course focuses on teaching students Bayesian statistics as a tool for research; or anywhere data science is practiced."
+    "text": "Why Data Science?\n\nStatistics versus Data Science?\nIntroductory Bayesian statistics courses are often very mathematical and involve intense computation; thus Bayesian methods are not as frequently used in applied settings.\nModern software now exists to lower the mathematical burden and computational intensity of Bayesian statistics, but courses do not reflect this.\nThis course focuses on teaching students Bayesian statistics as a tool for research; or anywhere data science is practiced."
   },
   {
     "objectID": "slides/01-welcome.html#what-is-biostat-725",
     "href": "slides/01-welcome.html#what-is-biostat-725",
     "title": "Welcome to BIOSTAT 725!",
     "section": "What is BIOSTAT 725?",
-    "text": "What is BIOSTAT 725?\n\n\n\n\n\n Bayes \n\nModeling\n\n\n\n\n+\n\n\n\n\n\n Stan\n\nProbabilistic Programming\n\n\n\n\nPrerequisites: BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course with instructor permission."
+    "text": "What is BIOSTAT 725?\n\n\n\n\n\n Bayes \n\nModeling\n\n\n\n\n+\n\n\n\n\n\n Stan\n\nProbabilistic Programming\n\n\n\nPrerequisites: BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course with instructor permission."
   },
   {
     "objectID": "slides/01-welcome.html#course-learning-objectives",
@@ -510,21 +510,21 @@
     "href": "slides/01-welcome.html#course-topics",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Course topics",
-    "text": "Course topics\n\n\n\n\nLinear regression\n\nMethods for inference\nPrior elicitation\nPosterior estimation\nUncertainty quantification\nModel assessment\nBayesian workflow\nPrediction\n\n\n\n\n\nHealth Datasets\n\n\n\n\n\nExtensions\n\nRobust regression\nRegularization\nClassification\nMissing data\n\n\n\n\n\nHierarchical Model\n\nGaussian processes\nLongitudinal data\nSpatial data"
+    "text": "Course topics\n\n\n\nLinear regression\n\nMethods for inference\nPrior elicitation\nPosterior estimation\nUncertainty quantification\nModel assessment\nBayesian workflow\nPrediction\n\n\n\nHealth Datasets\n\n\n\nExtensions\n\nRobust regression\nRegularization\nClassification\nMissing data\n\n\n\nHierarchical Model\n\nGaussian processes\nLongitudinal data\nSpatial data"
   },
   {
     "objectID": "slides/01-welcome.html#course-toolkit",
     "href": "slides/01-welcome.html#course-toolkit",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Course toolkit",
-    "text": "Course toolkit\n\nWebsite: https://biostat725-sp25.netlify.app/\n\nCentral hub for the course!\nTour of the website\n\nCanvas: https://canvas.duke.edu/courses/53305\n\nGradebook\nAnnouncements\nGradescope\nEd Discussion\n\nGitHub: github.com/biostat725-sp25\n\nDistribute assignments\nPlatform for version control and collaboration"
+    "text": "Course toolkit\n\nWebsite: https://biostat725-sp26.netlify.app/\n\nCentral hub for the course!\nTour of the website\n\nCanvas: https://canvas.duke.edu/courses/75433\n\nGradebook\nAnnouncements\nGradescope\n\nGitHub: github.com/biostat725-sp26\n\nDistribute assignments\nPlatform for version control and collaboration"
   },
   {
     "objectID": "slides/01-welcome.html#computing-toolkit",
     "href": "slides/01-welcome.html#computing-toolkit",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Computing toolkit",
-    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nInference using Stan, a probabilistic programming language (rstan)\nWrite reproducible reports in Quarto\nAccess RStudio through STA725 Docker Containers\n\n\n\n\n\n\n\n\n\n\n\n\nAccess assignments\nFacilitates version control and collaboration\nAll work in BIOSTAT 725 course organization"
+    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nInference using Stan, a probabilistic programming language (rstan)\nWrite reproducible reports in Quarto\nAccess RStudio through STA725 (STA602) Docker Containers\n\n\n\n\n\n\n\n\n\n\n\n\nAccess assignments\nFacilitates version control and collaboration\nAll work in BIOSTAT 725 course organization"
   },
   {
     "objectID": "slides/01-welcome.html#syllabus-activity",
@@ -545,7 +545,7 @@
     "href": "slides/01-welcome.html#syllabus-activity-report-out",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Syllabus activity report out",
-    "text": "Syllabus activity report out\n\n\nGroup 1: What to expect in the course\nGroup 2: Homework\nGroup 3: Exams\nGroup 4: Live Coding\nGroup 5: Application Exercises\nGroup 6: Academic honesty (except AI policy)\nGroup 7: Artificial intelligence policy\nGroup 8: Late work policy and waiver for extenuating circumstances\nGroup 9: Regrade requests and attendance policy\nGroup 10: Getting help in the course"
+    "text": "Syllabus activity report out\n\nGroup 1: What to expect in the course\nGroup 2: Homework\nGroup 3: Exams\nGroup 4: Live Coding\nGroup 5: Application Exercises\nGroup 6: Academic honesty (except AI policy)\nGroup 7: Artificial intelligence policy\nGroup 8: Late work policy and waiver for extenuating circumstances\nGroup 9: Regrade requests and attendance policy\nGroup 10: Getting help in the course"
   },
   {
     "objectID": "slides/01-welcome.html#grading",
@@ -559,7 +559,7 @@
     "href": "slides/01-welcome.html#five-tips-for-success-in-biostat-725",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Five tips for success in BIOSTAT 725",
-    "text": "Five tips for success in BIOSTAT 725\n\nComplete all the preparation work before class.\nAsk questions in class, office hours, and on Ed Discussion.\nDo the homework; get started on homework early when possible.\nDon’t procrastinate and don’t let a week pass by with lingering questions.\nStay up-to-date on announcements on Ed Discussion and sent via email."
+    "text": "Five tips for success in BIOSTAT 725\n\nComplete all the preparation work before class.\nAsk questions in class, and office hours.\nDo the homework; get started on homework early when possible.\nDon’t procrastinate and don’t let a week pass by with lingering questions.\nStay up-to-date on announcements on Canvas and sent via email."
   },
   {
     "objectID": "slides/01-welcome.html#review-of-probability",
@@ -692,7 +692,7 @@
     "href": "slides/01-welcome.html#bayes-rule",
     "title": "Welcome to BIOSTAT 725!",
     "section": "Bayes rule",
-    "text": "Bayes rule\n\n\n\n\n\nThomas Bayes, 1701-1761\n\n\nPierre-Simon Laplace, 1749-1827\n\n\n\\[f(\\boldsymbol{\\theta}|\\mathbf{Y}) = \\frac{f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})}{\\int f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})d\\boldsymbol{\\theta}}\\]"
+    "text": "Bayes rule\n\n\n\n\n\nThomas Bayes, 1701-1761\n\n\nPierre-Simon Laplace, 1749-1827\n\n\\[f(\\boldsymbol{\\theta}|\\mathbf{Y}) = \\frac{f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})}{\\int f(\\mathbf{Y}|\\boldsymbol{\\theta})f(\\boldsymbol{\\theta})d\\boldsymbol{\\theta}}\\]"
   },
   {
     "objectID": "slides/01-welcome.html#prepare-for-next-week",
@@ -776,5 +776,12 @@
       "Homework",
       "HW 00"
     ]
+  },
+  {
+    "objectID": "slides/01-welcome.html#office-hours-poll",
+    "href": "slides/01-welcome.html#office-hours-poll",
+    "title": "Welcome to BIOSTAT 725!",
+    "section": "Office Hours Poll!",
+    "text": "Office Hours Poll!\n\nClick on the link or scan the QR code to answer the poll\nhttps://forms.office.com/r/QTuhmC0wM3"
   }
 ]

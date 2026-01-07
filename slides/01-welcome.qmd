@@ -49,24 +49,23 @@ library(ggplot2)
 
 ## Teaching Assistants (TAs)
 
--   Dr. Youngsoo Baek (PhD)
-    -   Phd in Statistical Science from Duke University
-    -   Postdoc in Biostatistics & Bioinformatics
--   Braden Scherting
-    -   Phd candidate in Statistical Science
+-   Christine Shen
+    -   5th year PhD student in the Department of Statistical Science at Duke
+-   Jiang Shu
+    -   1st year PhD student in the Department of Biostatistics & Bioinformatics at Duke
 
-## Check-in on Ed Discussion!
+## Office Hours Poll!
 
 ::: question
-Click on the link or scan the QR code to answer the Ed Discussion poll
+Click on the link or scan the QR code to answer the poll
 
-<https://edstem.org/us/courses/68995/discussion/5942168>
+<https://forms.office.com/r/QTuhmC0wM3>
 
 <center>
 
 \
 
-![](images/01/frame.png){width="20%"}
+![](images/01/qrcode.png){width="25%"}
 
 </center>
 :::
@@ -194,15 +193,14 @@ By the end of the semester, you will be able to...
 
 ## Course toolkit {.midi}
 
--   **Website**: <https://biostat725-sp25.netlify.app/>
+-   **Website**: <https://biostat725-sp26.netlify.app/>
     -   Central hub for the course!
     -   **Tour of the website**
--   **Canvas**: <https://canvas.duke.edu/courses/53305>
+-   **Canvas**: <https://canvas.duke.edu/courses/75433>
     -   Gradebook
     -   Announcements
     -   Gradescope
-    -   Ed Discussion
--   **GitHub:** [github.com/biostat725-sp25](https://github.com/biostat725-sp25)
+-   **GitHub:** [github.com/biostat725-sp26](https://github.com/biostat725-sp26)
     -   Distribute assignments
     -   Platform for version control and collaboration
 
@@ -221,7 +219,7 @@ By the end of the semester, you will be able to...
 
 -   Write reproducible reports in Quarto
 
--   Access RStudio through [STA725 Docker Containers](https://cmgr.oit.duke.edu/containers)
+-   Access RStudio through [STA725 (STA602) Docker Containers](https://cmgr.oit.duke.edu/containers)
 :::
 :::::
 
@@ -235,7 +233,7 @@ By the end of the semester, you will be able to...
 
 -   Facilitates version control and collaboration
 
--   All work in [BIOSTAT 725 course organization](https://github.com/biostat725-sp25)
+-   All work in [BIOSTAT 725 course organization](https://github.com/biostat725-sp26)
 :::
 :::::
 :::::::::
@@ -252,48 +250,48 @@ By the end of the semester, you will be able to...
 
 ## Syllabus activity assignments {.midi}
 
--   Group 1: [What to expect in the course](https://biostat725-sp25.netlify.app/syllabus#what-to-expect-in-the-course)
+-   Group 1: [What to expect in the course](https://biostat725-sp26.netlify.app/syllabus#what-to-expect-in-the-course)
 
--   Group 2: [Homework](https://biostat725-sp25.netlify.app/syllabus#homework)
+-   Group 2: [Homework](https://biostat725-sp26.netlify.app/syllabus#homework)
 
--   Group 3: [Exams](https://biostat725-sp25.netlify.app/syllabus#exams)
+-   Group 3: [Exams](https://biostat725-sp26.netlify.app/syllabus#exams)
 
--   Group 4: [Live Coding](https://biostat725-sp25.netlify.app/syllabus#live-coding)
+-   Group 4: [Live Coding](https://biostat725-sp26.netlify.app/syllabus#live-coding)
 
--   Group 5: [Application Exercises](https://biostat725-sp25.netlify.app/syllabus#application-exercises)
+-   Group 5: [Application Exercises](https://biostat725-sp26.netlify.app/syllabus#application-exercises)
 
--   Group 6: [Academic honesty (except AI policy)](https://biostat725-sp25.netlify.app/syllabus#academic-honesty)
+-   Group 6: [Academic honesty (except AI policy)](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
 
--   Group 7: [Artificial intelligence policy](https://biostat725-sp25.netlify.app/syllabus#academic-honesty)
+-   Group 7: [Artificial intelligence policy](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
 
--   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp25.netlify.app/syllabus#late-work-policy)
+-   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp26.netlify.app/syllabus#late-work-policy)
 
--   Group 9: [Regrade requests and attendance policy](https://biostat725-sp25.netlify.app/syllabus#regrade-requests)
+-   Group 9: [Regrade requests and attendance policy](https://biostat725-sp26.netlify.app/syllabus#regrade-requests)
 
--   Group 10: [Getting help in the course](https://biostat725-sp25.netlify.app/syllabus#getting-help-in-the-course)
+-   Group 10: [Getting help in the course](https://biostat725-sp26.netlify.app/syllabus#getting-help-in-the-course)
 
 ## Syllabus activity report out {.midi}
 
 ::: incremental
--   Group 1: [What to expect in the course](https://biostat725-sp25.netlify.app/syllabus#what-to-expect-in-the-course)
+-   Group 1: [What to expect in the course](https://biostat725-sp26.netlify.app/syllabus#what-to-expect-in-the-course)
 
--   Group 2: [Homework](https://biostat725-sp25.netlify.app/syllabus#homework)
+-   Group 2: [Homework](https://biostat725-sp26.netlify.app/syllabus#homework)
 
--   Group 3: [Exams](https://biostat725-sp25.netlify.app/syllabus#exams)
+-   Group 3: [Exams](https://biostat725-sp26.netlify.app/syllabus#exams)
 
--   Group 4: [Live Coding](https://biostat725-sp25.netlify.app/syllabus#live-coding)
+-   Group 4: [Live Coding](https://biostat725-sp26.netlify.app/syllabus#live-coding)
 
--   Group 5: [Application Exercises](https://biostat725-sp25.netlify.app/syllabus#application-exercises)
+-   Group 5: [Application Exercises](https://biostat725-sp26.netlify.app/syllabus#application-exercises)
 
--   Group 6: [Academic honesty (except AI policy)](https://biostat725-sp25.netlify.app/syllabus#academic-honesty)
+-   Group 6: [Academic honesty (except AI policy)](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
 
--   Group 7: [Artificial intelligence policy](https://biostat725-sp25.netlify.app/syllabus#academic-honesty)
+-   Group 7: [Artificial intelligence policy](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
 
--   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp25.netlify.app/syllabus#late-work-policy)
+-   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp26.netlify.app/syllabus#late-work-policy)
 
--   Group 9: [Regrade requests and attendance policy](https://biostat725-sp25.netlify.app/syllabus#regrade-requests)
+-   Group 9: [Regrade requests and attendance policy](https://biostat725-sp26.netlify.app/syllabus#regrade-requests)
 
--   Group 10: [Getting help in the course](https://biostat725-sp25.netlify.app/syllabus#getting-help-in-the-course)
+-   Group 10: [Getting help in the course](https://biostat725-sp26.netlify.app/syllabus#getting-help-in-the-course)
 :::
 
 ## Grading
@@ -311,13 +309,13 @@ By the end of the semester, you will be able to...
 
 1.  Complete all the preparation work before class.
 
-2.  Ask questions in class, office hours, and on Ed Discussion.
+2.  Ask questions in class, and office hours.
 
 3.  Do the homework; get started on homework early when possible.
 
 4.  Don't procrastinate and don't let a week pass by with lingering questions.
 
-5.  Stay up-to-date on announcements on Ed Discussion and sent via email.
+5.  Stay up-to-date on announcements on Canvas and sent via email.
 
 # Probability
 
@@ -686,19 +684,17 @@ Pierre-Simon Laplace, 1749-1827
 
 $$f(\boldsymbol{\theta}|\mathbf{Y}) = \frac{f(\mathbf{Y}|\boldsymbol{\theta})f(\boldsymbol{\theta})}{\int f(\mathbf{Y}|\boldsymbol{\theta})f(\boldsymbol{\theta})d\boldsymbol{\theta}}$$
 
-## The Table Game
+<!-- ## The Table Game -->
 
-![](images/01/bayesproblem.png){fig-align="center" height="300"}\
+<!-- ![](images/01/bayesproblem.png){fig-align="center" height="300"}\ -->
 
-## Translation
-
-
+<!-- ## Translation -->
 
 ## Prepare for next week
 
--   Complete [HW 00 tasks](https://biostat725-sp25.netlify.app/hw/hw-00)
+-   Complete [HW 00 tasks](https://biostat725-sp26.netlify.app/hw/hw-00)
 
--   Review [syllabus](https://biostat725-sp25.netlify.app/syllabus)
+-   Review [syllabus](https://biostat725-sp26.netlify.app/syllabus)
 
 -   Complete reading to prepare for Tuesday's lecture
 
