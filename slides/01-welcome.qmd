@@ -252,46 +252,34 @@ By the end of the semester, you will be able to...
 
 -   Group 1: [What to expect in the course](https://biostat725-sp26.netlify.app/syllabus#what-to-expect-in-the-course)
 
--   Group 2: [Homework](https://biostat725-sp26.netlify.app/syllabus#homework)
+-   Group 2: [Homework](https://biostat725-sp26.netlify.app/syllabus#homework) and [Exams](https://biostat725-sp26.netlify.app/syllabus#exams)
 
--   Group 3: [Exams](https://biostat725-sp26.netlify.app/syllabus#exams)
+-   Group 3: [Live Coding](https://biostat725-sp26.netlify.app/syllabus#live-coding) and [Application Exercises](https://biostat725-sp26.netlify.app/syllabus#application-exercises)
 
--   Group 4: [Live Coding](https://biostat725-sp26.netlify.app/syllabus#live-coding)
+-   Group 4: [Academic honesty (except AI policy)](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
 
--   Group 5: [Application Exercises](https://biostat725-sp26.netlify.app/syllabus#application-exercises)
+-   Group 5: [Artificial intelligence policy](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
 
--   Group 6: [Academic honesty (except AI policy)](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
+-   Group 6: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp26.netlify.app/syllabus#late-work-policy)
 
--   Group 7: [Artificial intelligence policy](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
-
--   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp26.netlify.app/syllabus#late-work-policy)
-
--   Group 9: [Regrade requests and attendance policy](https://biostat725-sp26.netlify.app/syllabus#regrade-requests)
-
--   Group 10: [Getting help in the course](https://biostat725-sp26.netlify.app/syllabus#getting-help-in-the-course)
+-   Group 7: [Regrade requests and attendance policy](https://biostat725-sp26.netlify.app/syllabus#regrade-requests) and [Getting help in the course](https://biostat725-sp26.netlify.app/syllabus#getting-help-in-the-course)
 
 ## Syllabus activity report out {.midi}
 
 ::: incremental
 -   Group 1: [What to expect in the course](https://biostat725-sp26.netlify.app/syllabus#what-to-expect-in-the-course)
 
--   Group 2: [Homework](https://biostat725-sp26.netlify.app/syllabus#homework)
+-   Group 2: [Homework](https://biostat725-sp26.netlify.app/syllabus#homework) and [Exams](https://biostat725-sp26.netlify.app/syllabus#exams)
 
--   Group 3: [Exams](https://biostat725-sp26.netlify.app/syllabus#exams)
+-   Group 3: [Live Coding](https://biostat725-sp26.netlify.app/syllabus#live-coding) and [Application Exercises](https://biostat725-sp26.netlify.app/syllabus#application-exercises)
 
--   Group 4: [Live Coding](https://biostat725-sp26.netlify.app/syllabus#live-coding)
+-   Group 4: [Academic honesty (except AI policy)](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
 
--   Group 5: [Application Exercises](https://biostat725-sp26.netlify.app/syllabus#application-exercises)
+-   Group 5: [Artificial intelligence policy](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
 
--   Group 6: [Academic honesty (except AI policy)](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
+-   Group 6: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp26.netlify.app/syllabus#late-work-policy)
 
--   Group 7: [Artificial intelligence policy](https://biostat725-sp26.netlify.app/syllabus#academic-honesty)
-
--   Group 8: [Late work policy and waiver for extenuating circumstances](https://biostat725-sp26.netlify.app/syllabus#late-work-policy)
-
--   Group 9: [Regrade requests and attendance policy](https://biostat725-sp26.netlify.app/syllabus#regrade-requests)
-
--   Group 10: [Getting help in the course](https://biostat725-sp26.netlify.app/syllabus#getting-help-in-the-course)
+-   Group 7: [Regrade requests and attendance policy](https://biostat725-sp26.netlify.app/syllabus#regrade-requests) and [Getting help in the course](https://biostat725-sp26.netlify.app/syllabus#getting-help-in-the-course)
 :::
 
 ## Grading
