@@ -783,5 +783,635 @@
     "title": "Welcome to BIOSTAT 725!",
     "section": "Office Hours Poll!",
     "text": "Office Hours Poll!\n\nClick on the link or scan the QR code to answer the poll\nhttps://forms.office.com/r/QTuhmC0wM3"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#simulating-pi-using-monte-carlo",
+    "href": "slides/02-monte-carlo.html#simulating-pi-using-monte-carlo",
+    "title": "Monte Carlo Sampling",
+    "section": "Simulating \\(\\pi\\) using Monte Carlo",
+    "text": "Simulating \\(\\pi\\) using Monte Carlo\nSuppose we are interested in estimating \\(\\pi\\).\n\n\n\nWe can formulate \\(\\pi\\) as a function of the area of a square and circle.\nArea of a circle: \\(A_c = \\pi r^2\\)\nArea of a square: \\(A_s = 4 r^2\\)\nThe ratio of the two areas is: \\(\\frac{A_c}{A_s} = \\frac{\\pi r^2}{4 r^2} \\implies \\pi = \\frac{4 A_c}{A_s}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIf we have an estimate for the ratio we can solve for \\(\\pi\\). The challenge becomes estimating this ratio."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#monte-carlo-sampling-1",
+    "href": "slides/02-monte-carlo.html#monte-carlo-sampling-1",
+    "title": "Monte Carlo Sampling",
+    "section": "Monte Carlo sampling",
+    "text": "Monte Carlo sampling\n\nWe can take advantage of how quickly a computer can generate pseudo-random numbers.\nThere is a class of algorithms called Monte Carlo sampling that exploit randomness to estimate real world scenarios that would otherwise be difficult to explicitly calculate.\nThe name comes from the Monte Carlo Casino in Monaco, where the primary developer of the method, mathematician Stanislaw Ulam, was inspired by his uncle’s gambling habits. (This is who Stan was named after!)"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#monte-carlo-estimation-of-the-ratio",
+    "href": "slides/02-monte-carlo.html#monte-carlo-estimation-of-the-ratio",
+    "title": "Monte Carlo Sampling",
+    "section": "Monte Carlo estimation of the ratio",
+    "text": "Monte Carlo estimation of the ratio\n\nWe can use a Monte Carlo simulation to estimate the area ratio of the circle to the square.\nImagine you randomly drop grains of sand into the area of the square. By counting the total number of sand grains in the square (all of them since you’re an accurate dropper) to the number of sand grains inside the circle we get this estimate.\nMultiply the estimated ratio by 4 and you get an estimate for \\(\\pi\\).\nThe more grains of sand that are used the more accurate your estimate of \\(\\pi\\)."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#algorithm-for-estimating-pi",
+    "href": "slides/02-monte-carlo.html#algorithm-for-estimating-pi",
+    "title": "Monte Carlo Sampling",
+    "section": "Algorithm for estimating \\(\\pi\\)",
+    "text": "Algorithm for estimating \\(\\pi\\)\n\nGenerate a random point \\((x, y)\\) inside a square centered at the origin with length 2.\n\n\nThis is equivalent to assuming:\n\n\\(f_{X,Y}(x,y) = f_X(x)f_Y(y)\\)\n\\(f_X(x) = Uniform(-1, 1)\\), \\(f_Y(y) = Uniform(-1, 1)\\)\n\n\n\n\nDetermine whether the point falls inside the unit circle inscribed in the square by checking whether \\(x^2 + y^2 \\leq 1\\).\n\n\n\n\nRepeat steps 1 and 2 for a large number of points (\\(S\\))."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#algorithm-for-estimating-pi-1",
+    "href": "slides/02-monte-carlo.html#algorithm-for-estimating-pi-1",
+    "title": "Monte Carlo Sampling",
+    "section": "Algorithm for estimating \\(\\pi\\)",
+    "text": "Algorithm for estimating \\(\\pi\\)\n\nGenerate a random point \\((x, y)\\) inside a square centered at the origin with length 2.\nDetermine whether the point falls inside the unit circle inscribed in the square by checking whether \\(x^2 + y^2 \\leq 1\\).\nRepeat steps 1 and 2 for a large number of points (\\(S\\)).\nCalculate the ratio of the number of points that fell inside the circle to the total number of points generated.\n\n\n\nMultiply the ratio by 4 to estimate the value of \\(\\pi\\)."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#how-big-of-a-difference-does-s-make",
+    "href": "slides/02-monte-carlo.html#how-big-of-a-difference-does-s-make",
+    "title": "Monte Carlo Sampling",
+    "section": "How big of a difference does \\(S\\) make",
+    "text": "How big of a difference does \\(S\\) make"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#estimating-pi-with-increasing-s",
+    "href": "slides/02-monte-carlo.html#estimating-pi-with-increasing-s",
+    "title": "Monte Carlo Sampling",
+    "section": "Estimating \\(\\pi\\) with increasing \\(S\\)",
+    "text": "Estimating \\(\\pi\\) with increasing \\(S\\)"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#error-in-estimating-pi",
+    "href": "slides/02-monte-carlo.html#error-in-estimating-pi",
+    "title": "Monte Carlo Sampling",
+    "section": "Error in estimating \\(\\pi\\)",
+    "text": "Error in estimating \\(\\pi\\)"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#intuition-behing-monte-carlo-sampling",
+    "href": "slides/02-monte-carlo.html#intuition-behing-monte-carlo-sampling",
+    "title": "Monte Carlo Sampling",
+    "section": "Intuition behing Monte Carlo sampling",
+    "text": "Intuition behing Monte Carlo sampling\n\nAssume \\(X \\sim Uniform(-1,1)\\) and \\(Y \\sim Uniform(-1,1)\\).\nWe can write our problem as, \\(\\pi = 4P(X^2 + Y^2 \\leq 1)\\).\nHow could we do this without Monte Carlo?\nDefine, \\(Z = X^2 + Y^2\\). We could then use change-of-variables to compute the density of \\(Z\\) and then compute \\(P(Z \\leq 1)\\).\n\nThis is generally difficult!"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#intuition-behing-monte-carlo-sampling-1",
+    "href": "slides/02-monte-carlo.html#intuition-behing-monte-carlo-sampling-1",
+    "title": "Monte Carlo Sampling",
+    "section": "Intuition behing Monte Carlo sampling",
+    "text": "Intuition behing Monte Carlo sampling\n\nInstead, we could write our problem as an expectation and use the law of large numbers,\n\n\\[P(X^2 + Y^2 \\leq 1) = \\mathbb{E}_{X,Y}\\left[1\\left(X^2 + Y^2 \\leq 1\\right)\\right].\\]\n\nRecall: \\(\\mathbb{E}_X[1(A)] = \\int_A f_X(x)dx = P(X \\in A)\\).\nWe then have that, \\[\\frac{1}{S}\\sum_{i = 1}^S 1\\left(X_i^2 + Y_i^2 \\leq 1\\right) \\rightarrow \\mathbb{E}_{X,Y}\\left[1\\left(X^2 + Y^2 \\leq 1\\right)\\right],\\]\n\nwhere \\((X_i,Y_i) \\sim f(X,Y)\\)."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#a-motivating-example",
+    "href": "slides/02-monte-carlo.html#a-motivating-example",
+    "title": "Monte Carlo Sampling",
+    "section": "A motivating example",
+    "text": "A motivating example\n\nSuppose we are interested in estimating the prevalence of diabetes in Durham County. We aim to estimate this prevalence by taking a sample of \\(n\\) individuals in Durham County and we record whether or not they have diabetes, \\(Y_i\\).\nWe assume that \\(Z = \\sum_{i=1}^n Y_i \\sim Binomial(n, \\pi)\\) for \\(i = 1,\\ldots,n\\).\nOur goal is to estimate \\(\\pi\\) and perform statistical inference (e.g., point estimation, interval estimation, etc.)."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#posterior-inference",
+    "href": "slides/02-monte-carlo.html#posterior-inference",
+    "title": "Monte Carlo Sampling",
+    "section": "Posterior inference",
+    "text": "Posterior inference\n\nIn Bayesian statistics, inference is encoded through the posterior distribution,\n\n\\[\\begin{aligned}\nf(\\pi | Z) &= \\frac{f(Z | \\pi)f(\\pi)}{f(Z)},\\\\\n&= \\frac{f(Z | \\pi)f(\\pi)}{\\int f(Z | \\pi)f(\\pi)d\\pi}.\n\\end{aligned}\\]\n\nAll we have to do is specify the likelihood and prior."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#likelihood-specification",
+    "href": "slides/02-monte-carlo.html#likelihood-specification",
+    "title": "Monte Carlo Sampling",
+    "section": "Likelihood specification",
+    "text": "Likelihood specification\n\\(Z\\) is a Binomial distribution with pmf,\n\\[f(Z | \\pi) = P(Z = z) = {n \\choose z} \\pi^z(1-\\pi)^{n-z},\\]\nwhere \\(z \\in \\{0, 1, \\ldots, n\\}\\).\n\n\\({n \\choose z} = \\frac{n!}{z!(n-z)!} = \\frac{\\Gamma(n+1)}{\\Gamma(z+1)\\Gamma(n-z+1)}\\)\n\\(\\Gamma(x) = (x-1)!\\)"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#prior-specification",
+    "href": "slides/02-monte-carlo.html#prior-specification",
+    "title": "Monte Carlo Sampling",
+    "section": "Prior specification",
+    "text": "Prior specification\nWhat do we know about \\(\\pi\\)?\n\n\\(\\pi\\) is continuous.\n\\(\\pi \\in (0,1)\\).\n\nWe should place a distribution on \\(\\pi\\) that permits these properties.\n\nOne option is the Beta distribution, \\(\\pi \\sim Beta(\\alpha,\\beta)\\), \\[f(\\pi) = \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}.\\]"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#computing-the-marginal-likelihood",
+    "href": "slides/02-monte-carlo.html#computing-the-marginal-likelihood",
+    "title": "Monte Carlo Sampling",
+    "section": "Computing the marginal likelihood",
+    "text": "Computing the marginal likelihood\nUnder our prior specification, we can compute the marginal likelihood, \\(f(Z)\\):\n\\[\\begin{aligned}\nf(Z) &= \\int f(Z | \\pi) f(\\pi) d\\pi\\\\\n&= \\int {n \\choose z} \\pi^z(1-\\pi)^{n-z} \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1} d\\pi\\\\\n&= {n \\choose z}\\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)} \\int \\underbrace{\\pi^{(\\alpha + z) - 1}(1-\\pi)^{(\\beta + n - z) - 1}}_{Beta\\text{ }kernel} d\\pi\n\\end{aligned}\\]\n\n\n\n\n\n\nDefinition\n\n\nThe part of the pdf/pmf that depends on the variable is called the kernel.\nExample: The kernel of the Beta pdf is \\(\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}\\)"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#computing-the-marginal-likelihood-1",
+    "href": "slides/02-monte-carlo.html#computing-the-marginal-likelihood-1",
+    "title": "Monte Carlo Sampling",
+    "section": "Computing the marginal likelihood",
+    "text": "Computing the marginal likelihood\nUnder our prior specification, we can compute the marginal likelihood, \\(f(Z)\\):\n\\[\\begin{aligned}\nf(Z) &= {n \\choose z}\\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)} \\int \\pi^{(\\alpha + z) - 1}(1-\\pi)^{(\\beta + n - z) - 1} d\\pi\\\\\n&= {n \\choose z}\\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)} \\frac{\\Gamma(\\alpha+\\beta + n)}{\\Gamma(\\alpha + z)\\Gamma(\\beta + n - z)}.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#we-can-then-compute-the-posterior",
+    "href": "slides/02-monte-carlo.html#we-can-then-compute-the-posterior",
+    "title": "Monte Carlo Sampling",
+    "section": "We can then compute the posterior",
+    "text": "We can then compute the posterior\n\\[\\begin{aligned}\nf(\\pi | Z) &= \\frac{f(Z | \\pi) f(\\pi)}{f(Z)}\\\\\n&= \\frac{{n \\choose z} \\pi^z(1-\\pi)^{n-z} \\times \\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)}\\pi^{\\alpha-1}(1-\\pi)^{\\beta-1}}{{n \\choose z}\\frac{\\Gamma(\\alpha)\\Gamma(\\beta)}{\\Gamma(\\alpha+\\beta)} \\frac{\\Gamma(\\alpha+\\beta) }{\\Gamma(\\alpha + z)\\Gamma(\\beta + n - z)}}\\\\\n&=\\frac{\\Gamma(\\alpha+z)\\Gamma(\\beta+n-z)}{\\Gamma(\\alpha + \\beta + n)}\\pi^{(\\alpha + z) - 1} (1 - \\pi)^{(\\beta + n - z) - 1}\\\\\n&=Beta\\left(\\alpha + z, \\beta + n - z\\right).\n\\end{aligned}\\]\n\nA prior that is considered conjugate yields a posterior with the same distribution.\nThe Beta distribution is conjugate for the Bernoulli/Binomial distributions."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#computing-the-posterior",
+    "href": "slides/02-monte-carlo.html#computing-the-posterior",
+    "title": "Monte Carlo Sampling",
+    "section": "Computing the posterior",
+    "text": "Computing the posterior\n\nIn general, computing the marginal likelihood, \\(f(Z)\\), is extremely difficulty.\nAn easier approach is to use the kernel trick.\n\n\\[\\begin{aligned}\nf(\\pi | Z) &\\propto f(Z | \\pi) f(\\pi)\\\\\n&\\propto \\pi^z (1-\\pi)^{n - z} \\pi^{\\alpha-1}(1-\\pi)^{\\beta-1} \\\\\n&= \\pi^{\\left(\\alpha + z\\right) - 1} (1-\\pi)^{\\left(\\beta + n - z\\right) - 1}\\\\\n&= Beta\\left(\\alpha + z, \\beta + n - z\\right).\n\\end{aligned}\\]\n\nThis only works when a conjugate prior is used."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#lets-inspect-the-posterior",
+    "href": "slides/02-monte-carlo.html#lets-inspect-the-posterior",
+    "title": "Monte Carlo Sampling",
+    "section": "Let’s inspect the posterior",
+    "text": "Let’s inspect the posterior\n\nSuppose we conducted a simple random sample of 500 individuals in Durham County and 120 responsed that they had diabetes and 380 that they did not.\nThe posterior becomes, \\(Beta\\left(\\alpha + 120, \\beta + 380\\right)\\).\nWe must choose our prior distribution wisely.\nNote that:\n\n\\(\\mathbb{E}[\\pi] = \\alpha/(\\alpha + \\beta)\\)\n\\(\\mathbb{V}(\\pi) = (\\alpha\\beta)/[(\\alpha + \\beta)^2(\\alpha + \\beta + 1)]\\).\n\nTypically, \\(\\alpha = \\beta = 1\\), which corresponds to a uniform prior on \\(\\pi\\)."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#lets-inspect-the-posterior-1",
+    "href": "slides/02-monte-carlo.html#lets-inspect-the-posterior-1",
+    "title": "Monte Carlo Sampling",
+    "section": "Let’s inspect the posterior",
+    "text": "Let’s inspect the posterior"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#suppose-my-prior-changes",
+    "href": "slides/02-monte-carlo.html#suppose-my-prior-changes",
+    "title": "Monte Carlo Sampling",
+    "section": "Suppose my prior changes",
+    "text": "Suppose my prior changes"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#summarizing-the-posterior",
+    "href": "slides/02-monte-carlo.html#summarizing-the-posterior",
+    "title": "Monte Carlo Sampling",
+    "section": "Summarizing the posterior",
+    "text": "Summarizing the posterior\nWe now have a posterior distribution. What do we do now?\n\n\nPosterior means, medians, modes, and variances\n\n\n\n\nJoint, conditional, and marginal probabilities, for example: \\(P(\\pi &lt; c | Z)\\)\n\n\n\n\n\\(\\alpha\\)-quantiles: \\(\\{q_{\\alpha} : P(\\pi &lt; q_{\\alpha} | Z) = \\alpha\\}, \\alpha \\in (0,1)\\)\n\n\n\n\n\\(\\ldots\\)\n\n\n\nHow do we go about computing these summaries?"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#summarization-can-be-complex",
+    "href": "slides/02-monte-carlo.html#summarization-can-be-complex",
+    "title": "Monte Carlo Sampling",
+    "section": "Summarization can be complex",
+    "text": "Summarization can be complex\n\nPosteriors are often not available in closed form.\nEven when we have a closed form posterior, it can be difficult to compute summaries of interest.\nFor example, consider \\(P(\\pi &lt; c | Z)\\). What are our options to calculate this probability?\n\nDirect integration (by hand)\nNumerical integration/software packages (e.g., \\(\\texttt{pbeta}\\))\n\n\nThese methods work well for standard posterior quantities and distributions."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#summarizing-the-posterior-1",
+    "href": "slides/02-monte-carlo.html#summarizing-the-posterior-1",
+    "title": "Monte Carlo Sampling",
+    "section": "Summarizing the posterior",
+    "text": "Summarizing the posterior\nHowever, sometimes we will want to summarize other aspects of a posterior distribution.\n\n\\(P(\\pi \\in A| Z)\\) for some arbitrary set \\(A\\)\nMeans and standard deviations of some function of \\(\\pi\\), \\(g\\left(\\pi\\right)\\)\nThe posterior distribution of functions of many parameters:\n\n\\(|\\pi_1 - \\pi_2|\\), \\(\\pi_1/\\pi_2\\), \\(\\max\\left\\{\\pi_1,\\ldots,\\pi_p\\right\\}\\), \\(\\dots\\)\n\nObtaining exact values for these posterior quantities can be difficult or even impossible.\n\nWhat are our options?"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#monte-carlo-mc-sampling",
+    "href": "slides/02-monte-carlo.html#monte-carlo-mc-sampling",
+    "title": "Monte Carlo Sampling",
+    "section": "Monte Carlo (MC) sampling",
+    "text": "Monte Carlo (MC) sampling\n\nIntegration method based on random sampling\nThe general principles and procedures remain relatively constant across a broad class of problems\nSuppose we have \\(S\\) iid samples from our posterior distribution: \\(\\pi^{\\left(1\\right)},\\ldots,\\pi^{\\left(S\\right)}\\stackrel{\\text{iid}}{\\sim}f\\left(\\pi|\\mathbf{Y}\\right)\\)\nThen the empirical distribution of \\(\\left\\{\\pi^{\\left(1\\right)},\\ldots,\\pi^{\\left(S\\right)}\\right\\}\\) would approximate \\(f\\left(\\pi|\\mathbf{Y}\\right)\\), with the approximation improving as \\(S\\) increases\nThe empirical distribution of \\(\\left\\{\\pi^{\\left(1\\right)},\\ldots,\\pi^{\\left(S\\right)}\\right\\}\\) is known as a MC approximation to \\(f\\left(\\pi|\\mathbf{Y}\\right)\\)"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#mc-approximation",
+    "href": "slides/02-monte-carlo.html#mc-approximation",
+    "title": "Monte Carlo Sampling",
+    "section": "MC approximation",
+    "text": "MC approximation\nLet \\(g\\left(\\pi\\right)\\) be (just about) any function of \\(\\pi\\). The law of large numbers says that if,\n\\[\\pi^{\\left(1\\right)},\\ldots,\\pi^{\\left(S\\right)}\\stackrel{\\text{iid}}{\\sim}f\\left(\\pi|\\mathbf{Y}\\right),\\] then, \\[\\frac{1}{S}\\sum_{s=1}^S g\\left(\\pi^{\\left(s\\right)}\\right)\\rightarrow \\mathbb{E}\\left[g\\left(\\pi\\right)|\\mathbf{Y}\\right]=\\int g\\left(\\pi\\right)f\\left(\\pi|\\mathbf{Y}\\right)d\\pi,\\] as \\(S\\rightarrow \\infty\\)."
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#mc-approximation-1",
+    "href": "slides/02-monte-carlo.html#mc-approximation-1",
+    "title": "Monte Carlo Sampling",
+    "section": "MC approximation",
+    "text": "MC approximation\n\nImplications (as \\(S\\rightarrow \\infty\\)):\n\n\\(\\overline{\\pi}=\\frac{1}{S}\\sum_{s=1}^S \\pi^{\\left(s\\right)} \\rightarrow \\mathbb{E}\\left[\\pi|\\mathbf{Y}\\right]\\)\n\\(\\frac{1}{S-1}\\sum_{s=1}^S \\left(\\pi^{\\left(s\\right)}-\\overline{\\pi}\\right)^2 \\rightarrow \\mathbb{V}\\left(\\pi|\\mathbf{Y}\\right)\\)\n\\(\\frac{1}{S}\\sum_{s=1}^S 1\\left(\\pi^{\\left(s\\right)}\\leq \\mathbf{c}\\right) \\rightarrow P\\left(\\pi\\leq \\mathbf{c} | \\mathbf{Y}\\right)\\)\n\\(\\alpha\\)-quantile of \\(\\left\\{\\pi^{\\left(1\\right)},\\ldots,\\pi^{\\left(S\\right)}\\right\\}\\rightarrow q_{\\alpha}\\)\n\nJust about any aspect of the posterior distribution can be approximated arbitrarily exactly with a large enough MC sample"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#posterior-inference-for-arbitrary-functions",
+    "href": "slides/02-monte-carlo.html#posterior-inference-for-arbitrary-functions",
+    "title": "Monte Carlo Sampling",
+    "section": "Posterior inference for arbitrary functions",
+    "text": "Posterior inference for arbitrary functions\nInterest in the posterior distribution of a function of \\(\\pi\\), \\(g\\left(\\pi\\right)\\)\n\nMC sampling plan:\n\nDraw \\(\\pi^{\\left(1\\right)}\\) from \\(f\\left(\\pi|\\mathbf{Y}\\right)\\), calculate \\(g\\left(\\pi^{\\left(1\\right)}\\right)\\)\n\\(\\ldots\\)\nDraw \\(\\pi^{\\left(S\\right)}\\) from \\(f\\left(\\pi|\\mathbf{Y}\\right)\\), calculate \\(g\\left(\\pi^{\\left(S\\right)}\\right)\\)\n\n\\(\\Rightarrow g\\left(\\pi^{\\left(1\\right)}\\right),\\ldots,g\\left(\\pi^{\\left(S\\right)}\\right)\\stackrel{\\text{iid}}{\\sim}f\\left(g\\left(\\pi\\right)|\\mathbf{Y}\\right)\\)\nTherefore, similar quantities can be estimated (posterior mean, variance, quantiles, distribution, etc.)"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#how-many-samples-to-take",
+    "href": "slides/02-monte-carlo.html#how-many-samples-to-take",
+    "title": "Monte Carlo Sampling",
+    "section": "How many samples to take?",
+    "text": "How many samples to take?\nWe can use a central limit theorem: \\(\\sqrt{S}\\left(\\overline{\\pi}-\\mathbb{E}[\\pi | \\mathbf{Y}]\\right)/\\sigma \\stackrel{d}{\\rightarrow} \\text{N}\\left(0,1\\right)\\),\n\n\\(\\overline{\\pi}=\\frac{1}{S}\\sum_{s=1}^S \\pi^{\\left(s\\right)}\\)\n\\(\\sigma^2 = \\mathbb{V}\\left(\\overline{\\pi}\\right) = \\frac{1}{S^2}\\sum_{s=1}^S\\mathbb{V}\\left(\\pi^{(s)}\\right) = \\frac{1}{S}\\mathbb{V}\\left(\\pi | \\mathbf{Y}\\right)\\).\n\n\\(\\implies \\overline{\\pi}\\approx N\\left(\\mathbb{E}[\\pi | \\mathbf{Y}],\\sigma^2/S\\right)\\)\nMC standard error: \\(\\sqrt{\\frac{\\widehat{\\sigma}^2}{S}}\\), \\(\\widehat{\\sigma}^2=\\frac{1}{S-1}\\sum_{s=1}^S\\left(\\pi^{\\left(s\\right)}-\\overline{\\pi}\\right)^2\\)\nApproximate 95% MC confidence interval for the posterior mean: \\(\\overline{\\pi} \\pm 2\\sqrt{\\frac{\\widehat{\\sigma}^2}{S}}\\)\n\nChoose \\(S\\) large enough to report the posterior mean with your desired precision\nReporting MC standard errors for the posterior mean is a good way to indicate that \\(S\\) is large enough"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#returning-to-our-posterior",
+    "href": "slides/02-monte-carlo.html#returning-to-our-posterior",
+    "title": "Monte Carlo Sampling",
+    "section": "Returning to our posterior",
+    "text": "Returning to our posterior\nLet’s obtain \\(S = 1,000\\) samples from our posterior.\n\npi_samples &lt;- rbeta(1000, 1 + 120, 1 + 380)\n\nWe can compute the posterior mean and variance.\n\nmean(pi_samples)\n\n[1] 0.240558\n\nvar(pi_samples)\n\n[1] 0.0003828112"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#assessing-accuracy",
+    "href": "slides/02-monte-carlo.html#assessing-accuracy",
+    "title": "Monte Carlo Sampling",
+    "section": "Assessing accuracy",
+    "text": "Assessing accuracy"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#additional-posterior-summaries",
+    "href": "slides/02-monte-carlo.html#additional-posterior-summaries",
+    "title": "Monte Carlo Sampling",
+    "section": "Additional posterior summaries",
+    "text": "Additional posterior summaries\n\n# median\nmedian(pi_samples)\n\n[1] 0.240758\n\n# 95% credible intervals\nquantile(pi_samples, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.2042668 0.2784969 \n\n# evaluating probability\nmean(pi_samples &lt; 0.25)\n\n[1] 0.6804\n\n# summarizing arbitrary functions of the parameters\npi_new &lt;- pi_samples^3 - pi_samples\nc(mean(pi_new), quantile(pi_new, probs = c(0.025, 0.975)))\n\n                 2.5%      97.5% \n-0.2267776 -0.2568965 -0.1957438"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#poisson-random-variable",
+    "href": "slides/02-monte-carlo.html#poisson-random-variable",
+    "title": "Monte Carlo Sampling",
+    "section": "Poisson random variable",
+    "text": "Poisson random variable\nSuppose that \\(Y_i \\stackrel{iid}{\\sim} Poisson(\\lambda)\\) for \\(i = 1,\\ldots,n\\). Assume the following conjugate prior, \\(f(\\lambda) \\sim Gamma(a, b)\\), so that \\(f(\\lambda|\\mathbf{Y}) \\sim Gamma(a + \\sum_{i=1}^nY_i,b+n)\\). We would like to perform inference for the \\(\\lambda\\). We take \\(S=10,000\\) samples.\n\nset.seed(54) # set seed for replicability\nS &lt;- 10000 # number of Monte Carlo samples\nlambda &lt;- 4 # true value of lambda\nn &lt;- 100 # sample size\nY &lt;- rpois(n, lambda)\na &lt;- 3 # hyperprior\nb &lt;- 1 # hyperprior\nsamples &lt;- rgamma(S, a + sum(Y), b + n) # sample from posterior\n\n\n\n\n\n\nmin\nq1\nmedian\nq3\nmax\nmean\nsd\n\n\n\n\n3.269\n3.904\n4.039\n4.173\n4.773\n4.041\n0.201"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#sampling-for-any-distribution",
+    "href": "slides/02-monte-carlo.html#sampling-for-any-distribution",
+    "title": "Monte Carlo Sampling",
+    "section": "Sampling for any distribution",
+    "text": "Sampling for any distribution\nMonte Carlo sampling does not have to be used solely for posterior inference. Suppose we are interested in computed summaries for \\(X_i \\stackrel{iid}{\\sim} N(3, 4)\\) for \\(i = 1,\\ldots,n\\). We take \\(S = 10,000\\).\n\nS &lt;- 10000\nsamples &lt;- rnorm(S, 3, 2)\nlibrary(moments)\nkurtosis(samples)\n\n[1] 3.041546\n\nskewness(samples)\n\n[1] -0.0109433\n\nmean(samples &gt; 4) # P(X_i &gt; 4)\n\n[1] 0.3087"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#combination-of-random-variables",
+    "href": "slides/02-monte-carlo.html#combination-of-random-variables",
+    "title": "Monte Carlo Sampling",
+    "section": "Combination of random variables",
+    "text": "Combination of random variables\nSuppose \\(X_i \\stackrel{iid}{\\sim} N(3, 4)\\) and \\(Y_i \\stackrel{iid}{\\sim} \\chi^2(df=3)\\) for \\(i = 1,\\ldots,n\\). \\(X_i\\) and \\(Y_i\\) are independent. We are interested in summaries of \\(Z_i = X_i / Y_i\\). We take \\(S = 10,000\\).\n\nS &lt;- 10000\nx &lt;- rnorm(S, 3, 2)\ny &lt;- rchisq(S, 3)\nz &lt;- x / y\nmean(z)\n\n[1] 2.961057\n\nmedian(z)\n\n[1] 1.146081\n\nmean(z &gt; 1)\n\n[1] 0.5456"
+  },
+  {
+    "objectID": "slides/02-monte-carlo.html#prepare-for-next-class",
+    "href": "slides/02-monte-carlo.html#prepare-for-next-class",
+    "title": "Monte Carlo Sampling",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nComplete HW 00 which is due before Thursday’s class\nComplete reading to prepare for Thursday’s lecture\nThursday’s lecture: Markov chain Monte Carlo"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#review-of-last-lecture",
+    "href": "slides/03-mcmc.html#review-of-last-lecture",
+    "title": "Markov chain Monte Carlo",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nOn Tuesday, we performed posterior inference for a Beta-Binomial model using Monte Carlo estimation.\nToday we will discuss Bayesian estimation of linear regression:\n\n\\[\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2 \\sim N(\\mathbf{X} \\boldsymbol{\\beta}, \\sigma^2 \\mathbf{I}_n).\\]\n\nThere is no closed form posterior, so we cannot directly use Monte Carlo sampling.\nWe need Markov chain Monte Carlo (MCMC)!\nOur goal is to gain intuition behind MCMC, the workhorse behind Stan."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#defining-the-model",
+    "href": "slides/03-mcmc.html#defining-the-model",
+    "title": "Markov chain Monte Carlo",
+    "section": "Defining the model",
+    "text": "Defining the model\nSuppose we have an observation \\(Y_i\\) for subject \\(i\\) (\\(i=1,\\ldots,n\\)), that is modeled as follows,\n\\[\\begin{aligned}\nY_i &= \\beta_0 + x_{i1} \\beta_1 + \\cdots + x_{ip} \\beta_p + \\epsilon_i, \\quad \\epsilon_i \\sim N(0, \\sigma^2)\\\\\n&= \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i.\n\\end{aligned}\\]\n\n\\(\\mathbf{x}_i = (1, x_{i1},\\ldots,x_{ip})\\) is a \\((p+1)\\)-dimensional row vector of covariates (and intercept).\n\\(\\boldsymbol{\\beta} = (\\beta_0, \\beta_1,\\ldots,\\beta_p)^\\top\\) is a \\((p+1)\\)-dimensional column vector of population regression parameters.\n\\(\\epsilon_i\\) is a Gaussian measurement error term with variance \\(\\sigma^2\\)."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#defining-the-likelihood",
+    "href": "slides/03-mcmc.html#defining-the-likelihood",
+    "title": "Markov chain Monte Carlo",
+    "section": "Defining the likelihood",
+    "text": "Defining the likelihood\nThe individual likelihood contribution for subject \\(i\\) is given by,\n\\[Y_i|\\boldsymbol{\\beta},\\sigma^2 \\stackrel{ind}{\\sim} N(\\mathbf{x}_i \\boldsymbol{\\beta}, \\sigma^2) \\Leftrightarrow f(Y_i|\\boldsymbol{\\beta},\\sigma^2) = N(\\mathbf{x}_i \\boldsymbol{\\beta}, \\sigma^2),\\] and the full data likelihood (or observed data likelihood) is given by, \\[f(\\mathbf{Y} | \\boldsymbol{\\beta},\\sigma^2) = \\prod_{i=1}^n f(Y_i|\\boldsymbol{\\beta},\\sigma^2),\\] where \\(\\mathbf{Y} = (Y_1,\\ldots,Y_n)\\)."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#matrix-likelihood-specification",
+    "href": "slides/03-mcmc.html#matrix-likelihood-specification",
+    "title": "Markov chain Monte Carlo",
+    "section": "Matrix likelihood specification",
+    "text": "Matrix likelihood specification\nWe can also write the likelihood directly, \\[\\mathbf{Y} | \\boldsymbol{\\beta},\\sigma^2 \\sim N(\\mathbf{X} \\boldsymbol{\\beta}, \\sigma^2 \\mathbf{I}_n),\\] where \\(\\mathbf{X}\\) is an \\(n \\times (p + 1)\\) dimensional matrix with row \\(\\mathbf{x}_i\\) and \\(\\mathbf{I}_n\\) is an \\(n\\)-dimensional identity matrix. Thus, the mean of the observed data is modeled as a linear function of the parameters,\n\\[\n\\mathbb{E}[ \\mathbf{Y} | \\boldsymbol{\\beta},\\sigma^2 ]  =\n  \\begin{bmatrix}\n    1 & x_{12} & \\ldots & x_{1p} \\\\\n    1 & x_{22} & \\ldots & x_{2p} \\\\\n    \\vdots & \\vdots & & \\vdots\\\\\n    1 & x_{n2} & \\ldots & x_{np}\n  \\end{bmatrix}\n    \\begin{bmatrix}\n    \\beta_0\\\\\n    \\beta_1\\\\\n    \\vdots\\\\\n    \\beta_p\n  \\end{bmatrix} = \\mathbf{X} \\boldsymbol{\\beta}.\n\\]"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#linear-regression-estimation",
+    "href": "slides/03-mcmc.html#linear-regression-estimation",
+    "title": "Markov chain Monte Carlo",
+    "section": "Linear regression estimation",
+    "text": "Linear regression estimation\n\nOrdinary least squares (OLS)\n\n\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\underset{\\boldsymbol{\\beta}}{\\operatorname{argmin}} || \\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta}||^2\\)\n\n\nMaximum likelihood estimation (MLE)\n\n\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{MLE}} = \\underset{\\boldsymbol{\\beta}}{\\operatorname{argmax}} \\log f(\\mathbf{Y} | \\boldsymbol{\\beta})\\)\n\n\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\hat{\\boldsymbol{\\beta}}_{\\text{MLE}} = (\\mathbf{X}^\\top \\mathbf{X})^{-1}\\mathbf{X}^\\top \\mathbf{Y}\\)"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#linear-regression-assumptions",
+    "href": "slides/03-mcmc.html#linear-regression-assumptions",
+    "title": "Markov chain Monte Carlo",
+    "section": "Linear regression assumptions",
+    "text": "Linear regression assumptions\n\nLinearity between \\(\\mathbf{X}\\) and \\(\\mathbf{Y}\\): \\(\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{\\epsilon}\\)\nIndependence of errors: \\(\\epsilon_i\\)’s are independent Gaussian\nHomoskedasticity: constant \\(\\sigma^2\\) across \\(\\mathbf{x}_i\\)\nNormality of errors: \\(\\epsilon_i \\sim N(0,\\sigma^2)\\)\nNo multicollinearity: \\(\\left(\\mathbf{X}^\\top \\mathbf{X}\\right)^{-1}\\) exists"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#posterior-for-linear-regression",
+    "href": "slides/03-mcmc.html#posterior-for-linear-regression",
+    "title": "Markov chain Monte Carlo",
+    "section": "Posterior for linear regression",
+    "text": "Posterior for linear regression\n\\[\\begin{aligned}\nf(\\boldsymbol{\\beta}, \\sigma^2 | \\mathbf{Y}) &= \\frac{f(\\mathbf{Y}, \\boldsymbol{\\beta}, \\sigma^2)}{f(\\mathbf{Y})}\\\\\n&= \\frac{f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\boldsymbol{\\beta}, \\sigma^2)}{f(\\mathbf{Y})}\\\\\n&= \\frac{f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\boldsymbol{\\beta}, \\sigma^2)}{\\int f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\boldsymbol{\\beta}, \\sigma^2)d\\boldsymbol{\\beta}d\\sigma^2}.\n\\end{aligned}\\]\nNo closed form exists for the posterior. \\[f(\\boldsymbol{\\beta}, \\sigma^2 | \\mathbf{Y}) \\propto f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\boldsymbol{\\beta}, \\sigma^2)\\]"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#motivation-for-gibbs-sampling",
+    "href": "slides/03-mcmc.html#motivation-for-gibbs-sampling",
+    "title": "Markov chain Monte Carlo",
+    "section": "Motivation for Gibbs sampling",
+    "text": "Motivation for Gibbs sampling\n\nSuppose we were given \\(\\sigma^{2(1)}\\), a single sample from the marginal posterior distribution \\(f\\left(\\sigma^2|\\mathbf{Y}\\right)\\) (from where, who knows?)\nUse the sample to generate \\(\\boldsymbol{\\beta}^{(1)}\\) from \\(f\\left(\\boldsymbol{\\beta}|\\mathbf{Y},\\sigma^{2(1)}\\right)\\)\n\\(\\left(\\boldsymbol{\\beta}^{(1)},\\sigma^{2(1)}\\right)\\) is a sample from \\(f\\left(\\boldsymbol{\\beta}, \\sigma^2 | \\mathbf{Y}\\right)\\)\n\\(\\boldsymbol{\\beta}^{(1)}\\) is a sample from \\(f\\left(\\boldsymbol{\\beta} | \\mathbf{Y}\\right)\\)\n\n\n\n\n\n\n\n\nRecall\n\n\n\\(f\\left(\\boldsymbol{\\beta}, \\sigma^{2}|\\mathbf{Y}\\right) = f\\left(\\boldsymbol{\\beta} | \\sigma^{2},\\mathbf{Y}\\right)f\\left(\\sigma^{2}|\\mathbf{Y}\\right)\\)"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#gibbs-sampler-for-linear-regression",
+    "href": "slides/03-mcmc.html#gibbs-sampler-for-linear-regression",
+    "title": "Markov chain Monte Carlo",
+    "section": "Gibbs sampler for linear regression",
+    "text": "Gibbs sampler for linear regression\nSuppose we can sample from the following two distributions,\n\n\\(f(\\boldsymbol{\\beta} | \\mathbf{Y}, \\sigma^2) \\propto f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\boldsymbol{\\beta})\\)\n\\(f(\\sigma^2 | \\mathbf{Y}, \\boldsymbol{\\beta}) \\propto f(\\mathbf{Y} | \\boldsymbol{\\beta}, \\sigma^2) f(\\sigma^2)\\)\n\nThese are called full conditional distributions.\nSet initial values for \\(\\boldsymbol{\\theta}^{(0)} = (\\boldsymbol{\\beta}^{(0)}, \\sigma^{2(0)})\\). Then, given a current state of parameters \\(\\boldsymbol{\\theta}^{(s)}\\), we can generate a new state as follows:\n\nSample \\(\\boldsymbol{\\beta}^{(s + 1)} \\sim f(\\boldsymbol{\\beta} | \\mathbf{Y}, \\sigma^{2(s)})\\)\nSample \\(\\sigma^{2(s + 1)} \\sim f(\\sigma^2 | \\mathbf{Y}, \\boldsymbol{\\beta}^{(s + 1)})\\)\nLet \\(\\boldsymbol{\\theta}^{(s+1)} = (\\boldsymbol{\\beta}^{(s + 1)}, \\sigma^{2(s + 1)})\\)"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#why-does-this-work",
+    "href": "slides/03-mcmc.html#why-does-this-work",
+    "title": "Markov chain Monte Carlo",
+    "section": "Why does this work?",
+    "text": "Why does this work?\n\n\\(\\boldsymbol{\\theta}^{(0)}\\) isn’t a sample from the posterior, it is an arbitrarily chosen initial value\n\\(\\boldsymbol{\\theta}^{(1)}\\) likely isn’t from the posterior either. Its distribution depends on \\(\\boldsymbol{\\theta}^{(0)}\\)\n\\(\\boldsymbol{\\theta}^{(2)}\\) likely isn’t from the posterior either. Its distribution depends on \\(\\boldsymbol{\\theta}^{(0)}\\) and \\(\\boldsymbol{\\theta}^{(1)}\\)\nTheorem: For any initial values, the chain will eventually converge to the posterior\nTheorem: If \\(\\boldsymbol{\\theta}^{(s)}\\) is a sample from the posterior, then \\(\\boldsymbol{\\theta}^{(s+1)}\\) is too"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#gibbs-sampler",
+    "href": "slides/03-mcmc.html#gibbs-sampler",
+    "title": "Markov chain Monte Carlo",
+    "section": "Gibbs sampler",
+    "text": "Gibbs sampler\n\nUnder mild regulatory conditions that are generally satisfied for most statistical models, one can show that the iteration \\(\\boldsymbol{\\theta}^{(s)}\\) converges in distribution to a draw from the true joint posterior distribution\nSo for \\(s\\) sufficiently large (say, bigger than \\(s_0\\)), \\(\\left\\{\\boldsymbol{\\theta}^{(s)}, s=s_0+1,\\ldots,S\\right\\}\\) is a correlated sample from the true joint posterior (and \\(\\boldsymbol{\\beta}^{(s)}\\) and \\(\\sigma^{2(s)}\\) are samples from the marginals)\nSimilar to Monte Carlo approximation, we can use these samples to estimate posterior quantities of interest"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#gibbs-sampler-1",
+    "href": "slides/03-mcmc.html#gibbs-sampler-1",
+    "title": "Markov chain Monte Carlo",
+    "section": "Gibbs sampler",
+    "text": "Gibbs sampler\n\n\\(\\boldsymbol{\\theta}^{(t)}\\) depends on \\(\\boldsymbol{\\theta}^{(0)},\\ldots,\\boldsymbol{\\theta}^{(t-1)}\\) only through \\(\\boldsymbol{\\theta}^{(t-1)}\\)\n\\(\\boldsymbol{\\theta}^{(t)}\\) is conditionally independent of \\(\\boldsymbol{\\theta}^{(0)},\\ldots,\\boldsymbol{\\theta}^{(t-2)}\\) given \\(\\boldsymbol{\\theta}^{(t-1)}\\)\n\\(\\implies\\) Markov property, so the sequence is called a Markov chain\nWe use the samples similar to MC approximation; therefore, Gibbs sampling is a form of Markov chain Monte Carlo (MCMC)\nWe will cover diagnostics for MCMC in another lecture!"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#gibbs-sampler-for-linear-regression-1",
+    "href": "slides/03-mcmc.html#gibbs-sampler-for-linear-regression-1",
+    "title": "Markov chain Monte Carlo",
+    "section": "Gibbs sampler for linear regression",
+    "text": "Gibbs sampler for linear regression\n\nWe need to compute the full conditionals. Before doing this, we require prior distributions.\nLet’s assume that the prior for \\(\\boldsymbol{\\beta}\\) is Gaussian,\n\n\\[f(\\boldsymbol{\\beta}) = N(\\boldsymbol{\\beta}_0,\\sigma_{\\beta}^2 \\mathbf{I}_{p+1}).\\]\n\n\\(\\boldsymbol{\\beta}_0\\) is the prior mean (i.e., our a-priori guess for the likely value of \\(\\boldsymbol{\\beta}\\))\n\\(\\sigma_{\\beta}^2\\) is the prior variance (i.e., encodes our certainty for our a-priori guess)"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#full-conditional-for-boldsymbolbeta",
+    "href": "slides/03-mcmc.html#full-conditional-for-boldsymbolbeta",
+    "title": "Markov chain Monte Carlo",
+    "section": "Full conditional for \\(\\boldsymbol{\\beta}\\)",
+    "text": "Full conditional for \\(\\boldsymbol{\\beta}\\)\n\\[\\begin{aligned}\nf(\\boldsymbol{\\beta},\\sigma^2 | \\mathbf{Y}) &\\propto f(\\mathbf{Y} | \\boldsymbol{\\beta},\\sigma^2) f(\\boldsymbol{\\beta})\\\\\n&\\propto \\exp\\left\\{-\\frac{1}{2}\\left[\\frac{\\left(\\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta}\\right)^\\top\\left(\\mathbf{Y} - \\mathbf{X}\\boldsymbol{\\beta}\\right)}{\\sigma^2}\\right]\\right\\}\\\\\n&\\quad \\times \\exp\\left\\{-\\frac{1}{2}\\left[\\frac{\\left(\\boldsymbol{\\beta} - \\boldsymbol{\\beta}_0\\right)^\\top\\left(\\boldsymbol{\\beta}_0 - \\boldsymbol{\\beta}_0\\right)}{\\sigma_{\\beta}^2}\\right]\\right\\}\\\\\n&\\propto \\exp\\left\\{-\\frac{1}{2}\\left[\\boldsymbol{\\beta}^\\top\\left(\\frac{\\mathbf{X}^\\top \\mathbf{X}}{\\sigma^2} + \\frac{\\mathbf{I}_n}{\\sigma_{\\beta}^2} \\right)\\boldsymbol{\\beta} - 2\\boldsymbol{\\beta}^\\top\\left(\\frac{\\mathbf{X}^\\top\\mathbf{Y}}{\\sigma^2} + \\frac{\\boldsymbol{\\beta}_0}{\\sigma_{\\beta}^2}\\right)\\right]\\right\\}\\\\\n&\\propto \\exp\\left\\{-\\frac{1}{2}\\left[\\boldsymbol{\\beta}^\\top\\mathbf{A}\\boldsymbol{\\beta} - 2\\boldsymbol{\\beta}^\\top\\mathbf{a}\\right]\\right\\}\n\\end{aligned}\\]\nThis is the kernel of a multivariate normal for \\(\\boldsymbol{\\beta}\\), with \\(\\mathbf{A} = \\boldsymbol{\\Sigma}^{-1}\\) and \\(\\mathbf{a} = \\boldsymbol{\\Sigma}^{-1}\\boldsymbol{\\mu}\\). It’s easy to see then that, \\(f(\\boldsymbol{\\beta} | \\mathbf{Y}) = N(\\mathbf{A}^{-1}\\mathbf{a},\\mathbf{A}^{-1}).\\)\n\n\n\n\n\n\nRecall the kernel for the multivariate normal: \\(\\exp\\left\\{-\\frac{1}{2}\\left[\\mathbf{Y}^\\top \\boldsymbol{\\Sigma}^{-1}\\mathbf{Y} - 2\\mathbf{Y}^\\top \\boldsymbol{\\Sigma}^{-1} \\boldsymbol{\\mu}\\right]\\right\\}\\)"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#full-conditional-for-boldsymbolbeta-1",
+    "href": "slides/03-mcmc.html#full-conditional-for-boldsymbolbeta-1",
+    "title": "Markov chain Monte Carlo",
+    "section": "Full conditional for \\(\\boldsymbol{\\beta}\\)",
+    "text": "Full conditional for \\(\\boldsymbol{\\beta}\\)\nThe full conditional can be found in closed-form and is Gaussian with the following moments: \\[\\begin{aligned}\n\\mathbb{V}(\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2) &= \\left(\\frac{\\mathbf{I}_{p+1}}{\\sigma_{\\beta}^2} + \\frac{\\mathbf{X}^\\top \\mathbf{X}}{\\sigma^2}\\right)^{-1}\\\\\n\\mathbb{E}[\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2] &= \\left(\\frac{\\mathbf{I}_{p+1}}{\\sigma_{\\beta}^2} + \\frac{\\mathbf{X}^\\top \\mathbf{X}}{\\sigma^2}\\right)^{-1}\\left(\\frac{\\boldsymbol{\\beta}_0}{\\sigma_{\\beta}^2} + \\frac{\\mathbf{X}^\\top \\mathbf{Y}}{\\sigma^2}\\right)\n\\end{aligned}\\]\n\n\n\\(\\sigma_{\\beta}^2 \\rightarrow \\infty: \\mathbb{E}[\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2] = (\\mathbf{X}^\\top \\mathbf{X})^{-1}\\mathbf{X}^\\top \\mathbf{Y} = \\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\hat{\\boldsymbol{\\beta}}_{\\text{MLE}}\\)\n\n\n\n\n\\(\\sigma^2 \\rightarrow \\infty: \\mathbb{E}[\\boldsymbol{\\beta} | \\mathbf{Y},\\sigma^2] = \\boldsymbol{\\beta}_0\\)"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#full-conditional-for-sigma2",
+    "href": "slides/03-mcmc.html#full-conditional-for-sigma2",
+    "title": "Markov chain Monte Carlo",
+    "section": "Full conditional for \\(\\sigma^2\\)",
+    "text": "Full conditional for \\(\\sigma^2\\)\nFull conditional for \\(\\sigma^2\\), assuming \\(f(\\sigma^2) \\sim IG(a, b)\\):\n\\[\\sigma^2 |  \\mathbf{Y} , \\boldsymbol{\\beta} \\sim IG\\left(a + \\frac{n}{2},b+\\frac{\\left(\\mathbf{Y}-\\mathbf{X}\\boldsymbol{\\beta}\\right)^\\top\\left(\\mathbf{Y}-\\mathbf{X}\\boldsymbol{\\beta}\\right)}{2}\\right)\\]\n\nWhy inverse-Gamma (\\(IG\\)) distribution for \\(\\sigma^2\\)?"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#sampling-from-the-posterior",
+    "href": "slides/03-mcmc.html#sampling-from-the-posterior",
+    "title": "Markov chain Monte Carlo",
+    "section": "Sampling from the posterior",
+    "text": "Sampling from the posterior\nLet’s simulate some data:\n\n###True parameters\nsigma &lt;- 1.5 # true measurement error\nbeta &lt;- matrix(c(-1.5, 3), ncol = 1) # true beta\n\n###Simulation settings\nn &lt;- 100 # number of observations\np &lt;- length(beta) - 1 # number of covariates\n\n###Simulate data\nset.seed(54) # set seed\nX &lt;- cbind(1, matrix(rnorm(n * p), ncol = p))\nY &lt;- as.numeric(X %*% beta + rnorm(n, 0, sigma))"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#visualize-simulated-data",
+    "href": "slides/03-mcmc.html#visualize-simulated-data",
+    "title": "Markov chain Monte Carlo",
+    "section": "Visualize simulated data",
+    "text": "Visualize simulated data"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#inspecting-the-prior",
+    "href": "slides/03-mcmc.html#inspecting-the-prior",
+    "title": "Markov chain Monte Carlo",
+    "section": "Inspecting the prior",
+    "text": "Inspecting the prior\n\n###Define hyperparameters\nbeta0 &lt;- matrix(0, nrow = p + 1, ncol = 1)\nsigma_beta &lt;- 10\na &lt;- 3\nb &lt;- 1"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#perform-gibbs-sampling",
+    "href": "slides/03-mcmc.html#perform-gibbs-sampling",
+    "title": "Markov chain Monte Carlo",
+    "section": "Perform Gibbs sampling",
+    "text": "Perform Gibbs sampling\n\nsigma2 &lt;- exp(rnorm(1)) # initial value\nsamples &lt;- NULL\nfor (s in 1:5000) {\n  ###Sample from full conditional for beta\n  var_beta &lt;- chol2inv(chol(t(X) %*% X / sigma2 + diag(p + 1) / sigma_beta^2))\n  mean_beta &lt;- var_beta %*% (beta0 / sigma_beta^2 + t(X) %*% Y / sigma2)\n  beta &lt;- as.numeric(rmvnorm(1, mean_beta, var_beta))\n  \n  ###Sample from full conditional for sigma2\n  quadratic &lt;- as.numeric(t(Y - X %*% beta) %*% (Y - X %*% beta))\n  sigma2 &lt;- 1 / rgamma(1, shape = a + n / 2, rate = b + quadratic / 2)\n  \n  ###Save samples after a burn-in\n  samples &lt;- rbind(samples, c(beta, sigma2))\n}"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#inspect-results",
+    "href": "slides/03-mcmc.html#inspect-results",
+    "title": "Markov chain Monte Carlo",
+    "section": "Inspect results",
+    "text": "Inspect results"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#summary-of-gibbs-sampling",
+    "href": "slides/03-mcmc.html#summary-of-gibbs-sampling",
+    "title": "Markov chain Monte Carlo",
+    "section": "Summary of Gibbs sampling",
+    "text": "Summary of Gibbs sampling\n\nGibbs sampling is great when we are able to sample from the full conditional distributions.\nIt has been the main inference machine for Bayesian inference since the early 1990s.\nComputing full conditionals and coding up a Gibbs sampler can be mathematically and computationally rigorous.\nNew classes of MCMC are becoming more common to make Bayesian inference less rigorous."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#intuition-behind-metropolis-sampling",
+    "href": "slides/03-mcmc.html#intuition-behind-metropolis-sampling",
+    "title": "Markov chain Monte Carlo",
+    "section": "Intuition behind Metropolis sampling",
+    "text": "Intuition behind Metropolis sampling\nSuppose we have a working collection \\(\\{\\boldsymbol{\\theta}^{(1)},\\ldots,\\boldsymbol{\\theta}^{(s)}\\}\\) to which we would like to add a new value \\(\\boldsymbol{\\theta}^{(s+1)}\\). Let’s consider adding a value \\(\\boldsymbol{\\theta}^*\\) which is nearby \\(\\boldsymbol{\\theta}^{(s)}\\). Should we include \\(\\boldsymbol{\\theta}^*\\) in the set or not?\n\nIf \\(f(\\boldsymbol{\\theta}^* | \\mathbf{Y}) &gt; f(\\boldsymbol{\\theta}^{(s)} | \\mathbf{Y})\\) then we want more \\(\\boldsymbol{\\theta}^*\\)’s in the set than \\(\\boldsymbol{\\theta}^{(s)}\\)’s.\n\nSince \\(\\boldsymbol{\\theta}^{(s)}\\) is already in the set, then it seems we should include \\(\\boldsymbol{\\theta}^*\\) as well.\n\nOn the other hand, if \\(f(\\boldsymbol{\\theta}^* | \\mathbf{Y}) &lt; f(\\boldsymbol{\\theta}^{(s)} | \\mathbf{Y})\\) then it seems we should not necessarily include \\(\\boldsymbol{\\theta}^*\\).\nSo, perhaps our decision to include \\(\\boldsymbol{\\theta}^*\\) or not should be based on a comparison of \\(f(\\boldsymbol{\\theta}^* | \\mathbf{Y})\\) to \\(f(\\boldsymbol{\\theta}^{(s)} | \\mathbf{Y})\\)."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#metropolis-acceptance-ratio",
+    "href": "slides/03-mcmc.html#metropolis-acceptance-ratio",
+    "title": "Markov chain Monte Carlo",
+    "section": "Metropolis acceptance ratio",
+    "text": "Metropolis acceptance ratio\n\nFortunately, the comparison of \\(f(\\boldsymbol{\\theta}^* | \\mathbf{Y})\\) to \\(f(\\boldsymbol{\\theta}^{(s)} | \\mathbf{Y})\\) can be made even if we cannot compute \\(f(\\boldsymbol{\\theta} | \\mathbf{Y})\\).\n\n\\[\\begin{aligned}\nr &= \\frac{f(\\boldsymbol{\\theta}^* | \\mathbf{Y})}{f(\\boldsymbol{\\theta}^{(s)} | \\mathbf{Y})}\\\\\n&= \\frac{f(\\mathbf{Y} | \\boldsymbol{\\theta}^*)f(\\boldsymbol{\\theta}^*)}{f(\\mathbf{Y})}\\frac{f(\\mathbf{Y})}{f(\\mathbf{Y} | \\boldsymbol{\\theta}^{(s)})f(\\boldsymbol{\\theta}^{(s)})}\\\\\n&= \\frac{f(\\mathbf{Y} | \\boldsymbol{\\theta}^*)f(\\boldsymbol{\\theta}^*)}{f(\\mathbf{Y} | \\boldsymbol{\\theta}^{(s)})f(\\boldsymbol{\\theta}^{(s)})}\n\\end{aligned}\\]\nHaving computed \\(r\\), how should we proceed?"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#metropolis-intuition",
+    "href": "slides/03-mcmc.html#metropolis-intuition",
+    "title": "Markov chain Monte Carlo",
+    "section": "Metropolis intuition",
+    "text": "Metropolis intuition\nMetropolis ratio: \\(r = \\frac{f(\\mathbf{Y} | \\boldsymbol{\\theta}^*)f(\\boldsymbol{\\theta}^*)}{f(\\mathbf{Y} | \\boldsymbol{\\theta}^{(s)})f(\\boldsymbol{\\theta}^{(s)})}\\)\nIf \\(r &gt; 1:\\)\n\nIntuition: Since \\(\\boldsymbol{\\theta}^{(s)}\\) is already in our set, we should include \\(\\boldsymbol{\\theta}^*\\) as it has a higher probability than \\(\\boldsymbol{\\theta}^{(s)}\\)\nProcedure: Accept \\(\\boldsymbol{\\theta}^*\\) into our set (i.e., set \\(\\boldsymbol{\\theta}^{(s + 1)} = \\boldsymbol{\\theta}^*\\))\n\nIf \\(r &lt; 1:\\)\n\nIntuition: The relative frequency of \\(\\boldsymbol{\\theta}\\)-values in our set equal to \\(\\boldsymbol{\\theta}^*\\) compared to those equal to \\(\\boldsymbol{\\theta}^{(s)}\\) should be \\(r\\). This means that for every instance of \\(\\boldsymbol{\\theta}^{(s)}\\), we should have only a “fraction” of an instance of a \\(\\boldsymbol{\\theta}^*\\) value.\nProcedure: Set \\(\\boldsymbol{\\theta}^{(s + 1)}\\) equal to either \\(\\boldsymbol{\\theta}^*\\) or \\(\\boldsymbol{\\theta}^{(s)}\\), with probability \\(r\\) and \\(1 − r\\) respectively."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#metropolis-update",
+    "href": "slides/03-mcmc.html#metropolis-update",
+    "title": "Markov chain Monte Carlo",
+    "section": "Metropolis update",
+    "text": "Metropolis update\nGiven \\(\\boldsymbol{\\theta}^{(s)}\\), the Metropolis algorithm generates a value \\(\\boldsymbol{\\theta}^{(s + 1)}\\) as follows:\n\nSample \\(\\boldsymbol{\\theta}^*\\) from a proposal distribution, \\(\\boldsymbol{\\theta}^* ∼ J(\\boldsymbol{\\theta} | \\boldsymbol{\\theta}^{(s)})\\)\nCompute the acceptance ratio \\(r\\)\nLet \\[\\boldsymbol{\\theta}^{(s + 1)} =\n\\left\\{\n  \\begin{array}{ll}\n\\boldsymbol{\\theta}^* & \\text{with probability }\\min(r, 1) \\\\\n\\boldsymbol{\\theta}^{(s)} & \\text{with probability }1 -\\min(r, 1)\n  \\end{array}\n\\right.\\]"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#metropolis-proposal-distribution",
+    "href": "slides/03-mcmc.html#metropolis-proposal-distribution",
+    "title": "Markov chain Monte Carlo",
+    "section": "Metropolis proposal distribution",
+    "text": "Metropolis proposal distribution\n\nThe proposal distribution is symmetric (i.e., \\(J(\\boldsymbol{\\theta}_a | \\boldsymbol{\\theta}_b) = J(\\boldsymbol{\\theta}_b | \\boldsymbol{\\theta}_a)\\)\nUsually \\(J(\\boldsymbol{\\theta} | \\boldsymbol{\\theta}^{(s)})\\) is very simple, with samples from \\(J(\\boldsymbol{\\theta} | \\boldsymbol{\\theta}^{(s)})\\) being near \\(\\boldsymbol{\\theta}\\) with high probability.\nThe most common proposal is a normal distribution\n\n\\(J(\\boldsymbol{\\theta} | \\boldsymbol{\\theta}^{(s)}) = N(\\boldsymbol{\\theta}^{(s)}, \\boldsymbol{\\Delta})\\)\n\nThe value of the parameter \\(\\boldsymbol{\\Delta}\\) is generally chosen to make the approximation algorithm run efficiently"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#metropolis-and-gibbs-combined",
+    "href": "slides/03-mcmc.html#metropolis-and-gibbs-combined",
+    "title": "Markov chain Monte Carlo",
+    "section": "Metropolis and Gibbs combined",
+    "text": "Metropolis and Gibbs combined\n\nThe Gibbs and Metropolis samplers are actually both algorithms within a larger class of Metropolis-Hastings algorithms\nWhen performing MCMC, one can actually choose to update a parameter using either a Gibbs or Metropolis update\nLet’s see this in action using our linear regression example"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#linear-regression-using-metropolisgibbs",
+    "href": "slides/03-mcmc.html#linear-regression-using-metropolisgibbs",
+    "title": "Markov chain Monte Carlo",
+    "section": "Linear regression using Metropolis/Gibbs",
+    "text": "Linear regression using Metropolis/Gibbs\n\nIn this example, we will use a Metropolis update for \\(\\sigma^2\\), however we will actually focus on \\(\\log\\sigma^2\\).\n\nMetropolis requires a symmetric proposal, so it is often easier to transform parameters to be on the real line and use a normal proposal.\n\nWe will use the following proposal, \\(\\log\\sigma^{2*} \\sim N\\left(\\log\\sigma^{2(s)}, \\delta\\right)\\), where \\(\\delta = 1\\).\nWe will place the prior: \\(\\log\\sigma^2 \\sim N(0,1)\\)."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#linear-regression-using-metropolisgibbs-1",
+    "href": "slides/03-mcmc.html#linear-regression-using-metropolisgibbs-1",
+    "title": "Markov chain Monte Carlo",
+    "section": "Linear regression using Metropolis/Gibbs",
+    "text": "Linear regression using Metropolis/Gibbs\n\nsigma2 &lt;- exp(rnorm(1))\nsamples &lt;- NULL\ndelta &lt;- 1\nfor (s in 1:10000) {\n  ###Sample from full conditional for beta\n  var_beta &lt;- chol2inv(chol(t(X) %*% X / sigma2 + diag(p + 1) / sigma_beta^2))\n  mean_beta &lt;- var_beta %*% (beta0 / sigma_beta^2 + t(X) %*% Y / sigma2)\n  beta &lt;- as.numeric(rmvnorm(1, mean_beta, var_beta))\n\n  ###Metropolis update for sigma2\n  # Sample a proposal value\n  log_sigma2_proposal &lt;- rnorm(1, log(sigma2), delta)\n  # Compute the ratio r on the log scale for numeric stability\n  # Also, I've decided to update log(sigma2) instead of sigma2, so I can use a normal proposal distribution\n  # I've placed a normal prior on log(sigma2)\n  likelihood_proposal &lt;- sum(dnorm(Y, X %*% beta, sqrt(exp(log_sigma2_proposal)), log = TRUE))\n  likelihood_current &lt;- sum(dnorm(Y, X %*% beta, sqrt(sigma2), log = TRUE))\n  prior_proposal &lt;- dnorm(log_sigma2_proposal, 0, 1, log = TRUE)\n  prior_current &lt;- dnorm(log(sigma2), 0, 1, log = TRUE)\n  log_r &lt;- (likelihood_proposal + prior_proposal) - (likelihood_current + prior_current)\n  # Update beta using Metropolis ratio\n  if (log(runif(1)) &lt; log_r) sigma2 &lt;- exp(log_sigma2_proposal)\n\n  ###Save samples after a burn-in\n  if (s &gt; 5000) samples &lt;- rbind(samples, c(beta, sigma2))\n}"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#inspect-results-1",
+    "href": "slides/03-mcmc.html#inspect-results-1",
+    "title": "Markov chain Monte Carlo",
+    "section": "Inspect results",
+    "text": "Inspect results"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#summary-of-metropolis-algorithm",
+    "href": "slides/03-mcmc.html#summary-of-metropolis-algorithm",
+    "title": "Markov chain Monte Carlo",
+    "section": "Summary of Metropolis algorithm",
+    "text": "Summary of Metropolis algorithm\n\nMore flexible than Gibbs sampling, because we are no longer required to compute the full conditional distribution analytically.\nPosterior samples can be obtained, however the algorithm must be properly tuned (i.e., choosing \\(\\delta\\)) and the samples may take longer to converge.\nFurthermore, choosing a proper proposal distribution can be difficult in practice.\nIn more recent years, Hamiltonian Monte Carlo has emerged as an new MCMC approach that alleviates the aforementioned issues."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#metropolis-hastings-mh-algorithm",
+    "href": "slides/03-mcmc.html#metropolis-hastings-mh-algorithm",
+    "title": "Markov chain Monte Carlo",
+    "section": "Metropolis-Hastings (MH) algorithm",
+    "text": "Metropolis-Hastings (MH) algorithm\nThe proposal distribution is no longer assumed to be symmetric, so the acceptance ratio is, \\[\\begin{aligned}\nr &= \\frac{f(\\mathbf{Y} | \\boldsymbol{\\beta}^*, \\sigma^{2(s)}) f(\\boldsymbol{\\beta}^*)}{f(\\mathbf{Y} | \\boldsymbol{\\beta}^{(s)},\\sigma^{2(s)})f(\\boldsymbol{\\beta}^{(s)})} \\frac{J(\\boldsymbol{\\beta}^* | \\boldsymbol{\\beta}^{(s)})}{J(\\boldsymbol{\\beta}^{(s)} | \\boldsymbol{\\beta}^*)}.\n\\end{aligned}\\]\nBoth Metropolis and Gibbs can easily be seen as subcases of Metropolis Hastings.\n\nMetropolis assumes a symmetric proposal, so the proposal terms cancel.\nGibbs assumes that \\(J(\\boldsymbol{\\beta}^{(s)} | \\boldsymbol{\\beta}^*) = f(\\boldsymbol{\\beta}^* | \\mathbf{Y}, \\sigma^{2(s)})\\), which implies that \\(r=1\\)."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#hamiltonian-monte-carlo-hmc-intuition",
+    "href": "slides/03-mcmc.html#hamiltonian-monte-carlo-hmc-intuition",
+    "title": "Markov chain Monte Carlo",
+    "section": "Hamiltonian Monte Carlo (HMC) intuition",
+    "text": "Hamiltonian Monte Carlo (HMC) intuition\n\nHMC is a new MCMC approach that has been shown to work better than the usual MH algorithm.\nIt is based on the idea of Hamiltonian dynamics (a physical concept)\n\n\n\n\n\n\n\nRollercoaster Metaphor\n\n\nImagine you’re on a roller coaster at an amusement park. As the roller coaster moves along the track, it goes up and down hills. When the roller coaster is at the top of a hill, it has a lot of potential energy (like stored energy). When it goes down the hill, that potential energy turns into kinetic energy (energy of motion), making the roller coaster go faster. Hamiltonian dynamics is like a set of rules that tells us how the roller coaster’s energy changes as it moves along the track."
+  },
+  {
+    "objectID": "slides/03-mcmc.html#hmc-intuition",
+    "href": "slides/03-mcmc.html#hmc-intuition",
+    "title": "Markov chain Monte Carlo",
+    "section": "HMC intuition",
+    "text": "HMC intuition\n\nHamiltonian dynamics is used to generate a proposal from a better proposal distribution, \\(J(\\boldsymbol{\\beta}^{(s)} | \\boldsymbol{\\beta}^*)\\), and modifies the acceptance part so the it has a higher acceptance rate.\nJust like the roller coaster follows the track smoothly, Hamiltonian Monte Carlo (HMC) helps us explore different possibilities smoothly and efficiently. This way, we can make more efficient samples from the posterior, just like how the roller coaster moves quickly and smoothly along its track.\nHMC requires evaluations of \\(\\log f(\\boldsymbol{\\theta} | \\mathbf{Y})\\) and \\(\\nabla_{\\boldsymbol{\\theta}} \\log f(\\boldsymbol{\\theta} | \\mathbf{Y})\\),\n\n\\[\\log f(\\boldsymbol{\\theta} | \\mathbf{Y}) \\propto \\log f(\\mathbf{Y} | \\boldsymbol{\\theta}) + \\log f(\\boldsymbol{\\theta})\\]"
+  },
+  {
+    "objectID": "slides/03-mcmc.html#prepare-for-next-class",
+    "href": "slides/03-mcmc.html#prepare-for-next-class",
+    "title": "Markov chain Monte Carlo",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nBegin HW 01 which is due January 29\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Probabilistic Programming (Intro to Stan!)"
+  },
+  {
+    "objectID": "prepare/prepare-jan13.html",
+    "href": "prepare/prepare-jan13.html",
+    "title": "Prepare for January 13 lecture",
+    "section": "",
+    "text": "Occasionally during the semester we will reference material from the text book A First Course in Bayesian Statistical Methods by Peter Hoff. As a Duke student, an electronic version of the book is freely available to you through the Duke Library. We will refer to this textbook as Hoff.\n📖 Read about Bayesian inference and probability in Hoff Chapter 1 and 2\n📖 Read about Monte Carlo sampling in Hoff Chapter 4, Sections 4.1 and 4.2\n✅ Complete HW 00 tasks"
+  },
+  {
+    "objectID": "prepare/prepare-jan15.html",
+    "href": "prepare/prepare-jan15.html",
+    "title": "Prepare for January 15 lecture",
+    "section": "",
+    "text": "📖 Read Hoff Chapter 6, Sections 6.1-6.5 to learn about Gibbs sampling\n📖 Read Hoff Chapter 10, Sections 10.2-10.4 to learn about Metropolis sampling\n📖 Review simple linear regression\n✅ Complete HW 00 tasks before class"
+  },
+  {
+    "objectID": "hw/hw-01.html",
+    "href": "hw/hw-01.html",
+    "title": "HW 01: Inference using Bayesian statistics",
+    "section": "",
+    "text": "Due date\n\n\n\nThis assignment is due on Thursday, January 29 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "hw/hw-01.html#exercises-1-7",
+    "href": "hw/hw-01.html#exercises-1-7",
+    "title": "HW 01: Inference using Bayesian statistics",
+    "section": "Exercises 1-7",
+    "text": "Exercises 1-7\nDefine a random variable \\(Y_i\\) that represents the number of hospital visits during pregnancy for each woman \\(i\\), for \\(i = 1,\\ldots,n\\). Assume that this random variable follows a Poisson distribution with rate \\(\\lambda\\), such that \\(Y_i \\stackrel{iid}{\\sim} \\text{Poisson}(\\lambda)\\). For a Poisson distribution, the mean and variance are equal to \\(\\lambda\\). We are interested in performing statistical inference on \\(\\lambda\\) using a Bayesian approach. A frequently used prior for \\(\\lambda\\) is \\(\\text{Gamma}(\\text{shape = }a, \\text{rate = }b)\\), where \\(\\mathbb{E}[\\lambda] = a/b\\) and \\(\\mathbb{V}(\\lambda) = a/b^2\\).\n\nExercise 1\nThe researchers have prior knowledge that leads them to believe that \\(\\lambda\\) should have mean 8 and variance 4. What values of \\(a\\) and \\(b\\) should they specify?\n\n\nExercise 2\nUsing the prior specified in Exercise 1, compute the probability that \\(\\lambda\\) is greater than 11? For this computation compute the exact probability using the pgamma function in R. This is equivalent to computing \\(P(\\lambda &gt; 11)\\).\n\n\nExercise 3\nCompute the same probability as in Exercise 2, this time using Monte Carlo sampling. Report your Monte Carlo standard error and make sure it is less than 0.01.\n\n\nExercise 4\nSuppose the researchers are interested in the quantity, \\(\\alpha = \\sqrt{\\lambda}\\). Compute the probability that \\(\\alpha\\) is greater than 2.5. Use the same number of Monte Carlo samples as in Exercise 3 and describe why Monte Carlo sampling makes this computation much more efficient than computing the exact probability.\n\n\nExercise 5\nUsing the prior specified in Exercise 1, compute the posterior distribution for \\(\\lambda\\), \\(f(\\lambda | \\mathbf{Y})\\), where \\(\\mathbf{Y}_i = (Y_1,\\ldots,Y_n).\\) Recall that the Gamma prior for \\(\\lambda\\) is a conjugate prior, so that the posterior is given by: \\(f(\\lambda|\\mathbf{Y}) \\sim Gamma(a + \\sum_{i=1}^nY_i,b+n)\\). Visualize the posterior distribution and report the posterior mean and a 95% credible interval. Provide an interpretation of the posterior summaries within the context of the US births data.\n\n\nExercise 6\nWhat is the posterior probability that \\(\\lambda\\) is greater than 11? This is equivalent to computing \\(P(\\lambda &gt; 11 | \\mathbf{Y})\\). Again, use Monte Carlo sampling. Provide an interpretation for this probability in the context of hospital visits.\n\n\nExercise 7\nCreate a figure that includes both the prior and posterior distributions for \\(\\lambda\\). Also, include a figure of the observed data. Use these figures to make a comparison of the prior and posterior probabilities found in Exercise 3 and Exercise 6, respectively. Describe any changes in these two probabilities and how they relate to the observed data."
+  },
+  {
+    "objectID": "hw/hw-01.html#exercise-8-10",
+    "href": "hw/hw-01.html#exercise-8-10",
+    "title": "HW 01: Inference using Bayesian statistics",
+    "section": "Exercise 8-10",
+    "text": "Exercise 8-10\nDefine a random variable \\(weight_i\\) that represents the weight of the baby at birth in ounces for pregnancy \\(i\\). We are interested in learning the association between birth weight and the smoking habit, \\(habit_i\\), of the mother. Fit the following Bayesian linear regression model using Gibbs sampling,\n\\[\\begin{align*}\nweight_i &= \\beta_0 + \\beta_1 \\times 1(habit_i = \\text{smoker}) + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2),\\\\\n&= \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i,\\\\\n\\boldsymbol{\\beta} &\\sim N(\\mathbf{0}, 100 \\mathbf{I})\\\\\n\\sigma^2 &\\sim \\text{Inv-Gamma}(3,1).\n\\end{align*}\\]\n\nExercise 8\nObtain samples from the posterior distribution of \\((\\boldsymbol{\\beta},\\sigma^2)\\) given the observed data. Visualize the posterior distributions and provide justification that the Gibbs sampler has converged.\n\n\nExercise 9\nReport the posterior mean, standard deviation, and 95% credible intervals for each parameter.\n\n\nExercise 10\nIf someone were to fit the same regression using a frequentist approach the resulting model would look like the following.\n\nmod &lt;- lm(weight ~ habit, data = births14)\nres &lt;- summary(mod)\nprint(res)\n\n\nCall:\nlm(formula = weight ~ habit, data = births14)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-5.4965 -0.6865  0.0635  0.8150  3.1135 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  7.30654    0.04586 159.317  &lt; 2e-16 ***\nhabitsmoker -0.75203    0.16412  -4.582 5.34e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.241 on 792 degrees of freedom\nMultiple R-squared:  0.02583,   Adjusted R-squared:  0.0246 \nF-statistic:    21 on 1 and 792 DF,  p-value: 5.345e-06\n\n\nSuppose researchers are interested in testing the following hypothesis test: \\(H_0: \\beta_1 = 0, H_1: \\beta_1 &lt; 0\\). We can compute this p-value from the frequentist model.\n\npvalue &lt;- pt(coef(res)[, 3], mod$df, lower = TRUE)[2]\n\nThe resulting p-value is &lt;0.001. Compute the Bayesian p-value that corresponds to the same hypothesis test, \\(P(\\beta_1 &lt; 0 | \\mathbf{Y})\\). Interpret both p-values at a Type-I error rate of 0.05 and compare and contrast their interpretations in the context of the association between smoking and low birth weight.\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 1!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
+  },
+  {
+    "objectID": "ae/ae-01-monte-carlo.html",
+    "href": "ae/ae-01-monte-carlo.html",
+    "title": "AE 01: Monte Carlo sampling",
+    "section": "",
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\nThis AE is a demonstration and you do not have to turn anything in!\n\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-01-monte-carlo.html#learning-goals",
+    "href": "ae/ae-01-monte-carlo.html#learning-goals",
+    "title": "AE 01: Monte Carlo sampling",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the AE, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nGain practice writing a reproducible report using Quarto\nPractice version control using GitHub\nPerform some Monte Carlo estimation"
+  },
+  {
+    "objectID": "ae/ae-01-monte-carlo.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-01-monte-carlo.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 01: Monte Carlo sampling",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp26 organization on GitHub.\nClick on the repo with the prefix ae-01-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select SSH (this might already be selected by default, and if it is, you’ll see the text Use a password-protected SSH key.). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-01.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-01-monte-carlo.html#r-and-r-studio",
+    "href": "ae/ae-01-monte-carlo.html#r-and-r-studio",
+    "title": "AE 01: Monte Carlo sampling",
+    "section": "R and R Studio",
+    "text": "R and R Studio\nBelow are the components of the RStudio IDE.\n\n\n\n\n\nBelow are the components of a Quarto (.qmd) file.\n\n\n\n\n\n\nYAML\nThe top portion of your Quarto file (between the three dashed lines) is called YAML. It stands for “YAML Ain’t Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document.\n\n\n\n\nCommitting changes\nNow, go to the Git pane in your RStudio instance. This will be in the top right hand corner in a separate tab.\nIf you have made changes to your Quarto (.qmd) file, you should see it listed here. Click on it to select it in this list and then click on Diff. This shows you the difference between the last committed state of the document and its current state including changes. You should see deletions in red and additions in green.\nIf you’re happy with these changes, we’ll prepare the changes to be pushed to your remote repository. First, stage your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, “updated author name”) in the Commit message box. Finally, click Commit. Note that every commit needs to have a commit message associated with it.\nYou don’t have to commit after every change, as this would get quite tedious. You should commit states that are meaningful to you for inspection, comparison, or restoration.\nIn the first few assignments we may tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.\n\n\nPush changes\nNow that you have made an update and committed this change, it’s time to push these changes to your repo on GitHub.\nIn order to push your changes to GitHub, you must have staged your commit to be pushed. click on Push.\nNow let’s make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!"
+  },
+  {
+    "objectID": "ae/ae-01-monte-carlo.html#exercise-1",
+    "href": "ae/ae-01-monte-carlo.html#exercise-1",
+    "title": "AE 01: Monte Carlo sampling",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nCompute a one-sided Bayesian p-value for \\(\\mu\\): \\(P(\\mu &lt; 14 | \\mathbf{Y})\\) using Monte Carlo sampling. Interpret the results in plain English.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-01-monte-carlo.html#exercise-2",
+    "href": "ae/ae-01-monte-carlo.html#exercise-2",
+    "title": "AE 01: Monte Carlo sampling",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWe can also compute \\(P(\\mu &lt; 14 | \\mathbf{Y})\\) using pnorm, since we have the posterior in closed form. Compute the exact probability and compare it to the Monte Carlo estimate given in Exercise 1.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-01-monte-carlo.html#exercise-3",
+    "href": "ae/ae-01-monte-carlo.html#exercise-3",
+    "title": "AE 01: Monte Carlo sampling",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCompute a 95% confidence interval for \\(\\mu\\). Provide an interpretation for this confidence interval.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉\n\nRecall: This AE is a demonstration and nothing needs to be turned in!"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html",
+    "href": "ae/ae-02-mcmc.html",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "",
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\nThis AE is a demonstration and you do not have to turn anything in!\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#learning-goals",
+    "href": "ae/ae-02-mcmc.html#learning-goals",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the AE, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nGain practice writing a reproducible report using Quarto\nPractice version control using GitHub\nPerform Gibbs sampling for Bayesian linear regression and compute some basic summaries"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-02-mcmc.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp26 organization on GitHub.\nClick on the repo with the prefix ae-02-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select SSH (this might already be selected by default, and if it is, you’ll see the text Use a password-protected SSH key.). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-02.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#exercise-1",
+    "href": "ae/ae-02-mcmc.html#exercise-1",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nCompute the posterior mean and standard deviation for the intercept, slope, and measurement error. Provide an interpretation for each of these parameter estimates.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#exercise-2",
+    "href": "ae/ae-02-mcmc.html#exercise-2",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCompute a 95% confidence interval for the regression slope. Provide an interpretation for this confidence interval.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-02-mcmc.html#exercise-3",
+    "href": "ae/ae-02-mcmc.html#exercise-3",
+    "title": "AE 02: Posterior estimation using Gibbs sampling",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCompute a one-sided Bayesian p-value for the regression slope: \\(P(\\beta_1 &lt; 0)\\). Interpret the results in plain English. Is intraocular pressure associated with disease progression?\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉\n\nThis AE is a demonstration and you do not have to turn anything in!"
   }
 ]

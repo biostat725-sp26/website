@@ -1,0 +1,13 @@
+---
+title: Prepare for January 15 lecture
+---
+
+<br>
+
+📖 Read **Hoff** Chapter 6, Sections 6.1-6.5 to learn about Gibbs sampling
+
+📖 Read **Hoff** Chapter 10, Sections 10.2-10.4 to learn about Metropolis sampling
+
+📖 Review [simple linear regression](https://introregression.netlify.app/04-slr)
+
+✅ Complete [HW 00](https://biostat725-sp26.netlify.app/hw/hw-00) tasks before class

@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content="Prof.&nbsp;Sam Berchuck">
+  <title>BIOSTAT 725 - Spring 2026 – Markov chain Monte Carlo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-52409b2fa210337c57c52cd2a257efa4.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Markov chain Monte Carlo</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Prof.&nbsp;Sam Berchuck 
+</div>
+</div>
+</div>
+
+  <p class="date">Jan 15, 2025</p>
+</section>
+<section id="review-of-last-lecture" class="slide level2">
+<h2>Review of last lecture</h2>
+<ul>
+<li><p>On Tuesday, we performed posterior inference for a Beta-Binomial model using Monte Carlo estimation.</p></li>
+<li><p>Today we will discuss Bayesian estimation of linear regression:</p></li>
+</ul>
+<p><span class="math display">\[\mathbf{Y} | \boldsymbol{\beta}, \sigma^2 \sim N(\mathbf{X} \boldsymbol{\beta}, \sigma^2 \mathbf{I}_n).\]</span></p>
+<ul>
+<li><p>There is no closed form posterior, so we cannot directly use Monte Carlo sampling.</p></li>
+<li><p>We need Markov chain Monte Carlo (MCMC)!</p></li>
+<li><p>Our goal is to gain intuition behind MCMC, the workhorse behind Stan.</p></li>
+</ul>
+</section>
+<section>
+<section id="bayesian-linear-regression" class="title-slide slide level1 center">
+<h1>Bayesian Linear Regression</h1>
+
+</section>
+<section id="defining-the-model" class="slide level2">
+<h2>Defining the model</h2>
+<p>Suppose we have an observation <span class="math inline">\(Y_i\)</span> for subject <span class="math inline">\(i\)</span> (<span class="math inline">\(i=1,\ldots,n\)</span>), that is modeled as follows,</p>
+<p><span class="math display">\[\begin{aligned}
+Y_i &amp;= \beta_0 + x_{i1} \beta_1 + \cdots + x_{ip} \beta_p + \epsilon_i, \quad \epsilon_i \sim N(0, \sigma^2)\\
+&amp;= \mathbf{x}_i \boldsymbol{\beta} + \epsilon_i.
+\end{aligned}\]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbf{x}_i = (1, x_{i1},\ldots,x_{ip})\)</span> is a <span class="math inline">\((p+1)\)</span>-dimensional row vector of covariates (and intercept).</li>
+<li><span class="math inline">\(\boldsymbol{\beta} = (\beta_0, \beta_1,\ldots,\beta_p)^\top\)</span> is a <span class="math inline">\((p+1)\)</span>-dimensional column vector of population regression parameters.</li>
+<li><span class="math inline">\(\epsilon_i\)</span> is a Gaussian measurement error term with variance <span class="math inline">\(\sigma^2\)</span>.</li>
+</ul>
+</section>
+<section id="defining-the-likelihood" class="slide level2">
+<h2>Defining the likelihood</h2>
+<p>The individual likelihood contribution for subject <span class="math inline">\(i\)</span> is given by,</p>
+<p><span class="math display">\[Y_i|\boldsymbol{\beta},\sigma^2 \stackrel{ind}{\sim} N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2) \Leftrightarrow f(Y_i|\boldsymbol{\beta},\sigma^2) = N(\mathbf{x}_i \boldsymbol{\beta}, \sigma^2),\]</span> and the full data likelihood (or observed data likelihood) is given by, <span class="math display">\[f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) = \prod_{i=1}^n f(Y_i|\boldsymbol{\beta},\sigma^2),\]</span> where <span class="math inline">\(\mathbf{Y} = (Y_1,\ldots,Y_n)\)</span>.</p>
+</section>
+<section id="matrix-likelihood-specification" class="slide level2">
+<h2>Matrix likelihood specification</h2>
+<p>We can also write the likelihood directly, <span class="math display">\[\mathbf{Y} | \boldsymbol{\beta},\sigma^2 \sim N(\mathbf{X} \boldsymbol{\beta}, \sigma^2 \mathbf{I}_n),\]</span> where <span class="math inline">\(\mathbf{X}\)</span> is an <span class="math inline">\(n \times (p + 1)\)</span> dimensional matrix with row <span class="math inline">\(\mathbf{x}_i\)</span> and <span class="math inline">\(\mathbf{I}_n\)</span> is an <span class="math inline">\(n\)</span>-dimensional identity matrix. Thus, the mean of the observed data is modeled as a linear function of the parameters,</p>
+<p><span class="math display">\[
+\mathbb{E}[ \mathbf{Y} | \boldsymbol{\beta},\sigma^2 ]  =
+  \begin{bmatrix}
+    1 &amp; x_{12} &amp; \ldots &amp; x_{1p} \\
+    1 &amp; x_{22} &amp; \ldots &amp; x_{2p} \\
+    \vdots &amp; \vdots &amp; &amp; \vdots\\
+    1 &amp; x_{n2} &amp; \ldots &amp; x_{np}
+  \end{bmatrix}
+    \begin{bmatrix}
+    \beta_0\\
+    \beta_1\\
+    \vdots\\
+    \beta_p
+  \end{bmatrix} = \mathbf{X} \boldsymbol{\beta}.
+\]</span></p>
+</section>
+<section id="linear-regression-estimation" class="slide level2">
+<h2>Linear regression estimation</h2>
+<ul>
+<li>Ordinary least squares (OLS)</li>
+</ul>
+<center>
+<span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{OLS}} = \underset{\boldsymbol{\beta}}{\operatorname{argmin}} || \mathbf{Y} - \mathbf{X}\boldsymbol{\beta}||^2\)</span>
+</center>
+<ul>
+<li>Maximum likelihood estimation (MLE)</li>
+</ul>
+<center>
+<span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{MLE}} = \underset{\boldsymbol{\beta}}{\operatorname{argmax}} \log f(\mathbf{Y} | \boldsymbol{\beta})\)</span>
+</center>
+<ul>
+<li><span class="math inline">\(\hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}} = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y}\)</span></li>
+</ul>
+</section>
+<section id="linear-regression-assumptions" class="slide level2">
+<h2>Linear regression assumptions</h2>
+<ol type="1">
+<li><p>Linearity between <span class="math inline">\(\mathbf{X}\)</span> and <span class="math inline">\(\mathbf{Y}\)</span>: <span class="math inline">\(\mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \mathbf{\epsilon}\)</span></p></li>
+<li><p>Independence of errors: <span class="math inline">\(\epsilon_i\)</span>’s are independent Gaussian</p></li>
+<li><p>Homoskedasticity: constant <span class="math inline">\(\sigma^2\)</span> across <span class="math inline">\(\mathbf{x}_i\)</span></p></li>
+<li><p>Normality of errors: <span class="math inline">\(\epsilon_i \sim N(0,\sigma^2)\)</span></p></li>
+<li><p>No multicollinearity: <span class="math inline">\(\left(\mathbf{X}^\top \mathbf{X}\right)^{-1}\)</span> exists</p></li>
+</ol>
+</section>
+<section id="posterior-for-linear-regression" class="slide level2">
+<h2>Posterior for linear regression</h2>
+<p><span class="math display">\[\begin{aligned}
+f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) &amp;= \frac{f(\mathbf{Y}, \boldsymbol{\beta}, \sigma^2)}{f(\mathbf{Y})}\\
+&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)}{f(\mathbf{Y})}\\
+&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)}{\int f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)d\boldsymbol{\beta}d\sigma^2}.
+\end{aligned}\]</span></p>
+<p>No closed form exists for the posterior. <span class="math display">\[f(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta}, \sigma^2)\]</span></p>
+</section></section>
+<section>
+<section id="gibbs-sampling" class="title-slide slide level1 center">
+<h1>Gibbs Sampling</h1>
+
+</section>
+<section id="motivation-for-gibbs-sampling" class="slide level2">
+<h2>Motivation for Gibbs sampling</h2>
+<ul>
+<li><p>Suppose we were given <span class="math inline">\(\sigma^{2(1)}\)</span>, a single sample from the marginal posterior distribution <span class="math inline">\(f\left(\sigma^2|\mathbf{Y}\right)\)</span> (from where, who knows?)</p></li>
+<li><p>Use the sample to generate <span class="math inline">\(\boldsymbol{\beta}^{(1)}\)</span> from <span class="math inline">\(f\left(\boldsymbol{\beta}|\mathbf{Y},\sigma^{2(1)}\right)\)</span></p></li>
+<li><p><span class="math inline">\(\left(\boldsymbol{\beta}^{(1)},\sigma^{2(1)}\right)\)</span> is a sample from <span class="math inline">\(f\left(\boldsymbol{\beta}, \sigma^2 | \mathbf{Y}\right)\)</span></p></li>
+<li><p><span class="math inline">\(\boldsymbol{\beta}^{(1)}\)</span> is a sample from <span class="math inline">\(f\left(\boldsymbol{\beta} | \mathbf{Y}\right)\)</span></p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Recall</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(f\left(\boldsymbol{\beta}, \sigma^{2}|\mathbf{Y}\right) = f\left(\boldsymbol{\beta} | \sigma^{2},\mathbf{Y}\right)f\left(\sigma^{2}|\mathbf{Y}\right)\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gibbs-sampler-for-linear-regression" class="slide level2">
+<h2>Gibbs sampler for linear regression</h2>
+<p>Suppose we can sample from the following two distributions,</p>
+<ol type="1">
+<li><p><span class="math inline">\(f(\boldsymbol{\beta} | \mathbf{Y}, \sigma^2) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\boldsymbol{\beta})\)</span></p></li>
+<li><p><span class="math inline">\(f(\sigma^2 | \mathbf{Y}, \boldsymbol{\beta}) \propto f(\mathbf{Y} | \boldsymbol{\beta}, \sigma^2) f(\sigma^2)\)</span></p></li>
+</ol>
+<p>These are called <strong>full conditional distributions</strong>.</p>
+<p>Set initial values for <span class="math inline">\(\boldsymbol{\theta}^{(0)} = (\boldsymbol{\beta}^{(0)}, \sigma^{2(0)})\)</span>. Then, given a current state of parameters <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>, we can generate a new state as follows:</p>
+<ol type="1">
+<li><p>Sample <span class="math inline">\(\boldsymbol{\beta}^{(s + 1)} \sim f(\boldsymbol{\beta} | \mathbf{Y}, \sigma^{2(s)})\)</span></p></li>
+<li><p>Sample <span class="math inline">\(\sigma^{2(s + 1)} \sim f(\sigma^2 | \mathbf{Y}, \boldsymbol{\beta}^{(s + 1)})\)</span></p></li>
+<li><p>Let <span class="math inline">\(\boldsymbol{\theta}^{(s+1)} = (\boldsymbol{\beta}^{(s + 1)}, \sigma^{2(s + 1)})\)</span></p></li>
+</ol>
+</section>
+<section id="why-does-this-work" class="slide level2">
+<h2>Why does this work?</h2>
+<ul>
+<li><p><span class="math inline">\(\boldsymbol{\theta}^{(0)}\)</span> isn’t a sample from the posterior, it is an arbitrarily chosen initial value</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\theta}^{(1)}\)</span> likely isn’t from the posterior either. Its distribution depends on <span class="math inline">\(\boldsymbol{\theta}^{(0)}\)</span></p></li>
+<li><p><span class="math inline">\(\boldsymbol{\theta}^{(2)}\)</span> likely isn’t from the posterior either. Its distribution depends on <span class="math inline">\(\boldsymbol{\theta}^{(0)}\)</span> and <span class="math inline">\(\boldsymbol{\theta}^{(1)}\)</span></p></li>
+<li><p><strong>Theorem:</strong> For any initial values, the chain will eventually converge to the posterior</p></li>
+<li><p><strong>Theorem:</strong> If <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> is a sample from the posterior, then <span class="math inline">\(\boldsymbol{\theta}^{(s+1)}\)</span> is too</p></li>
+</ul>
+</section>
+<section id="gibbs-sampler" class="slide level2">
+<h2>Gibbs sampler</h2>
+<ul>
+<li><p>Under mild regulatory conditions that are generally satisfied for most statistical models, one can show that the iteration <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> converges in distribution to a draw from the true joint posterior distribution</p></li>
+<li><p>So for <span class="math inline">\(s\)</span> sufficiently large (say, bigger than <span class="math inline">\(s_0\)</span>), <span class="math inline">\(\left\{\boldsymbol{\theta}^{(s)}, s=s_0+1,\ldots,S\right\}\)</span> is a <strong>correlated</strong> sample from the true joint posterior (and <span class="math inline">\(\boldsymbol{\beta}^{(s)}\)</span> and <span class="math inline">\(\sigma^{2(s)}\)</span> are samples from the marginals)</p></li>
+<li><p>Similar to Monte Carlo approximation, we can use these samples to estimate posterior quantities of interest</p></li>
+</ul>
+</section>
+<section id="gibbs-sampler-1" class="slide level2">
+<h2>Gibbs sampler</h2>
+<ul>
+<li><p><span class="math inline">\(\boldsymbol{\theta}^{(t)}\)</span> depends on <span class="math inline">\(\boldsymbol{\theta}^{(0)},\ldots,\boldsymbol{\theta}^{(t-1)}\)</span> only through <span class="math inline">\(\boldsymbol{\theta}^{(t-1)}\)</span></p></li>
+<li><p><span class="math inline">\(\boldsymbol{\theta}^{(t)}\)</span> is conditionally independent of <span class="math inline">\(\boldsymbol{\theta}^{(0)},\ldots,\boldsymbol{\theta}^{(t-2)}\)</span> given <span class="math inline">\(\boldsymbol{\theta}^{(t-1)}\)</span></p>
+<p><span class="math inline">\(\implies\)</span> Markov property, so the sequence is called a Markov chain</p></li>
+<li><p>We use the samples similar to MC approximation; therefore, Gibbs sampling is a form of Markov chain Monte Carlo (MCMC)</p></li>
+<li><p>We will cover diagnostics for MCMC in another lecture!</p></li>
+</ul>
+</section>
+<section id="gibbs-sampler-for-linear-regression-1" class="slide level2">
+<h2>Gibbs sampler for linear regression</h2>
+<ul>
+<li><p>We need to compute the full conditionals. Before doing this, we require prior distributions.</p></li>
+<li><p>Let’s assume that the prior for <span class="math inline">\(\boldsymbol{\beta}\)</span> is Gaussian,</p></li>
+</ul>
+<p><span class="math display">\[f(\boldsymbol{\beta}) = N(\boldsymbol{\beta}_0,\sigma_{\beta}^2 \mathbf{I}_{p+1}).\]</span></p>
+<ul>
+<li><span class="math inline">\(\boldsymbol{\beta}_0\)</span> is the prior mean (i.e., our a-priori guess for the likely value of <span class="math inline">\(\boldsymbol{\beta}\)</span>)</li>
+<li><span class="math inline">\(\sigma_{\beta}^2\)</span> is the prior variance (i.e., encodes our certainty for our a-priori guess)</li>
+</ul>
+</section>
+<section id="full-conditional-for-boldsymbolbeta" class="slide level2 small">
+<h2>Full conditional for <span class="math inline">\(\boldsymbol{\beta}\)</span></h2>
+<p><span class="math display">\[\begin{aligned}
+f(\boldsymbol{\beta},\sigma^2 | \mathbf{Y}) &amp;\propto f(\mathbf{Y} | \boldsymbol{\beta},\sigma^2) f(\boldsymbol{\beta})\\
+&amp;\propto \exp\left\{-\frac{1}{2}\left[\frac{\left(\mathbf{Y} - \mathbf{X}\boldsymbol{\beta}\right)^\top\left(\mathbf{Y} - \mathbf{X}\boldsymbol{\beta}\right)}{\sigma^2}\right]\right\}\\
+&amp;\quad \times \exp\left\{-\frac{1}{2}\left[\frac{\left(\boldsymbol{\beta} - \boldsymbol{\beta}_0\right)^\top\left(\boldsymbol{\beta}_0 - \boldsymbol{\beta}_0\right)}{\sigma_{\beta}^2}\right]\right\}\\
+&amp;\propto \exp\left\{-\frac{1}{2}\left[\boldsymbol{\beta}^\top\left(\frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2} + \frac{\mathbf{I}_n}{\sigma_{\beta}^2} \right)\boldsymbol{\beta} - 2\boldsymbol{\beta}^\top\left(\frac{\mathbf{X}^\top\mathbf{Y}}{\sigma^2} + \frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2}\right)\right]\right\}\\
+&amp;\propto \exp\left\{-\frac{1}{2}\left[\boldsymbol{\beta}^\top\mathbf{A}\boldsymbol{\beta} - 2\boldsymbol{\beta}^\top\mathbf{a}\right]\right\}
+\end{aligned}\]</span></p>
+<p>This is the kernel of a multivariate normal for <span class="math inline">\(\boldsymbol{\beta}\)</span>, with <span class="math inline">\(\mathbf{A} = \boldsymbol{\Sigma}^{-1}\)</span> and <span class="math inline">\(\mathbf{a} = \boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}\)</span>. It’s easy to see then that, <span class="math inline">\(f(\boldsymbol{\beta} | \mathbf{Y}) = N(\mathbf{A}^{-1}\mathbf{a},\mathbf{A}^{-1}).\)</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Recall the kernel for the multivariate normal: <span class="math inline">\(\exp\left\{-\frac{1}{2}\left[\mathbf{Y}^\top \boldsymbol{\Sigma}^{-1}\mathbf{Y} - 2\mathbf{Y}^\top \boldsymbol{\Sigma}^{-1} \boldsymbol{\mu}\right]\right\}\)</span></strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</section>
+<section id="full-conditional-for-boldsymbolbeta-1" class="slide level2 midi">
+<h2>Full conditional for <span class="math inline">\(\boldsymbol{\beta}\)</span></h2>
+<p>The full conditional can be found in closed-form and is Gaussian with the following moments: <span class="math display">\[\begin{aligned}
+\mathbb{V}(\boldsymbol{\beta} | \mathbf{Y},\sigma^2) &amp;= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\\
+\mathbb{E}[\boldsymbol{\beta} | \mathbf{Y},\sigma^2] &amp;= \left(\frac{\mathbf{I}_{p+1}}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{X}}{\sigma^2}\right)^{-1}\left(\frac{\boldsymbol{\beta}_0}{\sigma_{\beta}^2} + \frac{\mathbf{X}^\top \mathbf{Y}}{\sigma^2}\right)
+\end{aligned}\]</span></p>
+<div class="fragment">
+<ul>
+<li><span class="math inline">\(\sigma_{\beta}^2 \rightarrow \infty: \mathbb{E}[\boldsymbol{\beta} | \mathbf{Y},\sigma^2] = (\mathbf{X}^\top \mathbf{X})^{-1}\mathbf{X}^\top \mathbf{Y} = \hat{\boldsymbol{\beta}}_{\text{OLS}} = \hat{\boldsymbol{\beta}}_{\text{MLE}}\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="math inline">\(\sigma^2 \rightarrow \infty: \mathbb{E}[\boldsymbol{\beta} | \mathbf{Y},\sigma^2] = \boldsymbol{\beta}_0\)</span></li>
+</ul>
+</div>
+</section>
+<section id="full-conditional-for-sigma2" class="slide level2">
+<h2>Full conditional for <span class="math inline">\(\sigma^2\)</span></h2>
+<p>Full conditional for <span class="math inline">\(\sigma^2\)</span>, assuming <span class="math inline">\(f(\sigma^2) \sim IG(a, b)\)</span>:</p>
+<p><span class="math display">\[\sigma^2 |  \mathbf{Y} , \boldsymbol{\beta} \sim IG\left(a + \frac{n}{2},b+\frac{\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)^\top\left(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta}\right)}{2}\right)\]</span></p>
+<ul>
+<li>Why inverse-Gamma (<span class="math inline">\(IG\)</span>) distribution for <span class="math inline">\(\sigma^2\)</span>?</li>
+</ul>
+</section>
+<section id="sampling-from-the-posterior" class="slide level2">
+<h2>Sampling from the posterior</h2>
+<p>Let’s simulate some data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="do">###True parameters</span></span>
+<span id="cb1-2"><a></a>sigma <span class="ot">&lt;-</span> <span class="fl">1.5</span> <span class="co"># true measurement error</span></span>
+<span id="cb1-3"><a></a>beta <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>, <span class="dv">3</span>), <span class="at">ncol =</span> <span class="dv">1</span>) <span class="co"># true beta</span></span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="do">###Simulation settings</span></span>
+<span id="cb1-6"><a></a>n <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># number of observations</span></span>
+<span id="cb1-7"><a></a>p <span class="ot">&lt;-</span> <span class="fu">length</span>(beta) <span class="sc">-</span> <span class="dv">1</span> <span class="co"># number of covariates</span></span>
+<span id="cb1-8"><a></a></span>
+<span id="cb1-9"><a></a><span class="do">###Simulate data</span></span>
+<span id="cb1-10"><a></a><span class="fu">set.seed</span>(<span class="dv">54</span>) <span class="co"># set seed</span></span>
+<span id="cb1-11"><a></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n <span class="sc">*</span> p), <span class="at">ncol =</span> p))</span>
+<span id="cb1-12"><a></a>Y <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, sigma))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualize-simulated-data" class="slide level2">
+<h2>Visualize simulated data</h2>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="03-mcmc_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="03-mcmc_files/figure-revealjs/unnamed-chunk-3-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="inspecting-the-prior" class="slide level2">
+<h2>Inspecting the prior</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="do">###Define hyperparameters</span></span>
+<span id="cb2-2"><a></a>beta0 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> p <span class="sc">+</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb2-3"><a></a>sigma_beta <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb2-4"><a></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb2-5"><a></a>b <span class="ot">&lt;-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="03-mcmc_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="03-mcmc_files/figure-revealjs/unnamed-chunk-5-2.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="03-mcmc_files/figure-revealjs/unnamed-chunk-5-3.png" class="quarto-figure quarto-figure-center" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="perform-gibbs-sampling" class="slide level2">
+<h2>Perform Gibbs sampling</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>sigma2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>)) <span class="co"># initial value</span></span>
+<span id="cb3-2"><a></a>samples <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb3-3"><a></a><span class="cf">for</span> (s <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5000</span>) {</span>
+<span id="cb3-4"><a></a>  <span class="do">###Sample from full conditional for beta</span></span>
+<span id="cb3-5"><a></a>  var_beta <span class="ot">&lt;-</span> <span class="fu">chol2inv</span>(<span class="fu">chol</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X <span class="sc">/</span> sigma2 <span class="sc">+</span> <span class="fu">diag</span>(p <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb3-6"><a></a>  mean_beta <span class="ot">&lt;-</span> var_beta <span class="sc">%*%</span> (beta0 <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y <span class="sc">/</span> sigma2)</span>
+<span id="cb3-7"><a></a>  beta <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rmvnorm</span>(<span class="dv">1</span>, mean_beta, var_beta))</span>
+<span id="cb3-8"><a></a>  </span>
+<span id="cb3-9"><a></a>  <span class="do">###Sample from full conditional for sigma2</span></span>
+<span id="cb3-10"><a></a>  quadratic <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">t</span>(Y <span class="sc">-</span> X <span class="sc">%*%</span> beta) <span class="sc">%*%</span> (Y <span class="sc">-</span> X <span class="sc">%*%</span> beta))</span>
+<span id="cb3-11"><a></a>  sigma2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">rgamma</span>(<span class="dv">1</span>, <span class="at">shape =</span> a <span class="sc">+</span> n <span class="sc">/</span> <span class="dv">2</span>, <span class="at">rate =</span> b <span class="sc">+</span> quadratic <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb3-12"><a></a>  </span>
+<span id="cb3-13"><a></a>  <span class="do">###Save samples after a burn-in</span></span>
+<span id="cb3-14"><a></a>  samples <span class="ot">&lt;-</span> <span class="fu">rbind</span>(samples, <span class="fu">c</span>(beta, sigma2))</span>
+<span id="cb3-15"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="inspect-results" class="slide level2">
+<h2>Inspect results</h2>
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="03-mcmc_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="03-mcmc_files/figure-revealjs/unnamed-chunk-7-2.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-of-gibbs-sampling" class="slide level2">
+<h2>Summary of Gibbs sampling</h2>
+<ul>
+<li><p>Gibbs sampling is great when we are able to sample from the full conditional distributions.</p></li>
+<li><p>It has been the main inference machine for Bayesian inference since the early 1990s.</p></li>
+<li><p>Computing full conditionals and coding up a Gibbs sampler can be mathematically and computationally rigorous.</p></li>
+<li><p>New classes of MCMC are becoming more common to make Bayesian inference less rigorous.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="metropolis-sampling" class="title-slide slide level1 center">
+<h1>Metropolis sampling</h1>
+
+</section>
+<section id="intuition-behind-metropolis-sampling" class="slide level2 midi">
+<h2>Intuition behind Metropolis sampling</h2>
+<p>Suppose we have a working collection <span class="math inline">\(\{\boldsymbol{\theta}^{(1)},\ldots,\boldsymbol{\theta}^{(s)}\}\)</span> to which we would like to add a new value <span class="math inline">\(\boldsymbol{\theta}^{(s+1)}\)</span>. Let’s consider adding a value <span class="math inline">\(\boldsymbol{\theta}^*\)</span> which is nearby <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>. Should we include <span class="math inline">\(\boldsymbol{\theta}^*\)</span> in the set or not?</p>
+<ul>
+<li><p>If <span class="math inline">\(f(\boldsymbol{\theta}^* | \mathbf{Y}) &gt; f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})\)</span> then we want more <span class="math inline">\(\boldsymbol{\theta}^*\)</span>’s in the set than <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>’s.</p>
+<ul>
+<li>Since <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> is already in the set, then it seems we should include <span class="math inline">\(\boldsymbol{\theta}^*\)</span> as well.</li>
+</ul></li>
+<li><p>On the other hand, if <span class="math inline">\(f(\boldsymbol{\theta}^* | \mathbf{Y}) &lt; f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})\)</span> then it seems we should not necessarily include <span class="math inline">\(\boldsymbol{\theta}^*\)</span>.</p></li>
+<li><p>So, perhaps our decision to include <span class="math inline">\(\boldsymbol{\theta}^*\)</span> or not should be based on a comparison of <span class="math inline">\(f(\boldsymbol{\theta}^* | \mathbf{Y})\)</span> to <span class="math inline">\(f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})\)</span>.</p></li>
+</ul>
+</section>
+<section id="metropolis-acceptance-ratio" class="slide level2">
+<h2>Metropolis acceptance ratio</h2>
+<ul>
+<li>Fortunately, the comparison of <span class="math inline">\(f(\boldsymbol{\theta}^* | \mathbf{Y})\)</span> to <span class="math inline">\(f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})\)</span> can be made even if we cannot compute <span class="math inline">\(f(\boldsymbol{\theta} | \mathbf{Y})\)</span>.</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+r &amp;= \frac{f(\boldsymbol{\theta}^* | \mathbf{Y})}{f(\boldsymbol{\theta}^{(s)} | \mathbf{Y})}\\
+&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\theta}^*)f(\boldsymbol{\theta}^*)}{f(\mathbf{Y})}\frac{f(\mathbf{Y})}{f(\mathbf{Y} | \boldsymbol{\theta}^{(s)})f(\boldsymbol{\theta}^{(s)})}\\
+&amp;= \frac{f(\mathbf{Y} | \boldsymbol{\theta}^*)f(\boldsymbol{\theta}^*)}{f(\mathbf{Y} | \boldsymbol{\theta}^{(s)})f(\boldsymbol{\theta}^{(s)})}
+\end{aligned}\]</span></p>
+<p>Having computed <span class="math inline">\(r\)</span>, how should we proceed?</p>
+</section>
+<section id="metropolis-intuition" class="slide level2 midi">
+<h2>Metropolis intuition</h2>
+<p>Metropolis ratio: <span class="math inline">\(r = \frac{f(\mathbf{Y} | \boldsymbol{\theta}^*)f(\boldsymbol{\theta}^*)}{f(\mathbf{Y} | \boldsymbol{\theta}^{(s)})f(\boldsymbol{\theta}^{(s)})}\)</span></p>
+<p>If <span class="math inline">\(r &gt; 1:\)</span></p>
+<ul>
+<li><p><em>Intuition:</em> Since <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> is already in our set, we should include <span class="math inline">\(\boldsymbol{\theta}^*\)</span> as it has a higher probability than <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span></p></li>
+<li><p><em>Procedure:</em> Accept <span class="math inline">\(\boldsymbol{\theta}^*\)</span> into our set (i.e., set <span class="math inline">\(\boldsymbol{\theta}^{(s + 1)} = \boldsymbol{\theta}^*\)</span>)</p></li>
+</ul>
+<p>If <span class="math inline">\(r &lt; 1:\)</span></p>
+<ul>
+<li><p><em>Intuition:</em> The relative frequency of <span class="math inline">\(\boldsymbol{\theta}\)</span>-values in our set equal to <span class="math inline">\(\boldsymbol{\theta}^*\)</span> compared to those equal to <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span> should be <span class="math inline">\(r\)</span>. This means that for every instance of <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>, we should have only a “fraction” of an instance of a <span class="math inline">\(\boldsymbol{\theta}^*\)</span> value.</p></li>
+<li><p><em>Procedure:</em> Set <span class="math inline">\(\boldsymbol{\theta}^{(s + 1)}\)</span> equal to either <span class="math inline">\(\boldsymbol{\theta}^*\)</span> or <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>, with probability <span class="math inline">\(r\)</span> and <span class="math inline">\(1 − r\)</span> respectively.</p></li>
+</ul>
+</section>
+<section id="metropolis-update" class="slide level2">
+<h2>Metropolis update</h2>
+<p>Given <span class="math inline">\(\boldsymbol{\theta}^{(s)}\)</span>, the Metropolis algorithm generates a value <span class="math inline">\(\boldsymbol{\theta}^{(s + 1)}\)</span> as follows:</p>
+<ol type="1">
+<li><p>Sample <span class="math inline">\(\boldsymbol{\theta}^*\)</span> from a proposal distribution, <span class="math inline">\(\boldsymbol{\theta}^* ∼ J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)})\)</span></p></li>
+<li><p>Compute the acceptance ratio <span class="math inline">\(r\)</span></p></li>
+<li><p>Let <span class="math display">\[\boldsymbol{\theta}^{(s + 1)} =
+\left\{
+  \begin{array}{ll}
+\boldsymbol{\theta}^* &amp; \text{with probability }\min(r, 1) \\
+\boldsymbol{\theta}^{(s)} &amp; \text{with probability }1 -\min(r, 1)
+  \end{array}
+\right.\]</span></p></li>
+</ol>
+</section>
+<section id="metropolis-proposal-distribution" class="slide level2">
+<h2>Metropolis proposal distribution</h2>
+<ul>
+<li><p>The proposal distribution is symmetric (i.e., <span class="math inline">\(J(\boldsymbol{\theta}_a | \boldsymbol{\theta}_b) = J(\boldsymbol{\theta}_b | \boldsymbol{\theta}_a)\)</span></p></li>
+<li><p>Usually <span class="math inline">\(J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)})\)</span> is very simple, with samples from <span class="math inline">\(J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)})\)</span> being near <span class="math inline">\(\boldsymbol{\theta}\)</span> with high probability.</p></li>
+<li><p>The most common proposal is a normal distribution</p>
+<ul>
+<li><span class="math inline">\(J(\boldsymbol{\theta} | \boldsymbol{\theta}^{(s)}) = N(\boldsymbol{\theta}^{(s)}, \boldsymbol{\Delta})\)</span></li>
+</ul></li>
+<li><p>The value of the parameter <span class="math inline">\(\boldsymbol{\Delta}\)</span> is generally chosen to make the approximation algorithm run efficiently</p></li>
+</ul>
+</section>
+<section id="metropolis-and-gibbs-combined" class="slide level2">
+<h2>Metropolis and Gibbs combined</h2>
+<ul>
+<li><p>The Gibbs and Metropolis samplers are actually both algorithms within a larger class of Metropolis-Hastings algorithms</p></li>
+<li><p>When performing MCMC, one can actually choose to update a parameter using either a Gibbs or Metropolis update</p></li>
+<li><p>Let’s see this in action using our linear regression example</p></li>
+</ul>
+</section>
+<section id="linear-regression-using-metropolisgibbs" class="slide level2">
+<h2>Linear regression using Metropolis/Gibbs</h2>
+<ul>
+<li><p>In this example, we will use a Metropolis update for <span class="math inline">\(\sigma^2\)</span>, however we will actually focus on <span class="math inline">\(\log\sigma^2\)</span>.</p>
+<ul>
+<li>Metropolis requires a symmetric proposal, so it is often easier to transform parameters to be on the real line and use a normal proposal.</li>
+</ul></li>
+<li><p>We will use the following proposal, <span class="math inline">\(\log\sigma^{2*} \sim N\left(\log\sigma^{2(s)}, \delta\right)\)</span>, where <span class="math inline">\(\delta = 1\)</span>.</p></li>
+<li><p>We will place the prior: <span class="math inline">\(\log\sigma^2 \sim N(0,1)\)</span>.</p></li>
+</ul>
+</section>
+<section id="linear-regression-using-metropolisgibbs-1" class="slide level2">
+<h2>Linear regression using Metropolis/Gibbs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>sigma2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>))</span>
+<span id="cb4-2"><a></a>samples <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb4-3"><a></a>delta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb4-4"><a></a><span class="cf">for</span> (s <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
+<span id="cb4-5"><a></a>  <span class="do">###Sample from full conditional for beta</span></span>
+<span id="cb4-6"><a></a>  var_beta <span class="ot">&lt;-</span> <span class="fu">chol2inv</span>(<span class="fu">chol</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X <span class="sc">/</span> sigma2 <span class="sc">+</span> <span class="fu">diag</span>(p <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb4-7"><a></a>  mean_beta <span class="ot">&lt;-</span> var_beta <span class="sc">%*%</span> (beta0 <span class="sc">/</span> sigma_beta<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> Y <span class="sc">/</span> sigma2)</span>
+<span id="cb4-8"><a></a>  beta <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rmvnorm</span>(<span class="dv">1</span>, mean_beta, var_beta))</span>
+<span id="cb4-9"><a></a></span>
+<span id="cb4-10"><a></a>  <span class="do">###Metropolis update for sigma2</span></span>
+<span id="cb4-11"><a></a>  <span class="co"># Sample a proposal value</span></span>
+<span id="cb4-12"><a></a>  log_sigma2_proposal <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="fu">log</span>(sigma2), delta)</span>
+<span id="cb4-13"><a></a>  <span class="co"># Compute the ratio r on the log scale for numeric stability</span></span>
+<span id="cb4-14"><a></a>  <span class="co"># Also, I've decided to update log(sigma2) instead of sigma2, so I can use a normal proposal distribution</span></span>
+<span id="cb4-15"><a></a>  <span class="co"># I've placed a normal prior on log(sigma2)</span></span>
+<span id="cb4-16"><a></a>  likelihood_proposal <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(Y, X <span class="sc">%*%</span> beta, <span class="fu">sqrt</span>(<span class="fu">exp</span>(log_sigma2_proposal)), <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-17"><a></a>  likelihood_current <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(Y, X <span class="sc">%*%</span> beta, <span class="fu">sqrt</span>(sigma2), <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-18"><a></a>  prior_proposal <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(log_sigma2_proposal, <span class="dv">0</span>, <span class="dv">1</span>, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-19"><a></a>  prior_current <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(<span class="fu">log</span>(sigma2), <span class="dv">0</span>, <span class="dv">1</span>, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-20"><a></a>  log_r <span class="ot">&lt;-</span> (likelihood_proposal <span class="sc">+</span> prior_proposal) <span class="sc">-</span> (likelihood_current <span class="sc">+</span> prior_current)</span>
+<span id="cb4-21"><a></a>  <span class="co"># Update beta using Metropolis ratio</span></span>
+<span id="cb4-22"><a></a>  <span class="cf">if</span> (<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">1</span>)) <span class="sc">&lt;</span> log_r) sigma2 <span class="ot">&lt;-</span> <span class="fu">exp</span>(log_sigma2_proposal)</span>
+<span id="cb4-23"><a></a></span>
+<span id="cb4-24"><a></a>  <span class="do">###Save samples after a burn-in</span></span>
+<span id="cb4-25"><a></a>  <span class="cf">if</span> (s <span class="sc">&gt;</span> <span class="dv">5000</span>) samples <span class="ot">&lt;-</span> <span class="fu">rbind</span>(samples, <span class="fu">c</span>(beta, sigma2))</span>
+<span id="cb4-26"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="inspect-results-1" class="slide level2">
+<h2>Inspect results</h2>
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="03-mcmc_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="03-mcmc_files/figure-revealjs/unnamed-chunk-9-2.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-of-metropolis-algorithm" class="slide level2">
+<h2>Summary of Metropolis algorithm</h2>
+<ul>
+<li><p>More flexible than Gibbs sampling, because we are no longer required to compute the full conditional distribution analytically.</p></li>
+<li><p>Posterior samples can be obtained, however the algorithm must be properly tuned (i.e., choosing <span class="math inline">\(\delta\)</span>) and the samples may take longer to converge.</p></li>
+<li><p>Furthermore, choosing a proper proposal distribution can be difficult in practice.</p></li>
+<li><p>In more recent years, Hamiltonian Monte Carlo has emerged as an new MCMC approach that alleviates the aforementioned issues.</p></li>
+</ul>
+</section>
+<section id="metropolis-hastings-mh-algorithm" class="slide level2">
+<h2>Metropolis-Hastings (MH) algorithm</h2>
+<p>The proposal distribution is no longer assumed to be symmetric, so the acceptance ratio is, <span class="math display">\[\begin{aligned}
+r &amp;= \frac{f(\mathbf{Y} | \boldsymbol{\beta}^*, \sigma^{2(s)}) f(\boldsymbol{\beta}^*)}{f(\mathbf{Y} | \boldsymbol{\beta}^{(s)},\sigma^{2(s)})f(\boldsymbol{\beta}^{(s)})} \frac{J(\boldsymbol{\beta}^* | \boldsymbol{\beta}^{(s)})}{J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*)}.
+\end{aligned}\]</span></p>
+<p>Both Metropolis and Gibbs can easily be seen as subcases of Metropolis Hastings.</p>
+<ul>
+<li><p>Metropolis assumes a symmetric proposal, so the proposal terms cancel.</p></li>
+<li><p>Gibbs assumes that <span class="math inline">\(J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*) = f(\boldsymbol{\beta}^* | \mathbf{Y}, \sigma^{2(s)})\)</span>, which implies that <span class="math inline">\(r=1\)</span>.</p></li>
+</ul>
+</section>
+<section id="hamiltonian-monte-carlo-hmc-intuition" class="slide level2 midi">
+<h2>Hamiltonian Monte Carlo (HMC) intuition</h2>
+<ul>
+<li><p>HMC is a new MCMC approach that has been shown to work better than the usual MH algorithm.</p></li>
+<li><p>It is based on the idea of Hamiltonian dynamics (a physical concept)</p></li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Rollercoaster Metaphor</strong></p>
+</div>
+<div class="callout-content">
+<p>Imagine you’re on a roller coaster at an amusement park. As the roller coaster moves along the track, it goes up and down hills. When the roller coaster is at the top of a hill, it has a lot of potential energy (like stored energy). When it goes down the hill, that potential energy turns into kinetic energy (energy of motion), making the roller coaster go faster. Hamiltonian dynamics is like a set of rules that tells us how the roller coaster’s energy changes as it moves along the track.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hmc-intuition" class="slide level2">
+<h2>HMC intuition</h2>
+<ul>
+<li><p>Hamiltonian dynamics is used to generate a proposal from a better proposal distribution, <span class="math inline">\(J(\boldsymbol{\beta}^{(s)} | \boldsymbol{\beta}^*)\)</span>, and modifies the acceptance part so the it has a higher acceptance rate.</p></li>
+<li><p>Just like the roller coaster follows the track smoothly, Hamiltonian Monte Carlo (HMC) helps us explore different possibilities smoothly and efficiently. This way, we can make more efficient samples from the posterior, just like how the roller coaster moves quickly and smoothly along its track.</p></li>
+<li><p>HMC requires evaluations of <span class="math inline">\(\log f(\boldsymbol{\theta} | \mathbf{Y})\)</span> and <span class="math inline">\(\nabla_{\boldsymbol{\theta}} \log f(\boldsymbol{\theta} | \mathbf{Y})\)</span>,</p></li>
+</ul>
+<p><span class="math display">\[\log f(\boldsymbol{\theta} | \mathbf{Y}) \propto \log f(\mathbf{Y} | \boldsymbol{\theta}) + \log f(\boldsymbol{\theta})\]</span></p>
+</section>
+<section id="prepare-for-next-class" class="slide level2">
+<h2>Prepare for next class</h2>
+<ul>
+<li><p>Begin <a href="https://biostat725-sp26.netlify.app/hw/hw-01">HW 01</a> which is due January 29</p></li>
+<li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
+<li><p>Tuesday’s lecture: Probabilistic Programming (Intro to Stan!)</p></li>
+</ul>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../images/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://biostat725-sp26.netlify.app/">🔗 BIOSTAT 725 - Spring 2026</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/biostat725-sp26\.netlify\.app");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

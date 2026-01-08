@@ -96,7 +96,7 @@ Source: ChatGPT
 -   Statistics versus Data Science?
 -   Introductory Bayesian statistics courses are often very mathematical and involve intense computation; thus Bayesian methods are not as frequently used in applied settings.
 -   Modern software now exists to lower the mathematical burden and computational intensity of Bayesian statistics, but courses do not reflect this.
--   This course focuses on teaching students Bayesian statistics as a \textcolor{red}{tool} for research; or anywhere data science is practiced.
+-   This course focuses on teaching students Bayesian statistics as a \textcolor{#993399}{tool} for research; or anywhere data science is practiced.
 :::
 
 ## What is BIOSTAT 725?
