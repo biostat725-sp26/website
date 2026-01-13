@@ -992,7 +992,7 @@
     "href": "slides/02-monte-carlo.html#returning-to-our-posterior",
     "title": "Monte Carlo Sampling",
     "section": "Returning to our posterior",
-    "text": "Returning to our posterior\nLet’s obtain \\(S = 1,000\\) samples from our posterior.\n\npi_samples &lt;- rbeta(1000, 1 + 120, 1 + 380)\n\nWe can compute the posterior mean and variance.\n\nmean(pi_samples)\n\n[1] 0.2404082\n\nvar(pi_samples)\n\n[1] 0.0003804202"
+    "text": "Returning to our posterior\nLet’s obtain \\(S = 1,000\\) samples from our posterior.\n\npi_samples &lt;- rbeta(1000, 1 + 120, 1 + 380)\n\nWe can compute the posterior mean and variance.\n\nmean(pi_samples)\n\n[1] 0.2399671\n\nvar(pi_samples)\n\n[1] 0.000354165"
   },
   {
     "objectID": "slides/02-monte-carlo.html#assessing-accuracy",
@@ -1006,7 +1006,7 @@
     "href": "slides/02-monte-carlo.html#additional-posterior-summaries",
     "title": "Monte Carlo Sampling",
     "section": "Additional posterior summaries",
-    "text": "Additional posterior summaries\n\n# median\nmedian(pi_samples)\n\n[1] 0.2412522\n\n# 95% credible intervals\nquantile(pi_samples, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.2049895 0.2786456 \n\n# evaluating probability\nmean(pi_samples &lt; 0.25)\n\n[1] 0.676\n\n# summarizing arbitrary functions of the parameters\npi_new &lt;- pi_samples^3 - pi_samples\nc(mean(pi_new), quantile(pi_new, probs = c(0.025, 0.975)))\n\n                 2.5%      97.5% \n-0.2270200 -0.2570106 -0.1963757"
+    "text": "Additional posterior summaries\n\n# median\nmedian(pi_samples)\n\n[1] 0.2405268\n\n# 95% credible intervals\nquantile(pi_samples, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.2042175 0.2794289 \n\n# evaluating probability\nmean(pi_samples &lt; 0.25)\n\n[1] 0.683\n\n# summarizing arbitrary functions of the parameters\npi_new &lt;- pi_samples^3 - pi_samples\nc(mean(pi_new), quantile(pi_new, probs = c(0.025, 0.975)))\n\n                 2.5%      97.5% \n-0.2268650 -0.2576109 -0.1957007"
   },
   {
     "objectID": "slides/02-monte-carlo.html#poisson-random-variable",
