@@ -498,7 +498,7 @@ $$\pi^{\left(1\right)},\ldots,\pi^{\left(S\right)}\stackrel{\text{iid}}{\sim}f\l
 
     -   $\frac{1}{S-1}\sum_{s=1}^S \left(\pi^{\left(s\right)}-\overline{\pi}\right)^2 \rightarrow \mathbb{V}\left(\pi|\mathbf{Y}\right)$
 
-    -   $\frac{1}{S}\sum_{s=1}^S 1\left(\pi^{\left(s\right)}\leq \mathbf{c}\right) \rightarrow P\left(\pi\leq \mathbf{c} | \mathbf{Y}\right)$
+    -   $\frac{1}{S}\sum_{s=1}^S 1\left(\pi^{\left(s\right)}\leq {c}\right) \rightarrow P\left(\pi\leq {c} | \mathbf{Y}\right)$
 
     -   $\alpha$-quantile of $\left\{\pi^{\left(1\right)},\ldots,\pi^{\left(S\right)}\right\}\rightarrow q_{\alpha}$
 
@@ -526,7 +526,7 @@ We can use a central limit theorem: $\sqrt{S}\left(\overline{\pi}-\mathbb{E}[\pi
 
 -   $\overline{\pi}=\frac{1}{S}\sum_{s=1}^S \pi^{\left(s\right)}$
 
--   $\sigma^2 = \mathbb{V}\left(\overline{\pi}\right) = \frac{1}{S^2}\sum_{s=1}^S\mathbb{V}\left(\pi^{(s)}\right) = \frac{1}{S}\mathbb{V}\left(\pi | \mathbf{Y}\right)$.
+-   $\sigma^2 = \mathbb{V}\left(\pi | \mathbf{Y}\right), \quad \mathbb{V}\left(\overline{\pi}\right) = \frac{1}{S^2}\sum_{s=1}^S\mathbb{V}\left(\pi^{(s)}\right) = \frac{1}{S}\mathbb{V}\left(\pi | \mathbf{Y}\right) = \sigma^2/S$.
 
 $\implies \overline{\pi}\approx N\left(\mathbb{E}[\pi | \mathbf{Y}],\sigma^2/S\right)$
 

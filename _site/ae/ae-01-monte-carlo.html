@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-01-13">
+<meta name="dcterms.date" content="2026-01-13">
 
 <title>AE 01: Monte Carlo sampling – BIOSTAT 725 - Spring 2026</title>
 <style>
@@ -349,7 +349,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 13, 2025</p>
+      <p class="date">January 13, 2026</p>
     </div>
   </div>
   
@@ -453,7 +453,7 @@ Important
 <section id="push-changes" class="level3">
 <h3 class="anchored" data-anchor-id="push-changes">Push changes</h3>
 <p>Now that you have made an update and committed this change, it’s time to push these changes to your repo on GitHub.</p>
-<p>In order to push your changes to GitHub, you must have <strong>staged</strong> your <strong>commit</strong> to be pushed. click on <strong>Push</strong>.</p>
+<p>In order to push your changes to GitHub, you must have <strong>staged</strong> your <strong>commit</strong> to be pushed. Click on <strong>Push</strong>.</p>
 <p>Now let’s make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!</p>
 <!-- ::: callout-important -->
 <!-- Go to the [course GitHub organization](https://github.com/biostat725-sp25) and locate your `ae-01` repo to get started. -->
@@ -604,14 +604,14 @@ $ progression &lt;dbl&gt; -0.190141797, -0.055098961, 0.431682497, 0.218545250, 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(posterior_mu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 14.2003</code></pre>
+<pre><code>[1] 14.19817</code></pre>
 </div>
 </div>
 <p>To make sure we have sufficient precision, we can compute the Monte Carlo standard error.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(posterior_mu) <span class="sc">/</span> S)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.001892992</code></pre>
+<pre><code>[1] 0.001889365</code></pre>
 </div>
 </div>
 </section>

@@ -1,7 +1,7 @@
 ---
 title: "AE 01: Monte Carlo sampling "
 subtitle: "Estimating intraocular pressure"
-date: "Jan 13, 2025"
+date: "Jan 13, 2026"
 ---
 
 ::: callout-important
@@ -77,7 +77,7 @@ In the first few assignments we may tell you exactly when to commit and in some 
 
 Now that you have made an update and committed this change, it's time to push these changes to your repo on GitHub.
 
-In order to push your changes to GitHub, you must have **staged** your **commit** to be pushed. click on **Push**.
+In order to push your changes to GitHub, you must have **staged** your **commit** to be pushed. Click on **Push**.
 
 Now let's make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you're good to go!
 
