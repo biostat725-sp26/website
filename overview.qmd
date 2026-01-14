@@ -24,10 +24,10 @@ BIOSTAT 724 (Introduction to Applied Bayesian Analysis) or equivalent course wit
 
 Prof. [Sam Berchuck](https://sites.duke.edu/sib2/) is an Assistant Professor in the Department of Biostatistics & Bioinformatics and Statistical Science at Duke University, and a faculty affiliate of [Duke AI Health](https://aihealth.duke.edu/). His work focuses on applications of Bayesian methods in biomedical research settings, most prominently for clinical decision support tools using electronic health records.
 
-| Office hours         | Location |
-|----------------------|----------|
-| Mon 4-6pm            | Hock 9028|
-| *or by appointment.* |          |
+| Office hours         | Location  |
+|----------------------|-----------|
+| Mon 4-6pm            | Hock 9028 |
+| *or by appointment.* |           |
 
 ## Teaching assistants
 
@@ -35,7 +35,7 @@ Prof. [Sam Berchuck](https://sites.duke.edu/sib2/) is an Assistant Professor in 
 |----------------|----------|-------------------|--------------------|
 | **Name**       | **Role** | **Office Hours**  | **Location**       |
 | Christine Shen | TA       | Mon 1:30 - 3:30pm | Old Chemistry 203A |
-| Jiang Shu      | TA       | Wed 4:45 – 6:45pm | Hock (TBD)         |
+| Jiang Shu      | TA       | Wed 4:45 – 6:45pm | Hock 10092         |
 
 # License
 

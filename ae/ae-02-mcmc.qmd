@@ -1,7 +1,7 @@
 ---
 title: "AE 02: Posterior estimation using Gibbs sampling "
 subtitle: "Glaucoma disease progression"
-date: "Jan 15, 2025"
+date: "Jan 15, 2026"
 ---
 
 ::: callout-important
