@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -1413,5 +1413,523 @@
     "title": "AE 02: Posterior estimation using Gibbs sampling",
     "section": "Exercise 3",
     "text": "Exercise 3\nCompute a one-sided Bayesian p-value for the regression slope: \\(P(\\beta_1 &lt; 0)\\). Interpret the results in plain English. Is intraocular pressure associated with disease progression?\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉\n\nThis AE is a demonstration and you do not have to turn anything in!"
+  },
+  {
+    "objectID": "slides/04-stan.html#review-of-last-lecture",
+    "href": "slides/04-stan.html#review-of-last-lecture",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\nOn Thursday, we performed posterior inference for Bayesian linear regression using Gibbs and Metropolis sampling.\n\nWe obtained correlated samples from the posterior using MCMC.\nGibbs required a lot math!\nMetropolis required tuning!\n\nToday we will introduce Stan, a probabilistic programming language that uses Hamiltonian Monte Carlo to perform general Bayesian inference."
+  },
+  {
+    "objectID": "slides/04-stan.html#learning-objectives",
+    "href": "slides/04-stan.html#learning-objectives",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of this lecture you should:\n\nKnow how to start coding up a model in Stan.\nAppreciate how easy Stan makes things for us compared to coding up the algorithm ourselves.\nBe able to fit a basic linear regression in Stan."
+  },
+  {
+    "objectID": "slides/04-stan.html#what-is-stan-and-how-do-we-use-it",
+    "href": "slides/04-stan.html#what-is-stan-and-how-do-we-use-it",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "What is Stan and how do we use it?",
+    "text": "What is Stan and how do we use it?\n\nStan is an intuitive yet sophisticated programming language that does the hard work for us.\nProgramming language like R, Python, Matlab, C++…\nWorks like most other languages: can use loops, conditional statements, and functions.\nCode up a model in Stan and then it implements HMC (actually something called NUTS) for us."
+  },
+  {
+    "objectID": "slides/04-stan.html#why-should-we-use-stan",
+    "href": "slides/04-stan.html#why-should-we-use-stan",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Why should we use Stan?",
+    "text": "Why should we use Stan?\n\nStan is the brainchild of Andrew Gelman at Colombia.\nStan uses an extension of HMC called NUTS that automatically tunes. It is fast.\nStan is simple to learn.\nStan has excellent documentation (a manual full of extensive examples).\nMost important: Stan has a very active and helpful user forum and development team; for example, typical question answered in less than a couple of hours."
+  },
+  {
+    "objectID": "slides/04-stan.html#how-do-we-use-it",
+    "href": "slides/04-stan.html#how-do-we-use-it",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "How do we use it?",
+    "text": "How do we use it?\nCode up model in Stan code in a text editor and save as .stan file.\n\nCall Stan to run the model from:\n\nR, python, the command line, Matlab, Stata, Julia\n\nUse one of the above to analyse the data (of course you can export to another one)."
+  },
+  {
+    "objectID": "slides/04-stan.html#a-straightforward-example",
+    "href": "slides/04-stan.html#a-straightforward-example",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "A straightforward example",
+    "text": "A straightforward example\nSuppose:\n\nWe record the height, \\(Y_i\\), of 10 people.\nWe want a model to explain the variation, and choose a normal likelihood: \\[Y_i \\sim N(\\mu, \\sigma^2)\\]\nWe choose the following (independent) priors on each parameter:\n\n\\(\\mu \\sim N(0, 1)\\)\n\\(\\sigma^2 \\sim IG(1, 1)\\)\n\nQuestion: how do we code this up in Stan?"
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program",
+    "href": "slides/04-stan.html#an-example-stan-program",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program",
+    "text": "An example Stan program\n\ndata {\n  real Y[10]; // height for 10 people\n}\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\nmodel {\n  Y ~ normal(mu, sqrt(sigma2)); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma2 ~ inv_gamma(1, 1); // prior for sigma\n}"
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program-data-block",
+    "href": "slides/04-stan.html#an-example-stan-program-data-block",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program: data block",
+    "text": "An example Stan program: data block\n\ndata {\n  real Y[10]; // height for 10 people\n}\n\n\nDeclare all data that you will pass to Stan to estimate your model.\nTerminate all statements with a semi-colon ;.\nUse ## or // for comments."
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program-data-block-1",
+    "href": "slides/04-stan.html#an-example-stan-program-data-block-1",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program: data block",
+    "text": "An example Stan program: data block\n\ndata {\n  real Y[10]; // height for 10 people\n}\n\n\nWe need to tell Stan the type of data variable. For example:\n\nreal for continuous data.\nint for discrete data.\nArrays: above we specified Y as an array of continuous data of length 10."
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program-data-block-2",
+    "href": "slides/04-stan.html#an-example-stan-program-data-block-2",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program: data block",
+    "text": "An example Stan program: data block\n\ndata {\n  real Y[10]; // height for 10 people\n}\n\nCan place limits on data, for example:\n\nreal&lt;lower = 0, upper = 1&gt; X;\nreal&lt;lower = 0&gt; Z;\n\nVectors and matrices; only contain reals and can be used for matrix operations.\n\nreal Y[10]; // array representation\nvector[10] Y; // vector representation"
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program-parameter-block",
+    "href": "slides/04-stan.html#an-example-stan-program-parameter-block",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program: parameter block",
+    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\n\nDeclare all parameters that you use in your model.\nPlace limits on variables, for example:\n\nreal&lt;lower = 0&gt; sigma2\n\n\nA multitude of parameter types including some of the aforementioned:\n\nreal for continuous parameters.\nArrays of types, for example real beta[10]"
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program-parameter-block-1",
+    "href": "slides/04-stan.html#an-example-stan-program-parameter-block-1",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program: parameter block",
+    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\n\nvector or matrix, specified by:\n\nvector[5] beta\nmatrix[5, 3] gamma\n\nsimplex for a parameter vector that must sum to 1.\nMore exotic types like corr_matrix, or ordered."
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program-parameter-block-2",
+    "href": "slides/04-stan.html#an-example-stan-program-parameter-block-2",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program: parameter block",
+    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\nImportant: Stan is not developed yet to work with discrete parameters. Options for discrete parameters in Stan:\n\nMarginalize out the parameter. For example, suppose we have \\(f(\\boldsymbol{\\beta}, \\theta)\\), where \\(\\boldsymbol{\\beta}\\) is continuous and \\(\\theta\\) is discrete:\n\n\n\\(f(\\boldsymbol{\\beta}) = \\sum_{i = 1}^K f(\\boldsymbol{\\beta}, \\theta_i)\\)\n\n\nSome models can be reformulated without discrete parameters."
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program-model-block",
+    "href": "slides/04-stan.html#an-example-stan-program-model-block",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program: model block",
+    "text": "An example Stan program: model block\n\nmodel {\n  Y ~ normal(mu, sqrt(sigma2)); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma2 ~ inv_gamma(1, 1); // prior for sigma2\n}\n\n\nUsed to define:\n\nLikelihood.\nPriors on parameters.\n\n\nIf don’t specify priors on parameters Stan assumes you are using flat priors (which can be improper)."
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program-model-block-1",
+    "href": "slides/04-stan.html#an-example-stan-program-model-block-1",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program: model block",
+    "text": "An example Stan program: model block\n\nmodel {\n  Y ~ normal(mu, sqrt(sigma2)); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma2 ~ inv_gamma(1, 1); // prior for sigma2\n}\n\nHuge range of probability distributions covered, across a range of parameterizations. For example:\n\nDiscrete: Bernoulli, binomial, Poisson, beta-binomial, negative-binomial, categorical, multinomial.\nContinuous unbounded: normal, skew-normal, student-t, Cauchy, logistic."
+  },
+  {
+    "objectID": "slides/04-stan.html#an-example-stan-program-model-block-2",
+    "href": "slides/04-stan.html#an-example-stan-program-model-block-2",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "An example Stan program: model block",
+    "text": "An example Stan program: model block\n\nmodel {\n  Y ~ normal(mu, sqrt(sigma2)); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma2 ~ inv_gamma(1, 1); // prior for sigma2\n}\n\n\nContinuous bounded: uniform, beta, log-normal, exponential, gamma, chi-squared, inverse-chi-squared, Weibull, Wiener diffusion, Pareto.\nMultivariate continuous: normal, student-t, Gaussian process.\nExotics: Dirichlet, LKJ correlation distribution, Wishart and its inverse, Von-Mises."
+  },
+  {
+    "objectID": "slides/04-stan.html#running-stan",
+    "href": "slides/04-stan.html#running-stan",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Running Stan",
+    "text": "Running Stan\nWrite model in a text editing program and save as a .stan file.\n\nTo create a .stan file from RStudio, File -&gt; New File -&gt; Stan File.\n\n\n###Load packages\nlibrary(rstan)\n\n###Generate fake data\nY &lt;- rnorm(10, mean = 0, sd = 1)\n\n###Compile and run model, and save in fit\nfit &lt;- stan(file = 'straightforward.stan', data = list(Y = Y), \n            iter = 1000, chains = 4, seed = 1)"
+  },
+  {
+    "objectID": "slides/04-stan.html#running-stan-on-example-model",
+    "href": "slides/04-stan.html#running-stan-on-example-model",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Running Stan on example model",
+    "text": "Running Stan on example model\n\n###Compile and run model, and save in fit\nfit &lt;- stan(file = 'straightforward.stan', data = list(Y = Y), \n            iter = 1000, chains = 4, seed = 1)\n\nThe above R code runs NUTS for our model with the following options:\n\n\\(S=1,000\\) MCMC samples of which 500 are discarded as warm-up.\nAcross 4 chains.\nUsing a random number seed of 1 (good to ensure you can reproduce results)."
+  },
+  {
+    "objectID": "slides/04-stan.html#example-model-results",
+    "href": "slides/04-stan.html#example-model-results",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Example model: results",
+    "text": "Example model: results\n\n###Print summary statistics\nprint(fit, probs = c(0.25, 0.5, 0.75))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=1000; warmup=500; thin=1; \npost-warmup draws per chain=500, total post-warmup draws=2000.\n\n        mean se_mean   sd   25%   50%   75% n_eff Rhat\nmu     -0.45    0.01 0.32 -0.66 -0.46 -0.26  1361    1\nsigma2  1.23    0.02 0.62  0.81  1.09  1.48   865    1\nlp__   -6.80    0.04 1.03 -7.21 -6.49 -6.06   808    1\n\nSamples were drawn using NUTS(diag_e) at Tue Jan 21 14:36:33 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/04-stan.html#example-model-results-1",
+    "href": "slides/04-stan.html#example-model-results-1",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Example model: results",
+    "text": "Example model: results\n\n###Extract posterior samples\npars &lt;- extract(fit)\nclass(pars)\n\n[1] \"list\"\n\nnames(pars)\n\n[1] \"mu\"     \"sigma2\" \"lp__\"  \n\n###Extract samples for particular parameters\npars &lt;- extract(fit, pars = \"mu\")\nclass(pars$mu)\n\n[1] \"array\"\n\ndim(pars$mu)\n\n[1] 2000"
+  },
+  {
+    "objectID": "slides/04-stan.html#visualize-posterior",
+    "href": "slides/04-stan.html#visualize-posterior",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Visualize posterior",
+    "text": "Visualize posterior\n###Extract samples for particular parameters\nlibrary(ggplot2)\ndata.frame(mu = pars$mu) |&gt;\n  ggplot(aes(x = mu)) +\n  geom_histogram() +\n  labs(x = expression(mu), y = \"Count\", \n       subtitle = bquote(\"Posterior distribution for \" ~ mu))"
+  },
+  {
+    "objectID": "slides/04-stan.html#quick-note-what-does-sim-mean",
+    "href": "slides/04-stan.html#quick-note-what-does-sim-mean",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Quick note: what does \\(\\sim\\) mean?",
+    "text": "Quick note: what does \\(\\sim\\) mean?\n\nmodel {\n  Y ~ normal(mu, sigma); // likelihood\n  mu ~ normal(0, 1); // prior for mu\n  sigma ~ inv_gamma(1, 1); // prior for sigma\n}\n\n\n\\(\\sim\\) doesn’t mean sampling, although often times it can be thought of as sampling\nMCMC/HMC makes use of the log-posterior\n\n\\[\\log f(\\boldsymbol{\\theta} | \\mathbf{Y}) \\propto \\log f(\\boldsymbol{\\theta}) + \\sum_{i=1}^n \\log f({Y}_i | \\boldsymbol{\\theta})\\]\n\nAs such \\(\\sim\\) really means increment log probability\nAll we have to do in Stan is specify the log-posterior!"
+  },
+  {
+    "objectID": "slides/04-stan.html#alternate-way-of-specifying-stan-models",
+    "href": "slides/04-stan.html#alternate-way-of-specifying-stan-models",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Alternate way of specifying Stan models",
+    "text": "Alternate way of specifying Stan models\n\nmodel {\n  target += normal_lpdf(Y | mu, sqrt(sigma2)); // likelihood\n  target += normal_lpdf(mu | 0, 1); // prior for mu\n  target += inv_gamma_lpdf(sigma2 | 1, 1); // prior for sigma\n}\n\n\ntarget is a not a variable, but a special object that represents incremental log probability.\ntarget is initialized to zero.\nnormal_lpdf is the log of the normal density of y given location mu and scale sigma:\nStan documentation for normal distribution\n\n\ntarget += std_normal_lpdf(mu) // prior for mu using standard normal"
+  },
+  {
+    "objectID": "slides/04-stan.html#linear-regression-using-stan-data-and-parameter-chunks",
+    "href": "slides/04-stan.html#linear-regression-using-stan-data-and-parameter-chunks",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Linear regression using Stan: data and parameter chunks",
+    "text": "Linear regression using Stan: data and parameter chunks\n\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p + 1] X; // covariate vector\n  real beta0; // location hyperparameter for beta\n  real&lt;lower = 0&gt; sigma_beta; // scale hyperparameter for beta\n  real&lt;lower = 0&gt; a; // shape hyperparameter for sigma2\n  real&lt;lower = 0&gt; b; // scale hyperparameter for sigma2\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma2;\n}"
+  },
+  {
+    "objectID": "slides/04-stan.html#linear-regression-using-stan-model-chunk",
+    "href": "slides/04-stan.html#linear-regression-using-stan-model-chunk",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Linear regression using Stan: model chunk",
+    "text": "Linear regression using Stan: model chunk\n\nmodel {\n  for (i in 1:n) {\n    target += normal_lpdf(Y[i] | X[i, ] * beta, sqrt(sigma2)); // likelihood\n  }\n  target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta\n  target += inv_gamma_lpdf(sigma2 | a, b); // prior for sigma2\n}"
+  },
+  {
+    "objectID": "slides/04-stan.html#linear-regression-using-stan-vectorization",
+    "href": "slides/04-stan.html#linear-regression-using-stan-vectorization",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Linear regression using Stan: vectorization",
+    "text": "Linear regression using Stan: vectorization\nIt is always a good idea to vectorize Stan code for faster and more efficient inference\n\nmodel {\n  target += normal_lpdf(Y | X * beta, sqrt(sigma2)); // likelihood\n  target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta\n  target += inv_gamma_lpdf(sigma2 | a, b); // prior for sigma2\n}"
+  },
+  {
+    "objectID": "slides/04-stan.html#linear-regression-using-stan",
+    "href": "slides/04-stan.html#linear-regression-using-stan",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Linear regression using Stan",
+    "text": "Linear regression using Stan\n\n// saved in linear_regression.stan\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p + 1] X; // covariate vector\n  real beta0; // location hyperparameter for beta\n  real&lt;lower = 0&gt; sigma_beta; // scale hyperparameter for beta\n  real&lt;lower = 0&gt; a; // shape hyperparameter for sigma2\n  real&lt;lower = 0&gt; b; // scale hyperparameter for sigma2\n}\nparameters {\n  vector[p + 1] beta;\n  real&lt;lower = 0&gt; sigma2;\n}\nmodel {\n  target += normal_lpdf(Y | X * beta, sqrt(sigma2)); // likelihood\n  target += normal_lpdf(beta | beta0, sigma_beta); // prior for beta\n  target += inv_gamma_lpdf(sigma2 | a, b); // prior for sigma2\n}"
+  },
+  {
+    "objectID": "slides/04-stan.html#lets-simulate-some-data-again",
+    "href": "slides/04-stan.html#lets-simulate-some-data-again",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Let’s simulate some data again",
+    "text": "Let’s simulate some data again\n\n###True parameters\nsigma &lt;- 1.5 # true measurement error\nbeta &lt;- matrix(c(-1.5, 3), ncol = 1) # true beta\n\n###Simulation settings\nn &lt;- 100 # number of observations\np &lt;- length(beta) - 1 # number of covariates\n\n###Simulate data\nset.seed(54) # set seed\nX &lt;- cbind(1, matrix(rnorm(n * p), ncol = p))\nY &lt;- as.numeric(X %*% beta + rnorm(n, 0, sigma))"
+  },
+  {
+    "objectID": "slides/04-stan.html#fit-linear-regression-using-stan",
+    "href": "slides/04-stan.html#fit-linear-regression-using-stan",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Fit linear regression using Stan",
+    "text": "Fit linear regression using Stan\n\n###Load packages\nlibrary(rstan)\n\n###Create stan data object\nstan_data &lt;- list(n = n,\n                  p = p,\n                  Y = Y,\n                  X = X,\n                  beta0 = 0,\n                  sigma_beta = 10,\n                  a = 3, \n                  b = 1)\n  \n###Compile model separately\nstan_model &lt;- stan_model(file = \"linear_regression.stan\")\n\n###Run model and save\nfit &lt;- sampling(stan_model, data = stan_data, \n                chains = 4, iter = 1000)\nsaveRDS(fit, file = \"linear_regression_fit.rds\")"
+  },
+  {
+    "objectID": "slides/04-stan.html#example-model-results-2",
+    "href": "slides/04-stan.html#example-model-results-2",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Example model: results",
+    "text": "Example model: results\n\n###Print summary statistics\nprint(fit, probs = c(0.25, 0.5, 0.75))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=1000; warmup=500; thin=1; \npost-warmup draws per chain=500, total post-warmup draws=2000.\n\n           mean se_mean   sd     25%     50%     75% n_eff Rhat\nbeta[1]   -1.48    0.00 0.15   -1.58   -1.48   -1.37  1951    1\nbeta[2]    3.30    0.00 0.15    3.20    3.30    3.40  1674    1\nsigma2     2.35    0.01 0.33    2.12    2.32    2.55  1679    1\nlp__    -196.98    0.04 1.29 -197.58 -196.63 -196.04   899    1\n\nSamples were drawn using NUTS(diag_e) at Tue Jan 21 14:38:36 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/04-stan.html#stan-plots-point-estimate-and-intervals",
+    "href": "slides/04-stan.html#stan-plots-point-estimate-and-intervals",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Stan plots: point estimate and intervals",
+    "text": "Stan plots: point estimate and intervals\n\nstan_plot(fit, pars = c(\"beta\", \"sigma2\"), include_warmup = FALSE,\n          point_est = \"median\", ci_level = 0.8, outer_level = 0.95)"
+  },
+  {
+    "objectID": "slides/04-stan.html#stan-plots-histogram",
+    "href": "slides/04-stan.html#stan-plots-histogram",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Stan plots: histogram",
+    "text": "Stan plots: histogram\n\nstan_hist(fit)"
+  },
+  {
+    "objectID": "slides/04-stan.html#stan-plots-density",
+    "href": "slides/04-stan.html#stan-plots-density",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Stan plots: density",
+    "text": "Stan plots: density\n\nstan_dens(fit)"
+  },
+  {
+    "objectID": "slides/04-stan.html#stan-a-few-of-the-loops-and-conditions",
+    "href": "slides/04-stan.html#stan-a-few-of-the-loops-and-conditions",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Stan: a few of the loops and conditions",
+    "text": "Stan: a few of the loops and conditions\nStan has pretty much the full range of language constructs to allow pretty much any model to be coded.\nfor (i in 1:10) {something;}\n\n\nwhile (i &gt; 1) {something;}\n\n\nif (i &gt; 1) {something 1;}\nelse if (i == 0) {something2;}\nelse {something 3;}"
+  },
+  {
+    "objectID": "slides/04-stan.html#stan-speed-concerns",
+    "href": "slides/04-stan.html#stan-speed-concerns",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Stan speed concerns",
+    "text": "Stan speed concerns\nWhile Stan is fast it pays to know the importance of each code block for efficiency.\n\ndata: called once at beginning of execution.\ntransformed data: called once at beginning of execution.\nparameters: every log probability evaluation!\ntransformed parameters: every log probability evaluation!\nmodel: every log probability evaluation!\ngenerated quantities: once per sample.\nfunctions: how many times it is called depends on the function’s nature."
+  },
+  {
+    "objectID": "slides/04-stan.html#stan-in-parallel",
+    "href": "slides/04-stan.html#stan-in-parallel",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Stan in parallel",
+    "text": "Stan in parallel\nIn R can run chains in parallel easily using:\n\nlibrary(rstan)\noptions(mc.cores = 8)"
+  },
+  {
+    "objectID": "slides/04-stan.html#stan-summary",
+    "href": "slides/04-stan.html#stan-summary",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Stan summary",
+    "text": "Stan summary\n\nStan works by default with a HMC-like algorithm called NUTS.\nThe Stan language is similar in nature to other common languages with loops, conditional statements and user-definable functions (didn’t cover here).\nStan makes life easier for us than coding up the MCMC algorithms ourselves."
+  },
+  {
+    "objectID": "slides/04-stan.html#r-packages-that-interface-with-stan",
+    "href": "slides/04-stan.html#r-packages-that-interface-with-stan",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "R packages that interface with Stan",
+    "text": "R packages that interface with Stan\n\nrstan, brms, cmdstanr, rstanarm\nrstan and cmdstanr you write the Stan code, which gives you the most options.\n\nrstan has a more intuitive user interface.\ncmdstanr is more memory efficient and a lightweight interface to Stan.\n\nrstanarm and brms you don’t need to write the Stan code yourself, which makes it easier to use Stan, but is limiting.\n\nrstanarm’s biggest advantage is that the models are pre-compiled, but this is also it’s biggest limitation.\nbrms writes Stan code on the fly, so has many more models, some that are pretty advanced."
+  },
+  {
+    "objectID": "slides/04-stan.html#prepare-for-next-class",
+    "href": "slides/04-stan.html#prepare-for-next-class",
+    "title": "Probabilistic Programming (Intro to Stan!)",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 01 which is due January 29\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Priors, Posteriors, and PPDs!"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#review-of-last-lecture",
+    "href": "slides/05-priors-ppds.html#review-of-last-lecture",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\nOn Tuesday, we learned about Stan\n\nA probabilistic programming language for Bayesian inference\nWe learned about the data, parameter, and model code chunks\nWe used Stan to fit a Bayesian linear regression\n\nToday, we will dive into priors, posterior summaries, and posterior predictive distributions (PPDs)"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#prior-elicitation",
+    "href": "slides/05-priors-ppds.html#prior-elicitation",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Prior elicitation",
+    "text": "Prior elicitation\n\nSelecting the prior is one of the most important steps in a Bayesian analysis.\nThere is no “right” way to select a prior.\nThe choices often depend on the objective of the study and the nature of the data.\n\nConjugate versus non-conjugate\nInformative versus uninformative\nProper versus improper\nSubjective versus objective"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#conjugate-priors",
+    "href": "slides/05-priors-ppds.html#conjugate-priors",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Conjugate priors",
+    "text": "Conjugate priors\n\nA prior is conjugate if the posterior is a member of the same parametric family.\nWe have seen that if the response is normal and we use a normal prior on the regression parameter, the posterior is also a normal (if we use an inverse gamma distribution for the variance, the posterior is also inverse gamma).\n\nThis requires a pairing of the likelihood and prior.\nThere is a long list of conjugate priors.\n\nThe advantage of a conjugate prior is that the posterior is available in closed form.\nNo longer critical with Stan!"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#informative-versus-uninformative-priors",
+    "href": "slides/05-priors-ppds.html#informative-versus-uninformative-priors",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Informative versus uninformative priors",
+    "text": "Informative versus uninformative priors\n\nIn some cases informative priors are available.\nPotential sources include: literature reviews; pilot studies; expert opinions; etc.\nPrior elicitation is the process of converting expert information to prior distribution.\nFor example, the expert might not comprehend an inverse gamma pdf, but if they give you an estimate and a spread you can back out \\(a\\) and \\(b\\)."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#informative-versus-uninformative-priors-1",
+    "href": "slides/05-priors-ppds.html#informative-versus-uninformative-priors-1",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Informative versus uninformative priors",
+    "text": "Informative versus uninformative priors\n\nStrong priors for the parameters of interest can be hard to defend.\nStrong priors for nuisance parameters are more common.\nFor example, say you are doing a Bayesian t-test to study the mean \\(\\mu\\), you might use an informative prior for the nuisance parameter \\(\\sigma^2\\).\nAny time informative priors are used you should conduct a sensitivity analysis.\n\nThat is, compare the posterior for several priors."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#informative-versus-uninformative-priors-2",
+    "href": "slides/05-priors-ppds.html#informative-versus-uninformative-priors-2",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Informative versus uninformative priors",
+    "text": "Informative versus uninformative priors\n\nIn most cases prior information is not available and so uninformative priors are used.\nOther names: vague, weak, flat, diffuse, etc.\n\nThese all refer to priors with large variance.\n\nExamples: \\(\\theta \\sim Uniform(0, 1)\\) or \\(\\mu ∼ N(0, 1000^2)\\)\nUninformative priors can be conjugate or not conjugate.\nThe idea is that the likelihood overwhelms the prior.\nYou should verify this with a sensitivity analysis."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#improper-priors",
+    "href": "slides/05-priors-ppds.html#improper-priors",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Improper priors",
+    "text": "Improper priors\n\nExtreme case: \\(\\mu \\sim N(0, \\tau^2)\\) and we set \\(\\tau = \\infty\\).\nA “prior” that doesn’t integrate to one is called improper.\nExample: \\(f(\\mu) = 1\\) for all \\(\\mu \\in \\mathbb{R}\\).\nIt’s OK to use an improper prior so long as you verify that the posterior integrates to one.\nFor example, in linear regression an improper prior can be used for the slopes as long as the number of observations exceeds the number of covariates and there are no redundant predictors."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#subjective-versus-objective-priors",
+    "href": "slides/05-priors-ppds.html#subjective-versus-objective-priors",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Subjective versus objective priors",
+    "text": "Subjective versus objective priors\n\nA subjective Bayesian picks a prior that corresponds to their current state of knowledge before collecting data.\nOf course, if the reader does not share this prior then they might not accept the analysis, and so sensitivity analysis is common.\nAn objective analysis is one that requires no subjective decisions by the analyst.\nSubjective decisions include picking the likelihood, treatment of outliers, transformations, … and prior specification.\nA completely objective analysis may be feasible in tightly controlled experiments, but is impossible in many analyses."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#objective-bayes",
+    "href": "slides/05-priors-ppds.html#objective-bayes",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Objective Bayes",
+    "text": "Objective Bayes\n\nAn objective Bayesian attempts to replace the subjective choice of prior with an algorithm that determines the prior.\nThere are many approaches: Jeffreys, reference, probability matching, maximum entropy, empirical Bayes, penalized complexity, etc.\nJeffreys priors are the most common: \\(f(\\boldsymbol{\\theta}) \\propto \\sqrt{\\det[I(\\boldsymbol{\\theta})]}\\), where \\(I(\\boldsymbol{\\theta})_{ij} = \\mathbb{E}\\left[\\frac{f(\\mathbf{Y}|\\boldsymbol{\\theta})}{\\partial \\theta_i}\\frac{f(\\mathbf{Y}|\\boldsymbol{\\theta})}{\\partial \\theta_j}\\right]\\) is the Fisher Information matrix.\nMany of these priors are improper and so you have to check that the posterior is proper."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#hyperpriors",
+    "href": "slides/05-priors-ppds.html#hyperpriors",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Hyperpriors",
+    "text": "Hyperpriors\nPrior is the name for the distribution of model parameters that show up in the likelihood.\n\nFor example: In linear regression, \\(\\boldsymbol{\\beta}\\) and \\(\\sigma^2\\) are parameters in the likelihood, thus \\(f(\\boldsymbol{\\beta})\\) and \\(f(\\sigma^2)\\) are called priors.\n\nHyperprior is the name for the distribution of model parameters not in the likelihood.\nHyperparameter is the name for the parameters in a hyperprior."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#hyperpriors-1",
+    "href": "slides/05-priors-ppds.html#hyperpriors-1",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Hyperpriors",
+    "text": "Hyperpriors\n\nFor example: Suppose in linear regression, we place the following prior for \\(\\boldsymbol{\\beta}\\), \\(f(\\boldsymbol{\\beta} | \\boldsymbol{\\beta}_0, \\sigma_{\\beta}^2) = N(\\boldsymbol{\\beta}_0,\\sigma_{\\beta}^2 \\mathbf{I})\\) and\n\n\\(f(\\boldsymbol{\\beta}_0) = N(\\mathbf{0}, \\mathbf{I})\\)\n\\(f(\\sigma_{\\beta}^2) = IG(a_{\\beta}, b_{\\beta})\\)\n\n\\(f(\\boldsymbol{\\beta}_0)\\) and \\(f(\\sigma_{\\beta}^2)\\) are hyperpriors.\n\\(a_{\\beta}, b_{\\beta}\\) are hyperparameters.\n\n\nQuestion: Why would a researcher be interested in a hyperprior?"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#prior-predictive-checks",
+    "href": "slides/05-priors-ppds.html#prior-predictive-checks",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Prior predictive checks",
+    "text": "Prior predictive checks\n\nUse the prior distribution to obtain samples of the data, \\(\\mathbf{Y}\\).\n\n\\[\\begin{aligned}\nf(\\mathbf{Y}) &= \\int f(\\mathbf{Y}, \\boldsymbol{\\theta}) d\\boldsymbol{\\theta}\\\\\n&= \\int f(\\mathbf{Y} | \\boldsymbol{\\theta})f(\\boldsymbol{\\theta}) d\\boldsymbol{\\theta}\n\\end{aligned}\\]\n\nThis is easy to sample from using the following steps, 1. \\(\\boldsymbol{\\theta}^{sim} \\sim f(\\boldsymbol{\\theta})\\) and 2. \\(\\mathbf{Y}^{sim} \\sim f(\\mathbf{Y} | \\boldsymbol{\\theta}^{sim})\\).\nSimilar to Gibbs sampling, this gives a sample from the joint \\((\\mathbf{Y}^{sim}, \\boldsymbol{\\theta}^{sim})\\) and also the marginal \\(\\mathbf{Y}^{sim}\\)."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#prior-predictive-checks-1",
+    "href": "slides/05-priors-ppds.html#prior-predictive-checks-1",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Prior predictive checks",
+    "text": "Prior predictive checks\n\nSuppose that I am interested in modeling the number of patients who are in the waiting room during an hour in the Duke ED, \\(Y_i\\).\nWe can model this random variable as \\(Y_i \\stackrel{iid}{\\sim}Poisson(\\lambda)\\) for \\(i = 1,\\ldots,n\\). A conjugate prior for \\(\\lambda\\) is \\(\\lambda \\sim Gamma(a,b)\\).\nWe know from experience that on average there are 20 patients waiting during an hour, so we want \\(\\mathbb{E}[Y_i]=\\lambda = 20\\).\nThus, we place a prior on \\(\\lambda\\) that is centered at 20, which requires that \\(a/b=20\\).\nThere are infinitely many priors specifications."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#prior-predictive-checks-2",
+    "href": "slides/05-priors-ppds.html#prior-predictive-checks-2",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Prior predictive checks",
+    "text": "Prior predictive checks\n\nPrior predictive checks can be used to determine a realistic specification for \\(a\\) and \\(b\\).\n\n\ndata {\n  int&lt;lower = 1&gt; n;\n  real&lt;lower = 0&gt; a;\n  real&lt;lower = 0&gt; b;\n}\ngenerated quantities {\n  real lambda = gamma_rng(a, b);\n  vector[n] y_sim;\n  for (i in 1:n) y_sim[i] = poisson_rng(lambda);\n}\n\n\nWhen running Stan for prior predictive checks you must specify algorithm = \"Fixed_param\""
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#visualizing-prior-predictive-checks",
+    "href": "slides/05-priors-ppds.html#visualizing-prior-predictive-checks",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Visualizing prior predictive checks",
+    "text": "Visualizing prior predictive checks\n\n\n\n\n\n\n\n\n\n\n\n\nWe can use the samples of \\(Y_i\\) under different prior specifications to compute a summary statstic, for example for the maximum value."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-summaries-point-estimates",
+    "href": "slides/05-priors-ppds.html#posterior-summaries-point-estimates",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior summaries: point estimates",
+    "text": "Posterior summaries: point estimates\n\nThe output of Bayesian inference is a probability distribution. It is often convenient to summarize the posterior in various ways.\nUsually summaries are computed for individual parameters using the marginal distributions,\n\n\\[f(\\theta_i|\\mathbf{Y}) = \\int f(\\boldsymbol{\\theta} | \\mathbf{Y}) d\\boldsymbol{\\theta}_{-i}.\\]\n\nThe posterior mean is defined by,\n\n\\[\\int_{-\\infty}^{\\infty}\\theta_i f(\\theta_i|\\mathbf{Y}) d\\theta_i.\\]"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-summaries-point-estimates-1",
+    "href": "slides/05-priors-ppds.html#posterior-summaries-point-estimates-1",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior summaries: point estimates",
+    "text": "Posterior summaries: point estimates\n\nThe posterior median m is defined by,\n\n\\[\\int_{-\\infty}^{m} f(\\theta_i|\\mathbf{Y}) d\\theta_i = 0.5 = \\int_m^{\\infty} f(\\theta_i|\\mathbf{Y}) d\\theta_i.\\]\n\nThe posterior mode is given by,\n\n\\[M=\\text{argmax} f(\\theta_i|\\mathbf{Y}) \\]\n\nThe mean and mode are also well defined for the joint posterior distribution."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-summaries-intervals",
+    "href": "slides/05-priors-ppds.html#posterior-summaries-intervals",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior summaries: intervals",
+    "text": "Posterior summaries: intervals\n\nThe Bayesian analogue of a frequentist confidence interval is a credible interval.\nAn interval \\((a,b)\\) is a \\(100(1-\\alpha)\\%\\) posterior credible interval for \\(\\theta_i\\) if\n\n\\[\\int_a^b f(\\theta_i|\\mathbf{Y}) d\\theta_i = (1-\\alpha),\\quad 0\\leq \\alpha \\leq 1.\\]\n\nA credible region can be defined similarly for a joint distribution."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-summaries-intervals-1",
+    "href": "slides/05-priors-ppds.html#posterior-summaries-intervals-1",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior summaries: intervals",
+    "text": "Posterior summaries: intervals\n\nCredible intervals are not unique. The two most common are symmetric and highest posterior density (HPD).\n\nSymmetric: An interval \\((a,b)\\) is a symmetric \\(100(1-\\alpha)\\%\\) credible interval if,\n\n\\[\\int_{-\\infty}^a f(\\theta_i|\\mathbf{Y}) d\\theta_i = \\frac{\\alpha}{2} = \\int_b^{\\infty} f(\\theta_i|\\mathbf{Y}) d\\theta_i.\\]\n\nHighest posterior density (HPD): An interval \\((a,b)\\) is a \\(100(1-\\alpha)\\%\\) HPD interval if,\n\n\\([a,b]\\) is a \\(100(1-\\alpha)\\%\\) credible interval for \\(\\theta_i\\)\nFor all \\(\\theta_i \\in [a,b]\\) and \\(\\theta_i^* \\notin [a,b]\\), \\(f(\\theta_i|\\mathbf{Y}) \\geq f(\\theta_i^*|\\mathbf{Y})\\)"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-summaries-hpd-credible-interval",
+    "href": "slides/05-priors-ppds.html#posterior-summaries-hpd-credible-interval",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior summaries: HPD credible interval",
+    "text": "Posterior summaries: HPD credible interval"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-summaries-hpd-credible-interval-1",
+    "href": "slides/05-priors-ppds.html#posterior-summaries-hpd-credible-interval-1",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior summaries: HPD credible interval",
+    "text": "Posterior summaries: HPD credible interval"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-summaries-probability",
+    "href": "slides/05-priors-ppds.html#posterior-summaries-probability",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior summaries: probability",
+    "text": "Posterior summaries: probability\n\nWe may be interested in a hypothesis test: \\(H_0: \\theta \\leq c\\) versus \\(H_1: \\theta \\geq c\\)\nWe can report the posterior probability of the null hypothesis\n\n\\(P(\\theta \\leq c | \\mathbf{Y}) = \\mathbb{E}[1(\\theta \\leq c) | \\mathbf{Y}]\\)\n\nInterpretation of the posteriour probability:\n\nProbability that the null is true \\(P(\\theta \\leq c | \\mathbf{Y})\\)\n\nInterpretation of the p-value:\n\nProbability of observing a test-statistic as or more extreme given that the null is true\nEvidence for or against the null (reject or fail to reject)"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-summaries-estimation",
+    "href": "slides/05-priors-ppds.html#posterior-summaries-estimation",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior summaries: estimation",
+    "text": "Posterior summaries: estimation\n\nWe have already seen that we can use MC or MCMC to estimate these posterior summaries!\nTo compute the HPD interval we can use the hdi function from the ggdist R package\n\n\nlibrary(ggdist)\ny &lt;- rgamma(10000, 3, 1)\nquantile(y, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.6103004 7.3253886 \n\nggdist::hdi(y)\n\n          [,1]     [,2]\n[1,] 0.3187217 6.484462"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#linear-regression-recall",
+    "href": "slides/05-priors-ppds.html#linear-regression-recall",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Linear regression recall",
+    "text": "Linear regression recall\n\nAssume we observe \\((Y_i,\\mathbf{x}_i)\\) for \\(i = 1,\\ldots,n\\), where \\[Y_i|\\boldsymbol{\\beta},\\sigma^2 \\sim N(\\mathbf{x}_i \\boldsymbol{\\beta}, \\sigma^2).\\]\nThe full data likelihood is given by, \\[f(\\mathbf{Y} | \\boldsymbol{\\beta},\\sigma^2) = \\prod_{i=1}^n f(Y_i|\\boldsymbol{\\beta},\\sigma^2),\\] where \\(\\mathbf{Y} = (Y_1,\\ldots,Y_n)\\).\nWe have parameters \\(\\boldsymbol{\\theta} = (\\boldsymbol{\\beta}^\\top,\\sigma^2)\\) and \\(f(\\boldsymbol{\\theta}) = f(\\boldsymbol{\\beta})f(\\sigma^2)\\)."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-predictive-distribution-definition",
+    "href": "slides/05-priors-ppds.html#posterior-predictive-distribution-definition",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior predictive distribution: definition",
+    "text": "Posterior predictive distribution: definition\n\nAssume we observe a new \\(\\mathbf{x}'\\) and we would like to make some type of prediction about \\(Y'\\) given the data we have already observed, \\(\\mathbf{Y}\\).\nThe posterior predictive distribution is defined as \\(f(Y'|\\mathbf{Y})\\) and can be written as, \\[\\begin{aligned}\nf(Y' | \\mathbf{Y}) &= \\int f(Y' , \\boldsymbol{\\theta} | \\mathbf{Y}) d\\boldsymbol{\\theta},\\quad\\text{(marginal)}\\\\\n&= \\int f(Y' | \\boldsymbol{\\theta},\\mathbf{Y}) f(\\boldsymbol{\\theta} | \\mathbf{Y})d\\boldsymbol{\\theta},\\quad\\text{(conditional)}\\\\\n&= \\int \\underbrace{f(Y' | \\boldsymbol{\\theta})}_{likelihood} \\underbrace{f(\\boldsymbol{\\theta} | \\mathbf{Y})}_{posterior}d\\boldsymbol{\\theta}.\\quad\\text{(independence)}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-predictive-distribution-estimation",
+    "href": "slides/05-priors-ppds.html#posterior-predictive-distribution-estimation",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior predictive distribution: estimation",
+    "text": "Posterior predictive distribution: estimation\n\nThe PPD can be written as an expectation,\n\n\\[f(Y' | \\mathbf{Y})  = \\int f(Y' | \\boldsymbol{\\theta}) f(\\boldsymbol{\\theta} | \\mathbf{Y})d\\boldsymbol{\\theta} = \\mathbb{E}_{\\boldsymbol{\\theta} | \\mathbf{Y}}\\left[f(Y' | \\boldsymbol{\\theta})\\right].\\]\n\nThus, we can estimate the PPD using a Monte Carlo estimate,\n\n\\[\\mathbb{E}_{\\boldsymbol{\\theta} | \\mathbf{Y}}\\left[f(Y' | \\boldsymbol{\\theta})\\right] \\approx \\frac{1}{S} \\sum_{s = 1}^S f\\left(Y' | \\boldsymbol{\\theta}^{(s)}\\right),\\]\nwhere \\(\\left\\{\\boldsymbol{\\theta}^{(1)},\\ldots,\\boldsymbol{\\theta}^{(S)}\\right\\}\\) are samples from the posterior."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-predictive-distribution-stan",
+    "href": "slides/05-priors-ppds.html#posterior-predictive-distribution-stan",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior predictive distribution: Stan",
+    "text": "Posterior predictive distribution: Stan\n\nWe want to compute the posterior predictive distribution.\nUse generated quantities block.\n\n\ngenerated quantities {\n  vector[n] in_sample;\n  for (i in 1:n) {\n    in_sample[i] = normal_rng(X[i] * beta, sigma);\n  }\n}"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-predictive-distribution-stan-1",
+    "href": "slides/05-priors-ppds.html#posterior-predictive-distribution-stan-1",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior predictive distribution: Stan",
+    "text": "Posterior predictive distribution: Stan\n\ngenerated quantities {\n  vector[n] in_sample;\n  for (i in 1:n) {\n    in_sample[i] = normal_rng(X[i] * beta, sigma);\n  }\n}\n\nThe function normal_rng generates a single independent sample from a normal distribution with parameters:\n\nmean = X[i, ] * beta, where beta is a sample from the estimated posterior.\nsd = sigma, where sigma is a sample from the estimated posterior.\n\nThis computes the posterior predictive distribution for the original data."
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#posterior-predictive-distribution-stan-2",
+    "href": "slides/05-priors-ppds.html#posterior-predictive-distribution-stan-2",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Posterior predictive distribution: Stan",
+    "text": "Posterior predictive distribution: Stan\nThe following additions are added to the linear regression Stan code.\n\n// saved in linear_regression_ppd.stan\ndata {\n  ...\n  int&lt;lower = 1&gt; n_pred; // number of new observations\n  matrix[n_pred, p + 1] X_pred; // covariate matrix for new observations\n}\ngenerated quantities {\n  vector[n] in_sample;\n  vector[n_pred] out_sample;\n  for (i in 1:n) {\n    in_sample[i] = normal_rng(X[i, ] * beta, sigma);\n  }\n  for (i in 1:n_pred) {\n    out_sample[i] = normal_rng(X_pred[i, ] * beta, sigma);\n  }\n}"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#lets-simulate-some-data-again",
+    "href": "slides/05-priors-ppds.html#lets-simulate-some-data-again",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Let’s simulate some data again",
+    "text": "Let’s simulate some data again\n\n###True parameters\nsigma &lt;- 1.5 # true measurement error\nbeta &lt;- matrix(c(-1.5, 3), ncol = 1) # true beta\n\n###Simulation settings\nn &lt;- 100 # number of observations\np &lt;- length(beta) - 1 # number of covariates\nn_pred &lt;- 10\n  \n###Simulate data\nset.seed(54) # set seed\nX &lt;- cbind(1, matrix(rnorm(n * p), ncol = p))\nY &lt;- as.numeric(X %*% beta + rnorm(n, 0, sigma))\nX_pred &lt;- cbind(1, matrix(rnorm(n_pred * p), ncol = p))\nY_pred &lt;- as.numeric(X_pred %*% beta + rnorm(n_pred, 0, sigma))"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#fit-linear-regression-using-stan",
+    "href": "slides/05-priors-ppds.html#fit-linear-regression-using-stan",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Fit linear regression using Stan",
+    "text": "Fit linear regression using Stan\n\n###Load packages\nlibrary(rstan)\n\n###Create stan data object\nstan_data &lt;- list(n = n, p = p, Y = Y, X = X,\n                  beta0 = 0, sigma_beta = 10, a = 3,  b = 1,\n                  n_pred = n_pred, X_pred = X_pred)\n  \n###Compile model separately\nstan_model &lt;- stan_model(file = \"linear_regression_ppd.stan\")\n\n###Run model and save\nfit &lt;- sampling(stan_model, data = stan_data, \n                chains = 4, iter = 1000)\nsaveRDS(fit, file = \"linear_regression_ppd_fit.rds\")"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#examining-prediction-performance",
+    "href": "slides/05-priors-ppds.html#examining-prediction-performance",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Examining prediction performance",
+    "text": "Examining prediction performance\n\n###Inspect the ppd\nppds &lt;- extract(fit, pars = c(\"in_sample\", \"out_sample\"))\nlapply(ppds, dim)\n\n$in_sample\n[1] 2000  100\n\n$out_sample\n[1] 2000   10"
+  },
+  {
+    "objectID": "slides/05-priors-ppds.html#prepare-for-next-class",
+    "href": "slides/05-priors-ppds.html#prepare-for-next-class",
+    "title": "Priors, Posteriors, and PPDs!",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 01 which is due next Thursday before class\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Model checking"
+  },
+  {
+    "objectID": "prepare/prepare-jan20.html",
+    "href": "prepare/prepare-jan20.html",
+    "title": "Prepare for January 20 lecture",
+    "section": "",
+    "text": "📖 Read Getting started with Stan\n📖 Read Linear regression in Stan\n✅ Work on HW 01"
+  },
+  {
+    "objectID": "prepare/prepare-jan22.html",
+    "href": "prepare/prepare-jan22.html",
+    "title": "Prepare for January 22 lecture",
+    "section": "",
+    "text": "📖 Read about the posterior predictive distribution in Hoff Chapter 4, Section 4.3\n📖 Review prior choice recommendations\n✅ Work on HW 01"
   }
 ]

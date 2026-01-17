@@ -1,0 +1,11 @@
+---
+title: Prepare for January 22 lecture
+---
+
+<br>
+
+📖 Read about the posterior predictive distribution in **Hoff** Chapter 4, Section 4.3
+
+📖 Review [prior choice recommendations](https://github.com/stan-dev/stan/wiki/prior-choice-recommendations)
+
+✅ Work on [HW 01](https://biostat725-sp26.netlify.app/hw/hw-01)
