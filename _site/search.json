@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -1440,7 +1440,7 @@
     "href": "slides/04-stan.html#why-should-we-use-stan",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "Why should we use Stan?",
-    "text": "Why should we use Stan?\n\nStan is the brainchild of Andrew Gelman at Colombia.\nStan uses an extension of HMC called NUTS that automatically tunes. It is fast.\nStan is simple to learn.\nStan has excellent documentation (a manual full of extensive examples).\nMost important: Stan has a very active and helpful user forum and development team; for example, typical question answered in less than a couple of hours."
+    "text": "Why should we use Stan?\n\nStan is the brainchild of Andrew Gelman at Columbia.\nStan uses an extension of HMC called NUTS that automatically tunes. It is fast.\nStan is simple to learn.\nStan has excellent documentation (a manual full of extensive examples).\nMost important: Stan has a very active and helpful user forum and development team; for example, typical question answered in less than a couple of hours."
   },
   {
     "objectID": "slides/04-stan.html#how-do-we-use-it",
@@ -1454,7 +1454,7 @@
     "href": "slides/04-stan.html#a-straightforward-example",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "A straightforward example",
-    "text": "A straightforward example\nSuppose:\n\nWe record the height, \\(Y_i\\), of 10 people.\nWe want a model to explain the variation, and choose a normal likelihood: \\[Y_i \\sim N(\\mu, \\sigma^2)\\]\nWe choose the following (independent) priors on each parameter:\n\n\\(\\mu \\sim N(0, 1)\\)\n\\(\\sigma^2 \\sim IG(1, 1)\\)\n\nQuestion: how do we code this up in Stan?"
+    "text": "A straightforward example\nSuppose:\n\nWe record the height, \\(Y_i\\), of 10 people.\nWe want a model to explain the variation, and choose a normal likelihood: \\[Y_i \\sim N(\\mu, \\sigma^2)\\]\nWe choose the following (independent) priors on each parameter:\n\n\\(\\mu \\sim N(0, 1)\\)\n\\(\\sigma^2 \\sim IG(1, 1)\\)\n\nQuestion: How do we code this up in Stan?"
   },
   {
     "objectID": "slides/04-stan.html#an-example-stan-program",
@@ -1489,14 +1489,14 @@
     "href": "slides/04-stan.html#an-example-stan-program-parameter-block",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "An example Stan program: parameter block",
-    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\n\nDeclare all parameters that you use in your model.\nPlace limits on variables, for example:\n\nreal&lt;lower = 0&gt; sigma2\n\n\nA multitude of parameter types including some of the aforementioned:\n\nreal for continuous parameters.\nArrays of types, for example real beta[10]"
+    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\n\nDeclare all parameters that you use in your model.\nPlace limits on variables, for example:\n\nreal&lt;lower = 0&gt; sigma2;\n\n\nA multitude of parameter types including some of the aforementioned:\n\nreal for continuous parameters.\nArrays of types, for example real beta[10];"
   },
   {
     "objectID": "slides/04-stan.html#an-example-stan-program-parameter-block-1",
     "href": "slides/04-stan.html#an-example-stan-program-parameter-block-1",
     "title": "Probabilistic Programming (Intro to Stan!)",
     "section": "An example Stan program: parameter block",
-    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\n\nvector or matrix, specified by:\n\nvector[5] beta\nmatrix[5, 3] gamma\n\nsimplex for a parameter vector that must sum to 1.\nMore exotic types like corr_matrix, or ordered."
+    "text": "An example Stan program: parameter block\n\nparameters {\n  real mu;\n  real&lt;lower = 0&gt; sigma2;\n}\n\n\nvector or matrix, specified by:\n\nvector[5] beta;\nmatrix[5, 3] gamma;\n\nsimplex for a parameter vector that must sum to 1.\nMore exotic types like corr_matrix, or ordered."
   },
   {
     "objectID": "slides/04-stan.html#an-example-stan-program-parameter-block-2",
@@ -1931,5 +1931,89 @@
     "title": "Prepare for January 22 lecture",
     "section": "",
     "text": "📖 Read about the posterior predictive distribution in Hoff Chapter 4, Section 4.3\n📖 Review prior choice recommendations\n✅ Work on HW 01"
+  },
+  {
+    "objectID": "ae/ae-03-stan.html",
+    "href": "ae/ae-03-stan.html",
+    "title": "AE 03: Introduction to Stan",
+    "section": "",
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#learning-goals",
+    "href": "ae/ae-03-stan.html#learning-goals",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the AE, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nPerform Bayesian linear regression using HMC\nPrepare data for a regression task in Stan\nPrint posterior results from Stan"
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-03-stan.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp26 organization on GitHub.\nClick on the repo with the prefix ae-03-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select SSH (this might already be selected by default, and if it is, you’ll see the text Use a password-protected SSH key.). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-03.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#exercise-1",
+    "href": "ae/ae-03-stan.html#exercise-1",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit the following model in Stan and present posterior summaries.\n\\[\nY_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i, \\hspace{5mm} \\epsilon \\sim N(0, \\sigma^2),\n\\] where \\(\\mathbf{x}_i = (Age_i, 1(Sex_i = Male), BMI_i, BP_i)\\) and flat priors for all parameters: \\(f(\\alpha,\\boldsymbol{\\beta},\\sigma) \\propto c.\\) Flat priors are specified by default, so we can omit any prior specification.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#exercise-2",
+    "href": "ae/ae-03-stan.html#exercise-2",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nFit the same model using the lm function in R. Compare the Bayesian and OLS/MLE results.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-stan.html#exercise-3",
+    "href": "ae/ae-03-stan.html#exercise-3",
+    "title": "AE 03: Introduction to Stan",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit the same regression model as in Exercise 1, but with the following priors:\n\\[\\begin{align*}\n\\alpha &\\sim N(0,10)\\\\\n\\beta_j &\\sim N(0,10),\\quad j=1,\\ldots,p\\\\\n\\sigma^2 &\\sim \\text{Inv-Gamma}(3,1).\n\\end{align*}\\]\nCompare the results from this model to the previous two models.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html",
+    "href": "ae/ae-04-priors-ppd.html",
+    "title": "AE 04: Priors in Stan",
+    "section": "",
+    "text": "Due date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#learning-goals",
+    "href": "ae/ae-04-priors-ppd.html#learning-goals",
+    "title": "AE 04: Priors in Stan",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the AE, you will…\n\nUnderstand the idea of centering data for stabilizing inference\nGain knowledge on prior specification and its sometimes unintended impact\nBe able to compute and interpret a posterior predictive distribution"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-04-priors-ppd.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 04: Priors in Stan",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp26 organization on GitHub.\nClick on the repo with the prefix ae-04-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select SSH (this might already be selected by default, and if it is, you’ll see the text Use a password-protected SSH key.). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-04.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#exercise-1",
+    "href": "ae/ae-04-priors-ppd.html#exercise-1",
+    "title": "AE 04: Priors in Stan",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit the centered regression model detailed above with the following priors: \\(\\alpha \\sim N(0,10^2)\\), \\(\\beta_j \\sim N(0,10^2)\\), and \\(\\sigma^2 \\sim \\text{Inv-Gamma}(3,1).\\) Obtain posterior samples for this model using Stan. Be sure to present posterior samples for \\(\\alpha^*\\).\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#exercise-2",
+    "href": "ae/ae-04-priors-ppd.html#exercise-2",
+    "title": "AE 04: Priors in Stan",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nStan is extremely flexible in terms of the priors that can be used for parameters. Using the centered data specification, change the priors for all three parameters. Report how sensitive the results are.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-04-priors-ppd.html#exercise-3",
+    "href": "ae/ae-04-priors-ppd.html#exercise-3",
+    "title": "AE 04: Priors in Stan",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCompute the posterior predictive distribution for a 60 year old male with a BMI of 25 and average blood pressure of 85.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
   }
 ]

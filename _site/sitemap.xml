@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp26.netlify.app/hw/hw-01.html</loc>
-    <lastmod>2026-01-08T15:37:20.257Z</lastmod>
+    <lastmod>2026-01-17T16:30:36.214Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp26.netlify.app/ae/ae-01-monte-carlo.html</loc>
@@ -90,11 +90,11 @@
   </url>
   <url>
     <loc>https://biostat725-sp26.netlify.app/ae/ae-02-mcmc.html</loc>
-    <lastmod>2026-01-15T15:13:01.082Z</lastmod>
+    <lastmod>2026-01-17T16:40:52.520Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp26.netlify.app/slides/04-stan.html</loc>
-    <lastmod>2026-01-17T16:17:18.539Z</lastmod>
+    <lastmod>2026-01-20T13:42:52.433Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp26.netlify.app/slides/05-priors-ppds.html</loc>
@@ -107,5 +107,13 @@
   <url>
     <loc>https://biostat725-sp26.netlify.app/prepare/prepare-jan22.html</loc>
     <lastmod>2026-01-17T16:24:45.405Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp26.netlify.app/ae/ae-03-stan.html</loc>
+    <lastmod>2026-01-17T16:36:14.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp26.netlify.app/ae/ae-04-priors-ppd.html</loc>
+    <lastmod>2026-01-17T16:47:59.366Z</lastmod>
   </url>
 </urlset>

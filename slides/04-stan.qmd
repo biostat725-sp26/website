@@ -68,7 +68,7 @@ By the end of this lecture you should:
 
 ## Why should we use Stan?
 
--   Stan is the brainchild of Andrew Gelman at Colombia.
+-   Stan is the brainchild of Andrew Gelman at Columbia.
 
 -   Stan uses an extension of HMC called NUTS that automatically tunes. It is fast.
 
@@ -101,7 +101,7 @@ Suppose:
     -   $\mu \sim N(0, 1)$
     -   $\sigma^2 \sim IG(1, 1)$
 
--   **Question:** how do we code this up in Stan?
+-   **Question:** How do we code this up in Stan?
 
 ## An example Stan program
 
@@ -184,13 +184,13 @@ parameters {
 
 -   Place limits on variables, for example:
 
-    -   `real<lower = 0> sigma2`
+    -   `real<lower = 0> sigma2;`
 
 A multitude of parameter types including some of the aforementioned:
 
 -   `real` for continuous parameters.
 
--   Arrays of types, for example `real beta[10]`
+-   Arrays of types, for example `real beta[10];`
 
 ## An example Stan program: parameter block
 
@@ -203,9 +203,9 @@ parameters {
 
 -   `vector` or `matrix`, specified by:
 
-    -   `vector[5] beta`
+    -   `vector[5] beta;`
 
-    -   `matrix[5, 3] gamma`
+    -   `matrix[5, 3] gamma;`
 
 -   `simplex` for a parameter vector that must sum to 1.
 

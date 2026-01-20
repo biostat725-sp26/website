@@ -238,7 +238,7 @@ Prof.&nbsp;Sam Berchuck
 <section id="why-should-we-use-stan" class="slide level2">
 <h2>Why should we use Stan?</h2>
 <ul>
-<li><p>Stan is the brainchild of Andrew Gelman at Colombia.</p></li>
+<li><p>Stan is the brainchild of Andrew Gelman at Columbia.</p></li>
 <li><p>Stan uses an extension of HMC called NUTS that automatically tunes. It is fast.</p></li>
 <li><p>Stan is simple to learn.</p></li>
 <li><p>Stan has excellent <a href="https://mc-stan.org/docs/">documentation</a> (a manual full of extensive examples).</p></li>
@@ -267,7 +267,7 @@ Prof.&nbsp;Sam Berchuck
 <li><span class="math inline">\(\mu \sim N(0, 1)\)</span></li>
 <li><span class="math inline">\(\sigma^2 \sim IG(1, 1)\)</span></li>
 </ul></li>
-<li><p><strong>Question:</strong> how do we code this up in Stan?</p></li>
+<li><p><strong>Question:</strong> How do we code this up in Stan?</p></li>
 </ul>
 </section>
 <section id="an-example-stan-program" class="slide level2">
@@ -346,13 +346,13 @@ Prof.&nbsp;Sam Berchuck
 <li><p>Declare all parameters that you use in your model.</p></li>
 <li><p>Place limits on variables, for example:</p>
 <ul>
-<li><code>real&lt;lower = 0&gt; sigma2</code></li>
+<li><code>real&lt;lower = 0&gt; sigma2;</code></li>
 </ul></li>
 </ul>
 <p>A multitude of parameter types including some of the aforementioned:</p>
 <ul>
 <li><p><code>real</code> for continuous parameters.</p></li>
-<li><p>Arrays of types, for example <code>real beta[10]</code></p></li>
+<li><p>Arrays of types, for example <code>real beta[10];</code></p></li>
 </ul>
 </section>
 <section id="an-example-stan-program-parameter-block-1" class="slide level2">
@@ -366,8 +366,8 @@ Prof.&nbsp;Sam Berchuck
 <ul>
 <li><p><code>vector</code> or <code>matrix</code>, specified by:</p>
 <ul>
-<li><p><code>vector[5] beta</code></p></li>
-<li><p><code>matrix[5, 3] gamma</code></p></li>
+<li><p><code>vector[5] beta;</code></p></li>
+<li><p><code>matrix[5, 3] gamma;</code></p></li>
 </ul></li>
 <li><p><code>simplex</code> for a parameter vector that must sum to 1.</p></li>
 <li><p>More exotic types like <code>corr_matrix</code>, or <code>ordered</code>.</p></li>

@@ -1,0 +1,175 @@
+---
+title: "AE 04: Priors in Stan"
+subtitle: "Modeling diabetes disease progression"
+date: "Jan 22, 2026"
+---
+
+::: callout-important
+## Due date
+
+Application exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.
+
+-   Final `.qmd` and `.pdf` files pushed to your GitHub repo
+-   **Note:** For homeworks and exams, you will also be required to submit your final `.pdf` file submitted on Gradescope
+:::
+
+# Introduction
+
+This AE will take another look at the diabetes regression problem from Tuesday. At the end of the AE, we realized that placing priors on the parameters yields incorrect posterior inference. During this AE we will explore data centering approaches to stabilize our Bayesian model and explore the implications of prior specification.
+
+## Learning goals
+
+By the end of the AE, you will...
+
+-   Understand the idea of centering data for stabilizing inference
+-   Gain knowledge on prior specification and its sometimes unintended impact
+-   Be able to compute and interpret a posterior predictive distribution
+
+# Getting Started
+
+## Clone the repo & start new RStudio project
+
+-   Go to the course organization at [github.com/biostat725-sp26](https://github.com/biostat725-sp26) organization on GitHub.
+-   Click on the repo with the prefix **ae-04-**. It contains the starter documents you need to complete the AE.
+-   Click on the green **CODE** button, select **SSH** (this might already be selected by default, and if it is, you'll see the text **Use a password-protected SSH key.**). Click on the clipboard icon to copy the repo URL.
+    -   See the [HW 00 instructions](https://biostat725-sp26.netlify.app/hw/hw-00#connect-rstudio-and-github) if you have not set up the SSH key or configured git.
+-   In RStudio, go to *File* $\rightarrow$ *New Project* $\rightarrow$ *Version Control* $\rightarrow$ *Git*.
+-   Copy and paste the URL of your assignment repo into the dialog box *Repository URL*. Again, please make sure to have *SSH* highlighted under *Clone* when you copy the address.
+-   Click *Create Project*, and the files from your GitHub repo will be displayed in the *Files* pane in RStudio.
+-   Click `ae-04.qmd` to open the template Quarto file. This is where you will write up your code and narrative for the AE.
+
+# R packages
+
+We will begin by loading R packages that we will use in this AE.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)    # data wrangling and visualization
+library(knitr)        # format output
+library(rstan)        # Stan
+library(bayesplot)    # figures for post Stan inference
+```
+
+# Data
+
+Today we will use data from the paper [Least Angle Regression](https://projecteuclid.org/journals/annals-of-statistics/volume-32/issue-2/Least-angle-regression/10.1214/009053604000000067.full) by Efron et al. There are ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements were obtained for each of n = 442 diabetes patients, as well as the response of interest, a quantitative measure of disease progression one year after baseline.
+
+We will focus on the following variables:
+
+-   `Y`: measure of disease progression one year after baseline
+
+-   `AGE`: age in years
+
+-   `SEX`: sex (`1` = female, `2` = male)
+
+-   `BMI`: body mass index ($kg/m^2$)
+
+-   `BP`: average blood pressure (mm Hg)
+
+The goal of this analysis is to learn the associations between age, sex, BMI, and blood pressure on diabetic disease progression one year after baseline. The data is available in the `ae-04-` repo and is called `diabetes.txt`.
+
+```{r, eval = FALSE, message = FALSE}
+#| label: glimpse-data
+diabetes <- read_table("diabetes.txt")
+glimpse(diabetes)
+```
+
+```{r, echo = FALSE, message = FALSE}
+diabetes <- read_table("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/repos/AE 03/diabetes.txt")
+glimpse(diabetes)
+```
+
+# Review of last AE
+
+Last AE we fit the following model in Stan and presented posterior summaries.
+
+$$
+Y_i = \alpha + \mathbf{x}_i\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2),
+$$ where $\mathbf{x}_i = (Age_i, 1(Sex_i = Male), BMI_i, BP_i)$ and flat priors for all parameters: $f(\alpha,\boldsymbol{\beta},\sigma) \propto c.$ Flat priors are specified by default, so we can omit any prior specification.
+
+```{r, echo = FALSE}
+fit <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/ae-03/fit.rds")
+print(fit, probs = c(0.025, 0.975))
+```
+
+The Bayesian regression results nicely matched the OLS/MLE results.
+
+```{r}
+summary(lm(Y ~ AGE + as.factor(SEX) + BMI + BP, data = diabetes))
+```
+
+However, when we changed the priors to the following, our regression results become extremely different from the OLS/MLE.
+
+\begin{align*}
+\alpha &\sim N(0,10^2)\\
+\beta_j &\sim N(0,10^2),\quad j=1,\ldots,p\\
+\sigma^2 &\sim \text{Inv-Gamma}(3,1).
+\end{align*}
+
+```{r, echo = FALSE}
+fit2 <- readRDS(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/ae-03/fit2.rds")
+print(fit2, probs = c(0.025, 0.975))
+```
+
+# Centering Data for Stable Inference
+
+Before fitting our regression model, we will center the data. Define, $\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i$ and $\bar{\mathbf{x}}_i = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i$. Then the centered data are $Y_i^* = Y_i - \bar{Y}$ and $\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}_i$. We will then perform regression using the centered data, such that $$Y^*_i = \alpha + \mathbf{x}_i^*\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2).$$ Centering our data can stabilize the posterior inference, because the data will be closer to zero. In particular, consider the scenario above where we placed a prior on $\alpha \sim N(0,10^2)$. We know that the true value of $\alpha$ (according to OLS/MLE) is close to -200, so our prior, which was intended to be weakly-informative, is actually pulling the posterior towards zero. This then leads to a domino-effect, where the incorrect inference for $\alpha$ will actually lead to unstable inference for the other parameters. Thus, centering our data means that $\alpha$ should be closer to 0, leading to stable inference for all of our parameters.
+
+Even though we fit the model on centered data, we are still able to recover the parameters on the scale of our original data.
+
+\begin{align*}
+\mathbb{E}[Y_i^* | \alpha, \boldsymbol{\beta}] &= \alpha + \mathbf{x}_i^*\boldsymbol{\beta}\\
+\mathbb{E}[Y_i - \bar{Y} | \alpha, \boldsymbol{\beta}] &= \alpha + (\mathbf{x}_i - \bar{\mathbf{x}}_i)\boldsymbol{\beta}\\
+\mathbb{E}[Y_i | \alpha, \boldsymbol{\beta}] &= \bar{Y} + \alpha - \bar{\mathbf{x}}_i\boldsymbol{\beta} + \mathbf{x}_i\boldsymbol{\beta}\\
+\mathbb{E}[Y_i | \alpha, \boldsymbol{\beta}] &= \alpha^* + \mathbf{x}_i\boldsymbol{\beta},
+\end{align*} where $\alpha^* = \bar{Y} + \alpha - \bar{\mathbf{x}}_i\boldsymbol{\beta}$. Thus, on the original scale of the data the intercept would be equivalent to $\alpha^*$. The regression slopes $\boldsymbol{\beta}$ do not need any transformation and can be interpreted on the original scale. The error term, $\sigma^2$, can also be interpreted on the original scale, because $\mathbb{V}(Y_i^* | \alpha, \boldsymbol{\beta}) = \sigma^2$.
+
+# Exercises
+
+## Exercise 1
+
+Fit the centered regression model detailed above with the following priors: $\alpha \sim N(0,10^2)$, $\beta_j \sim N(0,10^2)$, and $\sigma^2 \sim \text{Inv-Gamma}(3,1).$ Obtain posterior samples for this model using Stan. Be sure to present posterior samples for $\alpha^*$.
+
+**Answer:**
+
+```{r}
+#| label: ex1
+
+# add code here
+
+```
+
+## Exercise 2
+
+Stan is extremely flexible in terms of the priors that can be used for parameters. Using the centered data specification, change the priors for all three parameters. Report how sensitive the results are.
+
+**Answer:**
+
+```{r}
+#| label: ex2
+
+# add code here
+
+```
+
+## Exercise 3
+
+Compute the posterior predictive distribution for a 60 year old male with a BMI of 25 and average blood pressure of 85.
+
+**Answer:**
+
+```{r}
+#| label: ex3
+
+# add code here
+
+```
+
+::: callout-important
+To submit the AE:
+
+-   Render the document to produce the PDF with all of your work from today's class.
+-   Push all your work to your AE repo on GitHub. You're done! 🎉
+:::
