@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Prof.&nbsp;Sam Berchuck">
   <title>BIOSTAT 725 - Spring 2026 – Priors, Posteriors, and PPDs!</title>
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-52409b2fa210337c57c52cd2a257efa4.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-12e9f5ab6e39b4942a5262e442dfa860.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -367,7 +367,7 @@ f(\mathbf{Y}) &amp;= \int f(\mathbf{Y}, \boldsymbol{\theta}) d\boldsymbol{\theta
 <li>Prior predictive checks can be used to determine a realistic specification for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</li>
 </ul>
 <div class="cell" data-output.var="prior pc">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a></a><span class="kw">data</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a></a><span class="kw">data</span> {</span>
 <span id="cb1-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
 <span id="cb1-3"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; a;</span>
 <span id="cb1-4"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; b;</span>
@@ -376,7 +376,7 @@ f(\mathbf{Y}) &amp;= \int f(\mathbf{Y}, \boldsymbol{\theta}) d\boldsymbol{\theta
 <span id="cb1-7"><a></a>  <span class="dt">real</span> lambda = gamma_rng(a, b);</span>
 <span id="cb1-8"><a></a>  <span class="dt">vector</span>[n] y_sim;</span>
 <span id="cb1-9"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) y_sim[i] = poisson_rng(lambda);</span>
-<span id="cb1-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>When running Stan for prior predictive checks you must specify <code>algorithm = "Fixed_param"</code></li>
@@ -500,17 +500,17 @@ f(\mathbf{Y}) &amp;= \int f(\mathbf{Y}, \boldsymbol{\theta}) d\boldsymbol{\theta
 <li><p>To compute the HPD interval we can use the <code>hdi</code> function from the <code>ggdist</code> R package</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(ggdist)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(ggdist)</span>
 <span id="cb2-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">10000</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
-<span id="cb2-3"><a></a><span class="fu">quantile</span>(y, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a></a><span class="fu">quantile</span>(y, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5%     97.5% 
-0.6103004 7.3253886 </code></pre>
+0.6176769 7.0612793 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>ggdist<span class="sc">::</span><span class="fu">hdi</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>ggdist<span class="sc">::</span><span class="fu">hdi</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          [,1]     [,2]
-[1,] 0.3187217 6.484462</code></pre>
+[1,] 0.3289726 6.321955</code></pre>
 </div>
 </div>
 </section></section>
@@ -557,23 +557,23 @@ f(Y' | \mathbf{Y}) &amp;= \int f(Y' , \boldsymbol{\theta} | \mathbf{Y}) d\boldsy
 <li><p>Use <strong>generated quantities</strong> block.</p></li>
 </ul>
 <div class="cell" data-output.var="ppd">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a></a><span class="kw">generated quantities</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a></a><span class="kw">generated quantities</span> {</span>
 <span id="cb6-2"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
 <span id="cb6-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
 <span id="cb6-4"><a></a>    in_sample[i] = normal_rng(X[i] * beta, sigma);</span>
 <span id="cb6-5"><a></a>  }</span>
-<span id="cb6-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="posterior-predictive-distribution-stan-1" class="slide level2 midi">
 <h2>Posterior predictive distribution: Stan</h2>
 <div class="cell" data-output.var="ppd">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a></a><span class="kw">generated quantities</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a></a><span class="kw">generated quantities</span> {</span>
 <span id="cb7-2"><a></a>  <span class="dt">vector</span>[n] in_sample;</span>
 <span id="cb7-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
 <span id="cb7-4"><a></a>    in_sample[i] = normal_rng(X[i] * beta, sigma);</span>
 <span id="cb7-5"><a></a>  }</span>
-<span id="cb7-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The function <code>normal_rng</code> generates a single independent sample from a normal distribution with parameters:</p>
 <ul>
@@ -586,7 +586,7 @@ f(Y' | \mathbf{Y}) &amp;= \int f(Y' , \boldsymbol{\theta} | \mathbf{Y}) d\boldsy
 <h2>Posterior predictive distribution: Stan</h2>
 <p>The following additions are added to the linear regression Stan code.</p>
 <div class="cell" data-output.var="ppd">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb8-1"><a></a><span class="co">// saved in linear_regression_ppd.stan</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb8-1"><a></a><span class="co">// saved in linear_regression_ppd.stan</span></span>
 <span id="cb8-2"><a></a><span class="kw">data</span> {</span>
 <span id="cb8-3"><a></a>  ...</span>
 <span id="cb8-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n_pred; <span class="co">// number of new observations</span></span>
@@ -601,13 +601,13 @@ f(Y' | \mathbf{Y}) &amp;= \int f(Y' , \boldsymbol{\theta} | \mathbf{Y}) d\boldsy
 <span id="cb8-13"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n_pred) {</span>
 <span id="cb8-14"><a></a>    out_sample[i] = normal_rng(X_pred[i, ] * beta, sigma);</span>
 <span id="cb8-15"><a></a>  }</span>
-<span id="cb8-16"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-16"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="lets-simulate-some-data-again" class="slide level2">
 <h2>Let’s simulate some data again</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="do">###True parameters</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="do">###True parameters</span></span>
 <span id="cb9-2"><a></a>sigma <span class="ot">&lt;-</span> <span class="fl">1.5</span> <span class="co"># true measurement error</span></span>
 <span id="cb9-3"><a></a>beta <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>, <span class="dv">3</span>), <span class="at">ncol =</span> <span class="dv">1</span>) <span class="co"># true beta</span></span>
 <span id="cb9-4"><a></a></span>
@@ -621,13 +621,13 @@ f(Y' | \mathbf{Y}) &amp;= \int f(Y' , \boldsymbol{\theta} | \mathbf{Y}) d\boldsy
 <span id="cb9-12"><a></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n <span class="sc">*</span> p), <span class="at">ncol =</span> p))</span>
 <span id="cb9-13"><a></a>Y <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, sigma))</span>
 <span id="cb9-14"><a></a>X_pred <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, <span class="fu">matrix</span>(<span class="fu">rnorm</span>(n_pred <span class="sc">*</span> p), <span class="at">ncol =</span> p))</span>
-<span id="cb9-15"><a></a>Y_pred <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X_pred <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n_pred, <span class="dv">0</span>, sigma))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-15"><a></a>Y_pred <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(X_pred <span class="sc">%*%</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(n_pred, <span class="dv">0</span>, sigma))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="fit-linear-regression-using-stan" class="slide level2">
 <h2>Fit linear regression using Stan</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="do">###Load packages</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="do">###Load packages</span></span>
 <span id="cb10-2"><a></a><span class="fu">library</span>(rstan)</span>
 <span id="cb10-3"><a></a></span>
 <span id="cb10-4"><a></a><span class="do">###Create stan data object</span></span>
@@ -641,15 +641,15 @@ f(Y' | \mathbf{Y}) &amp;= \int f(Y' , \boldsymbol{\theta} | \mathbf{Y}) d\boldsy
 <span id="cb10-12"><a></a><span class="do">###Run model and save</span></span>
 <span id="cb10-13"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_model, <span class="at">data =</span> stan_data, </span>
 <span id="cb10-14"><a></a>                <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">1000</span>)</span>
-<span id="cb10-15"><a></a><span class="fu">saveRDS</span>(fit, <span class="at">file =</span> <span class="st">"linear_regression_ppd_fit.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-15"><a></a><span class="fu">saveRDS</span>(fit, <span class="at">file =</span> <span class="st">"linear_regression_ppd_fit.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="examining-prediction-performance" class="slide level2 midi">
 <h2>Examining prediction performance</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="do">###Inspect the ppd</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="do">###Inspect the ppd</span></span>
 <span id="cb11-2"><a></a>ppds <span class="ot">&lt;-</span> <span class="fu">extract</span>(fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"in_sample"</span>, <span class="st">"out_sample"</span>))</span>
-<span id="cb11-3"><a></a><span class="fu">lapply</span>(ppds, dim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a></a><span class="fu">lapply</span>(ppds, dim)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$in_sample
 [1] 2000  100
@@ -986,13 +986,14 @@ $out_sample
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
