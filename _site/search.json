@@ -1846,7 +1846,7 @@
     "href": "slides/05-priors-ppds.html#posterior-summaries-estimation",
     "title": "Priors, Posteriors, and PPDs!",
     "section": "Posterior summaries: estimation",
-    "text": "Posterior summaries: estimation\n\nWe have already seen that we can use MC or MCMC to estimate these posterior summaries!\nTo compute the HPD interval we can use the hdi function from the ggdist R package\n\n\nlibrary(ggdist)\ny &lt;- rgamma(10000, 3, 1)\nquantile(y, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.6176769 7.0612793 \n\nggdist::hdi(y)\n\n          [,1]     [,2]\n[1,] 0.3289726 6.321955"
+    "text": "Posterior summaries: estimation\n\nWe have already seen that we can use MC or MCMC to estimate these posterior summaries!\nTo compute the HPD interval we can use the hdi function from the ggdist R package\n\n\nlibrary(ggdist)\ny &lt;- rgamma(10000, 3, 1)\nquantile(y, probs = c(0.025, 0.975))\n\n     2.5%     97.5% \n0.6184613 7.2143297 \n\nggdist::hdi(y)\n\n          [,1]     [,2]\n[1,] 0.2539334 6.291464"
   },
   {
     "objectID": "slides/05-priors-ppds.html#linear-regression-recall",

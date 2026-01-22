@@ -384,7 +384,7 @@ f(\mathbf{Y}) &amp;= \int f(\mathbf{Y}, \boldsymbol{\theta}) d\boldsymbol{\theta
 </section>
 <section id="visualizing-prior-predictive-checks" class="slide level2 midi">
 <h2>Visualizing prior predictive checks</h2>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -505,12 +505,12 @@ f(\mathbf{Y}) &amp;= \int f(\mathbf{Y}, \boldsymbol{\theta}) d\boldsymbol{\theta
 <span id="cb2-3"><a></a><span class="fu">quantile</span>(y, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5%     97.5% 
-0.6176769 7.0612793 </code></pre>
+0.6184613 7.2143297 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>ggdist<span class="sc">::</span><span class="fu">hdi</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          [,1]     [,2]
-[1,] 0.3289726 6.321955</code></pre>
+[1,] 0.2539334 6.291464</code></pre>
 </div>
 </div>
 </section></section>
@@ -659,7 +659,7 @@ $out_sample
 </div>
 </div>
 <div class="fragment">
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
