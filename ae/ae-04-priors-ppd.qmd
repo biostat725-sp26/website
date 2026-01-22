@@ -115,16 +115,16 @@ print(fit2, probs = c(0.025, 0.975))
 
 # Centering Data for Stable Inference
 
-Before fitting our regression model, we will center the data. Define, $\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i$ and $\bar{\mathbf{x}}_i = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i$. Then the centered data are $Y_i^* = Y_i - \bar{Y}$ and $\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}_i$. We will then perform regression using the centered data, such that $$Y^*_i = \alpha + \mathbf{x}_i^*\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2).$$ Centering our data can stabilize the posterior inference, because the data will be closer to zero. In particular, consider the scenario above where we placed a prior on $\alpha \sim N(0,10^2)$. We know that the true value of $\alpha$ (according to OLS/MLE) is close to -200, so our prior, which was intended to be weakly-informative, is actually pulling the posterior towards zero. This then leads to a domino-effect, where the incorrect inference for $\alpha$ will actually lead to unstable inference for the other parameters. Thus, centering our data means that $\alpha$ should be closer to 0, leading to stable inference for all of our parameters.
+Before fitting our regression model, we will center the data. Define, $\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i$ and $\bar{\mathbf{x}} = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i$. Then the centered data are $Y_i^* = Y_i - \bar{Y}$ and $\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}$. We will then perform regression using the centered data, such that $$Y^*_i = \alpha + \mathbf{x}_i^*\boldsymbol{\beta} + \epsilon_i, \hspace{5mm} \epsilon \sim N(0, \sigma^2).$$ Centering our data can stabilize the posterior inference, because the data will be closer to zero. In particular, consider the scenario above where we placed a prior on $\alpha \sim N(0,10^2)$. We know that the true value of $\alpha$ (according to OLS/MLE) is close to -200, so our prior, which was intended to be weakly-informative, is actually pulling the posterior towards zero. This then leads to a domino-effect, where the incorrect inference for $\alpha$ will actually lead to unstable inference for the other parameters. Thus, centering our data means that $\alpha$ should be closer to 0, leading to stable inference for all of our parameters.
 
 Even though we fit the model on centered data, we are still able to recover the parameters on the scale of our original data.
 
 \begin{align*}
 \mathbb{E}[Y_i^* | \alpha, \boldsymbol{\beta}] &= \alpha + \mathbf{x}_i^*\boldsymbol{\beta}\\
-\mathbb{E}[Y_i - \bar{Y} | \alpha, \boldsymbol{\beta}] &= \alpha + (\mathbf{x}_i - \bar{\mathbf{x}}_i)\boldsymbol{\beta}\\
-\mathbb{E}[Y_i | \alpha, \boldsymbol{\beta}] &= \bar{Y} + \alpha - \bar{\mathbf{x}}_i\boldsymbol{\beta} + \mathbf{x}_i\boldsymbol{\beta}\\
+\mathbb{E}[Y_i - \bar{Y} | \alpha, \boldsymbol{\beta}] &= \alpha + (\mathbf{x}_i - \bar{\mathbf{x}})\boldsymbol{\beta}\\
+\mathbb{E}[Y_i | \alpha, \boldsymbol{\beta}] &= \bar{Y} + \alpha - \bar{\mathbf{x}}\boldsymbol{\beta} + \mathbf{x}_i\boldsymbol{\beta}\\
 \mathbb{E}[Y_i | \alpha, \boldsymbol{\beta}] &= \alpha^* + \mathbf{x}_i\boldsymbol{\beta},
-\end{align*} where $\alpha^* = \bar{Y} + \alpha - \bar{\mathbf{x}}_i\boldsymbol{\beta}$. Thus, on the original scale of the data the intercept would be equivalent to $\alpha^*$. The regression slopes $\boldsymbol{\beta}$ do not need any transformation and can be interpreted on the original scale. The error term, $\sigma^2$, can also be interpreted on the original scale, because $\mathbb{V}(Y_i^* | \alpha, \boldsymbol{\beta}) = \sigma^2$.
+\end{align*} where $\alpha^* = \bar{Y} + \alpha - \bar{\mathbf{x}}\boldsymbol{\beta}$. Thus, on the original scale of the data the intercept would be equivalent to $\alpha^*$. The regression slopes $\boldsymbol{\beta}$ do not need any transformation and can be interpreted on the original scale. The error term, $\sigma^2$, can also be interpreted on the original scale, because $\mathbb{V}(Y_i^* | \alpha, \boldsymbol{\beta}) = \sigma^2$.
 
 # Exercises
 
