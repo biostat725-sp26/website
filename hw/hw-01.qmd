@@ -91,7 +91,7 @@ Create a figure that includes both the prior and posterior distributions for $\l
 
 ## Exercise 8-10
 
-Define a random variable $weight_i$ that represents the weight of the baby at birth in ounces for pregnancy $i$. We are interested in learning the association between birth weight and the smoking habit, $habit_i$, of the mother. Fit the following Bayesian linear regression model using Gibbs sampling,
+Define a random variable $weight_i$ that represents the weight of the baby at birth in pounds for pregnancy $i$. We are interested in learning the association between birth weight and the smoking habit, $habit_i$, of the mother. Fit the following Bayesian linear regression model using Gibbs sampling,
 
 \begin{align*}
 weight_i &= \beta_0 + \beta_1 \times 1(habit_i = \text{smoker}) + \epsilon_i,\quad \epsilon_i \sim N(0,\sigma^2),\\
