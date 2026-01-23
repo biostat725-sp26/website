@@ -62,7 +62,7 @@ website:
         contents:
         - href: hw/hw-00.qmd
           text: HW 00
-        - href: hw/hw-01-blank.qmd
+        - href: hw/hw-01.qmd
           text: HW 01
         - href: hw/hw-02-blank.qmd
           text: HW 02
