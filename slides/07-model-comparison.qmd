@@ -599,7 +599,7 @@ print(comp, digits = 2, simplify = FALSE)
 
 ## Prepare for next class
 
--   Work on [HW 02](https://biostat725-sp26.netlify.app/hw/hw-02), which was just assigned
+-   Work on [HW 02](https://biostat725-sp26.netlify.app/hw/hw-02-blank), which was just assigned
 
 -   Complete reading to prepare for next Tuesday's lecture
 
