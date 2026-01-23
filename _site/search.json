@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -2015,5 +2015,572 @@
     "title": "AE 04: Priors in Stan",
     "section": "Exercise 3",
     "text": "Exercise 3\nCompute the posterior predictive distribution for a 60 year old male with a BMI of 25 and average blood pressure of 85.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "prepare/prepare-jan27.html",
+    "href": "prepare/prepare-jan27.html",
+    "title": "Prepare for January 27 lecture",
+    "section": "",
+    "text": "Occasionally during the semester we will reference material from the text book Bayesian Data Analysis Third Edition by Andrew Gelman et al. A PDF of the textbook is available for download at Andrew Gelman’s website. We will refer to this textbook as BDA3.\n📖 Read BDA3 Chapter 6 to learn about posterior predictive checking\n📖 Read BDA3 Chapter 11.4 and 11.5 to learn about model convergence metrics\n✅ Work on HW 01 which is due Thursday before class"
+  },
+  {
+    "objectID": "prepare/prepare-jan29.html",
+    "href": "prepare/prepare-jan29.html",
+    "title": "Prepare for January 29 lecture",
+    "section": "",
+    "text": "📖 Read sections 9.1-9.4 of Mark Lai’s course notes for an introduction to model comparison\n📖 Review BDA3 Chapter 7.1-7.3 to learn more about model comparison metrics\n✅ Work on HW 01 which is due Thursday before class"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#review-of-last-lecture",
+    "href": "slides/06-model-checking.html#review-of-last-lecture",
+    "title": "Model checking",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\nOn Thursday, we learned about\n\nDifferent types of priors that can be specified\nPosterior summaries: point estimates, intervals, and probabilities\nPosterior predictive distributions\nWe learned about the generated quantities code chunk\n\nToday, we will dive into (1) methods for assessing MCMC convergence, and (2) model performance techniques."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#convergence-in-a-few-iterations",
+    "href": "slides/06-model-checking.html#convergence-in-a-few-iterations",
+    "title": "Model checking",
+    "section": "Convergence in a few iterations",
+    "text": "Convergence in a few iterations"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#convergence-in-a-few-hundred-iterations",
+    "href": "slides/06-model-checking.html#convergence-in-a-few-hundred-iterations",
+    "title": "Model checking",
+    "section": "Convergence in a few hundred iterations",
+    "text": "Convergence in a few hundred iterations"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#this-one-never-converged",
+    "href": "slides/06-model-checking.html#this-one-never-converged",
+    "title": "Model checking",
+    "section": "This one never converged",
+    "text": "This one never converged"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#convergence-is-questionable",
+    "href": "slides/06-model-checking.html#convergence-is-questionable",
+    "title": "Model checking",
+    "section": "Convergence is questionable",
+    "text": "Convergence is questionable"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#traceplots-for-linear-regression",
+    "href": "slides/06-model-checking.html#traceplots-for-linear-regression",
+    "title": "Model checking",
+    "section": "Traceplots for linear regression",
+    "text": "Traceplots for linear regression\n\nlibrary(rstan)\nfit &lt;- readRDS(file = \"linear_regression_ppd_fit.rds\")\nrstan::traceplot(fit, pars = c(\"beta\", \"sigma\"), \n                 inc_warmup = TRUE)"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#autocorrelation",
+    "href": "slides/06-model-checking.html#autocorrelation",
+    "title": "Model checking",
+    "section": "Autocorrelation",
+    "text": "Autocorrelation\n\nIdeally the samples would be independent across iteration.\nWhen using MCMC we are obtaining dependent samples from the posterior.\nThe autocorrelation function \\(\\rho(h)\\) is the correlation between samples \\(h\\) iterations apart.\nLower values are better, but if the chains are long enough even large values can be OK.\nHighly correlated samples have less information than independent samples."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#autocorrelation-for-linear-regression",
+    "href": "slides/06-model-checking.html#autocorrelation-for-linear-regression",
+    "title": "Model checking",
+    "section": "Autocorrelation for linear regression",
+    "text": "Autocorrelation for linear regression\n\nstan_ac(fit, pars = c(\"beta\", \"sigma\"), \n        separate_chains = TRUE, lags = 25)"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#autocorrelation-for-linear-regression-1",
+    "href": "slides/06-model-checking.html#autocorrelation-for-linear-regression-1",
+    "title": "Model checking",
+    "section": "Autocorrelation for linear regression",
+    "text": "Autocorrelation for linear regression\n\nlibrary(bayesplot)\nmcmc_acf(fit, regex_pars = c(\"beta\", \"sigma\"))"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#effective-sample-size",
+    "href": "slides/06-model-checking.html#effective-sample-size",
+    "title": "Model checking",
+    "section": "Effective sample size",
+    "text": "Effective sample size\nThe effective samples size is,\n\\[n_{eff}=ESS(\\theta_i) = \\frac{mS}{1 + 2 \\sum_{h = 1}^{\\infty} \\rho (h)},\\] where \\(m\\) is the number of chains, \\(S\\) is the number of MCMC samples, and \\(\\rho(h)\\) is the \\(h\\)th order autocorrelation for \\(\\theta_i\\).\n\nThe correlated MCMC sample of length \\(mS\\) has the same information as \\(n_{eff}\\) independent samples.\nRule of thumb: \\(n_{eff}\\) should be at least a thousand for all parameters."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#effective-sample-size-for-linear-regression",
+    "href": "slides/06-model-checking.html#effective-sample-size-for-linear-regression",
+    "title": "Model checking",
+    "section": "Effective sample size for linear regression",
+    "text": "Effective sample size for linear regression\n\nprint(fit, pars = c(\"beta\", \"sigma\"))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=1000; warmup=500; thin=1; \npost-warmup draws per chain=500, total post-warmup draws=2000.\n\n         mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nbeta[1] -1.48       0 0.16 -1.79 -1.58 -1.48 -1.37 -1.16  2002    1\nbeta[2]  3.30       0 0.15  3.01  3.19  3.29  3.40  3.59  1980    1\nsigma    1.55       0 0.11  1.36  1.47  1.54  1.62  1.78  1909    1\n\nSamples were drawn using NUTS(diag_e) at Fri Nov 22 10:44:51 2024.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#standard-errors-of-posterior-mean-estimates",
+    "href": "slides/06-model-checking.html#standard-errors-of-posterior-mean-estimates",
+    "title": "Model checking",
+    "section": "Standard errors of posterior mean estimates",
+    "text": "Standard errors of posterior mean estimates\n\nThe sample mean from our MCMC draws is a point estimate for the posterior mean.\nThe standard error (SE) of this estimate can be used as a diagnostic.\nAssuming independence, the Monte Carlo standard error is \\(\\text{MCSE} = \\frac{s}{\\sqrt{S}},\\) where \\(s\\) is the sample standard deviation and \\(S\\) is the number of samples.\nA more realistic standard error is \\(\\text{MCSE} = \\frac{s}{\\sqrt{n_{eff}}}.\\)\n\\(\\text{MCSE} \\rightarrow 0\\) as \\(S \\rightarrow \\infty\\), whereas the standard deviation of the posterior draws approaches the standard deviation of the posterior distribution."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#assessing-mixing-using-between--and-within-sequence-variances",
+    "href": "slides/06-model-checking.html#assessing-mixing-using-between--and-within-sequence-variances",
+    "title": "Model checking",
+    "section": "Assessing mixing using between- and within-sequence variances",
+    "text": "Assessing mixing using between- and within-sequence variances\nFor a scalar parameter, \\(\\theta\\), define the MCMC samples as \\(\\theta_{ij}\\) for chain \\(j=1,\\ldots,m\\) and simulations \\(i = 1,\\ldots,n\\). We can compute the between- and within-sequence variances:\n\\[\\begin{aligned}\nB &= \\frac{n}{m-1}\\sum_{j=1}^m \\left(\\bar{\\theta}_{\\cdot j} - \\bar{\\theta}_{\\cdot\\cdot}\\right)^2,\\quad \\bar{\\theta}_{\\cdot j} = \\frac{1}{n}\\sum_{i=1}^n \\theta_{ij},\\quad\\bar{\\theta}_{\\cdot \\cdot} = \\frac{1}{m} \\sum_{j=1}^m \\bar{\\theta}_{\\cdot j}\\\\\nW &= \\frac{1}{m}\\sum_{j=1}^m s_j^2,\\quad s_j^2=\\frac{1}{n-1}\\sum_{i=1}^n \\left(\\theta_{ij} - \\bar{\\theta}_{\\cdot j}\\right)^2\n\\end{aligned}\\]\nThe between-sequence variance, \\(B\\) contains a factor of \\(n\\) because it is based on the variance of the within-sequence means, \\(\\bar{\\theta}_{\\cdot j}\\), each of which is an average of \\(n\\) values \\(\\theta_{ij}\\)."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#convergence-metric-widehatr",
+    "href": "slides/06-model-checking.html#convergence-metric-widehatr",
+    "title": "Model checking",
+    "section": "Convergence metric: \\(\\widehat{R}\\)",
+    "text": "Convergence metric: \\(\\widehat{R}\\)\nEstimate a total variance \\(\\mathbb{V}(\\theta | \\mathbf{Y})\\) as a weighted mean of \\(W\\), \\(B\\) \\[\\widehat{\\text{var}}^+(\\theta | \\mathbf{Y}) = \\frac{n-1}{n}W + \\frac{1}{n}B\\]\n\nThis overestimates marginal posterior variance if starting points are overdispersed.\nGiven finite \\(n\\), \\(W\\) underestimates marginal posterior variance.\n\nSingle chains have not yet visited all points in the distribution.\nWhen \\(n \\rightarrow \\infty\\), \\(\\mathbb{E}[W] \\rightarrow \\mathbb{V}(\\theta | \\mathbf{Y})\\)\n\nAs \\(\\widehat{\\text{var}}^+(\\theta | \\mathbf{Y})\\) overestimates and \\(W\\) underestimates, we can compute\n\n\\[\\widehat{R} = \\sqrt{\\frac{\\widehat{\\text{var}}^+(\\theta | \\mathbf{Y})}{W}}, \\quad \\widehat{R} \\rightarrow 1 \\text{ as }n \\rightarrow \\infty.\\]"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#widehatr-for-linear-regression",
+    "href": "slides/06-model-checking.html#widehatr-for-linear-regression",
+    "title": "Model checking",
+    "section": "\\(\\widehat{R}\\) for linear regression",
+    "text": "\\(\\widehat{R}\\) for linear regression\n\nprint(fit, pars = c(\"beta\", \"sigma\"))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=1000; warmup=500; thin=1; \npost-warmup draws per chain=500, total post-warmup draws=2000.\n\n         mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nbeta[1] -1.48       0 0.16 -1.79 -1.58 -1.48 -1.37 -1.16  2002    1\nbeta[2]  3.30       0 0.15  3.01  3.19  3.29  3.40  3.59  1980    1\nsigma    1.55       0 0.11  1.36  1.47  1.54  1.62  1.78  1909    1\n\nSamples were drawn using NUTS(diag_e) at Fri Nov 22 10:44:51 2024.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1).\n\n\nA good rule of thumb is to want \\(\\widehat{R} \\leq 1.1\\)."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#what-to-do-if-your-mcmc-does-not-converge",
+    "href": "slides/06-model-checking.html#what-to-do-if-your-mcmc-does-not-converge",
+    "title": "Model checking",
+    "section": "What to do if your MCMC does not converge?",
+    "text": "What to do if your MCMC does not converge?\nGelman’s Folk Theorem:\n\n\nWhen you have computational problems, often there’s a problem with your model.\n\nSource: Andrew Gelman"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#sampling-issues-slow-convergence",
+    "href": "slides/06-model-checking.html#sampling-issues-slow-convergence",
+    "title": "Model checking",
+    "section": "Sampling issues: slow convergence",
+    "text": "Sampling issues: slow convergence\nPoor chain mixing is usually due to lack of parameter identification.\n\nA parameter is identified if it has some unique effect on the data generating process that can be separated from the effect of the other parameters.\n\nSolution: use simulated data where you know the true parameter values.\n\nInformative as to whether the model is sufficient to estimate a parameter’s value."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#sampling-issues-divergent-iterations",
+    "href": "slides/06-model-checking.html#sampling-issues-divergent-iterations",
+    "title": "Model checking",
+    "section": "Sampling issues: divergent iterations",
+    "text": "Sampling issues: divergent iterations\nYou may get a warning in output from Stan with the number of iterations where the NUTS sampler has terminated prematurely.\n\nWarning messages:\n1: There were 62 divergent transitions after warmup. See\nhttps://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup\n2: There were 8 transitions after warmup that exceeded the maximum treedepth. Increase max_treedepth above 10. See\nhttps://mc-stan.org/misc/warnings.html#maximum-treedepth-exceeded \n\nSolution: If this warning appears, you can try:\n\nIncrease adapt_delta (double, between 0 and 1, defaults to 0.8).\nIncrease max_treedepth (integer, positive, defaults to 10).\nPlay with stepsize (double, positive, defaults to 1)."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#sampling-issues-divergent-iterations-1",
+    "href": "slides/06-model-checking.html#sampling-issues-divergent-iterations-1",
+    "title": "Model checking",
+    "section": "Sampling issues: divergent iterations",
+    "text": "Sampling issues: divergent iterations\n\nfit &lt;- sampling(stan_model, data = stan_data, \n                chains = 4, iter = 1000,\n                control = list(adapt_delta = 0.8, \n                               max_treedepth = 10,\n                               stepsize = 1))\n\n\nSee help(stan) for a full list of options that can be set in control.\nComplete set of recommendations: runtime warnings and convergence problems\n\nIf the above doesn’t help change priors then likelihood!"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#coding-errors",
+    "href": "slides/06-model-checking.html#coding-errors",
+    "title": "Model checking",
+    "section": "Coding errors",
+    "text": "Coding errors\nStan error messages are generally quite informative, however inevitably there are times when it is less clear why code fails.\n\nOne option is to debug by print.\n\n\nmodel {\n  ...\n  print(theta);\n}\n\nIn R this prints (neatly) to the console output.\nMore details on printing can be found on Stan: print statements"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#coding-errors-1",
+    "href": "slides/06-model-checking.html#coding-errors-1",
+    "title": "Model checking",
+    "section": "Coding errors",
+    "text": "Coding errors\nImportant: failing a resolution via the above go to http://mc-stan.org/ and do:\n\nLook through manual for a solution.\nLook through user forum for previous answers to similar problems.\nAsk a question; be clear, and thorough - post as simple a model that replicates the issue.\n\nOutside of this, you have an endless source of resources using Google/stackoverflow/stackexchange/ChatGPT. You can also go to office hours, and ask in lecture!"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#what-to-do-when-things-go-wrong-summary",
+    "href": "slides/06-model-checking.html#what-to-do-when-things-go-wrong-summary",
+    "title": "Model checking",
+    "section": "What to do when things go wrong: summary",
+    "text": "What to do when things go wrong: summary\n\nProblems with sampling are almost invariably problems with the underlying model not the sampling algorithm.\nUse fake data with all models to test for parameter identification (and that you’ve coded up correctly).\nTo debug a model that fails read error messages carefully, then try print statements.\nStan has an active developer and user forum, great documentation, and an extensive answer bank."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#posterior-predictive-checks-1",
+    "href": "slides/06-model-checking.html#posterior-predictive-checks-1",
+    "title": "Model checking",
+    "section": "Posterior predictive checks",
+    "text": "Posterior predictive checks\n\nLast lecture we learned about posterior predictive distributions.\nThese can be used to check the model fit in our observed data.\nThe goal is to check how well our model can generate data that matches the observed data.\nIf our model is “good”, it should be able to generate new observations that resemble the observed data.\nTo perform the posterior predictive check, we must include the generated quantities code chunk."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#comparing-the-ppd-to-the-observed-data-distribution",
+    "href": "slides/06-model-checking.html#comparing-the-ppd-to-the-observed-data-distribution",
+    "title": "Model checking",
+    "section": "Comparing the PPD to the observed data distribution",
+    "text": "Comparing the PPD to the observed data distribution\nlibrary(rstan)\nlibrary(bayesplot)\nY_in_sample &lt;- extract(fit, pars = \"in_sample\")$in_sample\nppc_dens_overlay(Y, Y_in_sample)"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#ppd-test-statistics",
+    "href": "slides/06-model-checking.html#ppd-test-statistics",
+    "title": "Model checking",
+    "section": "PPD test statistics",
+    "text": "PPD test statistics\n\nThe procedure for carrying out a posterior predictive check requires a test quantity, \\(T(\\mathbf{Y})\\), for our observed data.\nSuppose that we have samples from the posterior predictive distribution, \\(\\mathbf{Y}^{(s)} = \\left\\{Y_1^{(s)},\\ldots,Y_n^{(s)}\\right\\}\\) for \\(s = 1,\\ldots,S\\).\nWe can compute: \\(T\\left(\\mathbf{Y}^{(s)}\\right) = \\left\\{T\\left(Y_1^{(s)}\\right),\\ldots,\\left(Y_n^{(s)}\\right)\\right\\}\\)\nOur posterior predictive check will then compare the distribution of \\(T\\left(\\mathbf{Y}^{(s)}\\right)\\) to the value from our observed data, \\(T(\\mathbf{Y})\\).\n\\(T(\\cdot)\\) can be any statistics, including mean, median, etc.\nWhen the predictive distribution is not consistent with the observed statistics it indicates poor model fit."
+  },
+  {
+    "objectID": "slides/06-model-checking.html#visualizing-posterior-predictive-check",
+    "href": "slides/06-model-checking.html#visualizing-posterior-predictive-check",
+    "title": "Model checking",
+    "section": "Visualizing posterior predictive check",
+    "text": "Visualizing posterior predictive check\nppc_stat(Y, Y_in_sample, stat = \"mean\") # from bayesplot\nppc_stat(Y, Y_in_sample, stat = \"sd\")\nq25 &lt;- function(y) quantile(y, 0.25)\nq75 &lt;- function(y) quantile(y, 0.75)\nppc_stat(Y, Y_in_sample, stat = \"q25\")\nppc_stat(Y, Y_in_sample, stat = \"q75\")"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#posterior-predictive-p-values",
+    "href": "slides/06-model-checking.html#posterior-predictive-p-values",
+    "title": "Model checking",
+    "section": "Posterior predictive p-values",
+    "text": "Posterior predictive p-values\nplot &lt;- ppc_stat(Y, Y_in_sample, stat = \"median\") # from bayesplot\npvalue &lt;- mean(apply(Y_in_sample, 1, median) &gt; median(Y))\nplot + yaxis_text() + # just so I can see y-axis values for specifying them in annotate() below, but can remove this if you don't want the useless y-axis values displayed \n  annotate(\"text\", x = -0.75, y = 150, label = paste(\"p =\", pvalue))\n\n\n\n\n\n\n\n\n\n\n\n\nBayesian p-value: \\(p_B = P\\left(T\\left(\\mathbf{Y}^{(s)}\\right) \\geq T\\left(\\mathbf{Y}\\right) | \\mathbf{Y}\\right)\\)"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#debugging-with-shinystan",
+    "href": "slides/06-model-checking.html#debugging-with-shinystan",
+    "title": "Model checking",
+    "section": "Debugging with shinystan",
+    "text": "Debugging with shinystan\n\nlibrary(shinystan)\nmy_sso &lt;- launch_shinystan(fit)"
+  },
+  {
+    "objectID": "slides/06-model-checking.html#prepare-for-next-class",
+    "href": "slides/06-model-checking.html#prepare-for-next-class",
+    "title": "Model checking",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 01 which is due before next class\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Model Comparison"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#review-of-last-lecture",
+    "href": "slides/07-model-comparison.html#review-of-last-lecture",
+    "title": "Model Comparison",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\nOn Tuesday, we learned about various ways to check MCMC convergence and model fit.\n\nTraceplots, effective sample size (\\(n_{eff}\\)), MC standard error, \\(\\hat{R}\\), sampling issues\nPosterior predictive checks\nModel checks using shinystan\n\nToday, we will learn about model comparisons."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#model-comparison",
+    "href": "slides/07-model-comparison.html#model-comparison",
+    "title": "Model Comparison",
+    "section": "Model comparison",
+    "text": "Model comparison\n\nIn statistical modeling, a more complex model almost always results in a better fit to the data.\n\nA more complex model means one with more parameters.\n\nIf one has 10 observations, one can have a model with 10 parameters that can perfectly predict every single data point (by just having a parameter to predict each data point).\nThere are two problems with overly complex models.\n\nThey become increasingly hard to interpret (think a straight line versus a polynomial).\nThey are more at risk of overfitting, such that it does not work for future observations."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#model-fit-an-example-data-set",
+    "href": "slides/07-model-comparison.html#model-fit-an-example-data-set",
+    "title": "Model Comparison",
+    "section": "Model fit: an example data set",
+    "text": "Model fit: an example data set\n\nLet’s explore the idea of model fit using an example dataset from the openintro package called bdims.\nThis dataset contains body girth measurements and skeletal diameter measurements.\nToday we will explore the association between height and weight."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#model-fit-an-example-data-set-1",
+    "href": "slides/07-model-comparison.html#model-fit-an-example-data-set-1",
+    "title": "Model Comparison",
+    "section": "Model fit: an example data set",
+    "text": "Model fit: an example data set\n\nlibrary(openintro)\ndat &lt;- data.frame(weight = bdims$wgt * 2.20462, # convert weight to lbs\n                  height = bdims$hgt * 0.393701, # convert height to inches\n                  sex = ifelse(bdims$sex == 1, \"Male\", \"Female\"))"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#models-of-increasing-complexity",
+    "href": "slides/07-model-comparison.html#models-of-increasing-complexity",
+    "title": "Model Comparison",
+    "section": "Models of increasing complexity",
+    "text": "Models of increasing complexity\n\nWhen using height to predict weight, we can use models of increasing complexity using higher order polynomials.\nLet’s fit the following models to the subset of 10 data points:\n\n\\[\\begin{aligned}\n\\mathbb{E}[weight_i] &= \\beta_0 + \\beta_1 height_i\\\\\n\\mathbb{E}[weight_i] &= \\beta_0 + \\beta_1 height_i + \\beta_2 height_i^2\\\\\n\\mathbb{E}[weight_i] &= \\beta_0 + \\beta_1 height_i + \\beta_2 height_i^2 + \\beta_3 height_i^3\\\\\n\\mathbb{E}[weight_i] &= \\beta_0 + \\beta_1 height_i + \\beta_2 height_i^2 + \\beta_3 height_i^3 + \\beta_4 height_i^4\n\\end{aligned}\\]\n\nWe can compare these models using standard measures of goodness-of-fit, including \\(R^2\\) and root mean squared error (RMSE)."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#overfitting-and-underfitting",
+    "href": "slides/07-model-comparison.html#overfitting-and-underfitting",
+    "title": "Model Comparison",
+    "section": "Overfitting and underfitting",
+    "text": "Overfitting and underfitting"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#overfitting-and-underfitting-1",
+    "href": "slides/07-model-comparison.html#overfitting-and-underfitting-1",
+    "title": "Model Comparison",
+    "section": "Overfitting and underfitting",
+    "text": "Overfitting and underfitting"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#overfitting-and-underfitting-2",
+    "href": "slides/07-model-comparison.html#overfitting-and-underfitting-2",
+    "title": "Model Comparison",
+    "section": "Overfitting and underfitting",
+    "text": "Overfitting and underfitting\n\nWith more complex models, out-of-sample prediction becomes worse.\nThis is because when you use a complex model in a data set, it tailors the coefficients to any sampling errors and noise in the data such that it will not generalize to new observations.\nTherefore, our goal in model comparison is to choose a model with the following two properties:\n\nIt is complex enough to capture the essence of the data generation process (and thus avoid underfitting),\nIt avoids overfitting to make the model usefull for predicting new observations."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#finding-an-optimal-model",
+    "href": "slides/07-model-comparison.html#finding-an-optimal-model",
+    "title": "Model Comparison",
+    "section": "Finding an optimal model",
+    "text": "Finding an optimal model\n\nTrade-off between overfitting and underfitting (in machine learning this is commonly called bias-variance trade-off).\n\nA simple model tends to produce biased predictions because it does not capture the essence of the data generating process.\nA model that is overly complex is unbiased but results in a lot of uncertainty in the prediction.\n\nPolynomials are merely one example of comparing simple to complex models. You can think about:\n\nModels with and without interactions,\nModels with a few predictors versus hundreds of predictors,\nRegression analyses versus hierarchical models, etc."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#model-comparison-1",
+    "href": "slides/07-model-comparison.html#model-comparison-1",
+    "title": "Model Comparison",
+    "section": "Model Comparison",
+    "text": "Model Comparison\n\nWhen comparing models, we prefer models that are closer to the true data-generating process.\nWe need some ways to quantify the degree of closeness to the true model. Note that in this context models refer to the distributional family as well as the parameter values.\nFor example, the model \\(Y_i \\sim N(5,2)\\) is a different model than \\(Y_i \\sim N(3,2)\\), which is a different model than \\(Y_i \\sim Gamma(2,2)\\).\n\nThe first two have the same family but different parameter values (different means, same SD), whereas the last two have different distributional families (Normal vs. Gamma).\n\nOne way to quantify the degree of closeness to the true model is using Kullback-Leibler (KL) divergence."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#kullback-leibler-divergence",
+    "href": "slides/07-model-comparison.html#kullback-leibler-divergence",
+    "title": "Model Comparison",
+    "section": "Kullback-Leibler divergence",
+    "text": "Kullback-Leibler divergence\n\nFor two models, \\(M_0\\) and \\(M_1\\), the KL divergence is given by,\n\n\\[\\begin{aligned}\nD_{KL}\\left(M_0 | M_1\\right) &= \\int_{-\\infty}^{\\infty} f_{M_0}(\\mathbf{Y}) \\log\\frac{f_{M_0}(\\mathbf{Y})}{f_{M_1}(\\mathbf{Y})} d\\mathbf{Y}\\\\\n&\\hspace{-1.5in}= \\int_{-\\infty}^{\\infty} f_{M_0}(\\mathbf{Y}) \\log f_{M_0}(\\mathbf{Y})d\\mathbf{Y} - \\int_{-\\infty}^{\\infty} f_{M_0}(\\mathbf{Y}) \\log f_{M_1}(\\mathbf{Y})d\\mathbf{Y}\n\\end{aligned}\\]\n\nNote that \\(D_{KL}\\) is not considered a distance, because it is not strictly symmetric, \\(D_{KL}\\left(M_0 | M_1\\right) \\neq D_{KL}\\left(M_1 | M_0\\right)\\)."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#kullback-leibler-divergence-1",
+    "href": "slides/07-model-comparison.html#kullback-leibler-divergence-1",
+    "title": "Model Comparison",
+    "section": "Kullback-Leibler divergence",
+    "text": "Kullback-Leibler divergence\nAs an example, assume that the data are generated by a true model \\(M_0\\), and we have two candidate models \\(M_1\\) and \\(M_2\\), where\n\n\n\n\\(M_0: Y_i \\sim N(3,2)\\)\n\\(M_1: Y_i \\sim N(3.5, 2.5)\\)\n\\(M_2: Y_i \\sim Cauchy(3,2)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(D_{KL}(M_0 |M_1) = 0.063\\), \\(D_{KL}(M_0 | M_1) = 0.259\\), so \\(M_1\\) is a better model than \\(M_2\\)."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#comparing-models-using-kl",
+    "href": "slides/07-model-comparison.html#comparing-models-using-kl",
+    "title": "Model Comparison",
+    "section": "Comparing models using KL",
+    "text": "Comparing models using KL\n\nNote that in the expression of \\(D_{KL}\\), when talking about the same target model, the first term is always the same and describes the true model, \\(M_0\\).\nTherefore, it is sufficient to compare models on the second term,\n\\[\\int_{-\\infty}^{\\infty} f_{M_0}(\\mathbf{Y}) \\log f_{M_1}(\\mathbf{Y})d\\mathbf{Y},\\] which can also be written as, \\(\\mathbb{E}_{M_0}\\left[\\log f_{M_1}(\\mathbf{Y})\\right].\\)\nThis term is the expected log predictive density (elpd).\nA larger elpd is preferred. Why?"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#comparing-models-using-kl-1",
+    "href": "slides/07-model-comparison.html#comparing-models-using-kl-1",
+    "title": "Model Comparison",
+    "section": "Comparing models using KL",
+    "text": "Comparing models using KL\n\nIn the real world, we do not know \\(M_0\\).\n\nIf we knew, then we would just need to choose \\(M_0\\) as our model and there will be no problem about model comparisons.\nEven if we knew the true model, we would still need to estimate the parameter values.\n\nThus, we cannot compute elpd, since the expectation is over \\(f_{M_0}(\\mathbf{Y})\\).\nWe need to estimate elpd!"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#comparing-models-using-kl-2",
+    "href": "slides/07-model-comparison.html#comparing-models-using-kl-2",
+    "title": "Model Comparison",
+    "section": "Comparing models using KL",
+    "text": "Comparing models using KL\n\nelpd is an expectation, so we can think about estimating it using Monte Carlo sampling, \\[\\frac{1}{S}\\sum_{s = 1}^S\\log f_{M_1}\\left(\\mathbf{Y}^{(s)}\\right)\\rightarrow \\mathbb{E}_{M_0}\\left[\\log f_{M_1}(\\mathbf{Y})\\right], \\quad \\mathbf{Y}^{(s)} \\sim f_{M_0}(\\mathbf{Y}).\\]\n\nWe need to find a way to approximate, \\(f_{M_0}\\left(\\mathbf{Y}^{(s)}\\right)\\).\n\nA naive way to approximate \\(f(\\mathbf{Y}^{(s)})\\) is to assume that the distribution of the observed data is the true model.\n\nThis is equivalent to assuming that \\(\\mathbf{Y}^{(s)} \\sim \\{\\mathbf{Y}_1,\\ldots,\\mathbf{Y}_n\\}\\).\nThis leads to an overly optimistic estimate and favors complex models."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#comparing-models-using-kl-3",
+    "href": "slides/07-model-comparison.html#comparing-models-using-kl-3",
+    "title": "Model Comparison",
+    "section": "Comparing models using KL",
+    "text": "Comparing models using KL\n\nA better way to estimate elpd is to collect data on a new independent sample that is believed to share the same data generating process as the current sample, and estimate elpd on the new sample.\n\nThis is called out-of-sample validation.\nThe problem, of course, is we usually do not have the resources to collect a new sample.\n\nTherefore, statisticians have worked hard to find ways to estimate elpd from the current sample, and there are two broad approaches, information criteria and cross-validation."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#overview-of-comparison-methods",
+    "href": "slides/07-model-comparison.html#overview-of-comparison-methods",
+    "title": "Model Comparison",
+    "section": "Overview of comparison methods",
+    "text": "Overview of comparison methods\n\nInformation criteria: AIC, DIC, and WAIC, which estimate the elpd in the current sample, minus a correction factor.\nCross validation: A method that splits the current sample into \\(K\\) parts, estimates the parameters in \\(K − 1\\) parts, and estimates the elpd in the remaining 1 part.\n\n\nA special case is when \\(K = n\\) so that each time one uses \\(n-1\\) data points to estimate the model parameters, and estimates the elpd for the observation that was left out. This is called leave-one-out cross-validation (LOO-CV)."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#information-criteria",
+    "href": "slides/07-model-comparison.html#information-criteria",
+    "title": "Model Comparison",
+    "section": "Information criteria",
+    "text": "Information criteria\n\nSeveral information criteria have been proposed that do not require fitting the model several times, including AIC, DIC, and WAIC.\nWe will introduce the information criteria, assuming a likelihood \\(f(\\mathbf{Y} | \\boldsymbol{\\theta})\\) for observed data \\(\\mathbf{Y} = (Y_1,\\ldots,Y_n)\\) with population parameter \\(\\boldsymbol{\\theta}\\).\nInformation criteria are often presented as deviance, defined as, \\(D(\\mathbf{Y}|\\boldsymbol{\\theta}) = −2 \\log f(\\mathbf{Y}|\\boldsymbol{\\theta})\\).\nIdeally, models will have small deviance.\nHowever, if a model is too complex it will have small deviance but be unstable (overfitting)."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#akaike-information-criteria-aic",
+    "href": "slides/07-model-comparison.html#akaike-information-criteria-aic",
+    "title": "Model Comparison",
+    "section": "Akaike information criteria (AIC)",
+    "text": "Akaike information criteria (AIC)\nAkaike information criteria (AIC) estimates the elpd as,\n\\[\\widehat{\\text{elpd}}_{\\text{AIC}} = \\log f(\\mathbf{Y} | \\hat{\\boldsymbol{\\theta}}_{\\text{MLE}}) - p,\\] where \\(p\\) is the number of parameters estimated in the model and \\(\\hat{\\boldsymbol{\\theta}}_{\\text{MLE}}\\) is the MLE point estimate.\n\n\\(\\text{AIC} = -2\\log f(\\mathbf{Y} | \\hat{\\boldsymbol{\\theta}}_{\\text{MLE}}) + 2p\\)\n\\(p\\) is an adjustment for overfitting, but once we go beyond linear models, we cannot simply add \\(p\\).\nInformative priors tend to reduce the amount of overfitting.\nModel with smaller AIC are preferred."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#deviance-information-criteria-dic",
+    "href": "slides/07-model-comparison.html#deviance-information-criteria-dic",
+    "title": "Model Comparison",
+    "section": "Deviance information criteria (DIC)",
+    "text": "Deviance information criteria (DIC)\nDeviance information criteria (DIC) estimates the elpd as,\n\\[\\widehat{\\text{elpd}}_{\\text{DIC}} = \\log f(\\mathbf{Y} | \\hat{\\boldsymbol{\\theta}}_{\\text{Bayes}}) - p_{\\text{DIC}},\\] where \\(\\hat{\\boldsymbol{\\theta}}_{\\text{Bayes}}\\) is a Bayesian point estimate, typically a posterior mean, and \\(p_{\\text{DIC}}\\) is an estimate of the complexity penalty,\n\\[p_{\\text{DIC}} = 2 \\left(\\log f(\\mathbf{Y} | \\hat{\\boldsymbol{\\theta}}_{\\text{Bayes}}) - \\mathbb{E}_{\\boldsymbol{\\theta} | \\mathbf{Y}}\\left[\\log f(\\mathbf{Y} | \\boldsymbol{\\theta}) \\right]\\right).\\]\n\nThe second term can be estimated as a MC integral.\n\\(\\text{DIC} = -2\\log f(\\mathbf{Y} | \\hat{\\boldsymbol{\\theta}}_{\\text{Bayes}}) + 2p_{\\text{DIC}}.\\)"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#deviance-information-criteria-dic-1",
+    "href": "slides/07-model-comparison.html#deviance-information-criteria-dic-1",
+    "title": "Model Comparison",
+    "section": "Deviance information criteria (DIC)",
+    "text": "Deviance information criteria (DIC)\n\nAdvantages of DIC:\n\nThe effective number of parameters is a useful measure of model complexity.\nIntuitively, if there are \\(p\\) parameters and we have uninformative priors then \\(p_D \\approx p\\).\nHowever, \\(p_D \\ll p\\) if there are strong priors.\n\nDisadvantages of DIC:\n\nDIC can only be used to compare models with the same likelihood.\nDIC really only applies when the posterior is approximately normal, and will give misleading results when the posterior is far from normality (e.g., bimodal)."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#watanabe-akaike-information-criteria-waic",
+    "href": "slides/07-model-comparison.html#watanabe-akaike-information-criteria-waic",
+    "title": "Model Comparison",
+    "section": "Watanabe-Akaike information criteria (WAIC)",
+    "text": "Watanabe-Akaike information criteria (WAIC)\nWatanabe-Akaike or widely available information criteria (WAIC) estimates the elpd as,\n\\[\\widehat{\\text{elpd}}_{\\text{WAIC}} = \\text{lppd} - p_{\\text{WAIC}}.\\]\n\nThe log pointwise predictive density (lppd) is given by, \\[\\text{lppd} = \\log \\prod_{i=1}^n f(Y_i | \\mathbf{Y}) =  \\sum_{i=1}^n \\log \\int f\\left(Y_i | \\boldsymbol{\\theta}\\right)f(\\boldsymbol{\\theta}| \\mathbf{Y}) d\\boldsymbol{\\theta}.\\]\nlppd can be estimated as, \\(\\sum_{i=1}^n \\log \\left(\\frac{1}{S} \\sum_{s = 1}^S f\\left(Y_i | \\boldsymbol{\\theta}^{(s)}\\right)\\right)\\), where \\(\\boldsymbol{\\theta}^{(s)}\\) are drawn from the posterior."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#waic",
+    "href": "slides/07-model-comparison.html#waic",
+    "title": "Model Comparison",
+    "section": "WAIC",
+    "text": "WAIC\nThere are two common estimates of \\(p_{\\text{WAIC}}\\), both of which can be estimated using MC samples of the posterior. \\[\\begin{aligned}\np_{\\text{WAIC}_1} &= 2 \\sum_{i=1}^n\\left(\\log \\left( \\mathbb{E}_{\\boldsymbol{\\theta} | \\mathbf{Y}}\\left[f(Y_i | \\boldsymbol{\\theta})\\right]\\right) - \\mathbb{E}_{\\boldsymbol{\\theta} | \\mathbf{Y}}\\left[\\log f(Y_i | \\boldsymbol{\\theta}) \\right]\\right)\\\\\np_{\\text{WAIC}_2} &= \\sum_{i=1}^n \\mathbb{V}_{\\boldsymbol{\\theta} | \\mathbf{Y}}\\left(\\log f\\left(Y_i | \\mathbf{\\theta}\\right)\\right)\n\\end{aligned}\\]\n\n\\(\\text{WAIC} = -2 \\text{lppd} + 2p_{\\text{WAIC}}.\\)"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#waic-1",
+    "href": "slides/07-model-comparison.html#waic-1",
+    "title": "Model Comparison",
+    "section": "WAIC",
+    "text": "WAIC\n\nWAIC has the desirable property of averaging over the posterior distribution, instead of conditioning on a point estimate.\n\\(p_{\\text{WAIC}}\\) can be thought of as an approximation to the number of unconstrained parameters in the model.\nIn practice, \\(p_{\\text{WAIC}_2}\\) is often used, since it is theoretically closer to LOO-CV."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#cross-validation",
+    "href": "slides/07-model-comparison.html#cross-validation",
+    "title": "Model Comparison",
+    "section": "Cross-validation",
+    "text": "Cross-validation\n\nA common approach to compare models is using cross-validation.\nThis is exactly the same procedure used in classical statistics.\nThis operates under the assumption that the true model likely produces better out-of-sample predictions than competing models.\nAdvantages: Simple, intuitive, and broadly applicable.\nDisadvantages: Slow because it requires several model fits and it is hard to say a difference is statistically significant."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#k-fold-cross-validation",
+    "href": "slides/07-model-comparison.html#k-fold-cross-validation",
+    "title": "Model Comparison",
+    "section": "K-fold cross-validation",
+    "text": "K-fold cross-validation\n\nSplit the data into \\(K\\) equally-sized groups.\nSet aside group \\(k\\) as test set and fit the model to the remaining \\(K − 1\\) groups.\nMake predictions for the test set \\(k\\) based on the model fit to the training data.\nRepeat steps 1 and 2 for \\(k = 1, \\dots, K\\) giving a predicted value \\(\\widehat{Y}_i\\) for all \\(n\\) observations.\nMeasure prediction accuracy, e.g.,\n\n\\[MSE = \\frac{1}{n}\\sum_{i=1}^n (Y_i - \\widehat{Y}_i)^2.\\]"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#variants-of-cross-validation",
+    "href": "slides/07-model-comparison.html#variants-of-cross-validation",
+    "title": "Model Comparison",
+    "section": "Variants of cross-validation",
+    "text": "Variants of cross-validation\n\nUsually \\(K\\) is either 5 or 10.\n\\(K = n\\) is called leave-one-out cross-validation (LOO-CV), which is great but slow.\nThe predicted value \\(\\widehat{Y}_i\\) can be either the posterior predictive mean or median.\nMean squared error (MSE) can be replaced with mean absolute deviation (MAD),\n\n\\[MAD = \\frac{1}{n}\\sum_{i=1}^n |Y_i - \\widehat{Y}_i|.\\]"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#leave-one-out-cross-validation-loo-cv",
+    "href": "slides/07-model-comparison.html#leave-one-out-cross-validation-loo-cv",
+    "title": "Model Comparison",
+    "section": "Leave-one-out cross-validation (LOO-CV)",
+    "text": "Leave-one-out cross-validation (LOO-CV)\n\nAssume the data are partitioned into a training set, \\(\\mathbf{Y}_{\\text{train}}\\) and a holdout set \\(\\mathbf{Y}_{\\text{test}}\\), thus yielding a posterior distribution \\(f(\\boldsymbol{\\theta} | \\mathbf{Y}_{\\text{train}})\\).\nIn the setting of LOO-CV, we have \\(n\\) different \\(f\\left(\\boldsymbol{\\theta} | \\mathbf{Y}_{-i}\\right)\\).\nThe Bayesian LOO-CV estimate of out-of-sample predictive fit is \\[\\text{lppd}_{\\text{LOO-CV}} = \\sum_{i=1}^n \\log f\\left(\\boldsymbol{\\theta} | \\mathbf{Y}_{-i}\\right),\\]\nThe estimated number of parameters can be computed as,\n\n\\[p_{\\text{LOO-CV}} = \\text{lppd} - \\text{lppd}_{\\text{LOO-CV}}.\\]\n\nThis also referred to as leave-one-out information criteria (LOO-IC)"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#loo-cv",
+    "href": "slides/07-model-comparison.html#loo-cv",
+    "title": "Model Comparison",
+    "section": "LOO-CV",
+    "text": "LOO-CV\nLOO-CV estimates the elpd as,\n\\[\\widehat{\\text{elpd}}_{\\text{LOO-CV}} = \\text{lppd}_{\\text{LOO-CV}} - p_{\\text{WAIC}} = \\text{lppd}_{\\text{LOO-CV}}.\\]\n\nUnder some common models there are shortcuts for computing it, however in general these do not exist.\nWAIC can be treated as a fast approximation of LOO-CV.\nIn Stan, LOO-CV is approximated using the Pareto smoothed importance sampling (PSIS) to make the process faster, without having to repeat the process \\(n\\) times."
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#computing-waic-and-loo-cv-using-stan",
+    "href": "slides/07-model-comparison.html#computing-waic-and-loo-cv-using-stan",
+    "title": "Model Comparison",
+    "section": "Computing WAIC and LOO-CV using Stan",
+    "text": "Computing WAIC and LOO-CV using Stan\nWe need to update the generated quantities code block.\n\ngenerated quantities {\n  ...\n  vector[n] log_lik;\n  for (i in 1:n) log_lik[i] = normal_lpdf(Y[i] | X[i, ] * beta, sigma);\n}"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#lets-simulate-some-data",
+    "href": "slides/07-model-comparison.html#lets-simulate-some-data",
+    "title": "Model Comparison",
+    "section": "Let’s simulate some data:",
+    "text": "Let’s simulate some data:\n\n###True parameters\nsigma &lt;- 1.5 # true measurement error\nbeta &lt;- matrix(c(-1.5, 3, 1), ncol = 1) # true beta\n\n###Simulation settings\nn &lt;- 100 # number of observations\nn_pred &lt;- 10 # number of predicted observations\np &lt;- length(beta) - 1 # number of covariates\n\n###Simulate data\nset.seed(54) # set seed\nX &lt;- cbind(1, matrix(rnorm(n * p), ncol = p))\nY &lt;- as.numeric(X %*% beta + rnorm(n, 0, sigma))\nX_pred &lt;- cbind(1, matrix(rnorm(n_pred * p), ncol = p))\nY_pred &lt;- as.numeric(X_pred %*% beta + rnorm(n_pred, 0, sigma))"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#an-example-model-comparison",
+    "href": "slides/07-model-comparison.html#an-example-model-comparison",
+    "title": "Model Comparison",
+    "section": "An example model comparison",
+    "text": "An example model comparison\nTrue Model: \\(\\mathbb{E}[Y_i] = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2}\\)\nModel 1: \\(\\mathbb{E}[Y_i] = \\beta_0 + \\beta_1 x_{i1}\\)\nModel 2: \\(\\mathbb{E}[Y_i] = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2}\\)"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#fit-model-1",
+    "href": "slides/07-model-comparison.html#fit-model-1",
+    "title": "Model Comparison",
+    "section": "Fit model 1",
+    "text": "Fit model 1\n\n###Create stan data object\nstan_data_model1 &lt;- list(n = n, p = p - 1, Y = Y, X = X[, -3],\n                         beta0 = 0, sigma_beta = 10, a = 3,  b = 1,\n                         n_pred = n_pred, X_pred = X_pred[, -3])\n  \n###Compile model separately\nstan_model &lt;- stan_model(file = \"linear_regression_ppd_log_lik.stan\")\n\n###Run model 1 and save\nfit_model1 &lt;- sampling(stan_model, data = stan_data_model1, \n                chains = 4, iter = 1000)\nsaveRDS(fit_model1, file = \"linear_regression_ppd_log_lik_fit_model1.rds\")"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#fit-model-2",
+    "href": "slides/07-model-comparison.html#fit-model-2",
+    "title": "Model Comparison",
+    "section": "Fit model 2",
+    "text": "Fit model 2\n\n###Create stan data object\nstan_data_model2 &lt;- list(n = n, p = p, Y = Y, X = X,\n                         beta0 = 0, sigma_beta = 10, a = 3,  b = 1,\n                         n_pred = n_pred, X_pred = X_pred)\n\n###Run model 2 and save\nfit_model2 &lt;- sampling(stan_model, data = stan_data_model2, \n                chains = 4, iter = 1000)\nsaveRDS(fit_model2, file = \"linear_regression_ppd_log_lik_fit_model2.rds\")"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#computing-waic",
+    "href": "slides/07-model-comparison.html#computing-waic",
+    "title": "Model Comparison",
+    "section": "Computing WAIC",
+    "text": "Computing WAIC\n\nBegin by extracting the log-likelihood values from the model.\nWe will use the loo package.\n\n\n###Load loo package\nlibrary(loo)\n\n###Extract log likelihood\nlog_lik_model1 &lt;- loo::extract_log_lik(fit_model1, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_model2 &lt;- loo::extract_log_lik(fit_model2, parameter_name = \"log_lik\", merge_chains = TRUE)\n\n###Explore the object\nclass(log_lik_model1)\n\n[1] \"matrix\" \"array\" \n\ndim(log_lik_model1)\n\n[1] 2000  100"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#computing-waic-1",
+    "href": "slides/07-model-comparison.html#computing-waic-1",
+    "title": "Model Comparison",
+    "section": "Computing WAIC",
+    "text": "Computing WAIC\n\n###Compute WAIC for the two models\nwaic_model1 &lt;- loo::waic(log_lik_model1)\nwaic_model2 &lt;- loo::waic(log_lik_model2)\n\n###Inspect WAIC for model 1\nwaic_model1\n\n\nComputed from 2000 by 100 log-likelihood matrix.\n\n          Estimate   SE\nelpd_waic   -201.0  6.6\np_waic         3.0  0.5\nwaic         401.9 13.1"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#computing-waic-2",
+    "href": "slides/07-model-comparison.html#computing-waic-2",
+    "title": "Model Comparison",
+    "section": "Computing WAIC",
+    "text": "Computing WAIC\n\n###Inspect WAIC for model 2\nwaic_model2\n\n\nComputed from 2000 by 100 log-likelihood matrix.\n\n          Estimate   SE\nelpd_waic   -178.9  6.6\np_waic         3.9  0.6\nwaic         357.7 13.1"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#computing-waic-3",
+    "href": "slides/07-model-comparison.html#computing-waic-3",
+    "title": "Model Comparison",
+    "section": "Computing WAIC",
+    "text": "Computing WAIC\n\n###Make a comparison\ncomp_waic &lt;- loo::loo_compare(list(\"true\" = waic_model2, \"misspec\" = waic_model1))\nprint(comp_waic, digits = 2)\n\n        elpd_diff se_diff\ntrue      0.00      0.00 \nmisspec -22.09      5.76 \n\nprint(comp_waic, digits = 2, simplify = FALSE)\n\n        elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic   \ntrue       0.00      0.00 -178.86      6.57         3.88    0.58    357.72\nmisspec  -22.09      5.76 -200.95      6.56         2.99    0.52    401.90\n        se_waic\ntrue      13.14\nmisspec   13.12"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#computing-loo-cvloo-ci",
+    "href": "slides/07-model-comparison.html#computing-loo-cvloo-ci",
+    "title": "Model Comparison",
+    "section": "Computing LOO-CV/LOO-CI",
+    "text": "Computing LOO-CV/LOO-CI\n\n###Compute LOO-IC for the two models\nloo_model1 &lt;- loo::loo(log_lik_model1)\nloo_model2 &lt;- loo::loo(log_lik_model2)\n\n###Make a comparison\ncomp &lt;- loo::loo_compare(list(\"true\" = loo_model2, \"misspec\" = loo_model1))\nprint(comp, digits = 2)\n\n        elpd_diff se_diff\ntrue      0.00      0.00 \nmisspec -22.08      5.76 \n\nprint(comp, digits = 2, simplify = FALSE)\n\n        elpd_diff se_diff elpd_loo se_elpd_loo p_loo   se_p_loo looic  \ntrue       0.00      0.00 -178.88     6.57        3.90    0.58   357.77\nmisspec  -22.08      5.76 -200.96     6.56        3.00    0.52   401.93\n        se_looic\ntrue      13.14 \nmisspec   13.12"
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#prepare-for-next-class",
+    "href": "slides/07-model-comparison.html#prepare-for-next-class",
+    "title": "Model Comparison",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 02, which was just assigned\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Bayesian Workflow"
+  },
+  {
+    "objectID": "hw/hw-02.html",
+    "href": "hw/hw-02.html",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "",
+    "text": "ImportantDue date\n\n\n\nThis assignment is due on Thursday, February 12 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-1",
+    "href": "hw/hw-02.html#exercise-1",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nSetup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Define the random variable \\(Y_i\\) as the exercise in MET minutes per week for women \\(i\\) and assume that \\(Y_i \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\) for \\(i = 1,\\ldots,n\\) where \\[\\begin{align*}\n\\mu_i &= \\alpha + recreation_i \\beta_1 + crime_i \\beta_2+(recreation_i \\times crime_i) \\beta_3\\\\\n&\\quad+ age_i \\beta_4 + black_i \\beta_5 + asian_i \\beta_6 + married_i \\beta_7\\\\\n&= \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\n\\end{align*}\\]\nFit this regression using a Bayesian framework in Stan to estimate \\((\\alpha, \\boldsymbol{\\beta},\\sigma)\\). For all model parameters, choose weakly-informative priors, \\(\\alpha \\sim N(0,100)\\), \\(\\beta_j \\sim N(0,100)\\) for \\(j=1,\\ldots,p\\), and \\(\\sigma \\sim \\text{Half-Normal}(0,100)\\). Recall, that in this class, normal distributions are parameterized using variances (i.e., the standard deviations in these priors is 10).\nEvaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well."
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-2",
+    "href": "hw/hw-02.html#exercise-2",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nRefit the model in Exercise 1, this time using centered outcome and predictor variables, \\(Y_i^* \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\), where \\(\\mu_i^* = \\alpha + \\mathbf{x}_i^*\\boldsymbol{\\beta}\\). The centered data are defined as, \\(Y_i^* = Y_i - \\overline{Y}\\), where \\(\\overline{Y} = \\frac{1}{n}\\sum_{i=1}^n Y_i\\) and \\(\\mathbf{x}_i^* = \\mathbf{x}_i-\\bar{\\mathbf{x}}\\), where \\(\\bar{\\mathbf{x}} = \\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\). Use the same priors as before. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from Exercise 1. Make an argument for why this model may have improved model fit."
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-3",
+    "href": "hw/hw-02.html#exercise-3",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFor the model from Exercise 2, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to recreation in your model? Within the context of the association between access to recreational facilities and exercise, is this main effect parameter useful to interpret?"
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-4",
+    "href": "hw/hw-02.html#exercise-4",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nWhat is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people? Provide posterior mean and standard deviations for both quantities."
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-5",
+    "href": "hw/hw-02.html#exercise-5",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nInterpret the posterior mean and standard deviations from Exercise 4 and compare and contrast them. What do these posterior slopes say about the impact of crime on the relationship between access to recreational facilities and exercise."
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-6",
+    "href": "hw/hw-02.html#exercise-6",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nResearchers are interested in the level of crime where the association between recreational facilities and exercise disappears. Present the posterior median and interquartile range (i.e., 25% and 75% percentiles) for this quantity."
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-7",
+    "href": "hw/hw-02.html#exercise-7",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nCompute the posterior predictive distribution for a patient with 10 recreational facilities within a one-mile radius, 5 crimes within a one-mile buffer per 1,000 people, is 40 years old, married, and white race. Report the posterior mean and 95% credible intervals."
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-8",
+    "href": "hw/hw-02.html#exercise-8",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nResearchers are interested in comparing their original model (i.e., the one from Exercise 2) with a model that does not contain an interaction term between recreational facility access and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?"
+  },
+  {
+    "objectID": "hw/hw-02.html#exercise-9",
+    "href": "hw/hw-02.html#exercise-9",
+    "title": "HW 02: Bayesian linear regression",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nPerform a sensitivity analysis to the choice of prior for \\((\\alpha,\\boldsymbol{\\beta},\\sigma)\\). Make sure to change the family of priors for each parameter. Are your results robust to the choice of prior?\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
   }
 ]

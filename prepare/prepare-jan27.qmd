@@ -1,0 +1,13 @@
+---
+title: Prepare for January 27 lecture
+---
+
+<br>
+
+Occasionally during the semester we will reference material from the text book *Bayesian Data Analysis Third Edition* by Andrew Gelman et al. A PDF of the textbook is available for download at [Andrew Gelman's website](http://www.stat.columbia.edu/~gelman/book/). We will refer to this textbook as **BDA3**.
+
+📖 Read **BDA3** Chapter 6 to learn about posterior predictive checking
+
+📖 Read **BDA3** Chapter 11.4 and 11.5 to learn about model convergence metrics
+
+✅ Work on [HW 01](https://biostat725-sp26.netlify.app/hw/hw-01) which is due Thursday before class

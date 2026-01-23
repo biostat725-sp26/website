@@ -1,0 +1,11 @@
+---
+title: Prepare for January 29 lecture
+---
+
+<br>
+
+📖 Read sections 9.1-9.4 of Mark Lai's [course notes](https://bookdown.org/marklhc/notes_bookdown/model-comparison-and-regularization.html) for an introduction to model comparison
+
+📖 Review **BDA3** Chapter 7.1-7.3 to learn more about model comparison metrics
+
+✅ Work on [HW 01](https://biostat725-sp26.netlify.app/hw/hw-01) which is due Thursday before class

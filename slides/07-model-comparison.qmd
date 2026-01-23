@@ -1,0 +1,606 @@
+---
+title: "Model Comparison"
+author: "Prof. Sam Berchuck"
+date: "2026-01-29"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 BIOSTAT 725 - Spring 2026](https://biostat725-sp26.netlify.app/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    html-math-method: mathjax
+filters:
+  - parse-latex
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+bibliography: references.bib
+---
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(mvtnorm)
+library(coda)
+```
+
+## Review of last lecture
+
+On Tuesday, we learned about various ways to check MCMC convergence and model fit.
+
+-   Traceplots, effective sample size ($n_{eff}$), MC standard error, $\hat{R}$, sampling issues
+
+-   Posterior predictive checks
+
+-   Model checks using `shinystan`
+
+Today, we will learn about model comparisons.
+
+## Model comparison
+
+-   In statistical modeling, a more complex model almost always results in a better fit to the data.
+
+    -   A more complex model means one with more parameters.
+
+-   If one has 10 observations, one can have a model with 10 parameters that can perfectly predict every single data point (by just having a parameter to predict each data point).
+
+-   There are two problems with overly complex models.
+
+    1.  They become increasingly hard to interpret (think a straight line versus a polynomial).
+
+    2.  They are more at risk of overfitting, such that it does not work for future observations.
+
+## Model fit: an example data set
+
+-   Let's explore the idea of model fit using an example dataset from the `openintro` package called `bdims`.
+
+-   This dataset contains body girth measurements and skeletal diameter measurements.
+
+-   Today we will explore the association between height and weight.
+
+## Model fit: an example data set
+
+```{r}
+library(openintro)
+dat <- data.frame(weight = bdims$wgt * 2.20462, # convert weight to lbs
+                  height = bdims$hgt * 0.393701, # convert height to inches
+                  sex = ifelse(bdims$sex == 1, "Male", "Female"))
+```
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 6
+#| fig-height: 4
+#| layout-ncol: 1
+set.seed(1)
+dat_sub <- dat[sample(1:nrow(dat), 10), ]
+ggplot(dat, aes(x = height, y = weight)) + 
+  geom_point() + 
+  geom_point(data = dat_sub, aes(x = height, y = weight), color = "red") +
+  labs(x = "Height (inches)", y = "Weight (pounds)")
+```
+
+## Models of increasing complexity {.midi}
+
+-   When using height to predict weight, we can use models of increasing complexity using higher order polynomials.
+
+-   Let's fit the following models to the subset of 10 data points:
+
+\begin{align*}
+\mathbb{E}[weight_i] &= \beta_0 + \beta_1 height_i\\
+\mathbb{E}[weight_i] &= \beta_0 + \beta_1 height_i + \beta_2 height_i^2\\
+\mathbb{E}[weight_i] &= \beta_0 + \beta_1 height_i + \beta_2 height_i^2 + \beta_3 height_i^3\\
+\mathbb{E}[weight_i] &= \beta_0 + \beta_1 height_i + \beta_2 height_i^2 + \beta_3 height_i^3 + \beta_4 height_i^4
+\end{align*}
+
+-   We can compare these models using standard measures of goodness-of-fit, including $R^2$ and root mean squared error (RMSE).
+
+## Overfitting and underfitting
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 4.25
+#| fig-height: 2.5
+#| layout-ncol: 2
+reg1 <- lm(weight ~ height, data = dat_sub)
+reg2 <- lm(weight ~ height + I(height^2), data = dat_sub)
+reg3 <- lm(weight ~ height + I(height^2) + I(height^3), data = dat_sub)
+reg4 <- lm(weight ~ height + I(height^2) + I(height^3) + I(height^4), data = dat_sub)
+reg5 <- lm(weight ~ height + I(height^2) + I(height^3) + I(height^4) + I(height^5), data = dat_sub)
+reg6 <- lm(weight ~ height + I(height^2) + I(height^3) + I(height^4) + I(height^5) + I(height^6), data = dat_sub)
+regs <- list(reg1, reg2, reg3, reg4, reg5, reg6)
+round2 <- function(x) format(round(x, 2), nsmall = 2)
+labels <- c("Linear", "Quadratic", "Cubic", "4th degree polynomial", "5th degree polynomial", "6th degree polynomial")
+for (i in 1:4) {
+  reg <- regs[[i]]
+  r2 <- summary(reg)$r.squared
+  rmse <- sqrt(mean((predict(reg) - dat_sub$weight)^2))
+  x <- seq(min(dat$height), max(dat$height), length.out = 1001)
+  dat_curve <- data.frame(x = x,
+                          y = predict(reg, newdata = data.frame(height = x)))
+  p <- ggplot(dat_sub, aes(x = height, y = weight)) + 
+    geom_point(color = "red") + 
+    # geom_line(data = dat_curve, aes(x = x, y = y), color = "blue", lwd = 1.5) + 
+    geom_smooth(method = "lm", formula = y ~ poly(x, i), se = TRUE, fullrange = TRUE, lwd = 1.5) +
+    ylim(min(dat$weight), max(dat$weight)) + 
+    xlim(min(dat$height), max(dat$height)) + 
+    labs(x = "Height (inches)", y = "Weight (pounds)", subtitle = labels[i]) + 
+    annotate("text", x = 58, y = 250, label = as.expression(bquote(R^2 == ~ .(round2(r2)))), hjust = 0, vjust = 0) + 
+    annotate("text", x = 58, y = 235, label = as.expression(bquote("RMSE" == ~ .(round2(rmse)))), hjust = 0, vjust = 0)
+  print(p)
+}
+```
+
+## Overfitting and underfitting
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 4.25
+#| fig-height: 2.5
+#| layout-ncol: 2
+for (i in 1:4) {
+  reg <- regs[[i]]
+  rmse <- sqrt(mean((predict(reg, newdata = data.frame(height = dat$height)) - dat$weight)^2))
+  x <- seq(min(dat$height), max(dat$height), length.out = 1001)
+  dat_curve <- data.frame(x = x,
+                          y = predict(reg, newdata = data.frame(height = x)))
+  p <- ggplot(dat_sub, aes(x = height, y = weight)) + 
+    geom_point(data = dat, aes(x = height, y = weight)) + 
+    geom_point(color = "red") + 
+    geom_line(data = dat_curve, aes(x = x, y = y), color = "blue", lwd = 1.5) + 
+    # geom_smooth(method = "lm", formula = y ~ poly(x, i), se = FALSE, full_range = TRUE) + 
+    ylim(min(dat$weight), max(dat$weight)) + 
+    labs(x = "Height (inches)", y = "Weight (pounds)", subtitle = labels[i]) + 
+    annotate("text", x = 72, y = 100, label = as.expression(bquote("RMSE" == ~ .(round2(rmse)))), hjust = 0, vjust = 0)
+  print(p)
+}
+```
+
+## Overfitting and underfitting
+
+-   With more complex models, out-of-sample prediction becomes worse.
+
+-   This is because when you use a complex model in a data set, it tailors the coefficients to any sampling errors and noise in the data such that it will not generalize to new observations.
+
+-   Therefore, our goal in model comparison is to choose a model with the following two properties:
+
+    1.  It is complex enough to capture the essence of the data generation process (and thus avoid underfitting),
+
+    2.  It avoids overfitting to make the model usefull for predicting new observations.
+
+## Finding an optimal model {.midi}
+
+-   Trade-off between overfitting and underfitting (in machine learning this is commonly called bias-variance trade-off).
+
+    -   A simple model tends to produce biased predictions because it does not capture the essence of the data generating process.
+
+    -   A model that is overly complex is unbiased but results in a lot of uncertainty in the prediction.
+
+-   Polynomials are merely one example of comparing simple to complex models. You can think about:
+
+    -   Models with and without interactions,
+
+    -   Models with a few predictors versus hundreds of predictors,
+
+    -   Regression analyses versus hierarchical models, etc.
+
+## Model Comparison {.midi}
+
+-   When comparing models, we prefer models that are closer to the *true* data-generating process.
+
+-   We need some ways to quantify the degree of *closeness* to the true model. Note that in this context models refer to the distributional family as well as the parameter values.
+
+-   For example, the model $Y_i \sim N(5,2)$ is a different model than $Y_i \sim N(3,2)$, which is a different model than $Y_i \sim Gamma(2,2)$.
+
+    -   The first two have the same family but different parameter values (different means, same SD), whereas the last two have different distributional families (Normal vs. Gamma).
+
+-   One way to quantify the degree of *closeness* to the true model is using Kullback-Leibler (KL) divergence.
+
+## Kullback-Leibler divergence {.midi}
+
+-   For two models, $M_0$ and $M_1$, the KL divergence is given by,
+
+\begin{align*}
+D_{KL}\left(M_0 | M_1\right) &= \int_{-\infty}^{\infty} f_{M_0}(\mathbf{Y}) \log\frac{f_{M_0}(\mathbf{Y})}{f_{M_1}(\mathbf{Y})} d\mathbf{Y}\\
+&\hspace{-1.5in}= \int_{-\infty}^{\infty} f_{M_0}(\mathbf{Y}) \log f_{M_0}(\mathbf{Y})d\mathbf{Y} - \int_{-\infty}^{\infty} f_{M_0}(\mathbf{Y}) \log f_{M_1}(\mathbf{Y})d\mathbf{Y}
+\end{align*}
+
+-   Note that $D_{KL}$ is not considered a distance, because it is not strictly symmetric, $D_{KL}\left(M_0 | M_1\right) \neq D_{KL}\left(M_1 | M_0\right)$.
+
+## Kullback-Leibler divergence {.midi}
+
+As an example, assume that the data are generated by a true model $M_0$, and we have two candidate models $M_1$ and $M_2$, where
+
+::::: columns
+::: {.column width="40%"}
+-   $M_0: Y_i \sim N(3,2)$
+
+-   $M_1: Y_i \sim N(3.5, 2.5)$
+
+-   $M_2: Y_i \sim Cauchy(3,2)$
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-width: 7
+#| fig-height: 3
+#| layout-ncol: 1
+x <- seq(-4, 12, length.out = 1001)
+dens1 <- dnorm(x, 3, 2)
+dens2 <- dnorm(x, 3.5, 2.5)
+dens3 <- dcauchy(x, 3, 2)
+dat.fig <- data.frame(
+  x = rep(x, 3),
+  y = c(dens1, dens2, dens3),
+  Model = rep(c("M[0]", "M[1]", "M[2]"), each = 1001)
+)
+ggplot(dat.fig, aes(x = x, y = y, color = Model)) + 
+  geom_line(lwd = 1.5) + 
+  labs(x = "Y", y = "Density") +
+  scale_colour_manual(name = "Model", values = c("blue", "red", "green"), 
+                      labels = c(expression(M[0]), expression(M[1]), expression(M[2]))) 
+```
+:::
+:::::
+
+-   $D_{KL}(M_0 |M_1) = 0.063$, $D_{KL}(M_0 | M_1) = 0.259$, so $M_1$ is a better model than $M_2$.
+
+## Comparing models using KL {.midi}
+
+-   Note that in the expression of $D_{KL}$, when talking about the same target model, the first term is always the same and describes the *true* model, $M_0$.
+
+-   Therefore, it is sufficient to compare models on the second term,\
+    $$\int_{-\infty}^{\infty} f_{M_0}(\mathbf{Y}) \log f_{M_1}(\mathbf{Y})d\mathbf{Y},$$ which can also be written as, $\mathbb{E}_{M_0}\left[\log f_{M_1}(\mathbf{Y})\right].$
+
+-   This term is the **expected log predictive density (elpd)**.
+
+-   A larger elpd is preferred. Why?
+
+## Comparing models using KL
+
+-   In the real world, we do not know $M_0$.
+
+    -   If we knew, then we would just need to choose $M_0$ as our model and there will be no problem about model comparisons.
+
+    -   Even if we knew the true model, we would still need to estimate the parameter values.
+
+-   Thus, we cannot compute elpd, since the expectation is over $f_{M_0}(\mathbf{Y})$.
+
+-   We need to estimate elpd!
+
+## Comparing models using KL {.midi}
+
+-   elpd is an expectation, so we can think about estimating it using Monte Carlo sampling, $$\frac{1}{S}\sum_{s = 1}^S\log f_{M_1}\left(\mathbf{Y}^{(s)}\right)\rightarrow \mathbb{E}_{M_0}\left[\log f_{M_1}(\mathbf{Y})\right], \quad \mathbf{Y}^{(s)} \sim f_{M_0}(\mathbf{Y}).$$
+
+    -   We need to find a way to approximate, $f_{M_0}\left(\mathbf{Y}^{(s)}\right)$.
+
+-   A naive way to approximate $f(\mathbf{Y}^{(s)})$ is to assume that the distribution of the observed data is the true model.
+
+    -   This is equivalent to assuming that $\mathbf{Y}^{(s)} \sim \{\mathbf{Y}_1,\ldots,\mathbf{Y}_n\}$.
+
+    -   This leads to an overly optimistic estimate and favors complex models.
+
+## Comparing models using KL
+
+-   A better way to estimate elpd is to collect data on a new independent sample that is believed to share the same data generating process as the current sample, and estimate elpd on the new sample.
+
+    -   This is called *out-of-sample validation*.
+
+    -   The problem, of course, is we usually do not have the resources to collect a new sample.
+
+-   Therefore, statisticians have worked hard to find ways to estimate elpd from the current sample, and there are two broad approaches, information criteria and cross-validation.
+
+## Overview of comparison methods
+
+1.  **Information criteria:** AIC, DIC, and WAIC, which estimate the elpd in the current sample, minus a correction factor.
+
+2.  **Cross validation**: A method that splits the current sample into $K$ parts, estimates the parameters in $K − 1$ parts, and estimates the elpd in the remaining 1 part.
+
+-   A special case is when $K = n$ so that each time one uses $n-1$ data points to estimate the model parameters, and estimates the elpd for the observation that was left out. This is called **leave-one-out cross-validation (LOO-CV)**.
+
+## Information criteria
+
+-   Several information criteria have been proposed that do not require fitting the model several times, including AIC, DIC, and WAIC.
+
+-   We will introduce the information criteria, assuming a likelihood $f(\mathbf{Y} | \boldsymbol{\theta})$ for observed data $\mathbf{Y} = (Y_1,\ldots,Y_n)$ with population parameter $\boldsymbol{\theta}$.
+
+-   Information criteria are often presented as **deviance**, defined as, $D(\mathbf{Y}|\boldsymbol{\theta}) = −2 \log f(\mathbf{Y}|\boldsymbol{\theta})$.
+
+-   Ideally, models will have small deviance.
+
+-   However, if a model is too complex it will have small deviance but be unstable (overfitting).
+
+## Akaike information criteria (AIC)
+
+Akaike information criteria (AIC) estimates the elpd as,
+
+$$\widehat{\text{elpd}}_{\text{AIC}} = \log f(\mathbf{Y} | \hat{\boldsymbol{\theta}}_{\text{MLE}}) - p,$$ where $p$ is the number of parameters estimated in the model and $\hat{\boldsymbol{\theta}}_{\text{MLE}}$ is the MLE point estimate.
+
+-   $\text{AIC} = -2\log f(\mathbf{Y} | \hat{\boldsymbol{\theta}}_{\text{MLE}}) + 2p$
+
+-   $p$ is an adjustment for overfitting, but once we go beyond linear models, we cannot simply add $p$.
+
+-   Informative priors tend to reduce the amount of overfitting.
+
+-   Model with smaller AIC are preferred.
+
+## Deviance information criteria (DIC)
+
+Deviance information criteria (DIC) estimates the elpd as,
+
+$$\widehat{\text{elpd}}_{\text{DIC}} = \log f(\mathbf{Y} | \hat{\boldsymbol{\theta}}_{\text{Bayes}}) - p_{\text{DIC}},$$ where $\hat{\boldsymbol{\theta}}_{\text{Bayes}}$ is a Bayesian point estimate, typically a posterior mean, and $p_{\text{DIC}}$ is an estimate of the complexity penalty,
+
+$$p_{\text{DIC}} = 2 \left(\log f(\mathbf{Y} | \hat{\boldsymbol{\theta}}_{\text{Bayes}}) - \mathbb{E}_{\boldsymbol{\theta} | \mathbf{Y}}\left[\log f(\mathbf{Y} | \boldsymbol{\theta}) \right]\right).$$
+
+-   The second term can be estimated as a MC integral.
+
+-   $\text{DIC} = -2\log f(\mathbf{Y} | \hat{\boldsymbol{\theta}}_{\text{Bayes}}) + 2p_{\text{DIC}}.$
+
+## Deviance information criteria (DIC) {.midi}
+
+-   Advantages of DIC:
+
+    -   The effective number of parameters is a useful measure of model complexity.
+
+    -   Intuitively, if there are $p$ parameters and we have uninformative priors then $p_D \approx p$.
+
+    -   However, $p_D \ll p$ if there are strong priors.
+
+-   Disadvantages of DIC:
+
+    -   DIC can only be used to compare models with the same likelihood.
+
+    -   DIC really only applies when the posterior is approximately normal, and will give misleading results when the posterior is far from normality (e.g., bimodal).
+
+## Watanabe-Akaike information criteria (WAIC) {.midi}
+
+Watanabe-Akaike or widely available information criteria (WAIC) estimates the elpd as,
+
+$$\widehat{\text{elpd}}_{\text{WAIC}} = \text{lppd} - p_{\text{WAIC}}.$$
+
+-   The log pointwise predictive density (lppd) is given by, $$\text{lppd} = \log \prod_{i=1}^n f(Y_i | \mathbf{Y}) =  \sum_{i=1}^n \log \int f\left(Y_i | \boldsymbol{\theta}\right)f(\boldsymbol{\theta}| \mathbf{Y}) d\boldsymbol{\theta}.$$
+
+-   lppd can be estimated as, $\sum_{i=1}^n \log \left(\frac{1}{S} \sum_{s = 1}^S f\left(Y_i | \boldsymbol{\theta}^{(s)}\right)\right)$, where $\boldsymbol{\theta}^{(s)}$ are drawn from the posterior.
+
+## WAIC
+
+There are two common estimates of $p_{\text{WAIC}}$, both of which can be estimated using MC samples of the posterior. \begin{align*}
+p_{\text{WAIC}_1} &= 2 \sum_{i=1}^n\left(\log \left( \mathbb{E}_{\boldsymbol{\theta} | \mathbf{Y}}\left[f(Y_i | \boldsymbol{\theta})\right]\right) - \mathbb{E}_{\boldsymbol{\theta} | \mathbf{Y}}\left[\log f(Y_i | \boldsymbol{\theta}) \right]\right)\\
+p_{\text{WAIC}_2} &= \sum_{i=1}^n \mathbb{V}_{\boldsymbol{\theta} | \mathbf{Y}}\left(\log f\left(Y_i | \mathbf{\theta}\right)\right)
+\end{align*}
+
+-   $\text{WAIC} = -2 \text{lppd} + 2p_{\text{WAIC}}.$
+
+## WAIC
+
+-   WAIC has the desirable property of averaging over the posterior distribution, instead of conditioning on a point estimate.
+
+-   $p_{\text{WAIC}}$ can be thought of as an approximation to the number of unconstrained parameters in the model.
+
+-   In practice, $p_{\text{WAIC}_2}$ is often used, since it is theoretically closer to LOO-CV.
+
+## Cross-validation
+
+-   A common approach to compare models is using cross-validation.
+
+-   This is exactly the same procedure used in classical statistics.
+
+-   This operates under the assumption that the *true* model likely produces better out-of-sample predictions than competing models.
+
+-   *Advantages:* Simple, intuitive, and broadly applicable.
+
+-   *Disadvantages:* Slow because it requires several model fits and it is hard to say a difference is statistically significant.
+
+## K-fold cross-validation {.midi}
+
+0.  Split the data into $K$ equally-sized groups.
+
+1.  Set aside group $k$ as test set and fit the model to the remaining $K − 1$ groups.
+
+2.  Make predictions for the test set $k$ based on the model fit to the training data.
+
+3.  Repeat steps 1 and 2 for $k = 1, \dots, K$ giving a predicted value $\widehat{Y}_i$ for all $n$ observations.
+
+4.  Measure prediction accuracy, e.g.,
+
+$$MSE = \frac{1}{n}\sum_{i=1}^n (Y_i - \widehat{Y}_i)^2.$$
+
+## Variants of cross-validation
+
+-   Usually $K$ is either 5 or 10.
+
+-   $K = n$ is called leave-one-out cross-validation (LOO-CV), which is great but slow.
+
+-   The predicted value $\widehat{Y}_i$ can be either the posterior predictive mean or median.
+
+-   Mean squared error (MSE) can be replaced with mean absolute deviation (MAD),
+
+$$MAD = \frac{1}{n}\sum_{i=1}^n |Y_i - \widehat{Y}_i|.$$
+
+## Leave-one-out cross-validation (LOO-CV) {.midi}
+
+-   Assume the data are partitioned into a training set, $\mathbf{Y}_{\text{train}}$ and a holdout set $\mathbf{Y}_{\text{test}}$, thus yielding a posterior distribution $f(\boldsymbol{\theta} | \mathbf{Y}_{\text{train}})$.
+
+-   In the setting of LOO-CV, we have $n$ different $f\left(\boldsymbol{\theta} | \mathbf{Y}_{-i}\right)$.
+
+-   The Bayesian LOO-CV estimate of out-of-sample predictive fit is $$\text{lppd}_{\text{LOO-CV}} = \sum_{i=1}^n \log f\left(\boldsymbol{\theta} | \mathbf{Y}_{-i}\right),$$
+
+-   The estimated number of parameters can be computed as,
+
+$$p_{\text{LOO-CV}} = \text{lppd} - \text{lppd}_{\text{LOO-CV}}.$$
+
+-   This also referred to as leave-one-out information criteria (LOO-IC)
+
+## LOO-CV
+
+LOO-CV estimates the elpd as,
+
+$$\widehat{\text{elpd}}_{\text{LOO-CV}} = \text{lppd}_{\text{LOO-CV}} - p_{\text{WAIC}} = \text{lppd}_{\text{LOO-CV}}.$$
+
+-   Under some common models there are shortcuts for computing it, however in general these do not exist.
+
+-   WAIC can be treated as a fast approximation of LOO-CV.
+
+-   In Stan, LOO-CV is approximated using the [Pareto smoothed importance sampling (PSIS)](https://arxiv.org/abs/1507.04544) to make the process faster, without having to repeat the process $n$ times.
+
+## Computing WAIC and LOO-CV using Stan
+
+We need to update the **generated quantities** code block.
+
+```{stan output.var = "waic", eval = FALSE}
+generated quantities {
+  ...
+  vector[n] log_lik;
+  for (i in 1:n) log_lik[i] = normal_lpdf(Y[i] | X[i, ] * beta, sigma);
+}
+```
+
+## Let's simulate some data:
+
+```{r}
+###True parameters
+sigma <- 1.5 # true measurement error
+beta <- matrix(c(-1.5, 3, 1), ncol = 1) # true beta
+
+###Simulation settings
+n <- 100 # number of observations
+n_pred <- 10 # number of predicted observations
+p <- length(beta) - 1 # number of covariates
+
+###Simulate data
+set.seed(54) # set seed
+X <- cbind(1, matrix(rnorm(n * p), ncol = p))
+Y <- as.numeric(X %*% beta + rnorm(n, 0, sigma))
+X_pred <- cbind(1, matrix(rnorm(n_pred * p), ncol = p))
+Y_pred <- as.numeric(X_pred %*% beta + rnorm(n_pred, 0, sigma))
+```
+
+## An example model comparison
+
+True Model: $\mathbb{E}[Y_i] = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2}$
+
+Model 1: $\mathbb{E}[Y_i] = \beta_0 + \beta_1 x_{i1}$
+
+Model 2: $\mathbb{E}[Y_i] = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2}$
+
+## Fit model 1
+
+```{r, eval = FALSE, echo = TRUE}
+###Create stan data object
+stan_data_model1 <- list(n = n, p = p - 1, Y = Y, X = X[, -3],
+                         beta0 = 0, sigma_beta = 10, a = 3,  b = 1,
+                         n_pred = n_pred, X_pred = X_pred[, -3])
+  
+###Compile model separately
+stan_model <- stan_model(file = "linear_regression_ppd_log_lik.stan")
+
+###Run model 1 and save
+fit_model1 <- sampling(stan_model, data = stan_data_model1, 
+                chains = 4, iter = 1000)
+saveRDS(fit_model1, file = "linear_regression_ppd_log_lik_fit_model1.rds")
+```
+
+```{r, echo=FALSE}
+fit_model1 <- readRDS(file = "~/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_ppd_log_lik_fit_model1.rds")
+```
+
+## Fit model 2
+
+```{r, eval = FALSE, echo = TRUE}
+###Create stan data object
+stan_data_model2 <- list(n = n, p = p, Y = Y, X = X,
+                         beta0 = 0, sigma_beta = 10, a = 3,  b = 1,
+                         n_pred = n_pred, X_pred = X_pred)
+
+###Run model 2 and save
+fit_model2 <- sampling(stan_model, data = stan_data_model2, 
+                chains = 4, iter = 1000)
+saveRDS(fit_model2, file = "linear_regression_ppd_log_lik_fit_model2.rds")
+```
+
+```{r, echo=FALSE}
+fit_model2 <- readRDS(file = "~/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-objects/linear_regression_ppd_log_lik_fit_model2.rds")
+```
+
+## Computing WAIC
+
+-   Begin by extracting the log-likelihood values from the model.
+
+-   We will use the [`loo` package](https://mc-stan.org/loo/).
+
+```{r}
+###Load loo package
+library(loo)
+
+###Extract log likelihood
+log_lik_model1 <- loo::extract_log_lik(fit_model1, parameter_name = "log_lik", merge_chains = TRUE)
+log_lik_model2 <- loo::extract_log_lik(fit_model2, parameter_name = "log_lik", merge_chains = TRUE)
+
+###Explore the object
+class(log_lik_model1)
+dim(log_lik_model1)
+```
+
+## Computing WAIC
+
+```{r}
+###Compute WAIC for the two models
+waic_model1 <- loo::waic(log_lik_model1)
+waic_model2 <- loo::waic(log_lik_model2)
+
+###Inspect WAIC for model 1
+waic_model1
+```
+
+## Computing WAIC
+
+```{r}
+###Inspect WAIC for model 2
+waic_model2
+```
+
+## Computing WAIC
+
+```{r}
+###Make a comparison
+comp_waic <- loo::loo_compare(list("true" = waic_model2, "misspec" = waic_model1))
+print(comp_waic, digits = 2)
+print(comp_waic, digits = 2, simplify = FALSE)
+```
+
+## Computing LOO-CV/LOO-CI
+
+```{r}
+###Compute LOO-IC for the two models
+loo_model1 <- loo::loo(log_lik_model1)
+loo_model2 <- loo::loo(log_lik_model2)
+
+###Make a comparison
+comp <- loo::loo_compare(list("true" = loo_model2, "misspec" = loo_model1))
+print(comp, digits = 2)
+print(comp, digits = 2, simplify = FALSE)
+```
+
+## Prepare for next class
+
+-   Work on [HW 02](https://biostat725-sp26.netlify.app/hw/hw-02), which was just assigned
+
+-   Complete reading to prepare for next Tuesday's lecture
+
+-   Tuesday's lecture: Bayesian Workflow
