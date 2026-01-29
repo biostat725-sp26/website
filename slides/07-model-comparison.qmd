@@ -439,19 +439,24 @@ $$MAD = \frac{1}{n}\sum_{i=1}^n |Y_i - \widehat{Y}_i|.$$
 
 -   In the setting of LOO-CV, we have $n$ different $f\left(\boldsymbol{\theta} | \mathbf{Y}_{-i}\right)$.
 
--   The Bayesian LOO-CV estimate of out-of-sample predictive fit is $$\text{lppd}_{\text{LOO-CV}} = \sum_{i=1}^n \log f\left(\boldsymbol{\theta} | \mathbf{Y}_{-i}\right),$$
+-   The Bayesian LOO-CV estimate of out-of-sample predictive fit is $$\widehat{\text{elpd}}_{\text{LOO-CV}} = \sum_{i=1}^n \log f\left(Y_i|\mathbf{Y}_{-i}\right),$$
+calculated as $$\sum_{i=1}^n \log \left(\frac{1}{S} \sum_{s=1}^S f\left(Y_i|\boldsymbol{\theta}^{(is)}\right)\right),\quad \boldsymbol{\theta}^{(is)} \sim f(\boldsymbol{\theta}|\mathbf{Y}_{-i}).$$
 
--   The estimated number of parameters can be computed as,
+## LOO-CV  {.midi}
 
-$$p_{\text{LOO-CV}} = \text{lppd} - \text{lppd}_{\text{LOO-CV}}.$$
+-   We can write LOO-CV as an information criterion
 
--   This also referred to as leave-one-out information criteria (LOO-IC)
+$$\widehat{\text{elpd}}_{\text{LOO-CV}} = \text{lppd} - p_{LOO-CV},$$
+
+where $$p_{\text{LOO-CV}} = \text{lppd} - \widehat{\text{elpd}}_{\text{LOO-CV}}.$$
+
+-   The estimated number of parameters measures how much in-sample predictive fit overstates out-of-sample performance.
+
+-   This formulation is often called the leave-one-out information criterion (LOO-IC).
 
 ## LOO-CV
 
-LOO-CV estimates the elpd as,
-
-$$\widehat{\text{elpd}}_{\text{LOO-CV}} = \text{lppd}_{\text{LOO-CV}} - p_{\text{WAIC}} = \text{lppd}_{\text{LOO-CV}}.$$
+-   Computing LOO-CV/LOO-IC is computationally demanding.
 
 -   Under some common models there are shortcuts for computing it, however in general these do not exist.
 
@@ -599,7 +604,7 @@ print(comp, digits = 2, simplify = FALSE)
 
 ## Prepare for next class
 
--   Work on [HW 02](https://biostat725-sp26.netlify.app/hw/hw-02-blank), which was just assigned
+-   Work on [HW 02](https://biostat725-sp26.netlify.app/hw/hw-02), which was just assigned
 
 -   Complete reading to prepare for next Tuesday's lecture
 

@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -2439,14 +2439,14 @@
     "href": "slides/07-model-comparison.html#leave-one-out-cross-validation-loo-cv",
     "title": "Model Comparison",
     "section": "Leave-one-out cross-validation (LOO-CV)",
-    "text": "Leave-one-out cross-validation (LOO-CV)\n\nAssume the data are partitioned into a training set, \\(\\mathbf{Y}_{\\text{train}}\\) and a holdout set \\(\\mathbf{Y}_{\\text{test}}\\), thus yielding a posterior distribution \\(f(\\boldsymbol{\\theta} | \\mathbf{Y}_{\\text{train}})\\).\nIn the setting of LOO-CV, we have \\(n\\) different \\(f\\left(\\boldsymbol{\\theta} | \\mathbf{Y}_{-i}\\right)\\).\nThe Bayesian LOO-CV estimate of out-of-sample predictive fit is \\[\\text{lppd}_{\\text{LOO-CV}} = \\sum_{i=1}^n \\log f\\left(\\boldsymbol{\\theta} | \\mathbf{Y}_{-i}\\right),\\]\nThe estimated number of parameters can be computed as,\n\n\\[p_{\\text{LOO-CV}} = \\text{lppd} - \\text{lppd}_{\\text{LOO-CV}}.\\]\n\nThis also referred to as leave-one-out information criteria (LOO-IC)"
+    "text": "Leave-one-out cross-validation (LOO-CV)\n\nAssume the data are partitioned into a training set, \\(\\mathbf{Y}_{\\text{train}}\\) and a holdout set \\(\\mathbf{Y}_{\\text{test}}\\), thus yielding a posterior distribution \\(f(\\boldsymbol{\\theta} | \\mathbf{Y}_{\\text{train}})\\).\nIn the setting of LOO-CV, we have \\(n\\) different \\(f\\left(\\boldsymbol{\\theta} | \\mathbf{Y}_{-i}\\right)\\).\nThe Bayesian LOO-CV estimate of out-of-sample predictive fit is \\[\\widehat{\\text{elpd}}_{\\text{LOO-CV}} = \\sum_{i=1}^n \\log f\\left(Y_i|\\mathbf{Y}_{-i}\\right),\\] calculated as \\[\\sum_{i=1}^n \\log \\left(\\frac{1}{S} \\sum_{s=1}^S f\\left(Y_i|\\boldsymbol{\\theta}^{(is)}\\right)\\right),\\quad \\boldsymbol{\\theta}^{(is)} \\sim f(\\boldsymbol{\\theta}|\\mathbf{Y}_{-i}).\\]"
   },
   {
     "objectID": "slides/07-model-comparison.html#loo-cv",
     "href": "slides/07-model-comparison.html#loo-cv",
     "title": "Model Comparison",
     "section": "LOO-CV",
-    "text": "LOO-CV\nLOO-CV estimates the elpd as,\n\\[\\widehat{\\text{elpd}}_{\\text{LOO-CV}} = \\text{lppd}_{\\text{LOO-CV}} - p_{\\text{WAIC}} = \\text{lppd}_{\\text{LOO-CV}}.\\]\n\nUnder some common models there are shortcuts for computing it, however in general these do not exist.\nWAIC can be treated as a fast approximation of LOO-CV.\nIn Stan, LOO-CV is approximated using the Pareto smoothed importance sampling (PSIS) to make the process faster, without having to repeat the process \\(n\\) times."
+    "text": "LOO-CV\n\nWe can write LOO-CV as an information criterion\n\n\\[\\widehat{\\text{elpd}}_{\\text{LOO-CV}} = \\text{lppd} - p_{LOO-CV},\\]\nwhere \\[p_{\\text{LOO-CV}} = \\text{lppd} - \\widehat{\\text{elpd}}_{\\text{LOO-CV}}.\\]\n\nThe estimated number of parameters measures how much in-sample predictive fit overstates out-of-sample performance.\nThis formulation is often called the leave-one-out information criterion (LOO-IC)."
   },
   {
     "objectID": "slides/07-model-comparison.html#computing-waic-and-loo-cv-using-stan",
@@ -2530,69 +2530,116 @@
     "href": "hw/hw-02.html",
     "title": "HW 02: Bayesian linear regression",
     "section": "",
-    "text": "ImportantDue date\n\n\n\nThis assignment is due on Thursday, February 12 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+    "text": "ImportantDue date\n\n\n\nThis assignment is due on Thursday, February 12 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   },
   {
     "objectID": "hw/hw-02.html#exercise-1",
     "href": "hw/hw-02.html#exercise-1",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nSetup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Define the random variable \\(Y_i\\) as the exercise in MET minutes per week for women \\(i\\) and assume that \\(Y_i \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\) for \\(i = 1,\\ldots,n\\) where \\[\\begin{align*}\n\\mu_i &= \\alpha + recreation_i \\beta_1 + crime_i \\beta_2+(recreation_i \\times crime_i) \\beta_3\\\\\n&\\quad+ age_i \\beta_4 + black_i \\beta_5 + asian_i \\beta_6 + married_i \\beta_7\\\\\n&= \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\n\\end{align*}\\]\nFit this regression using a Bayesian framework in Stan to estimate \\((\\alpha, \\boldsymbol{\\beta},\\sigma)\\). For all model parameters, choose weakly-informative priors, \\(\\alpha \\sim N(0,100)\\), \\(\\beta_j \\sim N(0,100)\\) for \\(j=1,\\ldots,p\\), and \\(\\sigma \\sim \\text{Half-Normal}(0,100)\\). Recall, that in this class, normal distributions are parameterized using variances (i.e., the standard deviations in these priors is 10).\nEvaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well."
+    "text": "Exercise 1\nSetup a multivariable linear regression to estimate the association between access to recreational facilities and exercise, making sure to allow for this relationship to change based on crime. Be sure to control for the following confounders: age, marital status, and race. Define the random variable \\(Y_i\\) as the exercise in MET minutes per week for women \\(i\\) and assume that \\(Y_i \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\) for \\(i = 1,\\ldots,n\\) where \\[\\begin{align*}\n\\mu_i &= \\alpha + recreation_i \\beta_1 + crime_i \\beta_2+(recreation_i \\times crime_i) \\beta_3\\\\\n&\\quad+ age_i \\beta_4 + black_i \\beta_5 + asian_i \\beta_6 + married_i \\beta_7\\\\\n&= \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\n\\end{align*}\\]\nFit this regression using a Bayesian framework in Stan to estimate \\((\\alpha, \\boldsymbol{\\beta},\\sigma)\\). For all model parameters, choose weakly-informative priors, \\(\\alpha \\sim N(0,100)\\), \\(\\beta_j \\sim N(0,100)\\) for \\(j=1,\\ldots,p\\), and \\(\\sigma \\sim \\text{Half-Normal}(0,100)\\). Recall, that in this class, normal distributions are parameterized using variances (i.e., the standard deviations in these priors is 10).\nEvaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   },
   {
     "objectID": "hw/hw-02.html#exercise-2",
     "href": "hw/hw-02.html#exercise-2",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 2",
-    "text": "Exercise 2\nRefit the model in Exercise 1, this time using centered outcome and predictor variables, \\(Y_i^* \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\), where \\(\\mu_i^* = \\alpha + \\mathbf{x}_i^*\\boldsymbol{\\beta}\\). The centered data are defined as, \\(Y_i^* = Y_i - \\overline{Y}\\), where \\(\\overline{Y} = \\frac{1}{n}\\sum_{i=1}^n Y_i\\) and \\(\\mathbf{x}_i^* = \\mathbf{x}_i-\\bar{\\mathbf{x}}\\), where \\(\\bar{\\mathbf{x}} = \\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\). Use the same priors as before. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from Exercise 1. Make an argument for why this model may have improved model fit."
+    "text": "Exercise 2\nRefit the model in Exercise 1, this time using centered outcome and predictor variables, \\(Y_i^* \\stackrel{ind}{\\sim} N(\\mu_i, \\sigma^2)\\), where \\(\\mu_i^* = \\alpha + \\mathbf{x}_i^*\\boldsymbol{\\beta}\\). The centered data are defined as, \\(Y_i^* = Y_i - \\overline{Y}\\), where \\(\\overline{Y} = \\frac{1}{n}\\sum_{i=1}^n Y_i\\) and \\(\\mathbf{x}_i^* = \\mathbf{x}_i-\\bar{\\mathbf{x}}\\), where \\(\\bar{\\mathbf{x}} = \\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\). Use the same priors as before. Once again, evaluate model convergence and present posterior predictive checks. Provide an argument for whether the model fits the data well and make a comparison to the model from Exercise 1. Make an argument for why this model may have improved model fit.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   },
   {
     "objectID": "hw/hw-02.html#exercise-3",
     "href": "hw/hw-02.html#exercise-3",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 3",
-    "text": "Exercise 3\nFor the model from Exercise 2, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to recreation in your model? Within the context of the association between access to recreational facilities and exercise, is this main effect parameter useful to interpret?"
+    "text": "Exercise 3\nFor the model from Exercise 2, present the posterior means, standard deviations, and 95% credible intervals for all model parameters. What is interpretation of the slope main effect corresponding to recreation in your model? Within the context of the association between access to recreational facilities and exercise, is this main effect parameter useful to interpret?",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   },
   {
     "objectID": "hw/hw-02.html#exercise-4",
     "href": "hw/hw-02.html#exercise-4",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 4",
-    "text": "Exercise 4\nWhat is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people? Provide posterior mean and standard deviations for both quantities."
+    "text": "Exercise 4\nWhat is the association between access to recreational facilities and exercise, for a pregnant women living in an area with 5 annual crimes/1,000 people? What about for 15 annual crimes/1,000 people? Provide posterior mean and standard deviations for both quantities.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   },
   {
     "objectID": "hw/hw-02.html#exercise-5",
     "href": "hw/hw-02.html#exercise-5",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 5",
-    "text": "Exercise 5\nInterpret the posterior mean and standard deviations from Exercise 4 and compare and contrast them. What do these posterior slopes say about the impact of crime on the relationship between access to recreational facilities and exercise."
+    "text": "Exercise 5\nInterpret the posterior mean and standard deviations from Exercise 4 and compare and contrast them. What do these posterior slopes say about the impact of crime on the relationship between access to recreational facilities and exercise.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   },
   {
     "objectID": "hw/hw-02.html#exercise-6",
     "href": "hw/hw-02.html#exercise-6",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 6",
-    "text": "Exercise 6\nResearchers are interested in the level of crime where the association between recreational facilities and exercise disappears. Present the posterior median and interquartile range (i.e., 25% and 75% percentiles) for this quantity."
+    "text": "Exercise 6\nResearchers are interested in the level of crime where the association between recreational facilities and exercise disappears. Present the posterior median and interquartile range (i.e., 25% and 75% percentiles) for this quantity.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   },
   {
     "objectID": "hw/hw-02.html#exercise-7",
     "href": "hw/hw-02.html#exercise-7",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 7",
-    "text": "Exercise 7\nCompute the posterior predictive distribution for a patient with 10 recreational facilities within a one-mile radius, 5 crimes within a one-mile buffer per 1,000 people, is 40 years old, married, and white race. Report the posterior mean and 95% credible intervals."
+    "text": "Exercise 7\nCompute the posterior predictive distribution for a patient with 10 recreational facilities within a one-mile radius, 5 crimes within a one-mile buffer per 1,000 people, is 40 years old, married, and white race. Report the posterior mean and 95% credible intervals.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   },
   {
     "objectID": "hw/hw-02.html#exercise-8",
     "href": "hw/hw-02.html#exercise-8",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 8",
-    "text": "Exercise 8\nResearchers are interested in comparing their original model (i.e., the one from Exercise 2) with a model that does not contain an interaction term between recreational facility access and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?"
+    "text": "Exercise 8\nResearchers are interested in comparing their original model (i.e., the one from Exercise 2) with a model that does not contain an interaction term between recreational facility access and crime. Fit the model without the interaction term and perform a model comparison between the two models using an information criteria. Which model would you suggest as more scientifically plausible?",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
   },
   {
     "objectID": "hw/hw-02.html#exercise-9",
     "href": "hw/hw-02.html#exercise-9",
     "title": "HW 02: Bayesian linear regression",
     "section": "Exercise 9",
-    "text": "Exercise 9\nPerform a sensitivity analysis to the choice of prior for \\((\\alpha,\\boldsymbol{\\beta},\\sigma)\\). Make sure to change the family of priors for each parameter. Are your results robust to the choice of prior?\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo."
+    "text": "Exercise 9\nPerform a sensitivity analysis to the choice of prior for \\((\\alpha,\\boldsymbol{\\beta},\\sigma)\\). Make sure to change the family of priors for each parameter. Are your results robust to the choice of prior?\n\nYou’re done and ready to submit your work! render, commit, and push all remaining changes. You can use the commit message “Done with Homework 2!”, and make sure you have pushed all the files to GitHub (your Git pane in RStudio should be empty) and that all documents are updated in your repo on GitHub. The PDF document you submit to Gradescope should be identical to the one in your GitHub repo.",
+    "crumbs": [
+      "Homework",
+      "HW 02"
+    ]
+  },
+  {
+    "objectID": "slides/07-model-comparison.html#loo-cv-1",
+    "href": "slides/07-model-comparison.html#loo-cv-1",
+    "title": "Model Comparison",
+    "section": "LOO-CV",
+    "text": "LOO-CV\n\nComputing LOO-CV/LOO-IC is computationally demanding.\nUnder some common models there are shortcuts for computing it, however in general these do not exist.\nWAIC can be treated as a fast approximation of LOO-CV.\nIn Stan, LOO-CV is approximated using the Pareto smoothed importance sampling (PSIS) to make the process faster, without having to repeat the process \\(n\\) times."
   }
 ]
