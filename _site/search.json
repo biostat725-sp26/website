@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -2327,7 +2327,7 @@
     "href": "slides/07-model-comparison.html#kullback-leibler-divergence-1",
     "title": "Model Comparison",
     "section": "Kullback-Leibler divergence",
-    "text": "Kullback-Leibler divergence\nAs an example, assume that the data are generated by a true model \\(M_0\\), and we have two candidate models \\(M_1\\) and \\(M_2\\), where\n\n\n\n\\(M_0: Y_i \\sim N(3,2)\\)\n\\(M_1: Y_i \\sim N(3.5, 2.5)\\)\n\\(M_2: Y_i \\sim Cauchy(3,2)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(D_{KL}(M_0 |M_1) = 0.063\\), \\(D_{KL}(M_0 | M_1) = 0.259\\), so \\(M_1\\) is a better model than \\(M_2\\)."
+    "text": "Kullback-Leibler divergence\nAs an example, assume that the data are generated by a true model \\(M_0\\), and we have two candidate models \\(M_1\\) and \\(M_2\\), where\n\n\n\n\\(M_0: Y_i \\sim N(3,2)\\)\n\\(M_1: Y_i \\sim N(3.5, 2.5)\\)\n\\(M_2: Y_i \\sim Cauchy(3,2)\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(D_{KL}(M_0 |M_1) = 0.063\\), \\(D_{KL}(M_0 | M_2) = 0.259\\), so \\(M_1\\) is a better model than \\(M_2\\)."
   },
   {
     "objectID": "slides/07-model-comparison.html#comparing-models-using-kl",
@@ -2641,5 +2641,635 @@
     "title": "Model Comparison",
     "section": "LOO-CV",
     "text": "LOO-CV\n\nComputing LOO-CV/LOO-IC is computationally demanding.\nUnder some common models there are shortcuts for computing it, however in general these do not exist.\nWAIC can be treated as a fast approximation of LOO-CV.\nIn Stan, LOO-CV is approximated using the Pareto smoothed importance sampling (PSIS) to make the process faster, without having to repeat the process \\(n\\) times."
+  },
+  {
+    "objectID": "prepare/prepare-feb03.html",
+    "href": "prepare/prepare-feb03.html",
+    "title": "Prepare for February 3 lecture",
+    "section": "",
+    "text": "📖 Review Bayesian Workflow by Gelman et al.\n✅ Work on HW 02"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html",
+    "href": "slides/09-nonlinear.html",
+    "title": "Nonlinear Regression",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#review-of-last-lecture",
+    "href": "slides/09-nonlinear.html#review-of-last-lecture",
+    "title": "Nonlinear Regression",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nOn Tuesday, we put all of our skills together and learned about the Bayesian workflow.\nWe have now learned all the skills needed to perform Bayesian inference.\nThe rest of the course we will introduce new models and data types that are useful for performing biomedical data science."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#learning-objectives-today",
+    "href": "slides/09-nonlinear.html#learning-objectives-today",
+    "title": "Nonlinear Regression",
+    "section": "Learning objectives today",
+    "text": "Learning objectives today\n\nThus far, we have focused on linear regression models.\nToday we will focus on approaches that use linear regression to build nonlinear associations. For example: polynomial regression and b-splines.\nThese approaches work by transforming a single predictor variable into several synthetic variables.\nWe will also look at a change point model, that encodes clinical context into a nonlinear framework."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#linear-regression",
+    "href": "slides/09-nonlinear.html#linear-regression",
+    "title": "Nonlinear Regression",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nConsider the classic parametric model:\n\n\\[Y_i = \\alpha + X_i \\beta + \\epsilon_i, \\quad \\epsilon_i \\sim N(0, \\sigma^2).\\]\n\nAssumptions:\n\n\\(\\epsilon_i\\) are independent.\n\\(\\epsilon_i\\) are Gaussian.\nThe mean of \\(Y_i\\) is linear in \\(X_i\\).\nThe residual distribution does not depend on \\(X_i\\).\n\n\nToday we will generalize the linearity assumption."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#nonlinear-regression",
+    "href": "slides/09-nonlinear.html#nonlinear-regression",
+    "title": "Nonlinear Regression",
+    "section": "Nonlinear regression",
+    "text": "Nonlinear regression\n\nDefine: \\(\\mu_i = \\mathbb{E}[Y_i] = \\alpha + X_i\\beta.\\)\nThe mean process can be modeled flexibly, \\(\\mu_i = g(X_i)\\), where \\(g\\) is some function that relates \\(X_i\\) to \\(\\mathbb{E}[Y_i].\\)\nA form of nonlinear regression approximates the function \\(g\\) using a finite basis expansion, \\[g(X_i) = \\alpha + \\sum_{j=1}^J B_j(X_i)\\beta_j,\\] where \\(B_j(X)\\) are known basis functions and \\(\\beta_j\\) are unknown parameters that determine the shape of \\(g\\)."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#nonlinear-regression-1",
+    "href": "slides/09-nonlinear.html#nonlinear-regression-1",
+    "title": "Nonlinear Regression",
+    "section": "Nonlinear regression",
+    "text": "Nonlinear regression\n\nExample: Polynomial regression takes \\(B_j(X_i) = X_i^j\\).\nExample: Gaussian radial basis functions: \\[B_j(X_i) = \\exp\\left\\{-\\frac{|X_i - \\nu_j|^2}{l^2}\\right\\},\\] where \\(\\nu_j\\) are centers of the basis functions and \\(l\\) is a common width parameter.\nThe number of of basis functions and the width parameter \\(l\\) controls the scale at which the model can vary as a function of \\(X_i\\)."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#nonlinear-regression-2",
+    "href": "slides/09-nonlinear.html#nonlinear-regression-2",
+    "title": "Nonlinear Regression",
+    "section": "Nonlinear regression",
+    "text": "Nonlinear regression\n\nExample: The cubic B-spline basis function is the following piecewise cubic polynomial:\n\n\\[B_j(X_i) = \\left\\{\n\\begin{matrix*}[l]\n\\frac{1}{6}u^3 & \\text{for }X_i \\in (\\nu_j,\\nu_{j+1}), & u = (X_i - \\nu_j) / \\delta\\\\\n\\frac{1}{6}(1 + 3u + 3u^2 - 3u^3) & \\text{for }X_i \\in (\\nu_{j+1},\\nu_{j+2}), & u = (X_i - \\nu_{j+1}) / \\delta\\\\\n\\frac{1}{6}(4 - 6u^2 + 3u^3) & \\text{for }X_i \\in (\\nu_{j+2},\\nu_{j+3}), & u = (X_i - \\nu_{j+2}) / \\delta\\\\\n\\frac{1}{6}(1 - 3u + 3u^2 - u^3) & \\text{for }X_i \\in (\\nu_{j+3},\\nu_{j+4}), & u = (X_i - \\nu_{j+3}) / \\delta\\\\\n0 & \\text{otherwise.}\n\\end{matrix*}\n\\right.\\]\n\nB-splines are a piecewise continuous function defined conditional on some set of knots.\nHere we assume a uniform knot locations \\(\\nu_{j + k} = \\nu_j + \\delta k\\).\nB-splines have compact support, so the design matrix is sparse."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#nonlinear-regression-3",
+    "href": "slides/09-nonlinear.html#nonlinear-regression-3",
+    "title": "Nonlinear Regression",
+    "section": "Nonlinear regression",
+    "text": "Nonlinear regression\n\nConditionally on the selected bases \\(B\\), the model is linear in the parameters. Hence we can write, \\[Y_i = \\mu_i + \\epsilon_i = \\mathbf{w}_i \\boldsymbol{\\beta} + \\epsilon_i,\\] with \\(\\mathbf{w}_i = (B_1(X_i),\\ldots,B_J(X_i))\\).\nModel fitting can proceed as in linear regression models, since the resulting model is linear in \\(\\boldsymbol{\\beta}\\).\nIt is often useful to center the basis function model around the linear model, \\(\\mu_i = \\alpha + X_i \\beta + \\mathbf{w}_i\\boldsymbol{\\beta}\\)."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#glaucoma-disease-progression",
+    "href": "slides/09-nonlinear.html#glaucoma-disease-progression",
+    "title": "Nonlinear Regression",
+    "section": "Glaucoma disease progression",
+    "text": "Glaucoma disease progression\n\nToday we will use data from the Rotterdam Ophthalmic Data Repository.\nGlaucoma is the leading cause of irreversible blindness world wide with over 60 million glaucoma patients as of 2012. Since impairment caused by glaucoma is irreversible, early detection of disease progression is crucial for effective treatment.\nPatients with glaucoma are routinely followed up and administered visual fields, a functional assessment of their vision.\nAfter each visual field test their current disease status is reported as a mean deviation (MD) value, measured in decibels (dB). A lower mean deviation indicates worse vision.\nCentral clinical challenges are i) identifying disease progression of MD, and ii) predicting future MD."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#glaucoma-data",
+    "href": "slides/09-nonlinear.html#glaucoma-data",
+    "title": "Nonlinear Regression",
+    "section": "Glaucoma data",
+    "text": "Glaucoma data\n\n### Load and process data to obtain data for an example patient\ndat &lt;- read.csv(file = \"LongGlaucVF_20150216/VisualFields.csv\")\ndat &lt;- dat[order(dat$STUDY_ID, dat$SITE), ]\ndat$EYE_ID &lt;- cumsum(!duplicated(dat[, c(\"STUDY_ID\", \"SITE\")]))\ndat_pat &lt;- dat[dat$EYE_ID == \"4\", ] # 4\ndat_pat$time &lt;- (dat_pat$AGE - dat_pat$AGE[1]) / 365\ndat_pat &lt;- dat_pat[, c(\"time\", \"MD\")]\ncolnames(dat_pat) &lt;- c(\"X\", \"Y\")\nglimpse(dat_pat)\n\n\n\nRows: 18\nColumns: 2\n$ X &lt;dbl&gt; 0.0000000, 0.6136986, 1.1315068, 1.6520548, 2.1671233, 2.6794521, 3.…\n$ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -1.61…"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#an-example-patient",
+    "href": "slides/09-nonlinear.html#an-example-patient",
+    "title": "Nonlinear Regression",
+    "section": "An example patient",
+    "text": "An example patient"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#linear-regression-1",
+    "href": "slides/09-nonlinear.html#linear-regression-1",
+    "title": "Nonlinear Regression",
+    "section": "Linear regression",
+    "text": "Linear regression"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#linear-regression-2",
+    "href": "slides/09-nonlinear.html#linear-regression-2",
+    "title": "Nonlinear Regression",
+    "section": "Linear regression",
+    "text": "Linear regression\n\nLinear regression is simple.\nLinear regression is highly interpretable. It encodes disease progression into a slope, which is the amount of MD loss (dB) per year.\n\nInterpretability is important!\n\nA linear relationship may be an oversimplification.\nOften in prediction contexts, a nonlinear approach is preferred."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#polynomials",
+    "href": "slides/09-nonlinear.html#polynomials",
+    "title": "Nonlinear Regression",
+    "section": "Polynomials",
+    "text": "Polynomials\n\nModel for the mean process becomes nonlinear:\n\n\\[\\mu_i = \\alpha + \\beta_1 X_i + \\cdots + \\beta_J X_i^J\\]\n\n\\(X_i\\) is years from baseline visit.\n\\(J\\) is chosen depending on the degree of non-linearity.\nWhen fitting non-linear regression in Bayesian context it is useful to standardize the data."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#polynomial-regression-in-stan",
+    "href": "slides/09-nonlinear.html#polynomial-regression-in-stan",
+    "title": "Nonlinear Regression",
+    "section": "Polynomial regression in Stan",
+    "text": "Polynomial regression in Stan\n\ndat_poly &lt;- data.frame(\n  Y = scale(dat_pat$Y),\n  X = scale(dat_pat$X)\n)\ndat_poly$X2 &lt;- dat_poly$X^2\nstan_data &lt;- list(\n  n = nrow(dat_pat),\n  p = 2,\n  Y = dat_poly$Y,\n  X = cbind(dat_poly$X, dat_poly$X2),\n)\ncompile_model &lt;- stan_model(file = \"nonlinear_linear.stan\")\nfit_quadratic &lt;- sampling(compile_model, data = stan_data)"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#polynomial-regression-in-stan-1",
+    "href": "slides/09-nonlinear.html#polynomial-regression-in-stan-1",
+    "title": "Nonlinear Regression",
+    "section": "Polynomial regression in Stan",
+    "text": "Polynomial regression in Stan\n\n// saved in nonlinear_linear.stan\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates\n  vector[n] Y; // outcome vector\n  matrix[n, p] X; // covariate vector\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, sigma); // likelihood\n  target += normal_lpdf(alpha | 0, 1); // prior for alpha\n  target += normal_lpdf(beta | 0, 1); // prior for beta\n  target += inv_gamma_lpdf(sigma | 3, 1); // prior for sigma\n}\ngenerated quantities {\n  vector[n] in_sample;\n  vector[n] log_lik;\n  vector[n] mu;\n  for (i in 1:n) {\n    mu[i] = alpha + X[i, ] * beta;\n    in_sample[i] = normal_rng(mu[i], sigma);\n    log_lik[i] = normal_lpdf(Y[i] |  mu[i], sigma);\n  }\n}"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#quadratic-regression",
+    "href": "slides/09-nonlinear.html#quadratic-regression",
+    "title": "Nonlinear Regression",
+    "section": "Quadratic regression",
+    "text": "Quadratic regression"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#extract-posterior-mean-for-mu",
+    "href": "slides/09-nonlinear.html#extract-posterior-mean-for-mu",
+    "title": "Nonlinear Regression",
+    "section": "Extract posterior mean for \\(\\mu\\)",
+    "text": "Extract posterior mean for \\(\\mu\\)\n\nmu &lt;- rstan::extract(fit_quadratic, pars = \"mu\")$mu\nmu &lt;- mu * sd(dat_pat$Y) + mean(dat_pat$Y) # transform to original unstandardized Y_i\nmu_mean &lt;- apply(mu, 2, mean)\nmu_lower &lt;- apply(mu, 2, function(x) quantile(x, probs = 0.025))\nmu_upper &lt;- apply(mu, 2, function(x) quantile(x, probs = 0.975))"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#cubic-regression",
+    "href": "slides/09-nonlinear.html#cubic-regression",
+    "title": "Nonlinear Regression",
+    "section": "Cubic regression",
+    "text": "Cubic regression"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#b-spline-regression-with-5-knots",
+    "href": "slides/09-nonlinear.html#b-spline-regression-with-5-knots",
+    "title": "Nonlinear Regression",
+    "section": "B-spline regression with 5 knots",
+    "text": "B-spline regression with 5 knots"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#b-spline-regression-with-10-knots",
+    "href": "slides/09-nonlinear.html#b-spline-regression-with-10-knots",
+    "title": "Nonlinear Regression",
+    "section": "B-spline regression with 10 knots",
+    "text": "B-spline regression with 10 knots"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#b-spline-regression",
+    "href": "slides/09-nonlinear.html#b-spline-regression",
+    "title": "Nonlinear Regression",
+    "section": "B-spline regression",
+    "text": "B-spline regression\n\nlibrary(splines)\nnum_knots &lt;- 5\nknot_list &lt;- quantile(dat_pat$X, probs = seq(from = 0, to = 1, length.out = num_knots))\nB &lt;- bs(dat_pat$X,\n        knots = knot_list[-c(1, num_knots)], \n        degree = 3, \n        intercept = TRUE)\nB\n\n                 1            2            3           4            5\n [1,] 1.0000000000 0.0000000000 0.0000000000 0.000000000 0.0000000000\n [2,] 0.3932160225 0.5205689817 0.0833170637 0.002897932 0.0000000000\n [3,] 0.1303337386 0.6136422453 0.2378607351 0.018163281 0.0000000000\n [4,] 0.0220025742 0.5116331668 0.4098320335 0.056532225 0.0000000000\n [5,] 0.0001737807 0.3325401051 0.5396793792 0.127606735 0.0000000000\n [6,] 0.0000000000 0.1814804087 0.5792969517 0.238573820 0.0006488199\n [7,] 0.0000000000 0.0883598392 0.5363295039 0.367729756 0.0075809005\n [8,] 0.0000000000 0.0097143260 0.3289042281 0.593688910 0.0676925363\n [9,] 0.0000000000 0.0003772242 0.1863761908 0.659307134 0.1539394508\n[10,] 0.0000000000 0.0000000000 0.0788259578 0.624941237 0.2955691681\n[11,] 0.0000000000 0.0000000000 0.0357900241 0.542804472 0.4124556582\n[12,] 0.0000000000 0.0000000000 0.0107764123 0.421496598 0.5286019082\n[13,] 0.0000000000 0.0000000000 0.0006952375 0.263269190 0.6110273290\n[14,] 0.0000000000 0.0000000000 0.0000000000 0.145095180 0.5888020313\n[15,] 0.0000000000 0.0000000000 0.0000000000 0.060977201 0.4468755310\n[16,] 0.0000000000 0.0000000000 0.0000000000 0.016061781 0.2349278937\n[17,] 0.0000000000 0.0000000000 0.0000000000 0.002189635 0.0740048857\n[18,] 0.0000000000 0.0000000000 0.0000000000 0.000000000 0.0000000000\n                 6            7\n [1,] 0.0000000000 0.0000000000\n [2,] 0.0000000000 0.0000000000\n [3,] 0.0000000000 0.0000000000\n [4,] 0.0000000000 0.0000000000\n [5,] 0.0000000000 0.0000000000\n [6,] 0.0000000000 0.0000000000\n [7,] 0.0000000000 0.0000000000\n [8,] 0.0000000000 0.0000000000\n [9,] 0.0000000000 0.0000000000\n[10,] 0.0006636368 0.0000000000\n[11,] 0.0089498455 0.0000000000\n[12,] 0.0391250811 0.0000000000\n[13,] 0.1250082431 0.0000000000\n[14,] 0.2659535203 0.0001492682\n[15,] 0.4675827148 0.0245645535\n[16,] 0.5868492773 0.1621610484\n[17,] 0.4743685242 0.4494369547\n[18,] 0.0000000000 1.0000000000\nattr(,\"degree\")\n[1] 3\nattr(,\"knots\")\n     25%      50%      75% \n2.295205 4.965753 6.997945 \nattr(,\"Boundary.knots\")\n[1] 0.000000 9.257534\nattr(,\"intercept\")\n[1] TRUE\nattr(,\"class\")\n[1] \"bs\"     \"basis\"  \"matrix\""
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#b-spline-regression-1",
+    "href": "slides/09-nonlinear.html#b-spline-regression-1",
+    "title": "Nonlinear Regression",
+    "section": "B-spline regression",
+    "text": "B-spline regression\n\nstan_data &lt;- list(\n  n = nrow(dat_pat),\n  p = ncol(B),\n  Y = dat_poly$Y,\n  X = B\n)\nfit_bspline &lt;- sampling(compile_model, data = stan_data)"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#model-comparison",
+    "href": "slides/09-nonlinear.html#model-comparison",
+    "title": "Nonlinear Regression",
+    "section": "Model comparison",
+    "text": "Model comparison"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#what-is-the-point",
+    "href": "slides/09-nonlinear.html#what-is-the-point",
+    "title": "Nonlinear Regression",
+    "section": "What is the point?",
+    "text": "What is the point?\n\nChoice of model is highly dependent on the context.\nAs we learned in the model comparison lecture, a better fit to the sample might not actually be a better model.\nThese basis models are difficult to interpret and are not particularly useful for a clinical setting (they may be useful for prediction!)."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#change-point-motivation",
+    "href": "slides/09-nonlinear.html#change-point-motivation",
+    "title": "Nonlinear Regression",
+    "section": "Change point motivation",
+    "text": "Change point motivation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProgression is defined by slow (or stable) deterioration, followed by a rapid decrease.\nFlexible modeling of MD across time.\nBiological representation of progression through the change point.\nChange points are a framework for inherently parameterizing progression."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#writing-down-a-model",
+    "href": "slides/09-nonlinear.html#writing-down-a-model",
+    "title": "Nonlinear Regression",
+    "section": "Writing down a model",
+    "text": "Writing down a model\n\nModel for the observed data:\n\n\\[Y_i = \\mu_i + \\epsilon_i, \\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\nModel for the mean process:\n\n\\[\\mu_i =\\left\\{ \\begin{array}{ll}\n        {\\beta}_0 + \\beta_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\beta}_0 + \\beta_1 \\theta + {\\beta}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\n\n\\(\\theta \\in (\\min X_i, \\max X_i)\\) represents a change point."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#change-point-model-in-stan",
+    "href": "slides/09-nonlinear.html#change-point-model-in-stan",
+    "title": "Nonlinear Regression",
+    "section": "Change point model in Stan",
+    "text": "Change point model in Stan\n\n// saved in change_points.stan\nfunctions {\n  vector compute_mean(vector X, real beta0, real beta1, real beta2, real theta) {\n    int n = size(X);\n    vector[n] mu;\n    for (t in 1:n) {\n      if (X[t] &lt;= theta) mu[t] = beta0 + beta1 * X[t];\n      if (X[t] &gt; theta) mu[t] = beta0 + beta1 * theta + beta2 * (X[t] - theta);\n  }\n  return mu;\n  }\n}\ndata {\n  int&lt;lower=1&gt; n;\n  vector[n] Y;\n  vector[n] X;\n  int n_pred;\n  vector[n_pred] X_pred;\n}\ntransformed data {\n  real min_X = min(X);\n  real max_X = max(X);\n}\nparameters {\n  real beta0;\n  real beta1;\n  real beta2;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = min_X, upper = max_X&gt; theta;\n}\nmodel {\n  vector[n] mu = compute_mean(X, beta0, beta1, beta2, theta);\n  target += normal_lpdf(Y | mu, sigma);\n  sigma ~ normal(0, 1);\n  target += normal_lpdf(beta0 | 0, 1);\n  target += normal_lpdf(beta1 | 0, 1);\n  target += normal_lpdf(beta2 | 0, 1);\n}\ngenerated quantities {\n  vector[n_pred] mu_pred = compute_mean(X_pred, beta0, beta1, beta2, theta);\n  array[n_pred] real Y_pred_out = normal_rng(mu_pred, sigma);\n  vector[n] mu = compute_mean(X, beta0, beta1, beta2, theta);\n  array[n] real Y_pred_in = normal_rng(mu, sigma);\n}"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#change-point-regression",
+    "href": "slides/09-nonlinear.html#change-point-regression",
+    "title": "Nonlinear Regression",
+    "section": "Change point regression",
+    "text": "Change point regression\n\nstan_model &lt;- stan_model(file = \"change_points.stan\")\nn_pred &lt;- 1000\nstan_data &lt;- list(Y = dat_pat$Y, \n                  X = dat_pat$X,\n                  n = nrow(dat_pat),\n                  n_pred = n_pred,\n                  X_pred = seq(0, max(dat_pat$X) + 2, length.out = n_pred))\nfit_cp &lt;- sampling(stan_model, data = stan_data)\nprint(fit_cp, probs = c(0.025, 0.5, 0.0975))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n       mean se_mean   sd   25%   50%   75% n_eff Rhat\nbeta0 -1.82    0.02 0.66 -2.29 -1.85 -1.40   749 1.00\nbeta1 -0.05    0.01 0.29 -0.19 -0.04  0.10   560 1.01\nbeta2 -0.84    0.02 0.45 -1.12 -0.87 -0.58   889 1.00\nsigma  1.27    0.01 0.26  1.08  1.23  1.41   792 1.00\ntheta  5.36    0.07 1.79  4.69  5.57  6.34   749 1.00\n\nSamples were drawn using NUTS(diag_e) at Wed Jan  1 17:29:30 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#diagnostics",
+    "href": "slides/09-nonlinear.html#diagnostics",
+    "title": "Nonlinear Regression",
+    "section": "Diagnostics",
+    "text": "Diagnostics"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#posterior-histograms",
+    "href": "slides/09-nonlinear.html#posterior-histograms",
+    "title": "Nonlinear Regression",
+    "section": "Posterior histograms",
+    "text": "Posterior histograms"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#posterior-fit",
+    "href": "slides/09-nonlinear.html#posterior-fit",
+    "title": "Nonlinear Regression",
+    "section": "Posterior fit",
+    "text": "Posterior fit"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#posterior-fit-1",
+    "href": "slides/09-nonlinear.html#posterior-fit-1",
+    "title": "Nonlinear Regression",
+    "section": "Posterior fit",
+    "text": "Posterior fit"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#prediction",
+    "href": "slides/09-nonlinear.html#prediction",
+    "title": "Nonlinear Regression",
+    "section": "Prediction",
+    "text": "Prediction"
+  },
+  {
+    "objectID": "slides/09-nonlinear.html#prepare-for-next-class",
+    "href": "slides/09-nonlinear.html#prepare-for-next-class",
+    "title": "Nonlinear Regression",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 02.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Robust regression"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html",
+    "href": "ae/ae-05-nonlinear.html",
+    "title": "AE 05: Change point regression",
+    "section": "",
+    "text": "ImportantDue date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-05-nonlinear.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 05: Change point regression",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp26 organization on GitHub.\nClick on the repo with the prefix ae-05-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-05.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#exercise-1",
+    "href": "ae/ae-05-nonlinear.html#exercise-1",
+    "title": "AE 05: Change point regression",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFor eye 4, fit a change point regression model. Present MCMC convergence diagnostics. Did the model converge?\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#exercise-2",
+    "href": "ae/ae-05-nonlinear.html#exercise-2",
+    "title": "AE 05: Change point regression",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nUsing the model from Exercise 1, present posterior estimates for model parameters. Provide an point and interval estimate for when this eye progressed.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#exercise-3",
+    "href": "ae/ae-05-nonlinear.html#exercise-3",
+    "title": "AE 05: Change point regression",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCreate a figure that plots the time since first visual field visit versus the mean deviation. Overlay the posterior mean process with a 95% credible band (similar to the figure on slide 32 from today). Also include a vertical line for the posterior mean estimate of the change point.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#exercise-4",
+    "href": "ae/ae-05-nonlinear.html#exercise-4",
+    "title": "AE 05: Change point regression",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nNow fit the change point model to eye 30. Did the MCMC sampler converge? To help answer this question, visualize the observed data for eye 30.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-05-nonlinear.html#optional-exercise-5",
+    "href": "ae/ae-05-nonlinear.html#optional-exercise-5",
+    "title": "AE 05: Change point regression",
+    "section": "(Optional) Exercise 5",
+    "text": "(Optional) Exercise 5\nGoing back to eye 4, fit a new change point model where both the mean and variance process are modeled as having a change point, so that \\(Y_i \\stackrel{ind}{\\sim} N(\\mu(X_i),\\sigma(X_i)^2)\\), where\n\\[\\log \\sigma (X_i) =\\left\\{ \\begin{array}{ll}\n        {\\gamma}_0 + \\gamma_1 X_i & \\text{ } \\mbox{$X_i \\leq \\theta$},\\\\\n        {\\gamma}_0 + \\gamma_1 \\theta + {\\gamma}_2(X_i - \\theta)& \\text{ } \\mbox{$X_i &gt; \\theta.$}\\end{array} \\right.\\]\nPresent posterior summaries for each parameter and create a visualization of the posterior standard deviations across time.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "prepare/prepare-feb05.html",
+    "href": "prepare/prepare-feb05.html",
+    "title": "Prepare for February 5 lecture",
+    "section": "",
+    "text": "📖 Review Curve fitting with B-splines\n✅ Work on HW 02"
+  },
+  {
+    "objectID": "slides/08-workflow.html",
+    "href": "slides/08-workflow.html",
+    "title": "Bayesian Workflow",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine"
+  },
+  {
+    "objectID": "slides/08-workflow.html#review-of-last-lecture",
+    "href": "slides/08-workflow.html#review-of-last-lecture",
+    "title": "Bayesian Workflow",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\nOn Thursday, we learned about various ways compare models.\n\nAIC, DIC, WAIC\nLOO-CV/LOO-IC\n\nToday, we will put these concepts within the larger framework of the Bayesian workflow."
+  },
+  {
+    "objectID": "slides/08-workflow.html#bayes-theorem",
+    "href": "slides/08-workflow.html#bayes-theorem",
+    "title": "Bayesian Workflow",
+    "section": "Bayes theorem",
+    "text": "Bayes theorem\n\\[f(\\boldsymbol{\\theta} | \\mathbf{Y}) = \\frac{f(\\mathbf{Y} | \\boldsymbol{\\theta})f(\\boldsymbol{\\theta})}{f(\\mathbf{Y})}\\]\n\n\nRethinking Bayes theorem:\n\n\\[f(\\boldsymbol{\\theta} | \\mathbf{Y}) \\propto f(\\mathbf{Y}, \\boldsymbol{\\theta}) = f(\\mathbf{Y} | \\boldsymbol{\\theta})f(\\boldsymbol{\\theta}) \\]\n\n\n\nIn Stan:\n\n\\[\\log f(\\mathbf{Y} | \\boldsymbol{\\theta}) + \\log f(\\boldsymbol{\\theta})\\]"
+  },
+  {
+    "objectID": "slides/08-workflow.html#bayesian-workflow",
+    "href": "slides/08-workflow.html#bayesian-workflow",
+    "title": "Bayesian Workflow",
+    "section": "Bayesian workflow",
+    "text": "Bayesian workflow\n\n\n\n\n\nGelman A., Vehtari A., Simpson D., Margossian, C., Carpenter, B. and Yao, Y., Kennedy, L., Gabry, J., Bürkner P. C., & Modrák M. (2020). Bayesian Workflow."
+  },
+  {
+    "objectID": "slides/08-workflow.html#bayesian-workflow-1",
+    "href": "slides/08-workflow.html#bayesian-workflow-1",
+    "title": "Bayesian Workflow",
+    "section": "Bayesian workflow",
+    "text": "Bayesian workflow\n\n\n\nTaken from Bayesian workflow by Francesca Capel\n\n\n\nToday we will talk about a general strategy for taking a question and data to a robust conclusion."
+  },
+  {
+    "objectID": "slides/08-workflow.html#a-simplified-workflow",
+    "href": "slides/08-workflow.html#a-simplified-workflow",
+    "title": "Bayesian Workflow",
+    "section": "A simplified workflow",
+    "text": "A simplified workflow\n\nSetting up a full probability model: a joint probability distribution for all observable and unobservable quantities in a problem. The model should be consistent with knowledge about the underlying scientific problem and the data collection process.\nConditioning on observed data: calculating and interpreting the appropriate posterior distribution — the conditional probability distribution of the unobserved quantities of ultimate interest, given the observed data.\nEvaluating the fit of the model and the implications of the resulting posterior distribution: how well does the model fit the data, are the substantive conclusions reasonable, and how sensitive are the results to the modeling assumptions in step 1? In response, one can alter or expand the model and repeat the three steps.\n\nFrom BDA3."
+  },
+  {
+    "objectID": "slides/08-workflow.html#bayesian-workflow-2",
+    "href": "slides/08-workflow.html#bayesian-workflow-2",
+    "title": "Bayesian Workflow",
+    "section": "Bayesian workflow",
+    "text": "Bayesian workflow\n\nResearch question: What are your dependent and indepednent variables? What associations are you interested in? EDA.\n\n\n\nSpecify likelihood & priors: Use knowledge of the problem to construct a generative model.\n\n\n\n\nCheck the model with simulated data: Generate data from the model and evaluate fit as a sanity check (prior predictive checks).\n\n\n\n\nFit the model to real data: Estimate parameters using MCMC."
+  },
+  {
+    "objectID": "slides/08-workflow.html#bayesian-workflow-3",
+    "href": "slides/08-workflow.html#bayesian-workflow-3",
+    "title": "Bayesian Workflow",
+    "section": "Bayesian workflow",
+    "text": "Bayesian workflow\n\nCheck diagnostics: Use MCMC diagnostics to guarentee that the algorithm converged.\n\n\n\nExamine posterior fit: Create posterior summaries that are relevant to the research question.\n\n\n\n\nCheck predictions: Examing posterior predictive checks.\n\n\n\n\nCompare models: Iterate on model design and choose a model."
+  },
+  {
+    "objectID": "slides/08-workflow.html#motivating-example-predicting-weight-from-height",
+    "href": "slides/08-workflow.html#motivating-example-predicting-weight-from-height",
+    "title": "Bayesian Workflow",
+    "section": "Motivating example: predicting weight from height",
+    "text": "Motivating example: predicting weight from height\nResearch question: We would like to understand the relationship between a person’s height and weight. A few particular questions we have are:\n\nHow much does a person’s weight increase when their height increases?\nHow certain can we be about the magnitude of the increase?\nCan we predict a person’s weight based on their height?\n\nData: We will use the bdims dataset from the openintro package. This dataset contains body girth measurements and skeletal diameter measurements, as well as age, weight, height and gender."
+  },
+  {
+    "objectID": "slides/08-workflow.html#prepare-data",
+    "href": "slides/08-workflow.html#prepare-data",
+    "title": "Bayesian Workflow",
+    "section": "Prepare data",
+    "text": "Prepare data\n\nlibrary(openintro)\ndat &lt;- data.frame(weight = bdims$wgt * 2.20462, # convert weight to lbs\n                  height = bdims$hgt * 0.393701, # convert height to inches\n                  sex = ifelse(bdims$sex == 1, \"Male\", \"Female\"))\nhead(dat)\n\n    weight   height  sex\n1 144.6231 68.50397 Male\n2 158.2917 69.01579 Male\n3 177.9128 76.18114 Male\n4 160.0554 73.42524 Male\n5 173.7241 73.70083 Male\n6 164.9056 71.45673 Male"
+  },
+  {
+    "objectID": "slides/08-workflow.html#research-question",
+    "href": "slides/08-workflow.html#research-question",
+    "title": "Bayesian Workflow",
+    "section": "1. Research question:",
+    "text": "1. Research question:"
+  },
+  {
+    "objectID": "slides/08-workflow.html#research-question-1",
+    "href": "slides/08-workflow.html#research-question-1",
+    "title": "Bayesian Workflow",
+    "section": "1. Research question:",
+    "text": "1. Research question:"
+  },
+  {
+    "objectID": "slides/08-workflow.html#research-question-2",
+    "href": "slides/08-workflow.html#research-question-2",
+    "title": "Bayesian Workflow",
+    "section": "1. Research question:",
+    "text": "1. Research question:"
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors",
+    "href": "slides/08-workflow.html#specify-likelihood-priors",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\nDefine, \\(Y_i\\) as the weight of observation \\(i\\) and \\(\\mathbf{x}_i\\) as a vector of covariates (here only height).\n\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\ndata {\n  int&lt;lower = 1&gt; n; // number of observations\n  int&lt;lower = 1&gt; p; // number of covariates (excluding intercept)\n  vector[n] Y;      // outcome variable\n  matrix[n, p] X;   // covariate matrix\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-1",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-1",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\n\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\nparameter {\n  real alpha;            // intercept on the original scale\n  vector[p] beta;        // regression parameters\n  real&lt;lower = 0&gt; sigma; // measurement error\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-2",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-2",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\nConstruct a data generating process.\nWe would like to model weight as a function of height using a linear regression model.\n\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\n\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, sigma);\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-3",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-3",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha\\) is the intercept, or average weight for someone who is zero inches (not a particularly useful number on its own)\n\\(\\beta\\) measures the association between weight and height, in pounds/inch\n\\(\\sigma\\) is the measurement error for the population\n\n\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, sigma);\n  target += normal_lpdf(alpha | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  sigma ~ normal(0, 10);\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-4",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-4",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i] = \\alpha^+ + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{\\mathbf{x}}=\\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^+\\) is the intercept, or average weight for someone who is an average height\n\n\ntransformed data {\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-5",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-5",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i] = \\alpha^+ + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{\\mathbf{x}}=\\frac{1}{n}\\sum_{i=1}^n \\mathbf{x}_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^+\\) is the intercept, or average weight for someone who is an average height\n\n\nmodel {\n  target += normal_lpdf(Y | alpha_plus + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_plus | 150, 10);\n  target += normal_lpdf(beta | 0, 10);\n  sigma ~ normal(0, 10);\n}\n\n\nHard to put a weakly informative prior on \\(\\alpha^+\\)."
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-6",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-6",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i - \\bar{Y}] = \\alpha^* + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{Y}=\\frac{1}{n}\\sum_{i=1}^n Y_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^*\\) is the intercept for the centered data, should be zero.\n\n\ntransformed data {\n  vector[n] Y_centered;\n  real Y_bar;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#specify-likelihood-priors-7",
+    "href": "slides/08-workflow.html#specify-likelihood-priors-7",
+    "title": "Bayesian Workflow",
+    "section": "2. Specify likelihood & priors:",
+    "text": "2. Specify likelihood & priors:\n\\[\\mathbb{E}[Y_i - \\bar{Y}] = \\alpha^* + (\\mathbf{x}_i - \\bar{\\mathbf{x}}) \\boldsymbol{\\beta},\\quad\\bar{Y}=\\frac{1}{n}\\sum_{i=1}^n Y_i\\]\nThink about reasonable priors for your parameters:\n\n\\(\\alpha^*\\) is the intercept for the centered data, should be zero.\n\n\nmodel {\n  target += normal_lpdf(Y_centered | alpha_star + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_star | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  sigma ~ normal(0, 10);\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#quick-aside",
+    "href": "slides/08-workflow.html#quick-aside",
+    "title": "Bayesian Workflow",
+    "section": "Quick aside",
+    "text": "Quick aside\nWhat does it mean to use the prior sigma ~ normal(0, 10)?\n\nWhen a parameter is truncated, for example real&lt;lower = 0&gt; sigma, priors can still be placed across the real line, \\(\\mathbb{R}\\).\n\n\nparameters {\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  sigma ~ normal(0, 10);\n}\n\n\nThis specification induces a prior on the truncated space \\(\\mathbb{R}^+\\).\nThe induced prior for sigma is a half-normal distribution."
+  },
+  {
+    "objectID": "slides/08-workflow.html#quick-aside-1",
+    "href": "slides/08-workflow.html#quick-aside-1",
+    "title": "Bayesian Workflow",
+    "section": "Quick aside",
+    "text": "Quick aside\n\nThe half-normal is a useful prior for nonnegative parameters that should not be too large and may be very close to zero.\nSimilar distributions for scale parameters are half-t and half-Cauchy priors, these have heavier tales."
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:\n\nDraw parameter values from priors.\nGenerate data based on those parameter values.\nCheck simulated data summaries and compare to observed data."
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-1",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-1",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:\n\n// stored in workflow_prior_pred_check.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  real Y_bar;\n  matrix[n, p] X;\n  real&lt;lower = 0&gt; sigma_alpha;\n  real&lt;lower = 0&gt; sigma_beta;\n  real&lt;lower = 0&gt; sigma_sigma;\n}\ntransformed data {\n  row_vector[p] X_bar;\n  for (i in 1:p) X_bar[i] = mean(X[, i]);\n}\ngenerated quantities {\n  // Sample from the priors\n  real alpha_star = normal_rng(0, sigma_alpha);\n  real alpha_plus = alpha_star + Y_bar;\n  real alpha = alpha_plus - X_bar * beta;\n  vector[p] beta;\n  for (i in 1:p) beta[i] = normal_rng(0, sigma_beta);\n  real sigma = fabs(normal_rng(0, sigma_sigma));\n  // Simulate data from the prior\n  vector[n] Y;\n  for (i in 1:n) {\n    Y[i] = normal_rng(alpha + X[i, ] * beta, sigma);\n  }\n  // Compute summaries from the prior\n  real Y_min = min(Y);\n  real Y_max = max(Y);\n  real Y_mean = mean(Y);\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-2",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-2",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:\n\n###Compile the Stan code\nprior_check &lt;- stan_model(file = \"workflow_prior_pred_check.stan\")\n\n###Define the Stan data object\nY &lt;- dat$weight\nX &lt;- matrix(dat$height)\nstan_data &lt;- list(\n  n = nrow(dat), \n  p = ncol(X),\n  Y_bar = mean(Y),\n  X = X,\n  sigma_alpha = 10,\n  sigma_beta = 10,\n  sigma_sigma = 10)\n\n###Simulate data from the prior\nprior_check1 &lt;- sampling(prior_check, data = stan_data, \n                         algorithm = \"Fixed_param\", chains = 1, iter = 1000)"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-3",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-3",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-4",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-4",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:\n\n###Compile the Stan code\nprior_check &lt;- stan_model(file = \"workflow_prior_pred_check.stan\")\n\n###Define the Stan data object\nY &lt;- dat$weight\nX &lt;- matrix(dat$height)\nstan_data &lt;- list(\n  n = nrow(dat), \n  p = ncol(X),\n  Y_bar = mean(Y),\n  X = X,\n  sigma_alpha = 10,\n  sigma_beta = 5,\n  sigma_sigma = 4)\n\n###Simulate data from the prior\nprior_check2 &lt;- sampling(prior_check, data = stan_data, \n                         algorithm = \"Fixed_param\", chains = 1, iter = 1000)"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-the-model-with-simulated-data-5",
+    "href": "slides/08-workflow.html#check-the-model-with-simulated-data-5",
+    "title": "Bayesian Workflow",
+    "section": "3. Check the model with simulated data:",
+    "text": "3. Check the model with simulated data:"
+  },
+  {
+    "objectID": "slides/08-workflow.html#fit-the-model-to-real-data",
+    "href": "slides/08-workflow.html#fit-the-model-to-real-data",
+    "title": "Bayesian Workflow",
+    "section": "4. Fit the model to real data:",
+    "text": "4. Fit the model to real data:\n\n// saved in linear_regression_workflow.stan\ndata {\n  int&lt;lower = 1&gt; n;        // number of observations\n  int&lt;lower = 1&gt; p;        // number of covariates (excluding intercept)\n  vector[n] Y;             // outcome vector\n  matrix[n, p] X;          // covariate matrix\n  int&lt;lower = 1&gt; n_pred;   // number of new observations to predict\n  matrix[n_pred, p] X_new; // covariate matrix for new observations\n}\ntransformed data {\n  vector[n] Y_centered;\n  real Y_bar;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n}\nparameters {\n  real alpha_star;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y_centered | alpha_star + X_centered * beta, sigma); // likelihood\n  target += normal_lpdf(alpha_star | 0, 10);\n  target += normal_lpdf(beta | 0, 5);\n  sigma ~ normal(0, 4);\n}\ngenerated quantities {\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  vector[n_pred] Y_new;\n  real alpha = Y_bar + alpha_star - X_bar * beta;\n  for (i in 1:n) {\n    Y_pred[i] = normal_rng(alpha + X[i, ] * beta, sigma);\n    log_lik[i] = normal_lpdf(Y_centered[i] | alpha_star + X_centered[i, ] * beta, sigma);\n  }\n  for (i in 1:n_pred) Y_new[i] = normal_rng(alpha + X_new[i, ] * beta, sigma);\n}"
+  },
+  {
+    "objectID": "slides/08-workflow.html#fit-the-model-to-real-data-1",
+    "href": "slides/08-workflow.html#fit-the-model-to-real-data-1",
+    "title": "Bayesian Workflow",
+    "section": "4. Fit the model to real data:",
+    "text": "4. Fit the model to real data:\n\n###Compile model\nregression_model &lt;- stan_model(file = \"linear_regression_workflow.stan\")\n\n###Create data\nY &lt;- dat$weight\nX &lt;- matrix(dat$height)\nn_new &lt;- 1000\nX_new &lt;- matrix(seq(min(dat$height), max(dat$height), length.out = n_new))\nstan_data &lt;- list(\n  n = nrow(dat), \n  p = ncol(X),\n  Y = Y,\n  X = X,\n  n_new = n_new,\n  X_new = X_new\n)"
+  },
+  {
+    "objectID": "slides/08-workflow.html#fit-the-model-to-real-data-2",
+    "href": "slides/08-workflow.html#fit-the-model-to-real-data-2",
+    "title": "Bayesian Workflow",
+    "section": "4. Fit the model to real data:",
+    "text": "4. Fit the model to real data:\n\n###Fit the model\nfit_workflow &lt;- sampling(regression_model, data = stan_data)\nprint(fit_workflow, pars = c(\"alpha\", \"beta\", \"sigma\"), probs = c(0.025, 0.5, 0.975))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n           mean se_mean    sd    2.5%     50%   97.5% n_eff Rhat\nalpha   -230.32    0.25 16.71 -263.60 -230.48 -198.47  4349    1\nbeta[1]    5.68    0.00  0.25    5.20    5.68    6.17  4367    1\nsigma     20.09    0.01  0.61   18.93   20.07   21.32  4148    1\n\nSamples were drawn using NUTS(diag_e) at Mon Feb  3 13:39:30 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-diagnostics",
+    "href": "slides/08-workflow.html#check-diagnostics",
+    "title": "Bayesian Workflow",
+    "section": "5. Check diagnostics:",
+    "text": "5. Check diagnostics:\n\nrstan::traceplot(fit_workflow, pars = c(\"alpha\", \"beta\", \"sigma\"))"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-diagnostics-1",
+    "href": "slides/08-workflow.html#check-diagnostics-1",
+    "title": "Bayesian Workflow",
+    "section": "5. Check diagnostics:",
+    "text": "5. Check diagnostics:\n\nlibrary(bayesplot)\nmcmc_acf(fit_workflow, regex_pars = c(\"alpha\", \"beta\", \"sigma\"))"
+  },
+  {
+    "objectID": "slides/08-workflow.html#examine-posterior-fit",
+    "href": "slides/08-workflow.html#examine-posterior-fit",
+    "title": "Bayesian Workflow",
+    "section": "6. Examine posterior fit:",
+    "text": "6. Examine posterior fit:"
+  },
+  {
+    "objectID": "slides/08-workflow.html#examine-posterior-fit-1",
+    "href": "slides/08-workflow.html#examine-posterior-fit-1",
+    "title": "Bayesian Workflow",
+    "section": "6. Examine posterior fit:",
+    "text": "6. Examine posterior fit:\n\n\n\n\n\n\n\n\n\n\n\nRegression line corresponds to posterior mean and 95% credible interval for \\(\\mu = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta}\\)."
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-predictions",
+    "href": "slides/08-workflow.html#check-predictions",
+    "title": "Bayesian Workflow",
+    "section": "7.Check predictions:",
+    "text": "7.Check predictions:\nY_pred &lt;- rstan::extract(fit_workflow, pars = \"Y_pred\")$Y_pred\nppc_dens_overlay(Y, Y_pred[1:100, ])"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-predictions-1",
+    "href": "slides/08-workflow.html#check-predictions-1",
+    "title": "Bayesian Workflow",
+    "section": "7. Check predictions:",
+    "text": "7. Check predictions:\nppc_stat(Y, Y_pred, stat = \"mean\") # from bayesplot\nppc_stat(Y, Y_pred, stat = \"sd\")\nq025 &lt;- function(y) quantile(y, 0.025)\nq975 &lt;- function(y) quantile(y, 0.975)\nppc_stat(Y, Y_pred, stat = \"q025\")\nppc_stat(Y, Y_pred, stat = \"q975\")"
+  },
+  {
+    "objectID": "slides/08-workflow.html#check-predictions-2",
+    "href": "slides/08-workflow.html#check-predictions-2",
+    "title": "Bayesian Workflow",
+    "section": "7. Check predictions:",
+    "text": "7. Check predictions:\n\n\n\n\n\n\n\n\n\n\n\nRegression line corresponds to posterior predictive distribution mean and 95% credible interval, \\(f(Y_{i'} | Y_1,\\ldots,Y_n)\\)."
+  },
+  {
+    "objectID": "slides/08-workflow.html#shinystan",
+    "href": "slides/08-workflow.html#shinystan",
+    "title": "Bayesian Workflow",
+    "section": "shinystan",
+    "text": "shinystan\n\nlibrary(shinystan)\nY &lt;- dat$weight # need to define outcome as a global variable to be accessible\nsso &lt;- shinystan::launch_shinystan(fit_workflow)"
+  },
+  {
+    "objectID": "slides/08-workflow.html#compare-models",
+    "href": "slides/08-workflow.html#compare-models",
+    "title": "Bayesian Workflow",
+    "section": "8. Compare models",
+    "text": "8. Compare models\n\nSuppose we would like to compare our original model with models that also includes sex and an interaction between sex and height.\n\n\\[\\begin{aligned}\n\\mathbb{E}[weight_i] &= \\alpha + \\beta_1 height_i\\\\\n\\mathbb{E}[weight_i] &= \\alpha + \\beta_1 height_i + \\beta_2 sex_i\\\\\n\\mathbb{E}[weight_i] &= \\alpha + \\beta_1 height_i + \\beta_2 sex_i + \\beta_3 height_i sex_i\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/08-workflow.html#compare-models-1",
+    "href": "slides/08-workflow.html#compare-models-1",
+    "title": "Bayesian Workflow",
+    "section": "8. Compare models",
+    "text": "8. Compare models\n\n###Compute individual WAIC\nlibrary(loo)\nlog_lik_model1 &lt;- loo::extract_log_lik(fit_model1, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_model2 &lt;- loo::extract_log_lik(fit_model2, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_model3 &lt;- loo::extract_log_lik(fit_model3, parameter_name = \"log_lik\", merge_chains = TRUE)\nwaic_model1 &lt;- loo::waic(log_lik_model1)\nwaic_model2 &lt;- loo::waic(log_lik_model2)\nwaic_model3 &lt;- loo::waic(log_lik_model3)\n\n###Make a comparison\ncomp_waic &lt;- loo::loo_compare(list(\"height_only\" = waic_model1, \"height_sex\" = waic_model2, \"interaction\" = waic_model3))\nprint(comp_waic, digits = 2, simplify = FALSE)\n\n            elpd_diff se_diff  elpd_waic se_elpd_waic p_waic   se_p_waic\ninteraction     0.00      0.00 -2225.62     24.22         5.08     0.96 \nheight_sex     -1.19      1.66 -2226.81     23.78         4.80     0.87 \nheight_only   -28.15      8.43 -2253.77     21.55         3.57     0.63 \n            waic     se_waic \ninteraction  4451.23    48.44\nheight_sex   4453.62    47.55\nheight_only  4507.53    43.10"
+  },
+  {
+    "objectID": "slides/08-workflow.html#compare-models-2",
+    "href": "slides/08-workflow.html#compare-models-2",
+    "title": "Bayesian Workflow",
+    "section": "8. Compare models",
+    "text": "8. Compare models\n\n###Compute individual LOO-CV/LOO-IC\nloo_model1 &lt;- loo::loo(log_lik_model1)\nloo_model2 &lt;- loo::loo(log_lik_model2)\nloo_model3 &lt;- loo::loo(log_lik_model3)\n\n###Make a comparison\ncomp_loo &lt;- loo::loo_compare(list(\"height_only\" = loo_model1, \"height_sex\" = loo_model2, \"interaction\" = loo_model3))\nprint(comp_loo, digits = 2, simplify = FALSE)\n\n            elpd_diff se_diff  elpd_loo se_elpd_loo p_loo    se_p_loo looic   \ninteraction     0.00      0.00 -2225.63    24.23        5.10     0.96  4451.27\nheight_sex     -1.18      1.66 -2226.81    23.78        4.80     0.87  4453.63\nheight_only   -28.13      8.43 -2253.77    21.55        3.57     0.63  4507.54\n            se_looic\ninteraction    48.46\nheight_sex     47.56\nheight_only    43.10"
+  },
+  {
+    "objectID": "slides/08-workflow.html#the-plan-moving-forward",
+    "href": "slides/08-workflow.html#the-plan-moving-forward",
+    "title": "Bayesian Workflow",
+    "section": "The plan moving forward",
+    "text": "The plan moving forward\n\nWe have now learned all of the skills needed to implement a Bayesian workflow.\nThe remainder of the course will be focused on introducing new models for types of data that are common when working in the biomedical data setting."
+  },
+  {
+    "objectID": "slides/08-workflow.html#prepare-for-next-class",
+    "href": "slides/08-workflow.html#prepare-for-next-class",
+    "title": "Bayesian Workflow",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 02\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Nonlinear Regression"
+  },
+  {
+    "objectID": "slides/08-workflow.html#examine-posterior-fit-2",
+    "href": "slides/08-workflow.html#examine-posterior-fit-2",
+    "title": "Bayesian Workflow",
+    "section": "6. Examine posterior fit:",
+    "text": "6. Examine posterior fit:\n\n\n\n\n\n\n\n\n\n\n\n\nvector[n] mu;\nfor (i in 1:n) mu[i] = alpha + X[i, ] * beta;"
   }
 ]

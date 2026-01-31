@@ -259,7 +259,7 @@ ggplot(dat.fig, aes(x = x, y = y, color = Model)) +
 :::
 :::::
 
--   $D_{KL}(M_0 |M_1) = 0.063$, $D_{KL}(M_0 | M_1) = 0.259$, so $M_1$ is a better model than $M_2$.
+-   $D_{KL}(M_0 |M_1) = 0.063$, $D_{KL}(M_0 | M_2) = 0.259$, so $M_1$ is a better model than $M_2$.
 
 ## Comparing models using KL {.midi}
 
@@ -439,10 +439,9 @@ $$MAD = \frac{1}{n}\sum_{i=1}^n |Y_i - \widehat{Y}_i|.$$
 
 -   In the setting of LOO-CV, we have $n$ different $f\left(\boldsymbol{\theta} | \mathbf{Y}_{-i}\right)$.
 
--   The Bayesian LOO-CV estimate of out-of-sample predictive fit is $$\widehat{\text{elpd}}_{\text{LOO-CV}} = \sum_{i=1}^n \log f\left(Y_i|\mathbf{Y}_{-i}\right),$$
-calculated as $$\sum_{i=1}^n \log \left(\frac{1}{S} \sum_{s=1}^S f\left(Y_i|\boldsymbol{\theta}^{(is)}\right)\right),\quad \boldsymbol{\theta}^{(is)} \sim f(\boldsymbol{\theta}|\mathbf{Y}_{-i}).$$
+-   The Bayesian LOO-CV estimate of out-of-sample predictive fit is $$\widehat{\text{elpd}}_{\text{LOO-CV}} = \sum_{i=1}^n \log f\left(Y_i|\mathbf{Y}_{-i}\right),$$ calculated as $$\sum_{i=1}^n \log \left(\frac{1}{S} \sum_{s=1}^S f\left(Y_i|\boldsymbol{\theta}^{(is)}\right)\right),\quad \boldsymbol{\theta}^{(is)} \sim f(\boldsymbol{\theta}|\mathbf{Y}_{-i}).$$
 
-## LOO-CV  {.midi}
+## LOO-CV {.midi}
 
 -   We can write LOO-CV as an information criterion
 

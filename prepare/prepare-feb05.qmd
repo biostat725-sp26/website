@@ -1,0 +1,9 @@
+---
+title: Prepare for February 5 lecture
+---
+
+<br>
+
+📖 Review [Curve fitting with B-splines](https://observablehq.com/@herbps10/b-splines)
+
+✅ Work on [HW 02](https://biostat725-sp26.netlify.app/hw/hw-02)
