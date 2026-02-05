@@ -637,7 +637,7 @@ stan_data <- list(Y = dat_pat$Y,
                   n_pred = n_pred,
                   X_pred = seq(0, max(dat_pat$X) + 2, length.out = n_pred))
 fit_cp <- sampling(stan_model, data = stan_data)
-print(fit_cp, probs = c(0.025, 0.5, 0.0975))
+print(fit_cp, probs = c(0.25, 0.5, 0.75), pars = c("beta0", "beta1", "beta2", "sigma", "theta"))
 ```
 
 ```{r, echo = FALSE}
@@ -751,10 +751,10 @@ dat.fig_pred <- data.frame(
 dat.fig_pred <- dat.fig_pred[dat.fig_pred$X > max(dat_pat$X), ]
 ggplot(dat_pat, aes(x = X, y = Y)) + 
   geom_point() +
-  geom_line(data = dat.fig, aes(x = X, y = Y)) + 
+  geom_line(data = dat.fig, aes(x = X, y = Y), size = 1.5) + 
   geom_ribbon(data = dat.fig, aes(ymin = Lower, ymax = Upper), alpha = 0.3) + 
-  geom_line(data = dat.fig_pred, aes(x = X, y = Y), color = "green") + 
-  geom_ribbon(data = dat.fig_pred, aes(ymin = Lower, ymax = Upper), fill = "green", color = "green", alpha = 0.3) + 
+  geom_line(data = dat.fig_pred, aes(x = X, y = Y), color = "green", size = 1.5) + 
+  geom_ribbon(data = dat.fig_pred, aes(ymin = Lower, ymax = Upper), fill = "green", alpha = 0.3) + 
   geom_vline(xintercept = median(pars$Theta), linetype = "dotted", color = "red", size = 1.5) + 
   geom_vline(xintercept = quantile(pars$Theta, probs = 0.25), linetype = "solid", color = "red", size = 1) + 
   geom_vline(xintercept = quantile(pars$Theta, probs = 0.75), linetype = "solid", color = "red", size = 1) + 

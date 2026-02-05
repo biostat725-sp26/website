@@ -319,7 +319,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 </section>
 <section id="an-example-patient" class="slide level2">
 <h2>An example patient</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -333,7 +333,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 </section>
 <section id="linear-regression-1" class="slide level2">
 <h2>Linear regression</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -422,7 +422,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 </section>
 <section id="quadratic-regression" class="slide level2">
 <h2>Quadratic regression</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -443,7 +443,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 <span id="cb5-4"><a></a>mu_lower <span class="ot">&lt;-</span> <span class="fu">apply</span>(mu, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fl">0.025</span>))</span>
 <span id="cb5-5"><a></a>mu_upper <span class="ot">&lt;-</span> <span class="fu">apply</span>(mu, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fl">0.975</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -457,7 +457,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 </section>
 <section id="cubic-regression" class="slide level2">
 <h2>Cubic regression</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -471,7 +471,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 </section>
 <section id="b-spline-regression-with-5-knots" class="slide level2">
 <h2>B-spline regression with 5 knots</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -492,7 +492,7 @@ $ Y &lt;dbl&gt; -2.76, -2.08, -1.91, -2.63, -5.13, -2.14, -1.97, -0.83, -1.75, -
 </section>
 <section id="b-spline-regression-with-10-knots" class="slide level2">
 <h2>B-spline regression with 10 knots</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -586,7 +586,7 @@ attr(,"class")
 <span id="cb8-6"><a></a>)</span>
 <span id="cb8-7"><a></a>fit_bspline <span class="ot">&lt;-</span> <span class="fu">sampling</span>(compile_model, <span class="at">data =</span> stan_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -600,7 +600,7 @@ attr(,"class")
 </section>
 <section id="model-comparison" class="slide level2">
 <h2>Model comparison</h2>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2" data-layout-nrow="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -647,7 +647,7 @@ attr(,"class")
 <h2>Change point motivation</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -745,7 +745,7 @@ attr(,"class")
 <span id="cb10-6"><a></a>                  <span class="at">n_pred =</span> n_pred,</span>
 <span id="cb10-7"><a></a>                  <span class="at">X_pred =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(dat_pat<span class="sc">$</span>X) <span class="sc">+</span> <span class="dv">2</span>, <span class="at">length.out =</span> n_pred))</span>
 <span id="cb10-8"><a></a>fit_cp <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_model, <span class="at">data =</span> stan_data)</span>
-<span id="cb10-9"><a></a><span class="fu">print</span>(fit_cp, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.5</span>, <span class="fl">0.0975</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-9"><a></a><span class="fu">print</span>(fit_cp, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>), <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"beta0"</span>, <span class="st">"beta1"</span>, <span class="st">"beta2"</span>, <span class="st">"sigma"</span>, <span class="st">"theta"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -769,7 +769,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="diagnostics" class="slide level2">
 <h2>Diagnostics</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -783,7 +783,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="posterior-histograms" class="slide level2">
 <h2>Posterior histograms</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -797,7 +797,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="posterior-fit" class="slide level2">
 <h2>Posterior fit</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -811,7 +811,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="posterior-fit-1" class="slide level2">
 <h2>Posterior fit</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -825,7 +825,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="prediction" class="slide level2">
 <h2>Prediction</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
