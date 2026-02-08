@@ -1,7 +1,7 @@
 ---
 title: "Robust Regression"
 author: "Prof. Sam Berchuck"
-date: "2025-02-10"
+date: "2026-02-10"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 BIOSTAT 725 - Spring 2026](https://biostat725-sp26.netlify.app/)"
 logo: "../images/logo.png"
