@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -3355,5 +3355,544 @@
     "title": "HW 03: Going beyond linear regression",
     "section": "Exercise 11",
     "text": "Exercise 11\nVisualize the posterior distribution of \\(\\pi_2\\) and \\(\\pi_4\\), which are the probability of having a length of stay greater than 5 days for observation \\(Y_2\\) and \\(Y_4\\), respectively (i.e., the second and fourth rows of the hdp_hw3 dataset). Compute \\(P(\\pi_4 &gt; \\pi_2 | \\mathbf{Y})\\) and make a statement about which patient is more likely to have a longer length of stay."
+  },
+  {
+    "objectID": "prepare/prepare-feb10.html",
+    "href": "prepare/prepare-feb10.html",
+    "title": "Prepare for February 10 lecture",
+    "section": "",
+    "text": "📖 Read BDA3 Chapter 17.1-17.2 to be introduced to robust regression\n📖 Review Robust regression\n✅ Work on HW 02"
+  },
+  {
+    "objectID": "slides/11-regularization.html",
+    "href": "slides/11-regularization.html",
+    "title": "Regularization",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+  },
+  {
+    "objectID": "slides/11-regularization.html#review-of-last-lecture",
+    "href": "slides/11-regularization.html#review-of-last-lecture",
+    "title": "Regularization",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nOn Tuesday, we learned about robust regression.\n\nHeteroskedasticity\nHeavy-tailed distributions\nMedian regression\n\nThese were all models for the observed data \\(Y_i\\).\nToday, we will focus on prior specifications for \\(\\boldsymbol{\\beta}\\)."
+  },
+  {
+    "objectID": "slides/11-regularization.html#sparsity-in-regression-problems",
+    "href": "slides/11-regularization.html#sparsity-in-regression-problems",
+    "title": "Regularization",
+    "section": "Sparsity in regression problems",
+    "text": "Sparsity in regression problems\n\nSupervised learning can be cast as the problem of estimating a set of coefficients \\(\\boldsymbol{\\beta} = \\{\\beta_j\\}_{j=1}^{p}\\) that determines some functional relationship between a set of \\(\\{x_{ij}\\}_{j = 1}^p\\) and a target variable \\(Y_i\\).\nThis is a central focus of statistics and machine learning.\nChallenges arise in “large-\\(p\\)” problems where, in order to avoid overly complex models that predict poorly, some form of dimension reduction is needed.\nFinding a sparse solution, where some \\(\\beta_j\\) are zero, is desirable."
+  },
+  {
+    "objectID": "slides/11-regularization.html#bayesian-sparse-estimation",
+    "href": "slides/11-regularization.html#bayesian-sparse-estimation",
+    "title": "Regularization",
+    "section": "Bayesian sparse estimation",
+    "text": "Bayesian sparse estimation\n\nFrom a Bayesian-learning perspective, there are two main sparse-estimation alternatives: discrete mixtures and shrinkage priors.\nDiscrete mixtures have been very popular, with the spike-and-slab prior being the gold standard.\n\nEasy to force \\(\\beta_j\\) to exactly zero, but require discrete parameter specification.\n\nShrinkage priors force \\(\\beta_j\\) to zero using regularization, but struggle to get exact zeros.\n\nIn recent years, shrinkage priors have become dominant in Bayesian sparsity priors."
+  },
+  {
+    "objectID": "slides/11-regularization.html#global-local-shrinkage",
+    "href": "slides/11-regularization.html#global-local-shrinkage",
+    "title": "Regularization",
+    "section": "Global-local shrinkage",
+    "text": "Global-local shrinkage\n\nLet’s assume \\(\\mathbf{Y} \\stackrel{}{\\sim}N\\left(\\alpha\\mathbf{1}_n + \\mathbf{X}\\boldsymbol{\\beta},\\sigma^2\\mathbf{I}_n\\right)\\).\nSparsity can be induced into \\(\\boldsymbol{\\beta}\\) using a global-local prior,\n\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau &\\stackrel{ind}{\\sim} N(0, \\lambda_j^2 \\tau^2)\\\\\n\\lambda_j &\\stackrel{iid}{\\sim} f(\\lambda_j).\n\\end{aligned}\\]\n\n\\(\\tau^2\\) is the global variance term.\n\\(\\lambda_j\\) is the local term.\nThe degree of sparsity depends on the choice of \\(f(\\lambda_j)\\)."
+  },
+  {
+    "objectID": "slides/11-regularization.html#spike-and-slab-prior",
+    "href": "slides/11-regularization.html#spike-and-slab-prior",
+    "title": "Regularization",
+    "section": "Spike-and-slab prior",
+    "text": "Spike-and-slab prior\n\nDiscrete parameter specification,\n\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau &\\stackrel{ind}{\\sim} N(0, \\lambda_j^2 \\tau^2)\\\\\n\\lambda_j &\\stackrel{iid}{\\sim} \\text{Bernoulli}(\\pi).\n\\end{aligned}\\]\n\n\\(\\lambda_j \\in \\{0,1\\}\\), thus this model permits exact zeros.\nThe number of zeros is dictated by \\(\\pi\\), which can either be pre-specified or given a prior.\nDiscrete parameters can not be specified in Stan!"
+  },
+  {
+    "objectID": "slides/11-regularization.html#spike-and-slab-prior-1",
+    "href": "slides/11-regularization.html#spike-and-slab-prior-1",
+    "title": "Regularization",
+    "section": "Spike-and-slab prior",
+    "text": "Spike-and-slab prior\n\nSpike-and-slab can be written generally as a two-component mixture of Gaussians,\n\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau, \\omega &\\stackrel{ind}{\\sim} \\lambda_j N(0, \\tau^2) + (1-\\lambda_j) N(0,\\omega^2)\\\\\n\\lambda_j &\\stackrel{iid}{\\sim} \\text{Bernoulli}(\\pi).\n\\end{aligned}\\]\n\n\\(\\omega \\ll \\tau\\) and the indicator variable \\(\\lambda_j \\in \\{0, 1\\}\\) denotes whether \\(\\beta_j\\) is close to zero (comes from the “spike”, \\(\\lambda_j = 0\\)) or non-zero (comes from the “slab”, \\(\\lambda_j = 1\\)).\nOften \\(\\omega = 0\\) (the spike is a true spike)."
+  },
+  {
+    "objectID": "slides/11-regularization.html#ridge-regression",
+    "href": "slides/11-regularization.html#ridge-regression",
+    "title": "Regularization",
+    "section": "Ridge regression",
+    "text": "Ridge regression\n\nRidge regression is motivated by extending linear regression to the setting where:\n\nthere are too many predictors (sparsity is desired) and/or,\n\\(\\mathbf{X}^\\top \\mathbf{X}\\) is ill-conditioned were singular or nearly singular (multicollinearity).\n\nThe OLS estimate becomes unstable: \\[\\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\left(\\mathbf{X}^\\top \\mathbf{X}\\right)^{-1}\\mathbf{X}^\\top \\mathbf{Y}.\\]"
+  },
+  {
+    "objectID": "slides/11-regularization.html#ridge-regression-1",
+    "href": "slides/11-regularization.html#ridge-regression-1",
+    "title": "Regularization",
+    "section": "Ridge regression",
+    "text": "Ridge regression\nThe ridge estimator minimizes the penalized sum of squares,\n\\[\\hat{\\boldsymbol{\\beta}}_{\\text{RIDGE}} = \\arg \\min_{\\boldsymbol{\\beta}}\\left||\\mathbf{Y} - \\boldsymbol{\\mu}\\right||_2^2 + \\lambda \\sum_{j=1}^p \\beta_j^2\\]\n\n\\(\\boldsymbol{\\mu} = \\alpha\\mathbf{1}_n + \\mathbf{X}\\boldsymbol{\\beta}\\).\n\\(||\\mathbf{v}||_2 = \\sqrt{\\mathbf{v}^\\top \\mathbf{v}}\\) is the L2 norm.\n\\(\\hat{\\boldsymbol{\\beta}}_{\\text{RIDGE}} = \\left(\\mathbf{X}^\\top\\mathbf{X} + \\lambda \\mathbf{I}_p\\right)^{-1}\\mathbf{X}^\\top\\mathbf{Y}\\)\n\nAdding the \\(\\lambda\\) to diagonals of \\(\\mathbf{X}^\\top\\mathbf{X}\\) stabilizes the inverse, which becomes unstable with multicollinearity."
+  },
+  {
+    "objectID": "slides/11-regularization.html#bayesian-ridge-prior",
+    "href": "slides/11-regularization.html#bayesian-ridge-prior",
+    "title": "Regularization",
+    "section": "Bayesian ridge prior",
+    "text": "Bayesian ridge prior\nRidge regression can be obtained using the following global-local shrinkage prior,\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau &\\stackrel{ind}{\\sim} N(0, \\lambda_j^2 \\tau^2)\\\\\n\\lambda_j &= 1 / \\lambda\\\\\n\\tau^2 &= \\sigma^2.\n\\end{aligned}\\]\n\nThis is equivalent to: \\(f(\\beta_j | \\lambda, \\sigma) \\stackrel{iid}{\\sim} N\\left(0,\\frac{\\sigma^2}{\\lambda}\\right)\\).\nHow is this equivalent to ridge regression?"
+  },
+  {
+    "objectID": "slides/11-regularization.html#bayesian-ridge-prior-1",
+    "href": "slides/11-regularization.html#bayesian-ridge-prior-1",
+    "title": "Regularization",
+    "section": "Bayesian ridge prior",
+    "text": "Bayesian ridge prior\n\nThe negative log-posterior is proportional to,\n\n\\[\\frac{||\\mathbf{Y} - \\boldsymbol{\\mu}||_2^2}{2\\sigma^2} + \\frac{\\lambda \\sum_{j=1}^p \\beta_j^2}{2\\sigma^2}.\\]\n\nThe posterior mean and mode are \\(\\hat{\\boldsymbol{\\beta}}_{\\text{RIDGE}}\\).\nSince \\(\\lambda\\) is applied to the squared norm of the \\(\\boldsymbol{\\beta}\\), people often standardize all of the covariates to make them have a similar scale.\nBayesian statistics is inherently performing regularization!"
+  },
+  {
+    "objectID": "slides/11-regularization.html#lasso-regression",
+    "href": "slides/11-regularization.html#lasso-regression",
+    "title": "Regularization",
+    "section": "Lasso regression",
+    "text": "Lasso regression\nThe least absolute shrinkage and selection operator (lasso) estimator minimizes the penalized sum of squares,\n\\[\\hat{\\boldsymbol{\\beta}}_{\\text{LASSO}} = \\arg \\min_{\\boldsymbol{\\beta}}\\left||\\mathbf{Y} - \\boldsymbol{\\mu}\\right||_2^2 + \\lambda \\sum_{j=1}^p |\\beta_j|\\]\n\n\\(\\lambda = 0\\) reduces to OLS etimator.\n\\(\\lambda = \\infty\\) leads to \\(\\hat{\\boldsymbol{\\beta}}_{\\text{LASSO}} = 0\\).\nLasso is desirable because it can set some \\(\\beta_j\\) exactly to zero."
+  },
+  {
+    "objectID": "slides/11-regularization.html#bayesian-lasso-prior",
+    "href": "slides/11-regularization.html#bayesian-lasso-prior",
+    "title": "Regularization",
+    "section": "Bayesian lasso prior",
+    "text": "Bayesian lasso prior\nLasso regression can be obtained using the following global-local shrinkage prior,\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau &\\stackrel{ind}{\\sim} N(0, \\lambda_j^2 \\tau^2)\\\\\n\\lambda_j^2 &\\stackrel{iid}{\\sim} \\text{Exponential}(0.5).\n\\end{aligned}\\]\n\nThis is equivalent to: \\(f(\\beta_j | \\tau) \\stackrel{iid}{\\sim} \\text{Laplace}\\left(0,\\tau\\right)\\).\nHow is this equivalent to lasso regression?"
+  },
+  {
+    "objectID": "slides/11-regularization.html#bayesian-lasso-prior-1",
+    "href": "slides/11-regularization.html#bayesian-lasso-prior-1",
+    "title": "Regularization",
+    "section": "Bayesian lasso prior",
+    "text": "Bayesian lasso prior\n\nThe negative log-posterior is proportional to,\n\n\\[\\frac{||\\mathbf{Y} - \\boldsymbol{\\mu}||_2^2}{2\\sigma^2} + \\frac{\\sum_{j=1}^p |\\beta_j|}{\\tau}.\\]\n\nLasso is recovered by specifying: \\(\\lambda = 1/\\tau\\).\nThe posterior mode is \\(\\hat{\\boldsymbol{\\beta}}_{\\text{LASSO}}\\).\nAs \\(\\lambda\\) increases, more coefficients are set to zero (less variables are selected), and among the non-zero coefficients, more shrinkage is employed."
+  },
+  {
+    "objectID": "slides/11-regularization.html#bayesian-lasso-does-not-work",
+    "href": "slides/11-regularization.html#bayesian-lasso-does-not-work",
+    "title": "Regularization",
+    "section": "Bayesian lasso does not work",
+    "text": "Bayesian lasso does not work\n\nThere is a consensus that the Bayesian lasso does not work well.\nIt does not yield \\(\\beta_j\\) that are exactly zero and it can overly shrink non-zero \\(\\beta_j\\).\nThe gold-standard sparsity-inducing prior in Bayesian statistics is the horseshoe prior."
+  },
+  {
+    "objectID": "slides/11-regularization.html#relevance-vector-machine",
+    "href": "slides/11-regularization.html#relevance-vector-machine",
+    "title": "Regularization",
+    "section": "Relevance vector machine",
+    "text": "Relevance vector machine\n\nBefore we get to the horseshoe, one more global-local prior, called the relevance vector machine.\nThis model can be obtained using the following prior,\n\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau &\\stackrel{ind}{\\sim} N(0, \\lambda_j^2 \\tau^2)\\\\\n\\lambda_j^2 &\\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\n\\end{aligned}\\]\n\nThis is equivalent to: \\(f(\\beta_j | \\tau) \\stackrel{iid}{\\sim} {t}_{\\nu}\\left(0,\\tau\\right)\\)."
+  },
+  {
+    "objectID": "slides/11-regularization.html#horseshoe-prior",
+    "href": "slides/11-regularization.html#horseshoe-prior",
+    "title": "Regularization",
+    "section": "Horseshoe prior",
+    "text": "Horseshoe prior\n\nThe horseshoe prior is specified as,\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau &\\stackrel{ind}{\\sim} N(0, \\lambda_j^2 \\tau^2)\\\\\n\\lambda_j &\\stackrel{iid}{\\sim} \\mathcal C^+(0, 1),\n\\end{aligned}\\] where \\(\\mathcal C^+(0, 1)\\) is a half-Cauchy distribution for the local parameter \\(\\lambda_j\\).\n\n\\(\\lambda_j\\)’s are the local shrinkage parameters.\n\\(\\tau\\) is the global shrinkage parameter."
+  },
+  {
+    "objectID": "slides/11-regularization.html#half-cauchy-distribution",
+    "href": "slides/11-regularization.html#half-cauchy-distribution",
+    "title": "Regularization",
+    "section": "Half-Cauchy distribution",
+    "text": "Half-Cauchy distribution\nA random variable \\(X \\sim \\mathcal C^+(\\mu,\\sigma)\\) follows a half-Cauchy distribution with location \\(\\mu\\) and scale \\(\\sigma &gt; 0\\) and has the following density,\n\\[f(X | \\mu, \\sigma) = \\frac{2}{\\pi \\sigma}\\frac{1}{1 + (X - \\mu)^2 / \\sigma^2},\\quad X \\geq \\mu\\]\n\nThe Half-Cauchy distribution with \\(\\mu = 0\\) is a useful prior for non-negative parameters that may be very large, as allowed by the very heavy tails of the Cauchy distribution."
+  },
+  {
+    "objectID": "slides/11-regularization.html#half-cauchy-distribution-in-stan",
+    "href": "slides/11-regularization.html#half-cauchy-distribution-in-stan",
+    "title": "Regularization",
+    "section": "Half-Cauchy distribution in Stan",
+    "text": "Half-Cauchy distribution in Stan\nIn Stan, the half-Cauchy distribution can be specified by putting a constraint on the parameter definition.\n\nparameters {\n  real&lt;lower = 0&gt; lambda;\n}\nmodel {\n  lambda ~ cauchy(0, 1);\n}"
+  },
+  {
+    "objectID": "slides/11-regularization.html#half-cauchy-distribution-1",
+    "href": "slides/11-regularization.html#half-cauchy-distribution-1",
+    "title": "Regularization",
+    "section": "Half-Cauchy distribution",
+    "text": "Half-Cauchy distribution"
+  },
+  {
+    "objectID": "slides/11-regularization.html#horseshoe-prior-1",
+    "href": "slides/11-regularization.html#horseshoe-prior-1",
+    "title": "Regularization",
+    "section": "Horseshoe prior",
+    "text": "Horseshoe prior\nThe horseshoe prior has two interesting features that make it particularly useful as a shrinkage prior for sparse problems.\n\nIt has flat, Cauchy-like tails that allow strong signals to remain large (that is, un-shrunk) a posteriori.\nIt has an infinitely tall spike at the origin that provides severe shrinkage for the zero elements of \\(\\boldsymbol{\\beta}\\).\n\nAs we will see, these are key elements that make the horseshoe an attractive choice for handling sparse vectors."
+  },
+  {
+    "objectID": "slides/11-regularization.html#relation-to-other-shrinkage-priors",
+    "href": "slides/11-regularization.html#relation-to-other-shrinkage-priors",
+    "title": "Regularization",
+    "section": "Relation to other shrinkage priors",
+    "text": "Relation to other shrinkage priors\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau &\\sim N(0, \\lambda_j^2 \\tau^2)\\\\\n\\lambda_j^2 &\\sim f(\\lambda_j)\n\\end{aligned}\\]\n\n\\(\\lambda_j = 1 / \\lambda\\), implies ridge regression.\n\\(f(\\lambda_j) = \\text{Exponential}(0.5)\\), implies lasso.\n\\(f(\\lambda_j) = \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right)\\), implies relevance vector machine.\n\\(f(\\lambda_j) = \\mathcal C^+(0,1)\\), implies horseshoe."
+  },
+  {
+    "objectID": "slides/11-regularization.html#horsehoe-density",
+    "href": "slides/11-regularization.html#horsehoe-density",
+    "title": "Regularization",
+    "section": "Horsehoe density",
+    "text": "Horsehoe density\n\n\n\n\n\nFrom Carvalho 2009"
+  },
+  {
+    "objectID": "slides/11-regularization.html#shrinkage-of-each-prior",
+    "href": "slides/11-regularization.html#shrinkage-of-each-prior",
+    "title": "Regularization",
+    "section": "Shrinkage of each prior",
+    "text": "Shrinkage of each prior\n\nDefine the posterior mean of \\(\\beta_j\\) as \\(\\bar{\\beta}_j\\) and the maximum likelihood estimator for \\(\\beta_j\\) as \\(\\hat{\\beta}_j\\).\nThe following relationship holds: \\(\\bar{\\beta}_j = (1 - \\kappa_j) \\hat{\\beta}_j\\),\n\n\\[\\kappa_j = \\frac{1}{1 + n\\sigma^{-2}\\tau^{2}s_j^2\\lambda_j^2}.\\]\n\n\\(\\kappa_j\\) is called the shrinkage factor for \\(\\beta_j\\).\n\\(s_j^2 = \\mathbb{V}(x_j)\\) is the variance for each predictor."
+  },
+  {
+    "objectID": "slides/11-regularization.html#standardization-of-predictors",
+    "href": "slides/11-regularization.html#standardization-of-predictors",
+    "title": "Regularization",
+    "section": "Standardization of predictors",
+    "text": "Standardization of predictors\n\nIn regularization problems, predictors are standardized (to mean zero and standard deviation one).\nThis means that so that \\(s_j = 1\\).\nShrinkage parameter:\n\n\\[\\kappa_j = \\frac{1}{1 + n\\sigma^{-2}\\tau^{2}\\lambda_j^2}.\\]\n\n\\(\\kappa_j = 1\\), implies complete shrinkage.\n\\(\\kappa_j = 0\\), implies no shrinkage."
+  },
+  {
+    "objectID": "slides/11-regularization.html#shrinkage-parameter",
+    "href": "slides/11-regularization.html#shrinkage-parameter",
+    "title": "Regularization",
+    "section": "Shrinkage parameter",
+    "text": "Shrinkage parameter\n\n\n\n\n\nFrom Carvalho 2009"
+  },
+  {
+    "objectID": "slides/11-regularization.html#horseshoe-shrinkage-parameter",
+    "href": "slides/11-regularization.html#horseshoe-shrinkage-parameter",
+    "title": "Regularization",
+    "section": "Horseshoe shrinkage parameter",
+    "text": "Horseshoe shrinkage parameter\n\nChoosing \\(\\lambda_j ∼ \\mathcal C^+(0, 1)\\) implies \\(\\kappa_j ∼ \\text{Beta}(0.5, 0.5)\\), a density that is symmetric and unbounded at both 0 and 1.\nThis horseshoe-shaped shrinkage profile expects to see two things a priori:\n\nStrong signals (\\(\\kappa \\approx 0\\), no shrinkage), and\nZeros (\\(\\kappa \\approx 1\\), total shrinkage)."
+  },
+  {
+    "objectID": "slides/11-regularization.html#similarity-to-spike-and-slab",
+    "href": "slides/11-regularization.html#similarity-to-spike-and-slab",
+    "title": "Regularization",
+    "section": "Similarity to spike-and-slab",
+    "text": "Similarity to spike-and-slab\n\nA horseshoe prior can be considered as a continuous approximation to the spike-and-slab prior.\n\nThe spike-and-slab places a discrete probability mass at exactly zero (the “spike”) and a separate distribution around non-zero values (the “slab”).\nThe horseshoe prior smoothly approximates this behavior with a very concentrated distribution near zero.\n\n\n\n\n\n\n\nFrom Piironena and Vehtari 2017"
+  },
+  {
+    "objectID": "slides/11-regularization.html#choosing-a-prior-for-tau",
+    "href": "slides/11-regularization.html#choosing-a-prior-for-tau",
+    "title": "Regularization",
+    "section": "Choosing a prior for \\(\\tau\\)",
+    "text": "Choosing a prior for \\(\\tau\\)\n\nCarvalho et al. 2009 suggest \\(\\tau \\sim \\mathcal C^+(0,1)\\).\nPolson and Scott 2011 recommend \\(\\tau | \\sigma \\sim \\mathcal C^+(0, \\sigma^2)\\).\nAnother prior comes from a quantity called the effective number of nonzero coefficients,\n\n\\[m_{eff} = \\sum_{j=1}^p (1 - \\kappa_j).\\]"
+  },
+  {
+    "objectID": "slides/11-regularization.html#global-shrinkage-parameter-tau",
+    "href": "slides/11-regularization.html#global-shrinkage-parameter-tau",
+    "title": "Regularization",
+    "section": "Global shrinkage parameter \\(\\tau\\)",
+    "text": "Global shrinkage parameter \\(\\tau\\)\n\nThe prior mean can be shown to be,\n\n\\[\\mathbb{E}\\left[m_{eff} | \\tau, \\sigma\\right] = \\frac{\\tau \\sigma^{-1} \\sqrt{n}}{1 + \\tau \\sigma^{-1} \\sqrt{n}}p.\\]\n\nSetting \\(\\mathbb{E}\\left[m_{eff} | \\tau, \\sigma\\right] = p_0\\) (prior guess for the number of non-zero coefficients) yields for \\(\\tau\\),\n\n\\[\\tau_0 = \\frac{p_0}{p - p_0} \\frac{\\sigma}{\\sqrt{n}}.\\]"
+  },
+  {
+    "objectID": "slides/11-regularization.html#global-shrinkage-parameter-tau-1",
+    "href": "slides/11-regularization.html#global-shrinkage-parameter-tau-1",
+    "title": "Regularization",
+    "section": "Global shrinkage parameter \\(\\tau\\)",
+    "text": "Global shrinkage parameter \\(\\tau\\)\n\n\n\n\n\nFrom Piironena and Vehtari 2017"
+  },
+  {
+    "objectID": "slides/11-regularization.html#non-gaussian-observation-models",
+    "href": "slides/11-regularization.html#non-gaussian-observation-models",
+    "title": "Regularization",
+    "section": "Non-Gaussian observation models",
+    "text": "Non-Gaussian observation models\n\nThe reference value:\n\n\\[\\tau_0 = \\frac{p_0}{p - p_0} \\frac{\\sigma}{\\sqrt{n}}.\\]\n\nThis framework can be applied to non-Gaussian observation data models using plug-in estimates values for \\(\\sigma\\).\n\nGaussian approximations to the likelihood.\nFor example: For logistic regression \\(\\sigma = 2\\)."
+  },
+  {
+    "objectID": "slides/11-regularization.html#coding-up-the-model-in-stan",
+    "href": "slides/11-regularization.html#coding-up-the-model-in-stan",
+    "title": "Regularization",
+    "section": "Coding up the model in Stan",
+    "text": "Coding up the model in Stan\nHorseshoe model has the following form,\n\\[\\begin{aligned}\n\\beta_j | \\lambda_j, \\tau &\\stackrel{ind}{\\sim} N(0, \\lambda_j^2 \\tau^2)\\\\\n\\lambda_j &\\stackrel{iid}{\\sim} \\mathcal C^+(0, 1),\\\\\n\\tau &\\sim \\mathcal C^+(0, \\tau_0^2).\n\\end{aligned}\\]\nEfficient parameter transformation, \\[\\beta_j = \\tau \\lambda_j z_j, \\quad z_j \\stackrel{iid}{\\sim} N(0,1).\\]"
+  },
+  {
+    "objectID": "slides/11-regularization.html#horseshoe-in-stan",
+    "href": "slides/11-regularization.html#horseshoe-in-stan",
+    "title": "Regularization",
+    "section": "Horseshoe in Stan",
+    "text": "Horseshoe in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n  real&lt;lower = 0&gt; tau0;\n}\nparameters {\n  real alpha;     \n  real&lt;lower = 0&gt; sigma;\n  vector[p] z;\n  vector&lt;lower = 0&gt;[p] lambda;\n  real&lt;lower = 0&gt; tau;\n}\ntransformed parameters {\n  vector[p] beta;\n  beta = tau * lambda .* z;\n}\nmodel {\n  // likelihood\n  target += normal_lpdf(Y | alpha + X * beta, sigma);\n  // population parameters\n  target += normal_lpdf(alpha | 0, 3);\n  sigma ~ normal(0, 3);\n  // horseshoe prior\n  target += std_normal_lpdf(z);\n  lambda ~ cauchy(0, 1);\n  tau ~ cauchy(0, tau0);\n}"
+  },
+  {
+    "objectID": "slides/11-regularization.html#prepare-for-next-class",
+    "href": "slides/11-regularization.html#prepare-for-next-class",
+    "title": "Regularization",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 03, which was just assigned.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Classification"
+  },
+  {
+    "objectID": "prepare/prepare-feb12.html",
+    "href": "prepare/prepare-feb12.html",
+    "title": "Prepare for February 12 lecture",
+    "section": "",
+    "text": "📖 Read BDA3 Chapter 14.6 about regularization in Bayesian models\n📖 Read Handling Sparsity via the Horseshoe by Carvalho, Polson, and Scott.\n✅ Work on HW 02"
+  },
+  {
+    "objectID": "slides/10-robust.html",
+    "href": "slides/10-robust.html",
+    "title": "Robust Regression",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine"
+  },
+  {
+    "objectID": "slides/10-robust.html#review-of-last-lecture",
+    "href": "slides/10-robust.html#review-of-last-lecture",
+    "title": "Robust Regression",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nOn Thursday, we started to branch out from linear regression.\nWe learned about approaches for nonlinear regression.\nToday we will address approaches for robust regression, which will generalize the assumption of homoskedasticity (and also the normality assumption)."
+  },
+  {
+    "objectID": "slides/10-robust.html#a-motivating-research-question",
+    "href": "slides/10-robust.html#a-motivating-research-question",
+    "title": "Robust Regression",
+    "section": "A motivating research question",
+    "text": "A motivating research question\n\nIn today’s lecture, we will look at data on serum concentration (grams per litre) of immunoglobulin-G (IgG) in 298 children aged from 6 months to 6 years.\n\nA detailed discussion of this data set may be found in Isaacs et al. (1983) and Royston and Altman (1994).\n\nFor an example patient, we define \\(Y_i\\) as the serum concentration value and \\(X_i\\) as a child’s age, given in years."
+  },
+  {
+    "objectID": "slides/10-robust.html#pulling-the-data",
+    "href": "slides/10-robust.html#pulling-the-data",
+    "title": "Robust Regression",
+    "section": "Pulling the data",
+    "text": "Pulling the data\n\nlibrary(Brq)\ndata(\"ImmunogG\")\nhead(ImmunogG)\n\n  IgG Age\n1 1.5 0.5\n2 2.7 0.5\n3 1.9 0.5\n4 4.0 0.5\n5 1.9 0.5\n6 4.4 0.5"
+  },
+  {
+    "objectID": "slides/10-robust.html#visualizing-igg-data",
+    "href": "slides/10-robust.html#visualizing-igg-data",
+    "title": "Robust Regression",
+    "section": "Visualizing IgG data",
+    "text": "Visualizing IgG data"
+  },
+  {
+    "objectID": "slides/10-robust.html#modeling-the-association-between-age-and-igg",
+    "href": "slides/10-robust.html#modeling-the-association-between-age-and-igg",
+    "title": "Robust Regression",
+    "section": "Modeling the association between age and IgG",
+    "text": "Modeling the association between age and IgG\n\nLinear regression can be written as follows for \\(i = 1,\\ldots,n\\),\n\n\\[Y_i = \\alpha + \\beta X_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2).\\]\n\n\\(\\beta\\) represent the change in IgG serum concentration with a one year increase in age."
+  },
+  {
+    "objectID": "slides/10-robust.html#linear-regression-assumptions",
+    "href": "slides/10-robust.html#linear-regression-assumptions",
+    "title": "Robust Regression",
+    "section": "Linear regression assumptions",
+    "text": "Linear regression assumptions\n\\[\\begin{aligned}\nY_i &= \\alpha + \\beta X_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\\\\n&= \\mu_i + \\epsilon_i.\n\\end{aligned}\\]\nAssumptions:\n\n\\(Y_i\\) are independent observations (independence).\n\\(Y_i\\) is linearly related to \\(X_i\\) (linearity).\n\\(\\epsilon_i = Y_i - \\mu_i\\) is normally distributed (normality).\n\\(\\epsilon_i\\) has constant variance across \\(X_i\\) (homoskedasticity)."
+  },
+  {
+    "objectID": "slides/10-robust.html#assessing-assumptions",
+    "href": "slides/10-robust.html#assessing-assumptions",
+    "title": "Robust Regression",
+    "section": "Assessing assumptions",
+    "text": "Assessing assumptions"
+  },
+  {
+    "objectID": "slides/10-robust.html#robust-regression",
+    "href": "slides/10-robust.html#robust-regression",
+    "title": "Robust Regression",
+    "section": "Robust regression",
+    "text": "Robust regression\n\nToday we will learn about regression techniques that are robust to the assumptions of linear regression.\nWe will introduce the idea of robust regression by exploring ways to generalize the homoskedastic variance assumption in linear regression.\nWe will touch on heteroskedasticity, heavy-tailed distributions, and median regression (more generally quantile regression)."
+  },
+  {
+    "objectID": "slides/10-robust.html#why-is-robust-regression-not-more-comomon",
+    "href": "slides/10-robust.html#why-is-robust-regression-not-more-comomon",
+    "title": "Robust Regression",
+    "section": "Why is robust regression not more comomon?",
+    "text": "Why is robust regression not more comomon?\n\nDespite their desirable properties, robust methods are not widely used. Why?\n\nHistorically computationally complex.\nNot available in statistical software packages.\n\nBayesian modeling using Stan alleviates these bottlenecks!"
+  },
+  {
+    "objectID": "slides/10-robust.html#heteroskedasticity",
+    "href": "slides/10-robust.html#heteroskedasticity",
+    "title": "Robust Regression",
+    "section": "Heteroskedasticity",
+    "text": "Heteroskedasticity\n\nHeteroskedasticity is the violation of the assumption of constant variance.\nHow can we handle this?\nIn OLS, there are approaches like heteroskedastic consistent errors, but this is not a generative model.\nIn the Bayesian framework, we generally like to write down generative models."
+  },
+  {
+    "objectID": "slides/10-robust.html#modeling-the-scale-with-covariates",
+    "href": "slides/10-robust.html#modeling-the-scale-with-covariates",
+    "title": "Robust Regression",
+    "section": "Modeling the scale with covariates",
+    "text": "Modeling the scale with covariates\n\nOne option is to allow the sale to be modeled as a function of covariates.\nIt is common to model the log-transformation of the scale or variance to transform it to \\(\\mathbb{R}\\),\n\n\\[\\log \\tau_i = \\mathbf{z}_i \\boldsymbol{\\gamma},\\]\nwhere \\(\\mathbf{z}_i = (z_{i1},\\ldots,z_{ip})\\) are a \\(p\\)-dimensional vector of covariates and \\(\\boldsymbol{\\gamma}\\) are parameters that regress the covariates onto the log standard deviation.\n\nOther options include: \\(\\log \\tau_i = \\mathbf{z}_i \\boldsymbol{\\gamma} + \\nu_i,\\quad \\nu_i \\sim N(0, \\sigma^2)\\)\nOther options include: \\(\\log \\tau_i = f(\\mu_i)\\)\nAny plausible generative model can be specified!"
+  },
+  {
+    "objectID": "slides/10-robust.html#modeling-the-scale-with-covariates-1",
+    "href": "slides/10-robust.html#modeling-the-scale-with-covariates-1",
+    "title": "Robust Regression",
+    "section": "Modeling the scale with covariates",
+    "text": "Modeling the scale with covariates\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1&gt; q;\n  vector[n] Y;\n  matrix[n, p] X;\n  matrix[n, q] Z;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  vector[q] gamma;\n}\ntransformed parameters {\n  vector[n] tau = exp(Z * gamma);\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, tau);\n}"
+  },
+  {
+    "objectID": "slides/10-robust.html#heteroskedastic-variance",
+    "href": "slides/10-robust.html#heteroskedastic-variance",
+    "title": "Robust Regression",
+    "section": "Heteroskedastic variance",
+    "text": "Heteroskedastic variance\n\nWe can write the regression model using an observation specific variance, \\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\tau_i^2).\\]\nOne way of writing the variance is: \\(\\tau_i^2 = \\sigma^2 \\lambda_i\\).\n\n\\(\\sigma^2\\) is a global scale parameter.\n\\(\\lambda_i\\) is an observation specific scale parameter.\n\nIn the Bayesian framework, we must place a prior on \\(\\lambda_i\\)."
+  },
+  {
+    "objectID": "slides/10-robust.html#a-prior-to-induce-a-heavy-tail",
+    "href": "slides/10-robust.html#a-prior-to-induce-a-heavy-tail",
+    "title": "Robust Regression",
+    "section": "A prior to induce a heavy-tail",
+    "text": "A prior to induce a heavy-tail\n\nA common prior for \\(\\lambda_i\\) is as follows:\n\n\\[\\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\\]"
+  },
+  {
+    "objectID": "slides/10-robust.html#a-prior-to-induce-a-heavy-tail-1",
+    "href": "slides/10-robust.html#a-prior-to-induce-a-heavy-tail-1",
+    "title": "Robust Regression",
+    "section": "A prior to induce a heavy-tail",
+    "text": "A prior to induce a heavy-tail\n\nA common prior for \\(\\lambda_i\\) is as follows:\n\n\\[\\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\\]\n\nUnder this prior, the marginal likelihood for \\(Y_i\\) is equivalent to a Student-t distribution,\n\n\\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{iid}{\\sim} t_{\\nu}\\left(0, \\sigma\\right).\\]"
+  },
+  {
+    "objectID": "slides/10-robust.html#understanding-the-equivalence",
+    "href": "slides/10-robust.html#understanding-the-equivalence",
+    "title": "Robust Regression",
+    "section": "Understanding the equivalence",
+    "text": "Understanding the equivalence\n\nHeteroskedastic variances assumption is equivalent to assuming a heavy-tailed distribution.\n\n\\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{iid}{\\sim} t_{\\nu}\\left(0, \\sigma\\right).\\]\n\\[\\iff\\]\n\\[\\begin{aligned}\nY_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N\\left(0,\\sigma^2 \\lambda_i\\right)\\\\\n\\lambda_i &\\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right)\n\\end{aligned}\\]\n\nNote that since the number of \\(\\lambda_i\\) parameters is equal to the number of observations, this model will not have a proper posterior distribution without a proper prior distribution."
+  },
+  {
+    "objectID": "slides/10-robust.html#understanding-the-equivalence-1",
+    "href": "slides/10-robust.html#understanding-the-equivalence-1",
+    "title": "Robust Regression",
+    "section": "Understanding the equivalence",
+    "text": "Understanding the equivalence\n\\[\\begin{aligned}\nf(Y_i) &= \\int_0^{\\infty} f(Y_i , \\lambda_i) d\\lambda_i\\\\\n&= \\int_0^{\\infty} f(Y_i | \\lambda_i) f(\\lambda_i) d\\lambda_i\\\\\n&= \\int_0^{\\infty} N(Y_i ; \\mu_i, \\sigma^2 \\lambda_i) \\text{Inverse-Gamma}\\left(\\lambda_i ; \\frac{\\nu}{2},\\frac{\\nu}{2}\\right) d\\lambda_i\\\\\n&= t_{\\nu}\\left(\\mu_i,\\sigma\\right).\n\\end{aligned}\\]\n\nThe marginal likelihood can be viewed as a mixture of a Gaussian likelihood with an Inverse-Gamma scale parameter."
+  },
+  {
+    "objectID": "slides/10-robust.html#understanding-the-equivalence-2",
+    "href": "slides/10-robust.html#understanding-the-equivalence-2",
+    "title": "Robust Regression",
+    "section": "Understanding the equivalence",
+    "text": "Understanding the equivalence\nA random variable \\(T_i \\stackrel{iid}{\\sim} t_{\\nu}\\) can be written as a function of Gaussian and \\(\\chi^2\\) random variables, \\[\\begin{aligned}\nT_i &= \\frac{Z_i}{\\sqrt{\\frac{W_i}{\\nu}}},\\quad Z_i \\stackrel{iid}{\\sim} N(0,1), \\quad W_i \\stackrel{iid}{\\sim}\\chi^2_{\\nu}\\\\\n&= \\frac{Z_i}{\\sqrt{\\frac{1}{\\nu V_i}}},\\quad V_i \\stackrel{iid}{\\sim} \\text{Inv-}\\chi^2_{\\nu},\\quad V_i=W_i^{-1}\\\\\n&= \\sqrt{\\nu V_i} Z_i,\\quad \\lambda_i = \\nu V_i\\\\\n&= \\sqrt{\\lambda_i} Z_i, \\quad \\lambda_i \\stackrel{iid}{\\sim} \\text{Inverse-Gamma}\\left(\\frac{\\nu}{2},\\frac{\\nu}{2}\\right).\n\\end{aligned}\\]\n\nWe then have: \\(Y_i = \\mu_i + \\sigma T_i \\sim t_{\\nu}(\\mu_i, \\sigma).\\)"
+  },
+  {
+    "objectID": "slides/10-robust.html#student-t-in-stan",
+    "href": "slides/10-robust.html#student-t-in-stan",
+    "title": "Robust Regression",
+    "section": "Student-t in Stan",
+    "text": "Student-t in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = 0&gt; nu;\n}\nmodel {\n  target += student_t_lpdf(Y | nu, alpha + X * beta, sigma);\n}"
+  },
+  {
+    "objectID": "slides/10-robust.html#student-t-in-stan-mixture",
+    "href": "slides/10-robust.html#student-t-in-stan-mixture",
+    "title": "Robust Regression",
+    "section": "Student-t in Stan: mixture",
+    "text": "Student-t in Stan: mixture\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n] lambda;\n  real&lt;lower = 0&gt; nu;\n}\ntransformed parameters {\n  vector[n] tau = sigma * sqrt(lambda);\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, tau);\n  target += inv_gamma_lpdf(lambda | 0.5 * nu, 0.5 * nu);\n}"
+  },
+  {
+    "objectID": "slides/10-robust.html#why-heavy-tailed-distributions",
+    "href": "slides/10-robust.html#why-heavy-tailed-distributions",
+    "title": "Robust Regression",
+    "section": "Why heavy-tailed distributions?",
+    "text": "Why heavy-tailed distributions?\n\nReplacing the normal distribution with a distribution with heavy-tails (e.g., Student-t, Laplace) is a common approach to robust regression.\nRobust regression refers to regression methods which are less sensitive to outliers or small sample sizes.\nLinear regression, including Bayesian regression with normally distributed errors is sensitive to outliers, because the normal distribution has narrow tail probabilities.\nOur heteroskedastic model that we just explored is only one example of a robust regression model."
+  },
+  {
+    "objectID": "slides/10-robust.html#vizualizing-heavy-tail-distributions",
+    "href": "slides/10-robust.html#vizualizing-heavy-tail-distributions",
+    "title": "Robust Regression",
+    "section": "Vizualizing heavy tail distributions",
+    "text": "Vizualizing heavy tail distributions"
+  },
+  {
+    "objectID": "slides/10-robust.html#vizualizing-heavy-tail-distributions-1",
+    "href": "slides/10-robust.html#vizualizing-heavy-tail-distributions-1",
+    "title": "Robust Regression",
+    "section": "Vizualizing heavy tail distributions",
+    "text": "Vizualizing heavy tail distributions"
+  },
+  {
+    "objectID": "slides/10-robust.html#vizualizing-heavy-tail-distributions-2",
+    "href": "slides/10-robust.html#vizualizing-heavy-tail-distributions-2",
+    "title": "Robust Regression",
+    "section": "Vizualizing heavy tail distributions",
+    "text": "Vizualizing heavy tail distributions"
+  },
+  {
+    "objectID": "slides/10-robust.html#another-example-of-robust-regression",
+    "href": "slides/10-robust.html#another-example-of-robust-regression",
+    "title": "Robust Regression",
+    "section": "Another example of robust regression",
+    "text": "Another example of robust regression\n\nLet’s revisit our general heteroskedastic regression, \\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\sigma^2 \\lambda_i).\\]\nWe can induce another form of robust regression using the following prior for \\(\\lambda_i\\), \\(\\lambda_i \\sim \\text{Exponential}(1/2)\\)."
+  },
+  {
+    "objectID": "slides/10-robust.html#another-example-of-robust-regression-1",
+    "href": "slides/10-robust.html#another-example-of-robust-regression-1",
+    "title": "Robust Regression",
+    "section": "Another example of robust regression",
+    "text": "Another example of robust regression\n\nLet’s revisit our general heteroskedastic regression, \\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\stackrel{ind}{\\sim} N(0,\\sigma^2 \\lambda_i).\\]\nWe can induce another form of robust regression using the following prior for \\(\\lambda_i\\), \\(\\lambda_i \\sim \\text{Exponential}(1/2)\\).\nUnder this prior, the induced marginal model is, \\[Y_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} \\text{Laplace}(\\mu = 0, \\sigma).\\]\nThis has a really nice interpretation!"
+  },
+  {
+    "objectID": "slides/10-robust.html#laplace-distribution",
+    "href": "slides/10-robust.html#laplace-distribution",
+    "title": "Robust Regression",
+    "section": "Laplace distribution",
+    "text": "Laplace distribution\nSuppse a variable \\(Y_i\\) follows a Laplace (or double exponential) distribution, then the pdf is given by,\n\\[f(Y_i | \\mu, \\sigma) = \\frac{1}{2\\sigma} \\exp\\left\\{-\\frac{|Y_i - \\mu|}{\\sigma}\\right\\}\\]\n\n\\(\\mathbb{E}[Y_i] = \\mu\\)\n\\(\\mathbb{V}(Y_i) = 2 \\sigma^2\\)\nUnder the Laplace likelihood, estimation of \\(\\mu\\) is equivalent to estimating the population median of \\(Y_i\\)."
+  },
+  {
+    "objectID": "slides/10-robust.html#median-regression-using-laplace",
+    "href": "slides/10-robust.html#median-regression-using-laplace",
+    "title": "Robust Regression",
+    "section": "Median regression using Laplace",
+    "text": "Median regression using Laplace\nLeast absolute deviation (LAD) regression minimizes the following objective function,\n\\[\\hat{{\\alpha}}_{\\text{LAD}},\\hat{\\boldsymbol{\\beta}}_{\\text{LAD}} = \\arg \\min_{\\alpha,\\boldsymbol{\\beta}} \\sum_{i=1}^n |Y_i - \\mu_i|, \\quad \\mu_i = \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}.\\]\nThe Bayesian analog is the Laplace distribution,\n\\[f(\\mathbf{Y} | \\alpha, \\boldsymbol{\\beta}, \\sigma) = \\left(\\frac{1}{2\\sigma}\\right)^n \\exp\\left\\{-\\sum_{i=1}^n\\frac{|Y_i - \\mu_i|}{\\sigma}\\right\\}.\\]"
+  },
+  {
+    "objectID": "slides/10-robust.html#median-regression-using-laplace-1",
+    "href": "slides/10-robust.html#median-regression-using-laplace-1",
+    "title": "Robust Regression",
+    "section": "Median regression using Laplace",
+    "text": "Median regression using Laplace\n\nThe Laplace distribution is analogous to least absolute deviations because the kernel of the distribution is \\(|x−\\mu|\\), so minimizing the likelihood will also minimize the least absolute distances.\nLaplace distribution is also known as the double-exponential distribution (symmetric exponential distributions around \\(\\mu\\) with scale \\(\\sigma\\)).\nThus, a linear regression with Laplace errors is analogous to a median regression,\nWhy is median regression considered more robust than regression of the mean?"
+  },
+  {
+    "objectID": "slides/10-robust.html#laplace-regression-in-stan",
+    "href": "slides/10-robust.html#laplace-regression-in-stan",
+    "title": "Robust Regression",
+    "section": "Laplace regression in Stan",
+    "text": "Laplace regression in Stan\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += double_exponential_lpdf(Y | alpha + X * beta, sigma);\n}"
+  },
+  {
+    "objectID": "slides/10-robust.html#laplace-regression-in-stan-mixture",
+    "href": "slides/10-robust.html#laplace-regression-in-stan-mixture",
+    "title": "Robust Regression",
+    "section": "Laplace regression in Stan: mixture",
+    "text": "Laplace regression in Stan: mixture\n\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n] lambda;\n}\ntransformed parameters {\n  vector[n] tau = sigma * sqrt(lambda);\n}\nmodel {\n  target += normal_lpdf(Y | alpha + X * beta, tau);\n  target += exponential_lpdf(lambda | 0.5);\n}"
+  },
+  {
+    "objectID": "slides/10-robust.html#returning-to-igg",
+    "href": "slides/10-robust.html#returning-to-igg",
+    "title": "Robust Regression",
+    "section": "Returning to IgG",
+    "text": "Returning to IgG"
+  },
+  {
+    "objectID": "slides/10-robust.html#posterior-of-beta",
+    "href": "slides/10-robust.html#posterior-of-beta",
+    "title": "Robust Regression",
+    "section": "Posterior of \\(\\beta\\)",
+    "text": "Posterior of \\(\\beta\\)\n\n\n\n\n\nModel\nMean\nLower\nUpper\n\n\n\n\nLaplace\n0.73\n0.56\n0.89\n\n\nStudent-t\n0.69\n0.55\n0.82\n\n\nGaussian\n0.69\n0.56\n0.83\n\n\nGaussian with Covariates in Variance\n0.76\n0.62\n0.89"
+  },
+  {
+    "objectID": "slides/10-robust.html#model-comparison",
+    "href": "slides/10-robust.html#model-comparison",
+    "title": "Robust Regression",
+    "section": "Model Comparison",
+    "text": "Model Comparison\n\n\n\n\n\n\nelpd_diff\nelpd_loo\nlooic\n\n\n\n\nStudent-t\n0.00\n-624.42\n1248.84\n\n\nGaussian\n-2.01\n-626.43\n1252.86\n\n\nGaussian with Covariates in Variance\n-6.09\n-630.51\n1261.02\n\n\nLaplace\n-13.10\n-637.52\n1275.05"
+  },
+  {
+    "objectID": "slides/10-robust.html#examining-the-student-t-model-fit",
+    "href": "slides/10-robust.html#examining-the-student-t-model-fit",
+    "title": "Robust Regression",
+    "section": "Examining the Student-t model fit",
+    "text": "Examining the Student-t model fit\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n        mean se_mean   sd 2.5% 97.5% n_eff Rhat\nalpha   3.32    0.00 0.21 2.91  3.74  2084    1\nbeta[1] 0.69    0.00 0.07 0.55  0.82  2122    1\nsigma   1.72    0.00 0.10 1.53  1.91  2744    1\nnu      7.80    0.05 2.35 4.40 13.29  2617    1\n\nSamples were drawn using NUTS(diag_e) at Sun Feb  9 14:54:53 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/10-robust.html#examining-the-student-t-model-fit-1",
+    "href": "slides/10-robust.html#examining-the-student-t-model-fit-1",
+    "title": "Robust Regression",
+    "section": "Examining the Student-t model fit",
+    "text": "Examining the Student-t model fit"
+  },
+  {
+    "objectID": "slides/10-robust.html#examining-the-student-t-model-fit-2",
+    "href": "slides/10-robust.html#examining-the-student-t-model-fit-2",
+    "title": "Robust Regression",
+    "section": "Examining the Student-t model fit",
+    "text": "Examining the Student-t model fit"
+  },
+  {
+    "objectID": "slides/10-robust.html#summary-of-robust-regression",
+    "href": "slides/10-robust.html#summary-of-robust-regression",
+    "title": "Robust Regression",
+    "section": "Summary of robust regression",
+    "text": "Summary of robust regression\n\nRobust regression techniques can be used when the assumptions of constant variance and/or normality of the residuals do not hold.\nHeteroskedastic variance can viewed as inducing extreme value distributions.\nExtreme value regression using Student-t and Laplace distributions are robust to outliers.\nLaplace regression is equivalent to median regression."
+  },
+  {
+    "objectID": "slides/10-robust.html#prepare-for-next-class",
+    "href": "slides/10-robust.html#prepare-for-next-class",
+    "title": "Robust Regression",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization"
   }
 ]
