@@ -129,7 +129,7 @@ library(nimble)
 
     -   there are too many predictors (sparsity is desired) and/or,
 
-    -   $\mathbf{X}^\top \mathbf{X}$ is ill-conditioned were singular or nearly singular (multicollinearity).
+    -   $\mathbf{X}^\top \mathbf{X}$ is ill-conditioned and singular or nearly singular (multicollinearity).
 
 -   The OLS estimate becomes unstable: $$\hat{\boldsymbol{\beta}}_{\text{OLS}} = \left(\mathbf{X}^\top \mathbf{X}\right)^{-1}\mathbf{X}^\top \mathbf{Y}.$$
 
@@ -335,7 +335,7 @@ $$\kappa_j = \frac{1}{1 + n\sigma^{-2}\tau^{2}s_j^2\lambda_j^2}.$$
 
 -   In regularization problems, predictors are standardized (to mean zero and standard deviation one).
 
--   This means that so that $s_j = 1$.
+-   This means that $s_j = 1$.
 
 -   Shrinkage parameter:
 
@@ -495,7 +495,7 @@ model {
 
 ## Prepare for next class
 
--   Work on [HW 03](https://biostat725-sp26.netlify.app/hw/hw-03-blank), which was just assigned.
+-   Work on [HW 03](https://biostat725-sp26.netlify.app/hw/hw-03), which was just assigned.
 
 -   Complete reading to prepare for next Tuesday's lecture
 

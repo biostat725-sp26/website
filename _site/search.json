@@ -3417,7 +3417,7 @@
     "href": "slides/11-regularization.html#ridge-regression",
     "title": "Regularization",
     "section": "Ridge regression",
-    "text": "Ridge regression\n\nRidge regression is motivated by extending linear regression to the setting where:\n\nthere are too many predictors (sparsity is desired) and/or,\n\\(\\mathbf{X}^\\top \\mathbf{X}\\) is ill-conditioned were singular or nearly singular (multicollinearity).\n\nThe OLS estimate becomes unstable: \\[\\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\left(\\mathbf{X}^\\top \\mathbf{X}\\right)^{-1}\\mathbf{X}^\\top \\mathbf{Y}.\\]"
+    "text": "Ridge regression\n\nRidge regression is motivated by extending linear regression to the setting where:\n\nthere are too many predictors (sparsity is desired) and/or,\n\\(\\mathbf{X}^\\top \\mathbf{X}\\) is ill-conditioned and singular or nearly singular (multicollinearity).\n\nThe OLS estimate becomes unstable: \\[\\hat{\\boldsymbol{\\beta}}_{\\text{OLS}} = \\left(\\mathbf{X}^\\top \\mathbf{X}\\right)^{-1}\\mathbf{X}^\\top \\mathbf{Y}.\\]"
   },
   {
     "objectID": "slides/11-regularization.html#ridge-regression-1",
@@ -3536,7 +3536,7 @@
     "href": "slides/11-regularization.html#standardization-of-predictors",
     "title": "Regularization",
     "section": "Standardization of predictors",
-    "text": "Standardization of predictors\n\nIn regularization problems, predictors are standardized (to mean zero and standard deviation one).\nThis means that so that \\(s_j = 1\\).\nShrinkage parameter:\n\n\\[\\kappa_j = \\frac{1}{1 + n\\sigma^{-2}\\tau^{2}\\lambda_j^2}.\\]\n\n\\(\\kappa_j = 1\\), implies complete shrinkage.\n\\(\\kappa_j = 0\\), implies no shrinkage."
+    "text": "Standardization of predictors\n\nIn regularization problems, predictors are standardized (to mean zero and standard deviation one).\nThis means that \\(s_j = 1\\).\nShrinkage parameter:\n\n\\[\\kappa_j = \\frac{1}{1 + n\\sigma^{-2}\\tau^{2}\\lambda_j^2}.\\]\n\n\\(\\kappa_j = 1\\), implies complete shrinkage.\n\\(\\kappa_j = 0\\), implies no shrinkage."
   },
   {
     "objectID": "slides/11-regularization.html#shrinkage-parameter",
