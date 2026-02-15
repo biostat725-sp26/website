@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -3942,5 +3942,565 @@
     "title": "Robust Regression",
     "section": "Prepare for next class",
     "text": "Prepare for next class\n\nWork on HW 02, which is due before next class.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Regularization"
+  },
+  {
+    "objectID": "prepare/prepare-feb17.html",
+    "href": "prepare/prepare-feb17.html",
+    "title": "Prepare for February 17 lecture",
+    "section": "",
+    "text": "📖 Read AE 06: Classification. This AE contains an introduction to an EHR dataset we will use for a few assignments in the course. Please read the introduction of the data through the exercises and be ready to work with the data on Tuesday.\n📖 Review Stan documentation on logistic and probit regression.\n✅ Work on HW 03"
+  },
+  {
+    "objectID": "slides/12-classification.html",
+    "href": "slides/12-classification.html",
+    "title": "Classification",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+  },
+  {
+    "objectID": "slides/12-classification.html#review-of-last-lecture",
+    "href": "slides/12-classification.html#review-of-last-lecture",
+    "title": "Classification",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nLast week, we learned about Bayesian approaches to robust regression and regularization.\n\nGlobal-local shrinkage priors.\n\nThis week, we will focus on classification models.\n\nToday: Binary classification (logistic regression).\nThursday: Multiclass classification (multinomial, ordinal regression)."
+  },
+  {
+    "objectID": "slides/12-classification.html#models-for-binary-outcomes",
+    "href": "slides/12-classification.html#models-for-binary-outcomes",
+    "title": "Classification",
+    "section": "Models for binary outcomes",
+    "text": "Models for binary outcomes\n\nBernoulli random variable: Used for binary outcomes (success/failure), e.g., whether a patient responds to a treatment (yes/no).\nBinomial random variable: Used when there are multiple trials (e.g., 10 patients), and you want to model the number of successes (e.g., how many out of 10 patients experience a treatment response)."
+  },
+  {
+    "objectID": "slides/12-classification.html#bernoulli-random-variable-example",
+    "href": "slides/12-classification.html#bernoulli-random-variable-example",
+    "title": "Classification",
+    "section": "Bernoulli random variable example",
+    "text": "Bernoulli random variable example\nA Bernoulli random variable represents a random variable with two possible outcomes: 0 or 1.\nScenario:\nImagine a medical study on a new drug for hypertension (high blood pressure). You want to model whether a patient responds positively to the treatment.\n\nSuccess (1): The patient’s blood pressure decreases significantly (e.g., more than 10% reduction).\nFailure (0): The patient does not experience a significant decrease in blood pressure."
+  },
+  {
+    "objectID": "slides/12-classification.html#binomial-random-variable-example",
+    "href": "slides/12-classification.html#binomial-random-variable-example",
+    "title": "Classification",
+    "section": "Binomial random variable example",
+    "text": "Binomial random variable example\nA Binomial random variable represents the number of successes in a fixed number of independent Bernoulli trials.\nScenario:\nA clinical trial is conducted where 10 patients are given a new drug for diabetes. You want to model how many of these 10 patients experience a significant reduction in their blood sugar levels (e.g., a decrease by at least 20%).\n\nEach patient’s outcome is a Bernoulli random variable: success (1) if their blood sugar level decreases, failure (0) if it does not.\nThe total number of successes (patients who experience a reduction) is modeled as a Binomial random variable."
+  },
+  {
+    "objectID": "slides/12-classification.html#models-for-binary-outcomes-1",
+    "href": "slides/12-classification.html#models-for-binary-outcomes-1",
+    "title": "Classification",
+    "section": "Models for binary outcomes",
+    "text": "Models for binary outcomes\n\nSuppose \\(Y_i \\stackrel{ind}{\\sim} \\text{Bernoulli}(\\pi_i)\\) for \\(i = 1,\\ldots,n\\). The pmf is,\n\n\\[f(Y_i) = P(Y_i = y) = \\pi_i^y (1 - \\pi_i)^{1 - y}, \\quad y \\in\\{0,1\\}.\\]\n\nWe only need to specify \\(\\pi_i = P(Y_i = 1)\\).\nOne strategy might be to simply fit a linear regression model,\n\n\\[Y_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i,\\quad\\epsilon_i \\sim N(0, \\sigma^2).\\]\n\nWe can set \\(P(Y_i = 1) = \\hat{Y}_i\\)."
+  },
+  {
+    "objectID": "slides/12-classification.html#primary-biliary-cirrhosis",
+    "href": "slides/12-classification.html#primary-biliary-cirrhosis",
+    "title": "Classification",
+    "section": "Primary biliary cirrhosis",
+    "text": "Primary biliary cirrhosis\n\nThe Mayo Clinic conducted a trial for primary biliary cirrhosis, comparing the drug D-penicillamine vs. placebo. Patients were followed for a specified duration, and their status at the end of follow-up (whether they died) was recorded.\nResearchers are interested in predicting whether a patient died based on the following variables:\n\nascites: whether the patient had ascites (1 = yes, 0 = no)\nbilirubin: serum bilirubin in mg/dL\nstage: histologic stage of disease (ordinal categorical variable with stages 1, 2, 3, and 4)"
+  },
+  {
+    "objectID": "slides/12-classification.html#what-can-go-wrong",
+    "href": "slides/12-classification.html#what-can-go-wrong",
+    "title": "Classification",
+    "section": "What can go wrong?",
+    "text": "What can go wrong?\n\nSuppose we fit the following model:\n\n\\[\\begin{aligned}\nY_i &= \\alpha + \\beta_1(ascites)_i + \\beta_2(bilirubin)_i\\\\\n&\\quad+\\beta_3(stage = 2)_i + \\beta_4(stage = 3)_i\\\\\n&\\quad+\\beta_5(stage = 4)_i + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\n\\end{aligned}\\]\n\nWhat can go wrong?"
+  },
+  {
+    "objectID": "slides/12-classification.html#what-can-go-wrong-1",
+    "href": "slides/12-classification.html#what-can-go-wrong-1",
+    "title": "Classification",
+    "section": "What can go wrong?",
+    "text": "What can go wrong?"
+  },
+  {
+    "objectID": "slides/12-classification.html#what-can-go-wrong-2",
+    "href": "slides/12-classification.html#what-can-go-wrong-2",
+    "title": "Classification",
+    "section": "What can go wrong?",
+    "text": "What can go wrong?\n\nAdditionally, as a probability, \\(P(Y_i = 1)\\) must be in the interval [0, 1], but there is nothing in the model that enforces this constraint, so that you could be estimating probabilities that are negative or that are greater than 1!"
+  },
+  {
+    "objectID": "slides/12-classification.html#from-probabilities-to-log-odds",
+    "href": "slides/12-classification.html#from-probabilities-to-log-odds",
+    "title": "Classification",
+    "section": "From probabilities to log-odds",
+    "text": "From probabilities to log-odds\n\nSuppose the probability of an event is \\(\\pi\\).\nThen the odds that the event occurs is \\(\\frac{\\pi}{1 - \\pi}\\).\nTaking the (natural) log of the odds, we have the logit of \\(\\pi\\): the log-odds:\n\n\\[\\text{logit}(\\pi) = \\log\\left(\\frac{\\pi}{1-\\pi}\\right).\\]\n\nNote that although \\(\\pi\\) is constrained to lie between 0 and 1, the logit of \\(\\pi\\) is unconstrained - it can be anything from \\(-\\infty\\) to \\(\\infty\\)."
+  },
+  {
+    "objectID": "slides/12-classification.html#logistic-regression-model",
+    "href": "slides/12-classification.html#logistic-regression-model",
+    "title": "Classification",
+    "section": "Logistic regression model",
+    "text": "Logistic regression model\n\nLet’s create a model for the logit of \\(\\pi\\): \\(\\text{logit}(\\pi_i)= \\eta_i\\), where \\(\\eta_i = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta}.\\)\nThis is a linear model for a transformation of the outcome of interest, and is also equivalent to,\n\n\\[\\pi_i = \\frac{\\exp(\\eta_i)}{1 + \\exp(\\eta_i)} = \\text{expit}(\\eta_i).\\]\n\nThe expression on the right is called a logistic function and cannot yield a value that is negative or a value that is &gt;1. Fitting a model of this form is known as logistic regression."
+  },
+  {
+    "objectID": "slides/12-classification.html#logistic-regression",
+    "href": "slides/12-classification.html#logistic-regression",
+    "title": "Classification",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\\[\\text{logit}(\\pi_i) = \\log\\left(\\frac{\\pi_i}{1 - \\pi_i}\\right) = \\eta_i\\]\n\nNegative logits represent probabilities less than one-half.\n\n\\(\\eta_i &lt; 0 \\implies \\pi_i &lt; 0.5\\).\n\nPositive logits represent probabilities greater than one-half.\n\n\\(\\eta_i &gt; 0 \\implies \\pi_i &gt; 0.5\\)."
+  },
+  {
+    "objectID": "slides/12-classification.html#interpreting-parameters-in-logistic-regression",
+    "href": "slides/12-classification.html#interpreting-parameters-in-logistic-regression",
+    "title": "Classification",
+    "section": "Interpreting parameters in logistic regression",
+    "text": "Interpreting parameters in logistic regression\nTypically we interpret functions of parameters in logistic regression rather than the parameters themselves.\nFor the simple model: \\(\\log\\left(\\frac{\\pi_i}{1 - \\pi_i}\\right) = \\alpha + \\beta X_{i},\\) we note that the probability that \\(Y_i = 1\\) when \\(X_i = 0\\) is\n\\[P(Y_i = 1 | X_{i} = 0) = \\frac{\\exp(\\alpha)}{1 + \\exp(\\alpha)}.\\]"
+  },
+  {
+    "objectID": "slides/12-classification.html#interpreting-parameters-in-logistic-regression-1",
+    "href": "slides/12-classification.html#interpreting-parameters-in-logistic-regression-1",
+    "title": "Classification",
+    "section": "Interpreting parameters in logistic regression",
+    "text": "Interpreting parameters in logistic regression\n\nSuppose that \\(X\\) is a binary (0/1) variable (e.g., \\(X = 1\\) for males and 0 for non-males).\n\nIn this case, we interpret \\(\\exp(\\beta)\\) as the odds ratio (OR) of the response for the two possible levels of \\(X\\).\nFor \\(X\\) on other scales, \\(\\exp(\\beta)\\) is interpreted as the odds ratio of the response comparing two values of \\(X\\) one unit apart.\n\nWhy?"
+  },
+  {
+    "objectID": "slides/12-classification.html#interpreting-parameters-in-logistic-regression-2",
+    "href": "slides/12-classification.html#interpreting-parameters-in-logistic-regression-2",
+    "title": "Classification",
+    "section": "Interpreting parameters in logistic regression",
+    "text": "Interpreting parameters in logistic regression\n\nThe log odds of response for \\(X = 1\\) is given by \\(\\alpha + \\beta\\), and the log odds of response for \\(X = 0\\) is \\(\\alpha\\).\nSo the odds ratio of response comparing \\(X = 1\\) to \\(X = 0\\) is given by \\(\\frac{\\exp(\\alpha + \\beta)}{\\exp(\\alpha)} = \\exp(\\beta)\\).\nIn a multivariable logistic regression model with more than one predictor, this OR is interpreted conditionally on values of other variables (i.e., controlling for them)."
+  },
+  {
+    "objectID": "slides/12-classification.html#bayesian-logistic-regression",
+    "href": "slides/12-classification.html#bayesian-logistic-regression",
+    "title": "Classification",
+    "section": "Bayesian logistic regression",
+    "text": "Bayesian logistic regression\n\nWe start with observations \\(Y_i \\in \\{0,1\\}\\) for \\(i = 1,\\ldots,n\\), where \\(Y_i \\stackrel{ind}{\\sim} \\text{Bernoulli}(\\pi_i)\\), \\(\\pi_i = P(Y_i = 1)\\).\nThe log-odds are modeled as \\(\\text{logit}(\\pi_i) = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} = \\eta_i\\).\nTo complete the Bayesian model specification, we must place priors on \\(\\alpha\\) and \\(\\boldsymbol{\\beta}\\).\n\nAll priors we have discussed up-to-this point apply!\n\nHistorically, this was a difficult model to fit, but can be easily implemented in Stan."
+  },
+  {
+    "objectID": "slides/12-classification.html#logistic-regression-in-stan",
+    "href": "slides/12-classification.html#logistic-regression-in-stan",
+    "title": "Classification",
+    "section": "Logistic regression in Stan",
+    "text": "Logistic regression in Stan\n\n// Saved in logistic_regression.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  int Y[n];                              // Y is now type int\n  matrix[n, p] X;\n}\ntransformed data {\n  matrix[n, p] X_centered;               // We are only centering X!\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n}\nmodel {\n  target += bernoulli_logit_lpmf(Y | alpha + X_centered * beta); // bernoulli likelihood parameterized in logits\n  target += normal_lpdf(alpha | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n}\ngenerated quantities {\n  real pi_average = exp(alpha) / (1 + exp(alpha));\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    Y_pred[i] = bernoulli_logit_rng(alpha + X_centered[i, ] * beta);\n    log_lik[i] = bernoulli_logit_lpmf(Y[i] | alpha + X_centered[i, ] * beta);\n  }\n}\n\nbernoulli_logit_lpmf"
+  },
+  {
+    "objectID": "slides/12-classification.html#primary-biliary-cirrhosis-1",
+    "href": "slides/12-classification.html#primary-biliary-cirrhosis-1",
+    "title": "Classification",
+    "section": "Primary biliary cirrhosis",
+    "text": "Primary biliary cirrhosis\n\nhead(pbc)\n\n  id trt      age sex ascites hepato spiders edema bili chol albumin copper\n1  1   1 58.76523   f       1      1       1   1.0 14.5  261    2.60    156\n2  2   1 56.44627   f       0      1       1   0.0  1.1  302    4.14     54\n3  3   1 70.07255   m       0      0       0   0.5  1.4  176    3.48    210\n4  4   1 54.74059   f       0      1       1   0.5  1.8  244    2.54     64\n5  5   2 38.10541   f       0      1       1   0.0  3.4  279    3.53    143\n6  7   2 55.53457   f       0      1       0   0.0  1.0  322    4.09     52\n  alk.phos    ast trig platelet protime stage outcome\n1   1718.0 137.95  172      190    12.2     4       1\n2   7394.8 113.52   88      221    10.6     3       0\n3    516.0  96.10   55      151    12.0     4       1\n4   6121.8  60.63   92      183    10.3     4       1\n5    671.0 113.15   72      136    10.9     3       1\n6    824.0  60.45  213      204     9.7     3       0"
+  },
+  {
+    "objectID": "slides/12-classification.html#prepare-data-for-stan",
+    "href": "slides/12-classification.html#prepare-data-for-stan",
+    "title": "Classification",
+    "section": "Prepare data for Stan",
+    "text": "Prepare data for Stan\n\nX &lt;- model.matrix(object = ~ ascites + bili + as.factor(stage), data = pbc)[, -1]\nY &lt;- pbc$outcome\nstan_data &lt;- list(n = nrow(pbc),\n                  p = ncol(X),\n                  Y = Y,\n                  X = X)\nhead(X)\n\n  ascites bili as.factor(stage)2 as.factor(stage)3 as.factor(stage)4\n1       1 14.5                 0                 0                 1\n2       0  1.1                 0                 1                 0\n3       0  1.4                 0                 0                 1\n4       0  1.8                 0                 0                 1\n5       0  3.4                 0                 1                 0\n6       0  1.0                 0                 1                 0"
+  },
+  {
+    "objectID": "slides/12-classification.html#logistic-regression-in-stan-1",
+    "href": "slides/12-classification.html#logistic-regression-in-stan-1",
+    "title": "Classification",
+    "section": "Logistic regression in Stan",
+    "text": "Logistic regression in Stan\n\nlibrary(rstan)\ncompiled_model &lt;- stan_model(file = \"logistic_regression.stan\")\nfit &lt;- sampling(compiled_model, data = stan_data)\nprint(fit, pars = c(\"alpha\", \"beta\", \"pi_average\"), probs = c(0.025, 0.5, 0.975))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n           mean se_mean   sd  2.5%  50% 97.5% n_eff Rhat\nalpha      0.21    0.00 0.19 -0.14 0.20  0.60  1819 1.00\nbeta[1]    2.24    0.03 1.32  0.12 2.12  5.30  2328 1.00\nbeta[2]    0.38    0.00 0.08  0.24 0.38  0.55  2027 1.00\nbeta[3]    1.79    0.04 1.31 -0.43 1.65  4.86  1097 1.01\nbeta[4]    2.26    0.04 1.30  0.10 2.14  5.27  1073 1.01\nbeta[5]    2.69    0.04 1.31  0.52 2.54  5.74  1069 1.01\npi_average 0.55    0.00 0.05  0.47 0.55  0.65  1826 1.00\n\nSamples were drawn using NUTS(diag_e) at Mon Feb 17 09:17:32 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/12-classification.html#convergence-diagnostics",
+    "href": "slides/12-classification.html#convergence-diagnostics",
+    "title": "Classification",
+    "section": "Convergence diagnostics",
+    "text": "Convergence diagnostics"
+  },
+  {
+    "objectID": "slides/12-classification.html#convergence-diagnostics-1",
+    "href": "slides/12-classification.html#convergence-diagnostics-1",
+    "title": "Classification",
+    "section": "Convergence diagnostics",
+    "text": "Convergence diagnostics"
+  },
+  {
+    "objectID": "slides/12-classification.html#back-to-the-pbc-data",
+    "href": "slides/12-classification.html#back-to-the-pbc-data",
+    "title": "Classification",
+    "section": "Back to the PBC data",
+    "text": "Back to the PBC data\n\nFitting a logistic regression model, we obtain\n\n\n\n\n\n\n\nvariable\nmean\nsd\n2.5%\n97.5%\n\n\n\n\nalpha\nintercept\n0.21\n0.00\n-0.14\n0.60\n\n\nbeta[1]\nascites\n2.24\n0.03\n0.12\n5.30\n\n\nbeta[2]\nbilirubin\n0.38\n0.00\n0.24\n0.55\n\n\nbeta[3]\nstage == 2\n1.79\n0.04\n-0.43\n4.86\n\n\nbeta[4]\nstage == 3\n2.26\n0.04\n0.10\n5.27\n\n\nbeta[5]\nstage == 4\n2.69\n0.04\n0.52\n5.74\n\n\n\n\n\n\nHow might we interpret these coefficients as odds ratios?"
+  },
+  {
+    "objectID": "slides/12-classification.html#back-to-the-pbc-data-1",
+    "href": "slides/12-classification.html#back-to-the-pbc-data-1",
+    "title": "Classification",
+    "section": "Back to the PBC data",
+    "text": "Back to the PBC data\n\nRemember, we are interested in the probability that a patient died during follow-up (a “success”). We are predicting the log-odds of this event happening.\n\nThe posterior mean for ascites was 2.24. Thus, the odds ratio for dying is \\(\\exp(2.24) \\approx 9.40\\). That is, patients with ascites have 9 times the odds of dying compared to patients that do not, holding all other variables constant.\nThe posterior mean for bilirubin was 0.38. Thus, the odds ratio for dying for a patient with 1 additional mg/dL serum bilirubin compared to another is \\(\\exp(0.38) \\approx 1.46\\), holding all other variables constant.\nThe baseline stage was 1. The posterior mean for stage 3 was 2.26. Thus, patients in stage 3 have approximately 9.58 times the odds of dying compared to patients that do not, holding all other variables constant."
+  },
+  {
+    "objectID": "slides/12-classification.html#predicted-probabilities",
+    "href": "slides/12-classification.html#predicted-probabilities",
+    "title": "Classification",
+    "section": "Predicted probabilities",
+    "text": "Predicted probabilities\n\nThere is a one-to-one relationship between \\(\\pi\\) and \\(\\text{logit}(\\pi)\\). So, if we predict \\(\\text{logit}(\\pi)\\), we can “back-transform” to get back to a predicted probability.\n\n\n// stored in logistic_regression_new.stan\ndata {\n  row_vector[p] X_new;\n}\ngenerated quantities {\n  real eta_new = (alpha + (X_new - X_bar) * beta);\n  real pi_new = inv_logit(eta_new); // expit function\n  real Y_new = bernoulli_logit_rng(eta_new); // posterior predictive distribution\n}"
+  },
+  {
+    "objectID": "slides/12-classification.html#predicted-probabilities-1",
+    "href": "slides/12-classification.html#predicted-probabilities-1",
+    "title": "Classification",
+    "section": "Predicted probabilities",
+    "text": "Predicted probabilities\n\nFor instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.\n\n\ncompiled_model &lt;- stan_model(file = \"logistic_regression_new.stan\")\nstan_data &lt;- list(n = nrow(pbc),\n                  p = ncol(X),\n                  Y = Y,\n                  X = X,\n                  X_new = c(0, 5, 1, 0, 0))\nfit &lt;- sampling(compiled_model, data = stan_data)"
+  },
+  {
+    "objectID": "slides/12-classification.html#predicted-probabilities-2",
+    "href": "slides/12-classification.html#predicted-probabilities-2",
+    "title": "Classification",
+    "section": "Predicted probabilities",
+    "text": "Predicted probabilities\n\nFor instance, suppose a patient does not have ascites, has a bilirubin level of 5 mg/dL, and is a stage 2 patient.\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n        mean se_mean   sd  2.5%  50% 97.5% n_eff Rhat\neta_new 0.28    0.01 0.40 -0.48 0.27  1.07  2754    1\npi_new  0.57    0.00 0.09  0.38 0.57  0.75  2780    1\nY_new   0.57    0.01 0.49  0.00 1.00  1.00  4013    1\n\nSamples were drawn using NUTS(diag_e) at Mon Feb 17 09:17:32 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/12-classification.html#predicted-probabilities-3",
+    "href": "slides/12-classification.html#predicted-probabilities-3",
+    "title": "Classification",
+    "section": "Predicted probabilities",
+    "text": "Predicted probabilities\n\n\n\n\n\n\n\n\n\n\n\n\nPosterior mean of the predicted probabilities is 0.57."
+  },
+  {
+    "objectID": "slides/12-classification.html#posterior-predictive-checks",
+    "href": "slides/12-classification.html#posterior-predictive-checks",
+    "title": "Classification",
+    "section": "Posterior predictive checks",
+    "text": "Posterior predictive checks\ny_pred &lt;- rstan::extract(fit, pars = \"Y_pred\")$Y_pred\nppc_dens_overlay(stan_data$Y, y_pred[1:100, ])"
+  },
+  {
+    "objectID": "slides/12-classification.html#posterior-predictive-checks-1",
+    "href": "slides/12-classification.html#posterior-predictive-checks-1",
+    "title": "Classification",
+    "section": "Posterior predictive checks",
+    "text": "Posterior predictive checks\nppc_bars(stan_data$Y, y_pred[1:100, ])"
+  },
+  {
+    "objectID": "slides/12-classification.html#posterior-predictive-checks-2",
+    "href": "slides/12-classification.html#posterior-predictive-checks-2",
+    "title": "Classification",
+    "section": "Posterior predictive checks",
+    "text": "Posterior predictive checks\nppc_stat(stan_data$Y, y_pred, stat = \"mean\") # from bayesplot\nppc_stat(stan_data$Y, y_pred, stat = \"sd\")\nq025 &lt;- function(y) quantile(y, 0.025)\nq975 &lt;- function(y) quantile(y, 0.975)\nppc_stat(stan_data$Y, y_pred, stat = \"q025\")\nppc_stat(stan_data$Y, y_pred, stat = \"q975\")"
+  },
+  {
+    "objectID": "slides/12-classification.html#model-comparison",
+    "href": "slides/12-classification.html#model-comparison",
+    "title": "Classification",
+    "section": "Model comparison",
+    "text": "Model comparison\n\nComparing our model to a baseline that removed stage.\n\n\nlibrary(loo)\nlog_lik &lt;- loo::extract_log_lik(fit, parameter_name = \"log_lik\", merge_chains = TRUE)\nlog_lik_baseline &lt;- loo::extract_log_lik(fit_baseline, parameter_name = \"log_lik\", merge_chains = TRUE)\nwaic_model &lt;- loo::waic(log_lik)\nwaic_model_baseline &lt;- loo::waic(log_lik_baseline)\n\n###Make a comparison\ncomp_waic &lt;- loo::loo_compare(list(\"full\" = waic_model, \"baseline\" = waic_model_baseline))\nprint(comp_waic, digits = 2, simplify = FALSE)\n\n         elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic waic   \nfull        0.00      0.00 -156.08      9.60         7.83    2.20    312.17\nbaseline   -1.38      3.15 -157.46      9.29         4.68    1.82    314.92\n         se_waic\nfull       19.21\nbaseline   18.58"
+  },
+  {
+    "objectID": "slides/12-classification.html#other-models-for-binary-data",
+    "href": "slides/12-classification.html#other-models-for-binary-data",
+    "title": "Classification",
+    "section": "Other models for binary data",
+    "text": "Other models for binary data\nAn alternative approach is Probit regression, where we use the CDF of the standard normal distribution instead of the logit link: \\(\\Phi^{-1}(\\pi) = \\alpha + \\beta X\\)\nWhere \\(\\Phi^{-1}\\) is the inverse normal CDF (also called the probit link function).\n\ndata {\n  int&lt;lower = 1&gt; n;               // number of observations\n  int&lt;lower = 1&gt; p;               // number of predictors\n  int&lt;lower = 0, upper = 1&gt; Y[n]; // binary outcome (0 or 1)\n  matrix[n, p] X;                 // design matrix (predictors)\n}\nparameters {\n  real alpha;               // intercept\n  vector[p] beta;           // coefficients\n}\n\nmodel {\n  target += bernoulli_lpmf(Phi(alpha + X * beta)); // Probit model\n}"
+  },
+  {
+    "objectID": "slides/12-classification.html#steps-to-selecting-a-bayesian-glm",
+    "href": "slides/12-classification.html#steps-to-selecting-a-bayesian-glm",
+    "title": "Classification",
+    "section": "Steps to selecting a Bayesian GLM",
+    "text": "Steps to selecting a Bayesian GLM\n\nIdentify the support of the response distribution.\nSelect the likelihood by picking a parametric family of distributions with this support.\nChoose a link function \\(g\\) that transforms the range of parameters to the whole real line.\nSpecify a linear model on the transformed parameters.\nSelect priors for the regression coefficients."
+  },
+  {
+    "objectID": "slides/12-classification.html#example-of-selecting-a-bayesian-glm",
+    "href": "slides/12-classification.html#example-of-selecting-a-bayesian-glm",
+    "title": "Classification",
+    "section": "Example of selecting a Bayesian GLM",
+    "text": "Example of selecting a Bayesian GLM\n\nSupport: \\(Y_i \\in \\{0, 1, 2, \\ldots\\}\\).\nLikelihood family: \\(Y_i \\stackrel{ind}{\\sim} \\text{Poisson}(\\lambda_i)\\).\nLink: \\(g(\\lambda_i) = \\log(\\lambda_i) \\in (−\\infty, \\infty)\\).\nRegression model: \\(\\log(\\lambda_i) = \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta}\\).\nPriors: \\(\\alpha, \\beta_j \\sim N(0, 10^2)\\)."
+  },
+  {
+    "objectID": "slides/12-classification.html#prepare-for-next-class",
+    "href": "slides/12-classification.html#prepare-for-next-class",
+    "title": "Classification",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Thursday’s lecture\nThursday’s lecture: Multiclass classification"
+  },
+  {
+    "objectID": "ae/ae-06-classification.html",
+    "href": "ae/ae-06-classification.html",
+    "title": "AE 06: Classification",
+    "section": "",
+    "text": "ImportantDue date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\nThis AE spans the lectures on February 17 and 19, so this is considered a Thursday AE!\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-06-classification.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 06: Classification",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp26 organization on GitHub.\nClick on the repo with the prefix ae-06-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-06.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#mimic-iv-emergency-department-ed-data",
+    "href": "ae/ae-06-classification.html#mimic-iv-emergency-department-ed-data",
+    "title": "AE 06: Classification",
+    "section": "MIMIC-IV Emergency Department (ED) Data",
+    "text": "MIMIC-IV Emergency Department (ED) Data\nThe MIMIC-IV-ED database, which includes over 400,000 emergency department (ED) admissions to the Beth Israel Deaconess Medical Center between 2011 and 2019. We will use the MIMIC-IV-ED demo dataset, which is an educational version containing data for only 100 patients, making it a perfect tool for exploring electronic health records (EHR) and learning how to analyze real-world clinical data.\n\nAbout MIMIC-IV-ED\nThe MIMIC-IV-ED dataset is a large, publicly accessible resource intended to facilitate data analysis and research in emergency care. The demo dataset maintains the same structure as the original MIMIC-IV-ED, but with the protected health information (PHI) removed to ensure deidentification and privacy.\n\n\nDataset Access and Ethics\nAccess to the full MIMIC-IV-ED dataset requires registration, identity verification, completion of human participant training, and a signed data use agreement via PhysioNet. However, this demo dataset is publicly available, so you can start exploring it right away!\nThe project has been approved by the Institutional Review Boards (IRBs) of Beth Israel Deaconess Medical Center and the Massachusetts Institute of Technology (MIT), and all patient data is deidentified in compliance with HIPAA regulations."
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#what-is-ehr-data",
+    "href": "ae/ae-06-classification.html#what-is-ehr-data",
+    "title": "AE 06: Classification",
+    "section": "What is EHR Data?",
+    "text": "What is EHR Data?\n\nElectronic Health Records (EHR) Overview\nEHR data refers to digital records of a patient’s medical history, typically collected during healthcare encounters such as doctor visits, hospital stays, and emergency department admissions. This data is real-world data that is collected during routine medical care, and it is used by healthcare providers to manage patient care, track diagnoses, and prescribe treatments.\nEHRs are made up of a variety of information, such as:\n\nDemographics: Information about the patient, including age, gender, and race.\nClinical Data: Diagnoses, medications, lab test results, and other medical conditions.\nVitals: Measurements of important bodily functions, such as heart rate, blood pressure, and temperature.\nProcedures: Records of surgeries, imaging tests, and other medical interventions.\nBilling and Insurance Information: Data related to how healthcare services are paid for.\n\nEHR data is crucial in modern healthcare, enabling both providers and researchers to track health outcomes, improve care quality, and conduct studies on medical practices and disease progression.\n\n\nEHR Data in the Context of MIMIC-IV-ED\nThe MIMIC-IV-ED dataset is an example of EHR data, specifically from emergency department (ED) visits. It contains a wide variety of patient-related information, from demographics to vital signs, to medications and diagnostic codes. By analyzing this type of data, researchers can identify patterns, predict outcomes, and improve healthcare delivery.\nHowever, it’s important to understand that EHR data is far from perfect. Here are a few challenges and considerations when working with this type of data:"
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#challenges-of-ehr-data",
+    "href": "ae/ae-06-classification.html#challenges-of-ehr-data",
+    "title": "AE 06: Classification",
+    "section": "Challenges of EHR Data",
+    "text": "Challenges of EHR Data\n\n1. Biases in Data Collection\nEHR data reflects the way care is actually provided in the real world, meaning it can carry systematic biases. For example:\n\nSociodemographic Bias: Certain groups of people (e.g., those from lower socioeconomic backgrounds) may experience different levels of access to healthcare, leading to underrepresentation of these groups in the data.\nProvider Bias: Clinicians may make diagnostic or treatment decisions that are influenced by their experiences, leading to biases in how certain conditions are treated or recorded.\nSelection Bias: Only patients who visit the ED are included in the dataset. This excludes people who might have similar health conditions but do not seek emergency care.\n\n\n\n2. Missing Data\nSince EHR data is collected during routine medical care, it often contains missing data. Some reasons for missing data include:\n\nIncomplete records: Not every patient will have all the data points recorded. For example, certain tests or treatments may not be administered to every patient.\nVariable documentation: Different providers may record information inconsistently or leave fields blank.\nPatient noncompliance: Some patients might not provide full information during visits, leading to gaps in the data.\n\nHandling missing data is a key challenge when working with EHR data, and it can impact the accuracy of any analysis performed.\n\n\n3. Data Quality and Inconsistencies\nEHR data is typically entered manually by clinicians or extracted from various systems. As a result, there may be data quality issues such as:\n\nTypos or errors in data entry (e.g., incorrect medication dosages).\nInconsistencies across systems, especially when data is pulled from multiple healthcare organizations or devices.\nCoding errors: Diagnoses and procedures are often coded using standard systems like ICD codes, which can sometimes be misapplied.\n\n\n\n4. Billing-Related Data\nSome elements of EHR data are heavily influenced by billing processes. For example, certain procedures or diagnoses might be recorded in the system primarily for reimbursement purposes, rather than being a true reflection of the patient’s condition. This can introduce confounding factors in analysis, as billing codes may not always align with clinical realities."
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#analyzing-ehr-data",
+    "href": "ae/ae-06-classification.html#analyzing-ehr-data",
+    "title": "AE 06: Classification",
+    "section": "Analyzing EHR Data",
+    "text": "Analyzing EHR Data\nWhile these challenges can make EHR data more complex to work with, they also present opportunities for learning and improvement. By using appropriate methods, researchers can account for biases and missingness, and still gain valuable insights from the data.\nIn the case of the MIMIC-IV-ED dataset, these challenges are present, but the data is carefully deidentified and has been cleaned for use in research and education. It’s important to acknowledge these limitations and use statistical techniques to account for them when analyzing the data."
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#structure-of-the-mimic-iv-ed-demo-dataset",
+    "href": "ae/ae-06-classification.html#structure-of-the-mimic-iv-ed-demo-dataset",
+    "title": "AE 06: Classification",
+    "section": "Structure of the MIMIC-IV-ED Demo Dataset",
+    "text": "Structure of the MIMIC-IV-ED Demo Dataset\nEHR data is a relational database, which means the data is organized into tables that are linked by common identifiers (in this case, subject_id). Here’s an overview of the key tables in the dataset:\n\nedstays: A patient tracking table that includes the unique ID for each patient visit.\ndiagnosis: Contains diagnostic codes and descriptions for each ED visit.\nmedrecon: Records the medications administered during the patient’s ED visit.\npyxis: Provides information on the medications dispensed from the hospital’s automated medication dispensing system.\ntriage: Contains triage data, which includes the assessment of patients when they first arrive in the ED.\nvitalsign: Includes measurements of vital signs taken during the visit, such as heart rate, blood pressure, and temperature.\n\nEach table is designed to capture different aspects of the patient’s visit to the ED, giving you the ability to explore patient demographics, diagnoses, treatments, and outcomes."
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#mimic-iv-ed-demo-exploring-key-datasets",
+    "href": "ae/ae-06-classification.html#mimic-iv-ed-demo-exploring-key-datasets",
+    "title": "AE 06: Classification",
+    "section": "MIMIC-IV-ED Demo: Exploring Key Datasets",
+    "text": "MIMIC-IV-ED Demo: Exploring Key Datasets\nIn this course, we will work most with the edstays and triage datasets. The edstays dataset contains important information, including the start and end time of the ED encounter, demographics (including gender and race), the mode of arrival, and importantly the discharge disposition. Discharge disposition is a critical outcome for ED encounters that indicates how a patient left the encounter and can include, among others, going home, being admitted to the hospital.\n\nedstays &lt;- read_csv(\"mimic_ed/edstays.csv\")\n\n\n\n\n\n\n\nWhen a patient enters the ED, they are triaged, meaning a medical professional will quickly assess their condition to determine the severity of their illness or injury and prioritize them in line for treatment based on how urgently they need care, essentially sorting patients based on their need for immediate attention; the most critical cases will be seen first. The data in the triage dataset comes from this process and includes vital measurements, including, among others, temperature, oxygen saturation, and pain; an assessment of acuity, and also a chief complaint variable. Vitals in the triage dataset are different from those in the vitals dataset, which are collected during the ED stay and are time stamped.\n\ntriage &lt;- read_csv(\"mimic_ed/triage.csv\")\n\n\n\n\n\n\n\n\nData is Messy: Race\nWorking with any real-world data is messy and requires substantial data processing. To illustrate this, let’s consider the variable race from the edstays dataset.\n\n\n\n\n\nCategory\nn\n\n\n\n\nWHITE\n138\n\n\nBLACK/AFRICAN AMERICAN\n46\n\n\nHISPANIC/LATINO - CUBAN\n11\n\n\nPORTUGUESE\n9\n\n\nUNKNOWN\n6\n\n\nWHITE - BRAZILIAN\n3\n\n\nHISPANIC/LATINO - SALVADORAN\n3\n\n\nOTHER\n2\n\n\nWHITE - OTHER EUROPEAN\n1\n\n\nUNABLE TO OBTAIN\n1\n\n\nPATIENT DECLINED TO ANSWER\n1\n\n\nMULTIPLE RACE/ETHNICITY\n1\n\n\n\n\n\nThere are 12 categories of race in only 100 patients. Imagine what this would look like in 400,000 patients and with racial categories changing over time! When working with EHR data, variables should be processed into forms that are appropriate for the research question. Typically this means grouping categorical variables like race into meaningful categories. The following is an example.\n\nedstays &lt;- edstays %&gt;%\n  mutate(race2 = case_when(\n    race == \"BLACK/AFRICAN AMERICAN\" ~ \"black\",\n    race == \"WHITE - BRAZILIAN\" ~ \"white\",\n    race == \"WHITE - OTHER EUROPEAN\" ~ \"white\",\n    race == \"WHITE\" ~ \"white\",\n    race == \"UNKNOWN\" ~ \"other\",\n    race == \"UNABLE TO OBTAIN\" ~ \"other\",\n    race == \"PATIENT DECLINED TO ANSWER\" ~ \"other\",\n    race == \"OTHER\" ~ \"other\",\n    race == \"PORTUGUESE\" ~ \"other\",\n    race == \"MULTIPLE RACE/ETHNICITY\" ~ \"other\",\n    race == \"HISPANIC/LATINO - SALVADORAN\" ~ \"other\",\n    race == \"HISPANIC/LATINO - CUBAN\" ~ \"other\",\n    TRUE ~ NA_character_  # handles any other cases that don't match\n  )) %&gt;%\n  mutate(race2 = relevel(factor(race2), ref = \"white\"))\n\nThis yields the following categories.\n\n\n\n\n\nCategory\nn\n\n\n\n\nwhite\n142\n\n\nblack\n46\n\n\nother\n34"
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#data-is-messy-ed-length-of-stay",
+    "href": "ae/ae-06-classification.html#data-is-messy-ed-length-of-stay",
+    "title": "AE 06: Classification",
+    "section": "Data is Messy: ED Length of Stay",
+    "text": "Data is Messy: ED Length of Stay\nAnother example of data processing in EHR data is computing ED length of stay. Length of stay is a critical outcome in healthcare applications and can be computed as the time of admission to discharge. In real-world datasets this is not pre-computed, but must be derived from date-time variables. We first check to see if the admission and discharge times are date-time data objects.\n\nclass(edstays$outtime)\n\n[1] \"POSIXct\" \"POSIXt\" \n\nclass(edstays$intime)\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\nIf they are not, they can be converted.\n\nedstays$outtime &lt;- as.POSIXct(edstays$outtime)\nedstays$intime &lt;- as.POSIXct(edstays$intime)\n\nWe can then compute the length of stay by computing the time differences. It is important to specify the units of time for consistency. We then convert to a numeric and visualize.\n\nedstays$los &lt;- difftime(as.POSIXct(edstays$outtime), as.POSIXct(edstays$intime), units = \"hours\")\nedstays$los &lt;- as.numeric(edstays$los)\nggplot(edstays, aes(x = los)) +\n  geom_histogram() +\n  labs(x = \"ED Length of Stay (hours)\",\n       y = \"Count\")"
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#exercise-1",
+    "href": "ae/ae-06-classification.html#exercise-1",
+    "title": "AE 06: Classification",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFit the logistic regression model: \\[\\begin{align*}\nY_i &\\stackrel{ind}{\\sim} \\text{Bernoulli}(\\pi_i)\\\\\n\\text{logit}(\\pi_i) &= \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta},\n\\end{align*}\\] where \\(Y_i\\) is the binary indicator for a length of stay being greater than 6 hours and \\(\\mathbf{x}_i = (black_i, other_i)\\) contains the covariates for race, with white as the reference category. Place weakly-informative priors. Evaluate model convergence, check model fit with posterior predictive checks. Present the posterior mean and 95% credible interval for the odds ratio for black race.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#exercise-2",
+    "href": "ae/ae-06-classification.html#exercise-2",
+    "title": "AE 06: Classification",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nFit the additive log ratio regression model for \\(Y_i \\in \\{1,\\ldots,K\\}\\) for \\(i = 1,\\ldots,n\\), \\[\\log \\left(\\frac{P(Y_i = k)}{P(Y_i = K)} \\right)= \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots, K-1\\},\\] where \\(K\\) is chosen as reference. Place weakly-informative priors. Evaluate model convergence, check model fit with posterior predictive checks. Present the posterior mean and 95% credible interval for the odds ratio for black race.\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-06-classification.html#exercise-3",
+    "href": "ae/ae-06-classification.html#exercise-3",
+    "title": "AE 06: Classification",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFit the proportional odds regression model for ordinal \\(Y_i \\in \\{1,\\ldots,K\\}\\) for \\(i = 1,\\ldots,n\\), \\[\\log \\frac{P(Y_i\\leq k)}{P(Y_i &gt; k)} = \\text{logit}P(Y_i\\leq k) = \\alpha_k - \\mathbf{x}_i \\boldsymbol{\\beta}.\\] Place weakly-informative priors. Evaluate model convergence, check model fit with posterior predictive checks. Present the posterior mean and 95% credible interval for the odds ratio for black race.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "prepare/prepare-feb19.html",
+    "href": "prepare/prepare-feb19.html",
+    "title": "Prepare for February 19 lecture",
+    "section": "",
+    "text": "📖 If you have not already, familizarize yourself with the data from AE 06: Classification.\n📖 Read about multinomial regression.\n📖 Read about ordinal regression.\n✅ Work on HW 03"
+  },
+  {
+    "objectID": "slides/13-multiclass.html",
+    "href": "slides/13-multiclass.html",
+    "title": "Multiclass Classification",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#review-of-last-lecture",
+    "href": "slides/13-multiclass.html#review-of-last-lecture",
+    "title": "Multiclass Classification",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nOn Tuesday, we learned about classification using logistic regression.\nToday, we will focus on multiclass classification: multinomial regression, ordinal regression."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multiclass-regression",
+    "href": "slides/13-multiclass.html#multiclass-regression",
+    "title": "Multiclass Classification",
+    "section": "Multiclass regression",
+    "text": "Multiclass regression\n\nOften times one encounters an outcome variable that is nominal and has more than two categories.\nIf there is no inherent rank or order to the variable, we can use multinomial regression. Examples include:\n\ngender (male, female, non-binary),\nblood type (A, B, AB, O).\n\nIf there is an order to the variable, we can use ordinal regression. Examples include:\n\nstages of cancer (stage I, II, III, IV),\npain level (mild, moderate, severe)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-random-variable",
+    "href": "slides/13-multiclass.html#multinomial-random-variable",
+    "title": "Multiclass Classification",
+    "section": "Multinomial random variable",
+    "text": "Multinomial random variable\n\nAssume an outcome \\(Y_i \\in \\{1,\\ldots,K\\}\\) for \\(i = 1,\\ldots,n\\).\nThe likelihood in multinomial regression can be written as the following categorical likelihood,\n\n\\[f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\prod_{i=1}^n \\prod_{j=1}^K P(Y_i = j)^{\\delta_{ij}},\\]\n\n\\(\\delta_{ij} = 1(Y_i = j)\\) is the Kronecker delta.\nSince \\(Y_i\\) is discrete, we only need to specify \\(P(Y_i = j)\\) for all \\(i\\) and \\(j\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#log-linear-regression",
+    "href": "slides/13-multiclass.html#log-linear-regression",
+    "title": "Multiclass Classification",
+    "section": "Log-linear regression",
+    "text": "Log-linear regression\n\nOne way to motivate multinomial regression is through a log-linear specification:\n\n\\[\\log P(Y_i = j) = \\mathbf{x}_i\\boldsymbol{\\beta}_j - \\log Z.\\]\n\n\\(\\boldsymbol{\\beta}_j\\) is a \\(j\\) specific set of regression parameters.\n\\(P(Y_i = j) = \\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}/Z\\).\n\\(Z\\) is a normalizing constant that guarentees that \\(\\sum_{j=1}^K P(Y_i = j) = 1\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#finding-the-normalizing-constant",
+    "href": "slides/13-multiclass.html#finding-the-normalizing-constant",
+    "title": "Multiclass Classification",
+    "section": "Finding the normalizing constant",
+    "text": "Finding the normalizing constant\n\nWe know that,\n\n\\[\\begin{aligned}\n1 &= \\sum_{j=1}^K P(Y_i = j) = \\frac{1}{Z}\\sum_{j=1}^K \\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}\\\\\n&\\implies Z = \\sum_{j=1}^K \\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-probabilities",
+    "href": "slides/13-multiclass.html#multinomial-probabilities",
+    "title": "Multiclass Classification",
+    "section": "Multinomial probabilities",
+    "text": "Multinomial probabilities\n\nThus, we have the following,\n\n\\[P(Y_i = k) = \\frac{\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}}{\\sum_{j = 1}^K\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}.\\]\n\nThis function is called the softmax function.\nUnfortunately, this specification is not identifiable."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#identifiability-issue",
+    "href": "slides/13-multiclass.html#identifiability-issue",
+    "title": "Multiclass Classification",
+    "section": "Identifiability issue",
+    "text": "Identifiability issue\n\nWe can add a vector \\(\\mathbf{c}\\) to all parameters and get the same result,\n\n\\[\\begin{aligned}\n\\frac{\\exp\\{\\mathbf{x}_i(\\boldsymbol{\\beta}_k + \\mathbf{c})\\}}{\\sum_{j = 1}^K\\exp\\{\\mathbf{x}_i(\\boldsymbol{\\beta}_j + \\mathbf{c})\\}} &= \\frac{\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}}{\\sum_{j = 1}^K\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}.\n\\end{aligned}\\]\n\nA common solution is to set: \\(\\boldsymbol{\\beta}_K = \\mathbf{0}\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#updating-the-probabilities",
+    "href": "slides/13-multiclass.html#updating-the-probabilities",
+    "title": "Multiclass Classification",
+    "section": "Updating the probabilities",
+    "text": "Updating the probabilities\n\nUsing the identifiability constraint of \\(\\boldsymbol{\\beta}_K = \\mathbf{0}\\), the probabilities become, \\[\\begin{aligned}\nP(Y_i = k) &= \\frac{\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}, \\quad k \\in \\{1,\\ldots,K-1\\},\\\\\nP(Y_i = K) &= \\frac{1}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}.\n\\end{aligned}\\]\nHow to interpret the \\(\\boldsymbol{\\beta}_k\\)?"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#deriving-the-additive-log-ratio-model",
+    "href": "slides/13-multiclass.html#deriving-the-additive-log-ratio-model",
+    "title": "Multiclass Classification",
+    "section": "Deriving the additive log ratio model",
+    "text": "Deriving the additive log ratio model\n\nUsing our specification of the probabilities, it can be seen that,\n\n\\[\\begin{aligned}\nP(Y_i = k) &= \\frac{\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}\\\\\n&= \\left[\\frac{1}{1 + \\sum_{j = 1}^{K-1}\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_j\\}}\\right]\\exp\\{\\mathbf{x}_i\\boldsymbol{\\beta}_k\\}\\\\\n&= P(Y_i = K) \\exp\\{\\mathbf{x}_i \\boldsymbol{\\beta}_k\\}.\n\\end{aligned}\\]\n\\(\\implies \\log \\frac{P(Y_i = k)}{P(Y_i = K)} = \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots,K-1\\}\\)"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#additive-log-ratio-model",
+    "href": "slides/13-multiclass.html#additive-log-ratio-model",
+    "title": "Multiclass Classification",
+    "section": "Additive log ratio model",
+    "text": "Additive log ratio model\n\nIf outcome \\(K\\) is chosen as reference, the \\(K − 1\\) regression equations are:\n\n\\[\\log \\frac{P(Y_i = k)}{P(Y_i = K)} = \\mathbf{x}_i \\boldsymbol{\\beta}_k, \\quad k \\in \\{1,\\ldots, K-1\\}\\]\n\nThis formulation is called additive log ratio.\n\\(\\beta_{jk}\\) represent the log-odds of being in category \\(k\\) relative to the baseline category \\(K\\) with a one-unit change in \\(X_{ij}\\).\n\n\\(\\exp (\\beta_{jk})\\) is an odds ratio."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#getting-back-to-the-likelihood",
+    "href": "slides/13-multiclass.html#getting-back-to-the-likelihood",
+    "title": "Multiclass Classification",
+    "section": "Getting back to the likelihood",
+    "text": "Getting back to the likelihood\n\nThe log-likelihood can be written as,\n\n\\[\\log f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\sum_{i=1}^n \\sum_{j=1}^K \\delta_{ij} \\log P(Y_i = j).\\]\n\nThe \\(P(Y_i = j)\\) are given by the additive log ratio model.\nAs Bayesians, we only need to specify priors for \\(\\boldsymbol{\\beta}_k, k \\in \\{1,\\ldots,K-1\\}\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-regression-in-stan",
+    "href": "slides/13-multiclass.html#multinomial-regression-in-stan",
+    "title": "Multiclass Classification",
+    "section": "Multinomial regression in Stan",
+    "text": "Multinomial regression in Stan\n\nHard coding the likelihood.\n\n\n// additive_log_ratio.stan\nfunctions {\n  matrix compute_alr_probs(int n, int K, int p, matrix X, matrix beta) {\n    matrix[n, K] probs;\n    matrix[n, K - 1] expXbeta = exp(X * beta);\n    for (i in 1:n) {\n      real sum_i = sum(expXbeta[i, ]);\n      for (j in 1:K) {\n        if (j &lt; K) {\n          probs[i, j] = expXbeta[i, j] / (1 + sum_i);\n        }\n        if (j == K) probs[i, j] = 1 - sum(probs[i, 1:(K - 1)]);\n      }\n    }\n    return probs\n  }\n}\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n  matrix[n, K] delta;\n}\nparameters {\n  matrix[p, K - 1] beta;\n}\nmodel {\n  matrix[n, K] probs = compute_alr_probs(n, K, p, X, beta);\n  for (i in 1:n) {\n    for (j in 1:K) {\n      target += delta[i, j] * log(probs[i, j]);\n    }\n  }\n  target += normal_lpdf(to_vector(beta) | 0, 10);\n}"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-regression-in-stan-1",
+    "href": "slides/13-multiclass.html#multinomial-regression-in-stan-1",
+    "title": "Multiclass Classification",
+    "section": "Multinomial regression in Stan",
+    "text": "Multinomial regression in Stan\n\nNon-identifiable version.\n\n\n// multi_logit_bad.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\nparameters {\n  matrix[p, K] beta;\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    target += categorical_logit_lpmf(Y[i] | Xbeta[i]')\n  }\n  target += normal_lpdf(to_vector(beta) | 0, 10);\n}\n\ncategorical_logit"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#multinomial-regression-in-stan-2",
+    "href": "slides/13-multiclass.html#multinomial-regression-in-stan-2",
+    "title": "Multiclass Classification",
+    "section": "Multinomial regression in Stan",
+    "text": "Multinomial regression in Stan\n\nZero identifiability constraint.\n\n\n// multi_logit.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[p] zeros = rep_vector(0, p);\n}\nparameters {\n  matrix[p, K - 1] beta_raw;\n}\ntransformed parameters {\n  matrix[p, K] beta = append_col(beta_raw, zeros);\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    target += categorical_logit_lpmf(Y[i] | Xbeta[i]')\n  }\n  target += normal_lpdf(to_vector(beta) | 0, 10);\n}\ngenerated quantities {\n  matrix[p, K - 1] ors = exp(beta_raw);\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    Y_pred[i] = categorical_logit_rng(Xbeta[i]');\n    log_lik[i] = categorical_logit_lpmf(Y[i] | Xbeta[i]');\n  }\n}"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#ordinal-regression",
+    "href": "slides/13-multiclass.html#ordinal-regression",
+    "title": "Multiclass Classification",
+    "section": "Ordinal regression",
+    "text": "Ordinal regression\nLet \\(Y_i \\in \\{1,\\ldots,K\\}\\) be an ordinal outcome with \\(K\\) categories.\n\nThe likelihood in ordinal regression is identical to the one from multinomial regression,\n\n\\[f(\\mathbf{Y} | \\boldsymbol{\\beta}) = \\prod_{i=1}^n \\prod_{j=1}^K P(Y_i = j)^{\\delta_{ij}}.\\]\n\nWe need to add additional constraints that guarantee ordinality."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#proportional-odds-assumption",
+    "href": "slides/13-multiclass.html#proportional-odds-assumption",
+    "title": "Multiclass Classification",
+    "section": "Proportional odds assumption",
+    "text": "Proportional odds assumption\n\n\\(P(Y_i \\leq k)\\) is the cumulative probability of \\(Y_i\\) less than or equal to a specific category \\(k=1,\\ldots,K-1\\).\nThe odds of being less than or equal to a particular category can be defined as, \\[\\frac{P(Y\\leq k)}{P(Y &gt; k)} \\text { for } k=1,\\ldots,K-1.\\]\nNot defined for \\(k = K\\), since division by zero is not defined."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#proportional-odds-regression",
+    "href": "slides/13-multiclass.html#proportional-odds-regression",
+    "title": "Multiclass Classification",
+    "section": "Proportional odds regression",
+    "text": "Proportional odds regression\nThe log odds can then be modeled as follows, \\[\\log \\frac{P(Y_i\\leq k)}{P(Y_i &gt; k)} = \\text{logit}P(Y_i\\leq k) = \\alpha_k - \\mathbf{x}_i \\boldsymbol{\\beta}\\]\n\nWhy \\(-\\boldsymbol{\\beta}\\)?\n\\(\\boldsymbol{\\beta}\\) is a common regression parameter. For a one-unit increase in \\(x_{ij}\\), \\(\\beta_j\\) is the change in log odds of moving to a more severe level of the outcome \\(Y_i\\).\n\\(\\alpha_k\\) for \\(k = 1,\\ldots,K-1\\) are \\(k\\)-specific intercepts that corresponds to the log odds of moving from level \\(k\\) to \\(k+1\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#understanding-the-probabilities",
+    "href": "slides/13-multiclass.html#understanding-the-probabilities",
+    "title": "Multiclass Classification",
+    "section": "Understanding the probabilities",
+    "text": "Understanding the probabilities\n\nOne can solve for \\(P(Y_i \\leq k), \\quad k = 1,\\ldots,K-1\\)),\n\n\\[P(Y_i \\leq k) = \\frac{\\exp\\{\\alpha_k - \\mathbf{x}_i\\boldsymbol{\\beta}\\}}{1 + \\exp\\{\\alpha_k - \\mathbf{x}_i\\boldsymbol{\\beta}\\}} = \\text{expit}(\\alpha_k - \\mathbf{x}_i\\boldsymbol{\\beta}).\\]\n\n\\(P(Y_i \\leq K) = 1\\).\n\nThe individual probabilities are then given by,\n\\[\\begin{aligned}\nP(Y_i = k) &= P(Y_i \\leq k) - P(Y_i \\leq k-1)\\\\\n&= \\text{expit}(\\alpha_k - \\mathbf{x}_i\\boldsymbol{\\beta}) - \\text{expit}(\\alpha_{k-1} - \\mathbf{x}_i\\boldsymbol{\\beta}).\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#a-latent-variable-representation",
+    "href": "slides/13-multiclass.html#a-latent-variable-representation",
+    "title": "Multiclass Classification",
+    "section": "A latent variable representation",
+    "text": "A latent variable representation\n\nDefine a latent variable,\n\n\\[Y_i^* = \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i, \\quad \\epsilon_i \\sim \\text{Logistic}(0, 1).\\]\n\n\\(\\mathbb{E}[\\epsilon_i] = 0\\).\n\\(\\mathbb{V}(\\epsilon_i) = \\pi^2/3\\).\nCDF: \\(P(\\epsilon_i \\leq x) = \\frac{1}{1 + \\exp\\{-x\\}} = \\frac{\\exp\\{x\\}}{1 + \\exp\\{x\\}} = \\text{expit}(x).\\)"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#visualizing-the-latent-process",
+    "href": "slides/13-multiclass.html#visualizing-the-latent-process",
+    "title": "Multiclass Classification",
+    "section": "Visualizing the latent process",
+    "text": "Visualizing the latent process"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#adding-thresholds-c_k",
+    "href": "slides/13-multiclass.html#adding-thresholds-c_k",
+    "title": "Multiclass Classification",
+    "section": "Adding thresholds (\\(c_k\\))",
+    "text": "Adding thresholds (\\(c_k\\))"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#getting-category-probabilities",
+    "href": "slides/13-multiclass.html#getting-category-probabilities",
+    "title": "Multiclass Classification",
+    "section": "Getting category probabilities",
+    "text": "Getting category probabilities"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#a-latent-variable-representation-1",
+    "href": "slides/13-multiclass.html#a-latent-variable-representation-1",
+    "title": "Multiclass Classification",
+    "section": "A latent variable representation",
+    "text": "A latent variable representation\n\nDefine a set of \\(K-1\\) cut-points, \\((c_1,\\ldots,c_{K-1}) \\in \\mathbb{R}^{K-1}\\). We also define \\(c_0 = -\\infty, c_K = \\infty\\).\nOur ordinal random variable can be generated as,\n\n\\[Y_i = \\left\\{\n\\begin{matrix*}[l]\n1 & c_0 &lt; Y_i^* \\leq c_1\\\\\n2 & c_1 &lt; Y_i^* \\leq c_2\\\\\n\\vdots & \\\\\nK & c_{K-1} &lt; Y_i^* \\leq c_K\\\\\n\\end{matrix*}\n\\right.\\]"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#equivalence-of-the-two-specifications",
+    "href": "slides/13-multiclass.html#equivalence-of-the-two-specifications",
+    "title": "Multiclass Classification",
+    "section": "Equivalence of the two specifications",
+    "text": "Equivalence of the two specifications\n\nProbabilities under the latent specification: \\[\\begin{aligned}\nP(Y_i = k) &= P(c_{k-1} &lt; Y_i^* \\leq c_k)\\\\\n&= P(c_{k-1} &lt; \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i \\leq c_k)\\\\\n&= P(\\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i \\leq c_k) - P(\\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i &lt; c_{k-1})\\\\\n&= P(\\epsilon_i \\leq c_k - \\mathbf{x}_i \\boldsymbol{\\beta}) - P(\\epsilon_i &lt; c_{k-1} - \\mathbf{x}_i \\boldsymbol{\\beta})\\\\\n&= \\text{expit}(c_k - \\mathbf{x}_i\\boldsymbol{\\beta}) - \\text{expit}(c_{k-1} - \\mathbf{x}_i\\boldsymbol{\\beta}).\n\\end{aligned}\\]\nEquivalency:\n\n\\(\\alpha_k = c_k, \\quad k = 1,\\ldots, K-1\\), assuming that \\(\\alpha_k &lt; \\alpha_{k+1}\\)."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#ordinal-regression-using-stan",
+    "href": "slides/13-multiclass.html#ordinal-regression-using-stan",
+    "title": "Multiclass Classification",
+    "section": "Ordinal regression using Stan",
+    "text": "Ordinal regression using Stan\n\n// ordinal.stan\ndata {\n  int&lt;lower = 2&gt; K;\n  int&lt;lower = 0&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1, upper = K&gt; Y[n];\n  matrix[n, p] X;\n}\nparameters {\n  vector[p] beta;\n  ordered[K - 1] alpha;\n}\nmodel {\n  target += ordered_logistic_glm_lpmf(Y | X, beta, alpha);\n  target += normal_lpdf(beta | 0, 10);\n  target += normal_lpdf(alpha | 0, 10);\n}\ngenerated quantities {\n  vector[p] ors = exp(beta);\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    Y_pred[i] = ordered_logistic_rng(X[i, ] * beta, alpha);\n    log_lik[i] = ordered_logistic_glm_lpmf(Y[i] | X[i, ], beta, alpha);\n  }\n}\n\nordered_logistic_glm_lpmf"
+  },
+  {
+    "objectID": "slides/13-multiclass.html#enforcing-order-in-the-cutoffs",
+    "href": "slides/13-multiclass.html#enforcing-order-in-the-cutoffs",
+    "title": "Multiclass Classification",
+    "section": "Enforcing order in the cutoffs",
+    "text": "Enforcing order in the cutoffs\n\nIn Stan, when you define a parameter as ordered[K-1] alpha;, the values of alpha are automatically constrained to be strictly increasing.\nThis transformation ensures that the alpha values follow the required order, i.e., alpha[1] &lt; alpha[2] &lt; ... &lt; alpha[K-1].\nStan doesn’t sample alpha directly but instead works with an unconstrained parameter vector, which we will call gamma."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#enforcing-order-in-the-cutoffs-1",
+    "href": "slides/13-multiclass.html#enforcing-order-in-the-cutoffs-1",
+    "title": "Multiclass Classification",
+    "section": "Enforcing order in the cutoffs",
+    "text": "Enforcing order in the cutoffs\n\nparameters {\n  vector[K - 1] gamma;\n}\ntransformed parameters {\n  vector[K - 1] alpha;\n  alpha[1] = gamma[1];\n  for (j in 2:K) {\n    alpha[j] = alpha[j - 1] + exp(gamma[j]);\n  }\n}\n\n\nHere, gamma represents a vector of independent, unconstrained variables, and the transformation ensures that alpha is strictly increasing by construction.\nLuckily we can use ordered, since Stan takes care of this (including the Jacobian) in the background."
+  },
+  {
+    "objectID": "slides/13-multiclass.html#prepare-for-next-class",
+    "href": "slides/13-multiclass.html#prepare-for-next-class",
+    "title": "Multiclass Classification",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data"
   }
 ]
