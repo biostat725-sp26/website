@@ -486,7 +486,7 @@ parameters {
 }
 
 model {
-  target += bernoulli_lpmf(Phi(alpha + X * beta)); // Probit model
+  target += bernoulli_lpmf(Y | Phi(alpha + X * beta)); // Probit model
 }
 ```
 
