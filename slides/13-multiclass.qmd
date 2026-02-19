@@ -510,4 +510,4 @@ transformed parameters {
 
 -   Complete reading to prepare for next Tuesday's lecture
 
--   Tuesday's lecture: Missing data
+-   Tuesday's lecture: Hierarchical models
