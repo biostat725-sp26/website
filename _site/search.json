@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -4403,7 +4403,7 @@
     "href": "slides/13-multiclass.html#multinomial-regression-in-stan-2",
     "title": "Multiclass Classification",
     "section": "Multinomial regression in Stan",
-    "text": "Multinomial regression in Stan\n\nZero identifiability constraint.\n\n\n// multi_logit.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[p] zeros = rep_vector(0, p);\n}\nparameters {\n  matrix[p, K - 1] beta_raw;\n}\ntransformed parameters {\n  matrix[p, K] beta = append_col(beta_raw, zeros);\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    target += categorical_logit_lpmf(Y[i] | Xbeta[i]')\n  }\n  target += normal_lpdf(to_vector(beta) | 0, 10);\n}\ngenerated quantities {\n  matrix[p, K - 1] ors = exp(beta_raw);\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    Y_pred[i] = categorical_logit_rng(Xbeta[i]');\n    log_lik[i] = categorical_logit_lpmf(Y[i] | Xbeta[i]');\n  }\n}"
+    "text": "Multinomial regression in Stan\n\nZero identifiability constraint.\n\n\n// multi_logit.stan\ndata {\n  int&lt;lower = 1&gt; K;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  array[n] int&lt;lower = 1, upper = K&gt; Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[p] zeros = rep_vector(0, p);\n}\nparameters {\n  matrix[p, K - 1] beta_raw;\n}\ntransformed parameters {\n  matrix[p, K] beta = append_col(beta_raw, zeros);\n}\nmodel {\n  matrix[n, K] Xbeta = X * beta;\n  for (i in 1:n) {\n    target += categorical_logit_lpmf(Y[i] | Xbeta[i]')\n  }\n  target += normal_lpdf(to_vector(beta_raw) | 0, 10);\n}\ngenerated quantities {\n  matrix[p, K - 1] ors = exp(beta_raw);\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    Y_pred[i] = categorical_logit_rng(Xbeta[i]');\n    log_lik[i] = categorical_logit_lpmf(Y[i] | Xbeta[i]');\n  }\n}"
   },
   {
     "objectID": "slides/13-multiclass.html#ordinal-regression",
@@ -4502,5 +4502,978 @@
     "title": "Multiclass Classification",
     "section": "Prepare for next class",
     "text": "Prepare for next class\n\nWork on HW 03.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Hierarchical models"
+  },
+  {
+    "objectID": "prepare/prepare-feb24.html",
+    "href": "prepare/prepare-feb24.html",
+    "title": "Prepare for February 24 lecture",
+    "section": "",
+    "text": "📖 Read pages 175-182 from Bayesian linear mixed models using Stan: A tutorial for psychologists, linguists, and cognitive scientists.\n✅ Finish HW 03, which is due before class on Thursday."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html",
+    "href": "slides/14-hierarchical.html",
+    "title": "Hierarchical Models",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare\n\n\n\nAttaching package: 'mice'\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following objects are masked from 'package:base':\n\n    cbind, rbind\n\n\nThis is bayesplot version 1.11.1\n\n- Online documentation and vignettes at mc-stan.org/bayesplot\n\n- bayesplot theme set to bayesplot::theme_default()\n\n   * Does _not_ affect other ggplot2 plots\n\n   * See ?bayesplot_theme_set for details on theme setting"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#review-of-last-lecture",
+    "href": "slides/14-hierarchical.html#review-of-last-lecture",
+    "title": "Hierarchical Models",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nLast week, we learned about classification for binary and multiclass problems.\nMoving forward: Up until today, we have dealt with independent data. Today, we will look at our first example of dependent data!"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#linear-regression-assumptions",
+    "href": "slides/14-hierarchical.html#linear-regression-assumptions",
+    "title": "Hierarchical Models",
+    "section": "Linear regression assumptions",
+    "text": "Linear regression assumptions\n\\[\\begin{aligned}\nY_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\epsilon_i,\\quad \\epsilon_i \\sim N(0,\\sigma^2)\\\\\n&= \\mu_i + \\epsilon_i.\n\\end{aligned}\\]\nAssumptions:\n\n\\(Y_i\\) are independent observations (independence).\n\\(Y_i\\) is linearly related to \\(\\mathbf{x}_i\\) (linearity).\n\\(\\epsilon_i = Y_i - \\mu_i\\) is normally distributed (normality).\n\\(\\epsilon_i\\) has constant variance across \\(\\mathbf{x}_i\\) (homoskedasticity)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#independence-assumption-in-linear-regression",
+    "href": "slides/14-hierarchical.html#independence-assumption-in-linear-regression",
+    "title": "Hierarchical Models",
+    "section": "Independence Assumption in Linear Regression",
+    "text": "Independence Assumption in Linear Regression\nWe assume that the residuals \\(\\epsilon_i\\) are independent:\n\\[\\mathbb{C}(\\epsilon_i, \\epsilon_j) = 0, \\quad \\text{for} \\quad i \\neq j,\\] where \\(\\mathbb{C}(X, Y)\\) is the covariance between two random variables \\(X\\) and \\(Y\\). As a note: \\(\\mathbb{C}(X, X) = \\mathbb{V}(X)\\).\n\nThis implies that the observations \\(Y_i\\) and \\(Y_j\\) are independent, and their correlation is zero.\n\nCorrelation: \\(\\rho(X,Y) = \\frac{\\mathbb{C}(X, Y)}{\\sqrt{\\mathbb{V}(X)\\mathbb{V}(Y)}}\\)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#real-world-dependent-observations",
+    "href": "slides/14-hierarchical.html#real-world-dependent-observations",
+    "title": "Hierarchical Models",
+    "section": "Real-World: Dependent Observations",
+    "text": "Real-World: Dependent Observations\nHowever, in real-world data, the independence assumption often does not hold:\n\nRepeated measures data (e.g., same individual over time).\nClustered data (e.g., patients within a hospital).\nLongitudinal data (e.g., disease severity measures over time).\nSpatial data (e.g., disease counts observed across zip codes)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#the-challenge",
+    "href": "slides/14-hierarchical.html#the-challenge",
+    "title": "Hierarchical Models",
+    "section": "The Challenge",
+    "text": "The Challenge\n\nIf we assume independence in the presence of correlation:\n\nBiased parameter estimates: Parameter estimation will be biased due to group-level dependencies that effect the outcome.\nUnderestimated uncertainty: The model will not account for the true variability, leading to narrower confidence intervals.\nInaccurate Predictions: Predictions for new groups may be biased because the model doesn’t properly account for group-level variability.\n\nThus, we need a way to account for dependencies between observations, especially when data are grouped or clustered."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#example-of-hierarchical-data",
+    "href": "slides/14-hierarchical.html#example-of-hierarchical-data",
+    "title": "Hierarchical Models",
+    "section": "Example of Hierarchical Data",
+    "text": "Example of Hierarchical Data\n\nHierarchical data refers to data that is organized into groups or clusters, where each group contains multiple observations.\nConsider data from patients within hospitals. Each patient is being treated in a hospital, with multiple patients belonging to each hospital.\nIn this case, the observation for a patient is indexed by two variables:\n\n\\(i\\): hospital index.\n\\(j\\): patient index, nested within hospital.\n\nSo, for patient \\(j\\) within hospital \\(i\\), we write the response as \\(Y_{ij}\\)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#observations-with-two-indices-y_ij",
+    "href": "slides/14-hierarchical.html#observations-with-two-indices-y_ij",
+    "title": "Hierarchical Models",
+    "section": "Observations with Two Indices: \\(Y_{ij}\\)",
+    "text": "Observations with Two Indices: \\(Y_{ij}\\)\n\n\\(Y_{ij}\\) represents the response for patient \\(j\\) in hospital \\(i\\).\nThe first index \\(i\\) represents group-level effects (e.g., hospital-level).\nThe second index \\(j\\) represents individual-level observations (e.g., patient).\nWe typically say that \\(i = 1,\\ldots,n.\\) and \\(j = 1,\\ldots,n_i\\).\nThe total number of observations is \\(N = \\sum_{i = 1}^{n}n_i\\)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#why-two-indices",
+    "href": "slides/14-hierarchical.html#why-two-indices",
+    "title": "Hierarchical Models",
+    "section": "Why Two Indices?",
+    "text": "Why Two Indices?\nHaving two indices allows us to model both:\n\nWithin-group variation (differences between patients within the same hospital).\nBetween-group variation (differences between hospitals).\n\nThe hierarchical structure captures both types of variation."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#conceptualizing-hierarchical-data",
+    "href": "slides/14-hierarchical.html#conceptualizing-hierarchical-data",
+    "title": "Hierarchical Models",
+    "section": "Conceptualizing Hierarchical Data",
+    "text": "Conceptualizing Hierarchical Data\nConsider the example of patients within hospitals:\n\nEach data point (i.e., observed data \\(Y_{ij}\\)) represents an outcome measured on a patient.\nThe data points are grouped by hospital, indicating that patients from the same hospital are likely to have similar outcomes due to shared hospital-level factors.\n\nThis is a typical example of hierarchical data."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#hierarchical-model",
+    "href": "slides/14-hierarchical.html#hierarchical-model",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical Model",
+    "text": "Hierarchical Model\nNow, we can see how hierarchical data appears in the model:\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\nSubject-specific objects:\n\n\\(Y_{ij}\\): response for patient \\(j\\) in hospital \\(i\\).\n\\(\\mathbf{x}_{ij}\\) are the predictors for patient \\(j\\) in hospital \\(i\\).\n\\(\\epsilon_{ij}\\): residual error for patient \\(j\\) in hospital \\(i\\)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#hierarchical-model-1",
+    "href": "slides/14-hierarchical.html#hierarchical-model-1",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical Model",
+    "text": "Hierarchical Model\nNow, we can see how hierarchical data appears in the model:\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\nGroup-specific objects:\n\n\\(\\theta_i\\): group-specific parameter for hospital \\(i\\), accounting for hospital-level variation (group-specific, random effect).\n\nThe group-specific parameters are responsible for inducing correlation into the model."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#hierarchical-model-2",
+    "href": "slides/14-hierarchical.html#hierarchical-model-2",
+    "title": "Hierarchical Models",
+    "section": "Hierarchical Model",
+    "text": "Hierarchical Model\nNow, we can see how hierarchical data appears in the model:\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\nPopulation parameters:\n\n\\(\\alpha\\): intercept for the entire population.\n\\(\\boldsymbol{\\beta}\\): regression parameters for the entire population.\n\\(\\sigma\\): residual error parameter for the entire population."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#random-intercept-model",
+    "href": "slides/14-hierarchical.html#random-intercept-model",
+    "title": "Hierarchical Models",
+    "section": "Random Intercept Model",
+    "text": "Random Intercept Model\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\n\nFrom a frequentist perspective, this model may be called a random intercept model, but in the Bayesian framework all parameters are random variables, so the terms fixed and random effects don’t apply.\n\n\\(\\theta_i\\): group-specific parameters (random effect).\n\\(\\alpha, \\boldsymbol{\\beta}, \\sigma\\): population parameters (common across all groups, \\(\\boldsymbol{\\beta}\\) are the fixed effects)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#prior-for-theta_i",
+    "href": "slides/14-hierarchical.html#prior-for-theta_i",
+    "title": "Hierarchical Models",
+    "section": "Prior for \\(\\theta_i\\)",
+    "text": "Prior for \\(\\theta_i\\)\nWe model \\(\\theta_i\\) as a parameter drawn from a normal distribution centered at zero, with some variance \\(\\tau^2\\):\n\\[\\theta_i \\stackrel{iid}{\\sim} N(0, \\tau^2).\\]\n\nMean at zero: This assumption reflects that, on average, hospitals don’t deviate from the population mean (helps with identifiability).\nVariance \\(\\tau^2\\): This represents the variability in hospital-level intercepts. A larger \\(\\tau^2\\) implies greater variability between hospitals.\n\nEach hospital \\(i\\) has a hospital-specific parameter \\(\\theta_i\\), which represents how that hospital’s baseline (e.g., health outcomes) deviates from the population average."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#group-specific-intercept-model-conditional-specification",
+    "href": "slides/14-hierarchical.html#group-specific-intercept-model-conditional-specification",
+    "title": "Hierarchical Models",
+    "section": "Group-Specific Intercept Model: Conditional Specification",
+    "text": "Group-Specific Intercept Model: Conditional Specification\nFor \\(i = 1,\\ldots,n\\) and \\(j = 1,\\ldots,n_i\\), \\[\\begin{aligned}\nY_{ij} | \\boldsymbol{\\Omega},\\theta_i &\\stackrel{ind}{\\sim} N(\\alpha + \\mathbf{x}_{ij}\\boldsymbol{\\beta} + \\theta_i,\\sigma^2)\\\\\n\\theta_i | \\tau^2 &\\stackrel{iid}{\\sim} N(0,\\tau^2)\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\n\\end{aligned}\\] where \\(\\boldsymbol{\\Omega} = (\\alpha, \\boldsymbol{\\beta},\\sigma,\\tau)\\) are the population parameters."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#group-specific-intercept-model-conditional-specification-1",
+    "href": "slides/14-hierarchical.html#group-specific-intercept-model-conditional-specification-1",
+    "title": "Hierarchical Models",
+    "section": "Group-Specific Intercept Model: Conditional Specification",
+    "text": "Group-Specific Intercept Model: Conditional Specification\n\nMoments for the Conditional Model:\n\n\\[\\begin{aligned}\n\\mathbb{E}[Y_{ij} | \\boldsymbol{\\Omega},\\theta_i] &= \\alpha + \\mathbf{x}_{ij}\\boldsymbol{\\beta} + \\theta_i\\\\\n\\mathbb{V}(Y_{ij} | \\boldsymbol{\\Omega},\\theta_i) &= \\sigma^2\\\\\n\\mathbb{C}(Y_{ij}, Y_{lk} | \\boldsymbol{\\Omega},\\theta_i,\\theta_l) &= 0,\\quad \\forall i,j,l,k.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#understanding-the-random-intercept",
+    "href": "slides/14-hierarchical.html#understanding-the-random-intercept",
+    "title": "Hierarchical Models",
+    "section": "Understanding the Random Intercept",
+    "text": "Understanding the Random Intercept\n\n\\(\\theta_i\\): group-specific parameter captures group-level differences (e.g., hospital level).\nThe intercept \\(\\theta_i\\) allows for each group to have its own baseline value.\nThis model introduces dependence within groups because observations from the same group share the same intercept \\(\\theta_i\\).\n\n\\[\\begin{aligned}\n\\mathbb{E}[Y_{ij} | \\boldsymbol{\\Omega},\\theta_i] &= \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i\\\\\n&= (\\alpha + \\theta_i) + \\mathbf{x}_{ij} \\boldsymbol{\\beta}\\\\\n&= \\alpha_i + \\mathbf{x}_{ij} \\boldsymbol{\\beta}.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#identifiability-issues",
+    "href": "slides/14-hierarchical.html#identifiability-issues",
+    "title": "Hierarchical Models",
+    "section": "Identifiability Issues",
+    "text": "Identifiability Issues\n\nPopulation Intercept (\\(\\alpha\\)): This is the average intercept for the entire population, i.e., the baseline outcome across all hospitals.\nGroup-Specific Intercept (\\(\\alpha + \\theta_i\\)): The group-specific intercept, where \\(\\theta_i\\) represents the deviation from the population intercept for group \\(i\\).\n\nWe face an identifiability issue when estimating the population intercept and group-specific intercepts. We could add the same constant to all \\(\\theta_i\\)’s and subtract that constant from \\(\\alpha\\).\n\nThis is solved by setting \\(\\theta_i\\) to be mean zero apriori."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#group-specific-intercept-model-conditional-specification-2",
+    "href": "slides/14-hierarchical.html#group-specific-intercept-model-conditional-specification-2",
+    "title": "Hierarchical Models",
+    "section": "Group-Specific Intercept Model: Conditional Specification",
+    "text": "Group-Specific Intercept Model: Conditional Specification\n\nDefine \\(\\mathbf{Y}_i = (Y_{i1},\\ldots,Y_{in_i})\\) and \\(\\mathbf{Y} = (\\mathbf{Y}_1,\\ldots,\\mathbf{Y}_n)\\).\nThe posterior for the conditional model can be written as:\n\n\\[\\begin{aligned}\nf(\\boldsymbol{\\Omega}, \\boldsymbol{\\theta} | \\mathbf{Y}) &\\propto f(\\mathbf{Y}, \\boldsymbol{\\Omega}, \\boldsymbol{\\theta})\\\\\n&= f(\\mathbf{Y} | \\boldsymbol{\\Omega}, \\boldsymbol{\\theta}) f(\\boldsymbol{\\theta} | \\boldsymbol{\\Omega})f(\\boldsymbol{\\Omega})\\\\\n&=  \\prod_{i=1}^n \\prod_{j = 1}^{n_i} f(Y_{ij} | \\boldsymbol{\\Omega}, \\boldsymbol{\\theta})  \\prod_{i=1}^n f(\\theta_i | \\tau^2) f(\\boldsymbol{\\Omega}),\n\\end{aligned}\\] where \\(\\boldsymbol{\\theta} = (\\theta_1,\\ldots,\\theta_n)\\)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#group-specific-intercept-model-marginal-specification",
+    "href": "slides/14-hierarchical.html#group-specific-intercept-model-marginal-specification",
+    "title": "Hierarchical Models",
+    "section": "Group-Specific Intercept Model: Marginal Specification",
+    "text": "Group-Specific Intercept Model: Marginal Specification\nTo derive a marginal model it is useful to write the model at the level of the independent observations, \\(\\mathbf{Y}_i\\).\n\\[\\mathbf{Y}_i = \\begin{bmatrix}\n    Y_{i1}\\\\\n    Y_{i2}\\\\\n    \\vdots\\\\\n    Y_{in_i}\n  \\end{bmatrix} =\n  \\begin{bmatrix}\n    \\alpha + \\mathbf{x}_{i1} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{i1}\\\\\n    \\alpha + \\mathbf{x}_{i2} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{i2}\\\\\n    \\vdots \\\\\n    \\alpha + \\mathbf{x}_{in_i} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{in_i}\n  \\end{bmatrix} = \\alpha \\mathbf{1}_{n_i} + \\mathbf{X}_i \\boldsymbol{\\beta} + \\theta_i \\mathbf{1}_{n_i} + \\boldsymbol{\\epsilon}_i,\\] where \\(\\mathbf{1}_{n_i}\\) is an \\(n_i \\times 1\\) dimensional vector of ones, \\(\\mathbf{X}_i\\) is an \\(n_i \\times p\\) dimensional matrix with rows \\(\\mathbf{x}_{ij}\\).\n\n\\(\\boldsymbol{\\epsilon}_i = (\\epsilon_{i1},\\ldots,\\epsilon_{in_i}) \\stackrel{ind}{\\sim} N(\\mathbf{0}_{n_i}, \\sigma^2 \\mathbf{I}_{n_i})\\), with \\(\\mathbf{0}_{n_i}\\) an \\(n_i \\times 1\\) dimensional vector of zeros."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#group-specific-intercept-model-marginal-specification-1",
+    "href": "slides/14-hierarchical.html#group-specific-intercept-model-marginal-specification-1",
+    "title": "Hierarchical Models",
+    "section": "Group-Specific Intercept Model: Marginal Specification",
+    "text": "Group-Specific Intercept Model: Marginal Specification\n\nMoments for the Marginal Model:\n\n\\[\\begin{aligned}\n\\mathbb{E}[\\mathbf{Y}_{i} | \\boldsymbol{\\Omega}] &= \\alpha \\mathbf{1}_{n_i} + \\mathbf{X}_i\\boldsymbol{\\beta}\\\\\n\\mathbb{V}(\\mathbf{Y}_{i} | \\boldsymbol{\\Omega}) &= \\tau^2 \\mathbf{1}_{n_i} \\mathbf{1}_{n_i}^\\top + \\sigma^2 \\mathbf{I}_{n_i} = \\boldsymbol{\\Upsilon}_i\\\\\n\\mathbb{C}(\\mathbf{Y}_{i}, \\mathbf{Y}_{i'} | \\boldsymbol{\\Omega}) &= \\mathbf{0}_{n_i \\times n_i},\\quad i \\neq i'.\n\\end{aligned}\\]\n\\[\\implies \\boldsymbol{\\Upsilon}_i = \\mathbb{V}(\\mathbf{Y}_{i} | \\boldsymbol{\\Omega}) = \\begin{bmatrix}\n    \\tau^2 + \\sigma^2 & \\tau^2 & \\cdots & \\tau^2\\\\\n    \\tau^2 & \\tau^2 + \\sigma^2 & \\cdots & \\tau^2\\\\\n    \\vdots & \\vdots & \\ddots & \\vdots\\\\\n    \\tau^2 & \\tau^2 & \\cdots &\\tau^2 + \\sigma^2\n  \\end{bmatrix}.\\]"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#covariance-structure",
+    "href": "slides/14-hierarchical.html#covariance-structure",
+    "title": "Hierarchical Models",
+    "section": "Covariance Structure",
+    "text": "Covariance Structure\n\nThe variance \\(\\tau^2\\) for \\(\\theta_i\\) can be interpreted as the covariance between two observations from the same hospital.\nThis reflects how much two observations from the same group are expected to be similar in terms of their outcomes.\n\n\\[\\begin{aligned}\n\\mathbb{C}(Y_{ij}, Y_{ik} | \\boldsymbol{\\Omega}) &= \\mathbb{V}(\\theta_i)\\\\\n&= \\tau^2.\n\\end{aligned}\\]\n\nThus, \\(\\tau^2\\) dictates the within-group correlation in our model.\nNote: \\(\\mathbb{C}(Y_{ij}, Y_{i'k} | \\boldsymbol{\\Omega}) = 0\\) for \\(i \\neq i'\\)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#induced-within-correlation",
+    "href": "slides/14-hierarchical.html#induced-within-correlation",
+    "title": "Hierarchical Models",
+    "section": "Induced Within Correlation",
+    "text": "Induced Within Correlation\n\\[\\begin{aligned}\n\\rho (Y_{ij}, Y_{ik} | \\boldsymbol{\\Omega}) &= \\frac{\\mathbb{C}(Y_{ij}, Y_{ik} | \\boldsymbol{\\Omega})}{\\sqrt{\\mathbb{V}(Y_{ij} |  \\boldsymbol{\\Omega}) \\mathbb{V}(Y_{ik} |  \\boldsymbol{\\Omega})}}\\\\\n&=\\frac{\\tau^2}{\\tau^2 + \\sigma^2}\\\\\n&= \\frac{1}{1 + \\frac{\\sigma^2}{\\tau^2}}.\n\\end{aligned}\\]\nThis model induces positive correlation within group observations."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#induced-within-correlation-1",
+    "href": "slides/14-hierarchical.html#induced-within-correlation-1",
+    "title": "Hierarchical Models",
+    "section": "Induced Within Correlation",
+    "text": "Induced Within Correlation\n\\[\\rho (Y_{ij}, Y_{ik} | \\alpha,\\boldsymbol{\\beta},\\sigma) = \\frac{1}{1 + \\frac{\\sigma^2}{\\tau^2}}\\]"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#group-specific-intercept-model-marginal-specification-2",
+    "href": "slides/14-hierarchical.html#group-specific-intercept-model-marginal-specification-2",
+    "title": "Hierarchical Models",
+    "section": "Group-Specific Intercept Model: Marginal Specification",
+    "text": "Group-Specific Intercept Model: Marginal Specification\nFor \\(i = 1,\\ldots,n\\), \\[\\begin{aligned}\n\\mathbf{Y}_{i} | \\boldsymbol{\\Omega} &\\stackrel{ind}{\\sim} N(\\alpha \\mathbf{1}_{n_i}+ \\mathbf{X}_i\\boldsymbol{\\beta},\\boldsymbol{\\Upsilon}_i)\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\n\\end{aligned}\\] where \\(\\boldsymbol{\\Omega} = (\\alpha, \\boldsymbol{\\beta},\\sigma,\\tau)\\) are the population parameters."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#group-specific-intercept-model-marginal-specification-3",
+    "href": "slides/14-hierarchical.html#group-specific-intercept-model-marginal-specification-3",
+    "title": "Hierarchical Models",
+    "section": "Group-Specific Intercept Model: Marginal Specification",
+    "text": "Group-Specific Intercept Model: Marginal Specification\n\nThe posterior for the conditional model can be written as:\n\n\\[\\begin{aligned}\nf(\\boldsymbol{\\Omega} | \\mathbf{Y}) &\\propto f(\\mathbf{Y}, \\boldsymbol{\\Omega})\\\\\n&= f(\\mathbf{Y} | \\boldsymbol{\\Omega})f(\\boldsymbol{\\Omega})\\\\\n&=  \\prod_{i=1}^n f(\\mathbf{Y}_{i} | \\boldsymbol{\\Omega}) f(\\boldsymbol{\\Omega}).\n\\end{aligned}\\]\nWhy might we be interested in fitting the marginal model?"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#recovering-the-group-specific-parameters",
+    "href": "slides/14-hierarchical.html#recovering-the-group-specific-parameters",
+    "title": "Hierarchical Models",
+    "section": "Recovering the Group-Specific Parameters",
+    "text": "Recovering the Group-Specific Parameters\n\nWe can still recover the \\(\\theta_i\\) when we fit the marginal model, we only need to compute \\(f(\\theta_i | \\mathbf{Y}_i,\\boldsymbol{\\Omega})\\) for all \\(i\\).\nWe can obtain this full conditional by specifying the joint distribution,\n\n\\[f\\left(\\begin{bmatrix}\n    \\mathbf{Y}_i\\\\\n    \\theta_i\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega}\\right) = N\\left(\\begin{bmatrix}\n    \\alpha \\mathbf{1}_{n_i} + \\mathbf{X}_i \\boldsymbol{\\beta} + \\theta_i \\mathbf{1}_{n_i} + \\boldsymbol{\\epsilon}_i\\\\\n    0\n  \\end{bmatrix}, \\begin{bmatrix}\n    \\boldsymbol{\\Upsilon}_i & \\tau^2 \\mathbf{1}_{n_i}\\\\\n    \\tau^2 \\mathbf{1}_{n_i}^\\top & \\tau^2\n  \\end{bmatrix}\\right).\\]\nWe can then use the conditional specification of a multivariate normal to find, \\(f(\\theta_i | \\mathbf{Y}_i, \\boldsymbol{\\Omega}) = N(\\mathbb{E}_{\\theta_i},\\mathbb{V}_{\\theta_i})\\), where\n\\[\\begin{aligned}\n\\mathbb{E}_{\\theta_i} &= \\mathbf{0}_{n_i} + \\tau^2 \\mathbf{1}_{n_i}^\\top \\boldsymbol{\\Upsilon}_i^{-1} (\\mathbf{Y}_i - \\alpha \\mathbf{1}_{n_i} - \\mathbf{X}_i \\boldsymbol{\\beta})\\\\\n\\mathbb{V}_{\\theta_i} &= \\tau^2 - \\tau^4 \\mathbf{1}_{n_i}^\\top \\boldsymbol{\\Upsilon}_i^{-1} \\mathbf{1}_{n_i}.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#example-data-glucose-measurement-in-4-primary-care-clinics",
+    "href": "slides/14-hierarchical.html#example-data-glucose-measurement-in-4-primary-care-clinics",
+    "title": "Hierarchical Models",
+    "section": "Example data: Glucose Measurement in 4 Primary Care Clinics",
+    "text": "Example data: Glucose Measurement in 4 Primary Care Clinics\n\nWe will study glucose values for patients being seen at 4 primary care clinics across the city. The clinics each represent a geographical region: east, west, north, and south.\nThe dataset consists of glucose measurements (mg/dl) from patients, and also risk factors:\n\nAge (years).\nBMI (\\(kg/m^2\\)).\nSex (0 = male, 1 = female).\nSmoking status (0 = non-smoker, 1 = smoker).\nPhysical activity level (0 = low, 1 = moderate, 2 = high).\nGlucose lowering medication (0 = none, 1 = yes)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#preview-the-data",
+    "href": "slides/14-hierarchical.html#preview-the-data",
+    "title": "Hierarchical Models",
+    "section": "Preview the Data",
+    "text": "Preview the Data"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#writing-down-a-model",
+    "href": "slides/14-hierarchical.html#writing-down-a-model",
+    "title": "Hierarchical Models",
+    "section": "Writing down a model",
+    "text": "Writing down a model\nWe would like to fit the following model:\n\\[Y_{ij} = \\alpha + \\mathbf{x}_{ij} \\boldsymbol{\\beta} + \\theta_i + \\epsilon_{ij},\\quad \\epsilon_{ij} \\stackrel{iid}{\\sim}N(0,\\sigma^2).\\]\n\n\\(Y_{ij}\\) is the glucose value for patient \\(i\\) in clinic \\(j\\)\n\\(\\theta_i\\) for \\(i = 1,\\ldots,4\\) is the clinic-specific intercept deviation. \\[\\begin{aligned}\n\\mathbf{x}_{ij} &= (Age_{ij}, BMI_{ij}, Female_{ij},Smoker_{ij}, \\\\\n&\\quad Moderate\\_Activity_{ij}, High\\_Activity_{ij}, On\\_Meds_{ij}).\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#fitting-the-conditional-model-in-stan",
+    "href": "slides/14-hierarchical.html#fitting-the-conditional-model-in-stan",
+    "title": "Hierarchical Models",
+    "section": "Fitting the Conditional Model in Stan",
+    "text": "Fitting the Conditional Model in Stan\n\n// conditional-model.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; N;\n  int&lt;lower = 1&gt; p;\n  matrix[N, p] X;\n  vector[N] Y;\n  int&lt;lower = 1, upper = n&gt; Ids[N];\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = 0&gt; tau;\n  vector[n] theta;\n}\nmodel {\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta + theta[Ids[i]];\n  }\n  target += normal_lpdf(Y | mu, sigma);\n  target += normal_lpdf(theta | 0, tau);\n  target += normal_lpdf(alpha | 0, 3);\n  target += normal_lpdf(beta | 0, 3);\n  target += normal_lpdf(sigma | 0, 3);\n  target += normal_lpdf(tau | 0, 3);\n}\ngenerated quantities {\n  real Intercept_East = alpha + theta[1];\n  real Intercept_North = alpha + theta[2];\n  real Intercept_South = alpha + theta[3];\n  real Intercept_West = alpha + theta[4];\n  real rho = 1 / (1 + ((sigma * sigma) / (tau * tau)));\n  vector[N] Y_pred;\n  vector[N] log_lik;\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta + theta[Ids[i]];\n    log_lik[i] = normal_lpdf(Y[i] | mu[i], sigma);\n    Y_pred[i] = normal_rng(mu[i], sigma);\n  }\n}"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#fitting-the-model-in-stan",
+    "href": "slides/14-hierarchical.html#fitting-the-model-in-stan",
+    "title": "Hierarchical Models",
+    "section": "Fitting the Model in Stan",
+    "text": "Fitting the Model in Stan\n\nX &lt;- model.matrix(~ age + bmi + gender + smoking + as.factor(activity) + medication, data = data)[, -1]\nstan_data &lt;- list(\n  N = nrow(data),\n  n = length(unique(data$region)),\n  p = ncol(X),\n  X = X,\n  Y = data$glucose,\n  Ids = as.numeric(as.factor(data$region))\n)\nconditional_model &lt;- stan_model(model_code = \"conditional-model.stan\")\nfit_conditional &lt;- sampling(conditional_model, stan_data)"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#assessing-convergence",
+    "href": "slides/14-hierarchical.html#assessing-convergence",
+    "title": "Hierarchical Models",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(fit_conditional, pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#assessing-convergence-1",
+    "href": "slides/14-hierarchical.html#assessing-convergence-1",
+    "title": "Hierarchical Models",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nlibrary(bayesplot)\nbayesplot::mcmc_acf(fit_conditional, regex_pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#posterior-summaries",
+    "href": "slides/14-hierarchical.html#posterior-summaries",
+    "title": "Hierarchical Models",
+    "section": "Posterior Summaries",
+    "text": "Posterior Summaries\n\nprint(fit_conditional, pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\", \"rho\"))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n          mean se_mean   sd   2.5%    25%    50%    75%  97.5% n_eff Rhat\nalpha    99.03    0.10 3.77  91.46  96.59  99.06 101.61 106.29  1533    1\nbeta[1]   0.26    0.00 0.03   0.20   0.23   0.26   0.28   0.32  4245    1\nbeta[2]   0.48    0.00 0.07   0.35   0.44   0.48   0.53   0.62  4989    1\nbeta[3]  10.50    0.01 0.65   9.18  10.06  10.51  10.93  11.75  5966    1\nbeta[4]  -4.75    0.01 0.66  -6.03  -5.20  -4.76  -4.30  -3.46  7324    1\nbeta[5]   0.28    0.01 0.78  -1.21  -0.26   0.29   0.80   1.82  4746    1\nbeta[6]  -4.53    0.01 0.77  -6.03  -5.06  -4.53  -4.00  -3.02  4869    1\nbeta[7] -17.89    0.01 0.64 -19.15 -18.31 -17.89 -17.47 -16.64  5387    1\nsigma     7.43    0.00 0.23   6.99   7.28   7.43   7.59   7.90  5900    1\ntau       4.58    0.02 1.33   2.59   3.60   4.35   5.34   7.65  2941    1\nrho       0.27    0.00 0.11   0.11   0.19   0.26   0.34   0.51  3136    1\n\nSamples were drawn using NUTS(diag_e) at Wed Feb 26 10:48:54 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#comparison-to-linear-regression-boldsymbolbeta",
+    "href": "slides/14-hierarchical.html#comparison-to-linear-regression-boldsymbolbeta",
+    "title": "Hierarchical Models",
+    "section": "Comparison to Linear Regression: \\(\\boldsymbol{\\beta}\\)",
+    "text": "Comparison to Linear Regression: \\(\\boldsymbol{\\beta}\\)"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#model-comparison",
+    "href": "slides/14-hierarchical.html#model-comparison",
+    "title": "Hierarchical Models",
+    "section": "Model Comparison",
+    "text": "Model Comparison\n\nlibrary(loo)\nwaic_conditional &lt;- waic(extract_log_lik(fit_conditional))\nwaic_lin_reg &lt;- waic(extract_log_lik(fit_lin_reg))\ncomparison &lt;- loo_compare(list(\"Hierarchical Model\" = waic_conditional, \"Linear Regression\" = waic_lin_reg))\nprint(comparison, simplify = FALSE)\n\n                   elpd_diff se_diff elpd_waic se_elpd_waic p_waic  se_p_waic\nHierarchical Model     0.0       0.0 -1720.6      15.2         11.5     0.7  \nLinear Regression    -71.6      10.7 -1792.2      15.6          8.6     0.6  \n                   waic    se_waic\nHierarchical Model  3441.2    30.4\nLinear Regression   3584.3    31.1"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#explore-the-clinic-specific-variation",
+    "href": "slides/14-hierarchical.html#explore-the-clinic-specific-variation",
+    "title": "Hierarchical Models",
+    "section": "Explore the Clinic-Specific Variation",
+    "text": "Explore the Clinic-Specific Variation\n\nprint(fit_conditional, pars = c(\"Intercept_East\", \"Intercept_South\", \"Intercept_North\", \"Intercept_West\"), probs = c(0.025, 0.975))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n                  mean se_mean   sd  2.5%  97.5% n_eff Rhat\nIntercept_East  102.08    0.05 2.88 96.55 107.62  3461    1\nIntercept_South  98.46    0.05 2.88 92.89 103.99  3498    1\nIntercept_North  92.35    0.05 2.87 86.78  97.90  3398    1\nIntercept_West  103.55    0.05 2.90 97.85 109.10  3502    1\n\nSamples were drawn using NUTS(diag_e) at Wed Feb 26 10:48:54 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#explore-the-clinic-specific-variation-1",
+    "href": "slides/14-hierarchical.html#explore-the-clinic-specific-variation-1",
+    "title": "Hierarchical Models",
+    "section": "Explore the Clinic-Specific Variation",
+    "text": "Explore the Clinic-Specific Variation"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#fitting-the-marginal-model-in-stan",
+    "href": "slides/14-hierarchical.html#fitting-the-marginal-model-in-stan",
+    "title": "Hierarchical Models",
+    "section": "Fitting the Marginal Model in Stan",
+    "text": "Fitting the Marginal Model in Stan\nNeed ragged data structure.\n\n// marginal-model.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; N;\n  int&lt;lower = 1&gt; p;\n  matrix[N, p] X;\n  vector[N] Y;\n  int n_is[n];\n}\nparameters {\n  real alpha;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  real&lt;lower = 0&gt; tau;\n}\ntransformed parameters {\n  real sigma2 = sigma * sigma;\n  real tau2 = tau * tau;\n}\nmodel {\n  // compute the mean process for the marginal model\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta;\n  }\n  // evaluate the likelihood for the marginal model using ragged data structure\n  int pos;\n  pos = 1;\n  for (i in 1:n) {\n    int n_i = n_is[i];\n    matrix[n_i, n_i] Upsilon_i = sigma2 * diag_matrix(rep_vector(1.0, n_i)) + tau2 * rep_matrix(1, n_i, n_i);\n    vector[n_i] Y_i = segment(Y, pos, n_i);\n    vector[n_i] mu_i = segment(mu, pos, n_i);\n    target += multi_normal_lpdf(Y_i | mu_i, Upsilon_i);\n    pos = pos + n_i;\n  }\n  // priors\n  target += normal_lpdf(alpha | 0, 3);\n  target += normal_lpdf(beta | 0, 3);\n  target += normal_lpdf(sigma | 0, 3);\n  target += normal_lpdf(tau | 0, 3);\n}\ngenerated quantities {\n  // compute the mean process for the marginal model\n  vector[N] mu = rep_vector(0.0, N);\n  mu += alpha;\n  for (i in 1:N) {\n    mu[i] += X[i, ] * beta;\n  }\n  // compute theta using the ragged data structure\n  int pos;\n  pos = 1;\n  vector[n] theta;\n  for (i in 1:n) {\n    int n_i = n_is[i];\n    vector[n_i] ones_i = rep_vector(1.0, n_i);\n    matrix[n_i, n_i] Upsilon_i = sigma2 * diag_matrix(ones_i) + tau2 * rep_matrix(1, n_i, n_i);\n    vector[n_i] Y_i = segment(Y, pos, n_i);\n    vector[n_i] mu_i = segment(mu, pos, n_i);\n    real mean_theta_i = tau2 * ones_i' * inverse_spd(Upsilon_i) * (Y_i - mu_i);\n    real var_theta_i = tau2 - tau2 * tau2 * ones_i' * inverse_spd(Upsilon_i) * ones_i;\n    theta[i] = normal_rng(mean_theta_i, sqrt(var_theta_i));\n    pos = pos + n_i;\n  }\n}"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#fitting-the-model-in-stan-1",
+    "href": "slides/14-hierarchical.html#fitting-the-model-in-stan-1",
+    "title": "Hierarchical Models",
+    "section": "Fitting the Model in Stan",
+    "text": "Fitting the Model in Stan\n\nstan_data &lt;- list(\n  N = nrow(data),\n  n = length(unique(data$region)),\n  p = ncol(X),\n  X = X,\n  Y = data$glucose,\n  n_is = as.numeric(table(data$region))\n)\nmarginal_model &lt;- stan_model(model_code = \"marginal-model.stan\")\nfit_marginal &lt;- sampling(marginal_model, stan_data)"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#assessing-convergence-2",
+    "href": "slides/14-hierarchical.html#assessing-convergence-2",
+    "title": "Hierarchical Models",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(fit_marginal, pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\"))"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#assessing-convergence-3",
+    "href": "slides/14-hierarchical.html#assessing-convergence-3",
+    "title": "Hierarchical Models",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nlibrary(bayesplot)\nbayesplot::mcmc_acf(fit_marginal, regex_pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\"))"
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#posterior-summaries-1",
+    "href": "slides/14-hierarchical.html#posterior-summaries-1",
+    "title": "Hierarchical Models",
+    "section": "Posterior Summaries",
+    "text": "Posterior Summaries\n\nprint(fit_marginal, pars = c(\"alpha\", \"beta\", \"sigma\", \"tau\"))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n          mean se_mean   sd   2.5%    25%    50%    75%  97.5% n_eff Rhat\nalpha    99.07    0.06 3.66  91.97  96.66  99.05 101.50 106.36  3285    1\nbeta[1]   0.26    0.00 0.03   0.20   0.24   0.26   0.28   0.32  3957    1\nbeta[2]   0.48    0.00 0.07   0.35   0.44   0.48   0.53   0.61  3389    1\nbeta[3]  10.48    0.01 0.67   9.18  10.01  10.49  10.95  11.76  4532    1\nbeta[4]  -4.75    0.01 0.65  -6.01  -5.18  -4.75  -4.34  -3.45  4611    1\nbeta[5]   0.29    0.01 0.77  -1.26  -0.23   0.28   0.79   1.77  3834    1\nbeta[6]  -4.51    0.01 0.79  -6.04  -5.04  -4.50  -4.00  -3.01  3855    1\nbeta[7] -17.88    0.01 0.66 -19.14 -18.33 -17.88 -17.44 -16.56  4370    1\nsigma     7.43    0.00 0.24   6.99   7.27   7.43   7.60   7.92  4223    1\ntau       4.55    0.02 1.27   2.61   3.62   4.38   5.27   7.48  3714    1\n\nSamples were drawn using NUTS(diag_e) at Wed Feb 26 11:25:39 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#conclusion",
+    "href": "slides/14-hierarchical.html#conclusion",
+    "title": "Hierarchical Models",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nBy introducing a group-specific intercept, we allow for dependencies between observations within groups, making the model more realistic for real-world clustered or repeated measures data.\nFor the remainder of the class, we will expand upon this hierarchical modeling framework to account for complext data types that are frequently encountered in research, including longitudinal and spatial data."
+  },
+  {
+    "objectID": "slides/14-hierarchical.html#prepare-for-next-class",
+    "href": "slides/14-hierarchical.html#prepare-for-next-class",
+    "title": "Hierarchical Models",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nComplete HW 03, which is due before Thursday’s class.\nNext Thursday’s lecture: Longitudinal Data\nExam 1 will be assigned after class on Thursday!"
+  },
+  {
+    "objectID": "prepare/prepare-feb26.html",
+    "href": "prepare/prepare-feb26.html",
+    "title": "Prepare for February 26 lecture",
+    "section": "",
+    "text": "📖 Review the linear mixed model.\n📖 Read pages 183-192 from Bayesian linear mixed models using Stan: A tutorial for psychologists, linguists, and cognitive scientists.\n✅ Turn in HW 03 before class on Thursday. Prepare for Exam 1, which will be assigned after class on Thursday."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html",
+    "href": "slides/15-longitudinal.html",
+    "title": "Longitudinal Data",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare\n\n\n\nAttaching package: 'mice'\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following objects are masked from 'package:base':\n\n    cbind, rbind\n\n\nThis is bayesplot version 1.11.1\n\n- Online documentation and vignettes at mc-stan.org/bayesplot\n\n- bayesplot theme set to bayesplot::theme_default()\n\n   * Does _not_ affect other ggplot2 plots\n\n   * See ?bayesplot_theme_set for details on theme setting"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#review-of-last-lecture",
+    "href": "slides/15-longitudinal.html#review-of-last-lecture",
+    "title": "Longitudinal Data",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nDuring our last lecture, we introduced correlated (or dependent) data sources.\nWe discussed the idea of accounting for dependencies within a group using group-specific parameters.\nWe introduced the random intercept model and studied the induced correlation (forced to be positive) in the marginal model.\nToday we will look at longitudinal data and introduce a simple model that accounts for group-level changes."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#longitudinal-data",
+    "href": "slides/15-longitudinal.html#longitudinal-data",
+    "title": "Longitudinal Data",
+    "section": "Longitudinal Data",
+    "text": "Longitudinal Data\nRepeated measurements taken over time from the same subjects. Examples include:\n\nMonitor Disease Progression: Track how diseases evolve, such as diabetes or glaucoma.\nEvaluate Treatments: Understand how interventions work over time.\nPersonalized Health Insights: Capture individual health trajectories for personalized care.\nStudy Long-Term Effects: Evaluate the long-term outcomes of medical treatments or behaviors."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#example-glaucoma-disease-progression",
+    "href": "slides/15-longitudinal.html#example-glaucoma-disease-progression",
+    "title": "Longitudinal Data",
+    "section": "Example: Glaucoma Disease Progression",
+    "text": "Example: Glaucoma Disease Progression\nImagine we are tracking mean deviation (MD, dB), a key measure of visual field loss in glaucoma patients, over time.\n\nMultiple measurements of MD for each patient across several years.\nWe’re interested in glaucoma progression, which is defined as the rate of change in MD over time (dB/year).\nDefine \\(Y_{it}\\) as the MD value for eye \\(i\\) (\\(i = 1,\\ldots,n\\)) at time \\(t\\) (\\(t = 1,\\ldots,n_i\\)) and the time of each observation as \\(X_{it}\\) with \\(X_{i0} = 0\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#rotterdam-data",
+    "href": "slides/15-longitudinal.html#rotterdam-data",
+    "title": "Longitudinal Data",
+    "section": "Rotterdam data",
+    "text": "Rotterdam data"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#treating-eyes-separately",
+    "href": "slides/15-longitudinal.html#treating-eyes-separately",
+    "title": "Longitudinal Data",
+    "section": "Treating Eyes Separately",
+    "text": "Treating Eyes Separately\nWe can model each eye separately using OLS (this is a form of longitudinal analysis!). For \\(t = 1,\\ldots,n_i\\), the model is:\n\\[Y_{it} = \\beta_{0i} + X_{it} \\beta_{1i} + \\epsilon_{it}, \\quad \\epsilon_{it} \\stackrel{iid}{\\sim} N(0, \\sigma_i^2).\\]\nWhere:\n\n\\(\\beta_{0i}\\) is the intercept for eye \\(i\\).\n\\(\\beta_{1i}\\) is the slope for eye \\(i\\) (i.e., disease progression).\n\\(\\sigma_i^2\\) is the residual error for eye \\(i\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#ols-regression",
+    "href": "slides/15-longitudinal.html#ols-regression",
+    "title": "Longitudinal Data",
+    "section": "OLS regression",
+    "text": "OLS regression"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#treating-eyes-separately-1",
+    "href": "slides/15-longitudinal.html#treating-eyes-separately-1",
+    "title": "Longitudinal Data",
+    "section": "Treating Eyes Separately",
+    "text": "Treating Eyes Separately\n\nFitting OLS separately allows each eye to have a unique intercept and slope, which of course is consistent with the data generating process.\nHowever, this can lead to eye-specific intercepts and slopes that are not realistic (consider OLS regression with very few data points).\nEstimating eye-specific intercepts and slopes within the context of the whole study sample should shrink extreme values toward the population average."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#subject-specific-intercepts-and-slopes",
+    "href": "slides/15-longitudinal.html#subject-specific-intercepts-and-slopes",
+    "title": "Longitudinal Data",
+    "section": "Subject-specific intercepts and slopes",
+    "text": "Subject-specific intercepts and slopes\nFor \\(i = 1,\\ldots,n\\) and \\(t=1,\\ldots,n_i\\), we can write the model:\n\\[\\begin{aligned}\nY_{it} &= \\beta_{0i} + X_{it} \\beta_{1i} + \\epsilon_{it}, \\quad \\epsilon_{it} \\stackrel{iid}{\\sim} N(0, \\sigma^2),\\\\\n\\beta_{0i} &= \\beta_0 + \\theta_{0i},\\\\\n\\beta_{1i} &= \\beta_1 + \\theta_{1i}.\n\\end{aligned}\\]\nPopulation Parameters:\n\n\\(\\beta_0\\) is the population intercept (i.e., average MD value in the population at time zero).\n\\(\\beta_1\\) is the population slope (i.e., average disease progression).\n\\(\\sigma^2\\) is the population residual error."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#subject-specific-intercepts-and-slopes-1",
+    "href": "slides/15-longitudinal.html#subject-specific-intercepts-and-slopes-1",
+    "title": "Longitudinal Data",
+    "section": "Subject-specific intercepts and slopes",
+    "text": "Subject-specific intercepts and slopes\nFor \\(i = 1,\\ldots,n\\) and \\(t=1,\\ldots,n_i\\), we can write the model:\n\\[\\begin{aligned}\nY_{it} &= \\beta_{0i} + X_{it} \\beta_{1i} + \\epsilon_{it}, \\quad \\epsilon_{it} \\stackrel{iid}{\\sim} N(0, \\sigma^2),\\\\\n\\beta_{0i} &= \\beta_0 + \\theta_{0i},\\\\\n\\beta_{1i} &= \\beta_1 + \\theta_{1i}.\n\\end{aligned}\\]\nSubject-Specific Parameters:\n\n\\(\\theta_{0i}\\) is the subject-specific deviation from the intercept for eye \\(i\\).\n\\(\\theta_{1i}\\) is the subject-specific deviation from the slope for eye \\(i\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#subject-specific-intercepts-and-slopes-2",
+    "href": "slides/15-longitudinal.html#subject-specific-intercepts-and-slopes-2",
+    "title": "Longitudinal Data",
+    "section": "Subject-specific intercepts and slopes",
+    "text": "Subject-specific intercepts and slopes\nFor \\(i = 1,\\ldots,n\\) and \\(t=1,\\ldots,n_i\\), we can write the model:\n\\[\\begin{aligned}\nY_{it} &= \\beta_{0i} + X_{it} \\beta_{1i} + \\epsilon_{it}, \\quad \\epsilon_{it} \\stackrel{iid}{\\sim} N(0, \\sigma^2),\\\\\n\\beta_{0i} &= \\beta_0 + \\theta_{0i},\\\\\n\\beta_{1i} &= \\beta_1 + \\theta_{1i}.\n\\end{aligned}\\]\nKey Advantage:\n\nThis model defines subject-specific estimates of \\(\\beta_{0i}\\) and \\(\\beta_{1i}\\) relative to the population average, preventing overfitting and making the estimates more stable.\nShrinks subject-specific parameters to the population average."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#linear-mixed-model",
+    "href": "slides/15-longitudinal.html#linear-mixed-model",
+    "title": "Longitudinal Data",
+    "section": "Linear Mixed Model",
+    "text": "Linear Mixed Model\nThe subject-specific intercepts and slope model can be seen as a special case of the linear mixed model (LMM). For \\(i = 1,\\ldots,n\\), LMM is defined as:\n\\[\\mathbf{Y}_i = \\mathbf{X}_i \\boldsymbol{\\beta} + \\mathbf{Z}_i \\boldsymbol{\\theta}_i + \\boldsymbol{\\epsilon}_i, \\quad \\boldsymbol{\\epsilon}_i \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0}_{n_i}, \\sigma^2 \\mathbf{I}_{n_i}).\\]\n\n\\(\\mathbf{Y}_i = (Y_{i1},\\ldots,Y_{in_i})\\) are subject-level observations.\n\\(Y_{it}\\) is the \\(t\\)th observation in subject \\(i\\).\n\\(\\boldsymbol{\\epsilon}_i = (\\epsilon_{i1},\\ldots,\\epsilon_{in_i})\\), such that \\(\\epsilon_{it} \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#linear-mixed-model-1",
+    "href": "slides/15-longitudinal.html#linear-mixed-model-1",
+    "title": "Longitudinal Data",
+    "section": "Linear Mixed Model",
+    "text": "Linear Mixed Model\nFor \\(i = 1,\\ldots,n\\), the linear mixed model (LMM) is given by:\n\\[\\mathbf{Y}_i = \\mathbf{X}_i \\boldsymbol{\\beta} + \\mathbf{Z}_i \\boldsymbol{\\theta}_i + \\boldsymbol{\\epsilon}_i, \\quad \\boldsymbol{\\epsilon}_i \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0}_{n_i}, \\sigma^2 \\mathbf{I}_{n_i}).\\]\n\n\\(\\mathbf{X}_i\\) is an \\((n_i \\times p)\\)-dimensional matrix with row \\(\\mathbf{x}_{it}\\) (intercept is incorporated).\n\\(\\mathbf{x}_{it}\\) contains variables that are assumed to relate to the outcome only at a population-level.\n\\(p\\) is the number of population-level variables."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#linear-mixed-model-2",
+    "href": "slides/15-longitudinal.html#linear-mixed-model-2",
+    "title": "Longitudinal Data",
+    "section": "Linear Mixed Model",
+    "text": "Linear Mixed Model\nFor \\(i = 1,\\ldots,n\\), the linear mixed model (LMM) is given by:\n\\[\\mathbf{Y}_i = \\mathbf{X}_i \\boldsymbol{\\beta} + \\mathbf{Z}_i \\boldsymbol{\\theta}_i + \\boldsymbol{\\epsilon}_i, \\quad \\boldsymbol{\\epsilon}_i \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0}_{n_i}, \\sigma^2 \\mathbf{I}_{n_i}).\\]\n\n\\(\\mathbf{Z}_i\\) is an \\((n_i \\times q)\\)-dimensional matrix with row \\(\\mathbf{z}_{it}\\) (intercept is incorporated).\n\\(\\mathbf{z}_{it}\\) contains variables that are assumed to relate to the outcome with varying effects at a subject-level.\n\\(q\\) is the number of subject-level variables."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#linear-mixed-model-3",
+    "href": "slides/15-longitudinal.html#linear-mixed-model-3",
+    "title": "Longitudinal Data",
+    "section": "Linear Mixed Model",
+    "text": "Linear Mixed Model\nFor \\(i = 1,\\ldots,n\\), the linear mixed model (LMM) is given by:\n\\[\\mathbf{Y}_i = \\mathbf{X}_i \\boldsymbol{\\beta} + \\mathbf{Z}_i \\boldsymbol{\\theta}_i + \\boldsymbol{\\epsilon}_i, \\quad \\boldsymbol{\\epsilon}_i \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0}_{n_i}, \\sigma^2 \\mathbf{I}_{n_i}).\\]\n\n\\(\\boldsymbol{\\beta}\\) is a \\(p\\)-dimensional vector of population-level parameters (or fixed effects).\n\\(\\boldsymbol{\\theta}_i\\) is a \\(q\\)-dimensional vector of group-level parameters (or random effects).\n\\(\\sigma^2\\) is a population-level parameter that measures residual error."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#recover-the-random-intercept-model",
+    "href": "slides/15-longitudinal.html#recover-the-random-intercept-model",
+    "title": "Longitudinal Data",
+    "section": "Recover the Random Intercept Model",
+    "text": "Recover the Random Intercept Model\nFor \\(i = 1,\\ldots,n\\), the linear mixed model (LMM) is given by:\n\\[\\mathbf{Y}_i = \\mathbf{X}_i \\boldsymbol{\\beta} + \\mathbf{Z}_i \\boldsymbol{\\theta}_i + \\boldsymbol{\\epsilon}_i, \\quad \\boldsymbol{\\epsilon}_i \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0}_{n_i}, \\sigma^2 \\mathbf{I}_{n_i}).\\]\nSuppose that \\(\\mathbf{z}_{it} = 1 \\forall i,t\\). Then we get\n\\[\\begin{aligned}\nY_{it} &= \\mathbf{x}_{it} \\boldsymbol{\\beta} + \\mathbf{z}_{it}\\boldsymbol{\\theta}_{i} + \\epsilon_{it}, \\quad \\epsilon_{it} \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\\\\n&= \\mathbf{x}_{it} \\boldsymbol{\\beta} + \\theta_{i} + \\epsilon_{it}.\n\\end{aligned}\\]\n\nLMM is a general form of the random intercept model."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#random-slope-and-intercept-model",
+    "href": "slides/15-longitudinal.html#random-slope-and-intercept-model",
+    "title": "Longitudinal Data",
+    "section": "Random Slope and Intercept Model",
+    "text": "Random Slope and Intercept Model\nFor \\(i = 1,\\ldots,n\\), the linear mixed model (LMM) is given by:\n\\[\\mathbf{Y}_i = \\mathbf{X}_i \\boldsymbol{\\beta} + \\mathbf{Z}_i \\boldsymbol{\\theta}_i + \\boldsymbol{\\epsilon}_i, \\quad \\boldsymbol{\\epsilon}_i \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0}_{n_i}, \\sigma^2 \\mathbf{I}_{n_i}).\\]\nSuppose that \\(\\mathbf{x}_{it} = \\mathbf{z}_{it} = (1, X_{it})\\), such that \\(p = q = 2\\). Then,\n\\[\\begin{aligned}\nY_{it} &= \\mathbf{x}_{it} \\boldsymbol{\\beta} + \\mathbf{z}_{it}\\boldsymbol{\\theta}_{i} + \\epsilon_{it}, \\quad \\epsilon_{it} \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\\\\n&= \\beta_0 + \\beta_1 X_{it} + \\theta_{0i} + \\theta_{1i} X_{it} + \\epsilon_{it}\\\\\n&= (\\beta_0 + \\theta_{0i}) + (\\beta_1 + \\theta_{1i}) X_{it} + \\epsilon_{it}.\n\\end{aligned}\\]\nwhere \\(\\boldsymbol{\\beta} = (\\beta_0,\\beta_1)\\) and \\(\\boldsymbol{\\theta}_i = (\\theta_{0i},\\theta_{1i})\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#prior-specification",
+    "href": "slides/15-longitudinal.html#prior-specification",
+    "title": "Longitudinal Data",
+    "section": "Prior Specification",
+    "text": "Prior Specification\nOne choice could be to specify independent priors for the subject-specific intercepts and slopes:\n\\[\\begin{aligned}\n\\theta_{0i} &\\stackrel{iid}{\\sim} N(0, \\tau_0^2)\\\\\n\\theta_{1i} &\\stackrel{iid}{\\sim} N(0, \\tau_1^2).\n\\end{aligned}\\]\n\nThis is the same assumption we made last lecture, where we assume a normal distribution centered at zero with some variance that reflects variability across subjects.\nOften times this assumption is oversimplified. For example in glaucoma progression, we often assume that if someone has a higher baseline MD they will a more negative slope (i.e., negative correlation)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#prior-specification-1",
+    "href": "slides/15-longitudinal.html#prior-specification-1",
+    "title": "Longitudinal Data",
+    "section": "Prior Specification",
+    "text": "Prior Specification\nWe can instead model the subject-specific parameters as correlated themselves using a bi-variate normal distribution. Define \\(\\boldsymbol{\\theta}_i = (\\theta_{0i},\\theta_{1i})^\\top\\) and then \\(\\boldsymbol{\\theta}_i \\stackrel{iid}{\\sim} N_2(\\mathbf{0}_2,\\boldsymbol{\\Sigma})\\).\n\\[\\boldsymbol{\\Sigma} = \\begin{bmatrix}\n    \\tau_{0}^2 & \\tau_{01}\\\\\n    \\tau_{01} & \\tau_1^2\\\\\n  \\end{bmatrix}.\\]\n\n\\(\\tau_{01} = \\rho \\tau_0 \\tau_1\\).\n\\(\\rho\\) is the correlation between the subject-specific intercepts and slopes.\n\nLet’s talk about efficient ways to generate multivariate random variables!"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#generating-multivariate-normal-rngs",
+    "href": "slides/15-longitudinal.html#generating-multivariate-normal-rngs",
+    "title": "Longitudinal Data",
+    "section": "Generating Multivariate Normal RNGs",
+    "text": "Generating Multivariate Normal RNGs\nSuppose we would like to generate samples of a random variable \\(\\mathbf{x}_i \\stackrel{iid}{\\sim} N_2(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\).\nTo sample efficiently, we can decompose the covariance structure:\n\\[\\begin{aligned}\n\\boldsymbol{\\Sigma} &= \\begin{bmatrix}\n    \\tau_{0}^2 & \\rho \\tau_0 \\tau_1\\\\\n    \\rho \\tau_0 \\tau_1 & \\tau_1^2\\\\\n  \\end{bmatrix}\\\\\n&= \\begin{bmatrix}\n    \\tau_{0} & 0\\\\\n    0 & \\tau_1\\\\\n  \\end{bmatrix}  \\begin{bmatrix}\n    1 & \\rho\\\\\n    \\rho & 1\\\\\n  \\end{bmatrix}  \\begin{bmatrix}\n    \\tau_{0} & 0\\\\\n    0 & \\tau_1\\\\\n  \\end{bmatrix}\\\\\n&=  \\mathbf{D} \\boldsymbol{\\Phi} \\mathbf{D}.\n\\end{aligned}\\]\n\n\\(\\mathbf{D}\\) is a \\(p\\)-dimensional matrix with the standard deviations on the diagonal.\n\\(\\boldsymbol{\\Phi}\\) is the correlation matrix."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#generating-multivariate-normal-rngs-1",
+    "href": "slides/15-longitudinal.html#generating-multivariate-normal-rngs-1",
+    "title": "Longitudinal Data",
+    "section": "Generating Multivariate Normal RNGs",
+    "text": "Generating Multivariate Normal RNGs\nWe can further decompose the covariance by computing the cholesky decomposition of the correlation matrix:\n\\[\\begin{aligned}\n\\boldsymbol{\\Sigma} &=  \\mathbf{D} \\boldsymbol{\\Phi} \\mathbf{D}\\\\\n&= \\mathbf{D} \\mathbf{L} \\mathbf{L}^\\top \\mathbf{D},\n\\end{aligned}\\] where \\(\\mathbf{L}\\) is the lower triangular Cholesky decomposition for \\(\\boldsymbol{\\Phi}\\), such that \\(\\boldsymbol{\\Phi} = \\mathbf{L} \\mathbf{L}^\\top\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#generating-multivariate-normal-rngs-2",
+    "href": "slides/15-longitudinal.html#generating-multivariate-normal-rngs-2",
+    "title": "Longitudinal Data",
+    "section": "Generating Multivariate Normal RNGs",
+    "text": "Generating Multivariate Normal RNGs\nWe can generate samples \\(\\mathbf{x}_i \\stackrel{iid}{\\sim} N_2(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\) using the following approach:\n\\[\\mathbf{x}_i = \\boldsymbol{\\mu} + \\mathbf{D} \\mathbf{L} \\mathbf{z}_i,\\]\nwhere \\(\\mathbf{z}_i = (z_{0i},z_{1i})\\) and \\(z_{ij} \\stackrel{iid}{\\sim} N(0,1)\\), so that \\(\\mathbb{E}[\\mathbf{z}_i] = \\mathbf{0}_2\\) and \\(\\mathbb{C}(\\mathbf{z}_i) = \\mathbf{I}_2\\).\n\\[\\begin{aligned}\n\\mathbb{E}[\\boldsymbol{\\mu} + \\mathbf{D}\\mathbf{L}\\mathbf{z}_i] &= \\boldsymbol{\\mu} +  \\mathbf{D}\\mathbf{L}\\mathbb{E}[\\mathbf{z}_i] = \\boldsymbol{\\mu}\\\\\n\\mathbb{C}(\\boldsymbol{\\mu} + \\mathbf{D}\\mathbf{L}\\mathbf{z}_i) &= \\mathbf{D}\\mathbf{L}\\mathbb{C}(\\mathbf{z}_i)\\left(\\mathbf{D}\\mathbf{L}\\right)^\\top \\\\\n&= \\mathbf{D}\\mathbf{L}\\mathbf{L}^\\top\\mathbf{D}\\\\\n&=\\boldsymbol{\\Sigma}.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#generating-multivariate-normal-rngs-3",
+    "href": "slides/15-longitudinal.html#generating-multivariate-normal-rngs-3",
+    "title": "Longitudinal Data",
+    "section": "Generating Multivariate Normal RNGs",
+    "text": "Generating Multivariate Normal RNGs\n\nSigma &lt;- matrix(c(3, 1, 1, 3), nrow = 2, ncol = 2, byrow = TRUE)\nmu &lt;- matrix(c(2, 5), ncol = 1)\nD &lt;- matrix(0, nrow = 2, ncol = 2)\ndiag(D) &lt;- diag(sqrt(Sigma))\nPhi &lt;- cov2cor(Sigma)\nL &lt;- t(chol(Phi))\nn_samples &lt;- 1000\nz &lt;- matrix(rnorm(n_samples * 2), nrow = 2, ncol = n_samples)\nmu_mat &lt;- matrix(rep(mu, n_samples), nrow = 2, ncol = n_samples) \nX &lt;- mu_mat + D %*% L %*% z\napply(X, 1, mean)\n\n[1] 1.946052 4.950226\n\ncov(t(X))\n\n          [,1]      [,2]\n[1,] 3.0612065 0.9283299\n[2,] 0.9283299 2.9567120"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#conditional-specification",
+    "href": "slides/15-longitudinal.html#conditional-specification",
+    "title": "Longitudinal Data",
+    "section": "Conditional specification",
+    "text": "Conditional specification\nFor the conditional specification, we can write the model at the observational level, \\(Y_{it}\\). This is because conditionally on the \\(\\boldsymbol{\\theta}_i\\), \\(Y_{it}\\) and \\(Y_{it'}\\) are independent.\nFor \\(i\\) (\\(i = 1,\\ldots,n\\)) and \\(t\\) (\\(t = 1,\\ldots, n_i\\)), the model is:\n\\[\\begin{aligned}\nY_{it} | \\boldsymbol{\\Omega}, \\boldsymbol{\\theta}_i &\\stackrel{iid}{\\sim} N\\left((\\beta_{0} + \\theta_{0i}) + (\\beta_1 + \\theta_{0i}) X_{it}, \\sigma^2\\right),\\\\\n\\boldsymbol{\\theta}_i | \\boldsymbol{\\Sigma} &\\stackrel{iid}{\\sim} N_2(\\mathbf{0}_2,\\boldsymbol{\\Sigma})\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\n\\end{aligned}\\]\nwhere \\(\\boldsymbol{\\Omega} = (\\beta_0, \\beta_1, \\sigma^2, \\boldsymbol{\\Sigma})\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#conditional-specification-1",
+    "href": "slides/15-longitudinal.html#conditional-specification-1",
+    "title": "Longitudinal Data",
+    "section": "Conditional Specification",
+    "text": "Conditional Specification\n\nMoments for the Conditional Model:\n\n\\[\\begin{aligned}\n\\mathbb{E}[Y_{it} | \\boldsymbol{\\Omega},\\boldsymbol{\\theta}_i] &= (\\beta_0 + \\theta_{0i}) + (\\beta_1 + \\theta_{1i}) X_{it}\\\\\n\\mathbb{V}(Y_{it} | \\boldsymbol{\\Omega},\\boldsymbol{\\theta}_i) &= \\sigma^2\\\\\n\\mathbb{C}(Y_{it}, Y_{jt'} | \\boldsymbol{\\Omega},\\boldsymbol{\\theta}_i,\\boldsymbol{\\theta}_{t'}) &= 0,\\quad \\forall i,j,t,t'\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#conditional-specification-2",
+    "href": "slides/15-longitudinal.html#conditional-specification-2",
+    "title": "Longitudinal Data",
+    "section": "Conditional Specification",
+    "text": "Conditional Specification\n\nDefine \\(\\mathbf{Y}_i = (Y_{i1},\\ldots,Y_{in_i})\\) and \\(\\mathbf{Y} = (\\mathbf{Y}_1,\\ldots,\\mathbf{Y}_n)\\).\nThe posterior for the conditional model can be written as:\n\n\\[\\begin{aligned}\nf(\\boldsymbol{\\Omega}, \\boldsymbol{\\theta} | \\mathbf{Y}) &\\propto f(\\mathbf{Y}, \\boldsymbol{\\Omega}, \\boldsymbol{\\theta})\\\\\n&= f(\\mathbf{Y} | \\boldsymbol{\\Omega}, \\boldsymbol{\\theta}) f(\\boldsymbol{\\theta} | \\boldsymbol{\\Omega})f(\\boldsymbol{\\Omega})\\\\\n&=  \\prod_{i=1}^n \\prod_{t = 1}^{n_i} f(Y_{it} | \\boldsymbol{\\Omega}, \\boldsymbol{\\theta})  \\prod_{i=1}^n f(\\boldsymbol{\\theta}_i | \\boldsymbol{\\Sigma}) f(\\boldsymbol{\\Omega}),\n\\end{aligned}\\] where \\(\\boldsymbol{\\theta} = (\\boldsymbol{\\theta}_1,\\ldots,\\boldsymbol{\\theta}_n)\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#marginal-specification",
+    "href": "slides/15-longitudinal.html#marginal-specification",
+    "title": "Longitudinal Data",
+    "section": "Marginal Specification",
+    "text": "Marginal Specification\nThe LMM model is given by:\n\\[\\mathbf{Y}_i = \\mathbf{X}_i \\boldsymbol{\\beta} + \\mathbf{Z}_i \\boldsymbol{\\theta}_i + \\boldsymbol{\\epsilon}_i, \\quad \\boldsymbol{\\epsilon}_i \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0}_{n_i}, \\sigma^2 \\mathbf{I}_{n_i}).\\]\n\nMoments for the Marginal Model:\n\n\\[\\begin{aligned}\n\\mathbb{E}[\\mathbf{Y}_{i} | \\boldsymbol{\\Omega}] &= \\mathbf{X}_i\\boldsymbol{\\beta}\\\\\n\\mathbb{V}(\\mathbf{Y}_{i} | \\boldsymbol{\\Omega}) &= \\mathbf{Z}_i \\boldsymbol{\\Sigma} \\mathbf{Z}_i^\\top + \\sigma^2 \\mathbf{I}_{n_i} = \\boldsymbol{\\Upsilon}_i\\\\\n\\mathbb{C}(\\mathbf{Y}_{i}, \\mathbf{Y}_{i'} | \\boldsymbol{\\Omega}) &= \\mathbf{0}_{n_i \\times n_i},\\quad i \\neq i'.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#marginal-specification-1",
+    "href": "slides/15-longitudinal.html#marginal-specification-1",
+    "title": "Longitudinal Data",
+    "section": "Marginal Specification",
+    "text": "Marginal Specification\nFor \\(i = 1,\\ldots,n\\), \\[\\begin{aligned}\n\\mathbf{Y}_{i} | \\boldsymbol{\\Omega} &\\stackrel{ind}{\\sim} N(\\mathbf{X}_i\\boldsymbol{\\beta},\\boldsymbol{\\Upsilon}_i)\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\n\\end{aligned}\\] where \\(\\boldsymbol{\\Omega} = (\\boldsymbol{\\beta},\\sigma,\\boldsymbol{\\Sigma})\\) are the population parameters."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#recovering-the-subject-specific-parameters",
+    "href": "slides/15-longitudinal.html#recovering-the-subject-specific-parameters",
+    "title": "Longitudinal Data",
+    "section": "Recovering the Subject-Specific Parameters",
+    "text": "Recovering the Subject-Specific Parameters\n\nWe can still recover the \\(\\boldsymbol{\\theta}_i\\) when we fit the marginal model, we only need to compute \\(f(\\boldsymbol{\\theta}_i | \\mathbf{Y}_i,\\boldsymbol{\\Omega})\\) for all \\(i\\).\nWe can obtain this full conditional by specifying the joint distribution,\n\n\\[f\\left(\\begin{bmatrix}\n    \\mathbf{Y}_i\\\\\n    \\boldsymbol{\\theta}_i\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega}\\right) = N\\left(\\begin{bmatrix}\n    \\mathbf{X}_i \\boldsymbol{\\beta} \\\\\n    \\mathbf{0}_{n_1}\n  \\end{bmatrix}, \\begin{bmatrix}\n    \\boldsymbol{\\Upsilon}_i & \\mathbf{Z}_i\\boldsymbol{\\Sigma}\\\\\n    \\boldsymbol{\\Sigma} \\mathbf{Z}_i^\\top & \\boldsymbol{\\Sigma}\n  \\end{bmatrix}\\right).\\]\nWe can then use the conditional specification of a multivariate normal to find, \\(f(\\boldsymbol{\\theta}_i | \\mathbf{Y}_i, \\boldsymbol{\\Omega}) = N(\\mathbb{E}_{\\boldsymbol{\\theta}_i},\\mathbb{V}_{\\boldsymbol{\\theta}_i})\\), where\n\\[\\begin{aligned}\n\\mathbb{E}_{\\boldsymbol{\\theta}_i} &= \\mathbf{0}_{n_i} + \\boldsymbol{\\Sigma} \\mathbf{Z}_i^\\top \\boldsymbol{\\Upsilon}_i^{-1} (\\mathbf{Y}_i - \\mathbf{X}_i \\boldsymbol{\\beta})\\\\\n\\mathbb{V}_{\\boldsymbol{\\theta}_i} &= \\boldsymbol{\\Sigma} - \\boldsymbol{\\Sigma} \\mathbf{Z}_i^\\top \\boldsymbol{\\Upsilon}_i^{-1} \\mathbf{Z}_i\\boldsymbol{\\Sigma}.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#marginal-specification-2",
+    "href": "slides/15-longitudinal.html#marginal-specification-2",
+    "title": "Longitudinal Data",
+    "section": "Marginal Specification",
+    "text": "Marginal Specification\nIt is not as straightforward to gain intuition behind the induced correlation structure, but we can shed some light by studying the scalar form of the covariance:\n\\[\\begin{aligned}\n\\mathbb{V}(Y_{it}| \\boldsymbol{\\Omega}) &= \\tau_0^2 + 2 \\tau_{01} X_{it}^2 + \\tau_1^2 X_{it}^2 + \\sigma^2,\\\\\n\\mathbb{C}(Y_{it}, Y_{it'} | \\boldsymbol{\\Omega}) &= \\tau_0^2 - \\rho \\tau_0 \\tau_1 (X_{it} - X_{it'}) + \\tau_1^2 X_{it} X_{it'}.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#visualizing-the-dependency",
+    "href": "slides/15-longitudinal.html#visualizing-the-dependency",
+    "title": "Longitudinal Data",
+    "section": "Visualizing the dependency",
+    "text": "Visualizing the dependency\n\\(\\tau_0 = 1,\\tau_1 = 1,\\sigma^2 =2, \\rho = 0.5\\)"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#visualizing-the-dependency-1",
+    "href": "slides/15-longitudinal.html#visualizing-the-dependency-1",
+    "title": "Longitudinal Data",
+    "section": "Visualizing the dependency",
+    "text": "Visualizing the dependency\n\\(\\tau_0 = 1,\\tau_1 = 1,\\sigma^2 =2, \\rho = -0.5\\)"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#marginal-specification-3",
+    "href": "slides/15-longitudinal.html#marginal-specification-3",
+    "title": "Longitudinal Data",
+    "section": "Marginal Specification",
+    "text": "Marginal Specification\n\nThe posterior for the conditional model can be written as:\n\n\\[\\begin{aligned}\nf(\\boldsymbol{\\Omega} | \\mathbf{Y}) &\\propto f(\\mathbf{Y}, \\boldsymbol{\\Omega})\\\\\n&= f(\\mathbf{Y} | \\boldsymbol{\\Omega})f(\\boldsymbol{\\Omega})\\\\\n&=  \\prod_{i=1}^n f(\\mathbf{Y}_{i} | \\boldsymbol{\\Omega}) f(\\boldsymbol{\\Omega}).\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#specifying-a-prior-distribution-for-boldsymbolomega",
+    "href": "slides/15-longitudinal.html#specifying-a-prior-distribution-for-boldsymbolomega",
+    "title": "Longitudinal Data",
+    "section": "Specifying a Prior Distribution for \\(\\boldsymbol{\\Omega}\\)",
+    "text": "Specifying a Prior Distribution for \\(\\boldsymbol{\\Omega}\\)\n\nWe must set a prior for \\(f(\\boldsymbol{\\Omega}) = f(\\boldsymbol{\\beta}) f(\\sigma) f(\\boldsymbol{\\Sigma})\\).\nWe can place standard priors on \\(\\boldsymbol{\\beta}\\) and \\(\\sigma\\).\n\\(\\boldsymbol{\\Sigma}\\) is a covariance (i.e., positive definite matrix), so we must be careful here.\nIt is natural to place a prior on the decomposition, \\(\\boldsymbol{\\Sigma} = \\mathbf{D} \\mathbf{L} \\mathbf{L}^\\top \\mathbf{D}\\).\n\nFor each of the standard deviations \\((\\tau_0,\\tau_1)\\) we can place standard priors for scales (e.g., half-normal).\nFor \\(\\mathbf{L}\\) we can place a Lewandowski-Kurowicka-Joe (LKJ) distribution, \\(\\mathbf{L} \\sim LKJ(\\eta)\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#what-does-the-lkj-prior-do",
+    "href": "slides/15-longitudinal.html#what-does-the-lkj-prior-do",
+    "title": "Longitudinal Data",
+    "section": "What Does the LKJ Prior Do?",
+    "text": "What Does the LKJ Prior Do?\n\nThe LKJ prior allows you to model the correlation structure in a flexible and non-informative way.\nIt is defined by a single parameter, \\(\\eta &gt; 0\\), which controls the concentration of the prior.\n\nWhen \\((\\eta = 1)\\), it is an uninformative prior (i.e., uniform on the correlations).\nWhen \\((\\eta &gt; 1)\\), the prior favors more highly correlated random effects.\nWhen \\((\\eta &lt; 1)\\), the prior favors weaker correlations.\n\nWhen \\(q=2\\), \\(\\eta = 1\\) is equivalent to \\(\\rho \\sim \\text{Uniform}(-1,1)\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#lkj-prior-formula",
+    "href": "slides/15-longitudinal.html#lkj-prior-formula",
+    "title": "Longitudinal Data",
+    "section": "LKJ Prior Formula",
+    "text": "LKJ Prior Formula\n\nThe LKJ prior on a correlation matrix \\(\\mathbf{L}\\) is given by:\n\n\\[f(\\mathbf{L} | \\eta) \\propto \\prod_{j = 2}^q L_{jj}^{q-j+2\\eta-2}.\\]\nWhere:\n\n\\(\\eta\\) is the concentration parameter.\n\\(q\\) is the size of the correlation matrix.\n\\(L_{jk}\\) is the observation in the \\(j\\)th row and \\(k\\)th column of \\(\\mathbf{L}\\)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#lkj-prior-in-stan",
+    "href": "slides/15-longitudinal.html#lkj-prior-in-stan",
+    "title": "Longitudinal Data",
+    "section": "LKJ Prior in Stan",
+    "text": "LKJ Prior in Stan\n\nparameters {\n  cholesky_factor_corr[2] L;  // Cholesky factor of correlation matrix\n}\nmodel {\n  L ~ lkj_corr_cholesky(eta);\n}"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#stan-code-for-independent-intercept-and-slope",
+    "href": "slides/15-longitudinal.html#stan-code-for-independent-intercept-and-slope",
+    "title": "Longitudinal Data",
+    "section": "Stan code for independent intercept and slope",
+    "text": "Stan code for independent intercept and slope\n\n// lmm-independent.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; N;\n  vector[N] Time;\n  vector[N] MD;\n  int&lt;lower = 1, upper = n&gt; Ids[N];\n}\nparameters {\n  real beta0;\n  real beta1;\n  real&lt;lower = 0&gt; sigma;\n  vector[n] z0;\n  vector[n] z1;\n  real&lt;lower = 0&gt; tau0;\n  real&lt;lower = 0&gt; tau1;\n}\ntransformed parameters {\n  vector[n] theta0;\n  vector[n] theta1;\n  theta0 = tau0 * z0;\n  theta1 = tau1 * z1;\n}\nmodel {\n  // likelihood\n  vector[N] mu;\n  for (i in 1:N) {\n    mu[i] = (beta0 + theta0[Ids[i]]) + (beta1 + theta1[Ids[i]]) * Time[i];\n  }\n  target += normal_lpdf(MD | mu, sigma);\n  // subject-specific parameters\n  target += std_normal_lpdf(z0);\n  target += std_normal_lpdf(z1);\n  // population parameters\n  target += normal_lpdf(beta0 | 0, 3);\n  target += normal_lpdf(beta1 | 0, 3);\n  target += normal_lpdf(sigma | 0, 3);\n  target += normal_lpdf(tau0 | 0, 3);\n  target += normal_lpdf(tau1 | 0, 3);\n}"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#stan-code-for-conditional-lmm",
+    "href": "slides/15-longitudinal.html#stan-code-for-conditional-lmm",
+    "title": "Longitudinal Data",
+    "section": "Stan code for conditional LMM",
+    "text": "Stan code for conditional LMM\n\n// lmm-conditional.stan\ndata {\n  int&lt;lower = 1&gt; N;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1&gt; q;\n  matrix[N, p] X;\n  matrix[N, q] Z;\n  vector[N] Y;\n  int&lt;lower = 1, upper = n&gt; Ids[N];\n  real&lt;lower = 0&gt; eta;\n}\nparameters {\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  matrix[q, n] z;\n  vector&lt;lower = 0&gt;[q] tau;\n  cholesky_factor_corr[q] L;\n}\ntransformed parameters {\n  matrix[q, n] theta;\n  theta = diag_pre_multiply(tau, L) * z;\n}\nmodel {\n  // likelihood\n  vector[N] mu;\n  for (i in 1:N) {\n    mu[i] = X[i, ] * beta + Z[i, ] * theta[, Ids[i]];\n  }\n  target += normal_lpdf(Y | mu, sigma);\n  // subject-specific parameter\n  target += std_normal_lpdf(to_vector(z));\n  // population parameters\n  target += normal_lpdf(beta | 0, 3);\n  target += normal_lpdf(sigma | 0, 3);\n  target += normal_lpdf(tau | 0, 3);\n  target += lkj_corr_cholesky_lpdf(L | eta);\n}\ngenerated quantities {\n  corr_matrix[q] Phi = L * transpose(L);\n  real rho = Phi[1, 2];\n  vector[n] subject_intercepts = beta[1] + to_vector(theta[1, ]);\n  vector[n] subject_slopes = beta[2] + to_vector(theta[2, ]);\n  vector[N] Y_pred;\n  vector[N] log_lik;\n  vector[N] mu;\n  for (i in 1:N) {\n    mu[i] = X[i, ] * beta + Z[i, ] * theta[, Ids[i]];\n    Y_pred[i] = normal_rng(mu[i], sigma);\n    log_lik[i] = normal_lpdf(Y[i] | mu[i], sigma);\n  }\n}"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#stan-code-for-marginal-lmm",
+    "href": "slides/15-longitudinal.html#stan-code-for-marginal-lmm",
+    "title": "Longitudinal Data",
+    "section": "Stan code for marginal LMM",
+    "text": "Stan code for marginal LMM\nNeed ragged data structure.\n\n// lmm-marginal.stan\ndata {\n  int&lt;lower = 1&gt; N;\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 1&gt; q;\n  matrix[N, p] X;\n  matrix[N, q] Z;\n  vector[N] Y;\n  int&lt;lower = 1&gt; n_is[n];\n  real&lt;lower = 0&gt; eta;\n}\nparameters {\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector&lt;lower = 0&gt;[q] tau;\n  cholesky_factor_corr[q] L;\n}\ntransformed parameters {\n  cov_matrix[q] Sigma;\n  Sigma = diag_pre_multiply(tau, L) * transpose(diag_pre_multiply(tau, L));\n}\nmodel {\n  // evaluate the likelihood for the marginal model using ragged data structure\n  int pos;\n  pos = 1;\n  for (i in 1:n) {\n    int n_i = n_is[i];\n    vector[n_i] Y_i = segment(Y, pos, n_i);\n    matrix[n_i, p] X_i;\n    matrix[n_i, q] Z_i;\n    for (j in 1:p) X_i[, j] = segment(X[, j], pos, n_i);\n    for (j in 1:q) Z_i[, j] = segment(Z[, j], pos, n_i);\n    vector[n_i] mu_i = X_i * beta;\n    matrix[n_i, n_i] Upsilon_i = (sigma * sigma) * diag_matrix(rep_vector(1.0, n_i)) + Z_i * Sigma * transpose(Z_i);\n    target += multi_normal_lpdf(Y_i | mu_i, Upsilon_i);\n    pos = pos + n_i;\n  }\n  // population parameters\n  target += normal_lpdf(beta | 0, 3);\n  target += normal_lpdf(sigma | 0, 3);\n  target += normal_lpdf(tau | 0, 3);\n  target += lkj_corr_cholesky_lpdf(L | eta);\n}\ngenerated quantities {\n  corr_matrix[q] Phi = L * transpose(L);\n  real rho = Phi[1, 2];\n  matrix[q, n] theta;\n  int pos;\n  pos = 1;\n  for (i in 1:n) {\n    int n_i = n_is[i];\n    vector[n_i] Y_i = segment(Y, pos, n_i);\n    matrix[n_i, p] X_i;\n    matrix[n_i, q] Z_i;\n    for (j in 1:p) X_i[, j] = segment(X[, j], pos, n_i);\n    for (j in 1:q) Z_i[, j] = segment(Z[, j], pos, n_i);\n    vector[n_i] mu_i = X_i * beta;\n    matrix[q, n_i] M = Sigma * transpose(Z_i) * inverse_spd(Z_i * Sigma * transpose(Z_i) + (sigma * sigma) * diag_matrix(rep_vector(1.0, n_i)));\n    vector[q] mean_theta_i = M * (Y_i - mu_i);\n    matrix[q, q] cov_theta_i = Sigma - M * Z_i * Sigma;\n    theta[, i] = multi_normal_rng(mean_theta_i, cov_theta_i);\n    pos = pos + n_i;\n  }\n  vector[n] subject_intercepts = beta[1] + to_vector(theta[1, ]);\n  vector[n] subject_slopes = beta[2] + to_vector(theta[2, ]);\n}"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#glaucoma-disease-progression-data",
+    "href": "slides/15-longitudinal.html#glaucoma-disease-progression-data",
+    "title": "Longitudinal Data",
+    "section": "Glaucoma Disease Progression Data",
+    "text": "Glaucoma Disease Progression Data\n\nglaucoma_longitudinal &lt;- readRDS(\"glaucoma_longitudinal.rds\")\nhead(glaucoma_longitudinal)\n\n\n\n  pat_id eye_id mean_deviation      time      age      iop\n1      1      1          -7.69 0.0000000 51.55616 10.87303\n2      1      1          -9.95 0.5753425 51.55616 10.87303\n3      1      1          -9.58 1.0547945 51.55616 10.87303\n4      1      1          -9.53 1.5726027 51.55616 10.87303\n5      1      1          -9.18 2.0136986 51.55616 10.87303\n6      1      1          -9.63 2.5671233 51.55616 10.87303\n\n\n\nlength(unique(glaucoma_longitudinal$eye_id))\n\n[1] 278\n\nnrow(glaucoma_longitudinal)\n\n[1] 4863"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#fitting-the-conditional-model-in-stan",
+    "href": "slides/15-longitudinal.html#fitting-the-conditional-model-in-stan",
+    "title": "Longitudinal Data",
+    "section": "Fitting the Conditional Model in Stan",
+    "text": "Fitting the Conditional Model in Stan\n\nX &lt;- model.matrix(~ time, data = glaucoma_longitudinal)\nstan_data &lt;- list(\n  N = nrow(glaucoma_longitudinal),\n  n = n_eyes,\n  p = ncol(X),\n  q = ncol(X),\n  X = X,\n  Z = X,\n  Y = glaucoma_longitudinal$mean_deviation,\n  Ids = glaucoma_longitudinal$eye_id,\n  eta = 1\n)\nlmm_conditional &lt;- stan_model(model_code = \"lmm-conditional.stan\")\nfit_lmm_conditional &lt;- sampling(lmm_conditional, stan_data, iter = 5000, pars = c(\"z\", \"theta\"), include = FALSE)"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#assessing-convergence",
+    "href": "slides/15-longitudinal.html#assessing-convergence",
+    "title": "Longitudinal Data",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(fit_lmm_conditional, pars = c(\"beta\", \"sigma\", \"tau\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#assessing-convergence-1",
+    "href": "slides/15-longitudinal.html#assessing-convergence-1",
+    "title": "Longitudinal Data",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nlibrary(bayesplot)\nbayesplot::mcmc_acf(fit_lmm_conditional, regex_pars = c(\"beta\", \"sigma\", \"tau\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#posterior-summaries",
+    "href": "slides/15-longitudinal.html#posterior-summaries",
+    "title": "Longitudinal Data",
+    "section": "Posterior Summaries",
+    "text": "Posterior Summaries\n\nprint(fit_lmm_conditional, pars = c(\"beta\", \"sigma\", \"tau\", \"rho\"))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=5000; warmup=2500; thin=1; \npost-warmup draws per chain=2500, total post-warmup draws=10000.\n\n         mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nbeta[1] -8.19    0.04 0.47 -9.15 -8.50 -8.19 -7.86 -7.34   178 1.03\nbeta[2] -0.10    0.00 0.03 -0.16 -0.12 -0.10 -0.08 -0.05   778 1.00\nsigma    1.27    0.00 0.01  1.24  1.26  1.26  1.27  1.29 15569 1.00\ntau[1]   8.07    0.02 0.34  7.46  7.83  8.05  8.29  8.79   364 1.01\ntau[2]   0.44    0.00 0.02  0.40  0.42  0.44  0.45  0.48  2064 1.00\nrho     -0.27    0.00 0.06 -0.38 -0.31 -0.27 -0.23 -0.16   949 1.00\n\nSamples were drawn using NUTS(diag_e) at Tue Mar  4 15:18:54 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#fitting-the-marginal-model-in-stan",
+    "href": "slides/15-longitudinal.html#fitting-the-marginal-model-in-stan",
+    "title": "Longitudinal Data",
+    "section": "Fitting the Marginal Model in Stan",
+    "text": "Fitting the Marginal Model in Stan\n\nX &lt;- model.matrix(~ time, data = glaucoma_longitudinal)\nstan_data &lt;- list(\n  N = nrow(glaucoma_longitudinal),\n  n = n_eyes,\n  p = ncol(X),\n  q = ncol(X),\n  X = X,\n  Z = X,\n  Y = glaucoma_longitudinal$mean_deviation,\n  n_is = as.numeric(table(glaucoma_longitudinal$eye_id)),\n  eta = 1\n)\nlmm_marginal &lt;- stan_model(model_code = \"lmm-marginal.stan\")\nfit_lmm_marginal &lt;- sampling(lmm_marginal, stan_data, iter = 5000)"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#assessing-convergence-2",
+    "href": "slides/15-longitudinal.html#assessing-convergence-2",
+    "title": "Longitudinal Data",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(fit_lmm_marginal, pars = c(\"beta\", \"sigma\", \"tau\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#assessing-convergence-3",
+    "href": "slides/15-longitudinal.html#assessing-convergence-3",
+    "title": "Longitudinal Data",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nlibrary(bayesplot)\nbayesplot::mcmc_acf(fit_lmm_marginal, regex_pars = c(\"beta\", \"sigma\", \"tau\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#posterior-summaries-1",
+    "href": "slides/15-longitudinal.html#posterior-summaries-1",
+    "title": "Longitudinal Data",
+    "section": "Posterior Summaries",
+    "text": "Posterior Summaries\n\nprint(fit_lmm_marginal, pars = c(\"beta\", \"sigma\", \"tau\", \"rho\"))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=5000; warmup=2500; thin=1; \npost-warmup draws per chain=2500, total post-warmup draws=10000.\n\n         mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nbeta[1] -8.23       0 0.47 -9.16 -8.55 -8.23 -7.92 -7.31 12896    1\nbeta[2] -0.10       0 0.03 -0.16 -0.12 -0.10 -0.08 -0.05 13230    1\nsigma    1.27       0 0.01  1.24  1.26  1.26  1.27  1.29 13937    1\ntau[1]   8.05       0 0.34  7.42  7.82  8.04  8.27  8.75 14264    1\ntau[2]   0.44       0 0.02  0.40  0.42  0.44  0.45  0.48 13997    1\nrho     -0.27       0 0.06 -0.38 -0.31 -0.28 -0.24 -0.16 12487    1\n\nSamples were drawn using NUTS(diag_e) at Tue Mar  4 11:31:23 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#comparing-lmm-versus-ols",
+    "href": "slides/15-longitudinal.html#comparing-lmm-versus-ols",
+    "title": "Longitudinal Data",
+    "section": "Comparing LMM versus OLS",
+    "text": "Comparing LMM versus OLS"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#comparing-lmm-versus-ols-1",
+    "href": "slides/15-longitudinal.html#comparing-lmm-versus-ols-1",
+    "title": "Longitudinal Data",
+    "section": "Comparing LMM versus OLS",
+    "text": "Comparing LMM versus OLS"
+  },
+  {
+    "objectID": "slides/15-longitudinal.html#prepare-for-next-class",
+    "href": "slides/15-longitudinal.html#prepare-for-next-class",
+    "title": "Longitudinal Data",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nExam 1 will be released after class!"
+  },
+  {
+    "objectID": "slides/16-gp.html#recalling-what-went-before-the-break",
+    "href": "slides/16-gp.html#recalling-what-went-before-the-break",
+    "title": "Gaussian Processes",
+    "section": "Recalling what went before the break",
+    "text": "Recalling what went before the break"
+  },
+  {
+    "objectID": "slides/16-gp.html#is-linear-fit-the-right-way",
+    "href": "slides/16-gp.html#is-linear-fit-the-right-way",
+    "title": "Gaussian Processes",
+    "section": "Is Linear Fit the Right Way?",
+    "text": "Is Linear Fit the Right Way?\nThere are various ways to fit a model to time-varying behavior of the curves."
+  },
+  {
+    "objectID": "slides/16-gp.html#a-brief-agenda",
+    "href": "slides/16-gp.html#a-brief-agenda",
+    "title": "Gaussian Processes",
+    "section": "A brief agenda",
+    "text": "A brief agenda\nBy the end of this lecture you should:\n\nUnderstand the basic concepts of Gaussian processes (GP) and their usefulness in statistical modeling.\nCompute posterior and predictive inference for a simple GP model.\nUse GP as a building block in modeling time-correlated data."
+  },
+  {
+    "objectID": "slides/16-gp.html#motivation",
+    "href": "slides/16-gp.html#motivation",
+    "title": "Gaussian Processes",
+    "section": "Motivation",
+    "text": "Motivation\nLet \\(i\\) index distinct eyes (\\(i=1,2,\\ldots,n\\)) and \\(t\\) index within-eye data in time (\\(t=1,2,\\ldots,n_i\\)).\nSuppose we are interested in effects of time-invariant predictors (age and iop):\n\\[Y_{it} = \\underbrace{\\mathbf{x}_i\\boldsymbol{\\beta}}_{\\text{Fixed in time}} + \\underbrace{\\eta_{it}}_{\\text{Varying in time}} + \\epsilon_{it}\\]\nIn a previous lecture, we included only time (\\(X_{it}\\)) and fit a random slope regression.\n\\[\\eta_{it} = \\theta_{0i} + \\underbrace{X_{it}}_{=Time}\\theta_{1i}.\\]\nWhat if we want a nonlinear model for time effects?"
+  },
+  {
+    "objectID": "slides/16-gp.html#specifying-basis-functions",
+    "href": "slides/16-gp.html#specifying-basis-functions",
+    "title": "Gaussian Processes",
+    "section": "Specifying basis functions",
+    "text": "Specifying basis functions\nLinear increase/decrease in time is too limited! What if their visual loss recovers, or fluctuates?\n\\[\\eta_{it} = \\theta_{0i} + \\sum_{k=1}^K X_{it}^{\\color{red} k}\\theta_{1i}^{(k)}.\\]"
+  },
+  {
+    "objectID": "slides/16-gp.html#bypassing-the-choice-of-bases",
+    "href": "slides/16-gp.html#bypassing-the-choice-of-bases",
+    "title": "Gaussian Processes",
+    "section": "Bypassing the choice of bases",
+    "text": "Bypassing the choice of bases\nChoosing the “right” type/number of bases is difficult (polynomials are usually not great choices).\nIn a continuous time, \\(\\eta_{it} = \\underbrace{\\eta_i}_{i-\\text{th function}}(t)\\) is useful:\n\nDifferent people/groups have observations spanning different grids.\nMakes easier the formulation of a prediction task: new time \\(t^{pred}\\) not in your dataset?\n\nCan we introduce a probabilistic model for a whole collection of random functions \\((\\eta_i)_{i=1}^{n}\\)?"
+  },
+  {
+    "objectID": "slides/16-gp.html#what-do-i-want-the-function-to-look-like",
+    "href": "slides/16-gp.html#what-do-i-want-the-function-to-look-like",
+    "title": "Gaussian Processes",
+    "section": "What do I want the function to look like?",
+    "text": "What do I want the function to look like?\nDenote by \\(f\\) a random function with mean zero. A distribution of a random function is determined by knowing every possible finite-dimensional marginals:\n\\[\\mathbf{f} = \\begin{pmatrix} f(t_{1})\\\\ \\vdots \\\\ f(t_{m}) \\end{pmatrix} {\\sim} N_{m}(\\mathbf{0},\\boldsymbol{\\Sigma}(t_1,\\ldots,t_m)),\\]\nwhere the \\(st\\)-th entry of the matrix is \\(= \\mathbb{C}[f(s), f(t)]\\) for a given covariance function \\(\\mathbb{C}\\).\nWe call such random function a Gaussian process."
+  },
+  {
+    "objectID": "slides/16-gp.html#what-are-my-prior-assumptions-about-the-covariance",
+    "href": "slides/16-gp.html#what-are-my-prior-assumptions-about-the-covariance",
+    "title": "Gaussian Processes",
+    "section": "What are my prior assumptions about the covariance?",
+    "text": "What are my prior assumptions about the covariance?\nIf I write that covariance as \\(C(t,s)\\), then we must decide what the function \\(C\\) looks like.\n\nHypothesis 1 : The marginal variability should stay the same.\nHypothesis 2 : Time correlation should decay in, and only depend on, the amount of time elapsed.\nHypothesis 3 : We have expectations about the span of correlation and smoothness of the process.\n\nThese are all a priori hypotheses. The data may come from something very different!"
+  },
+  {
+    "objectID": "slides/16-gp.html#stationary-gaussian-processes",
+    "href": "slides/16-gp.html#stationary-gaussian-processes",
+    "title": "Gaussian Processes",
+    "section": "Stationary Gaussian processes",
+    "text": "Stationary Gaussian processes\nBased on our considerations, let’s choose \\(C\\) that only depends on the lag between two time points.\n\\[\n\\mathbb{C}(f_s, f_t) = \\sigma^2 C(|s-t|).\n\\]\nWe want \\(C(0) = 1\\) and \\(C(h)\\to 0\\) as \\(h = |t-s|\\to\\infty\\).\nDifferent choices of \\(C\\) yields sampled functions with varying smoothness.\n\nExponential kernel: \\(C(h) = \\sigma^2\\exp(-h/\\rho)\\)\nSquare exponential kernel: \\(C(h) = \\sigma^2\\exp\\{-h^2/(2\\rho^2)\\}\\)\nMatérn kernels"
+  },
+  {
+    "objectID": "slides/16-gp.html#gaussian-process-covariance-functions-in-stan",
+    "href": "slides/16-gp.html#gaussian-process-covariance-functions-in-stan",
+    "title": "Gaussian Processes",
+    "section": "Gaussian Process Covariance Functions in Stan",
+    "text": "Gaussian Process Covariance Functions in Stan\nA list of available kernels is available here.\nThe squared exponential kernel (exponentiated quadratic kernel) is given by:\n\\[C(\\mathbf{x}_i,\\mathbf{x}_j) = \\sigma^2 \\exp\\left(-\\frac{|\\mathbf{x}_i - \\mathbf{x}_j|^2}{2\\rho^2}\\right)\\]\n\nmatrix gp_exp_quad_cov(array[] real x, real sigma, real length_scale)\n\nFor us, \\(\\mathbf{x}\\) is 1D (time)…but it does not have to be!"
+  },
+  {
+    "objectID": "slides/16-gp.html#prior-sampling-in-stan",
+    "href": "slides/16-gp.html#prior-sampling-in-stan",
+    "title": "Gaussian Processes",
+    "section": "Prior Sampling in Stan",
+    "text": "Prior Sampling in Stan\nOnce we have a GP model, sampling from the prior is equivalent to sampling from a multivariate normal.\n\ndata {\n  int&lt;lower=1&gt; N;\n  array[N] real x;\n  real&lt;lower=0&gt; sigma;\n  real&lt;lower=0&gt; l;\n}\ntransformed data {\n  // 0. A \"small nugget\" to stabilize matrix root computation\n  // This is for.better numerical stability in taking large matrix roots\n  real delta = 1e-9;\n\n  // 1. Compute the squared exponential kernel matrix\n  // x is the time variable\n  vector[N] mu = rep_vector(0, N);\n  matrix[N, N] R_C;\n  matrix[N, N] C = gp_exp_quad_cov(x, sigma, l);\n  for (i in 1:N) {\n    C[i, i] = C[i, i] + delta;\n  }\n\n  // 2. Compute the root of C by Cholesky decomposition\n  R_C = cholesky_decompose(C);\n}\ngenerated quantities {\n  // 3. Sample from the prior: multivariate_normal(0, C)\n  f ~ multi_normal_cholesky(mu, R_C)\n}"
+  },
+  {
+    "objectID": "slides/16-gp.html#visualizing-the-process",
+    "href": "slides/16-gp.html#visualizing-the-process",
+    "title": "Gaussian Processes",
+    "section": "Visualizing the process",
+    "text": "Visualizing the process"
+  },
+  {
+    "objectID": "slides/16-gp.html#default-prior-choices",
+    "href": "slides/16-gp.html#default-prior-choices",
+    "title": "Gaussian Processes",
+    "section": "Default Prior Choices",
+    "text": "Default Prior Choices\n\nWhen you have longitudinal data, there are theoretical justifications for using \\(\\rho^{-1} \\sim Gamma(5,5)\\).\nA priori the prior is concentrated around 1. For a prior mean, distance increase of 1 corrresponds to a multiplicative decay of correlation by \\(e^{-1}\\sim 37\\%\\).\nBeware of the units! A year correlation is very different from that over a day."
+  },
+  {
+    "objectID": "slides/16-gp.html#combining-gp-with-random-effects-regression",
+    "href": "slides/16-gp.html#combining-gp-with-random-effects-regression",
+    "title": "Gaussian Processes",
+    "section": "Combining GP with Random Effects Regression",
+    "text": "Combining GP with Random Effects Regression\nFor each \\(i\\)-th eye: time effect vector is given an independent prior based on the GP model.\n\\[\\boldsymbol{\\eta}_i = (\\eta_{i1},\\ldots,\\eta_{in_i})^\\top \\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0},\\mathbf{C}_i)\\]\nEach \\(\\eta_{it}\\) is a pointwise value of the process \\(\\eta_i(t) = \\eta_{it}\\).\n\\[\\mathbf{C}_i = \\begin{bmatrix}\nC(0) & C(|t_{i1}-t_{i2}|) & \\cdots & C(|t_{i1} - t_{in_i}|)\\\\\nC(|t_{i1} - t_{i2}|) & C(0) & \\cdots & C(|t_{i,2} - t_{in_i}|)\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\n\\end{bmatrix}\\]\nWe can use a squared-exponential kernel \\(C(|s-t|) = \\alpha^2e^{-|s-t|^2/2\\rho^2}\\) and also draw posterior samples of \\((\\alpha,\\rho)\\)."
+  },
+  {
+    "objectID": "slides/16-gp.html#the-full-model",
+    "href": "slides/16-gp.html#the-full-model",
+    "title": "Gaussian Processes",
+    "section": "The full model",
+    "text": "The full model\nFor \\(i\\) (\\(i = 1,\\ldots,n\\)) and \\(t\\) (\\(t = 1,\\ldots,n_i\\)),\n\\[\\begin{align*}\nY_{it} &= \\mathbf{x}_{i}\\boldsymbol{\\beta} + \\eta_{i}(t) + \\epsilon_{it}, \\quad \\epsilon_{it} \\stackrel{iid}{\\sim} N(0,\\sigma^2),\\\\\n\\boldsymbol{\\eta}_i &\\stackrel{ind}{\\sim} N_{n_i}(\\mathbf{0},\\mathbf{C}_i),\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}).\n\\end{align*}\\]\n\n\\(\\boldsymbol{\\Omega}\\) represents the population-level unknown parameters: \\((\\boldsymbol{\\beta},\\sigma^2,\\alpha,\\rho)\\)."
+  },
+  {
+    "objectID": "slides/16-gp.html#first-look-at-the-data",
+    "href": "slides/16-gp.html#first-look-at-the-data",
+    "title": "Gaussian Processes",
+    "section": "First Look at the Data",
+    "text": "First Look at the Data\n\nhead(dataset)\n\n  pat_id eye_id mean_deviation      time      age      iop\n1      1      1          -7.69 0.0000000 51.55616 10.87303\n2      1      1          -9.95 0.5753425 51.55616 10.87303\n3      1      1          -9.58 1.0547945 51.55616 10.87303\n4      1      1          -9.53 1.5726027 51.55616 10.87303\n5      1      1          -9.18 2.0136986 51.55616 10.87303\n6      1      1          -9.63 2.5671233 51.55616 10.87303"
+  },
+  {
+    "objectID": "slides/16-gp.html#model-specification",
+    "href": "slides/16-gp.html#model-specification",
+    "title": "Gaussian Processes",
+    "section": "Model Specification",
+    "text": "Model Specification\nWe want to fit a model estimating the effects of age and iop on mean deviation, adjusting for nonlinear time effects:\n\\[\\begin{align*}\nY_{it} &= \\underbrace{\\beta_0 + \\text{age}_i\\beta_1 + \\text{iop}_i\\beta_2}_{=\\mathbf{x}_{i}\\boldsymbol{\\beta}} + \\eta_{it} + \\epsilon_{it}\\\\\n\\boldsymbol{\\eta}_i &= \\begin{bmatrix} \\eta_{i1}\\\\ \\vdots\\\\ \\eta_{in_i} \\end{bmatrix} \\stackrel{iid}{\\sim} N(0,\\mathbf{C}_i)\\\\\n\\epsilon_{it} &\\stackrel{iid}{\\sim} N(0,\\sigma^2)\n\\end{align*}\\]\nOur model for \\(\\eta_{it}\\) is nonlinear in time: time enters the covariance structure of \\(\\mathbf{C}_i\\) producing a function \\(\\eta_i(t) = \\eta_{it}\\)."
+  },
+  {
+    "objectID": "slides/16-gp.html#preparing-the-data",
+    "href": "slides/16-gp.html#preparing-the-data",
+    "title": "Gaussian Processes",
+    "section": "Preparing the Data",
+    "text": "Preparing the Data\nA few data processing steps are needed to handle the data structure with more ease.\n\n\\(N\\) will denote the number of all observations: \\(N = \\sum_{i=1}^{n} n_i\\).\n\\(n\\) will denote the total number of eyes.\n\\(p\\) will denote the number of predictors fixed across time (\\(p=3\\): intercept, slopes for age and iop).\nA separate vector of the number of observations (\\(n_i\\)) for each eye will be stored as s."
+  },
+  {
+    "objectID": "slides/16-gp.html#preparing-the-data-1",
+    "href": "slides/16-gp.html#preparing-the-data-1",
+    "title": "Gaussian Processes",
+    "section": "Preparing the Data",
+    "text": "Preparing the Data\n\nlibrary(dplyr)\n\n# Group predictors fixed across time\nfixed_df &lt;- dataset %&gt;% \n  group_by(eye_id) %&gt;% \n  reframe(age = unique(age), iop = unique(iop))\nXmat &lt;- model.matrix(~age + iop, data = fixed_df)\n\n# Number of measurements for each eye\ngroupsizes &lt;- dataset %&gt;% \n  group_by(eye_id) %&gt;% \n  summarise(n = n()) %&gt;% \n  pull(n)\n\nstan_data &lt;- list(\n  N = dim(dataset)[1],\n  n = max(dataset$eye_id),\n  p = dim(Xmat)[2],\n  t = dataset$time,\n  Y = dataset$mean_deviation,\n  s = groupsizes,\n  X = Xmat\n)"
+  },
+  {
+    "objectID": "slides/16-gp.html#conditional-gp-model",
+    "href": "slides/16-gp.html#conditional-gp-model",
+    "title": "Gaussian Processes",
+    "section": "Conditional GP Model",
+    "text": "Conditional GP Model\n\ndata {\n  int&lt;lower=0&gt; N;       // total number of observations\n  int&lt;lower=1&gt; n;       // number of eyes\n  int&lt;lower=1&gt; p;       // fixed effects dimension\n  vector[N] Y;          // observation\n  matrix[n, p] X;        // fixed effects predictors\n  array[N] real t;      // obs time points\n  array[n] int s;       // sizes of within-pt obs\n}\ntransformed data {\n  real delta = 1e-9;\n}\nparameters {\n  // Fixed effects model\n  vector[p] beta;\n  real&lt;lower=0&gt; sigma;\n  // GP parameters\n  vector[N] eta;\n  real&lt;lower=0&gt; alpha;\n  real&lt;lower=0&gt; rho;\n}\ntransformed parameters {\n  vector[n] mu = X * beta;\n}\nmodel {\n  beta ~ normal(0,3);\n  z ~ std_normal();\n  alpha ~ std_normal();\n  sigma ~ std_normal();\n  rho ~ inv_gamma(5,5);\n\n  vector[N] mu_rep;\n  vector[N] eta;\n  \n  int pos;\n  pos = 1;\n  // Ragged loop computing the mean for each time obs\n  for (i in 1:n) {\n    // GP covariance for the k-th eye\n    int n_i = s[i];\n    int pos_end = pos + n_i - 1;\n    matrix[n_i, n_i] R_C;\n    matrix[n_i, n_i] C = gp_exp_quad_cov(segment(t, pos, n_i), alpha, rho);\n    for (j in 1:n_i) {\n      // adding a small term to the diagonal entries\n      C[j, j] = C[j, j] + delta;\n    }\n    R_C = cholesky_decompose(C);\n    \n    // Mean of data at each time\n    mu_rep[pos:pos_end] = rep_vector(mu[i], n_i);\n    // GP for the i-th eye\n    eta[pos:pos_end] = R_C * segment(z, pos, n_i);\n    pos = pos_end + 1;\n  }\n  // Normal observation model centered at mu_rep + eta\n  Y ~ normal(mu_rep + eta, sigma);\n}"
+  },
+  {
+    "objectID": "slides/16-gp.html#assessing-convergence",
+    "href": "slides/16-gp.html#assessing-convergence",
+    "title": "Gaussian Processes",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(gp_condl_fit, pars = c(\"beta\", \"sigma\", \"alpha\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/16-gp.html#assessing-convergence-1",
+    "href": "slides/16-gp.html#assessing-convergence-1",
+    "title": "Gaussian Processes",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nbayesplot::mcmc_acf(gp_condl_fit, regex_pars = c(\"beta\", \"sigma\", \"alpha\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/16-gp.html#marginal-model-specification",
+    "href": "slides/16-gp.html#marginal-model-specification",
+    "title": "Gaussian Processes",
+    "section": "Marginal Model Specification",
+    "text": "Marginal Model Specification\nThe conditional model is pretty slow (can be improved) and results in poor mixing (can be run longer). Marginalizing the random effect can stabilize the computation.\nIn vector notation, our observation model for the \\(i\\)-th eye is\n\\[\n\\mathbf{Y}_i = \\begin{bmatrix} Y_{i1}\\\\ \\vdots \\\\ Y_{in_i} \\end{bmatrix}\n= \\mathbf{x}_i\\boldsymbol{\\beta} + \\boldsymbol{\\eta}_i + \\boldsymbol{\\epsilon}_i\n\\] By marginalizing out \\(\\boldsymbol{\\eta}_i\\), we obtain\n\\[\n\\mathbf{Y}_i \\sim N_{n_i}(\\mathbf{x}_i\\boldsymbol{\\beta},\\mathbf{C}_i + \\sigma^2\\mathbf{I}_{n_i})\n\\]"
+  },
+  {
+    "objectID": "slides/16-gp.html#fitting-a-marginal-model",
+    "href": "slides/16-gp.html#fitting-a-marginal-model",
+    "title": "Gaussian Processes",
+    "section": "Fitting a Marginal Model",
+    "text": "Fitting a Marginal Model\nOnly the model segment has to be changed.\n\nmodel {\n  beta ~ normal(0,3);\n  alpha ~ std_normal();\n  sigma ~ std_normal();\n  rho ~ inv_gamma(5,5);\n\n  int pos;\n  pos = 1;\n  // Ragged loop computing joint likelihood for each eye\n  for (i in 1:n) {\n    // GP covariance for the k-th eye\n    int n_i = s[i];\n    vector[n_i] mu_rep;\n    \n    matrix[n_i, n_i] R_C;\n    matrix[n_i, n_i] C = gp_exp_quad_cov(segment(t, pos, n_i), alpha, rho);\n    for (j in 1:n_i) {\n      // Add noise variance to the diagonal entries\n      C[j, j] = C[j, j] + square(sigma);\n    }\n    R_C = cholesky_decompose(C);\n    // Marginal model for the i-th eye\n    mu_rep = rep_vector(mu[i], n_i);\n    target += multi_normal_cholesky_lpdf(to_vector(segment(Y, pos, n_i)) | mu_rep, R_C);\n    pos = pos + n_i;\n  }\n}"
+  },
+  {
+    "objectID": "slides/16-gp.html#assessing-convergence-2",
+    "href": "slides/16-gp.html#assessing-convergence-2",
+    "title": "Gaussian Processes",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\ntraceplot(gp_marginal_fit, pars = c(\"beta\", \"sigma\", \"alpha\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/16-gp.html#assessing-convergence-3",
+    "href": "slides/16-gp.html#assessing-convergence-3",
+    "title": "Gaussian Processes",
+    "section": "Assessing Convergence",
+    "text": "Assessing Convergence\n\nbayesplot::mcmc_acf(gp_marginal_fit, regex_pars = c(\"beta\", \"sigma\", \"alpha\", \"rho\"))"
+  },
+  {
+    "objectID": "slides/16-gp.html#estimates-of-eye-level-predictors",
+    "href": "slides/16-gp.html#estimates-of-eye-level-predictors",
+    "title": "Gaussian Processes",
+    "section": "Estimates of eye-level Predictors",
+    "text": "Estimates of eye-level Predictors"
+  },
+  {
+    "objectID": "slides/16-gp.html#learned-gp-hyperparameter",
+    "href": "slides/16-gp.html#learned-gp-hyperparameter",
+    "title": "Gaussian Processes",
+    "section": "Learned GP hyperparameter",
+    "text": "Learned GP hyperparameter\n\nThe posterior mean of \\(\\rho\\) (in year) is very large: the pattern of mean deviation change is very gradual over time.\nA posteriori we believe mean deviations of an eye, 10 years apart and adjusted for age and iop, are still strongly correlated (\\(e^{-5/6}\\sim 43\\%\\))."
+  },
+  {
+    "objectID": "slides/16-gp.html#random-effects-covariance-structure-for-the-first-5-years",
+    "href": "slides/16-gp.html#random-effects-covariance-structure-for-the-first-5-years",
+    "title": "Gaussian Processes",
+    "section": "Random effects covariance structure for the first 5 years",
+    "text": "Random effects covariance structure for the first 5 years"
+  },
+  {
+    "objectID": "slides/16-gp.html#predictive-inference",
+    "href": "slides/16-gp.html#predictive-inference",
+    "title": "Gaussian Processes",
+    "section": "Predictive inference",
+    "text": "Predictive inference\nThe model is continuous in nature and defined, in principle, for all times. This is very convenient for visualiztion, interpolation, and forecasting.\n\\[\n\\mathbf{Y}_i = \\underbrace{\\mathbf{f}_{i}}_{ = \\mathbf{x}_{i}\\boldsymbol{\\beta} + \\boldsymbol{\\eta}_{i} } + \\boldsymbol{\\epsilon}_i\n\\]\nThe vector \\(\\mathbf{f}_{i}\\) may be interpreted as the denoised latent process of an eye-specific mean deviation over time: \\((f_{i1},\\ldots,f_{in_i})^\\top\\).\n\\[\n\\mathbb{E}[f_{it}] = \\mathbf{x}_i\\boldsymbol{\\beta},\\; \\mathbb{C}(f_{it}, f_{it'}) = \\mathbb{C}(\\eta_{it},\\eta_{it'})\n\\]"
+  },
+  {
+    "objectID": "slides/16-gp.html#predictive-inference-using-normal-conditioning",
+    "href": "slides/16-gp.html#predictive-inference-using-normal-conditioning",
+    "title": "Gaussian Processes",
+    "section": "Predictive Inference using Normal Conditioning",
+    "text": "Predictive Inference using Normal Conditioning\nSay \\(\\mathbf{f}^{pred}_i\\) is the values of \\(f_i\\) at \\(m_i\\) new time points which we want to predict, based on our GP model.\nKey is that the random effects at observed times and new prediction time points are not independent.\n\\[\\begin{align*}\n\\begin{pmatrix}\n\\mathbf{Y}_i \\\\ \\mathbf{f}^{pred}_i\n\\end{pmatrix}\n\\sim N_{n_i + m_i}\\left(\n\\begin{pmatrix}\n\\mathbf{x}_i\\boldsymbol{\\beta}\\\\\n\\mathbf{x}_i\\boldsymbol{\\beta}\n\\end{pmatrix},\n\\begin{pmatrix} \\mathbf{C}_i + \\sigma^2\\mathbf{I}_{n_i} & \\mathbf{k}_i^\\top \\\\ \\mathbf{k}_i & \\mathbf{C}^{pred}_i\\end{pmatrix}\n\\right),\n\\end{align*}\\] where \\(\\mathbf{k}_i = \\mathbb{C}(\\mathbf{f}^{pred}_i, \\mathbf{f}_i)\\) (“cross-covariances”).\nAn analytical formula exists for the conditional distribution of \\(\\mathbf{f}^{pred}\\) given observed \\(Y_{it}\\) at \\(n_i\\) time points.\n\\[\n\\mathbf{f}^{pred}_i | \\mathbf{Y}_i \\sim N\\left(\\mathbf{x}_i\\boldsymbol{\\beta} + \\mathbf{k}_i(\\mathbf{C}_i + \\sigma^2\\mathbf{I})^{-1}(\\mathbf{Y}_i - \\mathbf{x}_i\\boldsymbol{\\beta}), \\mathbf{C}_i^{pred}-\\mathbf{k}_i(\\mathbf{C}_i + \\sigma^2\\mathbf{I})^{-1}\\mathbf{k}_i^\\top\\right)\n\\]"
+  },
+  {
+    "objectID": "slides/16-gp.html#new-data-for-predictive-inference",
+    "href": "slides/16-gp.html#new-data-for-predictive-inference",
+    "title": "Gaussian Processes",
+    "section": "New Data for Predictive Inference",
+    "text": "New Data for Predictive Inference\nSuppose we are interested in understanding the mean deviation trend for the first 5 years from baseline (\\(t^{pred}\\in [0,5]\\)).\n\nstan_data &lt;- list(\n  N = dim(dataset)[1],\n  n = max(dataset$eye_id),\n  p = dim(Xmat)[2],\n  Y = dataset$mean_deviation,\n  t = dataset$time,\n  s = groupsizes,\n  X = Xmat,\n  # Time window for which we want predictive\n  t_pred = seq(0, 5, by = 0.25),\n  # Total length of this window\n  N_pred = 21\n)"
+  },
+  {
+    "objectID": "slides/16-gp.html#stan-implementation",
+    "href": "slides/16-gp.html#stan-implementation",
+    "title": "Gaussian Processes",
+    "section": "Stan Implementation",
+    "text": "Stan Implementation\nSee the Stan Help page for details.\n\nfunctions {\n  // Analytical formula for latent GP conditional on Gaussian observations\n  vector gp_pred_rng(array[] real x_pred,\n                     vector Y,\n                     array[] real x,\n                     real mu,\n                     real alpha,\n                     real rho,\n                     real sigma,\n                     real delta) {\n    int N1 = rows(Y);\n    int N2 = size(x_pred);\n    vector[N2] f_pred;\n    {\n      matrix[N1, N1] L_Sigma;\n      vector[N1] Sigma_div_y;\n      matrix[N1, N2] C_x_xpred;\n      matrix[N1, N2] v_pred;\n      vector[N2] fpred_mu;\n      matrix[N2, N2] cov_fpred;\n      matrix[N2, N2] diag_delta;\n      matrix[N1, N1] Sigma;\n      Sigma = gp_exp_quad_cov(x, alpha, rho);\n      for (n in 1:N1) {\n        Sigma[n, n] = Sigma[n, n] + square(sigma);\n      }\n      L_Sigma = cholesky_decompose(Sigma);\n      Sigma_div_y = mdivide_left_tri_low(L_Sigma, Y - mu);\n      Sigma_div_y = mdivide_right_tri_low(Sigma_div_y', L_Sigma)';\n      C_x_xpred = gp_exp_quad_cov(x, x_pred, alpha, rho);\n      fpred_mu = (C_x_xpred' * Sigma_div_y);\n      v_pred = mdivide_left_tri_low(L_Sigma, C_x_xpred);\n      cov_fpred = gp_exp_quad_cov(x_pred, alpha, rho) - v_pred' * v_pred;\n      diag_delta = diag_matrix(rep_vector(delta, N2));\n\n      f_pred = multi_normal_rng(fpred_mu, cov_fpred + diag_delta);\n    }\n    return f_pred;\n  }\n}\n//...\ngenerated quantities {\n  matrix[n,Np] f_pred;\n  matrix[Np,Np] Cp;\n  Cp = gp_exp_quad_cov(t_pred, alpha, rho);\n  // Posterior predictive on fixed time grid for all eyes\n  int pos;\n  pos = 1;\n  for (i in 1:n) {\n    int n_i = s[i];\n    f_pred[i,] = mu[i] + \n      gp_pred_rng(\n          t_pred,\n          segment(Y, pos, n_i),\n          segment(t, pos, n_i),\n          mu[i], \n          alpha,\n          rho,\n          sigma,\n          delta\n        )';\n    pos = pos + n_i;\n  }\n}"
+  },
+  {
+    "objectID": "slides/16-gp.html#visualizing-latent-effects-using-predictive-formulae",
+    "href": "slides/16-gp.html#visualizing-latent-effects-using-predictive-formulae",
+    "title": "Gaussian Processes",
+    "section": "Visualizing latent effects using predictive formulae",
+    "text": "Visualizing latent effects using predictive formulae"
+  },
+  {
+    "objectID": "slides/16-gp.html#stan-speed-concerns",
+    "href": "slides/16-gp.html#stan-speed-concerns",
+    "title": "Gaussian Processes",
+    "section": "Stan speed concerns",
+    "text": "Stan speed concerns\n\nGP is notorious for not being scalable. Tl;dr is the need for matrix root / inverse computation.\nFor datasets covered in this class, Stan works well. For research purposes, worth exploring other specialized toolkits.\n\n\nDo a bit of software research on Wikipedia\nCode MCMC yourself to make it faster (e.g., using Rcpp)\nScalable Approximations (Activee research area)"
+  },
+  {
+    "objectID": "slides/16-gp.html#a-summary",
+    "href": "slides/16-gp.html#a-summary",
+    "title": "Gaussian Processes",
+    "section": "A summary",
+    "text": "A summary\n\nGP is a flexible, high-dimensional model for handling correlated measurements over time.\nWith some basic knowledge about conditioning Gaussian random variables, we can implement posterior computation and prediction / interpolation.\nProgramming in Stan is straightforward but can be expensive with large number of observations."
+  },
+  {
+    "objectID": "slides/16-gp.html#prepare-for-next-class",
+    "href": "slides/16-gp.html#prepare-for-next-class",
+    "title": "Gaussian Processes",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 04\nHave a nice spring break!"
+  },
+  {
+    "objectID": "prepare/prepare-mar05.html",
+    "href": "prepare/prepare-mar05.html",
+    "title": "Prepare for March 5 lecture",
+    "section": "",
+    "text": "📖 Review the Longitudinal Data lecture slides.\n📖 Review BDA3 Chapter 21 to learn more about Gaussian process models."
   }
 ]

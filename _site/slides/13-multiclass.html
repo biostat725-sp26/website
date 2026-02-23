@@ -434,7 +434,7 @@ P(Y_i = k) &amp;= \frac{\exp\{\mathbf{x}_i\boldsymbol{\beta}_k\}}{1 + \sum_{j = 
 <span id="cb3-20"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
 <span id="cb3-21"><a></a>    <span class="kw">target +=</span> categorical_logit_lpmf(Y[i] | Xbeta[i]')</span>
 <span id="cb3-22"><a></a>  }</span>
-<span id="cb3-23"><a></a>  <span class="kw">target +=</span> normal_lpdf(to_vector(beta) | <span class="dv">0</span>, <span class="dv">10</span>);</span>
+<span id="cb3-23"><a></a>  <span class="kw">target +=</span> normal_lpdf(to_vector(beta_raw) | <span class="dv">0</span>, <span class="dv">10</span>);</span>
 <span id="cb3-24"><a></a>}</span>
 <span id="cb3-25"><a></a><span class="kw">generated quantities</span> {</span>
 <span id="cb3-26"><a></a>  <span class="dt">matrix</span>[p, K - <span class="dv">1</span>] ors = exp(beta_raw);</span>
