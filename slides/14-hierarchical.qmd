@@ -394,7 +394,7 @@ $$f\left(\begin{bmatrix}
     \mathbf{Y}_i\\
     \theta_i
   \end{bmatrix} \Bigg| \boldsymbol{\Omega}\right) = N\left(\begin{bmatrix}
-    \alpha \mathbf{1}_{n_i} + \mathbf{X}_i \boldsymbol{\beta} + \theta_i \mathbf{1}_{n_i} + \boldsymbol{\epsilon}_i\\
+    \alpha \mathbf{1}_{n_i} + \mathbf{X}_i \boldsymbol{\beta}\\
     0
   \end{bmatrix}, \begin{bmatrix}
     \boldsymbol{\Upsilon}_i & \tau^2 \mathbf{1}_{n_i}\\
