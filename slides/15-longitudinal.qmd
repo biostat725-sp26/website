@@ -70,7 +70,7 @@ Imagine we are tracking mean deviation (MD, dB), a key measure of visual field l
 
 -   We're interested in glaucoma progression, which is defined as the rate of change in MD over time (dB/year).
 
--   Define $Y_{it}$ as the MD value for eye $i$ ($i = 1,\ldots,n$) at time $t$ ($t = 1,\ldots,n_i$) and the time of each observation as $X_{it}$ with $X_{i0} = 0$.
+-   Define $Y_{it}$ as the MD value for eye $i$ ($i = 1,\ldots,n$) at time $t$ ($t = 1,\ldots,n_i$) and the time of each observation as $X_{it}$ with $X_{i1} = 0$.
 
 ## Rotterdam data
 
@@ -1017,4 +1017,4 @@ ggplot(dat_fig, aes(x = x, y = y)) +
 
 ## Prepare for next class
 
--   Exam 1 will be released after class! 
+-   Exam 1 will be released after class!

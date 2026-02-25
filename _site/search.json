@@ -4872,7 +4872,7 @@
     "href": "slides/15-longitudinal.html#example-glaucoma-disease-progression",
     "title": "Longitudinal Data",
     "section": "Example: Glaucoma Disease Progression",
-    "text": "Example: Glaucoma Disease Progression\nImagine we are tracking mean deviation (MD, dB), a key measure of visual field loss in glaucoma patients, over time.\n\nMultiple measurements of MD for each patient across several years.\nWe’re interested in glaucoma progression, which is defined as the rate of change in MD over time (dB/year).\nDefine \\(Y_{it}\\) as the MD value for eye \\(i\\) (\\(i = 1,\\ldots,n\\)) at time \\(t\\) (\\(t = 1,\\ldots,n_i\\)) and the time of each observation as \\(X_{it}\\) with \\(X_{i0} = 0\\)."
+    "text": "Example: Glaucoma Disease Progression\nImagine we are tracking mean deviation (MD, dB), a key measure of visual field loss in glaucoma patients, over time.\n\nMultiple measurements of MD for each patient across several years.\nWe’re interested in glaucoma progression, which is defined as the rate of change in MD over time (dB/year).\nDefine \\(Y_{it}\\) as the MD value for eye \\(i\\) (\\(i = 1,\\ldots,n\\)) at time \\(t\\) (\\(t = 1,\\ldots,n_i\\)) and the time of each observation as \\(X_{it}\\) with \\(X_{i1} = 0\\)."
   },
   {
     "objectID": "slides/15-longitudinal.html#rotterdam-data",
