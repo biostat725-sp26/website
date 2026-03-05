@@ -68,7 +68,7 @@ website:
           text: HW 02
         - href: hw/hw-03.qmd
           text: HW 03
-        - href: hw/hw-04-blank.qmd
+        - href: hw/hw-04.qmd
           text: HW 04
         - href: hw/hw-05-blank.qmd
           text: HW 05

@@ -99,7 +99,7 @@ Summarize the posterior distributions of the population parameters $\beta_0$ and
 
 ## Exercise 4
 
-Explore the correlation between eye-specific intercepts ($\beta_{0i}$) and slopes ($\beta_{1i}$). Create a scatter plot to examine their relationship. Does their appear to be a relationship? To help answer this question also create examine the posterior distribution for $\rho$ and comment on how it relates to the scatter plot.
+Explore the correlation between eye-specific intercepts ($\beta_{0i}$) and slopes ($\beta_{1i}$). Create a scatter plot to examine their relationship. Does their appear to be a relationship? To help answer this question also examine the posterior distribution for $\rho$ and comment on how it relates to the scatter plot.
 
 ## Exercise 5
 
