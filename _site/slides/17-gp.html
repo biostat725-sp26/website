@@ -210,7 +210,7 @@ Youngsoo Baek
 <section id="recalling-the-longitudinal-analysis" class="slide level2">
 <h2>Recalling the longitudinal analysis</h2>
 
-<img data-src="16-gp_files/figure-revealjs/plot_intro-1.png" width="960" class="r-stretch"></section>
+<img data-src="17-gp_files/figure-revealjs/plot_intro-1.png" width="960" class="r-stretch"></section>
 <section id="is-linear-fit-the-right-way" class="slide level2 small">
 <h2>Is Linear Fit the Right Way?</h2>
 <p>There are various ways to fit a model to time-varying behavior of the curves.</p>
@@ -218,14 +218,14 @@ Youngsoo Baek
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="16-gp_files/figure-revealjs/plot_smooth-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="17-gp_files/figure-revealjs/plot_smooth-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="16-gp_files/figure-revealjs/plot_smooth-2.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="17-gp_files/figure-revealjs/plot_smooth-2.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -254,7 +254,7 @@ Youngsoo Baek
 <p><strong>Linear increase/decrease in time is too limited!</strong> What if their visual loss recovers, or fluctuates?</p>
 <p><span class="math display">\[\eta_{it} = \theta_{0i} + \sum_{k=1}^K X_{it}^{\color{red} k}\theta_{1i}^{(k)}.\]</span></p>
 
-<img data-src="16-gp_files/figure-revealjs/poly-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<img data-src="17-gp_files/figure-revealjs/poly-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="bypassing-the-choice-of-bases" class="slide level2">
 <h2>Bypassing the choice of bases</h2>
 <p>Choosing the “right” type/number of bases is difficult (polynomials are usually not great choices).</p>
@@ -343,7 +343,7 @@ Youngsoo Baek
 <section id="visualizing-the-process" class="slide level2">
 <h2>Visualizing the process</h2>
 
-<img data-src="16-gp_files/figure-revealjs/sqexp_kernel-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<img data-src="17-gp_files/figure-revealjs/sqexp_kernel-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="default-prior-choices" class="slide level2 midi">
 <h2>Default Prior Choices</h2>
 <p><span class="math inline">\(\rho\)</span> determines the “natural length scale” of correlations between time.</p>
@@ -353,7 +353,7 @@ Youngsoo Baek
 <li><p>Beware of the units! A <strong>year</strong> correlation is very different from that over a <strong>day</strong>.</p></li>
 </ul>
 
-<img data-src="16-gp_files/figure-revealjs/prior_vis-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<img data-src="17-gp_files/figure-revealjs/prior_vis-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="combining-gp-with-random-effects-regression" class="slide level2 midi">
 <h2>Combining GP with Random Effects Regression</h2>
 <p>For each <span class="math inline">\(i\)</span>-th eye: time effect vector is given an independent prior based on the GP model.</p>
@@ -510,14 +510,14 @@ Y_{it} &amp;= \underbrace{\beta_0 + \text{age}_i\beta_1 + \text{iop}_i\beta_2}_{
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">traceplot</span>(gp_condl_fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"alpha"</span>, <span class="st">"rho"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="16-gp_files/figure-revealjs/traceplot1-1.png" width="960" class="r-stretch"></section>
+<img data-src="17-gp_files/figure-revealjs/traceplot1-1.png" width="960" class="r-stretch"></section>
 <section id="assessing-convergence-1" class="slide level2">
 <h2>Assessing Convergence</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>bayesplot<span class="sc">::</span><span class="fu">mcmc_acf</span>(gp_condl_fit, <span class="at">regex_pars =</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"alpha"</span>, <span class="st">"rho"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="16-gp_files/figure-revealjs/acf1-1.png" width="960" class="r-stretch"></section>
+<img data-src="17-gp_files/figure-revealjs/acf1-1.png" width="960" class="r-stretch"></section>
 <section id="marginal-model-specification" class="slide level2 midi">
 <h2>Marginal Model Specification</h2>
 <p>The conditional model is pretty slow (<em>can be improved</em>) and results in poor mixing (<em>can be run longer</em>). Marginalizing the random effect can stabilize the computation.</p>
@@ -569,18 +569,18 @@ Y_{it} &amp;= \underbrace{\beta_0 + \text{age}_i\beta_1 + \text{iop}_i\beta_2}_{
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">traceplot</span>(gp_marginal_fit, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"alpha"</span>, <span class="st">"rho"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="16-gp_files/figure-revealjs/traceplot2-1.png" width="960" class="r-stretch"></section>
+<img data-src="17-gp_files/figure-revealjs/traceplot2-1.png" width="960" class="r-stretch"></section>
 <section id="assessing-convergence-3" class="slide level2">
 <h2>Assessing Convergence</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>bayesplot<span class="sc">::</span><span class="fu">mcmc_acf</span>(gp_marginal_fit, <span class="at">regex_pars =</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"alpha"</span>, <span class="st">"rho"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="16-gp_files/figure-revealjs/acf2-1.png" width="960" class="r-stretch"></section>
+<img data-src="17-gp_files/figure-revealjs/acf2-1.png" width="960" class="r-stretch"></section>
 <section id="estimates-of-eye-level-predictors" class="slide level2">
 <h2>Estimates of eye-level Predictors</h2>
 
-<img data-src="16-gp_files/figure-revealjs/ols_comparison-1.png" width="960" class="r-stretch"></section>
+<img data-src="17-gp_files/figure-revealjs/ols_comparison-1.png" width="960" class="r-stretch"></section>
 <section id="learned-gp-hyperparameter" class="slide level2 midi">
 <h2>Learned GP hyperparameter</h2>
 <ul>
@@ -588,11 +588,11 @@ Y_{it} &amp;= \underbrace{\beta_0 + \text{age}_i\beta_1 + \text{iop}_i\beta_2}_{
 <li><p><em>A posteriori</em> we believe mean deviations of an eye, 10 years apart and adjusted for age and iop, are still strongly correlated (<span class="math inline">\(e^{-5/6}\sim 43\%\)</span>).</p></li>
 </ul>
 
-<img data-src="16-gp_files/figure-revealjs/post_vis-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="17-gp_files/figure-revealjs/post_vis-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="random-effects-covariance-structure-for-the-first-5-years" class="slide level2">
 <h2>Random effects covariance structure for the first 5 years</h2>
 
-<img data-src="16-gp_files/figure-revealjs/cov_heatmap-1.png" width="960" class="r-stretch"></section>
+<img data-src="17-gp_files/figure-revealjs/cov_heatmap-1.png" width="960" class="r-stretch"></section>
 <section id="predictive-inference" class="slide level2">
 <h2>Predictive inference</h2>
 <p>The model is <em>continuous</em> in nature and defined, in principle, for all times. This is very convenient for visualiztion, interpolation, and forecasting.</p>
@@ -717,7 +717,7 @@ Y_{it} &amp;= \underbrace{\beta_0 + \text{age}_i\beta_1 + \text{iop}_i\beta_2}_{
 <section id="visualizing-latent-effects-using-predictive-formulae" class="slide level2">
 <h2>Visualizing latent effects using predictive formulae</h2>
 
-<img data-src="16-gp_files/figure-revealjs/predictive-1.png" width="960" class="r-stretch"></section>
+<img data-src="17-gp_files/figure-revealjs/predictive-1.png" width="960" class="r-stretch"></section>
 <section id="stan-speed-concerns" class="slide level2">
 <h2>Stan speed concerns</h2>
 <ul>

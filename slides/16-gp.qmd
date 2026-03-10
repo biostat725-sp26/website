@@ -43,7 +43,7 @@ load("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/r-o
 # load("marginal-fit.RData")
 ```
 
-## Recalling what went before the break
+## Recalling the longitudinal analysis
 
 ```{r plot_intro, echo=FALSE}
 dataset %>%
@@ -63,7 +63,7 @@ There are various ways to fit a model to time-varying behavior of the curves.
 
 ```{r plot_smooth, echo=FALSE}
 #| fig-width: 7
-#| fig-height: 2.7
+#| fig-height: 2.5
 #| fig-align: "center"
 # 1. linear fit
 dataset %>%
@@ -144,7 +144,7 @@ In a continuous time, $\eta_{it} = \underbrace{\eta_i}_{i-\text{th function}}(t)
 
 -   Makes easier the formulation of a *prediction task*: new time $t^{pred}$ not in your dataset?
 
-Can we introduce a **probabilistic model** for a whole collection of random functions $(\eta_i)_{i=1}^{n}$?
+Can we introduce a **probabilistic model** for a whole collection of random functions $(\eta_i)_{i=1}^{n}$? How can we place a "prior" on random effects over *all times*?
 
 ## What do I want the function to look like? {.midi}
 
@@ -226,6 +226,7 @@ transformed data {
   }
 
   // 2. Compute the root of C by Cholesky decomposition
+  // (Stan wants the "root" of C, rather than C)
   R_C = cholesky_decompose(C);
 }
 generated quantities {
@@ -253,6 +254,8 @@ data.frame(y = x, x = time_grid) |>
 ```
 
 ## Default Prior Choices {.midi}
+
+$\rho$ determines the "natural length scale" of correlations between time.
 
 -   When you have longitudinal data, there are theoretical justifications for using $\rho^{-1} \sim Gamma(5,5)$.
 
@@ -378,7 +381,7 @@ parameters {
   vector[p] beta;
   real<lower=0> sigma;
   // GP parameters
-  vector[N] eta;
+  vector[N] z;
   real<lower=0> alpha;
   real<lower=0> rho;
 }
@@ -730,6 +733,6 @@ iii. Scalable Approximations (Activee research area)
 
 ## Prepare for next class
 
--   Work on [HW 04](https://biostat725-sp26.netlify.app/hw/hw-04-blank)
+-   Work on [HW 04](https://biostat725-sp26.netlify.app/hw/hw-04)
 
 -   Have a nice spring break!
