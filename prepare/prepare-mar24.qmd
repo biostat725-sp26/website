@@ -1,0 +1,11 @@
+---
+title: Prepare for March 24 lecture
+---
+
+<br>
+
+📖 Review corrected [proof](pdfs/ScalableGP1_proof.pdf) from Tuesday's lecture.
+
+📖 Read Sections 4-6 of [Practical Hilbert space approximate Bayesian Gaussian processes for probabilistic programming](pdfs/riutort-mayol-2020.pdf) by Riutort-Mayol et al. 2022. **You don’t need to fully understand everything in the paper!**
+
+✅ Work on [HW 04](https://biostat725-sp26.netlify.app/hw/hw-04) which is due before class!

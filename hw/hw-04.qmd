@@ -9,7 +9,7 @@ format: html
 ::: callout-important
 ## Due date
 
-This assignment is due on **Thursday, March 24 at 11:45am.** To be considered on time, the following must be done by the due date:
+This assignment is due on **Tuesday, March 24 at 11:45am.** To be considered on time, the following must be done by the due date:
 
 -   Final `.qmd` and `.pdf` files pushed to your GitHub repo
 -   Final `.pdf` file submitted on Gradescope

@@ -1,0 +1,11 @@
+---
+title: Prepare for March 17 lecture
+---
+
+<br>
+
+📖 Review the [Longitudinal Data](https://biostat725-sp26.netlify.app/slides/15-longitudinal) and [Gaussian Process](https://biostat725-sp26.netlify.app/slides/16-gp) lecture slides.
+
+📖 Review BDA3 Chapter 21 to learn more about Gaussian process models.
+
+✅ Work on [HW 04](https://biostat725-sp26.netlify.app/hw/hw-04) which is due **Tuesday** March 24 before class.
