@@ -65,6 +65,7 @@ Recall we worked with a dataset on women aged 15-49 sampled from the 2013-14 Dem
 
 ```{r, echo = FALSE}
 data <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/drc/hemoglobin_anemia.csv")
+# data <- read.csv(file = "/Users/christineshen/Documents/Research/RA/20250221 STA725/hemoglobin_anemia.csv")
 data <- data[complete.cases(data),-1]
 
 # Convert to spatial dataset and merge DRC data
@@ -380,7 +381,7 @@ Today:
 -   How to use HSGP for Bayesian geospatial model fitting and posterior predictive sampling
 
 ::: fragment
-Thursday:
+Next Tuesday:
 
 -   Parameter tuning for HSGP
 -   How to implement HSGP in `stan`
@@ -600,8 +601,7 @@ $$\boldsymbol{\theta}^{*(s)} = \boldsymbol{\Phi}^* \mathbf{S}^{(s) 1/2} \mathbf{
 
 Under the reparameterized model, there is another (perhaps more intuitive) way to recognize the kriging distribution under HSGP when $m \le n$.
 
-We model $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}$, where $\mathbf{b}$ is treated as the unknown parameter. Therefore for kriging: 
-$$\begin{align}
+We model $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}$, where $\mathbf{b}$ is treated as the unknown parameter. Therefore for kriging: $$\begin{align}
   \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\mathbf{S},\boldsymbol{\Omega}) \\
   &=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
 \end{align}$$
