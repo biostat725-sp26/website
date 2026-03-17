@@ -318,7 +318,7 @@ Like previous lecture, we can also specify a marginal model which is useful if w
 
 ## Posterior predictive distribution {.midi}
 
-Define $\mathbf{Y}^* = (Y(\mathbf{u}_{n+1}),\ldots, Y(\mathbf{u}_{n+q}))^\top$ as observations at $q$ new locations. We ignore the subscript $j$. The new location-specific parameters are $\boldsymbol{\theta} = (\theta(\mathbf{u}_{n+1}),\ldots,\theta(\mathbf{u}_{n+q}))^\top$.
+Define $\mathbf{Y}^* = (Y(\mathbf{u}_{n+1}),\ldots, Y(\mathbf{u}_{n+q}))^\top$ as observations at $q$ new locations. We ignore the subscript $j$. The new location-specific parameters are $\boldsymbol{\theta}^* = (\theta(\mathbf{u}_{n+1}),\ldots,\theta(\mathbf{u}_{n+q}))^\top$.
 
 \begin{align*}
 f(\mathbf{Y}^* | \mathbf{Y}) &= \int f(\mathbf{Y}^*, \boldsymbol{\theta}^*, \boldsymbol{\theta}, \boldsymbol{\Omega} | \mathbf{Y}) d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
