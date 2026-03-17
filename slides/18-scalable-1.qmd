@@ -378,11 +378,13 @@ Today:
 
 -   How does HSGP work
 -   Why HSGP is scalable
--   How to use HSGP for Bayesian geospatial model fitting and posterior predictive sampling
+-   How to use HSGP for Bayesian geospatial model fitting
+-   How to use HSGP for posterior predictive sampling
 
 ::: fragment
 Next Tuesday:
 
+-   How to use HSGP for posterior predictive sampling
 -   Parameter tuning for HSGP
 -   How to implement HSGP in `stan`
 :::
