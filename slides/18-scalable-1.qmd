@@ -428,7 +428,9 @@ $$
   &  & s_m
   \end{bmatrix}.
 \end{align}
-$$ \## Model reparameterization {.midi}
+$$
+
+## Model reparameterization {.midi}
 
 Under HSGP approximation, $$\boldsymbol{\theta} \overset{d}{=} \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}, \quad \mathbf{b} \sim N_m(0,\mathbf{I}).$$
 
