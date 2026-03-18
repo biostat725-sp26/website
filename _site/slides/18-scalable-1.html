@@ -290,7 +290,7 @@ Christine Shen
 <section id="prediction-for-the-sud-kivu-state" class="slide level2 midi">
 <h2>Prediction for the Sud-Kivu state</h2>
 <p>And we created a <span class="math inline">\(20 \times 20\)</span> grid for prediction of the spatial intercept surface over the Sud-Kivu state.</p>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -317,7 +317,7 @@ Christine Shen
 <section id="prediction-for-the-drc" class="slide level2 midi">
 <h2>Prediction for the DRC</h2>
 <p>And we will make predictions on a <span class="math inline">\(30 \times 30\)</span> grid over the DRC.</p>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -345,6 +345,7 @@ Christine Shen
 <ul>
 <li><p><span class="math inline">\(i \in \{1,\dots,n\}\)</span> indexes unique locations.</p></li>
 <li><p><span class="math inline">\(j \in \{1,\dots,n_i\}\)</span> indexes individuals at each location.</p></li>
+<li><p><span class="math inline">\(\mathbf{u}_i = (\text{longitude}_i,\text{latitude}_i) \in \mathbb{R}^2\)</span> denotes coordinates of location <span class="math inline">\(i\)</span>.</p></li>
 <li><p><span class="math inline">\(Y_j(\mathbf{u}_i)\)</span> denotes the hemoglobin level of individual <span class="math inline">\(j\)</span> at location <span class="math inline">\(\mathbf{u}_i\)</span>.</p></li>
 <li><p><span class="math inline">\(\mathbf{x}_j(\mathbf{u}_i) = (\text{age}_{ij}/10,\text{urban}_i) \in \mathbb{R}^{1 \times p}\)</span>, where <span class="math inline">\(p=2\)</span> is the number of predictors (excluding intercept).</p></li>
 </ul>
@@ -362,8 +363,7 @@ Christine Shen
 </ul>
 <p><strong>Location-specific parameters:</strong></p>
 <ul>
-<li><p><span class="math inline">\(\mathbf{u}_i = (\text{longitude}_i,\text{latitude}_i) \in \mathbb{R}^2\)</span> denotes coordinates of location <span class="math inline">\(i\)</span>.</p></li>
-<li><p><span class="math inline">\(\theta(\mathbf{u}_i)\)</span> denotes the spatial intercept at location <span class="math inline">\(\mathbf{u}_i\)</span>.</p></li>
+<li><span class="math inline">\(\theta(\mathbf{u}_i)\)</span> denotes the spatial intercept at location <span class="math inline">\(\mathbf{u}_i\)</span>.</li>
 </ul>
 </section>
 <section id="location-specific-notation" class="slide level2 midi">
@@ -453,11 +453,13 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <ul>
 <li>How does HSGP work</li>
 <li>Why HSGP is scalable</li>
-<li>How to use HSGP for Bayesian geospatial model fitting and posterior predictive sampling</li>
+<li>How to use HSGP for Bayesian geospatial model fitting</li>
+<li>How to use HSGP for posterior predictive sampling</li>
 </ul>
 <div class="fragment">
-<p>Thursday:</p>
+<p>Next Tuesday:</p>
 <ul>
+<li>How to use HSGP for posterior predictive sampling</li>
 <li>Parameter tuning for HSGP</li>
 <li>How to implement HSGP in <code>stan</code></li>
 </ul>
@@ -468,16 +470,16 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <p>Given:</p>
 <ul>
 <li>an isotropic covariance function <span class="math inline">\(C\)</span> which admits a <em>power spectral density</em>, e.g., the Matérn family, and</li>
-<li>a compact domain <span class="math inline">\(\boldsymbol{\Theta} \in \mathbb{R}^d\)</span> with <em>smooth</em> boundaries. For our purposes, we only consider <em>boxes</em>, e.g., <span class="math inline">\([-1,1] \times [-1,1]\)</span>.</li>
+<li>a compact domain <span class="math inline">\(B \in \mathbb{R}^d\)</span> with <em>nice</em> boundaries. For our purposes, we only consider <em>boxes</em>, e.g., <span class="math inline">\([-1,1] \times [-1,1]\)</span>.</li>
 </ul>
-<p>HSGP approximates the <span class="math inline">\((i,j)\)</span> element of the corresponding <span class="math inline">\(n \times n\)</span> covariance matrix <span class="math inline">\(\mathbf{C}\)</span> as <span class="math display">\[\mathbf{C}_{ij}=C(\|\mathbf{u}_i - \mathbf{u}_j\|) \approx \sum_{k=1}^m s_k\phi_k(\mathbf{u}_i)\phi_k(\mathbf{u}_j).\]</span></p>
+<p>HSGP approximates the <span class="math inline">\((i,j)\)</span> element of the corresponding <span class="math inline">\(n \times n\)</span> covariance matrix <span class="math inline">\(\mathbf{C}\)</span> as <span class="math display">\[\mathbf{C}_{ij}=C(\|\mathbf{u}_i - \mathbf{u}_j\|) \approx \sum_{k=1}^m s_k(\tau,\rho)\phi_k(\mathbf{u}_i)\phi_k(\mathbf{u}_j).\]</span></p>
 </section>
 <section id="hsgp-approximation-1" class="slide level2 midi">
 <h2>HSGP approximation</h2>
-<p><span class="math display">\[\mathbf{C}_{ij}=C(\|\mathbf{u}_i - \mathbf{u}_j\|) \approx \sum_{k=1}^m s_k\phi_k(\mathbf{u}_i)\phi_k(\mathbf{u}_j).\]</span></p>
+<p><span class="math display">\[\mathbf{C}_{ij}=C(\|\mathbf{u}_i - \mathbf{u}_j\|) \approx \sum_{k=1}^m s_k(\tau,\rho)\phi_k(\mathbf{u}_i)\phi_k(\mathbf{u}_j).\]</span></p>
 <ul>
 <li><span class="math inline">\(s_k \in \mathbb{R}^+\)</span> are positive scalars which depends on the covariance function <span class="math inline">\(C\)</span> and its parameters <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span>.</li>
-<li><span class="math inline">\(\phi_k: \boldsymbol{\Theta} \to \mathbb{R}\)</span> are <em>basis functions</em> which only depends on <span class="math inline">\(\boldsymbol{\Theta}\)</span>.</li>
+<li><span class="math inline">\(\phi_k: B \to \mathbb{R}\)</span> are <em>basis functions</em> which only depends on <span class="math inline">\(B\)</span>.</li>
 <li><span class="math inline">\(m\)</span> is the number of basis functions. Note: even with an infinite sum (i.e., <span class="math inline">\(m \to \infty\)</span>), this remains an approximation (see <span class="citation" data-cites="solin2020hilbert">Solin and Särkkä (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>).</li>
 </ul>
 </section>
@@ -486,7 +488,7 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <p>In matrix notation,</p>
 <p><span class="math display">\[\mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top.\]</span></p>
 <ul>
-<li><span class="math inline">\(\boldsymbol{\Phi} \in \mathbb{R}^{n \times m}\)</span> is a <em>feature matrix</em>. Only depends on <span class="math inline">\(\boldsymbol{\Theta}\)</span> and the observed locations.</li>
+<li><span class="math inline">\(\boldsymbol{\Phi} \in \mathbb{R}^{n \times m}\)</span> is a <em>feature matrix</em>. Only depends on <span class="math inline">\(B\)</span> and the observed locations.</li>
 <li><span class="math inline">\(\mathbf{S} \in \mathbb{R}^{m \times m}\)</span> is diagonal. Depends on the covariance function <span class="math inline">\(C\)</span> and parameters <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span>.</li>
 </ul>
 <p><span class="math display">\[
@@ -504,19 +506,9 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 \end{align}
 \]</span></p>
 </section>
-<section id="why-hsgp-is-scalable" class="slide level2 midi">
-<h2>Why HSGP is scalable</h2>
-<p><span class="math display">\[\mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top.\]</span></p>
-<ul>
-<li><span class="math inline">\(\boldsymbol{\Phi}\)</span> only depends on <span class="math inline">\(\boldsymbol{\Theta}\)</span> and the observed locations, can be pre-calculated.</li>
-<li>No matrix inversion.</li>
-<li>Each MCMC iteration requires <span class="math inline">\(\mathcal{O}(nm + m)\)</span> flops, vs <span class="math inline">\(\mathcal{O}(n^3)\)</span> for a full GP.</li>
-<li>Ideally <span class="math inline">\(m \ll n\)</span>, but HSGP can be faster even for <span class="math inline">\(m&gt;n\)</span>.</li>
-</ul>
-</section>
 <section id="model-reparameterization" class="slide level2 midi">
 <h2>Model reparameterization</h2>
-<p>Under HSGP, approximately <span class="math display">\[\boldsymbol{\theta} \overset{d}{=} \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}, \quad \mathbf{b} \sim N_m(0,\mathbf{I}).\]</span></p>
+<p>Under HSGP approximation, <span class="math display">\[\boldsymbol{\theta} \overset{d}{=} \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}, \quad \mathbf{b} \sim N_m(0,\mathbf{I}).\]</span></p>
 <p>Therefore we can reparameterize the model as</p>
 <p><span class="math display">\[
 \begin{align}
@@ -530,30 +522,38 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <li><span class="math inline">\(\mathbf{b}\)</span> is an unknown parameter vector with prior <span class="math inline">\(N_m(0,\mathbf{I})\)</span>.</li>
 </ul>
 </section>
+<section id="why-hsgp-is-scalable" class="slide level2 midi">
+<h2>Why HSGP is scalable</h2>
+<p>HSGP approximation in matrix form:</p>
+<p><span class="math display">\[\mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top.\]</span> - No matrix inversion. - <span class="math inline">\(\boldsymbol{\Phi}\)</span> only depends on <span class="math inline">\(B\)</span> and the observed locations, can be pre-calculated. - Each MCMC iteration requires <span class="math inline">\(\mathcal{O}(nm + m)\)</span> flops, vs <span class="math inline">\(\mathcal{O}(n^3)\)</span> for a full GP. - Ideally <span class="math inline">\(m \ll n\)</span>, but HSGP can be faster even for <span class="math inline">\(m&gt;n\)</span>.</p>
+</section>
 <section id="hsgp-in-stan" class="slide level2 small">
 <h2>HSGP in <code>stan</code></h2>
-<p>Similarly, we can use the reparameterized model in <code>stan</code>.</p>
-<p>This is called the <a href="https://mc-stan.org/docs/stan-users-guide/efficiency-tuning.html#hierarchical-models-and-the-non-centered-parameterization"><em>non-centered parameterization</em></a> in <code>stan</code> documentation. It’s recommended for computational efficiency for hierarchical models.</p>
+<p>We can implement the reparameterized model in <code>stan</code>. See pseudocodes below. This is called the <a href="https://mc-stan.org/docs/stan-users-guide/efficiency-tuning.html#hierarchical-models-and-the-non-centered-parameterization"><em>non-centered parameterization</em></a> in <code>stan</code> documentation. It’s recommended for computational efficiency for hierarchical models.</p>
 <div class="cell" data-output.var="model_in_stan">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb2-1"><a></a><span class="kw">transformed data</span> {</span>
-<span id="cb2-2"><a></a>  <span class="dt">matrix</span>[n,m] PHI;</span>
-<span id="cb2-3"><a></a>  <span class="dt">matrix</span>[N,m] Z;</span>
-<span id="cb2-4"><a></a>  <span class="dt">matrix</span>[N,p] X_centered;</span>
-<span id="cb2-5"><a></a>}</span>
-<span id="cb2-6"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb2-7"><a></a>  <span class="dt">real</span> alpha_star;</span>
-<span id="cb2-8"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; sigma;</span>
-<span id="cb2-9"><a></a>  <span class="dt">vector</span>[p] beta;</span>
-<span id="cb2-10"><a></a>  <span class="dt">vector</span>[m] b;</span>
-<span id="cb2-11"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
-<span id="cb2-12"><a></a>  ...</span>
-<span id="cb2-13"><a></a>}</span>
-<span id="cb2-14"><a></a><span class="kw">model</span> {</span>
-<span id="cb2-15"><a></a>  <span class="dt">vector</span>[n] theta = PHI * (sqrt_S .* b);</span>
-<span id="cb2-16"><a></a>  <span class="kw">target +=</span> normal_lupdf(y | alpha_star + X_centered * beta + Z * theta, sigma);</span>
-<span id="cb2-17"><a></a>  <span class="kw">target +=</span> normal_lupdf(b | <span class="dv">0</span>, <span class="dv">1</span>);</span>
-<span id="cb2-18"><a></a>  ...</span>
-<span id="cb2-19"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb2-1"><a></a><span class="kw">data</span>{</span>
+<span id="cb2-2"><a></a>  <span class="dt">matrix</span>[N,m] Z;</span>
+<span id="cb2-3"><a></a>  <span class="dt">matrix</span>[N,p] X;</span>
+<span id="cb2-4"><a></a>}</span>
+<span id="cb2-5"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb2-6"><a></a>  <span class="dt">matrix</span>[n,m] PHI;</span>
+<span id="cb2-7"><a></a>  <span class="dt">matrix</span>[N,p] X_centered;</span>
+<span id="cb2-8"><a></a>  ...</span>
+<span id="cb2-9"><a></a>}</span>
+<span id="cb2-10"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb2-11"><a></a>  <span class="dt">real</span> alpha_star;</span>
+<span id="cb2-12"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; sigma;</span>
+<span id="cb2-13"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb2-14"><a></a>  <span class="dt">vector</span>[m] b;</span>
+<span id="cb2-15"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
+<span id="cb2-16"><a></a>  ...</span>
+<span id="cb2-17"><a></a>}</span>
+<span id="cb2-18"><a></a><span class="kw">model</span> {</span>
+<span id="cb2-19"><a></a>  <span class="dt">vector</span>[n] theta = PHI * (sqrt_S .* b);</span>
+<span id="cb2-20"><a></a>  <span class="kw">target +=</span> normal_lupdf(y | alpha_star + X_centered * beta + Z * theta, sigma);</span>
+<span id="cb2-21"><a></a>  <span class="kw">target +=</span> normal_lupdf(b | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb2-22"><a></a>  ...</span>
+<span id="cb2-23"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="posterior-predictive-distribution" class="slide level2 midi">
@@ -690,7 +690,7 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <span id="cb3-15"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
-<p>If <span class="math inline">\(m&gt;n\)</span>, we need to invert an <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)\)</span> for kriging, which could be computationally prohibitive.</p>
+<p>If <span class="math inline">\(m&gt;n\)</span>, do we need to invert an <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)\)</span> for kriging?</p>
 </div>
 </section>
 <section id="recap" class="slide level2 midi">
@@ -700,44 +700,15 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
   \mathbf{C}_{ij} \approx \sum_{k=1}^m s_k\phi_k(\mathbf{u}_i)\phi_k(\mathbf{u}_j), \quad \mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top,
 \end{align}\]</span></p>
 <ul>
-<li>for covariance function <span class="math inline">\(C\)</span> which admits a power spectral density.</li>
-<li>on a box <span class="math inline">\(\boldsymbol{\Theta} \subset \mathbb{R}^d\)</span>.</li>
+<li>for covariance function <span class="math inline">\(C\)</span> which admits a power spectral density, on a box <span class="math inline">\(B \subset \mathbb{R}^d\)</span>.</li>
 <li>with <span class="math inline">\(m\)</span> number of basis functions.</li>
 </ul>
 <p>We have talked about:</p>
 <ul>
 <li>why HSGP is scalable.</li>
-<li>how to do posterior sampling and posterior predictive sampling in <code>stan</code>.</li>
+<li>how to do posterior sampling in <code>stan</code>.</li>
+<li>how to do posterior predictive sampling in <code>stan</code> if <span class="math inline">\(m \le n\)</span>.</li>
 </ul>
-</section>
-<section id="hsgp-parameters" class="slide level2 midi">
-<h2>HSGP parameters</h2>
-<p><span class="citation" data-cites="solin2020hilbert">Solin and Särkkä (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> showed that HSGP approximation can be made arbitrarily accurate as <span class="math inline">\(\boldsymbol{\Theta}\)</span> and <span class="math inline">\(m\)</span> increase.</p>
-<div class="fragment">
-<p>But how to choose:</p>
-<ul>
-<li>size of the box <span class="math inline">\(\boldsymbol{\Theta}\)</span>.</li>
-<li>number of basis functions <span class="math inline">\(m\)</span>.</li>
-</ul>
-</div>
-<div class="fragment">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Our goal:</strong></p>
-</div>
-<div class="callout-content">
-<p>Minimize the run time while maintaining reasonable approximation accuracy.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><em>Note: we treat estimation of the GP magnitude parameter</em> <span class="math inline">\(\tau\)</span> as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function.</p>
-</div>
 </section>
 <section id="prepare-for-next-class" class="slide level2 midi">
 <h2>Prepare for next class</h2>
@@ -746,6 +717,7 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <li><p>Complete reading to prepare for Tuesday’s lecture</p></li>
 <li><p>Tuesday’s lecture:</p>
 <ul>
+<li>How to posterior predictive sampling in <code>stan</code> if <span class="math inline">\(m &gt; n\)</span></li>
 <li>Parameter tuning for HSGP</li>
 <li>How to implement HSGP in <code>stan</code></li>
 </ul></li>
