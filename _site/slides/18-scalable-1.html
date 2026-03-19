@@ -290,7 +290,7 @@ Christine Shen
 <section id="prediction-for-the-sud-kivu-state" class="slide level2 midi">
 <h2>Prediction for the Sud-Kivu state</h2>
 <p>And we created a <span class="math inline">\(20 \times 20\)</span> grid for prediction of the spatial intercept surface over the Sud-Kivu state.</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -317,7 +317,7 @@ Christine Shen
 <section id="prediction-for-the-drc" class="slide level2 midi">
 <h2>Prediction for the DRC</h2>
 <p>And we will make predictions on a <span class="math inline">\(30 \times 30\)</span> grid over the DRC.</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -525,7 +525,13 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <section id="why-hsgp-is-scalable" class="slide level2 midi">
 <h2>Why HSGP is scalable</h2>
 <p>HSGP approximation in matrix form:</p>
-<p><span class="math display">\[\mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top.\]</span> - No matrix inversion. - <span class="math inline">\(\boldsymbol{\Phi}\)</span> only depends on <span class="math inline">\(B\)</span> and the observed locations, can be pre-calculated. - Each MCMC iteration requires <span class="math inline">\(\mathcal{O}(nm + m)\)</span> flops, vs <span class="math inline">\(\mathcal{O}(n^3)\)</span> for a full GP. - Ideally <span class="math inline">\(m \ll n\)</span>, but HSGP can be faster even for <span class="math inline">\(m&gt;n\)</span>.</p>
+<p><span class="math display">\[\mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top.\]</span></p>
+<ul>
+<li><p>No matrix inversion.</p></li>
+<li><p><span class="math inline">\(\boldsymbol{\Phi}\)</span> only depends on <span class="math inline">\(B\)</span> and the observed locations, can be pre-calculated.</p></li>
+<li><p>Each MCMC iteration requires <span class="math inline">\(\mathcal{O}(nm + m)\)</span> flops, vs <span class="math inline">\(\mathcal{O}(n^3)\)</span> for a full GP.</p></li>
+<li><p>Ideally <span class="math inline">\(m \ll n\)</span>, but HSGP can be faster even for <span class="math inline">\(m&gt;n\)</span>.</p></li>
+</ul>
 </section>
 <section id="hsgp-in-stan" class="slide level2 small">
 <h2>HSGP in <code>stan</code></h2>
