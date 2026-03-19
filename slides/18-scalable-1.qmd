@@ -453,6 +453,7 @@ Note the resemblance to linear regression:
 HSGP approximation in matrix form:
 
 $$\mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top.$$
+
 - No matrix inversion.
 - $\boldsymbol{\Phi}$ only depends on $B$ and the observed locations, can be pre-calculated.
 - Each MCMC iteration requires $\mathcal{O}(nm + m)$ flops, vs $\mathcal{O}(n^3)$ for a full GP. 
