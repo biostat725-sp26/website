@@ -226,15 +226,18 @@ How to choose
 Let's quickly recap. For simplicity, let $d=1$,
 
 ::: incremental
-1.  As $\rho$ decreases, the surface is less smooth,
-    -   $c$ needs to increase to retain boundary accuracy.
-    -   $m$ needs to increase to retain overall accuracy.
-2.  As $c$ increases, $m$ needs to increase to retain overall accuracy.
-3.  As $m$ increases, run time increases.
+-   As $\rho$ decreases, the surface is less smooth. $c$ needs to increase to retain boundary accuracy, $m$ needs to increase to retain overall accuracy.
+-   As $c$ increases, $m$ needs to increase to retain overall accuracy.
+-   As $m$ increases, run time increases.
 :::
 
 ::: fragment
-Given $\rho$, @riutort2023practical presented formulas for the minimum $c$ and $m$ needed for a near 100% approximation accuracy of the **correlation matrix** for frequently used Matérn covariance functions.
+@riutort2023practical presented formulas for frequently used Matérn covariance functions:
+
+-   given $\rho$, the minimum $c$ and $m$ needed
+-   given $c$ and $m$, the minimum $\rho$ that can be captured
+
+for a near 100% approximation accuracy of the **correlation matrix**.
 :::
 
 ::: fragment
@@ -274,11 +277,12 @@ while (!check & j<=max_iter){
     if (diagnosis[j]){
       # if the diagnosis check is passed, do one more run just to make sure
       m = m + 2
-      update c and rho
+      update c using rho_hat
+      update rho using m and c
     } else {
       # if the check failed, update our knowledge about rho
       rho = rho_hat
-      update c and m
+      update c and m using rho_hat
     }
   } else {
     if (diagnosis[j] & diagnosis[j-2]){
@@ -287,11 +291,12 @@ while (!check & j<=max_iter){
     } else if (diagnosis[j] & !diagnosis[j-2]){
       # if the check failed last time but passed this time, do one more run
       m = m + 2
-      update c and rho     
+      update c using rho_hat
+      update rho using m and c
     } else if (!diagnosis[j]){
       # if the check failed, update our knowledge about rho
       rho = rho_hat
-      update c and m
+      update c and m using rho_hat
     }
   }
   B = c*S
