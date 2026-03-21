@@ -6432,7 +6432,7 @@
     "href": "slides/18-scalable-1.html#why-hsgp-is-scalable",
     "title": "Scalable Gaussian Processes #1",
     "section": "Why HSGP is scalable",
-    "text": "Why HSGP is scalable\nHSGP approximation in matrix form:\n\\[\\mathbf{C} \\approx \\boldsymbol{\\Phi} \\mathbf{S} \\boldsymbol{\\Phi}^\\top.\\] - No matrix inversion. - \\(\\boldsymbol{\\Phi}\\) only depends on \\(B\\) and the observed locations, can be pre-calculated. - Each MCMC iteration requires \\(\\mathcal{O}(nm + m)\\) flops, vs \\(\\mathcal{O}(n^3)\\) for a full GP. - Ideally \\(m \\ll n\\), but HSGP can be faster even for \\(m&gt;n\\)."
+    "text": "Why HSGP is scalable\nHSGP approximation in matrix form:\n\\[\\mathbf{C} \\approx \\boldsymbol{\\Phi} \\mathbf{S} \\boldsymbol{\\Phi}^\\top.\\]\n\nNo matrix inversion.\n\\(\\boldsymbol{\\Phi}\\) only depends on \\(B\\) and the observed locations, can be pre-calculated.\nEach MCMC iteration requires \\(\\mathcal{O}(nm + m)\\) flops, vs \\(\\mathcal{O}(n^3)\\) for a full GP.\nIdeally \\(m \\ll n\\), but HSGP can be faster even for \\(m&gt;n\\)."
   },
   {
     "objectID": "slides/18-scalable-1.html#model-reparameterization",
