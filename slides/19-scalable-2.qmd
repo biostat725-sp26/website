@@ -34,8 +34,8 @@ library(ggpubr)
 ```
 
 ```{r, echo = FALSE}
-# data <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/drc/hemoglobin_anemia.csv")
-data <- read.csv(file = "/Users/christineshen/Documents/Research/RA/20250221 STA725/hemoglobin_anemia.csv")
+data <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/drc/hemoglobin_anemia.csv")
+# data <- read.csv(file = "/Users/christineshen/Documents/Research/RA/20250221 STA725/hemoglobin_anemia.csv")
 data <- data[complete.cases(data),-1]
 
 # Convert to spatial dataset and merge DRC data
@@ -106,7 +106,7 @@ ggarrange(p1,p2,widths=c(1.3,1),ncol=2)
 
 We specify the following model: $$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N_N(\mathbf{0},\sigma^2\mathbf{I})$$ with priors
 
--   $\boldsymbol{\theta} | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))$, where $C$ is the Matérn 3/2 covariance function with magnitude $\tau$ and length scale $\rho$
+-   $\boldsymbol{\theta}(\mathbf{u}) | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))$, where $C$ is the Matérn 3/2 covariance function with magnitude $\tau$ and length scale $\rho$
 -   $\alpha^* \sim N(0,4^2)$. This is the intercept after centering $\mathbf{X}$.
 -   $\beta_j | \sigma_{\beta} \sim N(0,\sigma_{\beta}^2)$, $j \in \{1,\dots,p\}$
 -   $\sigma \sim \text{Half-Normal}(0, 2^2)$
@@ -133,14 +133,14 @@ We specify the following model: $$\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X
 ## Review of the last lecture {.midi}
 
 ::: incremental
-5. How to do kriging under HSGP in `stan`
+5.  How to do kriging under HSGP in `stan`
 
     Under the reparameterized model, $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}$, where $\mathbf{b}$ is treated as the unknown parameter, and $S$ is known given $\tau$ and $\rho$. Therefore for kriging:
 
     $$\begin{align}
-      \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\boldsymbol{\Omega}) \\
-      &=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
-    \end{align}$$
+       \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\boldsymbol{\Omega}) \\
+       &=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
+     \end{align}$$
 :::
 
 ::: fragment
@@ -151,8 +151,7 @@ $$\boldsymbol{\theta}^{*(s)} = \boldsymbol{\Phi}^* \mathbf{S}^{(s) 1/2} \mathbf{
 
 ## Kriging under HSGP {.midi}
 
-Under HSGP: 
-$$\begin{align}
+Under HSGP: $$\begin{align}
   \begin{bmatrix}
     \boldsymbol{\theta} \\
     \boldsymbol{\theta}^*
@@ -172,37 +171,35 @@ If $m \le n$, we have shown $$\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \
 
 Now we show if $m>n$, $\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \overset{d}{=}\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.$
 
-
 ## HSGP parameters {.midi}
 
 ::: incremental
 How to choose
 
-- number of basis functions $m$
-- the approximation box $B$
+-   number of basis functions $m$
+-   the approximation box $B$
 :::
 
-:::fragment
+::: fragment
 @solin2020hilbert showed that HSGP approximation can be made arbitrarily accurate as $B$ and $m$ increase.
 :::
 
-:::fragment
+:::: fragment
 ::: callout-important
 ## Our goal:
+
 -   Minimize the run time while maintaining reasonable approximation accuracy.
 -   Find smallest $B$ and $m$ that still yield reasonable approximation accuracy
 :::
-:::
-
+::::
 
 ## Number of basis functions {.midi}
 
-:::incremental
+::: incremental
 -   For each dimension $l \in \{1,\dots,d\}$ of the Gaussian processes, we need to choose one number of basis functions $m_l$. The total number of basis functions is $m = \prod_{l=1}^d m_l$.
 -   As a result, $m$, and hence the HSGP computation complexity $\mathcal{O}(nm+m)$ grows exponentially with $d$. Consequently, HSGP is typically recommended only for $d \le 3$, and at most $d=4$.
 -   Increasing $m$ improves approximation accuracy but also increases computational cost.
 :::
-
 
 ## HSGP approximation box {.midi}
 
@@ -215,16 +212,14 @@ How to choose
 
 ## HSGP approximation box {.midi}
 
-:::incremental
--   For ease of implementation, HSGP always centers all the coordinates. 
+::: incremental
+-   For ease of implementation, HSGP always centers all the coordinates.
 -   Let $B_S$ denote the smallest box which contain all the observed and kriging locations. We need to ensure $B_S \subset B$.
 :::
 
 ::: fragment
-
 ![](./images/22/HSGPbox.png){fig-align="center" height="350"}
 :::
-
 
 ## Relationship between $c$, $m$ and $\rho$ {.midi}
 
@@ -245,7 +240,6 @@ Given $\rho$, @riutort2023practical presented formulas for the minimum $c$ and $
 ::: fragment
 However, $\rho$ is unknown.
 :::
-
 
 ## An iterative algorithm {.midi}
 
@@ -320,7 +314,6 @@ A few random things to keep in mind for implementation in practice:
 5.  The iterative algorithm described in @riutort2023practical (i.e., pseudo-codes on slide 15) can be further improved
 6.  Due to identifiability issues, always look at $\alpha \mathbf{1}+\boldsymbol{\theta}$ instead of $\boldsymbol{\theta}$ alone.
 :::
-
 
 ## GP vs HSGP spatial intercept posterior mean {.midi}
 
