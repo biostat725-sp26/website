@@ -235,7 +235,9 @@ Save the model fitting results of the very last run for analysis. The `stan fit`
 
 ```{r, eval=F}
 
+# this is to remove intermediate run results and save the final run results
 runspec$fit <- runspec$fit[[j-1]]
+# save all run information
 saveRDS(runspec,"res_HSGP.rds")
 
 ```
