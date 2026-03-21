@@ -64,8 +64,8 @@ Recall we worked with a dataset on women aged 15-49 sampled from the 2013-14 Dem
 ## Motivating dataset {.midi}
 
 ```{r, echo = FALSE}
-data <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/drc/hemoglobin_anemia.csv")
-# data <- read.csv(file = "/Users/christineshen/Documents/Research/RA/20250221 STA725/hemoglobin_anemia.csv")
+# data <- read.csv(file = "/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25/course-material/data/drc/hemoglobin_anemia.csv")
+data <- read.csv(file = "/Users/christineshen/Documents/Research/RA/20250221 STA725/hemoglobin_anemia.csv")
 data <- data[complete.cases(data),-1]
 
 # Convert to spatial dataset and merge DRC data
@@ -454,15 +454,13 @@ HSGP approximation in matrix form:
 
 $$\mathbf{C} \approx \boldsymbol{\Phi} \mathbf{S} \boldsymbol{\Phi}^\top.$$
 
+-   No matrix inversion.
 
-- No matrix inversion.
+-   $\boldsymbol{\Phi}$ only depends on $B$ and the observed locations, can be pre-calculated.
 
-- $\boldsymbol{\Phi}$ only depends on $B$ and the observed locations, can be pre-calculated.
+-   Each MCMC iteration requires $\mathcal{O}(nm + m)$ flops, vs $\mathcal{O}(n^3)$ for a full GP.
 
-- Each MCMC iteration requires $\mathcal{O}(nm + m)$ flops, vs $\mathcal{O}(n^3)$ for a full GP. 
-
-- Ideally $m \ll n$, but HSGP can be faster even for $m>n$.
-
+-   Ideally $m \ll n$, but HSGP can be faster even for $m>n$.
 
 ## HSGP in `stan` {.small}
 
@@ -472,6 +470,8 @@ We can implement the reparameterized model in `stan`. See pseudocodes below. Thi
 data{
   matrix[N,m] Z;
   matrix[N,p] X;
+  matrix[n,2] u; // locations for observed data
+  ...
 }
 transformed data {
   matrix[n,m] PHI;
@@ -543,8 +543,8 @@ Under HSGP, $\mathbf{C}^* \approx \boldsymbol{\Phi}^* \mathbf{S}\boldsymbol{\Phi
   \phi_1(\mathbf{u}_{n+q}) & \dots & \phi_m(\mathbf{u}_{n+q})
   \end{bmatrix}
 \end{align}
-$$ is the feature matrix for the new locations. Therefore approximately $$
-\begin{align}
+$$ is the feature matrix for the new locations. Therefore approximately
+$$\begin{align}
   \begin{bmatrix}
     \boldsymbol{\theta} \\
     \boldsymbol{\theta}^*
@@ -560,8 +560,72 @@ $$ is the feature matrix for the new locations. Therefore approximately $$
 \end{align}
 $$
 
+
 ## Kriging under HSGP {.midi}
 
+Under the reparameterized model, it is easy to recognize the kriging distribution under HSGP. 
+
+Recall we model $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}$, where $\mathbf{b}$ is treated as the unknown parameter, and $S$ is known given $\tau$ and $\rho$. Therefore for kriging:
+
+$$\begin{align}
+  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\boldsymbol{\Omega}) \\
+  &=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
+\end{align}$$
+
+::: fragment
+During MCMC sampling, we can obtain posterior predictive samples for $\boldsymbol{\theta}^*$ through posterior samples of $\mathbf{b}$ and $\mathbf{S}$. Let superscript $(s)$ denote the $s$th posterior sample:
+
+$$\boldsymbol{\theta}^{*(s)} = \boldsymbol{\Phi}^* \mathbf{S}^{(s) 1/2} \mathbf{b}^{(s)}.$$
+:::
+
+## HSGP kriging in `stan` {.midi}
+
+Under HSGP, kriging can be easily implemented in `stan`.
+
+```{stan output.var = "model_in_stan", eval = FALSE}
+data {
+  matrix[n,2] u_new; // locations for prediction
+  ...
+}
+transformed data {
+  matrix[q,m] PHI_new;
+  ...
+}
+parameters {
+  vector[m] b;
+  vector<lower=0>[m] sqrt_S;
+  ...
+}
+model {
+  ...
+}
+generated quantities {
+  vector[q] theta_new = PHI_new * (sqrt_S .* b);
+}
+
+```
+
+
+## Kriging under HSGP {.midi}
+
+We mathematically show the kriging results. Recall under HSGP: 
+$$\begin{align}
+  \begin{bmatrix}
+    \boldsymbol{\theta} \\
+    \boldsymbol{\theta}^*
+  \end{bmatrix} \Bigg| \boldsymbol{\Omega} \sim N_{n
+  +q} \left(\begin{bmatrix}
+    \mathbf{0}_n \\
+    \mathbf{0}_q
+  \end{bmatrix},
+  \begin{bmatrix}
+    \boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top & \boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top} \\
+    \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top & \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}
+  \end{bmatrix} \right).
+\end{align}
+$$
+
+::: fragment
 Again by properties of multivariate normal, $$\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \overset{?}{\sim} N_q(\mathbb{E}_{\boldsymbol{\theta}^*}^{HS},\mathbb{V}_{\boldsymbol{\theta}^*}^{HS}),$$
 
 $$
@@ -570,9 +634,10 @@ $$
   \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{-1}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
 \end{align}
 $$
+:::
 
 ::: incremental
--   If $m \ge n$, $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)$ is invertible, this is the kriging distribution under HSGP.
+-   If $m \ge n$, $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)$ is invertible, and this is the kriging distribution.
 -   But what if $m < n$?
 :::
 
@@ -604,44 +669,8 @@ Under the reparameterized model, $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathb
 \end{align}
 $$
 
-During MCMC sampling, we can obtain posterior predictive samples for $\boldsymbol{\theta}^*$ through posterior samples of $\mathbf{b}$ and $\mathbf{S}$. Let superscript $(s)$ denote the $s$th posterior sample:
-
-$$\boldsymbol{\theta}^{*(s)} = \boldsymbol{\Phi}^* \mathbf{S}^{(s) 1/2} \mathbf{b}^{(s)}.$$
-
-## Kriging under HSGP -- alternative view {.midi}
-
-Under the reparameterized model, there is another (perhaps more intuitive) way to recognize the kriging distribution under HSGP when $m \le n$.
-
-We model $\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}$, where $\mathbf{b}$ is treated as the unknown parameter. Therefore for kriging: $$\begin{align}
-  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\mathbf{S},\boldsymbol{\Omega}) \\
-  &=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
-\end{align}$$
-
-## HSGP kriging in `stan` {.midi}
-
-If $m \le n$, kriging under HSGP can be easily implemented in `stan`.
-
-```{stan output.var = "model_in_stan", eval = FALSE}
-transformed data {
-  matrix[q,m] PHI_new;
-  ...
-}
-parameters {
-  vector[m] b;
-  vector<lower=0>[m] sqrt_S;
-  ...
-}
-model {
-  ...
-}
-generated quantities {
-  vector[q] theta_new = PHI_new * (sqrt_S .* b);
-}
-
-```
-
 ::: fragment
-If $m>n$, do we need to invert an $n \times n$ matrix $(\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)$ for kriging?
+Next class, we will look at situations where $m>n$.
 :::
 
 ## Recap {.midi}
