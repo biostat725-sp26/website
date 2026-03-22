@@ -1,9 +1,9 @@
 ---
 title: "Disease Mapping"
 author: "Prof. Sam Berchuck"
-date: "2025-03-25"
+date: "2026-03-26"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+footer: "[🔗 BIOSTAT 725 - Spring 2026](https://biostat725-sp26.netlify.app/)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -47,7 +47,7 @@ covid_nc_2020 <- st_read("/Users/sib2/Box Sync/Faculty/Education/biostat725-sp25
 
 ## Review of last week
 
--   Last week, we learned about Gaussian processes.
+-   The last few weeks we learned about Gaussian processes.
 
 -   We learned how to apply Gaussian processes to longitudinal (or time-series) and geospatial data.
 
@@ -817,8 +817,8 @@ ggplot(data = covid_nc_2020) +
 
 ## Prepare for next class
 
--   Work on HW 05, which is due April 8.
+-   Work on HW 05, which is due April 7.
 
--   Complete reading to prepare for next Thursday's lecture
+-   Complete reading to prepare for next Tuesday's lecture
 
--   Thursday's lecture: Guest lecture by Prof. Hwanhee Hong on Bayesian Meta-Analysis
+-   Tuesday's lecture: Missing data

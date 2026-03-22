@@ -1,404 +1,223 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Prof.&nbsp;Sam Berchuck">
-
-<title>Disease Mapping – BIOSTAT 725 - Spring 2026</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-</style>
-
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<html lang="en"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d5c138656980d20101dad17b9e7497c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
+  <meta name="author" content="Prof.&nbsp;Sam Berchuck">
+  <title>BIOSTAT 725 - Spring 2026 – Disease Mapping</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
     }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-12e9f5ab6e39b4942a5262e442dfa860.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
 </head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
 
-<body class="nav-sidebar docked quarto-light">
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Disease Mapping</h1>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Disease Mapping</li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/biostat725-sp26" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
-    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="quarto-navigation-tool px-1" aria-label="RStudio Containers"><i class="bi bi-code-square"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-check-square-fill"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.duke.edu/courses/75433">
-            Canvas
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.gradescope.com/courses/1174420">
-            Gradescope
-            </a>
-          </li>
-      </ul>
-    </div>
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Prof.&nbsp;Sam Berchuck 
 </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Syllabus</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../support.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Support</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schedule</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../links.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Useful links</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Computing</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Access</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Troubleshooting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../computing-r-resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R resources</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Homework</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hw/hw-00.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HW 00</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hw/hw-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HW 01</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hw/hw-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HW 02</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hw/hw-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HW 03</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hw/hw-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HW 04</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hw/hw-05-blank.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HW 05</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#review-of-last-week" id="toc-review-of-last-week" class="nav-link active" data-scroll-target="#review-of-last-week">Review of last week</a></li>
-  <li><a href="#lattice-data-areal-data" id="toc-lattice-data-areal-data" class="nav-link" data-scroll-target="#lattice-data-areal-data">Lattice Data (Areal Data)</a></li>
-  <li><a href="#lattice-data-areal-data-1" id="toc-lattice-data-areal-data-1" class="nav-link" data-scroll-target="#lattice-data-areal-data-1">Lattice Data (Areal Data)</a></li>
-  <li><a href="#goals-of-areal-spatial-data-analysis" id="toc-goals-of-areal-spatial-data-analysis" class="nav-link" data-scroll-target="#goals-of-areal-spatial-data-analysis">Goals of Areal Spatial Data Analysis</a></li>
-  <li><a href="#why-we-care-about-spatial-patterns" id="toc-why-we-care-about-spatial-patterns" class="nav-link" data-scroll-target="#why-we-care-about-spatial-patterns">Why We Care About Spatial Patterns</a></li>
-  <li><a href="#motivating-data" id="toc-motivating-data" class="nav-link" data-scroll-target="#motivating-data">Motivating Data</a></li>
-  <li><a href="#covid-mortality" id="toc-covid-mortality" class="nav-link" data-scroll-target="#covid-mortality">COVID Mortality</a></li>
-  <li><a href="#introduction-to-disease-mapping" id="toc-introduction-to-disease-mapping" class="nav-link" data-scroll-target="#introduction-to-disease-mapping">Introduction to Disease Mapping</a></li>
-  <li><a href="#the-challenge-with-observed-data" id="toc-the-challenge-with-observed-data" class="nav-link" data-scroll-target="#the-challenge-with-observed-data">The Challenge with Observed Data</a></li>
-  <li><a href="#the-challenge-with-observed-data-1" id="toc-the-challenge-with-observed-data-1" class="nav-link" data-scroll-target="#the-challenge-with-observed-data-1">The Challenge with Observed Data</a></li>
-  <li><a href="#standardized-mortality-ratio" id="toc-standardized-mortality-ratio" class="nav-link" data-scroll-target="#standardized-mortality-ratio">Standardized Mortality Ratio</a></li>
-  <li><a href="#example-data" id="toc-example-data" class="nav-link" data-scroll-target="#example-data">Example Data</a></li>
-  <li><a href="#step-1---calculate-expected-deaths" id="toc-step-1---calculate-expected-deaths" class="nav-link" data-scroll-target="#step-1---calculate-expected-deaths">Step 1 - Calculate Expected Deaths</a></li>
-  <li><a href="#step-2---compute-smr" id="toc-step-2---compute-smr" class="nav-link" data-scroll-target="#step-2---compute-smr">Step 2 - Compute SMR</a></li>
-  <li><a href="#interpreting-smr" id="toc-interpreting-smr" class="nav-link" data-scroll-target="#interpreting-smr">Interpreting SMR</a></li>
-  <li><a href="#why-use-smr-in-disease-mapping" id="toc-why-use-smr-in-disease-mapping" class="nav-link" data-scroll-target="#why-use-smr-in-disease-mapping">Why Use SMR in Disease Mapping?</a></li>
-  <li><a href="#standardized-mortality-ratios" id="toc-standardized-mortality-ratios" class="nav-link" data-scroll-target="#standardized-mortality-ratios">Standardized Mortality Ratios</a></li>
-  <li><a href="#writing-down-a-model-for-smr" id="toc-writing-down-a-model-for-smr" class="nav-link" data-scroll-target="#writing-down-a-model-for-smr">Writing down a model for SMR</a></li>
-  <li><a href="#disease-mapping-model" id="toc-disease-mapping-model" class="nav-link" data-scroll-target="#disease-mapping-model">Disease Mapping Model</a></li>
-  <li><a href="#disease-mapping-model-1" id="toc-disease-mapping-model-1" class="nav-link" data-scroll-target="#disease-mapping-model-1">Disease Mapping Model</a></li>
-  <li><a href="#spatial-correlation-areal-data" id="toc-spatial-correlation-areal-data" class="nav-link" data-scroll-target="#spatial-correlation-areal-data">Spatial Correlation: Areal Data</a></li>
-  <li><a href="#adjacency-matrix" id="toc-adjacency-matrix" class="nav-link" data-scroll-target="#adjacency-matrix">Adjacency Matrix</a></li>
-  <li><a href="#compute-adjacency-matrix" id="toc-compute-adjacency-matrix" class="nav-link" data-scroll-target="#compute-adjacency-matrix">Compute Adjacency Matrix</a></li>
-  <li><a href="#visualzing-the-adjacency-matrix" id="toc-visualzing-the-adjacency-matrix" class="nav-link" data-scroll-target="#visualzing-the-adjacency-matrix">Visualzing the Adjacency Matrix</a></li>
-  <li><a href="#visualzing-the-adjacency-matrix-1" id="toc-visualzing-the-adjacency-matrix-1" class="nav-link" data-scroll-target="#visualzing-the-adjacency-matrix-1">Visualzing the Adjacency Matrix</a></li>
-  <li><a href="#icar-model" id="toc-icar-model" class="nav-link" data-scroll-target="#icar-model">ICAR Model</a></li>
-  <li><a href="#icar-model-conditional-distributinos" id="toc-icar-model-conditional-distributinos" class="nav-link" data-scroll-target="#icar-model-conditional-distributinos">ICAR Model: Conditional Distributinos</a></li>
-  <li><a href="#another-equivalent-specification" id="toc-another-equivalent-specification" class="nav-link" data-scroll-target="#another-equivalent-specification">Another Equivalent Specification</a></li>
-  <li><a href="#full-disease-mapping-model" id="toc-full-disease-mapping-model" class="nav-link" data-scroll-target="#full-disease-mapping-model">Full Disease Mapping Model</a></li>
-  <li><a href="#posterior-distribution" id="toc-posterior-distribution" class="nav-link" data-scroll-target="#posterior-distribution">Posterior Distribution</a></li>
-  <li><a href="#adding-the-icar-prior-to-stan" id="toc-adding-the-icar-prior-to-stan" class="nav-link" data-scroll-target="#adding-the-icar-prior-to-stan">Adding the ICAR prior to Stan</a></li>
-  <li><a href="#extracting-non-zero-edges-for-stan" id="toc-extracting-non-zero-edges-for-stan" class="nav-link" data-scroll-target="#extracting-non-zero-edges-for-stan">Extracting non-zero edges for Stan</a></li>
-  <li><a href="#adding-the-icar-prior-to-stan-1" id="toc-adding-the-icar-prior-to-stan-1" class="nav-link" data-scroll-target="#adding-the-icar-prior-to-stan-1">Adding the ICAR prior to Stan</a></li>
-  <li><a href="#non-centered-parameterization" id="toc-non-centered-parameterization" class="nav-link" data-scroll-target="#non-centered-parameterization">Non-centered parameterization</a></li>
-  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a></li>
-  <li><a href="#full-stan-model-for-icar" id="toc-full-stan-model-for-icar" class="nav-link" data-scroll-target="#full-stan-model-for-icar">Full Stan Model for ICAR</a></li>
-  <li><a href="#fit-the-stan-model" id="toc-fit-the-stan-model" class="nav-link" data-scroll-target="#fit-the-stan-model">Fit the Stan Model</a></li>
-  <li><a href="#examine-model-summaries" id="toc-examine-model-summaries" class="nav-link" data-scroll-target="#examine-model-summaries">Examine model summaries</a></li>
-  <li><a href="#examine-traceplots" id="toc-examine-traceplots" class="nav-link" data-scroll-target="#examine-traceplots">Examine traceplots</a></li>
-  <li><a href="#looking-at-smr-observed-versus-lambda_i" id="toc-looking-at-smr-observed-versus-lambda_i" class="nav-link" data-scroll-target="#looking-at-smr-observed-versus-lambda_i">Looking at SMR observed versus <span class="math inline">\(\lambda_i\)</span></a></li>
-  <li><a href="#posterior-smr-across-north-carolina" id="toc-posterior-smr-across-north-carolina" class="nav-link" data-scroll-target="#posterior-smr-across-north-carolina">Posterior SMR Across North Carolina</a></li>
-  <li><a href="#mapping-plambda_i-1-mathbfy" id="toc-mapping-plambda_i-1-mathbfy" class="nav-link" data-scroll-target="#mapping-plambda_i-1-mathbfy">Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></a></li>
-  <li><a href="#mapping-plambda_i-1-mathbfy-1" id="toc-mapping-plambda_i-1-mathbfy-1" class="nav-link" data-scroll-target="#mapping-plambda_i-1-mathbfy-1">Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></a></li>
-  <li><a href="#prepare-for-next-class" id="toc-prepare-for-next-class" class="nav-link" data-scroll-target="#prepare-for-next-class">Prepare for next class</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/biostat725-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="20-disease-mapping.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Disease Mapping</h1>
+</div>
 </div>
 
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Prof.&nbsp;Sam Berchuck </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Mar 25, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="review-of-last-week" class="level2">
-<h2 class="anchored" data-anchor-id="review-of-last-week">Review of last week</h2>
+  <p class="date">Mar 26, 2026</p>
+</section>
+<section id="review-of-last-week" class="slide level2">
+<h2>Review of last week</h2>
 <ul>
-<li><p>Last week, we learned about Gaussian processes.</p></li>
+<li><p>The last few weeks we learned about Gaussian processes.</p></li>
 <li><p>We learned how to apply Gaussian processes to longitudinal (or time-series) and geospatial data.</p></li>
 <li><p>Focused on making predictions at new locations across the spatial surface.</p></li>
 <li><p>Today we will focus on areal spatial data, which has different goals associated with it than point-referenced spatial data.</p></li>
 </ul>
 </section>
-<section id="lattice-data-areal-data" class="level2">
-<h2 class="anchored" data-anchor-id="lattice-data-areal-data">Lattice Data (Areal Data)</h2>
+<section id="lattice-data-areal-data" class="slide level2">
+<h2>Lattice Data (Areal Data)</h2>
 <ul>
 <li><p>Data observed at the level of an areal unit</p>
 <ul>
@@ -406,24 +225,24 @@ window.Quarto = {
 </ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./images/18/lattice_data.png" class="quarto-figure quarto-figure-center figure-img" height="450"></p>
+<figure>
+<p><img data-src="./images/18/lattice_data.png" class="quarto-figure quarto-figure-center" height="450"></p>
 </figure>
 </div>
 </section>
-<section id="lattice-data-areal-data-1" class="level2">
-<h2 class="anchored" data-anchor-id="lattice-data-areal-data-1">Lattice Data (Areal Data)</h2>
+<section id="lattice-data-areal-data-1" class="slide level2">
+<h2>Lattice Data (Areal Data)</h2>
 <ul>
 <li>Birmingham Tract Level Poverty Levels</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./images/18/Birmingham_Poverty.png" class="quarto-figure quarto-figure-center figure-img" height="500"></p>
+<figure>
+<p><img data-src="./images/18/Birmingham_Poverty.png" class="quarto-figure quarto-figure-center" height="500"></p>
 </figure>
 </div>
 </section>
-<section id="goals-of-areal-spatial-data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="goals-of-areal-spatial-data-analysis">Goals of Areal Spatial Data Analysis</h2>
+<section id="goals-of-areal-spatial-data-analysis" class="slide level2">
+<h2>Goals of Areal Spatial Data Analysis</h2>
 <p>The goal of <strong>areal spatial data analysis</strong> is to understand how spatial patterns (e.g., mortality rates, disease incidence) vary across different geographic areas (e.g., counties, neighborhoods).</p>
 <p>It helps us identify:</p>
 <ul>
@@ -432,16 +251,16 @@ window.Quarto = {
 <li><p><strong>Spatial Dependence</strong>: Whether values in one area are correlated with values in nearby areas (e.g., neighboring counties with similar health outcomes).</p></li>
 </ul>
 </section>
-<section id="why-we-care-about-spatial-patterns" class="level2">
-<h2 class="anchored" data-anchor-id="why-we-care-about-spatial-patterns">Why We Care About Spatial Patterns</h2>
+<section id="why-we-care-about-spatial-patterns" class="slide level2">
+<h2>Why We Care About Spatial Patterns</h2>
 <ul>
 <li><p><strong>Local Insights</strong>: Spatial analysis helps identify <strong>local variations</strong> in health outcomes that may not be apparent when analyzing data at a higher (e.g., state or national) level.</p></li>
 <li><p><strong>Targeted Interventions</strong>: Understanding spatial patterns allows for <strong>targeted public health interventions</strong> tailored to regions that need attention (e.g., areas with unusually high mortality rates).</p></li>
 <li><p><strong>Identifying Spatial Clusters</strong>: By recognizing <strong>clusters of high or low rates</strong>, we can investigate potential <strong>common causes</strong> (e.g., environmental factors, access to healthcare, socioeconomic conditions).</p></li>
 </ul>
 </section>
-<section id="motivating-data" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="motivating-data">Motivating Data</h2>
+<section id="motivating-data" class="slide level2 midi">
+<h2>Motivating Data</h2>
 <p>Today, we will motivate areal spatial data analysis and disease mapping by studying 2020 COVID mortality at the county-level in North Carolina. The data object <code>covid_nc_2020</code> is an <code>sf</code> object.</p>
 <ul>
 <li><p>Variables are:</p>
@@ -457,30 +276,30 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="covid-mortality" class="level2">
-<h2 class="anchored" data-anchor-id="covid-mortality">COVID Mortality</h2>
+<section id="covid-mortality" class="slide level2">
+<h2>COVID Mortality</h2>
 <!-- - Account for noise due to spatial variability in order to provide smoothed estimates across space -->
 <div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="introduction-to-disease-mapping" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-disease-mapping">Introduction to Disease Mapping</h2>
+<section id="introduction-to-disease-mapping" class="slide level2">
+<h2>Introduction to Disease Mapping</h2>
 <ul>
 <li><p>Disease mapping is a way of visualizing and analyzing geographic variations in health outcomes, such as mortality or disease incidence, across different regions (e.g., counties or neighborhoods).</p></li>
 <li><p>It helps us identify regions with unusually high or low health outcomes, which could be indicative of underlying health disparities.</p></li>
 </ul>
 </section>
-<section id="the-challenge-with-observed-data" class="level2">
-<h2 class="anchored" data-anchor-id="the-challenge-with-observed-data">The Challenge with Observed Data</h2>
+<section id="the-challenge-with-observed-data" class="slide level2">
+<h2>The Challenge with Observed Data</h2>
 <p>Imagine you want to compare the number of deaths across counties in a state, like North Carolina. If we simply look at <strong>observed death counts</strong>, we might be misled:</p>
 <ul>
 <li><p>Larger counties with more people may have more deaths simply due to their larger population.</p></li>
@@ -488,8 +307,8 @@ window.Quarto = {
 </ul>
 <p>Thus, observed death counts are <strong>not enough</strong> to draw meaningful comparisons.</p>
 </section>
-<section id="the-challenge-with-observed-data-1" class="level2">
-<h2 class="anchored" data-anchor-id="the-challenge-with-observed-data-1">The Challenge with Observed Data</h2>
+<section id="the-challenge-with-observed-data-1" class="slide level2">
+<h2>The Challenge with Observed Data</h2>
 <ul>
 <li><p>To make fair comparisons between regions of different sizes, we need to <strong>adjust for population size</strong> (and sometimes demographics).</p></li>
 <li><p>Without these adjustments, it’s hard to determine if a county’s high death count is due to its population size or if there’s something unique about the county (e.g., healthcare access, environmental factors) that increases the risk of mortality.</p></li>
@@ -497,8 +316,8 @@ window.Quarto = {
 <li><p>Today we will talk about the standardized mortality ratio (SMR).</p></li>
 </ul>
 </section>
-<section id="standardized-mortality-ratio" class="level2">
-<h2 class="anchored" data-anchor-id="standardized-mortality-ratio">Standardized Mortality Ratio</h2>
+<section id="standardized-mortality-ratio" class="slide level2">
+<h2>Standardized Mortality Ratio</h2>
 <ul>
 <li><p>SMR is a way of comparing the observed number of deaths in a population to the number of deaths we would expect, given the population’s characteristics (such as population size).</p></li>
 <li><p>It adjusts for differences in population, allowing us to identify areas where deaths are higher or lower than we would expect.</p></li>
@@ -508,9 +327,9 @@ window.Quarto = {
 <li><strong>Expected Deaths</strong> is calculated by multiplying the total deaths across the state by the proportion of the population in that county.</li>
 </ul>
 </section>
-<section id="example-data" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="example-data">Example Data</h2>
-<table class="caption-top table">
+<section id="example-data" class="slide level2 midi">
+<h2>Example Data</h2>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th>County</th>
@@ -547,8 +366,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="step-1---calculate-expected-deaths" class="level2">
-<h2 class="anchored" data-anchor-id="step-1---calculate-expected-deaths">Step 1 - Calculate Expected Deaths</h2>
+<section id="step-1---calculate-expected-deaths" class="slide level2">
+<h2>Step 1 - Calculate Expected Deaths</h2>
 <p>The <strong>Expected Deaths</strong> for each county are calculated by multiplying the <strong>total deaths</strong> by the <strong>population proportion</strong> for that county:</p>
 <p><span class="math display">\[\begin{aligned}
 \text{Expected Deaths for County A} = 30 \times 0.3 &amp;= 9\\
@@ -556,8 +375,8 @@ window.Quarto = {
 \text{Expected Deaths for County C} = 30 \times 0.2 &amp;= 6
 \end{aligned}\]</span></p>
 </section>
-<section id="step-2---compute-smr" class="level2">
-<h2 class="anchored" data-anchor-id="step-2---compute-smr">Step 2 - Compute SMR</h2>
+<section id="step-2---compute-smr" class="slide level2">
+<h2>Step 2 - Compute SMR</h2>
 <p>Now, we calculate the <strong>SMR</strong> by dividing the <strong>observed deaths</strong> by the <strong>expected deaths</strong>:</p>
 <p><span class="math display">\[\begin{aligned}
 \text{SMR for County A} &amp;= \frac{10}{9} = 1.11\\
@@ -566,8 +385,8 @@ window.Quarto = {
 \end{aligned}\]</span></p>
 <p>What do these numbers mean?</p>
 </section>
-<section id="interpreting-smr" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-smr">Interpreting SMR</h2>
+<section id="interpreting-smr" class="slide level2">
+<h2>Interpreting SMR</h2>
 <ul>
 <li><p><strong>SMR = 1</strong>: The observed number of deaths matches the expected number of deaths.</p></li>
 <li><p><strong>SMR &gt; 1</strong>: More deaths than expected (excess mortality).</p></li>
@@ -580,8 +399,8 @@ window.Quarto = {
 <li><p><strong>County C</strong> has fewer deaths than expected, with SMR of <strong>0.83</strong>.</p></li>
 </ul>
 </section>
-<section id="why-use-smr-in-disease-mapping" class="level2">
-<h2 class="anchored" data-anchor-id="why-use-smr-in-disease-mapping">Why Use SMR in Disease Mapping?</h2>
+<section id="why-use-smr-in-disease-mapping" class="slide level2">
+<h2>Why Use SMR in Disease Mapping?</h2>
 <p><strong>SMR</strong> allows us to:</p>
 <ul>
 <li><p>Make meaningful comparisons across counties of different sizes.</p></li>
@@ -589,22 +408,22 @@ window.Quarto = {
 </ul>
 <p>In disease mapping, <strong>SMR</strong> helps us better understand <strong>spatial health disparities</strong> and identify regions that may need targeted public health interventions.</p>
 </section>
-<section id="standardized-mortality-ratios" class="level2">
-<h2 class="anchored" data-anchor-id="standardized-mortality-ratios">Standardized Mortality Ratios</h2>
+<section id="standardized-mortality-ratios" class="slide level2">
+<h2>Standardized Mortality Ratios</h2>
 <div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="writing-down-a-model-for-smr" class="level2">
-<h2 class="anchored" data-anchor-id="writing-down-a-model-for-smr">Writing down a model for SMR</h2>
+<section id="writing-down-a-model-for-smr" class="slide level2">
+<h2>Writing down a model for SMR</h2>
 <p>Define <span class="math inline">\(Y_i\)</span> and <span class="math inline">\(E_i\)</span> as the observed and expected mortality counts at county <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1\ldots,n\)</span>). We can model the observed counts as follows:</p>
 <p><span class="math display">\[Y_i | \lambda_i \stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i).\]</span></p>
 <ul>
@@ -615,8 +434,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="disease-mapping-model" class="level2">
-<h2 class="anchored" data-anchor-id="disease-mapping-model">Disease Mapping Model</h2>
+<section id="disease-mapping-model" class="slide level2">
+<h2>Disease Mapping Model</h2>
 <p>The parameter <span class="math inline">\(\lambda_i\)</span>, sometimes also called <strong>relative risk</strong>, is modeled as follows:</p>
 <p><span class="math display">\[\begin{aligned}
 Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
@@ -630,8 +449,8 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <li><p><span class="math inline">\(\sigma \in \mathbb{R}^+\)</span> is a residual error term.</p></li>
 </ul>
 </section>
-<section id="disease-mapping-model-1" class="level2">
-<h2 class="anchored" data-anchor-id="disease-mapping-model-1">Disease Mapping Model</h2>
+<section id="disease-mapping-model-1" class="slide level2">
+<h2>Disease Mapping Model</h2>
 <p>The parameter <span class="math inline">\(\lambda_i\)</span>, sometimes also called <strong>relative risk</strong>, is modeled as follows:</p>
 <p><span class="math display">\[\begin{aligned}
 Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
@@ -643,8 +462,8 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <li><p><span class="math inline">\(\theta_i\)</span> induces spatial correlation, such that <span class="math inline">\(\lambda_i\)</span> in neighboring areas will be more similar.</p></li>
 </ul>
 </section>
-<section id="spatial-correlation-areal-data" class="level2">
-<h2 class="anchored" data-anchor-id="spatial-correlation-areal-data">Spatial Correlation: Areal Data</h2>
+<section id="spatial-correlation-areal-data" class="slide level2">
+<h2>Spatial Correlation: Areal Data</h2>
 <ul>
 <li><p>How to induce spatial correlation between areal units?</p>
 <ul>
@@ -655,8 +474,8 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <li><p>The default model for areal data in the Bayesian setting is called the conditionally autoregressive (CAR) model.</p></li>
 </ul>
 </section>
-<section id="adjacency-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="adjacency-matrix">Adjacency Matrix</h2>
+<section id="adjacency-matrix" class="slide level2">
+<h2>Adjacency Matrix</h2>
 <ul>
 <li><p>We will define the matrix <span class="math inline">\(\mathbf{W} \in \mathbb{R}^{n \times n}\)</span> as the <strong>adjacency matrix</strong>.</p>
 <ul>
@@ -668,53 +487,48 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <li><p>In some cases, <span class="math inline">\(w_{ij}\)</span> can be generalized to be non-binary.</p></li>
 </ul>
 </section>
-<section id="compute-adjacency-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="compute-adjacency-matrix">Compute Adjacency Matrix</h2>
+<section id="compute-adjacency-matrix" class="slide level2">
+<h2>Compute Adjacency Matrix</h2>
 <p>To compute the adjacency matrix of an <code>sf</code> data object we can use the <code>spdep</code> library.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>neighbors <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">poly2nb</span>(covid_nc_2020) <span class="co"># computes the neighborhood structure</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">nb2mat</span>(neighbors, <span class="at">style =</span> <span class="st">"B"</span>, <span class="at">zero.policy =</span> <span class="cn">TRUE</span>) <span class="co"># converts to an n x n matrix</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>neighbors <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">poly2nb</span>(covid_nc_2020) <span class="co"># computes the neighborhood structure</span></span>
+<span id="cb1-2"><a></a>W <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">nb2mat</span>(neighbors, <span class="at">style =</span> <span class="st">"B"</span>, <span class="at">zero.policy =</span> <span class="cn">TRUE</span>) <span class="co"># converts to an n x n matrix</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p><code>style = "B"</code> specifies binary encoding (1 if neighbors, 0 if not).</p></li>
 <li><p><code>zero.policy = TRUE</code> ensures the function works even if some counties do not have neighbors.</p></li>
 </ul>
 </section>
-<section id="visualzing-the-adjacency-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="visualzing-the-adjacency-matrix">Visualzing the Adjacency Matrix</h2>
+<section id="visualzing-the-adjacency-matrix" class="slide level2">
+<h2>Visualzing the Adjacency Matrix</h2>
 <div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="visualzing-the-adjacency-matrix-1" class="level2">
-<h2 class="anchored" data-anchor-id="visualzing-the-adjacency-matrix-1">Visualzing the Adjacency Matrix</h2>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: st_centroid assumes attributes are constant over geometries</code></pre>
-</div>
-</div>
+<section id="visualzing-the-adjacency-matrix-1" class="slide level2">
+<h2>Visualzing the Adjacency Matrix</h2>
 <div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="icar-model" class="level2">
-<h2 class="anchored" data-anchor-id="icar-model">ICAR Model</h2>
+<section id="icar-model" class="slide level2">
+<h2>ICAR Model</h2>
 <p>Today, we will look at the intrinsic CAR (ICAR) process for a vector <span class="math inline">\(\boldsymbol{\theta} = (\theta_1, \ldots, \theta_n)^\top\)</span>, <span class="math inline">\(\boldsymbol{\theta} | \tau^2 \sim \text{ICAR}\left(\tau^2\right)\)</span>. Under this specification, the following joint distribution is given:</p>
 <p><span class="math display">\[f(\boldsymbol{\theta} | \tau^2) \propto \exp\left\{-\frac{1}{2\tau^2}\boldsymbol{\theta}^\top \left(\mathbf{D}_w - \mathbf{W}\right) \boldsymbol{\theta}\right\},\]</span></p>
 <p>where <span class="math inline">\(\mathbf{D}_w\)</span> is diagonal with <span class="math inline">\([\mathbf{D}_w]_{ii} = w_{i+}\)</span> and <span class="math inline">\(w_{i+} = \sum_{j=1}^n w_{ij}\)</span> (i.e., <span class="math inline">\(w_{i+}\)</span> is the number of neighbors for locations <span class="math inline">\(i\)</span>).</p>
@@ -723,8 +537,8 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <li><p>We can still use this as a prior for <span class="math inline">\(\boldsymbol{\theta}\)</span> and get a proper posterior!</p></li>
 </ul>
 </section>
-<section id="icar-model-conditional-distributinos" class="level2">
-<h2 class="anchored" data-anchor-id="icar-model-conditional-distributinos">ICAR Model: Conditional Distributinos</h2>
+<section id="icar-model-conditional-distributinos" class="slide level2">
+<h2>ICAR Model: Conditional Distributinos</h2>
 <p>The joint distribution on the previous slide can be written as a <span class="math inline">\(n\)</span> conditional distributions:</p>
 <p><span class="math display">\[\theta_{i} | \boldsymbol{\theta}_{-i}, \tau^2 \sim  N \left({\frac{\sum_{j=1}^n w_{ij}\theta_{j}}{w_{i+}}},\frac{\tau^2}{w_{i+}}\right)\]</span></p>
 <ul>
@@ -733,8 +547,8 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <li><p>The variance shrinks as a function of the number of neighbors.</p></li>
 </ul>
 </section>
-<section id="another-equivalent-specification" class="level2">
-<h2 class="anchored" data-anchor-id="another-equivalent-specification">Another Equivalent Specification</h2>
+<section id="another-equivalent-specification" class="slide level2">
+<h2>Another Equivalent Specification</h2>
 <p>Pairwise difference specification:</p>
 <p><span class="math display">\[f(\boldsymbol{\theta} | \tau^2) \propto \exp\left\{-\frac{1}{2\tau^2}\sum_{i \sim j} w_{ij} (\theta_i - \theta_j)^2\right\},\]</span></p>
 <ul>
@@ -743,8 +557,8 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <li><p>We will use this specification in Stan.</p></li>
 </ul>
 </section>
-<section id="full-disease-mapping-model" class="level2">
-<h2 class="anchored" data-anchor-id="full-disease-mapping-model">Full Disease Mapping Model</h2>
+<section id="full-disease-mapping-model" class="slide level2">
+<h2>Full Disease Mapping Model</h2>
 <p>The full model can be written as:</p>
 <p><span class="math display">\[\begin{aligned}
 Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
@@ -757,8 +571,8 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <li><span class="math inline">\(\mu_i = \exp\{\log E_i + \alpha + \mathbf{x}_i\boldsymbol{\beta} + \theta_i + \epsilon_i\}\)</span>.</li>
 </ul>
 </section>
-<section id="posterior-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="posterior-distribution">Posterior Distribution</h2>
+<section id="posterior-distribution" class="slide level2">
+<h2>Posterior Distribution</h2>
 <p>Define <span class="math inline">\(\mathbf{Y} = (Y_1,\ldots,Y_n)\)</span>. The posterior can be written as:</p>
 <p><span class="math display">\[\begin{aligned}
 f(\boldsymbol{\Omega}, \boldsymbol{\theta} | \mathbf{Y}) &amp;\propto f(\mathbf{Y}, \boldsymbol{\Omega},\boldsymbol{\theta})\\
@@ -766,59 +580,59 @@ f(\boldsymbol{\Omega}, \boldsymbol{\theta} | \mathbf{Y}) &amp;\propto f(\mathbf{
 &amp;\propto f(\boldsymbol{\Omega}) \prod_{i=1}^n f({Y}_i | \lambda_i) f(\theta_i | \tau^2) .
 \end{aligned}\]</span></p>
 </section>
-<section id="adding-the-icar-prior-to-stan" class="level2">
-<h2 class="anchored" data-anchor-id="adding-the-icar-prior-to-stan">Adding the ICAR prior to Stan</h2>
+<section id="adding-the-icar-prior-to-stan" class="slide level2">
+<h2>Adding the ICAR prior to Stan</h2>
 <p>We will use the pairwise differences specification, so we need the unique pairs of neighbors. We will define <span class="math inline">\(n_{edges}\)</span> as the number of non-zero edges. The following is added to the Stan data code chunk.</p>
 <div class="cell" data-output.var="icar">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; n;</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; n_edges;</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node1; <span class="co">// node1[i] adjacent to node2[i]</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node2; <span class="co">// and node1[i] &lt; node2[i]</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  ...</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb2-1"><a></a><span class="kw">data</span> {</span>
+<span id="cb2-2"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; n;</span>
+<span id="cb2-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; n_edges;</span>
+<span id="cb2-4"><a></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node1; <span class="co">// node1[i] adjacent to node2[i]</span></span>
+<span id="cb2-5"><a></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node2; <span class="co">// and node1[i] &lt; node2[i]</span></span>
+<span id="cb2-6"><a></a>  ...</span>
+<span id="cb2-7"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="extracting-non-zero-edges-for-stan" class="level2">
-<h2 class="anchored" data-anchor-id="extracting-non-zero-edges-for-stan">Extracting non-zero edges for Stan</h2>
+<section id="extracting-non-zero-edges-for-stan" class="slide level2">
+<h2>Extracting non-zero edges for Stan</h2>
 <p>Our goal is to get the row-column pairs from <span class="math inline">\(\mathbf{W}\)</span> where the <span class="math inline">\(w_{ij} = 1\)</span>. This will return all non-zero indices in the adjacency matrix.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>neighbor_pairs <span class="ot">&lt;-</span> <span class="fu">which</span>(W <span class="sc">==</span> <span class="dv">1</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>neighbor_pairs <span class="ot">&lt;-</span> <span class="fu">which</span>(W <span class="sc">==</span> <span class="dv">1</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Since <span class="math inline">\(\mathbf{W}\)</span> is symmetric, we only need to keep the edges from above the diagonal to avoid repeating edges.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>neighbor_pairs_lower <span class="ot">&lt;-</span> neighbor_pairs[neighbor_pairs[, <span class="dv">1</span>] <span class="sc">&lt;</span> neighbor_pairs[, <span class="dv">2</span>], ]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n_edges <span class="ot">&lt;-</span> <span class="fu">nrow</span>(neighbor_pairs_lower)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>node1 <span class="ot">&lt;-</span> neighbor_pairs_lower[, <span class="dv">1</span>]</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>node2 <span class="ot">&lt;-</span> neighbor_pairs_lower[, <span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>neighbor_pairs_lower <span class="ot">&lt;-</span> neighbor_pairs[neighbor_pairs[, <span class="dv">1</span>] <span class="sc">&lt;</span> neighbor_pairs[, <span class="dv">2</span>], ]</span>
+<span id="cb4-2"><a></a>n_edges <span class="ot">&lt;-</span> <span class="fu">nrow</span>(neighbor_pairs_lower)</span>
+<span id="cb4-3"><a></a>node1 <span class="ot">&lt;-</span> neighbor_pairs_lower[, <span class="dv">1</span>]</span>
+<span id="cb4-4"><a></a>node2 <span class="ot">&lt;-</span> neighbor_pairs_lower[, <span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="adding-the-icar-prior-to-stan-1" class="level2">
-<h2 class="anchored" data-anchor-id="adding-the-icar-prior-to-stan-1">Adding the ICAR prior to Stan</h2>
+<section id="adding-the-icar-prior-to-stan-1" class="slide level2">
+<h2>Adding the ICAR prior to Stan</h2>
 <p>We can then add the following to the parameters and model Stan code chunks, where we leverage Stan’s ability to perform multi-indexing and vectorization!</p>
 <div class="cell" data-output.var="icar">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">parameters</span> {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] z;</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">transformed parameters</span> {</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] theta = tau * z;</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">model</span> {</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">target +=</span> -<span class="fl">0.5</span> * dot_self(z[node1] - z[node2]);</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// soft sum-to-zero constraint on z,</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// equivalent to mean(z) ~ normal(0,0.01)</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  sum(z) ~ normal(<span class="dv">0</span>, <span class="fl">0.01</span> * n);</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb5-1"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb5-2"><a></a>  <span class="dt">vector</span>[n] z;</span>
+<span id="cb5-3"><a></a>}</span>
+<span id="cb5-4"><a></a><span class="kw">transformed parameters</span> {</span>
+<span id="cb5-5"><a></a>  <span class="dt">vector</span>[n] theta = tau * z;</span>
+<span id="cb5-6"><a></a>}</span>
+<span id="cb5-7"><a></a><span class="kw">model</span> {</span>
+<span id="cb5-8"><a></a>  <span class="kw">target +=</span> -<span class="fl">0.5</span> * dot_self(z[node1] - z[node2]);</span>
+<span id="cb5-9"><a></a>  <span class="co">// soft sum-to-zero constraint on z,</span></span>
+<span id="cb5-10"><a></a>  <span class="co">// equivalent to mean(z) ~ normal(0,0.01)</span></span>
+<span id="cb5-11"><a></a>  sum(z) ~ normal(<span class="dv">0</span>, <span class="fl">0.01</span> * n);</span>
+<span id="cb5-12"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="non-centered-parameterization" class="level2">
-<h2 class="anchored" data-anchor-id="non-centered-parameterization">Non-centered parameterization</h2>
+<section id="non-centered-parameterization" class="slide level2">
+<h2>Non-centered parameterization</h2>
 <p>In Stan it is more computationally efficient to use a non-centered parameterization. We define, <span class="math inline">\(\mathbf{z} \in \mathbb{R}^n\)</span> and give it the following prior:</p>
 <p><span class="math display">\[\mathbf{z} \sim \text{ICAR}(\tau^2 = 1), \quad \sum_{i=1}^n z_i = 0.\]</span></p>
 <p>We can then recover <span class="math inline">\(\boldsymbol{\theta}\)</span> by computing <span class="math inline">\(\boldsymbol{\theta} = \tau \mathbf{z}.\)</span></p>
 </section>
-<section id="modeling" class="level2 midi">
-<h2 class="midi anchored" data-anchor-id="modeling">Modeling</h2>
+<section id="modeling" class="slide level2 midi">
+<h2>Modeling</h2>
 <p>We specify the following model:</p>
 <p><span class="math display">\[\begin{aligned}
 Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
@@ -831,91 +645,91 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 \end{aligned}\]</span></p>
 <p>Where <span class="math inline">\(n = 100\)</span>, <span class="math inline">\(\mathbf{x}_i = (\text{age}_{i}, \text{poverty}_i)\)</span>.</p>
 </section>
-<section id="full-stan-model-for-icar" class="level2">
-<h2 class="anchored" data-anchor-id="full-stan-model-for-icar">Full Stan Model for ICAR</h2>
+<section id="full-stan-model-for-icar" class="slide level2">
+<h2>Full Stan Model for ICAR</h2>
 <div class="cell" data-output.var="full_icar">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// saved in icar.stan</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; n_edges;</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node1; <span class="co">// node1[i] adjacent to node2[i]</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node2; <span class="co">// and node1[i] &lt; node2[i]</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">array</span>[n] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; Y;</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt;[n] E;</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">matrix</span>[n, p] X;</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="kw">transformed data</span> {</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">matrix</span>[n, p] X_centered;</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    X_bar[i] = mean(X[, i]);</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] logE = log(E);</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="kw">parameters</span> {</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span> alpha_star;</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[p] beta;</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma; <span class="co">// precision of heterogeneous effects</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; tau; <span class="co">// precision of spatial effects</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] z1; <span class="co">// spatial effects</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] z2; <span class="co">// heterogeneous effects</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="kw">transformed parameters</span> {</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] theta = tau * z1;     <span class="co">// spatial effects</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] epsilon = sigma * z2; <span class="co">// heterogeneous effects</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="kw">model</span> {</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  Y ~ poisson_log(logE + alpha_star + X_centered * beta + theta + epsilon);</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the following computes the ICAR prior on theta (through the standardized version z1)</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">target +=</span> -<span class="fl">0.5</span> * dot_self(z1[node1] - z1[node2]);</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>  <span class="co">// soft sum-to-zero constraint on theta)</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  sum(z1) ~ normal(<span class="dv">0</span>, <span class="fl">0.001</span> * n); <span class="co">// equivalent to mean(z1) ~ normal(0, 0.001)</span></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  <span class="co">// heterogeneous effects</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>  z2 ~ std_normal();</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>  <span class="co">// population parameters</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>  alpha_star ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>  beta ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>  sigma ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  tau ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span> alpha = alpha_star - X_bar * beta;</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] log_mu = logE + alpha_star + X_centered * beta + theta + epsilon;</span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] lambda = exp(log_mu - logE);</span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] mu = exp(log_mu);</span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] Y_pred;</span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[n] log_lik;</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>    Y_pred[i] = poisson_log_rng(log_mu[i]);</span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    log_lik[i] = poisson_log_lpmf(Y[i] | log_mu[i]);</span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb6-1"><a></a><span class="co">// saved in icar.stan</span></span>
+<span id="cb6-2"><a></a><span class="kw">data</span> {</span>
+<span id="cb6-3"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; n;</span>
+<span id="cb6-4"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>&gt; p;</span>
+<span id="cb6-5"><a></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; n_edges;</span>
+<span id="cb6-6"><a></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node1; <span class="co">// node1[i] adjacent to node2[i]</span></span>
+<span id="cb6-7"><a></a>  <span class="dt">array</span>[n_edges] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">1</span>, <span class="kw">upper</span> = n&gt; node2; <span class="co">// and node1[i] &lt; node2[i]</span></span>
+<span id="cb6-8"><a></a>  <span class="dt">array</span>[n] <span class="dt">int</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; Y;</span>
+<span id="cb6-9"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt;[n] E;</span>
+<span id="cb6-10"><a></a>  <span class="dt">matrix</span>[n, p] X;</span>
+<span id="cb6-11"><a></a>}</span>
+<span id="cb6-12"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb6-13"><a></a>  <span class="dt">matrix</span>[n, p] X_centered;</span>
+<span id="cb6-14"><a></a>  <span class="dt">row_vector</span>[p] X_bar;</span>
+<span id="cb6-15"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:p) {</span>
+<span id="cb6-16"><a></a>    X_bar[i] = mean(X[, i]);</span>
+<span id="cb6-17"><a></a>    X_centered[, i] = X[, i] - X_bar[i];</span>
+<span id="cb6-18"><a></a>  }</span>
+<span id="cb6-19"><a></a>  <span class="dt">vector</span>[n] logE = log(E);</span>
+<span id="cb6-20"><a></a>}</span>
+<span id="cb6-21"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb6-22"><a></a>  <span class="dt">real</span> alpha_star;</span>
+<span id="cb6-23"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb6-24"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; sigma; <span class="co">// precision of heterogeneous effects</span></span>
+<span id="cb6-25"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span> = <span class="dv">0</span>&gt; tau; <span class="co">// precision of spatial effects</span></span>
+<span id="cb6-26"><a></a>  <span class="dt">vector</span>[n] z1; <span class="co">// spatial effects</span></span>
+<span id="cb6-27"><a></a>  <span class="dt">vector</span>[n] z2; <span class="co">// heterogeneous effects</span></span>
+<span id="cb6-28"><a></a>}</span>
+<span id="cb6-29"><a></a><span class="kw">transformed parameters</span> {</span>
+<span id="cb6-30"><a></a>  <span class="dt">vector</span>[n] theta = tau * z1;     <span class="co">// spatial effects</span></span>
+<span id="cb6-31"><a></a>  <span class="dt">vector</span>[n] epsilon = sigma * z2; <span class="co">// heterogeneous effects</span></span>
+<span id="cb6-32"><a></a>}</span>
+<span id="cb6-33"><a></a><span class="kw">model</span> {</span>
+<span id="cb6-34"><a></a>  Y ~ poisson_log(logE + alpha_star + X_centered * beta + theta + epsilon);</span>
+<span id="cb6-35"><a></a>  <span class="co">// the following computes the ICAR prior on theta (through the standardized version z1)</span></span>
+<span id="cb6-36"><a></a>  <span class="kw">target +=</span> -<span class="fl">0.5</span> * dot_self(z1[node1] - z1[node2]);</span>
+<span id="cb6-37"><a></a>  <span class="co">// soft sum-to-zero constraint on theta)</span></span>
+<span id="cb6-38"><a></a>  sum(z1) ~ normal(<span class="dv">0</span>, <span class="fl">0.001</span> * n); <span class="co">// equivalent to mean(z1) ~ normal(0, 0.001)</span></span>
+<span id="cb6-39"><a></a>  <span class="co">// heterogeneous effects</span></span>
+<span id="cb6-40"><a></a>  z2 ~ std_normal();</span>
+<span id="cb6-41"><a></a>  <span class="co">// population parameters</span></span>
+<span id="cb6-42"><a></a>  alpha_star ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb6-43"><a></a>  beta ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb6-44"><a></a>  sigma ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb6-45"><a></a>  tau ~ normal(<span class="dv">0</span>, <span class="dv">3</span>);</span>
+<span id="cb6-46"><a></a>}</span>
+<span id="cb6-47"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb6-48"><a></a>  <span class="dt">real</span> alpha = alpha_star - X_bar * beta;</span>
+<span id="cb6-49"><a></a>  <span class="dt">vector</span>[n] log_mu = logE + alpha_star + X_centered * beta + theta + epsilon;</span>
+<span id="cb6-50"><a></a>  <span class="dt">vector</span>[n] lambda = exp(log_mu - logE);</span>
+<span id="cb6-51"><a></a>  <span class="dt">vector</span>[n] mu = exp(log_mu);</span>
+<span id="cb6-52"><a></a>  <span class="dt">vector</span>[n] Y_pred;</span>
+<span id="cb6-53"><a></a>  <span class="dt">vector</span>[n] log_lik;</span>
+<span id="cb6-54"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n) {</span>
+<span id="cb6-55"><a></a>    Y_pred[i] = poisson_log_rng(log_mu[i]);</span>
+<span id="cb6-56"><a></a>    log_lik[i] = poisson_log_lpmf(Y[i] | log_mu[i]);</span>
+<span id="cb6-57"><a></a>  }</span>
+<span id="cb6-58"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="fit-the-stan-model" class="level2">
-<h2 class="anchored" data-anchor-id="fit-the-stan-model">Fit the Stan Model</h2>
+<section id="fit-the-stan-model" class="slide level2">
+<h2>Fit the Stan Model</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> age <span class="sc">+</span> poverty, <span class="at">data =</span> covid_nc_2020)[, <span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">nrow</span>(covid_nc_2020),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_edges =</span> <span class="fu">nrow</span>(neighbor_pairs_lower),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">node1 =</span> neighbor_pairs_lower[, <span class="dv">1</span>],</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">node2 =</span> neighbor_pairs_lower[, <span class="dv">2</span>],</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y =</span> covid_nc_2020<span class="sc">$</span>obs_deaths,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">E =</span> covid_nc_2020<span class="sc">$</span>est_deaths,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">X =</span> X</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>icar <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="st">"icar.stan"</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>fit_icar <span class="ot">&lt;-</span> <span class="fu">sampling</span>(icar, stan_data, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"z1"</span>, <span class="st">"z2"</span>, <span class="st">"epsilon"</span>, <span class="st">"log_mu"</span>, <span class="st">"lp__"</span>), <span class="at">include =</span> <span class="cn">FALSE</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> age <span class="sc">+</span> poverty, <span class="at">data =</span> covid_nc_2020)[, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb7-2"><a></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb7-3"><a></a>  <span class="at">n =</span> <span class="fu">nrow</span>(covid_nc_2020),</span>
+<span id="cb7-4"><a></a>  <span class="at">p =</span> <span class="fu">ncol</span>(X),</span>
+<span id="cb7-5"><a></a>  <span class="at">n_edges =</span> <span class="fu">nrow</span>(neighbor_pairs_lower),</span>
+<span id="cb7-6"><a></a>  <span class="at">node1 =</span> neighbor_pairs_lower[, <span class="dv">1</span>],</span>
+<span id="cb7-7"><a></a>  <span class="at">node2 =</span> neighbor_pairs_lower[, <span class="dv">2</span>],</span>
+<span id="cb7-8"><a></a>  <span class="at">Y =</span> covid_nc_2020<span class="sc">$</span>obs_deaths,</span>
+<span id="cb7-9"><a></a>  <span class="at">E =</span> covid_nc_2020<span class="sc">$</span>est_deaths,</span>
+<span id="cb7-10"><a></a>  <span class="at">X =</span> X</span>
+<span id="cb7-11"><a></a>)</span>
+<span id="cb7-12"><a></a>icar <span class="ot">&lt;-</span> <span class="fu">stan_model</span>(<span class="st">"icar.stan"</span>)</span>
+<span id="cb7-13"><a></a>fit_icar <span class="ot">&lt;-</span> <span class="fu">sampling</span>(icar, stan_data, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"z1"</span>, <span class="st">"z2"</span>, <span class="st">"epsilon"</span>, <span class="st">"log_mu"</span>, <span class="st">"lp__"</span>), <span class="at">include =</span> <span class="cn">FALSE</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="examine-model-summaries" class="level2">
-<h2 class="anchored" data-anchor-id="examine-model-summaries">Examine model summaries</h2>
+<section id="examine-model-summaries" class="slide level2">
+<h2>Examine model summaries</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">print</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -938,48 +752,42 @@ convergence, Rhat=1).</code></pre>
 </div>
 </div>
 </section>
-<section id="examine-traceplots" class="level2">
-<h2 class="anchored" data-anchor-id="examine-traceplots">Examine traceplots</h2>
+<section id="examine-traceplots" class="slide level2">
+<h2>Examine traceplots</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rstan<span class="sc">::</span><span class="fu">traceplot</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>rstan<span class="sc">::</span><span class="fu">traceplot</span>(fit_icar, <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"alpha"</span>, <span class="st">"alpha_star"</span>, <span class="st">"beta"</span>, <span class="st">"sigma"</span>, <span class="st">"tau"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
 </div>
-</div>
-</div>
-</section>
-<section id="looking-at-smr-observed-versus-lambda_i" class="level2">
-<h2 class="anchored" data-anchor-id="looking-at-smr-observed-versus-lambda_i">Looking at SMR observed versus <span class="math inline">\(\lambda_i\)</span></h2>
+<img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
+<section id="looking-at-smr-observed-versus-lambda_i" class="slide level2">
+<h2>Looking at SMR observed versus <span class="math inline">\(\lambda_i\)</span></h2>
 <div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="posterior-smr-across-north-carolina" class="level2">
-<h2 class="anchored" data-anchor-id="posterior-smr-across-north-carolina">Posterior SMR Across North Carolina</h2>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-align="center" data-layout-ncol="2">
+<section id="posterior-smr-across-north-carolina" class="slide level2">
+<h2>Posterior SMR Across North Carolina</h2>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-19-2.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -987,478 +795,484 @@ convergence, Rhat=1).</code></pre>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-19-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-19-3.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-19-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-19-4.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="mapping-plambda_i-1-mathbfy" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-plambda_i-1-mathbfy">Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></h2>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center" data-layout-ncol="1">
+<section id="mapping-plambda_i-1-mathbfy" class="slide level2">
+<h2>Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></h2>
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1056"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="1056"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="mapping-plambda_i-1-mathbfy-1" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-plambda_i-1-mathbfy-1">Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></h2>
+<section id="mapping-plambda_i-1-mathbfy-1" class="slide level2">
+<h2>Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></h2>
 <p>Binary indicator of <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y}) &gt; 0.95\)</span>:</p>
-<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-align="center" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-nrow="1" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="20-disease-mapping_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1056"></p>
+<figure>
+<p><img data-src="20-disease-mapping_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" width="1056"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="prepare-for-next-class" class="level2">
-<h2 class="anchored" data-anchor-id="prepare-for-next-class">Prepare for next class</h2>
+<section id="prepare-for-next-class" class="slide level2">
+<h2>Prepare for next class</h2>
 <ul>
-<li><p>Work on HW 05, which is due April 8.</p></li>
-<li><p>Complete reading to prepare for next Thursday’s lecture</p></li>
-<li><p>Thursday’s lecture: Guest lecture by Prof.&nbsp;Hwanhee Hong on Bayesian Meta-Analysis</p></li>
+<li><p>Work on HW 05, which is due April 7.</p></li>
+<li><p>Complete reading to prepare for next Tuesday’s lecture</p></li>
+<li><p>Tuesday’s lecture: Missing data</p></li>
 </ul>
 
 
 </section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../images/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://biostat725-sp26.netlify.app/">🔗 BIOSTAT 725 - Spring 2026</a></p>
+</div>
+</div></div>
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/biostat725-sp26\.netlify\.app");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
         },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
       });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
         }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
             }
           }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          return note.innerHTML;
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
         }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/biostat725-sp26\.netlify\.app");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
         }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
             }
           } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
             });
           }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
         }
-      }, function(instance) {
       });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>© Copyright 2026, Samuel Berchuck</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/biostat725-sp26/website/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
-    <div class="nav-footer-right">
-<p>This site is built with <a href="https://quarto.org/">Quarto</a></p>
-</div>
-  </div>
-</footer>
-
-
-
+      </script>
+    
 
 </body></html>

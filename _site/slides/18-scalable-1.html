@@ -290,7 +290,7 @@ Christine Shen
 <section id="prediction-for-the-sud-kivu-state" class="slide level2 midi">
 <h2>Prediction for the Sud-Kivu state</h2>
 <p>And we created a <span class="math inline">\(20 \times 20\)</span> grid for prediction of the spatial intercept surface over the Sud-Kivu state.</p>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -317,7 +317,7 @@ Christine Shen
 <section id="prediction-for-the-drc" class="slide level2 midi">
 <h2>Prediction for the DRC</h2>
 <p>And we will make predictions on a <span class="math inline">\(30 \times 30\)</span> grid over the DRC.</p>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -540,26 +540,28 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb2-1"><a></a><span class="kw">data</span>{</span>
 <span id="cb2-2"><a></a>  <span class="dt">matrix</span>[N,m] Z;</span>
 <span id="cb2-3"><a></a>  <span class="dt">matrix</span>[N,p] X;</span>
-<span id="cb2-4"><a></a>}</span>
-<span id="cb2-5"><a></a><span class="kw">transformed data</span> {</span>
-<span id="cb2-6"><a></a>  <span class="dt">matrix</span>[n,m] PHI;</span>
-<span id="cb2-7"><a></a>  <span class="dt">matrix</span>[N,p] X_centered;</span>
-<span id="cb2-8"><a></a>  ...</span>
-<span id="cb2-9"><a></a>}</span>
-<span id="cb2-10"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb2-11"><a></a>  <span class="dt">real</span> alpha_star;</span>
-<span id="cb2-12"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; sigma;</span>
-<span id="cb2-13"><a></a>  <span class="dt">vector</span>[p] beta;</span>
-<span id="cb2-14"><a></a>  <span class="dt">vector</span>[m] b;</span>
-<span id="cb2-15"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
-<span id="cb2-16"><a></a>  ...</span>
-<span id="cb2-17"><a></a>}</span>
-<span id="cb2-18"><a></a><span class="kw">model</span> {</span>
-<span id="cb2-19"><a></a>  <span class="dt">vector</span>[n] theta = PHI * (sqrt_S .* b);</span>
-<span id="cb2-20"><a></a>  <span class="kw">target +=</span> normal_lupdf(y | alpha_star + X_centered * beta + Z * theta, sigma);</span>
-<span id="cb2-21"><a></a>  <span class="kw">target +=</span> normal_lupdf(b | <span class="dv">0</span>, <span class="dv">1</span>);</span>
-<span id="cb2-22"><a></a>  ...</span>
-<span id="cb2-23"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a></a>  <span class="dt">matrix</span>[n,<span class="dv">2</span>] u; <span class="co">// locations for observed data</span></span>
+<span id="cb2-5"><a></a>  ...</span>
+<span id="cb2-6"><a></a>}</span>
+<span id="cb2-7"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb2-8"><a></a>  <span class="dt">matrix</span>[n,m] PHI;</span>
+<span id="cb2-9"><a></a>  <span class="dt">matrix</span>[N,p] X_centered;</span>
+<span id="cb2-10"><a></a>  ...</span>
+<span id="cb2-11"><a></a>}</span>
+<span id="cb2-12"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb2-13"><a></a>  <span class="dt">real</span> alpha_star;</span>
+<span id="cb2-14"><a></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; sigma;</span>
+<span id="cb2-15"><a></a>  <span class="dt">vector</span>[p] beta;</span>
+<span id="cb2-16"><a></a>  <span class="dt">vector</span>[m] b;</span>
+<span id="cb2-17"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
+<span id="cb2-18"><a></a>  ...</span>
+<span id="cb2-19"><a></a>}</span>
+<span id="cb2-20"><a></a><span class="kw">model</span> {</span>
+<span id="cb2-21"><a></a>  <span class="dt">vector</span>[n] theta = PHI * (sqrt_S .* b);</span>
+<span id="cb2-22"><a></a>  <span class="kw">target +=</span> normal_lupdf(y | alpha_star + X_centered * beta + Z * theta, sigma);</span>
+<span id="cb2-23"><a></a>  <span class="kw">target +=</span> normal_lupdf(b | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb2-24"><a></a>  ...</span>
+<span id="cb2-25"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="posterior-predictive-distribution" class="slide level2 midi">
@@ -606,8 +608,7 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
   \phi_1(\mathbf{u}_{n+q}) &amp; \dots &amp; \phi_m(\mathbf{u}_{n+q})
   \end{bmatrix}
 \end{align}
-\]</span> is the feature matrix for the new locations. Therefore approximately <span class="math display">\[
-\begin{align}
+\]</span> is the feature matrix for the new locations. Therefore approximately <span class="math display">\[\begin{align}
   \begin{bmatrix}
     \boldsymbol{\theta} \\
     \boldsymbol{\theta}^*
@@ -625,6 +626,60 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 </section>
 <section id="kriging-under-hsgp-1" class="slide level2 midi">
 <h2>Kriging under HSGP</h2>
+<p>Under the reparameterized model, it is easy to recognize the kriging distribution under HSGP.</p>
+<p>Recall we model <span class="math inline">\(\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}\)</span>, where <span class="math inline">\(\mathbf{b}\)</span> is treated as the unknown parameter, and <span class="math inline">\(S\)</span> is known given <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span>. Therefore for kriging:</p>
+<p><span class="math display">\[\begin{align}
+  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &amp;= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\boldsymbol{\Omega}) \\
+  &amp;=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
+\end{align}\]</span></p>
+<div class="fragment">
+<p>During MCMC sampling, we can obtain posterior predictive samples for <span class="math inline">\(\boldsymbol{\theta}^*\)</span> through posterior samples of <span class="math inline">\(\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{S}\)</span>. Let superscript <span class="math inline">\((s)\)</span> denote the <span class="math inline">\(s\)</span>th posterior sample:</p>
+<p><span class="math display">\[\boldsymbol{\theta}^{*(s)} = \boldsymbol{\Phi}^* \mathbf{S}^{(s) 1/2} \mathbf{b}^{(s)}.\]</span></p>
+</div>
+</section>
+<section id="hsgp-kriging-in-stan" class="slide level2 midi">
+<h2>HSGP kriging in <code>stan</code></h2>
+<p>Under HSGP, kriging can be easily implemented in <code>stan</code>.</p>
+<div class="cell" data-output.var="model_in_stan">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb3-1"><a></a><span class="kw">data</span> {</span>
+<span id="cb3-2"><a></a>  <span class="dt">matrix</span>[n,<span class="dv">2</span>] u_new; <span class="co">// locations for prediction</span></span>
+<span id="cb3-3"><a></a>  ...</span>
+<span id="cb3-4"><a></a>}</span>
+<span id="cb3-5"><a></a><span class="kw">transformed data</span> {</span>
+<span id="cb3-6"><a></a>  <span class="dt">matrix</span>[q,m] PHI_new;</span>
+<span id="cb3-7"><a></a>  ...</span>
+<span id="cb3-8"><a></a>}</span>
+<span id="cb3-9"><a></a><span class="kw">parameters</span> {</span>
+<span id="cb3-10"><a></a>  <span class="dt">vector</span>[m] b;</span>
+<span id="cb3-11"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
+<span id="cb3-12"><a></a>  ...</span>
+<span id="cb3-13"><a></a>}</span>
+<span id="cb3-14"><a></a><span class="kw">model</span> {</span>
+<span id="cb3-15"><a></a>  ...</span>
+<span id="cb3-16"><a></a>}</span>
+<span id="cb3-17"><a></a><span class="kw">generated quantities</span> {</span>
+<span id="cb3-18"><a></a>  <span class="dt">vector</span>[q] theta_new = PHI_new * (sqrt_S .* b);</span>
+<span id="cb3-19"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="kriging-under-hsgp-2" class="slide level2 midi">
+<h2>Kriging under HSGP</h2>
+<p>We mathematically show the kriging results. Recall under HSGP: <span class="math display">\[\begin{align}
+  \begin{bmatrix}
+    \boldsymbol{\theta} \\
+    \boldsymbol{\theta}^*
+  \end{bmatrix} \Bigg| \boldsymbol{\Omega} \sim N_{n
+  +q} \left(\begin{bmatrix}
+    \mathbf{0}_n \\
+    \mathbf{0}_q
+  \end{bmatrix},
+  \begin{bmatrix}
+    \boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top &amp; \boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top} \\
+    \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top &amp; \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}
+  \end{bmatrix} \right).
+\end{align}
+\]</span></p>
+<div class="fragment">
 <p>Again by properties of multivariate normal, <span class="math display">\[\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \overset{?}{\sim} N_q(\mathbb{E}_{\boldsymbol{\theta}^*}^{HS},\mathbb{V}_{\boldsymbol{\theta}^*}^{HS}),\]</span></p>
 <p><span class="math display">\[
 \begin{align}
@@ -632,12 +687,13 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
   \mathbb{V}_{\boldsymbol{\theta}^*}^{HS} &amp;= (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}) - (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{-1}(\boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top}).
 \end{align}
 \]</span></p>
+</div>
 <ul>
-<li class="fragment">If <span class="math inline">\(m \ge n\)</span>, <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)\)</span> is invertible, this is the kriging distribution under HSGP.</li>
+<li class="fragment">If <span class="math inline">\(m \ge n\)</span>, <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)\)</span> is invertible, and this is the kriging distribution.</li>
 <li class="fragment">But what if <span class="math inline">\(m &lt; n\)</span>?</li>
 </ul>
 </section>
-<section id="kriging-under-hsgp-2" class="slide level2 midi">
+<section id="kriging-under-hsgp-3" class="slide level2 midi">
 <h2>Kriging under HSGP</h2>
 <p>If <span class="math inline">\(m \le n\)</span>, claim <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta},\)</span> where <span class="math inline">\(\mathbf{A}^\dagger\)</span> denotes a generalized inverse of matrix <span class="math inline">\(\mathbf{A}\)</span> such that <span class="math inline">\(\mathbf{A}\mathbf{A}^{\dagger}\mathbf{A} = \mathbf{A}\)</span>. Sketch proof below, see details in class.</p>
 <ol type="1">
@@ -655,7 +711,7 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
 \]</span> Equation (1) is sufficient to show <span class="math inline">\(\mathbb{V}_{\boldsymbol{\theta}^*}^{HS} \equiv \mathbf{0}\)</span>.</p></li>
 </ol>
 </section>
-<section id="kriging-under-hsgp-3" class="slide level2 midi">
+<section id="kriging-under-hsgp-4" class="slide level2 midi">
 <h2>Kriging under HSGP</h2>
 <p>Under the reparameterized model, <span class="math inline">\(\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}\)</span>, for <span class="math inline">\(\mathbf{b} \sim N_m(0,\mathbf{I}).\)</span> Therefore <span class="math display">\[
 \begin{align}
@@ -664,39 +720,8 @@ C(\|\mathbf{u}_{1} - \mathbf{u}_n\|) &amp; C(\|\mathbf{u}_2 - \mathbf{u}_n\|) &a
   &amp;= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}. \quad (\text{by equation (2) in the last slide})
 \end{align}
 \]</span></p>
-<p>During MCMC sampling, we can obtain posterior predictive samples for <span class="math inline">\(\boldsymbol{\theta}^*\)</span> through posterior samples of <span class="math inline">\(\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{S}\)</span>. Let superscript <span class="math inline">\((s)\)</span> denote the <span class="math inline">\(s\)</span>th posterior sample:</p>
-<p><span class="math display">\[\boldsymbol{\theta}^{*(s)} = \boldsymbol{\Phi}^* \mathbf{S}^{(s) 1/2} \mathbf{b}^{(s)}.\]</span></p>
-</section>
-<section id="kriging-under-hsgp-alternative-view" class="slide level2 midi">
-<h2>Kriging under HSGP – alternative view</h2>
-<p>Under the reparameterized model, there is another (perhaps more intuitive) way to recognize the kriging distribution under HSGP when <span class="math inline">\(m \le n\)</span>.</p>
-<p>We model <span class="math inline">\(\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}\)</span>, where <span class="math inline">\(\mathbf{b}\)</span> is treated as the unknown parameter. Therefore for kriging: <span class="math display">\[\begin{align}
-  \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &amp;= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\mathbf{S},\boldsymbol{\Omega}) \\
-  &amp;=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
-\end{align}\]</span></p>
-</section>
-<section id="hsgp-kriging-in-stan" class="slide level2 midi">
-<h2>HSGP kriging in <code>stan</code></h2>
-<p>If <span class="math inline">\(m \le n\)</span>, kriging under HSGP can be easily implemented in <code>stan</code>.</p>
-<div class="cell" data-output.var="model_in_stan">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stan number-lines code-with-copy"><code class="sourceCode stan"><span id="cb3-1"><a></a><span class="kw">transformed data</span> {</span>
-<span id="cb3-2"><a></a>  <span class="dt">matrix</span>[q,m] PHI_new;</span>
-<span id="cb3-3"><a></a>  ...</span>
-<span id="cb3-4"><a></a>}</span>
-<span id="cb3-5"><a></a><span class="kw">parameters</span> {</span>
-<span id="cb3-6"><a></a>  <span class="dt">vector</span>[m] b;</span>
-<span id="cb3-7"><a></a>  <span class="dt">vector</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt;[m] sqrt_S;</span>
-<span id="cb3-8"><a></a>  ...</span>
-<span id="cb3-9"><a></a>}</span>
-<span id="cb3-10"><a></a><span class="kw">model</span> {</span>
-<span id="cb3-11"><a></a>  ...</span>
-<span id="cb3-12"><a></a>}</span>
-<span id="cb3-13"><a></a><span class="kw">generated quantities</span> {</span>
-<span id="cb3-14"><a></a>  <span class="dt">vector</span>[q] theta_new = PHI_new * (sqrt_S .* b);</span>
-<span id="cb3-15"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <div class="fragment">
-<p>If <span class="math inline">\(m&gt;n\)</span>, do we need to invert an <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\((\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)\)</span> for kriging?</p>
+<p>Next class, we will look at situations where <span class="math inline">\(m&gt;n\)</span>.</p>
 </div>
 </section>
 <section id="recap" class="slide level2 midi">
