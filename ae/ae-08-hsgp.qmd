@@ -212,7 +212,7 @@ runspec <- list(maxiter=30,nburn=1000,niter=5000,nthin=5,nchains=4,
                 Ids=Ids,rho0=5)
 ```
 
-Load HSGP helper functions and do a test run to make sure you can successfully run these codes. We only do 100 iterations for the test run so it should be quick. Later you can delete `testshort=T` to do the full run. These codes run 4 parallel chains, so make sure you run them on a suitable environment. It should take about 15-20 minutes.
+Load HSGP helper functions and do a test run to make sure you can successfully run these codes. We only do 100 iterations for the test run so it should be quick. Later you can delete `testshort=T` to do the full run. These codes run 4 parallel chains, so make sure you run them on a suitable environment. The full run takes about 15-20 minutes.
 
 ```{r, eval=F}
 
@@ -235,11 +235,10 @@ Save the model fitting results of the very last run for analysis. The `stan fit`
 
 ```{r, eval=F}
 
-# this is to remove intermediate run results and save the final run results
+# this is to remove intermediate run results and only save the final run results to save space
 runspec$fit <- runspec$fit[[j-1]]
-# save all run information
+# save run results and relevant parameters
 saveRDS(runspec,"res_HSGP.rds")
-
 ```
 
 # Exercise
@@ -261,12 +260,19 @@ How many iterations did HSGP parameter tuning process take? How many basis funct
 
 ## Exercise 2
 
-Look at the traceplots for a few parameters and comment on the mixing of the MCMC chain.
+Look at the traceplots for a few parameters and comment on the mixing of the MCMC chain. You can use the following codes to extract the posterior samples.
+
+```{r, eval=F}
+res_HSGP <- runspec$fit
+p_theta_HSGP <- as.matrix(res_HSGP,pars="theta_new")
+p_alpha_HSGP <- as.matrix(res_HSGP,pars="alpha")
+```
 
 **Answer:**
 
 ```{r}
 #| label: ex2
+
 
 # add code here
 
@@ -287,12 +293,9 @@ Obtain posterior mean and 95% credible interval for the regression coefficients.
 
 ## Exercise 4
 
-Use codes provided in the last AE to create visualizations of the surface of posterior mean and posterior SD of the spatial intercept. You can use the following codes to extract the posterior mean and SD. Note that due to the identifiability issue discussed in class, here we look at $\alpha\mathbf{1}+\boldsymbol{\theta}^*$.
+Use codes provided in the last AE to create visualizations of the surface of posterior mean and posterior SD of the spatial intercept. You can use the following codes to extract the posterior mean and SD. Note that due to the identifiability issue discussed in class, here we look at $\alpha\mathbf{1}+\boldsymbol{\theta}^*$ instead of $\boldsymbol{\theta}^*$ for the spatial intercepts.
 
 ```{r, eval=F}
-res_HSGP <- runspec$fit
-p_theta_HSGP <- as.matrix(res_HSGP,pars="theta_new")
-p_alpha_HSGP <- as.matrix(res_HSGP,pars="alpha")
 p_intercept_HSGP <- p_theta_HSGP + c(p_alpha_HSGP)
 p_intercept_HSGP_m <- colMeans(p_intercept_HSGP)
 p_intercept_HSGP_sd <- apply(p_intercept_HSGP,2,sd)
