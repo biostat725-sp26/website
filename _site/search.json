@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -5878,8 +5878,8 @@
     "objectID": "slides/17-geospatial.html#review-of-last-lecture",
     "href": "slides/17-geospatial.html#review-of-last-lecture",
     "title": "Geospatial Modeling",
-    "section": "Review of last lecture",
-    "text": "Review of last lecture\n\nDuring our last lecture, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) data.\nThe longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space)."
+    "section": "",
+    "text": "During our last lecture, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) data.\nThe longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space)."
   },
   {
     "objectID": "slides/17-geospatial.html#three-types-of-spatial-data",
@@ -6068,7 +6068,7 @@
     "href": "slides/17-geospatial.html#posterior-predictive-distribution",
     "title": "Geospatial Modeling",
     "section": "Posterior predictive distribution",
-    "text": "Posterior predictive distribution\nDefine \\(\\mathbf{Y}^* = (Y(\\mathbf{u}_{n+1}),\\ldots, Y(\\mathbf{u}_{n+q}))^\\top\\) as observations at \\(q\\) new locations. We ignore the subscript \\(j\\). The new location-specific parameters are \\(\\boldsymbol{\\theta}^* = (\\theta(\\mathbf{u}_{n+1}),\\ldots,\\theta(\\mathbf{u}_{n+q}))^\\top\\).\n\\[\\begin{aligned}\nf(\\mathbf{Y}^* | \\mathbf{Y}) &= \\int f(\\mathbf{Y}^*, \\boldsymbol{\\theta}^*, \\boldsymbol{\\theta}, \\boldsymbol{\\Omega} | \\mathbf{Y}) d\\boldsymbol{\\theta}^* d\\boldsymbol{\\theta} d\\boldsymbol{\\Omega}\\\\\n&= \\int \\underbrace{f(\\mathbf{Y}^* | \\boldsymbol{\\theta}^*, \\boldsymbol{\\Omega})}_{(1)} \\underbrace{f(\\boldsymbol{\\theta}^* | \\boldsymbol{\\theta}, \\boldsymbol{\\Omega})}_{(2)} \\underbrace{f(\\boldsymbol{\\Omega} | \\mathbf{Y})}_{(3)} d\\boldsymbol{\\theta}^* d\\boldsymbol{\\theta} d\\boldsymbol{\\Omega}\\\\\n\\end{aligned}\\]\n\nLikelihood: \\(f(\\mathbf{Y}^* | \\boldsymbol{\\theta}^*, \\boldsymbol{\\Omega}) = \\prod_{i=n+1}^{n+q} f(Y(\\mathbf{u}_i) | \\alpha, \\boldsymbol{\\beta}, \\theta(\\mathbf{u}_i),\\sigma)\\)\nKriging: \\(f(\\boldsymbol{\\theta}^* | \\boldsymbol{\\theta}, \\boldsymbol{\\Omega})\\)\nPosterior distribution: \\(f(\\boldsymbol{\\Omega} | \\mathbf{Y})\\)"
+    "text": "Posterior predictive distribution\nDefine \\(\\mathbf{Y}^* = (Y(\\mathbf{u}_{n+1}),\\ldots, Y(\\mathbf{u}_{n+q}))^\\top\\) as observations at \\(q\\) new locations. We ignore the subscript \\(j\\). The new location-specific parameters are \\(\\boldsymbol{\\theta}^* = (\\theta(\\mathbf{u}_{n+1}),\\ldots,\\theta(\\mathbf{u}_{n+q}))^\\top\\).\n\\[\\begin{aligned}\nf(\\mathbf{Y}^* | \\mathbf{Y}) &= \\int f(\\mathbf{Y}^*, \\boldsymbol{\\theta}^*, \\boldsymbol{\\theta}, \\boldsymbol{\\Omega} | \\mathbf{Y}) d\\boldsymbol{\\theta}^* d\\boldsymbol{\\theta} d\\boldsymbol{\\Omega}\\\\\n&= \\int \\underbrace{f(\\mathbf{Y}^* | \\boldsymbol{\\theta}^*, \\boldsymbol{\\Omega})}_{(1)} \\underbrace{f(\\boldsymbol{\\theta}^* | \\boldsymbol{\\theta}, \\boldsymbol{\\Omega})}_{(2)} \\underbrace{f(\\boldsymbol{\\theta},\\boldsymbol{\\Omega} | \\mathbf{Y})}_{(3)} d\\boldsymbol{\\theta}^* d\\boldsymbol{\\theta} d\\boldsymbol{\\Omega}\\\\\n\\end{aligned}\\]\n\nLikelihood: \\(f(\\mathbf{Y}^* | \\boldsymbol{\\theta}^*, \\boldsymbol{\\Omega}) = \\prod_{i=n+1}^{n+q} f(Y(\\mathbf{u}_i) | \\alpha, \\boldsymbol{\\beta}, \\theta(\\mathbf{u}_i),\\sigma)\\)\nKriging: \\(f(\\boldsymbol{\\theta}^* | \\boldsymbol{\\theta}, \\boldsymbol{\\Omega})\\)\nPosterior distribution: \\(f(\\boldsymbol{\\theta}, \\boldsymbol{\\Omega} | \\mathbf{Y})\\)"
   },
   {
     "objectID": "slides/17-geospatial.html#kriging-distribution",
@@ -6096,7 +6096,7 @@
     "href": "slides/17-geospatial.html#motivating-dataset-1",
     "title": "Geospatial Modeling",
     "section": "Motivating Dataset",
-    "text": "Motivating Dataset\n\n\n  loc_id hemoglobin     anemia age urban   LATNUM  LONGNUM mean_hemoglobin\n1      1       12.5 not anemic  28 rural 0.220128 21.79508        11.81053\n2      1       12.6 not anemic  42 rural 0.220128 21.79508        11.81053\n3      1       13.3 not anemic  15 rural 0.220128 21.79508        11.81053\n4      1       12.9 not anemic  28 rural 0.220128 21.79508        11.81053\n5      1       10.4       mild  32 rural 0.220128 21.79508        11.81053\n6      1       12.2 not anemic  42 rural 0.220128 21.79508        11.81053\n  community_size mean_age\n1             19       19\n2             19       19\n3             19       19\n4             19       19\n5             19       19\n6             19       19\n\n\n\n\n\n\n\n\nModeling Goals:\n\n\n\nLearn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.\nCreate a predicted map of hemoglobin across the spatial surface, with uncertainty quantification."
+    "text": "Motivating Dataset\n\n\n  loc_id hemoglobin     anemia age urban   LATNUM  LONGNUM mean_hemoglobin\n1      1       12.5 not anemic  28 rural 0.220128 21.79508        11.81053\n2      1       12.6 not anemic  42 rural 0.220128 21.79508        11.81053\n3      1       13.3 not anemic  15 rural 0.220128 21.79508        11.81053\n4      1       12.9 not anemic  28 rural 0.220128 21.79508        11.81053\n5      1       10.4       mild  32 rural 0.220128 21.79508        11.81053\n6      1       12.2 not anemic  42 rural 0.220128 21.79508        11.81053\n  community_size mean_age\n1             19       19\n2             19       19\n3             19       19\n4             19       19\n5             19       19\n6             19       19\n\n\n\n\n\n\n\n\nImportantModeling Goals:\n\n\n\n\nLearn the associations between age and urbanality and hemoglobin, accounting for unmeasured spatial confounders.\nCreate a predicted map of hemoglobin across the spatial surface, with uncertainty quantification."
   },
   {
     "objectID": "slides/17-geospatial.html#visualize-data",
@@ -6446,7 +6446,7 @@
     "href": "slides/18-scalable-1.html#hsgp-in-stan",
     "title": "Scalable Gaussian Processes #1",
     "section": "HSGP in stan",
-    "text": "HSGP in stan\nWe can implement the reparameterized model in stan. See pseudocodes below. This is called the non-centered parameterization in stan documentation. It’s recommended for computational efficiency for hierarchical models.\n\ndata{\n  matrix[N,m] Z;\n  matrix[N,p] X;\n}\ntransformed data {\n  matrix[n,m] PHI;\n  matrix[N,p] X_centered;\n  ...\n}\nparameters {\n  real alpha_star;\n  real&lt;lower=0&gt; sigma;\n  vector[p] beta;\n  vector[m] b;\n  vector&lt;lower=0&gt;[m] sqrt_S;\n  ...\n}\nmodel {\n  vector[n] theta = PHI * (sqrt_S .* b);\n  target += normal_lupdf(y | alpha_star + X_centered * beta + Z * theta, sigma);\n  target += normal_lupdf(b | 0, 1);\n  ...\n}"
+    "text": "HSGP in stan\nWe can implement the reparameterized model in stan. See pseudocodes below. This is called the non-centered parameterization in stan documentation. It’s recommended for computational efficiency for hierarchical models.\n\ndata{\n  matrix[N,m] Z;\n  matrix[N,p] X;\n  matrix[n,2] u; // locations for observed data\n  ...\n}\ntransformed data {\n  matrix[n,m] PHI;\n  matrix[N,p] X_centered;\n  ...\n}\nparameters {\n  real alpha_star;\n  real&lt;lower=0&gt; sigma;\n  vector[p] beta;\n  vector[m] b;\n  vector&lt;lower=0&gt;[m] sqrt_S;\n  ...\n}\nmodel {\n  vector[n] theta = PHI * (sqrt_S .* b);\n  target += normal_lupdf(y | alpha_star + X_centered * beta + Z * theta, sigma);\n  target += normal_lupdf(b | 0, 1);\n  ...\n}"
   },
   {
     "objectID": "slides/18-scalable-1.html#posterior-predictive-distribution",
@@ -6467,28 +6467,28 @@
     "href": "slides/18-scalable-1.html#kriging-under-hsgp",
     "title": "Scalable Gaussian Processes #1",
     "section": "Kriging under HSGP",
-    "text": "Kriging under HSGP\nUnder HSGP, \\(\\mathbf{C}^* \\approx \\boldsymbol{\\Phi}^* \\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\\), \\(\\mathbf{C}_+ \\approx \\boldsymbol{\\Phi} \\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\\), where \\[\n\\begin{align}\n  \\boldsymbol{\\Phi}^* \\in \\mathbb{R}^{q \\times m} = \\begin{bmatrix}\n  \\phi_1(\\mathbf{u}_{n+1}) & \\dots & \\phi_m(\\mathbf{u}_{n+1}) \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\phi_1(\\mathbf{u}_{n+q}) & \\dots & \\phi_m(\\mathbf{u}_{n+q})\n  \\end{bmatrix}\n\\end{align}\n\\] is the feature matrix for the new locations. Therefore approximately \\[\n\\begin{align}\n  \\begin{bmatrix}\n    \\boldsymbol{\\theta} \\\\\n    \\boldsymbol{\\theta}^*\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega} \\sim N_{n\n  +q} \\left(\\begin{bmatrix}\n    \\mathbf{0}_n \\\\\n    \\mathbf{0}_q\n  \\end{bmatrix},\n  \\begin{bmatrix}\n    \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top} \\\\\n    \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\n  \\end{bmatrix} \\right).\n\\end{align}\n\\]"
+    "text": "Kriging under HSGP\nUnder HSGP, \\(\\mathbf{C}^* \\approx \\boldsymbol{\\Phi}^* \\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\\), \\(\\mathbf{C}_+ \\approx \\boldsymbol{\\Phi} \\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\\), where \\[\n\\begin{align}\n  \\boldsymbol{\\Phi}^* \\in \\mathbb{R}^{q \\times m} = \\begin{bmatrix}\n  \\phi_1(\\mathbf{u}_{n+1}) & \\dots & \\phi_m(\\mathbf{u}_{n+1}) \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\phi_1(\\mathbf{u}_{n+q}) & \\dots & \\phi_m(\\mathbf{u}_{n+q})\n  \\end{bmatrix}\n\\end{align}\n\\] is the feature matrix for the new locations. Therefore approximately \\[\\begin{align}\n  \\begin{bmatrix}\n    \\boldsymbol{\\theta} \\\\\n    \\boldsymbol{\\theta}^*\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega} \\sim N_{n\n  +q} \\left(\\begin{bmatrix}\n    \\mathbf{0}_n \\\\\n    \\mathbf{0}_q\n  \\end{bmatrix},\n  \\begin{bmatrix}\n    \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top} \\\\\n    \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\n  \\end{bmatrix} \\right).\n\\end{align}\n\\]"
   },
   {
     "objectID": "slides/18-scalable-1.html#kriging-under-hsgp-1",
     "href": "slides/18-scalable-1.html#kriging-under-hsgp-1",
     "title": "Scalable Gaussian Processes #1",
     "section": "Kriging under HSGP",
-    "text": "Kriging under HSGP\nAgain by properties of multivariate normal, \\[\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) \\overset{?}{\\sim} N_q(\\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS},\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS}),\\]\n\\[\n\\begin{align}\n  \\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{-1} \\boldsymbol{\\theta}\\\\\n  \\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}) - (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{-1}(\\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top}).\n\\end{align}\n\\]\n\nIf \\(m \\ge n\\), \\((\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)\\) is invertible, this is the kriging distribution under HSGP.\nBut what if \\(m &lt; n\\)?"
+    "text": "Kriging under HSGP\nUnder the reparameterized model, it is easy to recognize the kriging distribution under HSGP.\nRecall we model \\(\\boldsymbol{\\theta} = \\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}\\), where \\(\\mathbf{b}\\) is treated as the unknown parameter, and \\(S\\) is known given \\(\\tau\\) and \\(\\rho\\). Therefore for kriging:\n\\[\\begin{align}\n  \\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta},\\boldsymbol{\\Omega}) &= \\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b} \\mid (\\mathbf{b},\\boldsymbol{\\Omega}) \\\\\n  &=\\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}.\n\\end{align}\\]\n\nDuring MCMC sampling, we can obtain posterior predictive samples for \\(\\boldsymbol{\\theta}^*\\) through posterior samples of \\(\\mathbf{b}\\) and \\(\\mathbf{S}\\). Let superscript \\((s)\\) denote the \\(s\\)th posterior sample:\n\\[\\boldsymbol{\\theta}^{*(s)} = \\boldsymbol{\\Phi}^* \\mathbf{S}^{(s) 1/2} \\mathbf{b}^{(s)}.\\]"
   },
   {
     "objectID": "slides/18-scalable-1.html#kriging-under-hsgp-2",
     "href": "slides/18-scalable-1.html#kriging-under-hsgp-2",
     "title": "Scalable Gaussian Processes #1",
     "section": "Kriging under HSGP",
-    "text": "Kriging under HSGP\nIf \\(m \\le n\\), claim \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) = (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta},\\) where \\(\\mathbf{A}^\\dagger\\) denotes a generalized inverse of matrix \\(\\mathbf{A}\\) such that \\(\\mathbf{A}\\mathbf{A}^{\\dagger}\\mathbf{A} = \\mathbf{A}\\). Sketch proof below, see details in class.\n\nBy properties of multivariate normal, \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) \\sim N_q(\\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS},\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS})\\), \\[\n\\begin{align}\n  \\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta}\\\\\n  \\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}) - (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger \\top}(\\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top}).\n\\end{align}\n\\]\nShow if \\(\\boldsymbol{\\Phi}\\) has full column rank, which is true under HSGP, then \\[\n\\begin{align}\n  \\mathbf{S} \\boldsymbol{\\Phi}^\\top(\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger \\top}\\boldsymbol{\\Phi}\\mathbf{S} = \\mathbf{S} \\tag{1} \\\\\n  \\mathbf{S} \\boldsymbol{\\Phi}^\\top(\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger}\\boldsymbol{\\Phi}\\mathbf{S} = \\mathbf{S} \\tag{2}.\n\\end{align}\n\\] Equation (1) is sufficient to show \\(\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} \\equiv \\mathbf{0}\\)."
+    "text": "Kriging under HSGP\nWe mathematically show the kriging results. Recall under HSGP: \\[\\begin{align}\n  \\begin{bmatrix}\n    \\boldsymbol{\\theta} \\\\\n    \\boldsymbol{\\theta}^*\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega} \\sim N_{n\n  +q} \\left(\\begin{bmatrix}\n    \\mathbf{0}_n \\\\\n    \\mathbf{0}_q\n  \\end{bmatrix},\n  \\begin{bmatrix}\n    \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top} \\\\\n    \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\n  \\end{bmatrix} \\right).\n\\end{align}\n\\]\n\nAgain by properties of multivariate normal, \\[\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) \\overset{?}{\\sim} N_q(\\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS},\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS}),\\]\n\\[\n\\begin{align}\n  \\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{-1} \\boldsymbol{\\theta}\\\\\n  \\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}) - (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{-1}(\\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top}).\n\\end{align}\n\\]\n\n\nIf \\(m \\ge n\\), \\((\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)\\) is invertible, and this is the kriging distribution.\nBut what if \\(m &lt; n\\)?"
   },
   {
     "objectID": "slides/18-scalable-1.html#kriging-under-hsgp-3",
     "href": "slides/18-scalable-1.html#kriging-under-hsgp-3",
     "title": "Scalable Gaussian Processes #1",
     "section": "Kriging under HSGP",
-    "text": "Kriging under HSGP\nUnder the reparameterized model, \\(\\boldsymbol{\\theta} = \\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}\\), for \\(\\mathbf{b} \\sim N_m(0,\\mathbf{I}).\\) Therefore \\[\n\\begin{align}\n  \\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta},\\boldsymbol{\\Omega}) &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta} \\\\\n  &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger}(\\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}) \\\\\n  &= \\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}. \\quad (\\text{by equation (2) in the last slide})\n\\end{align}\n\\]\nDuring MCMC sampling, we can obtain posterior predictive samples for \\(\\boldsymbol{\\theta}^*\\) through posterior samples of \\(\\mathbf{b}\\) and \\(\\mathbf{S}\\). Let superscript \\((s)\\) denote the \\(s\\)th posterior sample:\n\\[\\boldsymbol{\\theta}^{*(s)} = \\boldsymbol{\\Phi}^* \\mathbf{S}^{(s) 1/2} \\mathbf{b}^{(s)}.\\]"
+    "text": "Kriging under HSGP\nIf \\(m \\le n\\), claim \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) = (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta},\\) where \\(\\mathbf{A}^\\dagger\\) denotes a generalized inverse of matrix \\(\\mathbf{A}\\) such that \\(\\mathbf{A}\\mathbf{A}^{\\dagger}\\mathbf{A} = \\mathbf{A}\\). Sketch proof below, see details in class.\n\nBy properties of multivariate normal, \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) \\sim N_q(\\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS},\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS})\\), \\[\n\\begin{align}\n  \\mathbb{E}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta}\\\\\n  \\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}) - (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger \\top}(\\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top}).\n\\end{align}\n\\]\nShow if \\(\\boldsymbol{\\Phi}\\) has full column rank, which is true under HSGP, then \\[\n\\begin{align}\n  \\mathbf{S} \\boldsymbol{\\Phi}^\\top(\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger \\top}\\boldsymbol{\\Phi}\\mathbf{S} = \\mathbf{S} \\tag{1} \\\\\n  \\mathbf{S} \\boldsymbol{\\Phi}^\\top(\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger}\\boldsymbol{\\Phi}\\mathbf{S} = \\mathbf{S} \\tag{2}.\n\\end{align}\n\\] Equation (1) is sufficient to show \\(\\mathbb{V}_{\\boldsymbol{\\theta}^*}^{HS} \\equiv \\mathbf{0}\\)."
   },
   {
     "objectID": "slides/18-scalable-1.html#kriging-under-hsgp-alternative-view",
@@ -6502,7 +6502,7 @@
     "href": "slides/18-scalable-1.html#hsgp-kriging-in-stan",
     "title": "Scalable Gaussian Processes #1",
     "section": "HSGP kriging in stan",
-    "text": "HSGP kriging in stan\nIf \\(m \\le n\\), kriging under HSGP can be easily implemented in stan.\n\ntransformed data {\n  matrix[q,m] PHI_new;\n  ...\n}\nparameters {\n  vector[m] b;\n  vector&lt;lower=0&gt;[m] sqrt_S;\n  ...\n}\nmodel {\n  ...\n}\ngenerated quantities {\n  vector[q] theta_new = PHI_new * (sqrt_S .* b);\n}\n\n\nIf \\(m&gt;n\\), do we need to invert an \\(n \\times n\\) matrix \\((\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)\\) for kriging?"
+    "text": "HSGP kriging in stan\nUnder HSGP, kriging can be easily implemented in stan.\n\ndata {\n  matrix[n,2] u_new; // locations for prediction\n  ...\n}\ntransformed data {\n  matrix[q,m] PHI_new;\n  ...\n}\nparameters {\n  vector[m] b;\n  vector&lt;lower=0&gt;[m] sqrt_S;\n  ...\n}\nmodel {\n  ...\n}\ngenerated quantities {\n  vector[q] theta_new = PHI_new * (sqrt_S .* b);\n}"
   },
   {
     "objectID": "slides/18-scalable-1.html#recap",
@@ -6544,28 +6544,28 @@
     "href": "slides/19-scalable-2.html#geospatial-model",
     "title": "Scalable Gaussian Processes #2",
     "section": "Geospatial model",
-    "text": "Geospatial model\nWe specify the following model: \\[\\mathbf{Y} = \\alpha \\mathbf{1}_{N} + \\mathbf{X} \\boldsymbol{\\beta} + \\mathbf{Z}\\boldsymbol{\\theta} + \\boldsymbol{\\epsilon}, \\quad \\boldsymbol{\\epsilon} \\sim N_N(\\mathbf{0},\\sigma^2\\mathbf{I})\\] with priors\n\n\\(\\boldsymbol{\\theta} | \\tau,\\rho \\sim GP(\\mathbf{0},C(\\cdot,\\cdot))\\), where \\(C\\) is the Matérn 3/2 covariance function with magnitude \\(\\tau\\) and length scale \\(\\rho\\)\n\\(\\alpha^* \\sim N(0,4^2)\\). This is the intercept after centering \\(\\mathbf{X}\\).\n\\(\\beta_j | \\sigma_{\\beta} \\sim N(0,\\sigma_{\\beta}^2)\\), \\(j \\in \\{1,\\dots,p\\}\\)\n\\(\\sigma \\sim \\text{Half-Normal}(0, 2^2)\\)\n\\(\\tau \\sim \\text{Half-Normal}(0, 4^2)\\)\n\\(\\rho \\sim \\text{Inv-Gamma}(5, 5)\\)\n\\(\\sigma_{\\beta} \\sim \\text{Half-Normal}(0, 2^2)\\)"
+    "text": "Geospatial model\nWe specify the following model: \\[\\mathbf{Y} = \\alpha \\mathbf{1}_{N} + \\mathbf{X} \\boldsymbol{\\beta} + \\mathbf{Z}\\boldsymbol{\\theta} + \\boldsymbol{\\epsilon}, \\quad \\boldsymbol{\\epsilon} \\sim N_N(\\mathbf{0},\\sigma^2\\mathbf{I})\\] with priors\n\n\\(\\boldsymbol{\\theta}(\\mathbf{u}) | \\tau,\\rho \\sim GP(\\mathbf{0},C(\\cdot,\\cdot))\\), where \\(C\\) is the Matérn 3/2 covariance function with magnitude \\(\\tau\\) and length scale \\(\\rho\\)\n\\(\\alpha^* \\sim N(0,4^2)\\). This is the intercept after centering \\(\\mathbf{X}\\).\n\\(\\beta_j | \\sigma_{\\beta} \\sim N(0,\\sigma_{\\beta}^2)\\), \\(j \\in \\{1,\\dots,p\\}\\)\n\\(\\sigma \\sim \\text{Half-Normal}(0, 2^2)\\)\n\\(\\tau \\sim \\text{Half-Normal}(0, 4^2)\\)\n\\(\\rho \\sim \\text{Inv-Gamma}(5, 5)\\)\n\\(\\sigma_{\\beta} \\sim \\text{Half-Normal}(0, 2^2)\\)"
   },
   {
     "objectID": "slides/19-scalable-2.html#review-of-the-last-lecture",
     "href": "slides/19-scalable-2.html#review-of-the-last-lecture",
     "title": "Scalable Gaussian Processes #2",
     "section": "Review of the last lecture",
-    "text": "Review of the last lecture\n\nGaussian process (GP) is not scalable as it requires \\(\\mathcal{O}(n^3)\\) flops per MCMC iteration.\nIntroduced HSGP, a Hilbert space low-rank approximation method for GP. \\[\\mathbf{C} \\approx \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^T, \\quad \\text{where}\\]\n\n\\(\\boldsymbol{\\Phi} \\in \\mathbb{R}^{n \\times m}\\) only depends on the approximation box \\(\\boldsymbol{\\Theta}\\) and observed locations.\n\\(\\mathbf{S} \\in \\mathbb{R}^{m \\times m}\\) is diagonal. It depends on the covariance function \\(C\\) and parameters \\(\\tau\\) and \\(\\rho\\).\n\\(m\\) is the number of basis functions.\n\nModel reparameterization under HSGP.\nBayesian model fitting and kriging under HSGP."
+    "text": "Review of the last lecture\n\nGaussian process (GP) is not scalable as it requires \\(\\mathcal{O}(n^3)\\) flops per MCMC iteration.\nIntroduced HSGP, a Hilbert space low-rank approximation method for GP. \\[\\mathbf{C} \\approx \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^T, \\quad \\text{where}\\]\n\nfeature matrix \\(\\boldsymbol{\\Phi} \\in \\mathbb{R}^{n \\times m}\\) only depends on the approximation box \\(B\\) and observed locations.\ndiagonal matrix \\(\\mathbf{S} \\in \\mathbb{R}^{m \\times m}\\) only depends on the covariance function \\(C\\) and its parameters \\(\\tau\\) and \\(\\rho\\).\n\\(m\\) is the number of basis functions.\n\nModel reparameterization under HSGP: \\(\\boldsymbol{\\theta} \\overset{d}{=} \\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}\\), \\(\\mathbf{b} \\sim N_m(0,\\mathbf{I})\\).\nHow to do posterior sampling under HSGP in stan"
   },
   {
     "objectID": "slides/19-scalable-2.html#hsgp-parameters",
     "href": "slides/19-scalable-2.html#hsgp-parameters",
     "title": "Scalable Gaussian Processes #2",
     "section": "HSGP parameters",
-    "text": "HSGP parameters\nSolin and Särkkä (2020) showed that HSGP approximation can be made arbitrarily accurate as \\(\\boldsymbol{\\Theta}\\) and \\(m\\) increase.\n\n\n\n\n\n\n\nOur goal:\n\n\n\nMinimize the run time while maintaining reasonable approximation accuracy.\nFind minimum \\(\\boldsymbol{\\Theta}\\) and \\(m\\) with reasonable accuracy.\n\n\n\n\n\n\nNote: we treat estimation of the GP magnitude parameter \\(\\tau\\) as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function."
+    "text": "HSGP parameters\nHow to choose\n\nnumber of basis functions \\(m\\)\nthe approximation box \\(B\\)\n\n\nSolin and Särkkä (2020) showed that HSGP approximation can be made arbitrarily accurate as \\(B\\) and \\(m\\) increase.\n\n\n\n\n\n\n\n\nOur goal:\n\n\n\nMinimize the run time while maintaining reasonable approximation accuracy.\nFind smallest \\(B\\) and \\(m\\) that still yield reasonable approximation accuracy"
   },
   {
     "objectID": "slides/19-scalable-2.html#hsgp-approximation-box",
     "href": "slides/19-scalable-2.html#hsgp-approximation-box",
     "title": "Scalable Gaussian Processes #2",
     "section": "HSGP approximation box",
-    "text": "HSGP approximation box\nDue to the design of HSGP, the approximation is less accurate near the boundaries of \\(\\boldsymbol{\\Theta}\\).\n\nSuppose all the coordinates are centered. Let \\[S_l = \\max_i |\\mathbf{u}_{il}|, \\quad l=1,\\dots,d, \\quad i= 1, \\dots, (n+q)\\] such that \\(\\boldsymbol{\\Theta}_S = \\prod_{l=1}^d [-S_l,S_l]\\) is the smallest box which contains all observed and prediction locations. We should at least ensure \\(\\boldsymbol{\\Theta} \\supset \\boldsymbol{\\Theta}_S\\).\nWe want the box to be large enough to ensure good boundary accuracy. Let \\(c_l \\ge 1\\) be boundary factors, we consider \\[\\boldsymbol{\\Theta} = \\prod_{l=1}^d [-L_l,L_l], \\quad L_l = c_l S_l.\\]"
+    "text": "HSGP approximation box\n\nDue to the design of HSGP, the approximation is less accurate near the boundaries of \\(B\\).\nHow much the approximation accuracy deteriorates towards the boundaries depends on smoothness of the true surface.\nThe larger the length scale \\(\\rho\\), the smoother the surface, a smaller box can be used for the same level of boundary accuracy.\nThe larger the box, the more basis functions we need for the same level of overall accuracy, hence higher run time."
   },
   {
     "objectID": "slides/19-scalable-2.html#hsgp-approximation-box-and-rho",
@@ -6628,7 +6628,7 @@
     "href": "slides/19-scalable-2.html#an-iterative-algorithm",
     "title": "Scalable Gaussian Processes #2",
     "section": "An iterative algorithm",
-    "text": "An iterative algorithm\nPseudo-codes for HSGP parameter tuning assuming \\(d=1\\).\n\nu = center(observed and prediction locations)\nS = box size (u)\nmax_iter = 30\n\n# initialization\nj = 0\ncheck = FALSE\nrho = 0.5*S # the practical paper recommends setting the initial guess of rho to be 0.5 to 1 times S\nc = c(rho/S) # minimum c given rho and S\nm = m(c,rho/S) # minimum m given c, and rho/S\nL = c*S\ndiagnosis = logical(max_iter) # store checking results for each iteration\n\nwhile (!check & j&lt;=max_iter){\n  \n  fit = runHSGP(L,m) # stan run\n  j = j + 1\n\n  rho_hat = mean(fit$rho) # obtain fitted value for rho\n  # check the fitted is larger than the minimum rho that can be well approximated\n  diagnosis[j] = (rho_hat + 0.01 &gt;= rho)\n  if (j==1) {\n    \n    if (diagnosis[j]){\n      # if the diagnosis check is passed, do one more run just to make sure\n      m = m + 2\n      c = c(rho_hat/S)\n      rho = rho(m,c,S)\n    } else {\n      # if the check failed, update our knowledge about rho\n      rho = rho_hat\n      c = c(rho/S)\n      m = m(c,rho/S)\n    }\n  } else {\n    if (diagnosis[j] & diagnosis[j-2]){\n      # if the check passed for the last two runs, we finish tuning\n      check = TRUE\n    } else if (diagnosis[j] & !diagnosis[j-2]){\n      # if the check failed last time but passed this time, do one more run\n      m = m + 2\n      c = c(rho_hat/S)\n      rho = rho(m,c,S)      \n    } else if (!diagnosis[j]){\n      # if the check failed, update our knowledge about rho\n      rho = rho_hat\n      c = c(rho/S)\n      m = m(c,rho/S)\n    }\n  }\n  L = c*S\n}"
+    "text": "An iterative algorithm\nPseudo-codes for HSGP parameter tuning assuming \\(d=1\\).\n\nu = center(observed and prediction locations)\nS = box size (u)\nmax_iter = 30\n\n# initialization\nj = 0\ncheck = FALSE\ndiagnosis = logical(max_iter) # store checking results for each iteration\n\n# initial guess\nrho = 0.5*S # recommended initial value\nc = minimum c given rho\nm = minimum m given c, and rho\nB = c*S\n\nwhile (!check & j&lt;=max_iter){\n  \n  fit = runHSGP(B,m) # stan run\n  j = j + 1\n\n  rho_hat = mean(fit$rho) # obtain fitted value for rho\n  # check the fitted is larger than the minimum rho that can be well approximated\n  diagnosis[j] = (rho_hat + 0.01 &gt;= rho)\n  if (j==1) {\n    if (diagnosis[j]){\n      # if the diagnosis check is passed, do one more run just to make sure\n      m = m + 2\n      update c using rho_hat\n      update rho using m and c\n    } else {\n      # if the check failed, update our knowledge about rho\n      rho = rho_hat\n      update c and m using rho_hat\n    }\n  } else {\n    if (diagnosis[j] & diagnosis[j-2]){\n      # if the check passed for the last two runs, we finish tuning\n      check = TRUE\n    } else if (diagnosis[j] & !diagnosis[j-2]){\n      # if the check failed last time but passed this time, do one more run\n      m = m + 2\n      update c using rho_hat\n      update rho using m and c\n    } else if (!diagnosis[j]){\n      # if the check failed, update our knowledge about rho\n      rho = rho_hat\n      update c and m using rho_hat\n    }\n  }\n  B = c*S\n}"
   },
   {
     "objectID": "slides/19-scalable-2.html#hsgp-implementation-codes",
@@ -6642,7 +6642,7 @@
     "href": "slides/19-scalable-2.html#side-notes-on-hsgp-implementation",
     "title": "Scalable Gaussian Processes #2",
     "section": "Side notes on HSGP implementation",
-    "text": "Side notes on HSGP implementation\nA few random things to keep in mind for implementation in practice:\n\nIf your HSGP run is suspiciously VERY slow, check the number of basis functions being used in the run and make sure it is reasonable.\nCheck whether \\(m \\le n\\) before using the kriging results.\nBecause HSGP is a low-rank approximation method, the GP magnitude parameter \\(\\tau\\) will always be overestimated. However, we can account for this and use a bias-adjusted \\(\\tau\\) instead. See the AE 09 stan codes for parameter tau_adj.\nIf \\(d&gt;1\\), we need to do parameter tuning for each dimension."
+    "text": "Side notes on HSGP implementation\nA few random things to keep in mind for implementation in practice:\n\nIf \\(d&gt;1\\), parameter tuning is needed for each dimension.\nIf your HSGP run is suspiciously VERY slow, check the number of basis functions being used in the run and make sure it is reasonable.\nBecause HSGP is a low-rank approximation method, the GP magnitude parameter \\(\\tau\\) will always be overestimated. However, we can account for this and use a bias-adjusted \\(\\tau\\) instead. See AE 08 stan codes for parameter tau_adj.\nIt is possible to use different length scale parameters for each dimension. See demo codes here for examples.\nThe iterative algorithm described in Riutort-Mayol et al. (2023) (i.e., pseudo-codes on slide 15) can be further improved\nDue to identifiability issues, always look at \\(\\alpha \\mathbf{1}+\\boldsymbol{\\theta}\\) instead of \\(\\boldsymbol{\\theta}\\) alone."
   },
   {
     "objectID": "slides/19-scalable-2.html#side-notes-on-hsgp-implementation-1",
@@ -6775,6 +6775,531 @@
     "href": "prepare/prepare-mar24.html",
     "title": "Prepare for March 24 lecture",
     "section": "",
-    "text": "📖 Review corrected proof from Tuesday’s lecture.\n📖 Read Sections 4-6 of Practical Hilbert space approximate Bayesian Gaussian processes for probabilistic programming by Riutort-Mayol et al. 2022. You don’t need to fully understand everything in the paper!\n✅ Work on HW 04 which is due before class!"
+    "text": "📖 Proofs from Thursday’s lecture and the coming lecture can be found here.\n📖 Read Sections 4-6 of Practical Hilbert space approximate Bayesian Gaussian processes for probabilistic programming by Riutort-Mayol et al. 2022. You don’t need to fully understand everything in the paper!\n✅ Work on HW 04 which is due before class!"
+  },
+  {
+    "objectID": "hw/hw-05.html",
+    "href": "hw/hw-05.html",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "",
+    "text": "ImportantDue date\n\n\n\nThis assignment is due on Tuesday, April 7 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "hw/hw-05.html#data",
+    "href": "hw/hw-05.html#data",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Data",
+    "text": "Data\nWe will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are ~8600 women who are nested in ~500 survey clusters. The variables in the dataset are as follows.\n\nloc_id: location id (i.e. survey cluster).\nhemoglobin: hemoglobin level (g/dL).\nanemia: anemia classifications.\nage: age in years.\nurban: urban vs. rural.\nLATNUM: latitude.\nLONGNUM: longitude.\nmean_hemoglobin: average hemoglobin at each community (g/dL).\ncommunity_size: number of participants at each community.\nmean_age: average age of participants at each community (years).\n\nThe data set is the same one that was used in AE-07 and available in your HW repos.\n\ndrc &lt;- readRDS(\"drc.rds\")"
+  },
+  {
+    "objectID": "hw/hw-05.html#modeling",
+    "href": "hw/hw-05.html#modeling",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Modeling",
+    "text": "Modeling\nIn this homework, we will focus on the Sud-Kivu state within the DRC. Researchers are interested in mapping risk of anemia across Sud-Kivu. Anemia is a condition in which the body lacks enough healthy red blood cells to carry adequate oxygen to tissues. It is commonly associated with low levels of hemoglobin, the oxygen-carrying protein in red blood cells. Anemia can result from malnutrition, especially deficiencies in iron, folate, or vitamin B12, and is linked to a range of negative outcomes including fatigue, impaired cognitive development, weakened immunity, and poor pregnancy outcomes. In children and women, anemia is often a marker of underlying nutritional and health disparities.\nTo study anemia, researchers would like to fit a logistic regression model using a Bayesian hierarchical model with spatially varying intercepts. Define \\(Y_{ij} \\in \\{0,1\\}\\) as the indicator of anemia at location \\(i\\) (\\(i = 1,\\ldots,n\\)) for participant \\(j\\) (\\(j = 1,\\ldots, n_i\\)).\n\ndrc &lt;- drc %&gt;%\n  mutate(anemic = if_else(anemia == \"not anemic\", 0, 1))\n\nWe will fit the following model:\n\\[\\begin{align*}\nY_j(\\mathbf{u}_i) | \\alpha, \\boldsymbol{\\beta}, \\theta(\\mathbf{u}_i) &\\stackrel{ind}{\\sim} \\text{Bernoulli}(\\pi_{j}(\\mathbf{u}_i))\\\\\n\\text{logit}(\\pi_{j}(\\mathbf{u}_i)) &= \\alpha + \\mathbf{x}_j(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\\\\n\\boldsymbol{\\theta} | \\tau,\\rho &\\sim N(\\mathbf{0}_n,\\mathbf{C})\\\\\n\\alpha^* &\\sim N(0,4^2)\\\\\n\\beta_j | \\sigma_{\\beta} &\\sim N(0,\\sigma_{\\beta}^2), \\quad j = 1,\\ldots,p\\\\\n\\tau &\\sim \\text{Half-Normal}(0, 4^2)\\\\\n\\rho &\\sim \\text{Inv-Gamma}(5, 5)\\\\\n\\sigma_{\\beta} &\\sim \\text{Half-Normal}(0, 2^2),\n\\end{align*}\\] where \\(\\boldsymbol{\\theta} = (\\theta(\\mathbf{u}_1),\\ldots,\\theta(\\mathbf{u}_n))^\\top\\), \\(N = \\sum_{i=1}^n n_i = 490\\), \\(n = 29\\), \\(\\mathbf{x}_j(\\mathbf{u}_i) = (\\text{age}_{ij}/10, \\text{urban}_i)\\), and \\(\\mathbf{C}\\) a covariance matrix produced using the Matérn 3/2 covariance function with scale parameter \\(\\tau\\) and length scale \\(\\rho\\). The parameter \\(\\alpha^*\\) is the intercept after centering, such that \\(\\text{logit}(\\pi_{j}(\\mathbf{u}_i)) = \\alpha^* + \\mathbf{x}_j^*(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\), where \\(\\mathbf{x}_j^*(\\mathbf{u}_i) = \\mathbf{x}_j(\\mathbf{u}_i) - \\bar{\\mathbf{x}}_j(\\mathbf{u}_i)\\) and \\(\\bar{\\mathbf{x}}_j(\\mathbf{u}_i) = \\frac{1}{N} \\sum_{i=1}^n \\sum_{j=1}^{n_i} \\mathbf{x}_j(\\mathbf{u}_i)\\)."
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-1",
+    "href": "hw/hw-05.html#exercise-1",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nBased on AE-07, process the drc data to create an sf data object that can be used for spatial analyses. Create a map that visualizes the proportion of participants with anemia at each community in Sud-Kivu."
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-2",
+    "href": "hw/hw-05.html#exercise-2",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCreate a \\(25 \\times 25\\) grid of points to be used for prediction, and only keep those points within Sud-Kivu. Visualize the grid."
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-3",
+    "href": "hw/hw-05.html#exercise-3",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nResearchers are interested in understanding the a priori correlation between the anemia probability between two communities across Sud-Kivu. Visualize the correlation as a function of distance between two locations given in miles, evaluated at the prior mean for \\(\\rho\\). What is the a priori correlation between two locations that are 25 miles apart?"
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-4",
+    "href": "hw/hw-05.html#exercise-4",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFit the model detailed above. Present evidence of MCMC convergence."
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-5",
+    "href": "hw/hw-05.html#exercise-5",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nResearchers would like to understand the a posteriori correlation between the anemia probability between two communities across Sud-Kivu. Repeat Exercise 3 using the posterior mean of \\(\\rho\\). Visualize the correlations from the prior and posterior on the same figure. How does the posterior correlation compare to the prior?"
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-6",
+    "href": "hw/hw-05.html#exercise-6",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nPresent posterior means and intervals for the odds ratios for age and urbanality. Are any of these predictors associated with anemia?"
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-7",
+    "href": "hw/hw-05.html#exercise-7",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nMap the posterior mean probability of anemia across Sud-Kivu, \\(\\pi(\\mathbf{u}_i)\\). To make this map, we must specify \\(x(\\mathbf{u}_i) = (2.8, 0)\\), such that the age is 28 years (average age in Sud-Kivu) and we assume locations are rural (most common community location). Describe any spatial patterns that arise."
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-8",
+    "href": "hw/hw-05.html#exercise-8",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nCreate a map of the posterior standard deviation that corresponds to your map in Exercise 7. Describe any spatial patterns that arise."
+  },
+  {
+    "objectID": "hw/hw-05.html#exercise-9",
+    "href": "hw/hw-05.html#exercise-9",
+    "title": "HW 05: Geospatial Modeling",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nResearchers would like to identify locations in Sud-Kivu where a public health intervention is warranted. The are intrerested in intervening in locations where the posterior probability of anemia is greater than 0.4, \\(p_i = P(\\pi(\\mathbf{u}_i) &gt; 0.4 | \\mathbf{Y})\\). In particular, any locations with \\(p_i\\) greater than 0.5 \\(\\left(h_i = 1(p_i &gt; 0.5)\\right)\\) indicates a hot spot region where intervention is needed. Visualize both the \\(p_i\\) and \\(h_i\\) and make a statement about where intervention is warranted."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html",
+    "href": "slides/20-disease-mapping.html",
+    "title": "Disease Mapping",
+    "section": "",
+    "text": "Last week, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) and geospatial data.\nFocused on making predictions at new locations across the spatial surface.\nToday we will focus on areal spatial data, which has different goals associated with it than point-referenced spatial data."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#review-of-last-week",
+    "href": "slides/20-disease-mapping.html#review-of-last-week",
+    "title": "Disease Mapping",
+    "section": "Review of last week",
+    "text": "Review of last week\n\nThe last few weeks we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) and geospatial data.\nFocused on making predictions at new locations across the spatial surface.\nToday we will focus on areal spatial data, which has different goals associated with it than point-referenced spatial data."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#lattice-data-areal-data",
+    "href": "slides/20-disease-mapping.html#lattice-data-areal-data",
+    "title": "Disease Mapping",
+    "section": "Lattice Data (Areal Data)",
+    "text": "Lattice Data (Areal Data)\n\nData observed at the level of an areal unit\n\nCounty Level Sudden Infant Death Syndrome Counts"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#lattice-data-areal-data-1",
+    "href": "slides/20-disease-mapping.html#lattice-data-areal-data-1",
+    "title": "Disease Mapping",
+    "section": "Lattice Data (Areal Data)",
+    "text": "Lattice Data (Areal Data)\n\nBirmingham Tract Level Poverty Levels"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#goals-of-areal-spatial-data-analysis",
+    "href": "slides/20-disease-mapping.html#goals-of-areal-spatial-data-analysis",
+    "title": "Disease Mapping",
+    "section": "Goals of Areal Spatial Data Analysis",
+    "text": "Goals of Areal Spatial Data Analysis\nThe goal of areal spatial data analysis is to understand how spatial patterns (e.g., mortality rates, disease incidence) vary across different geographic areas (e.g., counties, neighborhoods).\nIt helps us identify:\n\nClusters: Areas with similar characteristics (e.g., high mortality, disease prevalence).\nOutliers: Areas that deviate significantly from the overall pattern (e.g., unexpectedly high mortality rates).\nSpatial Dependence: Whether values in one area are correlated with values in nearby areas (e.g., neighboring counties with similar health outcomes)."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#why-we-care-about-spatial-patterns",
+    "href": "slides/20-disease-mapping.html#why-we-care-about-spatial-patterns",
+    "title": "Disease Mapping",
+    "section": "Why We Care About Spatial Patterns",
+    "text": "Why We Care About Spatial Patterns\n\nLocal Insights: Spatial analysis helps identify local variations in health outcomes that may not be apparent when analyzing data at a higher (e.g., state or national) level.\nTargeted Interventions: Understanding spatial patterns allows for targeted public health interventions tailored to regions that need attention (e.g., areas with unusually high mortality rates).\nIdentifying Spatial Clusters: By recognizing clusters of high or low rates, we can investigate potential common causes (e.g., environmental factors, access to healthcare, socioeconomic conditions)."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#motivating-data",
+    "href": "slides/20-disease-mapping.html#motivating-data",
+    "title": "Disease Mapping",
+    "section": "Motivating Data",
+    "text": "Motivating Data\nToday, we will motivate areal spatial data analysis and disease mapping by studying 2020 COVID mortality at the county-level in North Carolina. The data object covid_nc_2020 is an sf object.\n\nVariables are:\n\nname: county name.\npopulation: 2020 population.\nobs_deaths: observed number of COVID-related deaths in 2020.\nest_deaths: estimated number of COVID-related deaths in 2020.\nsmr: standardized mortality ratio.\nage: precentage of residents over 60 years of age.\npoverty: percentage of residents below the poverty line.\ngeometry: contains centroid and boundary information for each county."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#covid-mortality",
+    "href": "slides/20-disease-mapping.html#covid-mortality",
+    "title": "Disease Mapping",
+    "section": "COVID Mortality",
+    "text": "COVID Mortality"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#introduction-to-disease-mapping",
+    "href": "slides/20-disease-mapping.html#introduction-to-disease-mapping",
+    "title": "Disease Mapping",
+    "section": "Introduction to Disease Mapping",
+    "text": "Introduction to Disease Mapping\n\nDisease mapping is a way of visualizing and analyzing geographic variations in health outcomes, such as mortality or disease incidence, across different regions (e.g., counties or neighborhoods).\nIt helps us identify regions with unusually high or low health outcomes, which could be indicative of underlying health disparities."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#the-challenge-with-observed-data",
+    "href": "slides/20-disease-mapping.html#the-challenge-with-observed-data",
+    "title": "Disease Mapping",
+    "section": "The Challenge with Observed Data",
+    "text": "The Challenge with Observed Data\nImagine you want to compare the number of deaths across counties in a state, like North Carolina. If we simply look at observed death counts, we might be misled:\n\nLarger counties with more people may have more deaths simply due to their larger population.\nSmaller counties may appear “healthier” simply because they have fewer people, not because they have lower mortality rates.\n\nThus, observed death counts are not enough to draw meaningful comparisons."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#the-challenge-with-observed-data-1",
+    "href": "slides/20-disease-mapping.html#the-challenge-with-observed-data-1",
+    "title": "Disease Mapping",
+    "section": "The Challenge with Observed Data",
+    "text": "The Challenge with Observed Data\n\nTo make fair comparisons between regions of different sizes, we need to adjust for population size (and sometimes demographics).\nWithout these adjustments, it’s hard to determine if a county’s high death count is due to its population size or if there’s something unique about the county (e.g., healthcare access, environmental factors) that increases the risk of mortality.\nThis is where we need more nuanced measures to adjust for population size and allow for better comparisons.\nToday we will talk about the standardized mortality ratio (SMR)."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#standardized-mortality-ratio",
+    "href": "slides/20-disease-mapping.html#standardized-mortality-ratio",
+    "title": "Disease Mapping",
+    "section": "Standardized Mortality Ratio",
+    "text": "Standardized Mortality Ratio\n\nSMR is a way of comparing the observed number of deaths in a population to the number of deaths we would expect, given the population’s characteristics (such as population size).\nIt adjusts for differences in population, allowing us to identify areas where deaths are higher or lower than we would expect.\n\n\\[\\text{SMR} = \\frac{\\text{Observed Deaths}}{\\text{Expected Deaths}}\\]\n\nExpected Deaths is calculated by multiplying the total deaths across the state by the proportion of the population in that county."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#example-data",
+    "href": "slides/20-disease-mapping.html#example-data",
+    "title": "Disease Mapping",
+    "section": "Example Data",
+    "text": "Example Data\n\n\n\nCounty\nObserved Deaths\nPopulation\nPopulation Proportion\n\n\n\n\nCounty A\n10\n30,000\n0.3\n\n\nCounty B\n15\n50,000\n0.5\n\n\nCounty C\n5\n20,000\n0.2\n\n\nTotal\n30\n100,000\n1.0"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#step-1---calculate-expected-deaths",
+    "href": "slides/20-disease-mapping.html#step-1---calculate-expected-deaths",
+    "title": "Disease Mapping",
+    "section": "Step 1 - Calculate Expected Deaths",
+    "text": "Step 1 - Calculate Expected Deaths\nThe Expected Deaths for each county are calculated by multiplying the total deaths by the population proportion for that county:\n\\[\\begin{aligned}\n\\text{Expected Deaths for County A} = 30 \\times 0.3 &= 9\\\\\n\\text{Expected Deaths for County B} = 30 \\times 0.5 &= 15\\\\\n\\text{Expected Deaths for County C} = 30 \\times 0.2 &= 6\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#step-2---compute-smr",
+    "href": "slides/20-disease-mapping.html#step-2---compute-smr",
+    "title": "Disease Mapping",
+    "section": "Step 2 - Compute SMR",
+    "text": "Step 2 - Compute SMR\nNow, we calculate the SMR by dividing the observed deaths by the expected deaths:\n\\[\\begin{aligned}\n\\text{SMR for County A} &= \\frac{10}{9} = 1.11\\\\\n\\text{SMR for County B} &= \\frac{15}{15} = 1\\\\\n\\text{SMR for County C} &= \\frac{5}{6} = 0.83\n\\end{aligned}\\]\nWhat do these numbers mean?"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#interpreting-smr",
+    "href": "slides/20-disease-mapping.html#interpreting-smr",
+    "title": "Disease Mapping",
+    "section": "Interpreting SMR",
+    "text": "Interpreting SMR\n\nSMR = 1: The observed number of deaths matches the expected number of deaths.\nSMR &gt; 1: More deaths than expected (excess mortality).\nSMR &lt; 1: Fewer deaths than expected (lower mortality).\n\nIn our example:\n\nCounty A has excess mortality, with SMR of 1.11.\nCounty B has as many deaths as expected, with SMR of 1.\nCounty C has fewer deaths than expected, with SMR of 0.83."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#why-use-smr-in-disease-mapping",
+    "href": "slides/20-disease-mapping.html#why-use-smr-in-disease-mapping",
+    "title": "Disease Mapping",
+    "section": "Why Use SMR in Disease Mapping?",
+    "text": "Why Use SMR in Disease Mapping?\nSMR allows us to:\n\nMake meaningful comparisons across counties of different sizes.\nIdentify areas with excess mortality (SMR &gt; 1) and areas with lower-than-expected mortality (SMR &lt; 1).\n\nIn disease mapping, SMR helps us better understand spatial health disparities and identify regions that may need targeted public health interventions."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#standardized-mortality-ratios",
+    "href": "slides/20-disease-mapping.html#standardized-mortality-ratios",
+    "title": "Disease Mapping",
+    "section": "Standardized Mortality Ratios",
+    "text": "Standardized Mortality Ratios"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#writing-down-a-model-for-smr",
+    "href": "slides/20-disease-mapping.html#writing-down-a-model-for-smr",
+    "title": "Disease Mapping",
+    "section": "Writing down a model for SMR",
+    "text": "Writing down a model for SMR\nDefine \\(Y_i\\) and \\(E_i\\) as the observed and expected mortality counts at county \\(i\\) (\\(i = 1\\ldots,n\\)). We can model the observed counts as follows:\n\\[Y_i | \\lambda_i \\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i).\\]\n\nRecall that for a random variable \\(Y \\sim \\text{Poisson}(\\lambda)\\), \\(\\mathbb{E}[Y] = \\lambda\\) and \\(\\mathbb{V}(Y) = \\lambda\\).\nWe have: \\(\\mathbb{E}[Y_i | \\lambda_i] = E_i \\lambda_i \\implies \\mathbb{E}\\left[(Y_i / E_i) | \\lambda_i\\right] = \\lambda_i.\\)\n\nUnder this parameterization \\(\\lambda_i\\) is the SMR."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#disease-mapping-model",
+    "href": "slides/20-disease-mapping.html#disease-mapping-model",
+    "title": "Disease Mapping",
+    "section": "Disease Mapping Model",
+    "text": "Disease Mapping Model\nThe parameter \\(\\lambda_i\\), sometimes also called relative risk, is modeled as follows:\n\\[\\begin{aligned}\nY_i | \\lambda_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i, \\quad \\epsilon_i \\stackrel{iid}{\\sim} N(0,\\sigma^2)\n\\end{aligned}\\]\nwhere \\(\\mathbf{x}_i \\in \\mathbb{R}^{p \\times 1}\\) contains county-level predictors.\nPopulation parameters:\n\n\\(\\alpha \\in \\mathbb{R}\\) is a population intercept.\n\\(\\boldsymbol{\\beta} \\in \\mathbb{R}^p\\) is a vector of population coefficients.\n\\(\\sigma \\in \\mathbb{R}^+\\) is a residual error term."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#disease-mapping-model-1",
+    "href": "slides/20-disease-mapping.html#disease-mapping-model-1",
+    "title": "Disease Mapping",
+    "section": "Disease Mapping Model",
+    "text": "Disease Mapping Model\nThe parameter \\(\\lambda_i\\), sometimes also called relative risk, is modeled as follows:\n\\[\\begin{aligned}\nY_i | \\lambda_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} N(0,\\sigma^2)\n\\end{aligned}\\]\nSpatial Error Term:\n\n\\(\\theta_i \\in \\mathbb{R}\\) is a location-specific parameter that smooths data according to a neighborhood structure.\n\\(\\theta_i\\) induces spatial correlation, such that \\(\\lambda_i\\) in neighboring areas will be more similar."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#spatial-correlation-areal-data",
+    "href": "slides/20-disease-mapping.html#spatial-correlation-areal-data",
+    "title": "Disease Mapping",
+    "section": "Spatial Correlation: Areal Data",
+    "text": "Spatial Correlation: Areal Data\n\nHow to induce spatial correlation between areal units?\n\nDistances between centroids (possibly population weighted); may be inappropriate for oddly shaped regions of varying sizes (great for equal sized grid though).\nNeighborhood structure of your spatial region; are two regions neighbors?\n\nCorrelation introduced through spatial random effects.\nThe default model for areal data in the Bayesian setting is called the conditionally autoregressive (CAR) model."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#adjacency-matrix",
+    "href": "slides/20-disease-mapping.html#adjacency-matrix",
+    "title": "Disease Mapping",
+    "section": "Adjacency Matrix",
+    "text": "Adjacency Matrix\n\nWe will define the matrix \\(\\mathbf{W} \\in \\mathbb{R}^{n \\times n}\\) as the adjacency matrix.\n\nThis is sometimes called a proximity matrix or neighborhood matrix.\n\nEach entry (\\(w_{ij} = [\\mathbf{W}]_{ij}\\)) is given by: \\[w_{ij} = 1(i \\sim j) = \\left\\{ \\begin{array}{ll}\n       1 & \\mbox{if $i$ and $j$ share a border};\\\\\n       0 & \\mbox{otherwise}.\\end{array} \\right.\\]\nIn some cases, \\(w_{ij}\\) can be generalized to be non-binary."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#compute-adjacency-matrix",
+    "href": "slides/20-disease-mapping.html#compute-adjacency-matrix",
+    "title": "Disease Mapping",
+    "section": "Compute Adjacency Matrix",
+    "text": "Compute Adjacency Matrix\nTo compute the adjacency matrix of an sf data object we can use the spdep library.\n\nneighbors &lt;- spdep::poly2nb(covid_nc_2020) # computes the neighborhood structure\nW &lt;- spdep::nb2mat(neighbors, style = \"B\", zero.policy = TRUE) # converts to an n x n matrix\n\n\nstyle = \"B\" specifies binary encoding (1 if neighbors, 0 if not).\nzero.policy = TRUE ensures the function works even if some counties do not have neighbors."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#visualzing-the-adjacency-matrix",
+    "href": "slides/20-disease-mapping.html#visualzing-the-adjacency-matrix",
+    "title": "Disease Mapping",
+    "section": "Visualzing the Adjacency Matrix",
+    "text": "Visualzing the Adjacency Matrix"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#visualzing-the-adjacency-matrix-1",
+    "href": "slides/20-disease-mapping.html#visualzing-the-adjacency-matrix-1",
+    "title": "Disease Mapping",
+    "section": "Visualzing the Adjacency Matrix",
+    "text": "Visualzing the Adjacency Matrix"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#icar-model",
+    "href": "slides/20-disease-mapping.html#icar-model",
+    "title": "Disease Mapping",
+    "section": "ICAR Model",
+    "text": "ICAR Model\nToday, we will look at the intrinsic CAR (ICAR) process for a vector \\(\\boldsymbol{\\theta} = (\\theta_1, \\ldots, \\theta_n)^\\top\\), \\(\\boldsymbol{\\theta} | \\tau^2 \\sim \\text{ICAR}\\left(\\tau^2\\right)\\). Under this specification, the following joint distribution is given:\n\\[f(\\boldsymbol{\\theta} | \\tau^2) \\propto \\exp\\left\\{-\\frac{1}{2\\tau^2}\\boldsymbol{\\theta}^\\top \\left(\\mathbf{D}_w - \\mathbf{W}\\right) \\boldsymbol{\\theta}\\right\\},\\]\nwhere \\(\\mathbf{D}_w\\) is diagonal with \\([\\mathbf{D}_w]_{ii} = w_{i+}\\) and \\(w_{i+} = \\sum_{j=1}^n w_{ij}\\) (i.e., \\(w_{i+}\\) is the number of neighbors for locations \\(i\\)).\n\n\\(\\left(\\mathbf{D}_w - \\mathbf{W}\\right)\\) is singular, so \\(\\left(\\mathbf{D}_w - \\mathbf{W}\\right)^{-1}\\) does not exist and this distribution is improper.\nWe can still use this as a prior for \\(\\boldsymbol{\\theta}\\) and get a proper posterior!"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#icar-model-conditional-distributinos",
+    "href": "slides/20-disease-mapping.html#icar-model-conditional-distributinos",
+    "title": "Disease Mapping",
+    "section": "ICAR Model: Conditional Distributinos",
+    "text": "ICAR Model: Conditional Distributinos\nThe joint distribution on the previous slide can be written as a \\(n\\) conditional distributions:\n\\[\\theta_{i} | \\boldsymbol{\\theta}_{-i}, \\tau^2 \\sim  N \\left({\\frac{\\sum_{j=1}^n w_{ij}\\theta_{j}}{w_{i+}}},\\frac{\\tau^2}{w_{i+}}\\right)\\]\n\n\\(\\boldsymbol\\theta_{-j}\\): Vector of \\(\\theta_{i}\\) parameters with \\(\\theta_{j}\\) removed.\nThe mean is an average of the neighbors values.\nThe variance shrinks as a function of the number of neighbors."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#another-equivalent-specification",
+    "href": "slides/20-disease-mapping.html#another-equivalent-specification",
+    "title": "Disease Mapping",
+    "section": "Another Equivalent Specification",
+    "text": "Another Equivalent Specification\nPairwise difference specification:\n\\[f(\\boldsymbol{\\theta} | \\tau^2) \\propto \\exp\\left\\{-\\frac{1}{2\\tau^2}\\sum_{i \\sim j} w_{ij} (\\theta_i - \\theta_j)^2\\right\\},\\]\n\nThe impropriety of the distribution can also be seen here, because we can add any constant to all \\(\\theta_i\\) and the distribution is unaffected.\nA constraint such as \\(\\sum_{i=1}^n \\theta_i = 0\\) would provide the needed centering.\nWe will use this specification in Stan."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#full-disease-mapping-model",
+    "href": "slides/20-disease-mapping.html#full-disease-mapping-model",
+    "title": "Disease Mapping",
+    "section": "Full Disease Mapping Model",
+    "text": "Full Disease Mapping Model\nThe full model can be written as:\n\\[\\begin{aligned}\nY_i | \\lambda_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\\\\n\\boldsymbol{\\theta} | \\tau &\\sim \\text{ICAR}\\left(\\tau^2\\right)\\\\\n\\boldsymbol{\\Omega} &\\sim f(\\boldsymbol{\\Omega}),\\\\\n\\end{aligned}\\]\nwhere \\(\\boldsymbol{\\Omega} = (\\alpha, \\boldsymbol{\\beta}, \\sigma, \\tau)\\).\n\n\\(\\mu_i = \\exp\\{\\log E_i + \\alpha + \\mathbf{x}_i\\boldsymbol{\\beta} + \\theta_i + \\epsilon_i\\}\\)."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#posterior-distribution",
+    "href": "slides/20-disease-mapping.html#posterior-distribution",
+    "title": "Disease Mapping",
+    "section": "Posterior Distribution",
+    "text": "Posterior Distribution\nDefine \\(\\mathbf{Y} = (Y_1,\\ldots,Y_n)\\). The posterior can be written as:\n\\[\\begin{aligned}\nf(\\boldsymbol{\\Omega}, \\boldsymbol{\\theta} | \\mathbf{Y}) &\\propto f(\\mathbf{Y}, \\boldsymbol{\\Omega},\\boldsymbol{\\theta})\\\\\n&\\propto f(\\mathbf{Y} | \\boldsymbol{\\Omega},\\boldsymbol{\\theta}) f(\\boldsymbol{\\theta} | \\boldsymbol{\\Omega}) f(\\boldsymbol{\\Omega})\\\\\n&\\propto f(\\boldsymbol{\\Omega}) \\prod_{i=1}^n f({Y}_i | \\lambda_i) f(\\theta_i | \\tau^2) .\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#adding-the-icar-prior-to-stan",
+    "href": "slides/20-disease-mapping.html#adding-the-icar-prior-to-stan",
+    "title": "Disease Mapping",
+    "section": "Adding the ICAR prior to Stan",
+    "text": "Adding the ICAR prior to Stan\nWe will use the pairwise differences specification, so we need the unique pairs of neighbors. We will define \\(n_{edges}\\) as the number of non-zero edges. The following is added to the Stan data code chunk.\n\ndata {\n  int&lt;lower=0&gt; n;\n  int&lt;lower=0&gt; n_edges;\n  array[n_edges] int&lt;lower = 1, upper = n&gt; node1; // node1[i] adjacent to node2[i]\n  array[n_edges] int&lt;lower = 1, upper = n&gt; node2; // and node1[i] &lt; node2[i]\n  ...\n}"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#extracting-non-zero-edges-for-stan",
+    "href": "slides/20-disease-mapping.html#extracting-non-zero-edges-for-stan",
+    "title": "Disease Mapping",
+    "section": "Extracting non-zero edges for Stan",
+    "text": "Extracting non-zero edges for Stan\nOur goal is to get the row-column pairs from \\(\\mathbf{W}\\) where the \\(w_{ij} = 1\\). This will return all non-zero indices in the adjacency matrix.\n\nneighbor_pairs &lt;- which(W == 1, arr.ind = TRUE)\n\nSince \\(\\mathbf{W}\\) is symmetric, we only need to keep the edges from above the diagonal to avoid repeating edges.\n\nneighbor_pairs_lower &lt;- neighbor_pairs[neighbor_pairs[, 1] &lt; neighbor_pairs[, 2], ]\nn_edges &lt;- nrow(neighbor_pairs_lower)\nnode1 &lt;- neighbor_pairs_lower[, 1]\nnode2 &lt;- neighbor_pairs_lower[, 2]"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#adding-the-icar-prior-to-stan-1",
+    "href": "slides/20-disease-mapping.html#adding-the-icar-prior-to-stan-1",
+    "title": "Disease Mapping",
+    "section": "Adding the ICAR prior to Stan",
+    "text": "Adding the ICAR prior to Stan\nWe can then add the following to the parameters and model Stan code chunks, where we leverage Stan’s ability to perform multi-indexing and vectorization!\n\nparameters {\n  vector[n] z;\n}\ntransformed parameters {\n  vector[n] theta = tau * z;\n}\nmodel {\n  target += -0.5 * dot_self(z[node1] - z[node2]);\n  // soft sum-to-zero constraint on z,\n  // equivalent to mean(z) ~ normal(0,0.01)\n  sum(z) ~ normal(0, 0.01 * n);\n}"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#non-centered-parameterization",
+    "href": "slides/20-disease-mapping.html#non-centered-parameterization",
+    "title": "Disease Mapping",
+    "section": "Non-centered parameterization",
+    "text": "Non-centered parameterization\nIn Stan it is more computationally efficient to use a non-centered parameterization. We define, \\(\\mathbf{z} \\in \\mathbb{R}^n\\) and give it the following prior:\n\\[\\mathbf{z} \\sim \\text{ICAR}(\\tau^2 = 1), \\quad \\sum_{i=1}^n z_i = 0.\\]\nWe can then recover \\(\\boldsymbol{\\theta}\\) by computing \\(\\boldsymbol{\\theta} = \\tau \\mathbf{z}.\\)"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#modeling",
+    "href": "slides/20-disease-mapping.html#modeling",
+    "title": "Disease Mapping",
+    "section": "Modeling",
+    "text": "Modeling\nWe specify the following model:\n\\[\\begin{aligned}\nY_i | \\lambda_i &\\stackrel{ind}{\\sim} \\text{Poisson}(E_i \\lambda_i)\\\\\n\\log \\lambda_i &= \\alpha + \\mathbf{x}_i \\boldsymbol{\\beta} + \\theta_i + \\epsilon_i,\\quad \\epsilon_i \\stackrel{iid}{\\sim} N(0,\\sigma^2)\\\\\n\\boldsymbol{\\theta} | \\tau &\\sim \\text{ICAR}\\left(\\tau^2\\right)\\\\\n\\alpha^* &\\sim N(0,3^2)\\\\\n\\beta_j &\\sim N(0,3^2), \\quad j = 1,\\ldots,p\\\\\n\\sigma &\\sim \\text{Half-Normal}(0, 3^2)\\\\\n\\tau &\\sim \\text{Half-Normal}(0, 3^2)\\\\\n\\end{aligned}\\]\nWhere \\(n = 100\\), \\(\\mathbf{x}_i = (\\text{age}_{i}, \\text{poverty}_i)\\)."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#full-stan-model-for-icar",
+    "href": "slides/20-disease-mapping.html#full-stan-model-for-icar",
+    "title": "Disease Mapping",
+    "section": "Full Stan Model for ICAR",
+    "text": "Full Stan Model for ICAR\n\n// saved in icar.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  int&lt;lower = 0&gt; n_edges;\n  array[n_edges] int&lt;lower = 1, upper = n&gt; node1; // node1[i] adjacent to node2[i]\n  array[n_edges] int&lt;lower = 1, upper = n&gt; node2; // and node1[i] &lt; node2[i]\n  array[n] int&lt;lower = 0&gt; Y;\n  vector&lt;lower = 0&gt;[n] E;\n  matrix[n, p] X;\n}\ntransformed data {\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n  vector[n] logE = log(E);\n}\nparameters {\n  real alpha_star;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma; // precision of heterogeneous effects\n  real&lt;lower = 0&gt; tau; // precision of spatial effects\n  vector[n] z1; // spatial effects\n  vector[n] z2; // heterogeneous effects\n}\ntransformed parameters {\n  vector[n] theta = tau * z1;     // spatial effects\n  vector[n] epsilon = sigma * z2; // heterogeneous effects\n}\nmodel {\n  Y ~ poisson_log(logE + alpha_star + X_centered * beta + theta + epsilon);\n  // the following computes the ICAR prior on theta (through the standardized version z1)\n  target += -0.5 * dot_self(z1[node1] - z1[node2]);\n  // soft sum-to-zero constraint on theta)\n  sum(z1) ~ normal(0, 0.001 * n); // equivalent to mean(z1) ~ normal(0, 0.001)\n  // heterogeneous effects\n  z2 ~ std_normal();\n  // population parameters\n  alpha_star ~ normal(0, 3);\n  beta ~ normal(0, 3);\n  sigma ~ normal(0, 3);\n  tau ~ normal(0, 3);\n}\ngenerated quantities {\n  real alpha = alpha_star - X_bar * beta;\n  vector[n] log_mu = logE + alpha_star + X_centered * beta + theta + epsilon;\n  vector[n] lambda = exp(log_mu - logE);\n  vector[n] mu = exp(log_mu);\n  vector[n] Y_pred;\n  vector[n] log_lik;\n  for (i in 1:n) {\n    Y_pred[i] = poisson_log_rng(log_mu[i]);\n    log_lik[i] = poisson_log_lpmf(Y[i] | log_mu[i]);\n  }\n}"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#fit-the-stan-model",
+    "href": "slides/20-disease-mapping.html#fit-the-stan-model",
+    "title": "Disease Mapping",
+    "section": "Fit the Stan Model",
+    "text": "Fit the Stan Model\n\nX &lt;- model.matrix(~ age + poverty, data = covid_nc_2020)[, -1]\nstan_data &lt;- list(\n  n = nrow(covid_nc_2020),\n  p = ncol(X),\n  n_edges = nrow(neighbor_pairs_lower),\n  node1 = neighbor_pairs_lower[, 1],\n  node2 = neighbor_pairs_lower[, 2],\n  Y = covid_nc_2020$obs_deaths,\n  E = covid_nc_2020$est_deaths,\n  X = X\n)\nicar &lt;- stan_model(\"icar.stan\")\nfit_icar &lt;- sampling(icar, stan_data, pars = c(\"z1\", \"z2\", \"epsilon\", \"log_mu\", \"lp__\"), include = FALSE, iter = 10000)"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#examine-model-summaries",
+    "href": "slides/20-disease-mapping.html#examine-model-summaries",
+    "title": "Disease Mapping",
+    "section": "Examine model summaries",
+    "text": "Examine model summaries\n\nprint(fit_icar, pars = c(\"alpha\", \"alpha_star\", \"beta\", \"sigma\", \"tau\"))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=10000; warmup=5000; thin=1; \npost-warmup draws per chain=5000, total post-warmup draws=20000.\n\n            mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nalpha      -0.99    0.01 0.42 -1.81 -1.27 -0.99 -0.71 -0.17  6567    1\nalpha_star  0.08    0.00 0.05 -0.01  0.05  0.08  0.12  0.18  6187    1\nbeta[1]     0.99    0.01 1.05 -1.06  0.28  0.99  1.70  3.06  5966    1\nbeta[2]     4.66    0.01 1.13  2.40  3.92  4.67  5.43  6.86  6293    1\nsigma       0.42    0.00 0.06  0.30  0.39  0.43  0.46  0.53  1087    1\ntau         0.25    0.01 0.17  0.01  0.11  0.22  0.36  0.64   550    1\n\nSamples were drawn using NUTS(diag_e) at Fri Mar 21 15:37:56 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#examine-traceplots",
+    "href": "slides/20-disease-mapping.html#examine-traceplots",
+    "title": "Disease Mapping",
+    "section": "Examine traceplots",
+    "text": "Examine traceplots\n\nrstan::traceplot(fit_icar, pars = c(\"alpha\", \"alpha_star\", \"beta\", \"sigma\", \"tau\"))"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#looking-at-smr-observed-versus-lambda_i",
+    "href": "slides/20-disease-mapping.html#looking-at-smr-observed-versus-lambda_i",
+    "title": "Disease Mapping",
+    "section": "Looking at SMR observed versus \\(\\lambda_i\\)",
+    "text": "Looking at SMR observed versus \\(\\lambda_i\\)"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#posterior-smr-across-north-carolina",
+    "href": "slides/20-disease-mapping.html#posterior-smr-across-north-carolina",
+    "title": "Disease Mapping",
+    "section": "Posterior SMR Across North Carolina",
+    "text": "Posterior SMR Across North Carolina"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#mapping-plambda_i-1-mathbfy",
+    "href": "slides/20-disease-mapping.html#mapping-plambda_i-1-mathbfy",
+    "title": "Disease Mapping",
+    "section": "Mapping \\(P(\\lambda_i > 1 | \\mathbf{Y})\\)",
+    "text": "Mapping \\(P(\\lambda_i &gt; 1 | \\mathbf{Y})\\)"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#mapping-plambda_i-1-mathbfy-1",
+    "href": "slides/20-disease-mapping.html#mapping-plambda_i-1-mathbfy-1",
+    "title": "Disease Mapping",
+    "section": "Mapping \\(P(\\lambda_i > 1 | \\mathbf{Y})\\)",
+    "text": "Mapping \\(P(\\lambda_i &gt; 1 | \\mathbf{Y})\\)\nBinary indicator of \\(P(\\lambda_i &gt; 1 | \\mathbf{Y}) &gt; 0.95\\):"
+  },
+  {
+    "objectID": "slides/20-disease-mapping.html#prepare-for-next-class",
+    "href": "slides/20-disease-mapping.html#prepare-for-next-class",
+    "title": "Disease Mapping",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 05, which is due April 7.\nComplete reading to prepare for next Tuesday’s lecture\nTuesday’s lecture: Missing data"
+  },
+  {
+    "objectID": "prepare/prepare-mar26.html",
+    "href": "prepare/prepare-mar26.html",
+    "title": "Prepare for March 26 lecture",
+    "section": "",
+    "text": "📖 Read Disease risk modeling by Moraga.\n📖 Review Spatial Models in Stan: Intrinsic Auto-Regressive Models for Areal Data by Morris 2019. Review through the section titled: Fitting the Model to the Scotland Lip Cancer Dataset.\n✅ Work on HW 05 which is due Tuesday April 7 before class."
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html",
+    "href": "ae/ae-09-disease-mapping.html",
+    "title": "AE 08: Disease Mapping",
+    "section": "",
+    "text": "ImportantDue date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-09-disease-mapping.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 08: Disease Mapping",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp26 organization on GitHub.\nClick on the repo with the prefix ae-09-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-09.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html#the-durham-neighborhood-compass",
+    "href": "ae/ae-09-disease-mapping.html#the-durham-neighborhood-compass",
+    "title": "AE 08: Disease Mapping",
+    "section": "The Durham Neighborhood Compass",
+    "text": "The Durham Neighborhood Compass\nThe Durham Neighborhood Compass is a public data portal developed by the City and County of Durham, NC. It provides neighborhood-level indicators across many topics, including: health (e.g., diabetes, asthma), education, housing and development, crime and safety, and demographics and equity. Most indicators are available at the census tract level, allowing for spatial analysis of neighborhoods within Durham County. Data are updated regularly and reflect community conditions over time. Today we will focus on adult diabetes prevalence by census tract in 2019. The data is available in dnc.csv and can be downloaded directly from the Durham Neighborhood Compass website.\nThe variables in the dataset are as follows and are specific to each census tract in 2019.\n\nGEOID: location id for each census tract.\ndiabetes: percentage of adults with diabetes.\neducation: percentage of adults with a bachelors degree or higher.\nincome: median household income, in $10,000.\ncolor: percentage of people of color.\n\nThe data set is available in your AE repos and is called dnc.\n\ndnc &lt;- read_csv(\"data/dnc.csv\")"
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html#creating-an-analysis-dataset",
+    "href": "ae/ae-09-disease-mapping.html#creating-an-analysis-dataset",
+    "title": "AE 08: Disease Mapping",
+    "section": "Creating an analysis dataset",
+    "text": "Creating an analysis dataset\nWe will begin by extracting the spatial information for Durham County, NC using the tigris R package.\n\ndurham_tracts &lt;- tracts(\n  state = \"NC\", \n  county = \"Durham\", \n  year = 2019,\n  class = \"sf\",\n  progress_bar = FALSE\n)\n\nThis object is an sf data object. The relevant variables are GEOID, which contains a unique identifier of each county and geometry, which contains the boundary information. For analyzing our data, we will first merge dnc with the sf data object. We begin by preparing the data for merging.\n\ndurham_merged &lt;- durham_tracts %&gt;%\n  mutate(GEOID = as.numeric(GEOID)) %&gt;%\n  left_join(dnc , by = \"GEOID\")\n\nWe can now visualize the adult diabetes proportion across the Durham county census tracts.\nggplot(durham_merged) +\n  geom_sf(aes(fill = diabetes), color = \"gray20\") +\n  scale_fill_viridis_c(option = \"plasma\", na.value = \"lightgray\") +\n  labs(title = \"Adult Diabetes Rate by Census Tract (Durham, 2019)\",\n       fill = \"% with Diabetes\") +\n  scale_fill_viridis_c() + \n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\nNote that there are three locations that do not have any data, represented in gray. These locations correspond to census tracts with a zero residents. For the analysis we will remove them."
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html#computing-the-adjacency-matrix",
+    "href": "ae/ae-09-disease-mapping.html#computing-the-adjacency-matrix",
+    "title": "AE 08: Disease Mapping",
+    "section": "Computing the adjacency matrix",
+    "text": "Computing the adjacency matrix\nTo fit the model, we required an adjacency matrix, \\(\\mathbf{W}\\). We only want to compute our adjacency matrix for the locations with non-zero residents. Thus, we create a dataset that removes census tracts with NA for diabetes.\n\ndurham_model_data &lt;- durham_merged %&gt;%\n  filter(!is.na(diabetes))\n\nWe then use functions for the R package spdep to create a neighbor list and adjacency matrix.\n\nnb &lt;- poly2nb(durham_model_data)\nW &lt;- nb2mat(nb, style = \"B\", zero.policy = TRUE)\n\nWe can visualize the adjacency matrix. To do this we first get the centroids of each census tract.\n\ncentroids &lt;- st_centroid(durham_model_data)\ncentroids &lt;- centroids %&gt;% mutate(id = 1:nrow(centroids))\n\nWe then compute the edges and create a data frame with the indices of the neighboring census tracts.\n\nneighbor_pairs &lt;- which(W == 1, arr.ind = TRUE)\nedges &lt;- data.frame(\n  from = neighbor_pairs[, 1],\n  to = neighbor_pairs[, 2]\n)\n\nThis plot shows the adjacency structure among Durham County census tracts used in the spatial model. The function geom_sf() draws the outlines of the tracts and also plots red dots at each tract centroid to show where the adjacency links originate. The function geom_segment() draws blue lines between neighboring tracts, based on their centroids.\nggplot(data = durham_model_data) +\n  geom_sf(fill = NA, color = \"black\") +\n  geom_segment(data = edges,\n               aes(x = st_coordinates(centroids)[from, 1], y = st_coordinates(centroids)[from, 2],\n                   xend = st_coordinates(centroids)[to, 1], yend = st_coordinates(centroids)[to, 2]),\n               color = \"blue\", size = 1.5) +\n  geom_sf(data = centroids, aes(geometry = geometry), color = \"red\", size = 3) +\n  theme_minimal() +\n  coord_sf() +\n  labs(x = \"Longitude\", y = \"Latitude\") +\n  ggtitle(\"Census Tract Adjacency Map\") + \n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\n\n\n\n\n\n\nFinally, we can compute the needed objects for the ICAR prior.\n\nneighbor_pairs_lower &lt;- neighbor_pairs[neighbor_pairs[, 1] &lt; neighbor_pairs[, 2], ]\nn_edges &lt;- nrow(neighbor_pairs_lower)\nnode1 &lt;- neighbor_pairs_lower[, 1]\nnode2 &lt;- neighbor_pairs_lower[, 2]"
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html#fitting-the-model",
+    "href": "ae/ae-09-disease-mapping.html#fitting-the-model",
+    "title": "AE 08: Disease Mapping",
+    "section": "Fitting the Model",
+    "text": "Fitting the Model\nWe can then compute the design matrix, making sure to remove the intercept.\n\nX &lt;- model.matrix(~ education + income + color, data = durham_model_data)[, -1]\n\nAnd then we can create the Stan data object.\n\nstan_data &lt;- list(\n  n = nrow(durham_model_data),\n  p = ncol(X),\n  n_edges = n_edges,\n  node1 = node1,\n  node2 = node2,\n  Y = durham_model_data$diabetes,\n  X = X\n)\n\nWe will now fit the model and print the posterior summaries and MCMC convergence diagnostics.\n\nicar &lt;- stan_model(file = \"icar.stan\")\nfit_icar &lt;- sampling(icar, stan_data, \n                     iter = 5000, control = list(adapt_delta = 0.99))\nprint(fit_icar, pars = c(\"alpha_star\", \"alpha\", \"beta\", \"sigma\", \"tau\"))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=5000; warmup=2500; thin=1; \npost-warmup draws per chain=2500, total post-warmup draws=10000.\n\n            mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\nalpha_star  0.13       0 0.00  0.13  0.13  0.13  0.13  0.13 20490 1.00\nalpha       0.20       0 0.03  0.14  0.18  0.20  0.22  0.25  2169 1.00\nbeta[1]    -0.09       0 0.03 -0.14 -0.11 -0.09 -0.07 -0.03  1931 1.00\nbeta[2]     0.00       0 0.00 -0.01 -0.01  0.00  0.00  0.00  5675 1.00\nbeta[3]     0.02       0 0.02 -0.02  0.01  0.02  0.04  0.07  2660 1.00\nsigma       0.02       0 0.00  0.01  0.01  0.02  0.02  0.02   541 1.01\ntau         0.02       0 0.01  0.00  0.01  0.02  0.03  0.04   591 1.01\n\nSamples were drawn using NUTS(diag_e) at Tue Mar 25 10:52:25 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1).\n\n\nNote that I increased adapt_delta from its default of 0.8 to help with the convergence. We will can also look at traceplots, which look good. The number of effective samples is quite small for the variance parameters, which is a bit concerning, however since the \\(\\hat{R}\\) and traceplots look good, we can proceed with inference.\n\nrstan::traceplot(fit_icar, pars = c(\"alpha_star\", \"alpha\", \"beta\", \"sigma\", \"tau\"))"
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html#posterior-predictive-distribution",
+    "href": "ae/ae-09-disease-mapping.html#posterior-predictive-distribution",
+    "title": "AE 08: Disease Mapping",
+    "section": "Posterior Predictive Distribution",
+    "text": "Posterior Predictive Distribution\nWe will now look at the posterior predictive distributions, which we can use to map the diabetes proportion across Durham census tracts. We begin by extracting the posterior predictive distribution and then compute summaries.\n\nY_pred &lt;- rstan::extract(fit_icar, pars = \"Y_pred\")$Y_pred\nppd_mean &lt;- apply(Y_pred, 2, mean)\nppd_sd &lt;- apply(Y_pred, 2, sd)\n\nWe then merge the predictions back to the original dataset, with all census tracts, including those with the NA for diabetes, so that our maps are across all census tracts. We begin by creating a data object that contains our predictions that can then be merged into the full data.\n\nmodel_geoids &lt;- durham_merged %&gt;%\n  filter(!is.na(diabetes)) %&gt;%\n  pull(GEOID)\npredictions &lt;- tibble(GEOID = model_geoids,\n                      ppd_mean = ppd_mean,\n                      ppd_sd = ppd_sd)\n\nWe now merge predictions back into the full spatial object for plotting.\n\ndurham_plot_data &lt;- durham_merged %&gt;%\n  left_join(predictions, by = \"GEOID\")\n\nThe code to create a map of the observed diabetes proportion and the posterior mean is below. Note that I make sure to have each plot be on the same color scale, so they are comparable. I first compute the maximum value needed for the upper bound and then use the limits functions.\n\nmax_limit &lt;- max(c(durham_merged$diabetes,\n                   durham_plot_data$ppd_mean), na.rm = TRUE)\n\nThe maps can be created as follows.\nggplot(durham_plot_data) +\n  geom_sf(aes(fill = diabetes), color = \"gray20\") +\n  scale_fill_viridis_c(option = \"plasma\", na.value = \"lightgray\") +\n  labs(title = \"Adult Diabetes Rate by Census Tract (Durham, 2019)\",\n       fill = \"% with Diabetes\") +\n  scale_fill_viridis_c(\n    limits = c(0, max_limit),\n    na.value = \"lightgray\"  # Gray out missing tracts\n  ) + \n  theme_minimal()\nggplot(durham_plot_data) +\n  geom_sf(aes(fill = ppd_mean), color = \"black\") +\n  scale_fill_viridis_c(\n    limits = c(0, max_limit),\n    na.value = \"lightgray\"  # Gray out missing tracts\n  ) +\n  labs(\n    title = \"Predicted Diabetes Rate by Census Tract (ICAR Model)\",\n    fill = \"Predicted %\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html#exercise-1",
+    "href": "ae/ae-09-disease-mapping.html#exercise-1",
+    "title": "AE 08: Disease Mapping",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nExamine the two side-by-side plots above and compare and contrast them. What changes to do you observe?\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html#exercise-2",
+    "href": "ae/ae-09-disease-mapping.html#exercise-2",
+    "title": "AE 08: Disease Mapping",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nCreate a map of the posterior predictive standard deviation across the Durham census tracts. What patterns do you observe?\nAnswer:\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-09-disease-mapping.html#exercise-3",
+    "href": "ae/ae-09-disease-mapping.html#exercise-3",
+    "title": "AE 08: Disease Mapping",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nPresent posterior summaries of \\(\\boldsymbol{\\beta}\\). Which predictors are associated with adult diabetes?\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "slides/18-scalable-1.html#kriging-under-hsgp-4",
+    "href": "slides/18-scalable-1.html#kriging-under-hsgp-4",
+    "title": "Scalable Gaussian Processes #1",
+    "section": "Kriging under HSGP",
+    "text": "Kriging under HSGP\nUnder the reparameterized model, \\(\\boldsymbol{\\theta} = \\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}\\), for \\(\\mathbf{b} \\sim N_m(0,\\mathbf{I}).\\) Therefore \\[\n\\begin{align}\n  \\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta},\\boldsymbol{\\Omega}) &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta} \\\\\n  &= (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger}(\\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}) \\\\\n  &= \\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}. \\quad (\\text{by equation (2) in the last slide})\n\\end{align}\n\\]\n\nNext class, we will look at situations where \\(m&gt;n\\)."
+  },
+  {
+    "objectID": "slides/19-scalable-2.html#review-of-the-last-lecture-1",
+    "href": "slides/19-scalable-2.html#review-of-the-last-lecture-1",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Review of the last lecture",
+    "text": "Review of the last lecture\n\nHow to do kriging under HSGP in stan\nUnder the reparameterized model, \\(\\boldsymbol{\\theta} = \\boldsymbol{\\Phi} \\mathbf{S}^{1/2}\\mathbf{b}\\), where \\(\\mathbf{b}\\) is treated as the unknown parameter, and \\(S\\) is known given \\(\\tau\\) and \\(\\rho\\). Therefore for kriging:\n\\[\\begin{align}\n   \\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta},\\boldsymbol{\\Omega}) &= \\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b} \\mid (\\mathbf{b},\\boldsymbol{\\Omega}) \\\\\n   &=\\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}.\n\\end{align}\\]\n\n\nDuring MCMC sampling, we can obtain posterior predictive samples for \\(\\boldsymbol{\\theta}^*\\) through posterior samples of \\(\\mathbf{b}\\) and \\(\\mathbf{S}\\). Let superscript \\((s)\\) denote the \\(s\\)th posterior sample:\n\\[\\boldsymbol{\\theta}^{*(s)} = \\boldsymbol{\\Phi}^* \\mathbf{S}^{(s) 1/2} \\mathbf{b}^{(s)}.\\]"
+  },
+  {
+    "objectID": "slides/19-scalable-2.html#kriging-under-hsgp",
+    "href": "slides/19-scalable-2.html#kriging-under-hsgp",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Kriging under HSGP",
+    "text": "Kriging under HSGP\nUnder HSGP: \\[\\begin{align}\n  \\begin{bmatrix}\n    \\boldsymbol{\\theta} \\\\\n    \\boldsymbol{\\theta}^*\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega} \\sim N_{n\n  +q} \\left(\\begin{bmatrix}\n    \\mathbf{0}_n \\\\\n    \\mathbf{0}_q\n  \\end{bmatrix},\n  \\begin{bmatrix}\n    \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top} \\\\\n    \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\n  \\end{bmatrix} \\right).\n\\end{align}\n\\]\nIf \\(m \\le n\\), we have shown \\[\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) = (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta}\\overset{d}{=}\\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}.\\]\nNow we show if \\(m&gt;n\\), \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) \\overset{d}{=}\\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}.\\)"
+  },
+  {
+    "objectID": "slides/19-scalable-2.html#number-of-basis-functions",
+    "href": "slides/19-scalable-2.html#number-of-basis-functions",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Number of basis functions",
+    "text": "Number of basis functions\n\nFor each dimension \\(l \\in \\{1,\\dots,d\\}\\) of the Gaussian processes, we need to choose one number of basis functions \\(m_l\\). The total number of basis functions is \\(m = \\prod_{l=1}^d m_l\\).\nAs a result, \\(m\\), and hence the HSGP computation complexity \\(\\mathcal{O}(nm+m)\\) grows exponentially with \\(d\\). Consequently, HSGP is typically recommended only for \\(d \\le 3\\), and at most \\(d=4\\).\nIncreasing \\(m\\) improves approximation accuracy but also increases computational cost."
+  },
+  {
+    "objectID": "slides/19-scalable-2.html#hsgp-approximation-box-1",
+    "href": "slides/19-scalable-2.html#hsgp-approximation-box-1",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "HSGP approximation box",
+    "text": "HSGP approximation box\n\nFor ease of implementation, HSGP always centers all the coordinates.\nLet \\(B_S\\) denote the smallest box which contain all the observed and kriging locations. We need to ensure \\(B_S \\subset B\\)."
+  },
+  {
+    "objectID": "slides/19-scalable-2.html#relationship-between-c-m-and-rho",
+    "href": "slides/19-scalable-2.html#relationship-between-c-m-and-rho",
+    "title": "Scalable Gaussian Processes #2",
+    "section": "Relationship between \\(c\\), \\(m\\) and \\(\\rho\\)",
+    "text": "Relationship between \\(c\\), \\(m\\) and \\(\\rho\\)\nLet’s quickly recap. For simplicity, let \\(d=1\\),\n\nAs \\(\\rho\\) decreases, the surface is less smooth. \\(c\\) needs to increase to retain boundary accuracy, \\(m\\) needs to increase to retain overall accuracy.\nAs \\(c\\) increases, \\(m\\) needs to increase to retain overall accuracy.\nAs \\(m\\) increases, run time increases.\n\n\nRiutort-Mayol et al. (2023) presented formulas for frequently used Matérn covariance functions:\n\ngiven \\(\\rho\\), the minimum \\(c\\) and \\(m\\) needed\ngiven \\(c\\) and \\(m\\), the minimum \\(\\rho\\) that can be captured\n\nfor a near 100% approximation accuracy of the correlation matrix.\n\n\nHowever, \\(\\rho\\) is unknown."
+  },
+  {
+    "objectID": "slides/17-geospatial.html",
+    "href": "slides/17-geospatial.html",
+    "title": "Geospatial Modeling",
+    "section": "",
+    "text": "During our last lecture, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) data.\nThe longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space)."
   }
 ]

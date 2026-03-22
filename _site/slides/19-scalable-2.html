@@ -238,7 +238,7 @@ Christine Shen
 <h2>Geospatial model</h2>
 <p>We specify the following model: <span class="math display">\[\mathbf{Y} = \alpha \mathbf{1}_{N} + \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\boldsymbol{\theta} + \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim N_N(\mathbf{0},\sigma^2\mathbf{I})\]</span> with priors</p>
 <ul>
-<li><span class="math inline">\(\boldsymbol{\theta} | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))\)</span>, where <span class="math inline">\(C\)</span> is the Matérn 3/2 covariance function with magnitude <span class="math inline">\(\tau\)</span> and length scale <span class="math inline">\(\rho\)</span></li>
+<li><span class="math inline">\(\boldsymbol{\theta}(\mathbf{u}) | \tau,\rho \sim GP(\mathbf{0},C(\cdot,\cdot))\)</span>, where <span class="math inline">\(C\)</span> is the Matérn 3/2 covariance function with magnitude <span class="math inline">\(\tau\)</span> and length scale <span class="math inline">\(\rho\)</span></li>
 <li><span class="math inline">\(\alpha^* \sim N(0,4^2)\)</span>. This is the intercept after centering <span class="math inline">\(\mathbf{X}\)</span>.</li>
 <li><span class="math inline">\(\beta_j | \sigma_{\beta} \sim N(0,\sigma_{\beta}^2)\)</span>, <span class="math inline">\(j \in \{1,\dots,p\}\)</span></li>
 <li><span class="math inline">\(\sigma \sim \text{Half-Normal}(0, 2^2)\)</span></li>
@@ -253,17 +253,59 @@ Christine Shen
 <li class="fragment"><p>Gaussian process (GP) is not scalable as it requires <span class="math inline">\(\mathcal{O}(n^3)\)</span> flops per MCMC iteration.</p></li>
 <li class="fragment"><p>Introduced HSGP, a Hilbert space low-rank approximation method for GP. <span class="math display">\[\mathbf{C} \approx \boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^T, \quad \text{where}\]</span></p>
 <ul>
-<li class="fragment"><span class="math inline">\(\boldsymbol{\Phi} \in \mathbb{R}^{n \times m}\)</span> only depends on the <em>approximation box</em> <span class="math inline">\(\boldsymbol{\Theta}\)</span> and observed locations.</li>
-<li class="fragment"><span class="math inline">\(\mathbf{S} \in \mathbb{R}^{m \times m}\)</span> is diagonal. It depends on the covariance function <span class="math inline">\(C\)</span> and parameters <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span>.</li>
+<li class="fragment">feature matrix <span class="math inline">\(\boldsymbol{\Phi} \in \mathbb{R}^{n \times m}\)</span> only depends on the <em>approximation box</em> <span class="math inline">\(B\)</span> and observed locations.</li>
+<li class="fragment">diagonal matrix <span class="math inline">\(\mathbf{S} \in \mathbb{R}^{m \times m}\)</span> only depends on the covariance function <span class="math inline">\(C\)</span> and its parameters <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span>.</li>
 <li class="fragment"><span class="math inline">\(m\)</span> is the number of basis functions.</li>
 </ul></li>
-<li class="fragment"><p>Model reparameterization under HSGP.</p></li>
-<li class="fragment"><p>Bayesian model fitting and kriging under HSGP.</p></li>
+<li class="fragment"><p>Model reparameterization under HSGP: <span class="math inline">\(\boldsymbol{\theta} \overset{d}{=} \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}\)</span>, <span class="math inline">\(\mathbf{b} \sim N_m(0,\mathbf{I})\)</span>.</p></li>
+<li class="fragment"><p>How to do posterior sampling under HSGP in <code>stan</code></p></li>
 </ol>
+</section>
+<section id="review-of-the-last-lecture-1" class="slide level2 midi">
+<h2>Review of the last lecture</h2>
+<ol start="5" type="1">
+<li class="fragment"><p>How to do kriging under HSGP in <code>stan</code></p>
+<p>Under the reparameterized model, <span class="math inline">\(\boldsymbol{\theta} = \boldsymbol{\Phi} \mathbf{S}^{1/2}\mathbf{b}\)</span>, where <span class="math inline">\(\mathbf{b}\)</span> is treated as the unknown parameter, and <span class="math inline">\(S\)</span> is known given <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\rho\)</span>. Therefore for kriging:</p>
+<p><span class="math display">\[\begin{align}
+   \boldsymbol{\theta}^* \mid (\boldsymbol{\theta},\boldsymbol{\Omega}) &amp;= \boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b} \mid (\mathbf{b},\boldsymbol{\Omega}) \\
+   &amp;=\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.
+\end{align}\]</span></p></li>
+</ol>
+<div class="fragment">
+<p>During MCMC sampling, we can obtain posterior predictive samples for <span class="math inline">\(\boldsymbol{\theta}^*\)</span> through posterior samples of <span class="math inline">\(\mathbf{b}\)</span> and <span class="math inline">\(\mathbf{S}\)</span>. Let superscript <span class="math inline">\((s)\)</span> denote the <span class="math inline">\(s\)</span>th posterior sample:</p>
+<p><span class="math display">\[\boldsymbol{\theta}^{*(s)} = \boldsymbol{\Phi}^* \mathbf{S}^{(s) 1/2} \mathbf{b}^{(s)}.\]</span></p>
+</div>
+</section>
+<section id="kriging-under-hsgp" class="slide level2 midi">
+<h2>Kriging under HSGP</h2>
+<p>Under HSGP: <span class="math display">\[\begin{align}
+  \begin{bmatrix}
+    \boldsymbol{\theta} \\
+    \boldsymbol{\theta}^*
+  \end{bmatrix} \Bigg| \boldsymbol{\Omega} \sim N_{n
+  +q} \left(\begin{bmatrix}
+    \mathbf{0}_n \\
+    \mathbf{0}_q
+  \end{bmatrix},
+  \begin{bmatrix}
+    \boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top &amp; \boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top} \\
+    \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top &amp; \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}
+  \end{bmatrix} \right).
+\end{align}
+\]</span></p>
+<p>If <span class="math inline">\(m \le n\)</span>, we have shown <span class="math display">\[\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}\overset{d}{=}\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.\]</span></p>
+<p>Now we show if <span class="math inline">\(m&gt;n\)</span>, <span class="math inline">\(\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) \overset{d}{=}\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.\)</span></p>
 </section>
 <section id="hsgp-parameters" class="slide level2 midi">
 <h2>HSGP parameters</h2>
-<p><span class="citation" data-cites="solin2020hilbert">Solin and Särkkä (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> showed that HSGP approximation can be made arbitrarily accurate as <span class="math inline">\(\boldsymbol{\Theta}\)</span> and <span class="math inline">\(m\)</span> increase.</p>
+<p>How to choose</p>
+<ul>
+<li class="fragment">number of basis functions <span class="math inline">\(m\)</span></li>
+<li class="fragment">the approximation box <span class="math inline">\(B\)</span></li>
+</ul>
+<div class="fragment">
+<p><span class="citation" data-cites="solin2020hilbert">Solin and Särkkä (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> showed that HSGP approximation can be made arbitrarily accurate as <span class="math inline">\(B\)</span> and <span class="math inline">\(m\)</span> increase.</p>
+</div>
 <div class="fragment">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -275,106 +317,63 @@ Christine Shen
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Minimize the run time while maintaining reasonable approximation accuracy.</li>
-<li class="fragment">Find minimum <span class="math inline">\(\boldsymbol{\Theta}\)</span> and <span class="math inline">\(m\)</span> with reasonable accuracy.</li>
+<li>Minimize the run time while maintaining reasonable approximation accuracy.</li>
+<li>Find smallest <span class="math inline">\(B\)</span> and <span class="math inline">\(m\)</span> that still yield reasonable approximation accuracy</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div class="fragment">
-<p><em>Note: we treat estimation of the GP magnitude parameter</em> <span class="math inline">\(\tau\)</span> as a separate problem, and only consider approximation accuracy of HSGP in terms of the correlation function.</p>
-</div>
+</section>
+<section id="number-of-basis-functions" class="slide level2 midi">
+<h2>Number of basis functions</h2>
+<ul>
+<li class="fragment">For each dimension <span class="math inline">\(l \in \{1,\dots,d\}\)</span> of the Gaussian processes, we need to choose one number of basis functions <span class="math inline">\(m_l\)</span>. The total number of basis functions is <span class="math inline">\(m = \prod_{l=1}^d m_l\)</span>.</li>
+<li class="fragment">As a result, <span class="math inline">\(m\)</span>, and hence the HSGP computation complexity <span class="math inline">\(\mathcal{O}(nm+m)\)</span> grows exponentially with <span class="math inline">\(d\)</span>. Consequently, HSGP is typically recommended only for <span class="math inline">\(d \le 3\)</span>, and at most <span class="math inline">\(d=4\)</span>.</li>
+<li class="fragment">Increasing <span class="math inline">\(m\)</span> improves approximation accuracy but also increases computational cost.</li>
+</ul>
 </section>
 <section id="hsgp-approximation-box" class="slide level2 midi">
 <h2>HSGP approximation box</h2>
-<p>Due to the design of HSGP, the approximation is less accurate near the boundaries of <span class="math inline">\(\boldsymbol{\Theta}\)</span>.</p>
 <ul>
-<li>Suppose all the coordinates are centered. Let <span class="math display">\[S_l = \max_i |\mathbf{u}_{il}|, \quad l=1,\dots,d, \quad i= 1, \dots, (n+q)\]</span> such that <span class="math inline">\(\boldsymbol{\Theta}_S = \prod_{l=1}^d [-S_l,S_l]\)</span> is the smallest box which contains all observed and prediction locations. We should at least ensure <span class="math inline">\(\boldsymbol{\Theta} \supset \boldsymbol{\Theta}_S\)</span>.</li>
-<li>We want the box to be large enough to ensure good boundary accuracy. Let <span class="math inline">\(c_l \ge 1\)</span> be <em>boundary factors</em>, we consider <span class="math display">\[\boldsymbol{\Theta} = \prod_{l=1}^d [-L_l,L_l], \quad L_l = c_l S_l.\]</span></li>
+<li class="fragment">Due to the design of HSGP, the approximation is less accurate near the boundaries of <span class="math inline">\(B\)</span>.</li>
+<li class="fragment">How much the approximation accuracy deteriorates towards the boundaries depends on smoothness of the true surface.</li>
+<li class="fragment">The larger the length scale <span class="math inline">\(\rho\)</span>, the smoother the surface, a smaller box can be used for the same level of boundary accuracy.</li>
+<li class="fragment">The larger the box, the more basis functions we need for the same level of overall accuracy, hence higher run time.</li>
 </ul>
 </section>
-<section id="hsgp-approximation-box-and-rho" class="slide level2 midi">
-<h2>HSGP approximation box and <span class="math inline">\(\rho\)</span></h2>
+<section id="hsgp-approximation-box-1" class="slide level2 midi">
+<h2>HSGP approximation box</h2>
+<ul>
+<li class="fragment">For ease of implementation, HSGP always centers all the coordinates.</li>
+<li class="fragment">Let <span class="math inline">\(B_S\)</span> denote the smallest box which contain all the observed and kriging locations. We need to ensure <span class="math inline">\(B_S \subset B\)</span>.</li>
+</ul>
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="./images/22/HSGPbox.png" class="quarto-figure quarto-figure-center" height="350"></p>
 </figure>
 </div>
-<p>How much the approximation accuracy deteriorates towards the boundaries depends on smoothness of the true surface.</p>
-<ul>
-<li>the larger the length scale <span class="math inline">\(\rho\)</span>, the smoother the surface, a smaller box (smaller <span class="math inline">\(c\)</span>) can be used for the same level of boundary accuracy.</li>
-</ul>
-</section>
-<section id="hsgp-approximation-box-and-m" class="slide level2 midi">
-<h2>HSGP approximation box and <span class="math inline">\(m\)</span></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./images/22/HSGPbox.png" class="quarto-figure quarto-figure-center" height="350"></p>
-</figure>
 </div>
-<p>The larger the box,</p>
-<ul>
-<li>the more basis functions we need for the same level of overall accuracy,</li>
-<li>hence higher run time.</li>
-</ul>
 </section>
-<section id="zooming-out-doesnt-simplify-the-problem" class="slide level2 midi">
-<h2>Zooming out doesn’t simplify the problem</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./images/22/HSGPbox2.png" class="quarto-figure quarto-figure-center" height="350"></p>
-</figure>
-</div>
-<ul>
-<li>If we scale the coordinates by a constant <span class="math inline">\(b\)</span>, the length scale <span class="math inline">\(\rho\)</span> of the underlying GP also needs to be approximately scaled by <span class="math inline">\(b\)</span> to capture the same level of details in the data.</li>
-<li>We can effectively think of the length scale parameter as <span class="math inline">\((\rho/\|\mathbf{S}\|)\)</span>.</li>
-</ul>
-</section>
-<section id="hsgp-basis-functions" class="slide level2 midi">
-<h2>HSGP basis functions</h2>
-<p>The total number of basis functions <span class="math inline">\(m = \prod_{l=1}^d m_l\)</span>, i.e., we need to decide on <span class="math inline">\(m_l\)</span>’s, the number of basis functions for each dimension.</p>
-<ul>
-<li><span class="math inline">\(m\)</span> scales exponentially in <span class="math inline">\(d\)</span>, hence the HSGP computation complexity <span class="math inline">\(\mathcal{O}(nm+m)\)</span> also scales exponentially in <span class="math inline">\(d\)</span>. Therefore HSGP is only recommended for <span class="math inline">\(d \le 3\)</span>, at most <span class="math inline">\(4\)</span>.</li>
-<li>The higher the <span class="math inline">\(m\)</span>, the better the overall approximation accuracy, the higher the runtime.</li>
-</ul>
-</section>
-<section id="relationship-between-c-m-and-rhos" class="slide level2 midi">
-<h2>Relationship between <span class="math inline">\(c\)</span>, <span class="math inline">\(m\)</span> and <span class="math inline">\(\rho/S\)</span></h2>
+<section id="relationship-between-c-m-and-rho" class="slide level2 midi">
+<h2>Relationship between <span class="math inline">\(c\)</span>, <span class="math inline">\(m\)</span> and <span class="math inline">\(\rho\)</span></h2>
 <p>Let’s quickly recap. For simplicity, let <span class="math inline">\(d=1\)</span>,</p>
-<ol type="1">
-<li class="fragment">As <span class="math inline">\((\rho/S)\)</span> decreases, the surface is less smooth,
 <ul>
-<li class="fragment"><span class="math inline">\(c\)</span> needs to increase to retain boundary accuracy.</li>
-<li class="fragment"><span class="math inline">\(m\)</span> needs to increase to retain overall accuracy.</li>
-</ul></li>
+<li class="fragment">As <span class="math inline">\(\rho\)</span> decreases, the surface is less smooth. <span class="math inline">\(c\)</span> needs to increase to retain boundary accuracy, <span class="math inline">\(m\)</span> needs to increase to retain overall accuracy.</li>
 <li class="fragment">As <span class="math inline">\(c\)</span> increases, <span class="math inline">\(m\)</span> needs to increase to retain overall accuracy.</li>
 <li class="fragment">As <span class="math inline">\(m\)</span> increases, run time increases.</li>
-</ol>
-</section>
-<section id="empirical-functional-form" class="slide level2 midi">
-<h2>Empirical functional form</h2>
-<p>Still assuming <span class="math inline">\(d=1\)</span>. If <span class="math inline">\(\rho\)</span> is known to us,</p>
-<ul>
-<li>given <span class="math inline">\(c\)</span> and <span class="math inline">\(\rho/S\)</span> and the covariance function <span class="math inline">\(C\)</span>, we can compute <span class="math inline">\(m(c,\rho/S)\)</span>, the minimum number of basis functions needed for a near 100% approximation accuracy of the correlation matrix.</li>
-<li><span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> used extensive simulations to obtain an empirical function form of <span class="math inline">\(m(c,\rho/S)\)</span> for frequently used Matérn covariance functions. E.g., for Matérn 3/2,</li>
 </ul>
-<p><span class="math display">\[m_{3/2}(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.\]</span></p>
-</section>
-<section id="empirical-functional-form-1" class="slide level2 midi">
-<h2>Empirical functional form</h2>
-<p><span class="math display">\[m(c,\rho/S)=3.24 \frac{c}{\rho/S}, \quad c \ge 4.5 \frac{\rho}S, \quad c \ge 1.2.\]</span></p>
-<ul>
-<li class="fragment">Notice the linear proportionality between <span class="math inline">\(m\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(\rho/S\)</span>.</li>
-<li class="fragment">For a given <span class="math inline">\(\rho/S\)</span>, there exists a minimum <span class="math inline">\(c(\rho/S)=\min(4.5\rho/S,1.2)\)</span>, below which the approximation is poor no matter how large <span class="math inline">\(m\)</span> is.</li>
-<li class="fragment">From <span class="math inline">\(m(c,\rho/S)\)</span>, we also have <span class="math display">\[\rho(m,c,S)=3.42 S \frac cm,\]</span> the minimum <span class="math inline">\(\rho\)</span> (least smooth surface) that can be well approximated given <span class="math inline">\(c\)</span>, <span class="math inline">\(m\)</span> and <span class="math inline">\(S\)</span>.</li>
-</ul>
-</section>
-<section id="question" class="slide level2 midi">
-<h2>Question</h2>
-<p>BUT, in real applications, we <strong>do not</strong> know <span class="math inline">\(\rho\)</span>.</p>
 <div class="fragment">
-<p>So how to make use of <span class="math inline">\(m(c,\rho/S)\)</span> to help choose <span class="math inline">\(c\)</span> and <span class="math inline">\(m\)</span>?</p>
+<p><span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> presented formulas for frequently used Matérn covariance functions:</p>
+<ul>
+<li>given <span class="math inline">\(\rho\)</span>, the minimum <span class="math inline">\(c\)</span> and <span class="math inline">\(m\)</span> needed</li>
+<li>given <span class="math inline">\(c\)</span> and <span class="math inline">\(m\)</span>, the minimum <span class="math inline">\(\rho\)</span> that can be captured</li>
+</ul>
+<p>for a near 100% approximation accuracy of the <strong>correlation matrix</strong>.</p>
+</div>
+<div class="fragment">
+<p>However, <span class="math inline">\(\rho\)</span> is unknown.</p>
 </div>
 </section>
 <section id="an-iterative-algorithm" class="slide level2 midi">
@@ -388,32 +387,32 @@ Christine Shen
 <span id="cb1-5"><a></a><span class="co"># initialization</span></span>
 <span id="cb1-6"><a></a>j <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb1-7"><a></a>check <span class="ot">=</span> <span class="cn">FALSE</span></span>
-<span id="cb1-8"><a></a>rho <span class="ot">=</span> <span class="fl">0.5</span><span class="sc">*</span>S <span class="co"># the practical paper recommends setting the initial guess of rho to be 0.5 to 1 times S</span></span>
-<span id="cb1-9"><a></a>c <span class="ot">=</span> <span class="fu">c</span>(rho<span class="sc">/</span>S) <span class="co"># minimum c given rho and S</span></span>
-<span id="cb1-10"><a></a>m <span class="ot">=</span> <span class="fu">m</span>(c,rho<span class="sc">/</span>S) <span class="co"># minimum m given c, and rho/S</span></span>
-<span id="cb1-11"><a></a>L <span class="ot">=</span> c<span class="sc">*</span>S</span>
-<span id="cb1-12"><a></a>diagnosis <span class="ot">=</span> <span class="fu">logical</span>(max_iter) <span class="co"># store checking results for each iteration</span></span>
-<span id="cb1-13"><a></a></span>
-<span id="cb1-14"><a></a><span class="cf">while</span> (<span class="sc">!</span>check <span class="sc">&amp;</span> j<span class="sc">&lt;=</span>max_iter){</span>
-<span id="cb1-15"><a></a>  </span>
-<span id="cb1-16"><a></a>  fit <span class="ot">=</span> <span class="fu">runHSGP</span>(L,m) <span class="co"># stan run</span></span>
-<span id="cb1-17"><a></a>  j <span class="ot">=</span> j <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb1-18"><a></a></span>
-<span id="cb1-19"><a></a>  rho_hat <span class="ot">=</span> <span class="fu">mean</span>(fit<span class="sc">$</span>rho) <span class="co"># obtain fitted value for rho</span></span>
-<span id="cb1-20"><a></a>  <span class="co"># check the fitted is larger than the minimum rho that can be well approximated</span></span>
-<span id="cb1-21"><a></a>  diagnosis[j] <span class="ot">=</span> (rho_hat <span class="sc">+</span> <span class="fl">0.01</span> <span class="sc">&gt;=</span> rho)</span>
-<span id="cb1-22"><a></a>  <span class="cf">if</span> (j<span class="sc">==</span><span class="dv">1</span>) {</span>
-<span id="cb1-23"><a></a>    </span>
-<span id="cb1-24"><a></a>    <span class="cf">if</span> (diagnosis[j]){</span>
-<span id="cb1-25"><a></a>      <span class="co"># if the diagnosis check is passed, do one more run just to make sure</span></span>
-<span id="cb1-26"><a></a>      m <span class="ot">=</span> m <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb1-27"><a></a>      c <span class="ot">=</span> <span class="fu">c</span>(rho_hat<span class="sc">/</span>S)</span>
-<span id="cb1-28"><a></a>      rho <span class="ot">=</span> <span class="fu">rho</span>(m,c,S)</span>
-<span id="cb1-29"><a></a>    } <span class="cf">else</span> {</span>
-<span id="cb1-30"><a></a>      <span class="co"># if the check failed, update our knowledge about rho</span></span>
-<span id="cb1-31"><a></a>      rho <span class="ot">=</span> rho_hat</span>
-<span id="cb1-32"><a></a>      c <span class="ot">=</span> <span class="fu">c</span>(rho<span class="sc">/</span>S)</span>
-<span id="cb1-33"><a></a>      m <span class="ot">=</span> <span class="fu">m</span>(c,rho<span class="sc">/</span>S)</span>
+<span id="cb1-8"><a></a>diagnosis <span class="ot">=</span> <span class="fu">logical</span>(max_iter) <span class="co"># store checking results for each iteration</span></span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># initial guess</span></span>
+<span id="cb1-11"><a></a>rho <span class="ot">=</span> <span class="fl">0.5</span><span class="sc">*</span>S <span class="co"># recommended initial value</span></span>
+<span id="cb1-12"><a></a>c <span class="ot">=</span> minimum c given rho</span>
+<span id="cb1-13"><a></a>m <span class="ot">=</span> minimum m given c, and rho</span>
+<span id="cb1-14"><a></a>B <span class="ot">=</span> c<span class="sc">*</span>S</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a><span class="cf">while</span> (<span class="sc">!</span>check <span class="sc">&amp;</span> j<span class="sc">&lt;=</span>max_iter){</span>
+<span id="cb1-17"><a></a>  </span>
+<span id="cb1-18"><a></a>  fit <span class="ot">=</span> <span class="fu">runHSGP</span>(B,m) <span class="co"># stan run</span></span>
+<span id="cb1-19"><a></a>  j <span class="ot">=</span> j <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-20"><a></a></span>
+<span id="cb1-21"><a></a>  rho_hat <span class="ot">=</span> <span class="fu">mean</span>(fit<span class="sc">$</span>rho) <span class="co"># obtain fitted value for rho</span></span>
+<span id="cb1-22"><a></a>  <span class="co"># check the fitted is larger than the minimum rho that can be well approximated</span></span>
+<span id="cb1-23"><a></a>  diagnosis[j] <span class="ot">=</span> (rho_hat <span class="sc">+</span> <span class="fl">0.01</span> <span class="sc">&gt;=</span> rho)</span>
+<span id="cb1-24"><a></a>  <span class="cf">if</span> (j<span class="sc">==</span><span class="dv">1</span>) {</span>
+<span id="cb1-25"><a></a>    <span class="cf">if</span> (diagnosis[j]){</span>
+<span id="cb1-26"><a></a>      <span class="co"># if the diagnosis check is passed, do one more run just to make sure</span></span>
+<span id="cb1-27"><a></a>      m <span class="ot">=</span> m <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb1-28"><a></a>      update c using rho_hat</span>
+<span id="cb1-29"><a></a>      update rho using m and c</span>
+<span id="cb1-30"><a></a>    } <span class="cf">else</span> {</span>
+<span id="cb1-31"><a></a>      <span class="co"># if the check failed, update our knowledge about rho</span></span>
+<span id="cb1-32"><a></a>      rho <span class="ot">=</span> rho_hat</span>
+<span id="cb1-33"><a></a>      update c and m using rho_hat</span>
 <span id="cb1-34"><a></a>    }</span>
 <span id="cb1-35"><a></a>  } <span class="cf">else</span> {</span>
 <span id="cb1-36"><a></a>    <span class="cf">if</span> (diagnosis[j] <span class="sc">&amp;</span> diagnosis[j<span class="dv">-2</span>]){</span>
@@ -422,17 +421,16 @@ Christine Shen
 <span id="cb1-39"><a></a>    } <span class="cf">else</span> <span class="cf">if</span> (diagnosis[j] <span class="sc">&amp;</span> <span class="sc">!</span>diagnosis[j<span class="dv">-2</span>]){</span>
 <span id="cb1-40"><a></a>      <span class="co"># if the check failed last time but passed this time, do one more run</span></span>
 <span id="cb1-41"><a></a>      m <span class="ot">=</span> m <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb1-42"><a></a>      c <span class="ot">=</span> <span class="fu">c</span>(rho_hat<span class="sc">/</span>S)</span>
-<span id="cb1-43"><a></a>      rho <span class="ot">=</span> <span class="fu">rho</span>(m,c,S)      </span>
+<span id="cb1-42"><a></a>      update c using rho_hat</span>
+<span id="cb1-43"><a></a>      update rho using m and c</span>
 <span id="cb1-44"><a></a>    } <span class="cf">else</span> <span class="cf">if</span> (<span class="sc">!</span>diagnosis[j]){</span>
 <span id="cb1-45"><a></a>      <span class="co"># if the check failed, update our knowledge about rho</span></span>
 <span id="cb1-46"><a></a>      rho <span class="ot">=</span> rho_hat</span>
-<span id="cb1-47"><a></a>      c <span class="ot">=</span> <span class="fu">c</span>(rho<span class="sc">/</span>S)</span>
-<span id="cb1-48"><a></a>      m <span class="ot">=</span> <span class="fu">m</span>(c,rho<span class="sc">/</span>S)</span>
-<span id="cb1-49"><a></a>    }</span>
-<span id="cb1-50"><a></a>  }</span>
-<span id="cb1-51"><a></a>  L <span class="ot">=</span> c<span class="sc">*</span>S</span>
-<span id="cb1-52"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-47"><a></a>      update c and m using rho_hat</span>
+<span id="cb1-48"><a></a>    }</span>
+<span id="cb1-49"><a></a>  }</span>
+<span id="cb1-50"><a></a>  B <span class="ot">=</span> c<span class="sc">*</span>S</span>
+<span id="cb1-51"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="hsgp-implementation-codes" class="slide level2 midi">
@@ -443,24 +441,12 @@ Christine Shen
 <h2>Side notes on HSGP implementation</h2>
 <p>A few random things to keep in mind for implementation in practice:</p>
 <ol type="1">
+<li class="fragment">If <span class="math inline">\(d&gt;1\)</span>, parameter tuning is needed for each dimension.</li>
 <li class="fragment">If your HSGP run is suspiciously VERY slow, check the number of basis functions being used in the run and make sure it is reasonable.</li>
-<li class="fragment">Check whether <span class="math inline">\(m \le n\)</span> before using the kriging results.</li>
-<li class="fragment">Because HSGP is a low-rank approximation method, the GP magnitude parameter <span class="math inline">\(\tau\)</span> will always be overestimated. However, we can account for this and use a bias-adjusted <span class="math inline">\(\tau\)</span> instead. See the AE 09 <code>stan</code> codes for parameter <code>tau_adj</code>.</li>
-<li class="fragment">If <span class="math inline">\(d&gt;1\)</span>, we need to do parameter tuning for each dimension.</li>
-</ol>
-</section>
-<section id="side-notes-on-hsgp-implementation-1" class="slide level2 midi">
-<h2>Side notes on HSGP implementation</h2>
-<p>A few random things to keep in mind for implementation in practice:</p>
-<ol start="5" type="1">
-<li class="fragment"><p>It is possible to use different length scale parameters for each dimension. See <a href="https://github.com/gabriuma/basis_functions_approach_to_GP/tree/master/Paper">demo codes here</a> for examples.</p></li>
-<li class="fragment"><p>The iterative algorithm described in <span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> (i.e., pseudo-codes on slide 15) can be further improved:</p>
-<ul>
-<li class="fragment">it sometimes stops at a place.</li>
-<li class="fragment">it sometimes runs into a circular loop. See AE 09 <code>stan</code> codes for one possible fix.</li>
-<li class="fragment">it errs on the safe side and only changes <span class="math inline">\(m\)</span> if it might be too small.</li>
-</ul></li>
-<li class="fragment"><p>Due to identifiability issues, we always look at the spatial intercept <span class="math inline">\(\alpha \mathbf{1}+\boldsymbol{\theta}\)</span> together instead of just <span class="math inline">\(\boldsymbol{\theta}\)</span>.</p></li>
+<li class="fragment">Because HSGP is a low-rank approximation method, the GP magnitude parameter <span class="math inline">\(\tau\)</span> will always be overestimated. However, we can account for this and use a bias-adjusted <span class="math inline">\(\tau\)</span> instead. See AE 08 <code>stan</code> codes for parameter <code>tau_adj</code>.</li>
+<li class="fragment">It is possible to use different length scale parameters for each dimension. See <a href="https://github.com/gabriuma/basis_functions_approach_to_GP/tree/master/Paper">demo codes here</a> for examples.</li>
+<li class="fragment">The iterative algorithm described in <span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> (i.e., pseudo-codes on slide 15) can be further improved</li>
+<li class="fragment">Due to identifiability issues, always look at <span class="math inline">\(\alpha \mathbf{1}+\boldsymbol{\theta}\)</span> instead of <span class="math inline">\(\boldsymbol{\theta}\)</span> alone.</li>
 </ol>
 </section>
 <section id="gp-vs-hsgp-spatial-intercept-posterior-mean" class="slide level2 midi">
@@ -506,7 +492,7 @@ Christine Shen
 <section id="prepare-for-next-class" class="slide level2 midi">
 <h2>Prepare for next class</h2>
 <ol type="1">
-<li>Work on <a href="https://biostat725-sp26.netlify.app/hw/hw-05">HW 05</a> which will be assigned shortly.</li>
+<li>Work on <a href="https://biostat725-sp26.netlify.app/hw/hw-05-blank">HW 05</a> which will be assigned shortly.</li>
 <li>Complete reading to prepare for Thursday’s lecture</li>
 <li>Thursday’s lecture: Disease Mapping</li>
 </ol>
