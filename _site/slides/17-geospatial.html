@@ -538,12 +538,12 @@ C(||\mathbf{u}_{1} - \mathbf{u}_{n}||) &amp; C(||\mathbf{u}_2 - \mathbf{u}_{n}||
 <p>Define <span class="math inline">\(\mathbf{Y}^* = (Y(\mathbf{u}_{n+1}),\ldots, Y(\mathbf{u}_{n+q}))^\top\)</span> as observations at <span class="math inline">\(q\)</span> new locations. We ignore the subscript <span class="math inline">\(j\)</span>. The new location-specific parameters are <span class="math inline">\(\boldsymbol{\theta}^* = (\theta(\mathbf{u}_{n+1}),\ldots,\theta(\mathbf{u}_{n+q}))^\top\)</span>.</p>
 <p><span class="math display">\[\begin{aligned}
 f(\mathbf{Y}^* | \mathbf{Y}) &amp;= \int f(\mathbf{Y}^*, \boldsymbol{\theta}^*, \boldsymbol{\theta}, \boldsymbol{\Omega} | \mathbf{Y}) d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
-&amp;= \int \underbrace{f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega})}_{(1)} \underbrace{f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})}_{(2)} \underbrace{f(\boldsymbol{\Omega} | \mathbf{Y})}_{(3)} d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
+&amp;= \int \underbrace{f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega})}_{(1)} \underbrace{f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})}_{(2)} \underbrace{f(\boldsymbol{\theta},\boldsymbol{\Omega} | \mathbf{Y})}_{(3)} d\boldsymbol{\theta}^* d\boldsymbol{\theta} d\boldsymbol{\Omega}\\
 \end{aligned}\]</span></p>
 <ol type="1">
 <li><p>Likelihood: <span class="math inline">\(f(\mathbf{Y}^* | \boldsymbol{\theta}^*, \boldsymbol{\Omega}) = \prod_{i=n+1}^{n+q} f(Y(\mathbf{u}_i) | \alpha, \boldsymbol{\beta}, \theta(\mathbf{u}_i),\sigma)\)</span></p></li>
 <li><p>Kriging: <span class="math inline">\(f(\boldsymbol{\theta}^* | \boldsymbol{\theta}, \boldsymbol{\Omega})\)</span></p></li>
-<li><p>Posterior distribution: <span class="math inline">\(f(\boldsymbol{\Omega} | \mathbf{Y})\)</span></p></li>
+<li><p>Posterior distribution: <span class="math inline">\(f(\boldsymbol{\theta}, \boldsymbol{\Omega} | \mathbf{Y})\)</span></p></li>
 </ol>
 </section>
 <section id="kriging-distribution" class="slide level2 smaller">
@@ -656,7 +656,7 @@ C(||\mathbf{u}_{n} - \mathbf{u}_{n + 1}||) &amp; C(||\mathbf{u}_{n} - \mathbf{u}
 <img data-src="17-geospatial_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
 <section id="today-we-will-focus-on-one-state" class="slide level2">
 <h2>Today we will focus on one state</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -693,7 +693,7 @@ Y_j(\mathbf{u}_i) &amp;= \alpha + \mathbf{x}_j(\mathbf{u}_i) \boldsymbol{\beta} 
 <section id="define-the-prediction-grid" class="slide level2">
 <h2>Define the prediction grid</h2>
 <p>For prediction I created a <span class="math inline">\(20 \times 20\)</span> grid, making sure the points are in the surface.</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -904,7 +904,7 @@ convergence, Rhat=1).</code></pre>
 <img data-src="17-geospatial_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="posterior-predictive-distribution-1" class="slide level2">
 <h2>Posterior predictive distribution</h2>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
