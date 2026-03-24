@@ -316,7 +316,7 @@ A few random things to keep in mind for implementation in practice:
 2.  If your HSGP run is suspiciously VERY slow, check the number of basis functions being used in the run and make sure it is reasonable.
 3.  Because HSGP is a low-rank approximation method, the GP magnitude parameter $\tau$ will always be overestimated. However, we can account for this and use a bias-adjusted $\tau$ instead. See AE 08 `stan` codes for parameter `tau_adj`.
 4.  It is possible to use different length scale parameters for each dimension. See [demo codes here](https://github.com/gabriuma/basis_functions_approach_to_GP/tree/master/Paper) for examples.
-5.  The iterative algorithm described in @riutort2023practical (i.e., pseudo-codes on slide 15) can be further improved
+5.  The iterative algorithm described in @riutort2023practical (i.e., pseudo-codes on slide 12) can be further improved
 6.  Due to identifiability issues, always look at $\alpha \mathbf{1}+\boldsymbol{\theta}$ instead of $\boldsymbol{\theta}$ alone.
 :::
 
