@@ -360,7 +360,7 @@ Christine Shen
 <h2>Relationship between <span class="math inline">\(c\)</span>, <span class="math inline">\(m\)</span> and <span class="math inline">\(\rho\)</span></h2>
 <p>Let’s quickly recap. For simplicity, let <span class="math inline">\(d=1\)</span>,</p>
 <ul>
-<li class="fragment">As <span class="math inline">\(\rho\)</span> decreases, the surface is less smooth. <span class="math inline">\(c\)</span> needs to increase to retain boundary accuracy, <span class="math inline">\(m\)</span> needs to increase to retain overall accuracy.</li>
+<li class="fragment">As <span class="math inline">\(\rho\)</span> decreases, the surface is less smooth. <span class="math inline">\(c\)</span> needs to increase to retain boundary accuracy.</li>
 <li class="fragment">As <span class="math inline">\(c\)</span> increases, <span class="math inline">\(m\)</span> needs to increase to retain overall accuracy.</li>
 <li class="fragment">As <span class="math inline">\(m\)</span> increases, run time increases.</li>
 </ul>
@@ -445,7 +445,7 @@ Christine Shen
 <li class="fragment">If your HSGP run is suspiciously VERY slow, check the number of basis functions being used in the run and make sure it is reasonable.</li>
 <li class="fragment">Because HSGP is a low-rank approximation method, the GP magnitude parameter <span class="math inline">\(\tau\)</span> will always be overestimated. However, we can account for this and use a bias-adjusted <span class="math inline">\(\tau\)</span> instead. See AE 08 <code>stan</code> codes for parameter <code>tau_adj</code>.</li>
 <li class="fragment">It is possible to use different length scale parameters for each dimension. See <a href="https://github.com/gabriuma/basis_functions_approach_to_GP/tree/master/Paper">demo codes here</a> for examples.</li>
-<li class="fragment">The iterative algorithm described in <span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> (i.e., pseudo-codes on slide 15) can be further improved</li>
+<li class="fragment">The iterative algorithm described in <span class="citation" data-cites="riutort2023practical">Riutort-Mayol et al. (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span> (i.e., pseudo-codes on slide 12) can be further improved</li>
 <li class="fragment">Due to identifiability issues, always look at <span class="math inline">\(\alpha \mathbf{1}+\boldsymbol{\theta}\)</span> instead of <span class="math inline">\(\boldsymbol{\theta}\)</span> alone.</li>
 </ol>
 </section>
