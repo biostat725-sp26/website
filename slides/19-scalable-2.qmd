@@ -226,7 +226,7 @@ How to choose
 Let's quickly recap. For simplicity, let $d=1$,
 
 ::: incremental
--   As $\rho$ decreases, the surface is less smooth. $c$ needs to increase to retain boundary accuracy, $m$ needs to increase to retain overall accuracy.
+-   As $\rho$ decreases, the surface is less smooth. $c$ needs to increase to retain boundary accuracy.
 -   As $c$ increases, $m$ needs to increase to retain overall accuracy.
 -   As $m$ increases, run time increases.
 :::
