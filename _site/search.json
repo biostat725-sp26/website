@@ -6754,7 +6754,7 @@
     "href": "ae/ae-08-hsgp.html#exercise-2",
     "title": "AE 08: Scalable Gaussian processes",
     "section": "Exercise 2",
-    "text": "Exercise 2\nLook at the traceplots for a few parameters and comment on the mixing of the MCMC chain.\nAnswer:\n\n# add code here"
+    "text": "Exercise 2\nLook at the traceplots for a few parameters and comment on the mixing of the MCMC chain. You can use the following codes to extract the posterior samples.\n\nres_HSGP &lt;- runspec$fit\np_theta_HSGP &lt;- as.matrix(res_HSGP,pars=\"theta_new\")\np_alpha_HSGP &lt;- as.matrix(res_HSGP,pars=\"alpha\")\n\nAnswer:\n\n# add code here"
   },
   {
     "objectID": "ae/ae-08-hsgp.html#exercise-3",
@@ -6768,7 +6768,7 @@
     "href": "ae/ae-08-hsgp.html#exercise-4",
     "title": "AE 08: Scalable Gaussian processes",
     "section": "Exercise 4",
-    "text": "Exercise 4\nUse codes provided in the last AE to create visualizations of the surface of posterior mean and posterior SD of the spatial intercept. You can use the following codes to extract the posterior mean and SD. Note that due to the identifiability issue discussed in class, here we look at \\(\\alpha\\mathbf{1}+\\boldsymbol{\\theta}^*\\).\n\nres_HSGP &lt;- runspec$fit\np_theta_HSGP &lt;- as.matrix(res_HSGP,pars=\"theta_new\")\np_alpha_HSGP &lt;- as.matrix(res_HSGP,pars=\"alpha\")\np_intercept_HSGP &lt;- p_theta_HSGP + c(p_alpha_HSGP)\np_intercept_HSGP_m &lt;- colMeans(p_intercept_HSGP)\np_intercept_HSGP_sd &lt;- apply(p_intercept_HSGP,2,sd)\n\nDescribe the spatial pattern of hemoglobin level for females in DRC, and think of possible reasons based on your knowledge about DRC.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+    "text": "Exercise 4\nUse codes provided in the last AE to create visualizations of the surface of posterior mean and posterior SD of the spatial intercept. You can use the following codes to extract the posterior mean and SD. Note that due to the identifiability issue discussed in class, here we look at \\(\\alpha\\mathbf{1}+\\boldsymbol{\\theta}^*\\) instead of \\(\\boldsymbol{\\theta}^*\\) for the spatial intercepts.\n\np_intercept_HSGP &lt;- p_theta_HSGP + c(p_alpha_HSGP)\np_intercept_HSGP_m &lt;- colMeans(p_intercept_HSGP)\np_intercept_HSGP_sd &lt;- apply(p_intercept_HSGP,2,sd)\n\nDescribe the spatial pattern of hemoglobin level for females in DRC, and think of possible reasons based on your knowledge about DRC.\nAnswer:\n\n# add code here\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
   },
   {
     "objectID": "prepare/prepare-mar24.html",
