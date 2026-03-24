@@ -70,7 +70,7 @@ website:
           text: HW 03
         - href: hw/hw-04.qmd
           text: HW 04
-        - href: hw/hw-05-blank.qmd
+        - href: hw/hw-05.qmd
           text: HW 05
 
 format:

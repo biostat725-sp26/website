@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -6782,84 +6782,132 @@
     "href": "hw/hw-05.html",
     "title": "HW 05: Geospatial Modeling",
     "section": "",
-    "text": "ImportantDue date\n\n\n\nThis assignment is due on Tuesday, April 7 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope"
+    "text": "ImportantDue date\n\n\n\nThis assignment is due on Tuesday, April 7 at 11:45am. To be considered on time, the following must be done by the due date:\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nFinal .pdf file submitted on Gradescope",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#data",
     "href": "hw/hw-05.html#data",
     "title": "HW 05: Geospatial Modeling",
     "section": "Data",
-    "text": "Data\nWe will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are ~8600 women who are nested in ~500 survey clusters. The variables in the dataset are as follows.\n\nloc_id: location id (i.e. survey cluster).\nhemoglobin: hemoglobin level (g/dL).\nanemia: anemia classifications.\nage: age in years.\nurban: urban vs. rural.\nLATNUM: latitude.\nLONGNUM: longitude.\nmean_hemoglobin: average hemoglobin at each community (g/dL).\ncommunity_size: number of participants at each community.\nmean_age: average age of participants at each community (years).\n\nThe data set is the same one that was used in AE-07 and available in your HW repos.\n\ndrc &lt;- readRDS(\"drc.rds\")"
+    "text": "Data\nWe will look at a sample of women aged 15-49 sampled from the 2013-14 Democratic Republic of Congo (DRC) Demographic and Health Survey. There are ~8600 women who are nested in ~500 survey clusters. The variables in the dataset are as follows.\n\nloc_id: location id (i.e. survey cluster).\nhemoglobin: hemoglobin level (g/dL).\nanemia: anemia classifications.\nage: age in years.\nurban: urban vs. rural.\nLATNUM: latitude.\nLONGNUM: longitude.\nmean_hemoglobin: average hemoglobin at each community (g/dL).\ncommunity_size: number of participants at each community.\nmean_age: average age of participants at each community (years).\n\nThe data set is the same one that was used in AE-07 and available in your HW repos.\n\ndrc &lt;- readRDS(\"drc.rds\")",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#modeling",
     "href": "hw/hw-05.html#modeling",
     "title": "HW 05: Geospatial Modeling",
     "section": "Modeling",
-    "text": "Modeling\nIn this homework, we will focus on the Sud-Kivu state within the DRC. Researchers are interested in mapping risk of anemia across Sud-Kivu. Anemia is a condition in which the body lacks enough healthy red blood cells to carry adequate oxygen to tissues. It is commonly associated with low levels of hemoglobin, the oxygen-carrying protein in red blood cells. Anemia can result from malnutrition, especially deficiencies in iron, folate, or vitamin B12, and is linked to a range of negative outcomes including fatigue, impaired cognitive development, weakened immunity, and poor pregnancy outcomes. In children and women, anemia is often a marker of underlying nutritional and health disparities.\nTo study anemia, researchers would like to fit a logistic regression model using a Bayesian hierarchical model with spatially varying intercepts. Define \\(Y_{ij} \\in \\{0,1\\}\\) as the indicator of anemia at location \\(i\\) (\\(i = 1,\\ldots,n\\)) for participant \\(j\\) (\\(j = 1,\\ldots, n_i\\)).\n\ndrc &lt;- drc %&gt;%\n  mutate(anemic = if_else(anemia == \"not anemic\", 0, 1))\n\nWe will fit the following model:\n\\[\\begin{align*}\nY_j(\\mathbf{u}_i) | \\alpha, \\boldsymbol{\\beta}, \\theta(\\mathbf{u}_i) &\\stackrel{ind}{\\sim} \\text{Bernoulli}(\\pi_{j}(\\mathbf{u}_i))\\\\\n\\text{logit}(\\pi_{j}(\\mathbf{u}_i)) &= \\alpha + \\mathbf{x}_j(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\\\\n\\boldsymbol{\\theta} | \\tau,\\rho &\\sim N(\\mathbf{0}_n,\\mathbf{C})\\\\\n\\alpha^* &\\sim N(0,4^2)\\\\\n\\beta_j | \\sigma_{\\beta} &\\sim N(0,\\sigma_{\\beta}^2), \\quad j = 1,\\ldots,p\\\\\n\\tau &\\sim \\text{Half-Normal}(0, 4^2)\\\\\n\\rho &\\sim \\text{Inv-Gamma}(5, 5)\\\\\n\\sigma_{\\beta} &\\sim \\text{Half-Normal}(0, 2^2),\n\\end{align*}\\] where \\(\\boldsymbol{\\theta} = (\\theta(\\mathbf{u}_1),\\ldots,\\theta(\\mathbf{u}_n))^\\top\\), \\(N = \\sum_{i=1}^n n_i = 490\\), \\(n = 29\\), \\(\\mathbf{x}_j(\\mathbf{u}_i) = (\\text{age}_{ij}/10, \\text{urban}_i)\\), and \\(\\mathbf{C}\\) a covariance matrix produced using the Matérn 3/2 covariance function with scale parameter \\(\\tau\\) and length scale \\(\\rho\\). The parameter \\(\\alpha^*\\) is the intercept after centering, such that \\(\\text{logit}(\\pi_{j}(\\mathbf{u}_i)) = \\alpha^* + \\mathbf{x}_j^*(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\), where \\(\\mathbf{x}_j^*(\\mathbf{u}_i) = \\mathbf{x}_j(\\mathbf{u}_i) - \\bar{\\mathbf{x}}_j(\\mathbf{u}_i)\\) and \\(\\bar{\\mathbf{x}}_j(\\mathbf{u}_i) = \\frac{1}{N} \\sum_{i=1}^n \\sum_{j=1}^{n_i} \\mathbf{x}_j(\\mathbf{u}_i)\\)."
+    "text": "Modeling\nIn this homework, we will focus on the Sud-Kivu state within the DRC. Researchers are interested in mapping risk of anemia across Sud-Kivu. Anemia is a condition in which the body lacks enough healthy red blood cells to carry adequate oxygen to tissues. It is commonly associated with low levels of hemoglobin, the oxygen-carrying protein in red blood cells. Anemia can result from malnutrition, especially deficiencies in iron, folate, or vitamin B12, and is linked to a range of negative outcomes including fatigue, impaired cognitive development, weakened immunity, and poor pregnancy outcomes. In children and women, anemia is often a marker of underlying nutritional and health disparities.\nTo study anemia, researchers would like to fit a logistic regression model using a Bayesian hierarchical model with spatially varying intercepts. Define \\(Y_{ij} \\in \\{0,1\\}\\) as the indicator of anemia at location \\(i\\) (\\(i = 1,\\ldots,n\\)) for participant \\(j\\) (\\(j = 1,\\ldots, n_i\\)).\n\ndrc &lt;- drc %&gt;%\n  mutate(anemic = if_else(anemia == \"not anemic\", 0, 1))\n\nWe will fit the following model:\n\\[\\begin{align*}\nY_j(\\mathbf{u}_i) | \\alpha, \\boldsymbol{\\beta}, \\theta(\\mathbf{u}_i) &\\stackrel{ind}{\\sim} \\text{Bernoulli}(\\pi_{j}(\\mathbf{u}_i))\\\\\n\\text{logit}(\\pi_{j}(\\mathbf{u}_i)) &= \\alpha + \\mathbf{x}_j(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\\\\n\\boldsymbol{\\theta} | \\tau,\\rho &\\sim N(\\mathbf{0}_n,\\mathbf{C})\\\\\n\\alpha^* &\\sim N(0,4^2)\\\\\n\\beta_j | \\sigma_{\\beta} &\\sim N(0,\\sigma_{\\beta}^2), \\quad j = 1,\\ldots,p\\\\\n\\tau &\\sim \\text{Half-Normal}(0, 4^2)\\\\\n\\rho &\\sim \\text{Inv-Gamma}(5, 5)\\\\\n\\sigma_{\\beta} &\\sim \\text{Half-Normal}(0, 2^2),\n\\end{align*}\\] where \\(\\boldsymbol{\\theta} = (\\theta(\\mathbf{u}_1),\\ldots,\\theta(\\mathbf{u}_n))^\\top\\), \\(N = \\sum_{i=1}^n n_i = 490\\), \\(n = 29\\), \\(\\mathbf{x}_j(\\mathbf{u}_i) = (\\text{age}_{ij}/10, \\text{urban}_i)\\), and \\(\\mathbf{C}\\) a covariance matrix produced using the Matérn 3/2 covariance function with scale parameter \\(\\tau\\) and length scale \\(\\rho\\). The parameter \\(\\alpha^*\\) is the intercept after centering, such that \\(\\text{logit}(\\pi_{j}(\\mathbf{u}_i)) = \\alpha^* + \\mathbf{x}_j^*(\\mathbf{u}_i) \\boldsymbol{\\beta} + \\theta(\\mathbf{u}_i)\\), where \\(\\mathbf{x}_j^*(\\mathbf{u}_i) = \\mathbf{x}_j(\\mathbf{u}_i) - \\bar{\\mathbf{x}}_j(\\mathbf{u}_i)\\) and \\(\\bar{\\mathbf{x}}_j(\\mathbf{u}_i) = \\frac{1}{N} \\sum_{i=1}^n \\sum_{j=1}^{n_i} \\mathbf{x}_j(\\mathbf{u}_i)\\).",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#exercise-1",
     "href": "hw/hw-05.html#exercise-1",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 1",
-    "text": "Exercise 1\nBased on AE-07, process the drc data to create an sf data object that can be used for spatial analyses. Create a map that visualizes the proportion of participants with anemia at each community in Sud-Kivu."
+    "text": "Exercise 1\nBased on AE-07, process the drc data to create an sf data object that can be used for spatial analyses. Create a map that visualizes the proportion of participants with anemia at each community in Sud-Kivu.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#exercise-2",
     "href": "hw/hw-05.html#exercise-2",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 2",
-    "text": "Exercise 2\nCreate a \\(25 \\times 25\\) grid of points to be used for prediction, and only keep those points within Sud-Kivu. Visualize the grid."
+    "text": "Exercise 2\nCreate a \\(25 \\times 25\\) grid of points to be used for prediction, and only keep those points within Sud-Kivu. Visualize the grid.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#exercise-3",
     "href": "hw/hw-05.html#exercise-3",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 3",
-    "text": "Exercise 3\nResearchers are interested in understanding the a priori correlation between the anemia probability between two communities across Sud-Kivu. Visualize the correlation as a function of distance between two locations given in miles, evaluated at the prior mean for \\(\\rho\\). What is the a priori correlation between two locations that are 25 miles apart?"
+    "text": "Exercise 3\nResearchers are interested in understanding the a priori correlation between the anemia probability between two communities across Sud-Kivu. Visualize the correlation as a function of distance between two locations given in miles, evaluated at the prior mean for \\(\\rho\\). What is the a priori correlation between two locations that are 25 miles apart?",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#exercise-4",
     "href": "hw/hw-05.html#exercise-4",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 4",
-    "text": "Exercise 4\nFit the model detailed above. Present evidence of MCMC convergence."
+    "text": "Exercise 4\nFit the model detailed above. Present evidence of MCMC convergence.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#exercise-5",
     "href": "hw/hw-05.html#exercise-5",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 5",
-    "text": "Exercise 5\nResearchers would like to understand the a posteriori correlation between the anemia probability between two communities across Sud-Kivu. Repeat Exercise 3 using the posterior mean of \\(\\rho\\). Visualize the correlations from the prior and posterior on the same figure. How does the posterior correlation compare to the prior?"
+    "text": "Exercise 5\nResearchers would like to understand the a posteriori correlation between the anemia probability between two communities across Sud-Kivu. Repeat Exercise 3 using the posterior mean of \\(\\rho\\). Visualize the correlations from the prior and posterior on the same figure. How does the posterior correlation compare to the prior?",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#exercise-6",
     "href": "hw/hw-05.html#exercise-6",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 6",
-    "text": "Exercise 6\nPresent posterior means and intervals for the odds ratios for age and urbanality. Are any of these predictors associated with anemia?"
+    "text": "Exercise 6\nPresent posterior means and intervals for the odds ratios for age and urbanality. Are any of these predictors associated with anemia?",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#exercise-7",
     "href": "hw/hw-05.html#exercise-7",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 7",
-    "text": "Exercise 7\nMap the posterior mean probability of anemia across Sud-Kivu, \\(\\pi(\\mathbf{u}_i)\\). To make this map, we must specify \\(x(\\mathbf{u}_i) = (2.8, 0)\\), such that the age is 28 years (average age in Sud-Kivu) and we assume locations are rural (most common community location). Describe any spatial patterns that arise."
+    "text": "Exercise 7\nMap the posterior mean probability of anemia across Sud-Kivu, \\(\\pi(\\mathbf{u}_i)\\). To make this map, we must specify \\(x(\\mathbf{u}_i) = (2.8, 0)\\), such that the age is 28 years (average age in Sud-Kivu) and we assume locations are rural (most common community location). Describe any spatial patterns that arise.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#exercise-8",
     "href": "hw/hw-05.html#exercise-8",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 8",
-    "text": "Exercise 8\nCreate a map of the posterior standard deviation that corresponds to your map in Exercise 7. Describe any spatial patterns that arise."
+    "text": "Exercise 8\nCreate a map of the posterior standard deviation that corresponds to your map in Exercise 7. Describe any spatial patterns that arise.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "hw/hw-05.html#exercise-9",
     "href": "hw/hw-05.html#exercise-9",
     "title": "HW 05: Geospatial Modeling",
     "section": "Exercise 9",
-    "text": "Exercise 9\nResearchers would like to identify locations in Sud-Kivu where a public health intervention is warranted. The are intrerested in intervening in locations where the posterior probability of anemia is greater than 0.4, \\(p_i = P(\\pi(\\mathbf{u}_i) &gt; 0.4 | \\mathbf{Y})\\). In particular, any locations with \\(p_i\\) greater than 0.5 \\(\\left(h_i = 1(p_i &gt; 0.5)\\right)\\) indicates a hot spot region where intervention is needed. Visualize both the \\(p_i\\) and \\(h_i\\) and make a statement about where intervention is warranted."
+    "text": "Exercise 9\nResearchers would like to identify locations in Sud-Kivu where a public health intervention is warranted. The are intrerested in intervening in locations where the posterior probability of anemia is greater than 0.4, \\(p_i = P(\\pi(\\mathbf{u}_i) &gt; 0.4 | \\mathbf{Y})\\). In particular, any locations with \\(p_i\\) greater than 0.5 \\(\\left(h_i = 1(p_i &gt; 0.5)\\right)\\) indicates a hot spot region where intervention is needed. Visualize both the \\(p_i\\) and \\(h_i\\) and make a statement about where intervention is warranted.",
+    "crumbs": [
+      "Homework",
+      "HW 05"
+    ]
   },
   {
     "objectID": "slides/20-disease-mapping.html",
