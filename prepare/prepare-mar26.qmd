@@ -8,4 +8,4 @@ title: Prepare for March 26 lecture
 
 📖 Review [Spatial Models in Stan: Intrinsic Auto-Regressive Models for Areal Data](https://mc-stan.org/learn-stan/case-studies/icar_stan.html) by Morris 2019. Review through the section titled: Fitting the Model to the Scotland Lip Cancer Dataset.
 
-✅ Work on [HW 05](https://biostat725-sp26.netlify.app/hw/hw-05-blank) which is due **Tuesday** April 7 before class.
+✅ Work on [HW 05](https://biostat725-sp26.netlify.app/hw/hw-05) which is due **Tuesday** April 7 before class.
