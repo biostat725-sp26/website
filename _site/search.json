@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -7320,7 +7320,7 @@
     "href": "slides/19-scalable-2.html#kriging-under-hsgp",
     "title": "Scalable Gaussian Processes #2",
     "section": "Kriging under HSGP",
-    "text": "Kriging under HSGP\nUnder HSGP: \\[\\begin{align}\n  \\begin{bmatrix}\n    \\boldsymbol{\\theta} \\\\\n    \\boldsymbol{\\theta}^*\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega} \\sim N_{n\n  +q} \\left(\\begin{bmatrix}\n    \\mathbf{0}_n \\\\\n    \\mathbf{0}_q\n  \\end{bmatrix},\n  \\begin{bmatrix}\n    \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top} \\\\\n    \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\n  \\end{bmatrix} \\right).\n\\end{align}\n\\]\nIf \\(m \\le n\\), we have shown \\[\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) = (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta}\\overset{d}{=}\\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}.\\]\nNow we show if \\(m&gt;n\\), \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) \\overset{d}{=}\\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}.\\)"
+    "text": "Kriging under HSGP\nUnder HSGP: \\[\\begin{align}\n  \\begin{bmatrix}\n    \\boldsymbol{\\theta} \\\\\n    \\boldsymbol{\\theta}^*\n  \\end{bmatrix} \\Bigg| \\boldsymbol{\\Omega} \\sim N_{n\n  +q} \\left(\\begin{bmatrix}\n    \\mathbf{0}_n \\\\\n    \\mathbf{0}_q\n  \\end{bmatrix},\n  \\begin{bmatrix}\n    \\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}\\mathbf{S} \\boldsymbol{\\Phi}^{*\\top} \\\\\n    \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top & \\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^{*\\top}\n  \\end{bmatrix} \\right).\n\\end{align}\\]\nIf \\(m \\le n\\), we have shown \\[\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) = (\\boldsymbol{\\Phi}^*\\mathbf{S}\\boldsymbol{\\Phi}^\\top) (\\boldsymbol{\\Phi}\\mathbf{S}\\boldsymbol{\\Phi}^\\top)^{\\dagger} \\boldsymbol{\\theta}\\overset{d}{=}\\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}.\\]\nNow we show if \\(m&gt;n\\), \\(\\boldsymbol{\\theta}^* \\mid (\\boldsymbol{\\theta}, \\boldsymbol{\\Omega}) \\overset{d}{=}\\boldsymbol{\\Phi}^*\\mathbf{S}^{1/2}\\mathbf{b}.\\)"
   },
   {
     "objectID": "slides/19-scalable-2.html#number-of-basis-functions",
@@ -7349,5 +7349,649 @@
     "title": "Geospatial Modeling",
     "section": "",
     "text": "During our last lecture, we learned about Gaussian processes.\nWe learned how to apply Gaussian processes to longitudinal (or time-series) data.\nThe longitudinal setting is one-dimensional (i.e., time). Today we will learn about applying Gaussian processes in two-dimensions (i.e. space)."
+  },
+  {
+    "objectID": "prepare/prepare-mar31.html",
+    "href": "prepare/prepare-mar31.html",
+    "title": "Prepare for March 31 lecture",
+    "section": "",
+    "text": "📖 Read BDA3 Chapter 18.1-18.2 about missing data.\n📖 Read A Note on Bayesian Inference After Multiple Imputation by Zhou and Reiter 2010.\n✅ Finish HW 05, which is due before class next Tuesday."
+  },
+  {
+    "objectID": "slides/21-missing.html",
+    "href": "slides/21-missing.html",
+    "title": "Missing Data",
+    "section": "",
+    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'gridExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\n\nLoaded lars 1.3\n\n\n\nAttaching package: 'LaplacesDemon'\n\n\nThe following objects are masked from 'package:mvtnorm':\n\n    dmvt, logdet, rmvt\n\n\nThe following objects are masked from 'package:lubridate':\n\n    dst, interval\n\n\nThe following object is masked from 'package:purrr':\n\n    partial\n\n\nnimble version 1.2.1 is loaded.\nFor more information on NIMBLE and a User Manual,\nplease visit https://R-nimble.org.\n\nNote for advanced users who have written their own MCMC samplers:\n  As of version 0.13.0, NIMBLE's protocol for handling posterior\n  predictive nodes has changed in a way that could affect user-defined\n  samplers in some situations. Please see Section 15.5.1 of the User Manual.\n\n\nAttaching package: 'nimble'\n\n\nThe following objects are masked from 'package:LaplacesDemon':\n\n    cloglog, dcat, dinvgamma, is.model, logdet, logit, rcat, rinvgamma\n\n\nThe following object is masked from 'package:mvtnorm':\n\n    logdet\n\n\nThe following object is masked from 'package:stats':\n\n    simulate\n\n\nThe following object is masked from 'package:base':\n\n    declare\n\n\n\nAttaching package: 'mice'\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following objects are masked from 'package:base':\n\n    cbind, rbind"
+  },
+  {
+    "objectID": "slides/21-missing.html#review-of-last-lecture",
+    "href": "slides/21-missing.html#review-of-last-lecture",
+    "title": "Missing Data",
+    "section": "Review of last lecture",
+    "text": "Review of last lecture\n\nLast, we learned about classification for binary and multiclass problems."
+  },
+  {
+    "objectID": "slides/21-missing.html#missing-data-in-research",
+    "href": "slides/21-missing.html#missing-data-in-research",
+    "title": "Missing Data",
+    "section": "Missing data in research",
+    "text": "Missing data in research\n\nIn any real-world dataset, missing values are nearly always going to be present.\n\nMissing data can be totally innocuous or a source of bias.\n\nCannot determine which because there are no values to inspect.\nHandling missing data is extremely difficult!"
+  },
+  {
+    "objectID": "slides/21-missing.html#example",
+    "href": "slides/21-missing.html#example",
+    "title": "Missing Data",
+    "section": "Example",
+    "text": "Example\n\nSuppose an individual’s depression scores are missing in dataset of patients with colon cancer.\nIt could be missing because:\n\nA data entry error where some values did not make it into the dataset.\nThe patient is a man, and men are less likely to complete the depression score in general (i.e., it is not related to the unobserved depression).\nThe patient has depression and as a result did not complete the depression survey."
+  },
+  {
+    "objectID": "slides/21-missing.html#classifactions-of-missing-data",
+    "href": "slides/21-missing.html#classifactions-of-missing-data",
+    "title": "Missing Data",
+    "section": "Classifactions of missing data",
+    "text": "Classifactions of missing data\n\nMissing completely at random (MCAR)\n\nThis is the ideal case but rarely seen in practice. Usually a data entry problem.\n\nMissing at random (MAR)\n\nThe missing value is related to some other variable that has been collected.\n\nMissing not at random (MNAR)\n\nThe missing value is related to a variable that was not collected or not observed."
+  },
+  {
+    "objectID": "slides/21-missing.html#missing-data",
+    "href": "slides/21-missing.html#missing-data",
+    "title": "Missing Data",
+    "section": "Missing data",
+    "text": "Missing data\n\nMissing data can appear in the outcome and/or predictors.\nToday, we will write down some math for missing data occuring in the outcome space, however this is generalizable to missingness in the predictor space."
+  },
+  {
+    "objectID": "slides/21-missing.html#missing-data-framework",
+    "href": "slides/21-missing.html#missing-data-framework",
+    "title": "Missing Data",
+    "section": "Missing data framework",
+    "text": "Missing data framework\n\nWe are interested in modeling a random variable \\(Y_{i}\\), for \\(i \\in \\{1,\\ldots,n\\}\\).\nIn a missing data setting, we only observe the outcome in a subset of observations, \\(\\mathbf{Y}_{obs} = \\{Y_{i}:i \\in \\mathcal N_{obs}\\}\\).\n\n\\(\\mathcal N_{obs}\\) is the set of indeces in the observed set, such that \\(|\\mathcal N_{obs}|= n_{obs}\\) is the number of observed data points.\n\nThe remaining observations are assumed to be missing and are contained in \\(\\mathbf{Y}_{mis} = \\{Y_{i}:i \\in \\mathcal N_{mis}\\}\\).\n\n\\(\\mathcal N_{mis}\\) is the set of indeces of the missing data and \\(|\\mathcal N_{mis}|= n_{mis}\\) is the number of missing data points.\n\nThe full set of data is given by \\(\\mathbf{Y}=(\\mathbf{Y}_{obs},\\mathbf{Y}_{mis})\\)."
+  },
+  {
+    "objectID": "slides/21-missing.html#missing-data-notation",
+    "href": "slides/21-missing.html#missing-data-notation",
+    "title": "Missing Data",
+    "section": "Missing data notation",
+    "text": "Missing data notation\n\nDefine \\(O_{i}\\) as a binary indicator of observation \\(Y_{i}\\) being present, where \\(O_{i} = 1\\) indicates that \\(Y_{i}\\) was observed.\nThe collection of missingness indicators is given by \\(\\mathbf{O} = \\{O_{i}:i = 1,\\ldots,n\\}\\).\nOur observed data then consists of \\((\\mathbf{Y}_{obs}, \\mathbf{O})\\)."
+  },
+  {
+    "objectID": "slides/21-missing.html#complete-data-likelihood",
+    "href": "slides/21-missing.html#complete-data-likelihood",
+    "title": "Missing Data",
+    "section": "Complete data likelihood",
+    "text": "Complete data likelihood\n\nThe joint distribution of \\((\\mathbf{Y}, \\mathbf{O})\\) can be written as,\n\n\\[f(\\mathbf{Y}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) = \\underbrace{f(\\mathbf{Y} | \\mathbf{X}, \\boldsymbol{\\theta})}_{\\text{likelihood}} \\times  \\underbrace{f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X}, \\boldsymbol{\\phi})}_{\\text{missing model}}.\\]\n\nThe parameter block, \\((\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\), consists of:\n\n\\(\\boldsymbol{\\theta}\\), the target parameters of interest (e.g., feature effects on outcome), and\n\\(\\boldsymbol{\\phi}\\), the nuisance parameters.\n\n\n\nCan we perform inference using this likelihood?"
+  },
+  {
+    "objectID": "slides/21-missing.html#observed-data-likelihood",
+    "href": "slides/21-missing.html#observed-data-likelihood",
+    "title": "Missing Data",
+    "section": "Observed data likelihood",
+    "text": "Observed data likelihood\n\nThe likelihood for the observed data must be written by marginalizing over the unobserved outcome variables.\n\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y}_{obs}, \\mathbf{Y}_{mis}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y}, \\mathbf{O} |\\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int \\underbrace{f(\\mathbf{Y} |\\mathbf{X}, \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{X},\\mathbf{Y}, \\boldsymbol{\\phi})}_{\\text{complete data likelihood}} d\\mathbf{Y}_{mis}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/21-missing.html#missing-data-models-mcar",
+    "href": "slides/21-missing.html#missing-data-models-mcar",
+    "title": "Missing Data",
+    "section": "Missing data models: MCAR",
+    "text": "Missing data models: MCAR\nThe data are missing completely at random (MCAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\mathbf{X},\\boldsymbol{\\phi})\\\\\n&= f(\\mathbf{O} | \\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness does not depend on any data."
+  },
+  {
+    "objectID": "slides/21-missing.html#implications-of-the-missing-model-mcar",
+    "href": "slides/21-missing.html#implications-of-the-missing-model-mcar",
+    "title": "Missing Data",
+    "section": "Implications of the missing model: MCAR",
+    "text": "Implications of the missing model: MCAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} |\\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{O} | \\boldsymbol{\\phi}) \\int f(\\mathbf{Y}_{obs} |\\mathbf{X}_{obs}, \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} |\\mathbf{X}_{mis}, \\boldsymbol{\\theta})d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi})\\int  f(\\mathbf{Y}_{mis} |\\mathbf{X}_{mis}, \\boldsymbol{\\theta}) d\\mathbf{Y}_{mis}\\\\\n&=  f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta})f(\\mathbf{O} | \\boldsymbol{\\phi}).\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/21-missing.html#key-points-about-mcar-assumption",
+    "href": "slides/21-missing.html#key-points-about-mcar-assumption",
+    "title": "Missing Data",
+    "section": "Key points about MCAR assumption",
+    "text": "Key points about MCAR assumption\n\nNo bias: The analysis based on the observed data will not be biased, as the missingness does not systematically favor any particular pattern in the data.\nReduced power: While unbiased, MCAR still reduces the statistical power of the analysis due to the smaller sample size resulting from missing data.\nSimple handling methods: Because of its random nature, MCAR allows for straightforward handling methods like listwise deletion (i.e., complete-case analysis) or simple imputation techniques (e.g., mean imputation) without introducing bias."
+  },
+  {
+    "objectID": "slides/21-missing.html#missing-data-models-mar",
+    "href": "slides/21-missing.html#missing-data-models-mar",
+    "title": "Missing Data",
+    "section": "Missing data models: MAR",
+    "text": "Missing data models: MAR\nThe data are missing at random (MAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\mathbf{X},\\boldsymbol{\\phi})\\\\\n&= f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{X},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness depends on the observed data only."
+  },
+  {
+    "objectID": "slides/21-missing.html#implications-of-the-missing-model-mar",
+    "href": "slides/21-missing.html#implications-of-the-missing-model-mar",
+    "title": "Missing Data",
+    "section": "Implications of the missing model: MAR",
+    "text": "Implications of the missing model: MAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} |\\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} |\\mathbf{X}, \\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y},\\mathbf{X}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{X}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}=  f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{X},\\boldsymbol{\\phi}) \\int f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis},\\boldsymbol{\\theta})d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}=  f(\\mathbf{Y}_{obs} |\\mathbf{X}_{obs}, \\boldsymbol{\\theta})f(\\mathbf{O} |\\mathbf{Y}_{obs},\\mathbf{X}, \\boldsymbol{\\phi})\\int  f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis},\\boldsymbol{\\theta}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}=  f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta})f(\\mathbf{O} |\\mathbf{Y}_{obs}, \\mathbf{X},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nUnbiased Parameter Estimates: Similar to MCAR, we can perform a complete case analysis and can ignore the missing data model! This is never done, however, because it leads to incorrect inference."
+  },
+  {
+    "objectID": "slides/21-missing.html#key-points-about-mar-assumption",
+    "href": "slides/21-missing.html#key-points-about-mar-assumption",
+    "title": "Missing Data",
+    "section": "Key points about MAR assumption",
+    "text": "Key points about MAR assumption\n\nComplete-case analysis is not acceptable:\n\nParameter estimation remains unbiased, but, in general, estimation of variances and intervals is biased.\nAlso, smaller sample size leads to less power and worse prediction.\nUnder certain missingness settings, parameter estimation may not be unbiased.\n\nSimple handling approaches fail: Methods like mean imputation will also result in small estimated standard errors.\nMore advanced methods are needed: Multiple imputation, Bayes."
+  },
+  {
+    "objectID": "slides/21-missing.html#missing-data-models-mnar",
+    "href": "slides/21-missing.html#missing-data-models-mnar",
+    "title": "Missing Data",
+    "section": "Missing data models: MNAR",
+    "text": "Missing data models: MNAR\nThe data are missing not at random (MNAR) if the missing mechanism is defined as, \\[\\begin{aligned}\nf(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi}) &= f(\\mathbf{O} | \\mathbf{Y}_{obs}, \\mathbf{Y}_{mis},\\mathbf{X},\\boldsymbol{\\phi}).\n\\end{aligned}\\]\n\nThe missingness depends on the observed and missing data."
+  },
+  {
+    "objectID": "slides/21-missing.html#implications-of-the-missing-model-mnar",
+    "href": "slides/21-missing.html#implications-of-the-missing-model-mnar",
+    "title": "Missing Data",
+    "section": "Implications of the missing model: MNAR",
+    "text": "Implications of the missing model: MNAR\n\\[\\begin{aligned}\nf(\\mathbf{Y}_{obs}, \\mathbf{O} | \\mathbf{X},\\boldsymbol{\\theta},\\boldsymbol{\\phi}) &= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y},\\mathbf{X}, \\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}= \\int f(\\mathbf{Y} | \\mathbf{X},\\boldsymbol{\\theta}) f(\\mathbf{O} | \\mathbf{Y}_{obs},\\mathbf{Y}_{mis}, \\mathbf{X},\\boldsymbol{\\phi}) d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}= \\int f(\\mathbf{Y}_{obs} |\\mathbf{X}_{obs}, \\boldsymbol{\\theta}) f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis},\\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi})d\\mathbf{Y}_{mis}\\\\\n&\\hspace{-2in}= f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs},\\boldsymbol{\\theta}) \\int f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis},\\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y},\\mathbf{X},\\boldsymbol{\\phi})d\\mathbf{Y}_{mis}\n\\end{aligned}\\]\n\nUnder the MNAR assumption, we are NOT allowed to ignore the missing data. We must specify a model for the missing data.\nThis is really hard! We can ignore this in our class."
+  },
+  {
+    "objectID": "slides/21-missing.html#summary-of-missing-mechanisms",
+    "href": "slides/21-missing.html#summary-of-missing-mechanisms",
+    "title": "Missing Data",
+    "section": "Summary of missing mechanisms",
+    "text": "Summary of missing mechanisms\n\nUnder MCAR and MAR, we are allowed to fit our model to the observed data (i.e., a complete case analysis/listwise deletion). Under these settings the missingness is considered ignorable.\nUnder MAR, fitting the complete case analysis is not efficient and advanced techniques are needed to guarentee proper statistical inference.\nUnder MNAR, we must model the missing data mechanism. This data is considered non-ignorable."
+  },
+  {
+    "objectID": "slides/21-missing.html#lets-motivate-with-some-data",
+    "href": "slides/21-missing.html#lets-motivate-with-some-data",
+    "title": "Missing Data",
+    "section": "Let’s motivate with some data",
+    "text": "Let’s motivate with some data"
+  },
+  {
+    "objectID": "slides/21-missing.html#simulate-missing-data",
+    "href": "slides/21-missing.html#simulate-missing-data",
+    "title": "Missing Data",
+    "section": "Simulate missing data",
+    "text": "Simulate missing data\n\nset.seed(54)\nn &lt;- nrow(fulldata)\nexpit &lt;- function(x) exp(x) / (1 + exp(x))\nfulldata$o &lt;- rbinom(n, 1, expit(1.5 * scale(fulldata$x1) - 3 * fulldata$x2))\nhead(fulldata)\n\n     y    x1 x2  Sex o\n1 65.6 174.0  1 Male 1\n2 71.8 175.3  1 Male 0\n3 80.7 193.5  1 Male 0\n4 72.6 186.5  1 Male 0\n5 78.8 187.2  1 Male 0\n6 74.8 181.5  1 Male 0"
+  },
+  {
+    "objectID": "slides/21-missing.html#visualize-data",
+    "href": "slides/21-missing.html#visualize-data",
+    "title": "Missing Data",
+    "section": "Visualize data",
+    "text": "Visualize data"
+  },
+  {
+    "objectID": "slides/21-missing.html#model-fits",
+    "href": "slides/21-missing.html#model-fits",
+    "title": "Missing Data",
+    "section": "Model fits",
+    "text": "Model fits"
+  },
+  {
+    "objectID": "slides/21-missing.html#full-bayesian-model",
+    "href": "slides/21-missing.html#full-bayesian-model",
+    "title": "Missing Data",
+    "section": "Full Bayesian model",
+    "text": "Full Bayesian model\n\nSince we are Bayesians, we can treat the unobserved \\(\\mathbf{Y}_{mis}\\) as parameters and work with the complete data likelihood.\n\n\\[\\begin{aligned}\nf(\\boldsymbol{\\theta}, \\boldsymbol{\\phi}, \\mathbf{Y}_{mis} | \\mathbf{Y}_{obs},\\mathbf{O},\\mathbf{X}) &\\propto f(\\mathbf{Y}, \\mathbf{O}, \\boldsymbol{\\theta}, \\boldsymbol{\\phi} | \\mathbf{X})\\\\\n&\\hspace{-4in}=f(\\mathbf{Y}, \\mathbf{O} | \\mathbf{X}, \\boldsymbol{\\theta},\\boldsymbol{\\phi})f(\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\\\\n&\\hspace{-4in}= f(\\mathbf{Y} | \\mathbf{X}, \\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X}, \\boldsymbol{\\phi})f(\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\\\\n&\\hspace{-4in}=f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs}, \\boldsymbol{\\theta})f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis}, \\boldsymbol{\\theta})f(\\mathbf{O} | \\mathbf{Y}, \\mathbf{X}, \\boldsymbol{\\phi})f(\\boldsymbol{\\theta},\\boldsymbol{\\phi})\\\\\n\\end{aligned}\\]\n\nWe can simplify this posterior by dropping the missing data mechanism."
+  },
+  {
+    "objectID": "slides/21-missing.html#full-bayesian-model-1",
+    "href": "slides/21-missing.html#full-bayesian-model-1",
+    "title": "Missing Data",
+    "section": "Full Bayesian model",
+    "text": "Full Bayesian model\n\nAssuming that \\(f(\\boldsymbol{\\theta},\\boldsymbol{\\phi}) = f(\\boldsymbol{\\theta})f(\\boldsymbol{\\phi})\\), the missingness process does not need to be explicitly modeled when we are interested in inference for \\(\\boldsymbol{\\theta}\\).\n\n\\[\\begin{aligned}\n&f(\\boldsymbol{\\theta}, \\mathbf{Y}_{mis} | \\mathbf{Y}_{obs},\\mathbf{O},\\mathbf{X})\\\\ &\\hspace{2in}\\propto f(\\mathbf{Y}_{obs} | \\mathbf{X}_{obs}, \\boldsymbol{\\theta})f(\\mathbf{Y}_{mis} | \\mathbf{X}_{mis}, \\boldsymbol{\\theta})f(\\boldsymbol{\\theta})\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/21-missing.html#full-bayesian-model-for-linear-regression",
+    "href": "slides/21-missing.html#full-bayesian-model-for-linear-regression",
+    "title": "Missing Data",
+    "section": "Full Bayesian model for linear regression",
+    "text": "Full Bayesian model for linear regression\n\\[\\begin{aligned}\nY_i | \\alpha, \\beta, \\sigma^2 &\\stackrel{ind}{\\sim} N(\\alpha + \\mathbf{x}_i\\boldsymbol{\\beta}, \\sigma^2), \\quad i \\in \\mathcal N_{obs}\\\\\nY_i | \\alpha, \\beta, \\sigma^2&\\stackrel{ind}{\\sim} N(\\alpha + \\mathbf{x}_i \\boldsymbol{\\beta}, \\sigma^2), \\quad i \\in \\mathcal N_{mis}\\\\\n\\alpha &\\sim f(\\alpha)\\\\\n\\beta &\\sim f(\\boldsymbol{\\beta})\\\\\n\\sigma &\\sim f(\\sigma),\n\\end{aligned}\\]\n\n\\(\\mathbf{x}_i = (height_i, 1(sex_i = male), height_i \\times 1(sex_i = male))\\)."
+  },
+  {
+    "objectID": "slides/21-missing.html#full-bayesian-missing-data-model-in-stan",
+    "href": "slides/21-missing.html#full-bayesian-missing-data-model-in-stan",
+    "title": "Missing Data",
+    "section": "Full Bayesian missing data model in Stan",
+    "text": "Full Bayesian missing data model in Stan\n\n// saved in missing-full-bayes.stan\ndata {\n  int&lt;lower = 1&gt; n_obs;\n  int&lt;lower = 1&gt; n_mis;\n  int&lt;lower = 1&gt; p;\n  vector[n_obs] Y_obs;\n  matrix[n_obs, p] X_obs;\n  matrix[n_mis, p] X_mis;\n}\ntransformed data {\n  vector[n_obs] Y_obs_centered;\n  real Y_bar;\n  matrix[n_obs, p] X_obs_centered;\n  matrix[n_mis, p] X_mis_centered;\n  row_vector[p] X_bar;\n  Y_bar = mean(Y_obs);\n  Y_obs_centered = Y_obs - Y_bar;\n  matrix[n_obs + n_mis, p] X = append_row(X_obs, X_mis);\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_obs_centered[, i] = X_obs[, i] - X_bar[i];\n    X_mis_centered[, i] = X_mis[, i] - X_bar[i];\n  }\n}\nparameters {\n  real alpha_centered;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n  vector[n_mis] Y_mis_centered;\n}\nmodel {\n  target += normal_lpdf(Y_obs_centered | alpha_centered + X_obs_centered * beta, sigma);\n  target += normal_lpdf(Y_mis_centered | alpha_centered + X_mis_centered * beta, sigma);\n  target += normal_lpdf(alpha_centered | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  sigma ~ normal(0, 10);\n}\ngenerated quantities {\n  real alpha;\n  vector[n_mis] Y_mis;\n  alpha = Y_bar + alpha_centered - X_bar * beta;\n  Y_mis = Y_mis_centered + Y_bar;\n}"
+  },
+  {
+    "objectID": "slides/21-missing.html#fit-missing-data-model",
+    "href": "slides/21-missing.html#fit-missing-data-model",
+    "title": "Missing Data",
+    "section": "Fit missing data model",
+    "text": "Fit missing data model\n\nstan_missing_data_model &lt;- stan_model(file = \"missing-full-bayes.stan\")\nX &lt;- model.matrix(~ x1 * x2, data = fulldata)[, -1]\nstan_data_missing_data &lt;- list(\n  n_obs = sum(fulldata$o == 1),\n  n_mis = sum(fulldata$o == 0),\n  p = ncol(X),\n  Y_obs = array(fulldata$y[fulldata$o == 1]),\n  X_obs = X[fulldata$o == 1, ],\n  X_mis = X[fulldata$o == 0, ]\n)\nfit_full_bayes_joint &lt;- sampling(stan_missing_data_model, stan_data_missing_data)"
+  },
+  {
+    "objectID": "slides/21-missing.html#explore-model-fit",
+    "href": "slides/21-missing.html#explore-model-fit",
+    "title": "Missing Data",
+    "section": "Explore model fit",
+    "text": "Explore model fit\n\nprint(fit_full_bayes_joint, pars = c(\"alpha\", \"beta\", \"sigma\"), probs = c(0.025, 0.975))\n\nInference for Stan model: anon_model.\n4 chains, each with iter=2000; warmup=1000; thin=1; \npost-warmup draws per chain=1000, total post-warmup draws=4000.\n\n          mean se_mean    sd   2.5% 97.5% n_eff Rhat\nalpha   -48.38    0.83 21.10 -90.15 -7.03   653 1.00\nbeta[1]   0.65    0.00  0.12   0.41  0.90   673 1.00\nbeta[2]  -3.19    0.22  9.75 -22.23 16.56  2047 1.00\nbeta[3]   0.08    0.00  0.06  -0.03  0.19  2487 1.00\nsigma     8.21    0.02  0.58   7.17  9.45   600 1.01\n\nSamples were drawn using NUTS(diag_e) at Wed Jan 22 19:43:45 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/21-missing.html#explore-latent-missing-variable",
+    "href": "slides/21-missing.html#explore-latent-missing-variable",
+    "title": "Missing Data",
+    "section": "Explore latent missing variable",
+    "text": "Explore latent missing variable\n\nlibrary(bayesplot)\nY_mis &lt;- rstan::extract(fit_full_bayes_joint, pars = \"Y_mis\")$Y_mis\ncolnames(Y_mis) &lt;- paste0(\"Y_mis[\", 1:ncol(Y_mis), \"]\")\nmcmc_areas_ridges(Y_mis[, 1:10])"
+  },
+  {
+    "objectID": "slides/21-missing.html#summary-of-bayesian-joint-model",
+    "href": "slides/21-missing.html#summary-of-bayesian-joint-model",
+    "title": "Missing Data",
+    "section": "Summary of Bayesian joint model",
+    "text": "Summary of Bayesian joint model\n\nThe joint model treats the missing data as parameters (i.e., latent variables in the model).\nPlacing a prior on the missing data allows us to jointly learn the model parameters and the missing data.\nEquivalent to multiple imputation at every step of the HMC. Can be slow!\nIn Stan, we can only treat continuous missing data as parameters, so this method is somewhat limited (what do we do if the missing data is a binary outcome?)"
+  },
+  {
+    "objectID": "slides/21-missing.html#multiple-imputation",
+    "href": "slides/21-missing.html#multiple-imputation",
+    "title": "Missing Data",
+    "section": "Multiple imputation",
+    "text": "Multiple imputation\n\nAs an alternative to fitting a joint model, there are many approaches that allow us to impute missing data before the actual model fitting takes place.\nEach missing value is not imputed once but \\(m\\) times leading to a total of \\(m\\) fully imputed data sets.\nThe model can then be fitted to each of those data sets separately and results are pooled across models, afterwards.\nOne widely applied package for multiple imputation is mice (Buuren & Groothuis-Oudshoorn, 2010) and we will use it in combination with Stan."
+  },
+  {
+    "objectID": "slides/21-missing.html#mice",
+    "href": "slides/21-missing.html#mice",
+    "title": "Missing Data",
+    "section": "Mice",
+    "text": "Mice\n\nHere, we apply the default settings of mice, which means that all variables will be used to impute missing values in all other variables and imputation functions automatically chosen based on the variables’ characteristics.\n\n\nlibrary(mice)\nm &lt;- 100\nmardata &lt;- data.frame(\n  y = fulldata$y,\n  x1 = fulldata$x1,\n  x2 = fulldata$x2\n)\nmardata$y[fulldata$o == 0] &lt;- NA\nimp &lt;- mice(mardata, m = m, print = FALSE)"
+  },
+  {
+    "objectID": "slides/21-missing.html#mice-1",
+    "href": "slides/21-missing.html#mice-1",
+    "title": "Missing Data",
+    "section": "Mice",
+    "text": "Mice\n\nNow, we have \\(m = 100\\) imputed data sets stored within the imp object.\n\nIn practice, we will likely need more than 5 of those to accurately account for the uncertainty induced by the missingness, perhaps even in the area of 100 imputed data sets (Zhou & Reiter, 2010).\n\nWe can extract the first imputed dataset.\n\n\ndata &lt;- complete(imp, 1)\n\n\nWe can now fit our model \\(m\\) times for each imputed data sets and combine the posterior samples from all chains for inference."
+  },
+  {
+    "objectID": "slides/21-missing.html#model-for-the-imputed-datasets",
+    "href": "slides/21-missing.html#model-for-the-imputed-datasets",
+    "title": "Missing Data",
+    "section": "Model for the imputed datasets",
+    "text": "Model for the imputed datasets\n\n// bayesian-mi.stan\ndata {\n  int&lt;lower = 1&gt; n;\n  int&lt;lower = 1&gt; p;\n  vector[n] Y;\n  matrix[n, p] X;\n}\ntransformed data {\n  vector[n] Y_centered;\n  real Y_bar;\n  matrix[n, p] X_centered;\n  row_vector[p] X_bar;\n  Y_bar = mean(Y);\n  Y_centered = Y - Y_bar;\n  for (i in 1:p) {\n    X_bar[i] = mean(X[, i]);\n    X_centered[, i] = X[, i] - X_bar[i];\n  }\n}\nparameters {\n  real alpha_centered;\n  vector[p] beta;\n  real&lt;lower = 0&gt; sigma;\n}\nmodel {\n  target += normal_lpdf(Y_centered | alpha_centered + X_centered * beta, sigma);\n  target += normal_lpdf(alpha_centered | 0, 10);\n  target += normal_lpdf(beta | 0, 10);\n  sigma ~ normal(0, 10);\n}\ngenerated quantities {\n  real alpha;\n  alpha = Y_bar + alpha_centered - X_bar * beta;\n}"
+  },
+  {
+    "objectID": "slides/21-missing.html#fit-the-model-to-the-imputed-data",
+    "href": "slides/21-missing.html#fit-the-model-to-the-imputed-data",
+    "title": "Missing Data",
+    "section": "Fit the model to the imputed data",
+    "text": "Fit the model to the imputed data\n\nstan_bayesian_mi &lt;- stan_model(file = \"bayesian-mi.stan\")\nalpha &lt;- beta &lt;- sigma &lt;- r_hat &lt;- n_eff &lt;- NULL\nn_chains &lt;- 2\nfor (i in 1:m) {\n  \n  ###Load each imputed dataset and fit the Stan complete case model\n  data &lt;- complete(imp, i)\n  X &lt;- model.matrix(~ x1 * x2, data = data)[, -1, drop = FALSE]\n  stan_data_bayesian_mi &lt;- list(\n    n = nrow(data),\n    p = ncol(X),\n    Y = data$y,\n    X = X\n  )\n  fit_mi &lt;- sampling(stan_bayesian_mi, stan_data_bayesian_mi, chains = n_chains)\n  \n  ###Save convergence diagnostics from each imputed dataset\n  r_hat &lt;- cbind(r_hat, summary(fit_mi)$summary[, \"Rhat\"])\n  n_eff &lt;- cbind(n_eff, summary(fit_mi)$summary[, \"n_eff\"])\n  pars &lt;- rstan::extract(fit_mi, pars = c(\"alpha\", \"beta\", \"sigma\"))\n  \n  ### Save the parameters from each imputed dataset\n  n_sims_chain &lt;- length(pars$alpha) / n_chains\n  alpha &lt;- rbind(alpha, cbind(i, rep(1:n_chains, each = n_sims_chain), pars$alpha))\n  beta &lt;- rbind(beta, cbind(i, rep(1:n_chains, each = n_sims_chain), pars$beta))\n  sigma &lt;- rbind(sigma, cbind(i, rep(1:n_chains, each = n_sims_chain), pars$sigma))\n}"
+  },
+  {
+    "objectID": "slides/21-missing.html#inspect-traceplots",
+    "href": "slides/21-missing.html#inspect-traceplots",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/21-missing.html#inspect-traceplots-1",
+    "href": "slides/21-missing.html#inspect-traceplots-1",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/21-missing.html#inspect-traceplots-2",
+    "href": "slides/21-missing.html#inspect-traceplots-2",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/21-missing.html#inspect-traceplots-3",
+    "href": "slides/21-missing.html#inspect-traceplots-3",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/21-missing.html#inspect-traceplots-4",
+    "href": "slides/21-missing.html#inspect-traceplots-4",
+    "title": "Missing Data",
+    "section": "Inspect traceplots",
+    "text": "Inspect traceplots"
+  },
+  {
+    "objectID": "slides/21-missing.html#comparison-of-methods-alpha",
+    "href": "slides/21-missing.html#comparison-of-methods-alpha",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\alpha\\)",
+    "text": "Comparison of methods: \\(\\alpha\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n-43.82\n13.78\n-70.89\n-16.75\nNA\nNA\n\n\nMAR\nBayes Joint\n-48.38\n21.10\n-90.15\n-7.03\n652.73\n1\n\n\nMAR\nBayes MI\n-43.45\n23.72\n-85.03\n3.97\n119974.91\n1\n\n\nMAR\nOLS\n-30.56\n23.70\n-77.55\n16.43\nNA\nNA"
+  },
+  {
+    "objectID": "slides/21-missing.html#comparison-of-methods-beta_1",
+    "href": "slides/21-missing.html#comparison-of-methods-beta_1",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\beta_1\\)",
+    "text": "Comparison of methods: \\(\\beta_1\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n0.63\n0.08\n0.47\n0.80\nNA\nNA\n\n\nMAR\nBayes Joint\n0.65\n0.12\n0.41\n0.90\n672.77\n1\n\n\nMAR\nBayes MI\n0.63\n0.14\n0.35\n0.87\n119778.47\n1\n\n\nMAR\nOLS\n0.55\n0.14\n0.27\n0.83\nNA\nNA"
+  },
+  {
+    "objectID": "slides/21-missing.html#comparison-of-methods-beta_2",
+    "href": "slides/21-missing.html#comparison-of-methods-beta_2",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\beta_2\\)",
+    "text": "Comparison of methods: \\(\\beta_2\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n-17.13\n19.56\n-55.57\n21.30\nNA\nNA\n\n\nMAR\nBayes Joint\n-3.19\n9.75\n-22.23\n16.56\n2047.43\n1\n\n\nMAR\nBayes MI\n-5.52\n10.24\n-25.29\n14.89\n85499.19\n1\n\n\nMAR\nOLS\n-82.60\n49.54\n-180.82\n15.62\nNA\nNA"
+  },
+  {
+    "objectID": "slides/21-missing.html#comparison-of-methods-beta_3",
+    "href": "slides/21-missing.html#comparison-of-methods-beta_3",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\beta_3\\)",
+    "text": "Comparison of methods: \\(\\beta_3\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n0.15\n0.11\n-0.08\n0.37\nNA\nNA\n\n\nMAR\nBayes Joint\n0.08\n0.06\n-0.03\n0.19\n2487.34\n1\n\n\nMAR\nBayes MI\n0.09\n0.06\n-0.03\n0.20\n83444.33\n1\n\n\nMAR\nOLS\n0.52\n0.27\n-0.02\n1.06\nNA\nNA"
+  },
+  {
+    "objectID": "slides/21-missing.html#comparison-of-methods-sigma",
+    "href": "slides/21-missing.html#comparison-of-methods-sigma",
+    "title": "Missing Data",
+    "section": "Comparison of methods: \\(\\sigma\\)",
+    "text": "Comparison of methods: \\(\\sigma\\)\n\n\n\n\n\nData\nModel\nMean\nSD\n2.5%\n97.5%\nn_eff\nRhat\n\n\n\n\nFull\nOLS\n8.73\n0.39\n8.07\n9.49\nNA\nNA\n\n\nMAR\nBayes Joint\n8.21\n0.58\n7.17\n9.45\n599.95\n1.01\n\n\nMAR\nBayes MI\n8.36\n0.35\n7.71\n9.09\n151152.94\n1.00\n\n\nMAR\nOLS\n7.87\n0.52\n6.84\n8.90\nNA\nNA"
+  },
+  {
+    "objectID": "slides/21-missing.html#prepare-for-next-class",
+    "href": "slides/21-missing.html#prepare-for-next-class",
+    "title": "Missing Data",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nWork on HW 05.\nComplete reading to prepare for Thursday’s lecture\nThursday’s lecture: Bayesian Clustering"
+  },
+  {
+    "objectID": "ae/ae-10-clustering.html",
+    "href": "ae/ae-10-clustering.html",
+    "title": "AE 10: Bayesian Clustering",
+    "section": "",
+    "text": "ImportantDue date\n\n\n\nApplication exercises (AEs) are submitted by pushing your work to the relevant GitHub repo. AEs from Tuesday lectures should be submitted by Friday by 11:59pm ET, and AEs from Thursday lectures should be submitted by Sunday at 11:59pm ET. Because AEs are intended for in-class activities, there are no extensions given on AEs.\n\nFinal .qmd and .pdf files pushed to your GitHub repo\nNote: For homeworks and exams, you will also be required to submit your final .pdf file submitted on Gradescope"
+  },
+  {
+    "objectID": "ae/ae-10-clustering.html#clone-the-repo-start-new-rstudio-project",
+    "href": "ae/ae-10-clustering.html#clone-the-repo-start-new-rstudio-project",
+    "title": "AE 10: Bayesian Clustering",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-10-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-10.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+  },
+  {
+    "objectID": "ae/ae-10-clustering.html#fitting-the-model",
+    "href": "ae/ae-10-clustering.html#fitting-the-model",
+    "title": "AE 10: Bayesian Clustering",
+    "section": "Fitting the Model",
+    "text": "Fitting the Model\nBecause clustering is generally an unsupervised task, no covariates are used to fit the model. We will use a centered outcome \\(Y_i - \\bar{Y}\\) to simplify prior specification. In addition to the outcome \\(Y\\), we must specify the number of components (clusters) \\(k\\) used to fit the mixture. The Stan data object is given by\n\nstan_data &lt;- list(Y = (ed_los$los - mean(ed_los$los)),\n                  n = length(ed_los$los),\n                  k = 2)\n\nWe will now fit the model and print the posterior summaries and MCMC convergence diagnostics.\nGaussian components:\n\nmixture_gauss &lt;- stan_model(\"mixture1.stan\")\nfit_mixture_k2g &lt;- sampling(mixture_gauss, data=stan_data, iter=5000, chains=4, control=list(\"adapt_delta\"=0.99))\n\nprint(fit_mixture_k2g, pars = c(\"pi\", \"mu\", \"sigma\"))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=5000; warmup=2500; thin=1; \npost-warmup draws per chain=2500, total post-warmup draws=10000.\n\n          mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\npi[1]     0.37    0.17 0.24  0.16  0.21  0.25  0.47  0.83     2 6.35\npi[2]     0.63    0.17 0.24  0.17  0.53  0.75  0.79  0.84     2 6.35\nmu[1]    -3.17    0.09 0.51 -4.49 -3.37 -3.07 -2.86 -2.49    33 1.05\nmu[2]     0.45    3.96 5.69 -3.17 -2.86 -2.67 -0.50 13.08     2 5.14\nsigma[1] 13.25    4.48 6.46  2.09  9.72 16.12 17.47 20.11     2 4.97\nsigma[2]  5.03    3.28 4.68  2.03  2.27  2.43  5.04 14.78     2 7.56\n\nSamples were drawn using NUTS(diag_e) at Sat Mar 22 13:54:38 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1).\n\n\nTraceplots and pair plots of posterior samples reveal bimodality:\n\nrstan::traceplot(fit_mixture_k2g, pars = c(\"pi\", \"mu\", \"sigma\"))\n\n\n\n\n\n\n\n\n\npairs(fit_mixture_k2g, pars = c(\"mu\", \"sigma\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosterior means are not meaningful in this case\nStudent t components:\n\nmixture_t &lt;- stan_model(\"mixture2.stan\")\nfit_mixture_k2t &lt;- sampling(mixture_t, data=stan_data, iter=5000, chains=4)\nprint(fit_mixture_k2t, pars = c(\"pi\", \"mu\", \"sigma\", \"nu\"))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=5000; warmup=2500; thin=1; \npost-warmup draws per chain=2500, total post-warmup draws=10000.\n\n          mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\npi[1]     0.81    0.00 0.04  0.73  0.79  0.81  0.83  0.87  5567    1\npi[2]     0.19    0.00 0.04  0.13  0.17  0.19  0.21  0.27  5567    1\nmu[1]    -2.96    0.00 0.22 -3.39 -3.10 -2.96 -2.81 -2.53  7318    1\nmu[2]     8.30    0.02 1.10  6.03  7.66  8.35  9.01 10.28  4306    1\nsigma[1]  2.20    0.00 0.17  1.88  2.09  2.20  2.31  2.55  5987    1\nsigma[2]  2.82    0.00 0.40  2.06  2.55  2.81  3.09  3.64  6745    1\nnu[1]    11.98    0.04 4.44  5.14  8.75 11.38 14.57 22.22  9860    1\nnu[2]     1.54    0.00 0.43  1.03  1.25  1.46  1.74  2.50  9286    1\n\nSamples were drawn using NUTS(diag_e) at Sat Mar 29 12:52:38 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1).\n\n\n\nrstan::traceplot(fit_mixture_k2t, pars = c(\"pi\", \"mu\", \"sigma\", \"nu\"))"
+  },
+  {
+    "objectID": "ae/ae-10-clustering.html#visualizing-textprz_iz_j-",
+    "href": "ae/ae-10-clustering.html#visualizing-textprz_iz_j-",
+    "title": "AE 10: Bayesian Clustering",
+    "section": "Visualizing \\(\\text{Pr}(z_i=z_j|-)\\)",
+    "text": "Visualizing \\(\\text{Pr}(z_i=z_j|-)\\)\nFor t mixture:"
+  },
+  {
+    "objectID": "ae/ae-10-clustering.html#exercise-1",
+    "href": "ae/ae-10-clustering.html#exercise-1",
+    "title": "AE 10: Bayesian Clustering",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nRevisit the Gaussian mixture model fit above. Diagnostic criteria indicate that the posterior samples collected may not faithfully represent the true posterior. Traceplots and pair plots indicate that different chains explored different regions of the posterior. Discuss the following: Why might the true posterior be multimodal? Is this a problem with the model or with the way we compute the posterior?\nAnswer:\nPoints students may consider: - Without the ordered constraint, the model is trivially multimodal with modes corresponding to switched labels. - The ordered constraint on \\(\\mu\\) is intended to resolve non-identifiability (label switching). If, under the data generating process \\(\\mu_1\\approx\\mu_2\\) however, then the constraint fails to prevent switching between the variances. I.e., ordering \\(\\mu\\) does not resolve label switching in a variance mixture of Gaussians model. - Notice that the chains do not mix over modes—each chain is apparently stuck in one of the two modes. Hence, no single chain is actually exploring the disjoint region of high posterior probability. This is a limitation of the posterior computation method. - If chains did mix over modes, however, summarizing the posterior would be nontrivial."
+  },
+  {
+    "objectID": "ae/ae-10-clustering.html#exercise-2",
+    "href": "ae/ae-10-clustering.html#exercise-2",
+    "title": "AE 10: Bayesian Clustering",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nExtend the Gaussian mixture model Stan code to simulate data Y_pred under the posterior predictive. Compare the density of predicted data to the empirical density of observed data. Do you observe anything surprising?\nAnswer:\nThis is a bit tricky because the posterior probability that large \\(Y\\) comes from the small component is numerically zero.\nHopefully students not that many of the marginal posteriors for Y_pred are well-behaved in terms of ESS and Rhat. Maybe we can estimate the density well without nailing the parameters. The density overlay is reasonable with obvious problems around the interval \\((5,15)\\).\n\n# add code here\n\n\ngenerated quantities {\n  array[n] real Y_pred;\n  matrix[n,k] lPrZik;\n  int&lt;lower=1, upper=k&gt; z[n];\n  \n  for (i in 1:n){\n    for (h in 1:k){\n      lPrZik[i,h] = log(pi[h]) + normal_lpdf(Y[i] | mu[h], sigma[h]);\n    }\n    lPrZik[i] -= log(sum(exp(lPrZik[i])));\n    \n    // Numerical zeros due to light tails complicate predictive inference\n    if (is_inf(exp(lPrZik[i,1]))){\n      z[i] = 1;\n      Y_pred[i] = normal_rng(mu[z[i]], sigma[z[i]]);\n      continue;\n    }\n    if (is_inf(exp(lPrZik[i,2]))){\n      z[i] = 2;\n      Y_pred[i] = normal_rng(mu[z[i]], sigma[z[i]]);\n      continue;\n    }\n    \n    z[i] = categorical_rng(exp(lPrZik[i]'));\n    \n    Y_pred[i] = normal_rng(mu[z[i]], sigma[z[i]]);\n  }\n}\n\n\nEx2mod &lt;- stan_model(\"Ex2.stan\")\nEx2fit &lt;- sampling(Ex2mod, data=stan_data, chains=4, iter=4000,\n                   control=list(\"adapt_delta\"=0.99))\n\nEx2samps &lt;- extract(Ex2fit)\nplot(density(Ex2samps$Y_pred[Ex2samps$Y_pred&gt;-10 & Ex2samps$Y_pred&lt;100]))\n\n\nggplot(data.frame(x1=c(Ex2samps$Y_pred), x2=stan_data$Y)) + \n  geom_density(aes(x=x1), bw=1, color=\"blue\") +\n  geom_density(aes(x=x2), bw=1) + \n  ggtitle(\"Fitted density (blue) + data (black)\")\n\n\n\n\n\n\n\n\n\nggplot(data.frame(x1=c(Ex2samps$Y_pred), x2=stan_data$Y)) + \n  geom_density(aes(x=x1), bw=1, color=\"blue\") +\n  geom_density(aes(x=x2), bw=1) + \n  xlim(min(stan_data$Y)-1, max(stan_data$Y)+1) +\n  ggtitle(\"Fitted density (blue) + data (black)\", subtitle = \"Truncated to sample range\")\n\nWarning: Removed 114357 rows containing non-finite outside the scale range\n(`stat_density()`)."
+  },
+  {
+    "objectID": "ae/ae-10-clustering.html#exercise-3",
+    "href": "ae/ae-10-clustering.html#exercise-3",
+    "title": "AE 10: Bayesian Clustering",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nExtend the student t mixture model Stan code to simulate data Y_pred under the posterior predictive. Compare to the predicted data under the Gaussian mixture model and comment on any similarities/differences.\nAnswer:\nProbabilities are better behaved here thanks to the heavy tails. The predictive density has extreme tails (unsurprising given \\(\\nu_1\\approx 1.5\\)). The tails are outlandish in context. However, the mode at \\((5,15)\\) is better modeled.\n\n# add code here\n\n\ngenerated quantities {\n  array[n] real Y_pred;\n  matrix[n,k] lPrZik;\n  \n  int&lt;lower=1, upper=k&gt; z[n];\n  for (i in 1:n){\n    for (h in 1:k){\n      lPrZik[i,h] = log(pi[h]) + student_t_lpdf(Y[i] | nu[h], mu[h], sigma[h]);\n    }\n    lPrZik[i] -= log(sum(exp(lPrZik[i])));\n    z[i] = categorical_rng(exp(lPrZik[i]'));\n    \n    Y_pred[i] = student_t_rng(nu[z[i]], mu[z[i]], sigma[z[i]]);\n  }\n}\n\n\nEx3mod &lt;- stan_model(\"Ex3.stan\")\nEx3fit &lt;- sampling(Ex3mod, data=stan_data, chains=4, iter=4000)\n\nEx3samps &lt;- extract(Ex3fit)\nplot(density(Ex3samps$Y_pred[Ex3samps$Y_pred&gt;-10 & Ex3samps$Y_pred&lt;100]))\n\n\nggplot(data.frame(x1=c(Ex3samps$Y_pred), x2=stan_data$Y)) + \n  geom_density(aes(x=x2), bw=1) +\n  geom_density(aes(x=x1), bw=1, color=\"blue\") +\n  ggtitle(\"Fitted density (blue) + data (black)\")\n\n\n\n\n\n\n\n\n\nggplot(data.frame(x1=c(Ex3samps$Y_pred), x2=stan_data$Y)) + \n  geom_density(aes(x=x1), bw=1, color=\"blue\") +\n  geom_density(aes(x=x2), bw=1) + \n  xlim(min(stan_data$Y)-1, max(stan_data$Y)+1) +\n  ggtitle(\"Fitted density (blue) + data (black)\", subtitle = \"Truncated to sample range\")\n\nWarning: Removed 29799 rows containing non-finite outside the scale range\n(`stat_density()`).\n\n\n\n\n\n\n\n\n\n\nggplot(data.frame(x1=c(Ex2samps$Y_pred), x2=c(Ex3samps$Y_pred))) + \n  geom_density(aes(x=x1), bw=1, color=\"red\") +\n  geom_density(aes(x=x2), bw=1, color=\"blue\") + \n  ggtitle(\"t-mixture density (blue) + Gaussiam mixture (red)\")\n\n\n\n\n\n\n\n\n\nggplot(data.frame(x1=c(Ex2samps$Y_pred), x2=c(Ex3samps$Y_pred))) + \n  geom_density(aes(x=x1), bw=1, color=\"red\") +\n  geom_density(aes(x=x2), bw=1, color=\"blue\") + \n  ggtitle(\"t-mixture density (blue) + Gaussiam mixture (red)\", subtitle = \"Truncated to sample range\") +\n  xlim(min(stan_data$Y)-1, max(stan_data$Y)+1) \n\nWarning: Removed 114357 rows containing non-finite outside the scale range\n(`stat_density()`).\n\n\nWarning: Removed 29799 rows containing non-finite outside the scale range\n(`stat_density()`).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your AE repo on GitHub. You’re done! 🎉"
+  },
+  {
+    "objectID": "prepare/prepare-apr02.html",
+    "href": "prepare/prepare-apr02.html",
+    "title": "Prepare for April 2 lecture",
+    "section": "",
+    "text": "📖 Review BDA3 Section 22.1 to get an introduction to finite mixture models.\n✅ Finish HW 05, which is due before class next Tuesday."
+  },
+  {
+    "objectID": "slides/22-clustering.html",
+    "href": "slides/22-clustering.html",
+    "title": "Bayesian Clustering",
+    "section": "",
+    "text": "Loading required package: StanHeaders\n\n\n\nrstan version 2.32.6 (Stan version 2.32.2)\n\n\nFor execution on a local, multicore CPU with excess RAM we recommend calling\noptions(mc.cores = parallel::detectCores()).\nTo avoid recompilation of unchanged Stan programs, we recommend calling\nrstan_options(auto_write = TRUE)\nFor within-chain threading using `reduce_sum()` or `map_rect()` Stan functions,\nchange `threads_per_chain` option:\nrstan_options(threads_per_chain = 1)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ tidyr::extract() masks rstan::extract()\n✖ dplyr::filter()  masks stats::filter()\n✖ dplyr::lag()     masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'extraDistr'\n\n\nThe following object is masked from 'package:purrr':\n\n    rdunif"
+  },
+  {
+    "objectID": "slides/22-clustering.html#learning-objectives",
+    "href": "slides/22-clustering.html#learning-objectives",
+    "title": "Bayesian Clustering",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nWe will introduce the basic mixture modeling framework as a mechanism for model-based clustering and describe computational and inferential challenges.\nVariations of the popular finite Gaussian mixture model (GMM) will be introduced to cluster patients according to ED length-of-stay.\nWe present an implementation of mixture modeling in Stan and discuss challenges therein.\nFinally, various posterior summaries will be explored."
+  },
+  {
+    "objectID": "slides/22-clustering.html#finding-subtypes",
+    "href": "slides/22-clustering.html#finding-subtypes",
+    "title": "Bayesian Clustering",
+    "section": "Finding subtypes",
+    "text": "Finding subtypes\nRevisiting data on patients admitted to the emergency department (ED) from the MIMIC-IV-ED demo.\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nCan we identify subgroups within this population?"
+  },
+  {
+    "objectID": "slides/22-clustering.html#the-usual-setup",
+    "href": "slides/22-clustering.html#the-usual-setup",
+    "title": "Bayesian Clustering",
+    "section": "The usual setup",
+    "text": "The usual setup\nMost models introduced in this course are of the form:\n\\[f\\left(Y_i\\mid X_i\\right) = f\\left(Y_i\\mid \\boldsymbol{\\theta}_i\\left(X_i\\right)\\right).\\]\n\n\\(f(\\cdot)\\) is the density or distribution function of an assumed family (e.g., Gaussian, binomial),\n\\(\\boldsymbol{\\theta}_i\\) is a parameter (or parameters) that may depend on individual covariates \\(X_i\\)."
+  },
+  {
+    "objectID": "slides/22-clustering.html#the-usual-setup-1",
+    "href": "slides/22-clustering.html#the-usual-setup-1",
+    "title": "Bayesian Clustering",
+    "section": "The usual setup",
+    "text": "The usual setup\n\\[f\\left(Y_i\\mid X_i\\right) = f\\left(Y_i\\mid \\boldsymbol{\\theta}_i\\left(X_i\\right)\\right)\\]\nLinear regression:\n\n\\(f\\) is the Gaussian density function, and \\(\\boldsymbol{\\theta}_i(X_i)=(X_i\\beta, \\sigma^2)^\\top\\)\n\nBinary classification:\n\n\\(f\\) is the Bernoulli mass function, and \\(\\boldsymbol{\\theta}_i(X_i)=\\text{logit}(X_i\\beta)^{-1}\\)"
+  },
+  {
+    "objectID": "slides/22-clustering.html#limitations-of-the-usual-setup",
+    "href": "slides/22-clustering.html#limitations-of-the-usual-setup",
+    "title": "Bayesian Clustering",
+    "section": "Limitations of the usual setup",
+    "text": "Limitations of the usual setup\nSuppose patients \\(i=1,\\dots,n\\) are administered a diagnostic test. Their outcome \\(Y_i\\) depends only on whether or not they have previously received treatment: \\(X_i=1\\) if yes and \\(X_i=0\\) otherwise. Suppose the diagnostic test has Gaussian-distributed measurement error, so \\[Y_i\\mid X_i \\sim N(\\alpha + \\beta X_i, \\sigma^2).\\] Now, suppose past treatment information is not included in patients’ record—we cannot condition on \\(X_i\\). Marginalizing, \\[\\begin{align*}\nf(Y_i) &= P(X_i=1)\\times N(Y_i\\mid \\alpha + \\beta, \\sigma^2) \\\\\n      & +P(X_i=0)\\times N(Y_i\\mid \\alpha, \\sigma^2).\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/22-clustering.html#limitations-of-the-usual-setup-1",
+    "href": "slides/22-clustering.html#limitations-of-the-usual-setup-1",
+    "title": "Bayesian Clustering",
+    "section": "Limitations of the usual setup",
+    "text": "Limitations of the usual setup\n\nn &lt;- 500; mu &lt;- c(1,4.5); s2 &lt;- 1\nx &lt;- sample(1:2, n, T); y &lt;- rnorm(n, mu[x], sqrt(s2))\nggplot(data.frame(y = y), aes(x = y)) + \n  geom_histogram() + \n  labs(x = \"Y\", y = \"Count\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "slides/22-clustering.html#limitations-of-the-usual-setup-2",
+    "href": "slides/22-clustering.html#limitations-of-the-usual-setup-2",
+    "title": "Bayesian Clustering",
+    "section": "Limitations of the usual setup",
+    "text": "Limitations of the usual setup\n\nfit &lt;- lm(y ~ 1)\nggplot(data.frame(residuals = fit$residuals), aes(x = residuals)) + \n  geom_histogram() + \n  labs(x = \"Residuals\", y = \"Count\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nNormality of residuals?"
+  },
+  {
+    "objectID": "slides/22-clustering.html#mixture-model",
+    "href": "slides/22-clustering.html#mixture-model",
+    "title": "Bayesian Clustering",
+    "section": "Mixture Model",
+    "text": "Mixture Model\nMotivation for using a mixture model: Standard distributional families are not sufficiently expressive.\n\nThe inflexibility of the model may be due to unobserved heterogeneity (e.g., unrecorded treatment history).\n\nGenerically, \\[f(Y_i) = \\sum_{h = 1}^k \\pi_h \\times f_h(Y_i).\\]\nUses of mixture models:\n\nModeling weird densities/distributions (e.g., bimodal).\nLearning latent groups/clusters."
+  },
+  {
+    "objectID": "slides/22-clustering.html#mixture-model-1",
+    "href": "slides/22-clustering.html#mixture-model-1",
+    "title": "Bayesian Clustering",
+    "section": "Mixture Model",
+    "text": "Mixture Model\n\\[f(Y_i) = \\sum_{h=1}^k \\pi_h\\times f_h(Y_i)\\]\n\nThis mixture is comprised of \\(k\\) components indexed by \\(h=1,\\dots,k\\). For each component, we have a probability density (or mass) function \\(f_h\\) and a mixture weight \\(\\pi_h\\), where \\(\\sum_{h=1}^k \\pi_k=1\\).\nWhen \\(k\\) is finite, we call this a finite mixture model for \\(Y_i\\).\nIt is common to let, \\[f_h(Y_i) = f(Y_i\\mid \\boldsymbol{\\theta}_h).\\]\n\nThe component densities share a functional form and differ in their parameters."
+  },
+  {
+    "objectID": "slides/22-clustering.html#gaussian-mixture-model",
+    "href": "slides/22-clustering.html#gaussian-mixture-model",
+    "title": "Bayesian Clustering",
+    "section": "Gaussian Mixture Model",
+    "text": "Gaussian Mixture Model\nLetting \\(f_h(Y_i) = N(Y_i\\mid \\mu_h, \\sigma^2_h)\\) for \\(h=1,\\dots,k\\), yields the Gaussian mixture model. For \\(Y_i\\in\\mathbb{R}\\), \\[f(Y_i) = \\sum_{h=1}^k \\pi_h N\\left({Y}_i\\mid \\mu_h, \\sigma^2_h\\right)\\]\nFor multivariate outcomes \\(\\mathbf{Y}_i\\in\\mathbb{R}^p\\),\n\\[ f(\\mathbf{Y}_i) = \\sum_{h=1}^k \\pi_h N_p\\left(\\mathbf{Y}_i\\mid\\boldsymbol{\\mu}_h, \\boldsymbol{\\Sigma}_h\\right).\\]"
+  },
+  {
+    "objectID": "slides/22-clustering.html#gaussian-mixture-model-1",
+    "href": "slides/22-clustering.html#gaussian-mixture-model-1",
+    "title": "Bayesian Clustering",
+    "section": "Gaussian Mixture Model",
+    "text": "Gaussian Mixture Model\nConsider a mixture model with 3 groups:\n\nMixture 1: \\(\\mu_1 = -1.5, \\sigma_1 = 1\\).\nMixture 2: \\(\\mu_2 = 0, \\sigma_2 = 1.5\\).\nMixture 3: \\(\\mu_3 = 2, \\sigma_3 = 0.6\\).\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotice, both means \\(\\mu_h\\) and variances \\(\\sigma^2_h\\) vary across clusters."
+  },
+  {
+    "objectID": "slides/22-clustering.html#generative-perspective-on-gmm",
+    "href": "slides/22-clustering.html#generative-perspective-on-gmm",
+    "title": "Bayesian Clustering",
+    "section": "Generative perspective on GMM",
+    "text": "Generative perspective on GMM\nTo simulate from a \\(k\\)-component Gaussian mixture with means \\(\\mu_1,\\dots,\\mu_k\\), variances \\(\\sigma_1^2,\\dots,\\sigma^2_k\\), and weights \\(\\pi_1,\\dots,\\pi_k\\):\n\nSample the component indicator \\(z_i\\in \\{1, \\dots,k\\}\\) with probabilities: \\[P(z_i=h) = \\pi_h \\iff z_i \\sim \\text{Categorical}(k, \\{\\pi_1,\\ldots,\\pi_k\\}).\\]\nGiven \\(z_i\\), sample \\(Y_i\\) from the appropriate component: \\[\\left(Y_i\\mid z_i =h\\right) \\sim N\\left(\\mu_h, \\sigma^2_h\\right).\\]"
+  },
+  {
+    "objectID": "slides/22-clustering.html#generative-perspective-on-gmm-1",
+    "href": "slides/22-clustering.html#generative-perspective-on-gmm-1",
+    "title": "Bayesian Clustering",
+    "section": "Generative perspective on GMM",
+    "text": "Generative perspective on GMM\n\nn &lt;- 500 \nmu &lt;- c(1, 4.5)\ns2 &lt;- 1 \n# implicit: pi = c(0.5, 0.5)\nz &lt;- sample(1:2, n, TRUE)\ny &lt;- rnorm(n, mu[z], sqrt(s2))\n\nThis is essentially the code used to simulate the missing treatment history example.\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "slides/22-clustering.html#marginalizing-component-indicators",
+    "href": "slides/22-clustering.html#marginalizing-component-indicators",
+    "title": "Bayesian Clustering",
+    "section": "Marginalizing Component Indicators",
+    "text": "Marginalizing Component Indicators\nThe label \\(z_i\\) indicates which component \\(Y_i\\) is drawn from—think of this as the cluster label: \\(f\\left(Y_i\\mid z_i=h\\right) = N\\left(Y_i\\mid \\mu_h,\\sigma^2_h \\right).\\)\nBut \\(z_i\\) is unknown, so we marginalize to obtain:\n\\[\\begin{align*}\nf(Y_i) &= \\int_\\mathcal{Z}f\\left(Y_i\\mid z\\right) f(z)dz \\\\\n&= \\sum_{h=1}^k f\\left(Y_i\\mid z=h\\right) P(z=h) \\\\\n&= \\sum_{h=1}^k N\\left(Y_i\\mid \\mu_h,\\sigma^2_h \\right) \\times \\pi_h.\n\\end{align*}\\]\nThis is key to implementing in Stan."
+  },
+  {
+    "objectID": "slides/22-clustering.html#gaussian-mixture-in-stan",
+    "href": "slides/22-clustering.html#gaussian-mixture-in-stan",
+    "title": "Bayesian Clustering",
+    "section": "Gaussian mixture in Stan",
+    "text": "Gaussian mixture in Stan\nComponent indicators \\(z_i\\) are discrete parameters, which cannot be estimated in Stan. As before, suppose \\(f(Y_i) = \\sum_{h=1}^k  \\pi_h N\\left(Y_i\\mid \\mu_h,\\sigma^2_h \\right)\\).\nThe log-likelihood is:\n\\[\\begin{align*}\n\\log f(Y_i)\n&= \\log \\sum_{h=1}^k  \\exp \\left(\\log\\left[\\pi_h N\\left(Y_i\\mid \\mu_h,\\sigma^2_h \\right) \\right]\\right)\\\\\n&= \\verb|log_sum_exp| \\left[\\log\\pi_1 + \\log N\\left(Y_i\\mid \\mu_1,\\sigma^2_1 \\right),\\right. \\\\\n&\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\dots, \\\\\n&\\quad\\quad\\quad\\quad\\quad\\quad\\quad \\left.\\log\\pi_k + \\log N\\left(Y_i\\mid \\mu_k,\\sigma^2_k \\right) \\right],\n\\end{align*}\\]\nlog_sum_exp is a Stan function."
+  },
+  {
+    "objectID": "slides/22-clustering.html#gaussian-mixture-in-stan-1",
+    "href": "slides/22-clustering.html#gaussian-mixture-in-stan-1",
+    "title": "Bayesian Clustering",
+    "section": "Gaussian mixture in Stan",
+    "text": "Gaussian mixture in Stan\n\n// saved in mixture1.stan\ndata {\n  int&lt;lower = 1&gt; k;          // number of mixture components\n  int&lt;lower = 1&gt; n;          // number of data points\n  array[n] real Y;           // observations\n}\nparameters {\n  simplex[k] pi; // mixing proportions\n  ordered[k] mu; // means of the mixture components\n  vector&lt;lower=0&gt;[k] sigma; // sds of the mixture components\n}\nmodel {\n  target += normal_lpdf(mu |0.0, 10.0);\n  target += exponential_lpdf(sigma | 1.0);\n  vector[k] log_probs = log(pi);\n  for (i in 1:n){\n    vector[k] lps = log_probs;\n    for (h in 1:k){\n      lps[h] += normal_lpdf(Y[i] | mu[h], sigma[h]);\n    }\n    target += log_sum_exp(lps);\n  }\n}\n\nOf note: simplex and ordered types."
+  },
+  {
+    "objectID": "slides/22-clustering.html#first-fit",
+    "href": "slides/22-clustering.html#first-fit",
+    "title": "Bayesian Clustering",
+    "section": "First fit",
+    "text": "First fit\n\ned &lt;- read.csv(\"exam1_data.csv\")\ndat &lt;- list(Y = (ed$los - mean(ed$los)),\n            n = length(ed$los),\n            k = 2)\nmod1 &lt;- stan_model(\"mixture1.stan\")\nfit1 &lt;- sampling(mod1, data=dat, chains=4, iter=5000, control=list(\"adapt_delta\"=0.99))\nprint(fit1, pars = c(\"pi\", \"mu\", \"sigma\"), probs = c(0.025, 0.975))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=5000; warmup=2500; thin=1; \npost-warmup draws per chain=2500, total post-warmup draws=10000.\n\n          mean se_mean   sd  2.5% 97.5% n_eff Rhat\npi[1]     0.37    0.17 0.24  0.16  0.83     2 6.35\npi[2]     0.63    0.17 0.24  0.17  0.84     2 6.35\nmu[1]    -3.17    0.09 0.51 -4.49 -2.49    33 1.05\nmu[2]     0.45    3.96 5.69 -3.17 13.08     2 5.14\nsigma[1] 13.25    4.48 6.46  2.09 20.11     2 4.97\nsigma[2]  5.03    3.28 4.68  2.03 14.78     2 7.56\n\nSamples were drawn using NUTS(diag_e) at Sat Mar 22 13:54:38 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/22-clustering.html#what-is-going-on",
+    "href": "slides/22-clustering.html#what-is-going-on",
+    "title": "Bayesian Clustering",
+    "section": "What is going on?",
+    "text": "What is going on?\n\npairs(fit1, pars = c(\"mu\", \"sigma\"))\n\nWarning in par(usr): argument 1 does not name a graphical parameter\nWarning in par(usr): argument 1 does not name a graphical parameter\nWarning in par(usr): argument 1 does not name a graphical parameter\nWarning in par(usr): argument 1 does not name a graphical parameter"
+  },
+  {
+    "objectID": "slides/22-clustering.html#bimodal-posterior",
+    "href": "slides/22-clustering.html#bimodal-posterior",
+    "title": "Bayesian Clustering",
+    "section": "Bimodal posterior",
+    "text": "Bimodal posterior\n\n\n\n\n\n\n\n\n\n\nIn one mode, \\(\\sigma^2_1 \\ll \\sigma^2_2\\) and in the other, \\(\\sigma^2_1\\gg\\sigma^2_2\\)"
+  },
+  {
+    "objectID": "slides/22-clustering.html#bimodal-posterior-1",
+    "href": "slides/22-clustering.html#bimodal-posterior-1",
+    "title": "Bayesian Clustering",
+    "section": "Bimodal posterior",
+    "text": "Bimodal posterior\n\n\n\n\n\n\n\n\n\n\nThe Gaussian clusters have light tails, so outlying values of \\(Y\\) force large values of \\(\\sigma^2_h\\). When \\(\\sigma^2_h\\) is large, small changes to \\(\\mu_h\\) have little impact on the log-likelihood, and the ordering constraint is not sufficient to identify the clusters."
+  },
+  {
+    "objectID": "slides/22-clustering.html#things-to-consider-when-your-mixture-model-is-mixed-up",
+    "href": "slides/22-clustering.html#things-to-consider-when-your-mixture-model-is-mixed-up",
+    "title": "Bayesian Clustering",
+    "section": "Things to consider when your mixture model is mixed up",
+    "text": "Things to consider when your mixture model is mixed up\nMixture modeling, especially when clusters are of interest, can be fickle.\n\nDifferent mixtures can give similar fit to data, leading to multimodal posteriors that are difficult to sample from (previous slides).\nClusters will depend on your choice of \\(f_h\\)—a Gaussian mixture model can only find Gaussian-shaped clusters.\nIncreasing \\(k\\) often improves fit, but may muddle cluster interpretation."
+  },
+  {
+    "objectID": "slides/22-clustering.html#things-to-consider-when-your-mixture-model-is-mixed-up-1",
+    "href": "slides/22-clustering.html#things-to-consider-when-your-mixture-model-is-mixed-up-1",
+    "title": "Bayesian Clustering",
+    "section": "Things to consider when your mixture model is mixed up",
+    "text": "Things to consider when your mixture model is mixed up\n\nEmploy informative priors.\nVary the number of clusters.\nChange the form of the kernel."
+  },
+  {
+    "objectID": "slides/22-clustering.html#updated-model",
+    "href": "slides/22-clustering.html#updated-model",
+    "title": "Bayesian Clustering",
+    "section": "Updated model",
+    "text": "Updated model\n\n// saved in mixture2.stan\ndata {\n  int&lt;lower = 1&gt; k;          // number of mixture components\n  int&lt;lower = 1&gt; n;          // number of data points\n  array[n] real Y;         // observations\n}\nparameters {\n  simplex[k] pi; // mixing proportions\n  ordered[k] mu; // means of the mixture components\n  vector&lt;lower = 0&gt;[k] sigma; // sds of the mixture components\n  vector&lt;lower = 1&gt;[k] nu;\n}\nmodel {\n  target += normal_lpdf(mu | 0.0, 10.0);\n  target += normal_lpdf(sigma | 2.0, 0.5);\n  target += gamma_lpdf(nu | 5.0, 0.5);\n  vector[k] log_probs = log(pi);\n  for (i in 1:n){\n    vector[k] lps = log_probs;\n    for (h in 1:k){\n      lps[h] += student_t_lpdf(Y[i] | nu[h], mu[h], sigma[h]);\n    }\n    target += log_sum_exp(lps);\n  }\n}\n\n\nInformative prior on \\(\\sigma^2_h\\).\nMixture of Student-t."
+  },
+  {
+    "objectID": "slides/22-clustering.html#updated-model-fit",
+    "href": "slides/22-clustering.html#updated-model-fit",
+    "title": "Bayesian Clustering",
+    "section": "Updated model fit",
+    "text": "Updated model fit\n\nmod2 &lt;- stan_model(\"mixture2.stan\")\nfit2 &lt;- sampling(mod2, data=dat, chains=4, iter=5000, control=list(\"adapt_delta\"=0.99))\nprint(fit2, pars=c(\"pi\", \"mu\", \"sigma\", \"nu\"))\n\n\n\nInference for Stan model: anon_model.\n4 chains, each with iter=5000; warmup=2500; thin=1; \npost-warmup draws per chain=2500, total post-warmup draws=10000.\n\n          mean se_mean   sd  2.5%   25%   50%   75% 97.5% n_eff Rhat\npi[1]     0.81    0.00 0.04  0.73  0.79  0.81  0.83  0.87  5567    1\npi[2]     0.19    0.00 0.04  0.13  0.17  0.19  0.21  0.27  5567    1\nmu[1]    -2.96    0.00 0.22 -3.39 -3.10 -2.96 -2.81 -2.53  7318    1\nmu[2]     8.30    0.02 1.10  6.03  7.66  8.35  9.01 10.28  4306    1\nsigma[1]  2.20    0.00 0.17  1.88  2.09  2.20  2.31  2.55  5987    1\nsigma[2]  2.82    0.00 0.40  2.06  2.55  2.81  3.09  3.64  6745    1\nnu[1]    11.98    0.04 4.44  5.14  8.75 11.38 14.57 22.22  9860    1\nnu[2]     1.54    0.00 0.43  1.03  1.25  1.46  1.74  2.50  9286    1\n\nSamples were drawn using NUTS(diag_e) at Sat Mar 29 12:52:38 2025.\nFor each parameter, n_eff is a crude measure of effective sample size,\nand Rhat is the potential scale reduction factor on split chains (at \nconvergence, Rhat=1)."
+  },
+  {
+    "objectID": "slides/22-clustering.html#updated-model-results",
+    "href": "slides/22-clustering.html#updated-model-results",
+    "title": "Bayesian Clustering",
+    "section": "Updated model results",
+    "text": "Updated model results"
+  },
+  {
+    "objectID": "slides/22-clustering.html#from-marginal-mixture-model-to-clusters",
+    "href": "slides/22-clustering.html#from-marginal-mixture-model-to-clusters",
+    "title": "Bayesian Clustering",
+    "section": "From marginal mixture model to clusters",
+    "text": "From marginal mixture model to clusters\nStan cannot directly infer categorical component indicators \\(z_i\\). Instead, for each individual, we compute\n\\[\\begin{align*}\nP\\left(z_i = h \\mid Y_i, \\boldsymbol{\\mu},\\boldsymbol{\\sigma},\\boldsymbol{\\pi} \\right) &= \\frac{f(Y_i\\mid z_i = h, \\mu_h,\\sigma_h)P(z_i=h\\mid \\pi_h)}{\\sum_{h'=1}^k f(Y_i\\mid z_i = h', \\mu_{h'},\\sigma_{h'})P(z_i=h'\\mid \\pi_{h'})}\\\\\n&= \\frac{N(Y_i | \\mu_{h},\\sigma_{h})\\pi_{h}}{\\sum_{h' = 1}^k N(Y_i | \\mu_{h'},\\sigma_{h'})\\pi_{h'}} = p_{ih}.\n\\end{align*}\\]\nGiven these cluster membership probabilities, we can recover cluster indicators through simulation: \\[(z_i\\mid -) \\sim \\text{Categorical}\\left(k, \\left\\{ p_{i1},\\dots,p_{ik}  \\right\\}\\right).\\]"
+  },
+  {
+    "objectID": "slides/22-clustering.html#from-marginal-mixture-model-to-clusters-1",
+    "href": "slides/22-clustering.html#from-marginal-mixture-model-to-clusters-1",
+    "title": "Bayesian Clustering",
+    "section": "From marginal mixture model to clusters",
+    "text": "From marginal mixture model to clusters\n\n...\n\ngenerated quantities {\n  matrix[n,k] lPrZik;\n  int&lt;lower=1, upper=k&gt; z[n];\n  for (i in 1:n){\n    for (h in 1:k){\n      lPrZik[i,h] = log(pi[h]) + student_t_lpdf(Y[i] | nu[h], mu[h], sigma[h]);\n    }\n    lPrZik[i] -= log(sum(exp(lPrZik[i])));\n    z[i] = categorical_rng(exp(lPrZik[i]'));\n  }\n}"
+  },
+  {
+    "objectID": "slides/22-clustering.html#co-clustering-probabilities",
+    "href": "slides/22-clustering.html#co-clustering-probabilities",
+    "title": "Bayesian Clustering",
+    "section": "Co-clustering probabilities",
+    "text": "Co-clustering probabilities\nRecovering \\(z_i\\) allows us to make the following pairwise comparison: what is the probability that unit \\(i\\) and unit \\(j\\) are in the same cluster? This is the “co-clustering probability”.\nIt is common to arrange these probabilities in a co-clustering matrix \\(\\mathbf{C}\\), where the \\(i,j\\) entry is given by, \\[C_{ij}=P\\left( z_i=z_j\\mid- \\right)\\approx \\frac{1}{S}\\sum_{s=1}^S \\mathbb{1}\\left[z_i^{(s)}=z_j^{(s)}\\right].\\]"
+  },
+  {
+    "objectID": "slides/22-clustering.html#co-clustering-probabilities-1",
+    "href": "slides/22-clustering.html#co-clustering-probabilities-1",
+    "title": "Bayesian Clustering",
+    "section": "Co-clustering probabilities",
+    "text": "Co-clustering probabilities\n\n\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE"
+  },
+  {
+    "objectID": "slides/22-clustering.html#how-do-our-results-change-when-we-use-more-components",
+    "href": "slides/22-clustering.html#how-do-our-results-change-when-we-use-more-components",
+    "title": "Bayesian Clustering",
+    "section": "How do our results change when we use more components?",
+    "text": "How do our results change when we use more components?\n\\(k=3\\)"
+  },
+  {
+    "objectID": "slides/22-clustering.html#how-do-our-results-change-when-we-use-more-components-1",
+    "href": "slides/22-clustering.html#how-do-our-results-change-when-we-use-more-components-1",
+    "title": "Bayesian Clustering",
+    "section": "How do our results change when we use more components?",
+    "text": "How do our results change when we use more components?\n\\(k=4\\)"
+  },
+  {
+    "objectID": "slides/22-clustering.html#co-clusterings-across-k",
+    "href": "slides/22-clustering.html#co-clusterings-across-k",
+    "title": "Bayesian Clustering",
+    "section": "Co-clusterings across \\(k\\)",
+    "text": "Co-clusterings across \\(k\\)\n\n\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\n\n\n\n\n\n\n\n\n\nThe same general pattern persists when more clusters are used, indicating that \\(k=2\\) is a reasonable choice."
+  },
+  {
+    "objectID": "slides/22-clustering.html#characterizing-the-clusters",
+    "href": "slides/22-clustering.html#characterizing-the-clusters",
+    "title": "Bayesian Clustering",
+    "section": "Characterizing the Clusters",
+    "text": "Characterizing the Clusters"
+  },
+  {
+    "objectID": "slides/22-clustering.html#characterizing-the-clusters-1",
+    "href": "slides/22-clustering.html#characterizing-the-clusters-1",
+    "title": "Bayesian Clustering",
+    "section": "Characterizing the Clusters",
+    "text": "Characterizing the Clusters"
+  },
+  {
+    "objectID": "slides/22-clustering.html#prepare-for-next-class",
+    "href": "slides/22-clustering.html#prepare-for-next-class",
+    "title": "Bayesian Clustering",
+    "section": "Prepare for next class",
+    "text": "Prepare for next class\n\nReminder: On Thursday, we will have a in-class live-coding exercise.\nBegin working on Exam 02, which is due for feedback on April 15."
   }
 ]

@@ -164,8 +164,7 @@ Under HSGP: $$\begin{align}
     \boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top & \boldsymbol{\Phi}\mathbf{S} \boldsymbol{\Phi}^{*\top} \\
     \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top & \boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^{*\top}
   \end{bmatrix} \right).
-\end{align}
-$$
+\end{align}$$
 
 If $m \le n$, we have shown $$\boldsymbol{\theta}^* \mid (\boldsymbol{\theta}, \boldsymbol{\Omega}) = (\boldsymbol{\Phi}^*\mathbf{S}\boldsymbol{\Phi}^\top) (\boldsymbol{\Phi}\mathbf{S}\boldsymbol{\Phi}^\top)^{\dagger} \boldsymbol{\theta}\overset{d}{=}\boldsymbol{\Phi}^*\mathbf{S}^{1/2}\mathbf{b}.$$
 
@@ -342,7 +341,7 @@ A few random things to keep in mind for implementation in practice:
 
 ## Prepare for next class {.midi}
 
-1.  Work on [HW 05](https://biostat725-sp26.netlify.app/hw/hw-05-blank) which will be assigned shortly.
+1.  Work on [HW 05](https://biostat725-sp26.netlify.app/hw/hw-05) which will be assigned shortly.
 2.  Complete reading to prepare for Thursday's lecture
 3.  Thursday's lecture: Disease Mapping
 

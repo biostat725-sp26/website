@@ -1,0 +1,9 @@
+---
+title: Prepare for April 2 lecture
+---
+
+<br>
+
+📖 Review **BDA3** Section 22.1 to get an introduction to finite mixture models.
+
+✅ Finish [HW 05](https://biostat725-sp26.netlify.app/hw/hw-05), which is due before class next Tuesday.
