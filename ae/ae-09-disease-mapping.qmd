@@ -1,5 +1,5 @@
 ---
-title: "AE 08: Disease Mapping"
+title: "AE 09: Disease Mapping"
 subtitle: "Modeling diabetes across Durham county"
 date: "March 26, 2026"
 ---
