@@ -817,7 +817,7 @@ ggplot(data = covid_nc_2020) +
 
 ## Prepare for next class
 
--   Work on HW 05, which is due April 7.
+-   Work on [HW 05](https://biostat725-sp26.netlify.app/hw/hw-05), which is due April 7.
 
 -   Complete reading to prepare for next Tuesday's lecture
 
