@@ -456,7 +456,7 @@ Define $\mathbf{Y} = (Y_1,\ldots,Y_n)$. The posterior can be written as:
 \begin{align*}
 f(\boldsymbol{\Omega}, \boldsymbol{\theta} | \mathbf{Y}) &\propto f(\mathbf{Y}, \boldsymbol{\Omega},\boldsymbol{\theta})\\
 &\propto f(\mathbf{Y} | \boldsymbol{\Omega},\boldsymbol{\theta}) f(\boldsymbol{\theta} | \boldsymbol{\Omega}) f(\boldsymbol{\Omega})\\
-&\propto f(\boldsymbol{\Omega}) \prod_{i=1}^n f({Y}_i | \lambda_i) f(\theta_i | \tau^2) .
+&\propto f(\boldsymbol{\Omega}) f(\boldsymbol{\theta} | \tau^2) \prod_{i=1}^n f({Y}_i | \lambda_i).
 \end{align*}
 
 ## Adding the ICAR prior to Stan

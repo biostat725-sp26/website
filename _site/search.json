@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "BIOSTAT 725 - Bayesian Health Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ndow\ndate\ntopic\nprepare\nslides\nae\nhw\nnotes\n\n\n\n\n1\nTh\nJan 8\nWelcome + What Is Bayesian Health Data Science?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW00 assigned\n\n\n2\nTu\nJan 13\nMonte Carlo Sampling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 15\nMarkov Chain Monte Carlo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 01 assigned, HW00 due\n\n\n3\nTu\nJan 20\nProbabilistic Programming (Intro to Stan!)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 22\nPriors, Posteriors, and PPDs!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\nTu\nJan 27\nModel Checking\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nJan 29\nModel Comparison\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 02 assigned, HW 01 due\n\n\n5\nTu\nFeb 3\nBayesian Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 5\nNonlinear Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\nTu\nFeb 10\nRobust Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 12\nRegularization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 03 assigned, HW 02 due\n\n\n7\nTu\nFeb 17\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 19\nMulticlass Classification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n8\nTu\nFeb 24\nHierarchical Models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nFeb 26\nLongitudinal Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 01 assigned, HW03 due\n\n\n9\nTu\nMar 3\nExam 1 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 5\nGaussian Processes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW04 assigned, Exam 01 due\n\n\n10\nTu\nMar 10\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 12\nNO CLASS: Spring Break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11\nTu\nMar 17\nGeospatial Modeling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nMar 19\nScalable Gaussian Processes #1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12\nTu\nMar 24\nScalable Gaussian Processes #2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 assigned, HW04 due\n\n\n\nTh\nMar 26\nDisease Mapping\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13\nTu\nMar 31\nMissing Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTh\nApr 2\nBayesian Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n14\nTu\nApr 7\nTBD Topic/Live-Coding Review\n\n\n\n\n\n\n\n\n\n\n\n\nHW 05 due, Exam 02 assigned\n\n\n\nTh\nApr 9\nLive-Coding Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n15\nTu\nApr 14\nExam 02 Office Hours\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due for feedback\n\n\nExam period\nTu\nApr 29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExam 02 due by 5:00pm",
     "crumbs": [
       "Schedule"
     ]
@@ -7124,7 +7124,7 @@
     "href": "slides/20-disease-mapping.html#posterior-distribution",
     "title": "Disease Mapping",
     "section": "Posterior Distribution",
-    "text": "Posterior Distribution\nDefine \\(\\mathbf{Y} = (Y_1,\\ldots,Y_n)\\). The posterior can be written as:\n\\[\\begin{aligned}\nf(\\boldsymbol{\\Omega}, \\boldsymbol{\\theta} | \\mathbf{Y}) &\\propto f(\\mathbf{Y}, \\boldsymbol{\\Omega},\\boldsymbol{\\theta})\\\\\n&\\propto f(\\mathbf{Y} | \\boldsymbol{\\Omega},\\boldsymbol{\\theta}) f(\\boldsymbol{\\theta} | \\boldsymbol{\\Omega}) f(\\boldsymbol{\\Omega})\\\\\n&\\propto f(\\boldsymbol{\\Omega}) \\prod_{i=1}^n f({Y}_i | \\lambda_i) f(\\theta_i | \\tau^2) .\n\\end{aligned}\\]"
+    "text": "Posterior Distribution\nDefine \\(\\mathbf{Y} = (Y_1,\\ldots,Y_n)\\). The posterior can be written as:\n\\[\\begin{aligned}\nf(\\boldsymbol{\\Omega}, \\boldsymbol{\\theta} | \\mathbf{Y}) &\\propto f(\\mathbf{Y}, \\boldsymbol{\\Omega},\\boldsymbol{\\theta})\\\\\n&\\propto f(\\mathbf{Y} | \\boldsymbol{\\Omega},\\boldsymbol{\\theta}) f(\\boldsymbol{\\theta} | \\boldsymbol{\\Omega}) f(\\boldsymbol{\\Omega})\\\\\n&\\propto f(\\boldsymbol{\\Omega}) f(\\boldsymbol{\\theta} | \\tau^2) \\prod_{i=1}^n f({Y}_i | \\lambda_i).\n\\end{aligned}\\]"
   },
   {
     "objectID": "slides/20-disease-mapping.html#adding-the-icar-prior-to-stan",
@@ -7698,7 +7698,7 @@
     "href": "ae/ae-10-clustering.html#clone-the-repo-start-new-rstudio-project",
     "title": "AE 10: Bayesian Clustering",
     "section": "Clone the repo & start new RStudio project",
-    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp25 organization on GitHub.\nClick on the repo with the prefix ae-10-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-10.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/biostat725-sp26 organization on GitHub.\nClick on the repo with the prefix ae-10-. It contains the starter documents you need to complete the AE.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\n\nSee the HW 00 instructions if you have not set up the SSH key or configured git.\n\nIn RStudio, go to File \\(\\rightarrow\\) New Project \\(\\rightarrow\\) Version Control \\(\\rightarrow\\) Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick ae-10.qmd to open the template Quarto file. This is where you will write up your code and narrative for the AE."
   },
   {
     "objectID": "ae/ae-10-clustering.html#fitting-the-model",
@@ -7761,7 +7761,7 @@
     "href": "slides/22-clustering.html#finding-subtypes",
     "title": "Bayesian Clustering",
     "section": "Finding subtypes",
-    "text": "Finding subtypes\nRevisiting data on patients admitted to the emergency department (ED) from the MIMIC-IV-ED demo.\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nCan we identify subgroups within this population?"
+    "text": "Finding subtypes\nRevisiting data on patients admitted to the emergency department (ED) from the MIMIC-IV-ED demo.\n\nCan we identify subgroups within this population?"
   },
   {
     "objectID": "slides/22-clustering.html#the-usual-setup",
@@ -7789,14 +7789,14 @@
     "href": "slides/22-clustering.html#limitations-of-the-usual-setup-1",
     "title": "Bayesian Clustering",
     "section": "Limitations of the usual setup",
-    "text": "Limitations of the usual setup\n\nn &lt;- 500; mu &lt;- c(1,4.5); s2 &lt;- 1\nx &lt;- sample(1:2, n, T); y &lt;- rnorm(n, mu[x], sqrt(s2))\nggplot(data.frame(y = y), aes(x = y)) + \n  geom_histogram() + \n  labs(x = \"Y\", y = \"Count\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "Limitations of the usual setup\n\nn &lt;- 500; mu &lt;- c(1,4.5); s2 &lt;- 1\nx &lt;- sample(1:2, n, T); y &lt;- rnorm(n, mu[x], sqrt(s2))\nggplot(data.frame(y = y), aes(x = y)) + \n  geom_histogram() + \n  labs(x = \"Y\", y = \"Count\")"
   },
   {
     "objectID": "slides/22-clustering.html#limitations-of-the-usual-setup-2",
     "href": "slides/22-clustering.html#limitations-of-the-usual-setup-2",
     "title": "Bayesian Clustering",
     "section": "Limitations of the usual setup",
-    "text": "Limitations of the usual setup\n\nfit &lt;- lm(y ~ 1)\nggplot(data.frame(residuals = fit$residuals), aes(x = residuals)) + \n  geom_histogram() + \n  labs(x = \"Residuals\", y = \"Count\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nNormality of residuals?"
+    "text": "Limitations of the usual setup\n\nfit &lt;- lm(y ~ 1)\nggplot(data.frame(residuals = fit$residuals), aes(x = residuals)) + \n  geom_histogram() + \n  labs(x = \"Residuals\", y = \"Count\")\n\n\nNormality of residuals?"
   },
   {
     "objectID": "slides/22-clustering.html#mixture-model",
@@ -7824,7 +7824,7 @@
     "href": "slides/22-clustering.html#gaussian-mixture-model-1",
     "title": "Bayesian Clustering",
     "section": "Gaussian Mixture Model",
-    "text": "Gaussian Mixture Model\nConsider a mixture model with 3 groups:\n\nMixture 1: \\(\\mu_1 = -1.5, \\sigma_1 = 1\\).\nMixture 2: \\(\\mu_2 = 0, \\sigma_2 = 1.5\\).\nMixture 3: \\(\\mu_3 = 2, \\sigma_3 = 0.6\\).\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotice, both means \\(\\mu_h\\) and variances \\(\\sigma^2_h\\) vary across clusters."
+    "text": "Gaussian Mixture Model\nConsider a mixture model with 3 groups:\n\nMixture 1: \\(\\mu_1 = -1.5, \\sigma_1 = 1\\).\nMixture 2: \\(\\mu_2 = 0, \\sigma_2 = 1.5\\).\nMixture 3: \\(\\mu_3 = 2, \\sigma_3 = 0.6\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNotice, both means \\(\\mu_h\\) and variances \\(\\sigma^2_h\\) vary across clusters."
   },
   {
     "objectID": "slides/22-clustering.html#generative-perspective-on-gmm",
@@ -7838,7 +7838,7 @@
     "href": "slides/22-clustering.html#generative-perspective-on-gmm-1",
     "title": "Bayesian Clustering",
     "section": "Generative perspective on GMM",
-    "text": "Generative perspective on GMM\n\nn &lt;- 500 \nmu &lt;- c(1, 4.5)\ns2 &lt;- 1 \n# implicit: pi = c(0.5, 0.5)\nz &lt;- sample(1:2, n, TRUE)\ny &lt;- rnorm(n, mu[z], sqrt(s2))\n\nThis is essentially the code used to simulate the missing treatment history example.\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+    "text": "Generative perspective on GMM\n\nn &lt;- 500 \nmu &lt;- c(1, 4.5)\ns2 &lt;- 1 \n# implicit: pi = c(0.5, 0.5)\nz &lt;- sample(1:2, n, TRUE)\ny &lt;- rnorm(n, mu[z], sqrt(s2))\n\nThis is essentially the code used to simulate the missing treatment history example."
   },
   {
     "objectID": "slides/22-clustering.html#marginalizing-component-indicators",
@@ -7873,14 +7873,14 @@
     "href": "slides/22-clustering.html#what-is-going-on",
     "title": "Bayesian Clustering",
     "section": "What is going on?",
-    "text": "What is going on?\n\npairs(fit1, pars = c(\"mu\", \"sigma\"))\n\nWarning in par(usr): argument 1 does not name a graphical parameter\nWarning in par(usr): argument 1 does not name a graphical parameter\nWarning in par(usr): argument 1 does not name a graphical parameter\nWarning in par(usr): argument 1 does not name a graphical parameter"
+    "text": "What is going on?\n\npairs(fit1, pars = c(\"mu\", \"sigma\"))"
   },
   {
     "objectID": "slides/22-clustering.html#bimodal-posterior",
     "href": "slides/22-clustering.html#bimodal-posterior",
     "title": "Bayesian Clustering",
     "section": "Bimodal posterior",
-    "text": "Bimodal posterior\n\n\n\n\n\n\n\n\n\n\nIn one mode, \\(\\sigma^2_1 \\ll \\sigma^2_2\\) and in the other, \\(\\sigma^2_1\\gg\\sigma^2_2\\)"
+    "text": "Bimodal posterior\n\n\nIn one mode, \\(\\sigma^2_1 \\ll \\sigma^2_2\\) and in the other, \\(\\sigma^2_1\\gg\\sigma^2_2\\)"
   },
   {
     "objectID": "slides/22-clustering.html#bimodal-posterior-1",
@@ -7950,7 +7950,7 @@
     "href": "slides/22-clustering.html#co-clustering-probabilities-1",
     "title": "Bayesian Clustering",
     "section": "Co-clustering probabilities",
-    "text": "Co-clustering probabilities\n\n\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE"
+    "text": "Co-clustering probabilities"
   },
   {
     "objectID": "slides/22-clustering.html#how-do-our-results-change-when-we-use-more-components",
@@ -7971,7 +7971,7 @@
     "href": "slides/22-clustering.html#co-clusterings-across-k",
     "title": "Bayesian Clustering",
     "section": "Co-clusterings across \\(k\\)",
-    "text": "Co-clusterings across \\(k\\)\n\n\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\nWarning in type.convert.default(X[[i]], ...): 'as.is' should be specified by\nthe caller; using TRUE\n\n\n\n\n\n\n\n\n\nThe same general pattern persists when more clusters are used, indicating that \\(k=2\\) is a reasonable choice."
+    "text": "Co-clusterings across \\(k\\)\n\nThe same general pattern persists when more clusters are used, indicating that \\(k=2\\) is a reasonable choice."
   },
   {
     "objectID": "slides/22-clustering.html#characterizing-the-clusters",
@@ -7992,6 +7992,6 @@
     "href": "slides/22-clustering.html#prepare-for-next-class",
     "title": "Bayesian Clustering",
     "section": "Prepare for next class",
-    "text": "Prepare for next class\n\nReminder: On Thursday, we will have a in-class live-coding exercise.\nBegin working on Exam 02, which is due for feedback on April 15."
+    "text": "Prepare for next class\n\nReminder: In one week, we will have a in-class live-coding exercise.\nHW 5 is due before class on Tuesday.\nOn Tuesday we will discuss both Exam 02 and the live-coding exercise."
   }
 ]

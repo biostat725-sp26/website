@@ -577,7 +577,7 @@ Y_i | \lambda_i &amp;\stackrel{ind}{\sim} \text{Poisson}(E_i \lambda_i)\\
 <p><span class="math display">\[\begin{aligned}
 f(\boldsymbol{\Omega}, \boldsymbol{\theta} | \mathbf{Y}) &amp;\propto f(\mathbf{Y}, \boldsymbol{\Omega},\boldsymbol{\theta})\\
 &amp;\propto f(\mathbf{Y} | \boldsymbol{\Omega},\boldsymbol{\theta}) f(\boldsymbol{\theta} | \boldsymbol{\Omega}) f(\boldsymbol{\Omega})\\
-&amp;\propto f(\boldsymbol{\Omega}) \prod_{i=1}^n f({Y}_i | \lambda_i) f(\theta_i | \tau^2) .
+&amp;\propto f(\boldsymbol{\Omega}) f(\boldsymbol{\theta} | \tau^2) \prod_{i=1}^n f({Y}_i | \lambda_i).
 \end{aligned}\]</span></p>
 </section>
 <section id="adding-the-icar-prior-to-stan" class="slide level2">
@@ -775,7 +775,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="posterior-smr-across-north-carolina" class="slide level2">
 <h2>Posterior SMR Across North Carolina</h2>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="2" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center" data-layout-nrow="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -812,7 +812,7 @@ convergence, Rhat=1).</code></pre>
 </section>
 <section id="mapping-plambda_i-1-mathbfy" class="slide level2">
 <h2>Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></h2>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center" data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -827,7 +827,7 @@ convergence, Rhat=1).</code></pre>
 <section id="mapping-plambda_i-1-mathbfy-1" class="slide level2">
 <h2>Mapping <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y})\)</span></h2>
 <p>Binary indicator of <span class="math inline">\(P(\lambda_i &gt; 1 | \mathbf{Y}) &gt; 0.95\)</span>:</p>
-<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1" data-layout-ncol="1">
+<div class="cell quarto-layout-panel" data-layout-ncol="1" data-layout-align="center" data-layout-nrow="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">

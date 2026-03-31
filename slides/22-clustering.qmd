@@ -1,9 +1,9 @@
 ---
 title: "Bayesian Clustering"
-author: "Prof. Sam Berchuck (developed with Braden Scherting)"
-date: "2025-04-08"
+author: "Prof. Sam Berchuck"
+date: "2026-04-02"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 BIOSTAT 725 - Spring 2025](https://biostat725-sp25.netlify.app/)"
+footer: "[🔗 BIOSTAT 725 - Spring 2026](https://biostat725-sp26.netlify.app/)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -873,6 +873,8 @@ ed %>%
 
 ## Prepare for next class
 
-1.  Reminder: On Thursday, we will have a in-class live-coding exercise.
+1.  Reminder: In one week, we will have a in-class live-coding exercise.
 
-2.  Begin working on Exam 02, which is due for feedback on April 15.
+2.  [HW 5](https://biostat725-sp26.netlify.app/hw/hw-05) is due before class on Tuesday.
+
+3.  On Tuesday we will discuss both Exam 02 and the live-coding exercise. 
