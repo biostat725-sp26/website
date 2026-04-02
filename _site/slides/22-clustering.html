@@ -392,7 +392,7 @@ f(Y_i) &amp;= \int_\mathcal{Z}f\left(Y_i\mid z\right) f(z)dz \\
 <span id="cb4-11"><a></a>}</span>
 <span id="cb4-12"><a></a><span class="kw">model</span> {</span>
 <span id="cb4-13"><a></a>  <span class="kw">target +=</span> normal_lpdf(mu |<span class="fl">0.0</span>, <span class="fl">10.0</span>);</span>
-<span id="cb4-14"><a></a>  <span class="kw">target +=</span> exponential_lpdf(sigma | <span class="fl">1.0</span>);</span>
+<span id="cb4-14"><a></a>  sigma ~ exponential(<span class="fl">1.0</span>);</span>
 <span id="cb4-15"><a></a>  <span class="dt">vector</span>[k] log_probs = log(pi);</span>
 <span id="cb4-16"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n){</span>
 <span id="cb4-17"><a></a>    <span class="dt">vector</span>[k] lps = log_probs;</span>
@@ -511,7 +511,7 @@ convergence, Rhat=1).</code></pre>
 <span id="cb8-12"><a></a>}</span>
 <span id="cb8-13"><a></a><span class="kw">model</span> {</span>
 <span id="cb8-14"><a></a>  <span class="kw">target +=</span> normal_lpdf(mu | <span class="fl">0.0</span>, <span class="fl">10.0</span>);</span>
-<span id="cb8-15"><a></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="fl">2.0</span>, <span class="fl">0.5</span>);</span>
+<span id="cb8-15"><a></a>  sigma ~ normal(<span class="fl">2.0</span>, <span class="fl">0.5</span>);</span>
 <span id="cb8-16"><a></a>  <span class="kw">target +=</span> gamma_lpdf(nu | <span class="fl">5.0</span>, <span class="fl">0.5</span>);</span>
 <span id="cb8-17"><a></a>  <span class="dt">vector</span>[k] log_probs = log(pi);</span>
 <span id="cb8-18"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span>:n){</span>

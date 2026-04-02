@@ -272,7 +272,7 @@ parameters {
 }
 model {
   target += normal_lpdf(mu |0.0, 10.0);
-  target += exponential_lpdf(sigma | 1.0);
+  sigma ~ exponential(1.0);
   vector[k] log_probs = log(pi);
   for (i in 1:n){
     vector[k] lps = log_probs;
@@ -442,7 +442,7 @@ parameters {
 }
 model {
   target += normal_lpdf(mu | 0.0, 10.0);
-  target += normal_lpdf(sigma | 2.0, 0.5);
+  sigma ~ normal(2.0, 0.5);
   target += gamma_lpdf(nu | 5.0, 0.5);
   vector[k] log_probs = log(pi);
   for (i in 1:n){
@@ -877,4 +877,4 @@ ed %>%
 
 2.  [HW 5](https://biostat725-sp26.netlify.app/hw/hw-05) is due before class on Tuesday.
 
-3.  On Tuesday we will discuss both Exam 02 and the live-coding exercise. 
+3.  On Tuesday we will discuss both Exam 02 and the live-coding exercise.
