@@ -72,6 +72,10 @@ website:
           text: HW 04
         - href: hw/hw-05.qmd
           text: HW 05
+      - section: Live-Coding
+        contents:
+        - href: live-coding-review.qmd
+          text: Live-Coding Review
 
 format:
   html:
