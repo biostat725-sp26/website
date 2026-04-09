@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Live-Coding Review – BIOSTAT 725 - Spring 2026</title>
+<title>Live-Coding – BIOSTAT 725 - Spring 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./live-coding.html" rel="next">
-<link href="./hw/hw-05.html" rel="prev">
+<link href="./live-coding-review.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -147,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./live-coding-review.html">Live-Coding</a></li><li class="breadcrumb-item"><a href="./live-coding-review.html">Review</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./live-coding-review.html">Live-Coding</a></li><li class="breadcrumb-item"><a href="./live-coding.html">Spring 2026 Live-Coding</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -309,13 +308,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./live-coding-review.html" class="sidebar-item-text sidebar-link active">
+  <a href="./live-coding-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Review</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./live-coding.html" class="sidebar-item-text sidebar-link">
+  <a href="./live-coding.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Spring 2026 Live-Coding</span></a>
   </div>
 </li>
@@ -339,9 +338,9 @@ window.Quarto = {
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#gamma-regression" id="toc-gamma-regression" class="nav-link" data-scroll-target="#gamma-regression">Gamma regression</a>
+  <li><a href="#beta-regression" id="toc-beta-regression" class="nav-link" data-scroll-target="#beta-regression">Beta regression</a>
   <ul class="collapse">
-  <li><a href="#definition-of-gamma-random-variable" id="toc-definition-of-gamma-random-variable" class="nav-link" data-scroll-target="#definition-of-gamma-random-variable">Definition of Gamma Random Variable</a></li>
+  <li><a href="#definition-of-beta-random-variable" id="toc-definition-of-beta-random-variable" class="nav-link" data-scroll-target="#definition-of-beta-random-variable">Definition of Beta Random Variable</a></li>
   <li><a href="#interpreting-coefficients" id="toc-interpreting-coefficients" class="nav-link" data-scroll-target="#interpreting-coefficients">Interpreting Coefficients</a></li>
   </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
@@ -354,6 +353,7 @@ window.Quarto = {
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
@@ -363,10 +363,10 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./live-coding-review.html">Live-Coding</a></li><li class="breadcrumb-item"><a href="./live-coding-review.html">Review</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./live-coding-review.html">Live-Coding</a></li><li class="breadcrumb-item"><a href="./live-coding.html">Spring 2026 Live-Coding</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Live-Coding Review</h1>
-<p class="subtitle lead">Gamma regression for ED length of stay</p>
+<h1 class="title">Live-Coding</h1>
+<p class="subtitle lead">Beta regression for ED length of stay</p>
 </div>
 
 
@@ -395,8 +395,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Note that this is practice Live-Coding and nothing needs to be turned in for this!!!</strong></p>
-<p>This live-coding exercise is to be completed in-class and turned in by <strong>Tuesday, April 7 by 1:00 PM</strong>. To be considered on time, the following must be done by the due date:</p>
+<p>This live-coding exercise is to be completed in-class and turned in by <strong>Thursday, April 9 by 1:00 PM</strong>. To be considered on time, the following must be done by the due date:</p>
 <ul>
 <li>Final <code>.qmd</code> and <code>.pdf</code> files pushed to your GitHub repo</li>
 <li>Final <code>.pdf</code> file submitted on Gradescope</li>
@@ -407,16 +406,16 @@ window.Quarto = {
 <section id="live-coding-session-details" class="level2">
 <h2 class="anchored" data-anchor-id="live-coding-session-details">Live-Coding Session Details</h2>
 <ul>
-<li><strong>Date and Time</strong>: Tuesday, April 7, 11:45 AM - 1:00 PM.</li>
+<li><strong>Date and Time</strong>: Thursday, April 9, 11:45 AM - 1:00 PM.</li>
 <li><strong>Work Independently</strong>: You must work by yourself on this exercise. The teaching team will be available for questions.</li>
 <li><strong>Resources Allowed</strong>:
 <ul>
-<li>Lecture slides, homework, exercises, past exam, etc..</li>
+<li>Lecture slides, homework, exercises, past exam, etc.</li>
 <li>Any material available online (research, textbooks, etc.).</li>
 </ul></li>
 <li><strong>Restrictions</strong>:
 <ul>
-<li>You <strong>cannot</strong> use AI to generate narrative or explanations during the session (you may use it for coding and technical queries only).</li>
+<li>You <strong>cannot</strong> use AI to generate narrative or explanations during the session (you may use it for coding and technical queries).</li>
 </ul></li>
 </ul>
 <p>The goal is to complete the task independently, applying everything you’ve learned so far in the course. Good luck!</p>
@@ -425,7 +424,7 @@ window.Quarto = {
 <section id="getting-started" class="level1">
 <h1>Getting started</h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/biostat725-sp26">biostat725-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>live-coding-review</strong>. It contains the starter documents you need to complete the live-coding exercise.</p></li>
+<li><p>Go to the <a href="https://www.github.com/biostat725-sp26">biostat725-sp26</a> organization on GitHub. Click on the repo with the prefix <strong>live-coding</strong>. It contains the starter documents you need to complete the live-coding exercise.</p></li>
 <li><p>Clone the repo and start a new project in RStudio. See the <a href="https://biostat725-sp26.netlify.app/ae/ae-01-monte-carlo#clone-the-repo-start-new-rstudio-project">AE 01 instructions</a> for details on cloning a repo and starting a new project in R.</p></li>
 </ul>
 </section>
@@ -438,13 +437,14 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(loo)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(betareg)  <span class="co"># frequentist beta regression</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># load other packages as needed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
-<p>This live-coding exercise will use data from the <a href="https://physionet.org/content/mimic-iv-ed-demo/2.2/">MIMIC-IV-ED Demo</a>, similar to the data from Exam 01. To obtain an analysis data, source the R script to obtain a dataset called <code>live_coding</code>.</p>
+<p>This live-coding exercise will use data from the <a href="https://physionet.org/content/mimic-iv-ed-demo/2.2/">MIMIC-IV-ED Demo</a>, similar to the data from Exam 01 and the review live-coding. To obtain an analysis dataset, source the R script to obtain a dataset called <code>live_coding</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"live-coding-process-data.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -460,58 +460,77 @@ window.Quarto = {
 </section>
 <section id="motivation" class="level1">
 <h1>Motivation</h1>
-<p>In Exam 01, we modeled ED length of stay using quantile regression. Another approach for modeling the ED length of stay is Gamma regression.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<p>In Exam 01, we modeled ED length of stay using quantile regression and in the review for the live-coding we showed an example of using gamma regression (we also used a mixture model in the clustering lecture!). Today, we will consider yet another alternative modeling approach that uses beta regression. ED length of stay is given below, however we need to transform it to use beta regression.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>live_coding <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> los)) <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"ED Length of Stay (hours)"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="live-coding-review_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+<p><img src="live-coding_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The shape of the ED length of stay variable makes it a nice candidate for Gamma regression because it is continuous, positive, and right-skewed. In this live-coding exercise we will implement Gamma regression for ED length of stay using a log link function.</p>
+</div>
+<p>As a reminder, a beta distribution is appropriate for continuous random variables that are constrained to be between zero and one. In order to appropriately model ED length of stay as a beta random variable, we must convert the outcome variable into a proportion of hours stayed in the ED, which requires an upper bound (or denominator), which I specify as 2 days or 48 hours. Note that I already removed two patients with ED stays greater than 48 hours. The transformed outcome variable is given below.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>live_coding <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> los <span class="sc">/</span> <span class="dv">48</span>)) <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Normalized ED length of stay (ED LOS divided by 48 hours)"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-nrow="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="live-coding_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This outcome variable makes it a nice candidate for beta regression because it is continuous and constrained between zero and one. In this live-coding exercise we will implement beta regression for ED length of stay using a logit link function.</p>
 </section>
-<section id="gamma-regression" class="level1">
-<h1>Gamma regression</h1>
-<section id="definition-of-gamma-random-variable" class="level2">
-<h2 class="anchored" data-anchor-id="definition-of-gamma-random-variable">Definition of Gamma Random Variable</h2>
-<p>A random variable <span class="math inline">\(Y\)</span> with shape <span class="math inline">\(\lambda &gt; 0\)</span> and scale <span class="math inline">\(\theta &gt; 0\)</span> can be written as <span class="math inline">\(Y \sim \text{Gamma}(\lambda, \theta)\)</span> with density <span class="math inline">\(f_Y(y | \lambda, \theta) = (\Gamma(\lambda) \theta^{\lambda})^{-1}y^{\lambda-1}\exp\{-y/\theta\}\)</span>. The mean and variance are given by: <span class="math inline">\(\mathbb{E}[Y] = \lambda\theta = \mu\)</span> and <span class="math inline">\(\mathbb{V}(Y) = \lambda\theta^2\)</span>. One way to perform regression for a Gamma distributed random variable is to make a change-of-variables so that the density is parameterized in terms of the mean <span class="math inline">\(\mu = \lambda\theta\)</span> and the un-transformed shape parameter <span class="math inline">\(\tau = \lambda\)</span>. The density for this transformed distribution is,</p>
-<p><span class="math display">\[f_Y(y | \tau, \mu) = \frac{\exp\{-(y\tau)/\mu\}y^{\tau-1}}{(\mu/\tau)^{\tau} \Gamma(\tau)},\]</span></p>
-<p>and the log density is given by,</p>
-<p><span class="math display">\[\log f_Y(y | \tau, \mu) = -(y\tau)/\mu + (\tau-1)\log (y) + \tau[\log(\tau) - \log(\mu)] - \log (\Gamma(\tau)).\]</span> To perform Gamma regression, predictors are related to the mean using a log link function, <span class="math inline">\(\log \mu_i = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>. Thus, the full model can be written as,</p>
+<section id="beta-regression" class="level1">
+<h1>Beta regression</h1>
+<section id="definition-of-beta-random-variable" class="level2">
+<h2 class="anchored" data-anchor-id="definition-of-beta-random-variable">Definition of Beta Random Variable</h2>
+<p>A random variable <span class="math inline">\(Y\)</span> with shape <span class="math inline">\(\alpha &gt; 0\)</span> and shape <span class="math inline">\(\theta &gt; 0\)</span> can be written as <span class="math inline">\(Y \sim \text{Beta}(\alpha, \theta)\)</span> with density <span class="math inline">\(f_Y(y | \alpha, \theta) = B(\alpha,\theta)^{-1}y^{\alpha-1}(1-y)^{\theta-1}\)</span>, where <span class="math inline">\(B(\alpha,\theta) = [\Gamma(\alpha)\Gamma(\theta)]/\Gamma(\alpha + \theta)\)</span> is the beta function. The mean and variance are given by: <span class="math inline">\(\mathbb{E}[Y] = \alpha/(\alpha + \theta) = \mu\)</span> and <span class="math inline">\(\mathbb{V}(Y) = (\alpha\theta) / [(\alpha + \theta)^2(\alpha + \theta + 1)]\)</span>. One way to perform regression for a beta distributed random variable is to make a change-of-variables so that the density is parameterized in terms of the mean <span class="math inline">\(\mu = \alpha/(\alpha + \theta)\)</span> and a precision parameter <span class="math inline">\(\phi = \alpha + \theta\)</span>, such that <span class="math inline">\(\alpha=\mu\phi\)</span> and <span class="math inline">\(\theta=(1-\mu)\phi\)</span>. Under this specification, <span class="math inline">\(\mathbb{E}[Y] = \mu\)</span> and <span class="math inline">\(\mathbb{V}(Y) = [\mu(1-\mu)] / (\phi + 1)\)</span>.</p>
+<!-- The density for this transformed distribution is, -->
+<!-- $$f_Y(y | \mu, \phi) = \frac{y^{\mu\phi-1}(1-y)^{(1-\mu)\phi-1}}{B(\mu\phi,(1-\mu)\phi)},$$ -->
+<!-- and the log density is given by, -->
+<!-- $$\log f_Y(y | \mu, \phi) \propto \mu\phi \log(y) + \phi \log(1-y) -\mu \phi \log(1-y) - \log B(\mu\phi,(1-\mu)\phi).$$  -->
+<!-- Note that I wrote from above log density as proportional, because you can drop terms that do not depend on $\mu$ or $\phi$.  -->
+<p>To perform beta regression, predictors are related to the mean using a logit link function, <span class="math inline">\(\text{logit} (\mu_i) = \log\left[\mu_i/(1-\mu_i)\right] = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>. Thus, the full model can be written as,</p>
 <p><span class="math display">\[\begin{align*}
-Y_i &amp;\stackrel{ind}{\sim} \text{Gamma}(\tau, \mu_i),\quad i = 1,\ldots,n\\
-\log \mu_i &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta},\\
-\boldsymbol{\Omega} &amp;\sim f(\boldsymbol{\Omega}),
+Y_i &amp;\stackrel{ind}{\sim} \text{Beta}(\mu_i, \phi),\quad i = 1,\ldots,n\\
+\text{logit}(\mu_i) &amp;= \alpha + \mathbf{x}_i \boldsymbol{\beta}\\
+\boldsymbol{\Omega} &amp;\sim f(\boldsymbol{\Omega}),\\
 \end{align*}\]</span></p>
-<p>where <span class="math inline">\(\boldsymbol{\Omega} = (\alpha,\boldsymbol{\beta},\tau)\)</span>.</p>
+<p>where <span class="math inline">\(\boldsymbol{\Omega} = (\alpha, \boldsymbol{\beta}, \phi)\)</span>.</p>
 </section>
 <section id="interpreting-coefficients" class="level2">
 <h2 class="anchored" data-anchor-id="interpreting-coefficients">Interpreting Coefficients</h2>
-<p>To interpret the coefficients, you must exponentiate them, <span class="math inline">\(\gamma_j = \exp\{\beta_j\}\)</span>. It is easy to see that <span class="math inline">\(\gamma_j\)</span> can be interpreted as a multiplicative factor on the mean. To see this, we can consider a particular variable <span class="math inline">\(x_{ij}\)</span> and its corresponding coefficient <span class="math inline">\(\beta_j\)</span>. Define <span class="math inline">\(\mathbf{x}_{i,-j} = (x_{i1},\ldots,x_{i(j-1)}, x_{i(j+1)}, \ldots, x_{ip})\)</span> and <span class="math inline">\(\boldsymbol{\beta}_{-j} = (\beta_{1},\ldots,\beta_{j-1}, \beta_{j+1}, \ldots, \beta_{p})^\top\)</span> as objects that have removed the <span class="math inline">\(j\)</span>-th entry. Now assume that we observe two observations <span class="math inline">\(\mathbf{x}_i\)</span> and <span class="math inline">\(\mathbf{x}_{i'}\)</span>, such that the only difference between the two are that <span class="math inline">\(x_{i'j} = x_{ij} + 1\)</span>. From this setup, we can see that indeed the <span class="math inline">\(\gamma_j\)</span> can be interpreted as being multiplicative on the mean, <span class="math display">\[\begin{align*}
-\mu_{i'} &amp;= \exp\{\alpha +\mathbf{x}_{i'}\boldsymbol{\beta}\}\\
-&amp;= \exp\left\{\alpha +\mathbf{x}_{i',-j} \boldsymbol{\beta}_{-j} + x_{i'j} \beta_j\right\}\\
-&amp;= \exp\left\{\alpha +\mathbf{x}_{i,-j} \boldsymbol{\beta}_{-j} + (x_{ij} + 1) \beta_j\right\}\\
-&amp;= \exp\left\{\alpha +\mathbf{x}_{i,-j} \boldsymbol{\beta}_{-j} + x_{ij} \beta_j + \beta_j\right\}\\
-&amp;= \exp\left\{\alpha +\mathbf{x}_{i} \boldsymbol{\beta} + \beta_j\right\}\\
-&amp;= \exp\left\{\alpha +\mathbf{x}_{i} \boldsymbol{\beta}\right\}\exp\{\beta_j\}\\
-&amp;= \mu_i \gamma_j.
-\end{align*}\]</span></p>
-<p>Thus, a one-unit increase in <span class="math inline">\(x_{ij}\)</span> leads to a multiplicative increase in the mean of <span class="math inline">\(\gamma_j\)</span>.</p>
+<p>In this beta regression, we model the mean of the outcome (the normalized ED length of stay) using a logit link: <span class="math inline">\(\text{logit}(\mu_i) = \alpha + \mathbf{x}_i \boldsymbol{\beta}\)</span>. This means that each coefficient <span class="math inline">\(\beta_j\)</span> represents a change in the log-odds of the mean proportion for a one-unit increase in predictor <span class="math inline">\(x_j\)</span>, holding all other variables constant. When we exponentiate the coefficients, <span class="math inline">\(\gamma_j = \exp\{\beta_j\}\)</span>, we obtain an odds ratio.</p>
+<p>Importantly, we’re calling these “odds ratios”, but they are not odds of an event happening like in logistic regression. In logistic regression, odds come from a probability of a binary outcome (e.g., success vs.&nbsp;failure). Here, our outcome is continuous between zero and one, and we are modeling the average level of that outcome. So when we exponentiate the coefficients, we are getting multiplicative changes in the odds of the mean proportion, not the odds of an event. The math is the same as in logistic regression, but the interpretation is different: these describe how predictors shift the average proportion, not the probability of an event.</p>
 </section>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p>We are interested in fitting a Gamma regression to the ED length of stay variable, defined as <span class="math inline">\(Y_i\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>. We would like to fit the following model,</p>
+<p>We are interested in fitting a beta regression to the the normalized ED length of stay, defined as <span class="math inline">\(Y_i\)</span> for <span class="math inline">\(i = 1,\ldots,n\)</span>. We would like to fit the following model,</p>
 <p><span class="math display">\[\begin{align*}
-Y_i &amp;\stackrel{ind}{\sim} \text{Gamma}(\tau,\mu_i)\\
-\log \mu_i &amp;= \alpha + \mathbf{x}_i\boldsymbol{\beta}\\
+Y_i &amp;\stackrel{ind}{\sim} \text{Beta}(\mu_i, \phi)\\
+\text{logit}(\mu_i) &amp;= \alpha + \mathbf{x}_i\boldsymbol{\beta}\\
 &amp;= \alpha + \beta_1 black_i + \beta_2 other_i + \beta_3 arrival\_walkin_i\\
 &amp;\quad+ \beta_4 male_i + \beta_5 acuity\_score\_moderate_i\\
 &amp;\quad+ \beta_6 acuity\_score\_complex_i + \beta_7 o2sat_i.
 \end{align*}\]</span></p>
-<p>When you fit the model, make sure to center the predictors, such that <span class="math inline">\(\log \mu_i = \alpha^* + \mathbf{x}_i^* \boldsymbol{\beta}\)</span>, where <span class="math inline">\(\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}\)</span> and <span class="math inline">\(\bar{\mathbf{x}} = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\)</span>. Use the following priors <span class="math inline">\(\alpha^* \sim N(0,4^2)\)</span>, <span class="math inline">\(\beta_j \stackrel{ind}{\sim} N(0,1^2)\)</span>, <span class="math inline">\(j = 1,\ldots,p\)</span> and <span class="math inline">\(\tau \sim \text{Exponential}(1).\)</span></p>
+<p>When you fit the model, make sure to center the predictors, such that <span class="math inline">\(\text{logit}(\mu_i) = \alpha^* + \mathbf{x}_i^* \boldsymbol{\beta}\)</span>, where <span class="math inline">\(\mathbf{x}_i^* = \mathbf{x}_i - \bar{\mathbf{x}}\)</span> and <span class="math inline">\(\bar{\mathbf{x}} = \frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\)</span>. Use the following priors <span class="math inline">\(\alpha^* \sim N(0,5^2)\)</span>, <span class="math inline">\(\beta_j \stackrel{iid}{\sim} N(0,5^2)\)</span>, <span class="math inline">\(j = 1,\ldots,p\)</span> and <span class="math inline">\(\phi \sim \mathcal C^+(5^2)\)</span>, which is a half-Cauchy with scale 5.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -522,40 +541,44 @@ Y_i &amp;\stackrel{ind}{\sim} \text{Gamma}(\tau,\mu_i)\\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In your repo you will find a Stan script called <code>live-coding.stan</code>. This will act as your starter script for performing Gamma regression. Throughout <strong>Exercises 1-4</strong> you will be prompted to add lines of code to the Stan script and in <strong>Exercises 5-8</strong> you will use your completed Stan code.</p>
+<p>In your repo you will find a Stan script called <code>live-coding.stan</code>. This will act as your starter script for performing beta regression. Throughout <strong>Exercises 1-4</strong> you will be prompted to add lines of code to the Stan script and in <strong>Exercises 5-9</strong> you will use your completed Stan code.</p>
 </div>
 </div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>To perform Gamma regression in Stan, we need to manually encode the likelihood function. Create a function in your Stan code called <code>gamma_regression_lpdf</code> that encodes the log-likelihood function, <span class="math inline">\(\sum_{i=1}^n \log f_Y(Y_i|\tau,\mu_i)\)</span>. To answer this question, print the function you created using a <code>{stan output.var = "likelihood", eval = FALSE}</code> code chunk. The function <code>gamma_regression_lpdf</code> should be vectorized. Note that the function <code>lgamma(x)</code> computes <span class="math inline">\(\log \Gamma(x)\)</span> in Stan.</p>
+<p>To perform beta regression in Stan, we will create a function in your Stan code called <code>beta_regression_lpdf</code> that encodes the log-likelihood function using the parameterization <span class="math inline">\(Y_i \stackrel{ind}{\sim} \text{Beta}(\mu_i,\phi)\)</span>. In order to do this use the pre-defined <a href="https://mc-stan.org/docs/functions-reference/continuous_distributions_on_0_1.html#beta-distribution">beta random variable</a> that is built into Stan. To answer this question, print the function you created using a <code>{stan output.var = "likelihood", eval = FALSE}</code> code chunk. While not required, the function <code>beta_regression_lpdf</code> should be vectorized to be consistent with its use in the <code>model</code> code chunk. You should only have to modify line 4 of the Stan code.</p>
 </section>
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>Eventually, we would like to perform posterior predictive checks for our model. In order to do this we must sample from a Gamma random variable in the generated quantities block. The only built in <a href="https://mc-stan.org/docs/functions-reference/positive_continuous_distributions.html#gamma-distribution">Stan function</a> for sampling from Gamma random variables is <code>gamma_rng</code> which samples from a Gamma random variable with <span class="math inline">\(Y \sim \text{Gamma}(\lambda, \kappa)\)</span> with density <span class="math inline">\(f_Y(y | \lambda, \kappa) = \frac{\kappa^{\lambda}}{\Gamma(\lambda)}y^{\lambda-1}\exp\{-\kappa y\}\)</span>, where <span class="math inline">\(\lambda\)</span> is the shape parameter and <span class="math inline">\(\kappa\)</span> is the inverse scale (or rate), such that <span class="math inline">\(\kappa = 1 / \theta\)</span>. Use the <code>gamma_rng</code> to create a function called <code>gamma_regression_rng</code> that can be used to sample the posterior predictive distribution. The function <code>gamma_regression_rng</code> should <strong>not</strong> be vectorized. To answer this question, print the function you created using a <code>{stan output.var = "rng", eval = FALSE}</code> code chunk.</p>
+<p>Building on <strong>Exercise 1</strong>, we would like to create a function called <code>beta_regression_rng</code> that will permit sampling from the posterior predictive distribution. Be sure to use the built in <code>beta_rng</code> function. The function <code>beta_regression_rng</code> should <strong>not</strong> be vectorized. To answer this question, print the function you created using a <code>{stan output.var = "rng", eval = FALSE}</code> code chunk. You should only have to modify line 8 of the Stan code.</p>
 </section>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>When performing inference we would like to inspect the posterior distribution of <span class="math inline">\(\gamma_j\)</span> for <span class="math inline">\(j = 1,\ldots,p\)</span>. Define this parameter in your generated quantities code chunk. To answer this question, print the Stan code used to define this new parameter using a <code>{stan output.var = "gamma", eval = FALSE}</code> code chunk.</p>
+<p>We now need to define the mean process for the beta regression model. Recall that in this model, the outcome mean is linked to the predictors through a logit link, so that the mean normalized ED length of stay depends on the linear predictor formed from the centered design matrix and regression coefficients. To answer this question, fill in the line that defines <code>mu</code> in the transformed parameters block of the Stan code. Your answer should use the built in <code>inv_logit</code> function. To answer this question, print the line you created using a <code>{stan output.var = "mu", eval = FALSE}</code> code chunk. You should only have to modify line 33 of the Stan code.</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>When performing inference we would prefer to use <span class="math inline">\(\alpha\)</span> instead of <span class="math inline">\(\alpha^*\)</span> (recall that centering <span class="math inline">\(\mathbf{x}_i\)</span> is for estimation efficiency). In your generated quantities code chunk define <span class="math inline">\(\alpha\)</span> so we can easily obtain posterior summaries after fitting the model. To answer this question, print the Stan code used to define <span class="math inline">\(\alpha\)</span> using a <code>{stan output.var = "alpha", eval = FALSE}</code> code chunk.</p>
+<p>We now want to generate a draw from the posterior predictive distribution for a new observation with covariate values given by <code>X_new</code>. Recall that the posterior predictive distribution is obtained by first computing the mean outcome for the new set of covariates and then drawing a new value from the beta regression model using that mean (<span class="math inline">\(\mu_i\)</span>) and the precision parameter <span class="math inline">\(\phi\)</span>. To answer this question, fill in the line that defines <code>Y_new</code> in the generated quantities block of the Stan code. Your answer should use the function <code>beta_regression_rng</code> that you created in <strong>Exercise 2</strong>. To answer this question, print the line you created using a <code>{stan output.var = "Y_new", eval = FALSE}</code> code chunk. You should only have to modify line 50 of the Stan code.</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Using the code from the previous exercises, fit the Gamma regression model specified above. Print the Stan code that fits the model and the convergence diagnostic plots. Make a statement about MCMC convergence for <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\boldsymbol{\beta}\)</span>, and <span class="math inline">\(\tau\)</span>.</p>
+<p>Using the code from the previous exercises, fit the beta regression model specified above. Make a statement about MCMC convergence for <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\boldsymbol{\beta}\)</span>, and <span class="math inline">\(\phi\)</span> based on MC standard error, effective sample size, <span class="math inline">\(\hat{R}\)</span>, traceplots, and autocorrelation.</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Perform a posterior predictive check to assess model fit and describe how well the model fits the data.</p>
+<p>Present posterior means and 95% intervals for <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\boldsymbol{\beta}\)</span>, and <span class="math inline">\(\phi\)</span>. One way to verify that the model has converged is to compare the results with an analogous frequentist model as a sanity check. The beta regression with logit link function can be computed as: <code>summary(betareg(I(los / 48) ~ race + arrival + sex + acuity_score + o2sat, data = live_coding))</code>. Are the Bayesian and frequentist results consistent?</p>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Present posterior means and 95% intervals for <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\boldsymbol{\beta}\)</span>, and <span class="math inline">\(\tau\)</span>. One way to verify that the model has converged is to compare the results with an analogous frequentist model as a sanity check. The Gamma regression with log link function can be computed as: <code>summary(glm(los ~ race + arrival + sex + acuity_score + o2sat, data = exam1_data, family = Gamma(link = "log")))</code>. Are the Bayesian and frequentist results consistent?</p>
+<p>Perform a posterior predictive check to assess model fit and describe how well the model fits the data.</p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Present posterior summaries for <span class="math inline">\(\gamma_j\)</span> for <span class="math inline">\(j=1,\ldots,p\)</span>. Provide an interpretation for <span class="math inline">\(\gamma_1\)</span> within the context of the scientific problem.</p>
+<p>Consider a patient who is black, arrived by ambulance, is male, has a complex/high-risk condition, and has an oxygen saturation of 98. Define the corresponding covariate vector <code>X_new</code>, obtain posterior predictive draws of <code>Y_new</code>, and report the posterior predictive mean and a 95% interval. Finally, also report the mean and 95% interval on the original scale (hours).</p>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<p>Present posterior summaries for <span class="math inline">\(\gamma_j\)</span> for <span class="math inline">\(j=1,\ldots,p\)</span>. Provide an interpretation for <span class="math inline">\(\gamma_4\)</span> (male) within the context of the scientific problem.</p>
 </section>
 </section>
 <section id="submission" class="level1">
@@ -579,7 +602,7 @@ Warning
 <ul>
 <li><p>Access Gradescope through the menu on the <a href="https://canvas.duke.edu/courses/75433">BIOSTAT 725 Canvas site.</a></p></li>
 <li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your homework should be associated with at least one question (i.e., should be “checked”).</p></li>
+<li><p>Mark the pages associated with each exercise. All of the pages of your live-coding should be associated with at least one question (i.e., should be “checked”).</p></li>
 </ul>
 </section>
 <section id="grading" class="level1">
@@ -594,11 +617,11 @@ Warning
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;">10</td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;">10</td>
+<td style="text-align: left;">7</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 3</td>
@@ -622,6 +645,10 @@ Warning
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 8</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ex 9</td>
 <td style="text-align: left;">5</td>
 </tr>
 </tbody>
@@ -1033,14 +1060,11 @@ Warning
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./hw/hw-05.html" class="pagination-link" aria-label="HW 05">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">HW 05</span>
+      <a href="./live-coding-review.html" class="pagination-link" aria-label="Review">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Review</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./live-coding.html" class="pagination-link" aria-label="Spring 2026 Live-Coding">
-        <span class="nav-page-text">Spring 2026 Live-Coding</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

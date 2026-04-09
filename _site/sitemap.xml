@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://biostat725-sp26.netlify.app/index.html</loc>
-    <lastmod>2026-04-04T16:09:34.443Z</lastmod>
+    <lastmod>2026-04-08T15:29:20.352Z</lastmod>
   </url>
   <url>
     <loc>https://biostat725-sp26.netlify.app/syllabus.html</loc>
@@ -299,5 +299,9 @@
   <url>
     <loc>https://biostat725-sp26.netlify.app/live-coding-review.html</loc>
     <lastmod>2026-04-04T16:09:13.074Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biostat725-sp26.netlify.app/live-coding.html</loc>
+    <lastmod>2026-04-09T14:04:04.566Z</lastmod>
   </url>
 </urlset>
